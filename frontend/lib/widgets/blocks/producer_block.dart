@@ -59,8 +59,8 @@ class LeftSection extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Label(
-                  text: 'LEVEL',
+                Label(
+                  text: producer.buildingType.toString().toUpperCase(),
                   color: Palette.black,
                   weight: FontWeight.bold,
                   size: 18,

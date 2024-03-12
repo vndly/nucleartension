@@ -4,35 +4,35 @@ import 'package:nucleartension/utils/assets.dart';
 
 enum BuildingType {
   power_plant(
-    sprite: Assets.IMAGES_BUILDINGS_FARM,
+    sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
     initialCost: {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
     },
   ),
   supply_center(
-    sprite: Assets.IMAGES_BUILDINGS_FARM,
+    sprite: Assets.IMAGES_BUILDINGS_SUPPLY_CENTER,
     initialCost: {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
     },
   ),
   propaganda_station(
-    sprite: Assets.IMAGES_BUILDINGS_FARM,
+    sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
     initialCost: {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
     },
   ),
   tech_lab(
-    sprite: Assets.IMAGES_BUILDINGS_FARM,
+    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
     initialCost: {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
     },
   ),
   silo(
-    sprite: Assets.IMAGES_BUILDINGS_FARM,
+    sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
     initialCost: {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
