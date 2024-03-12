@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum ResourceType {
   energy(icon: Icons.bolt),
-  supplies(icon: Icons.widgets),
+  supplies(icon: Icons.construction),
   population(icon: Icons.people),
   technology(icon: Icons.science);
 
