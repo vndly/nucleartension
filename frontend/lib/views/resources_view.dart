@@ -44,7 +44,7 @@ class ResourcesView extends StatelessWidget {
   }
 }
 
-class ProducerList extends StatefulWidget {
+class ProducerList extends StatelessWidget {
   final Colony colony;
   final BuildingType buildingType;
   final List<Producer> producers;
@@ -56,21 +56,13 @@ class ProducerList extends StatefulWidget {
   });
 
   @override
-  State<ProducerList> createState() => _Content();
-}
-
-class _Content extends State<ProducerList> {
-  bool expanded = true;
-
-  @override
   Widget build(BuildContext context) {
-    final List<Producer> producers = widget.producers
-        .where((e) => e.buildingType == widget.buildingType)
-        .toList();
+    final List<Producer> list =
+        producers.where((e) => e.buildingType == buildingType).toList();
 
     return Column(
       children: [
-        for (final Producer producer in producers) ProducerBlock(producer),
+        for (final Producer producer in list) ProducerBlock(producer),
       ],
     );
   }

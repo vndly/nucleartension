@@ -29,6 +29,7 @@ class ProducerBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LeftSection(producer),
+          const Spacer(),
           RightSection(producer),
         ],
       ),
@@ -45,10 +46,11 @@ class LeftSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ImageBlock(
           path: producer.buildingType.sprite,
-          size: 40,
+          size: 80,
         ),
         const HBox(15),
         Column(
@@ -61,11 +63,12 @@ class LeftSection extends StatelessWidget {
                   text: 'LEVEL',
                   color: Palette.black,
                   weight: FontWeight.bold,
+                  size: 18,
                 ),
                 const HBox(5),
                 Container(
-                  width: 14,
-                  height: 14,
+                  width: 18,
+                  height: 18,
                   decoration: const BoxDecoration(
                     color: Palette.lightGrey,
                     shape: BoxShape.circle,
@@ -81,7 +84,7 @@ class LeftSection extends StatelessWidget {
                 ),
               ],
             ),
-            const VBox(5),
+            const VBox(10),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -89,12 +92,13 @@ class LeftSection extends StatelessWidget {
                   producer.resourceType.icon,
                   size: 18,
                 ),
-                const HBox(10),
+                const HBox(5),
                 Label(
                   text: '${Formatter.production(producer.production)}/s',
                   color: (producer.production == 0)
                       ? Palette.error
                       : Palette.black,
+                  size: 18,
                 ),
               ],
             ),

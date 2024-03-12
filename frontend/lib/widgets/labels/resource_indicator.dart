@@ -29,7 +29,7 @@ class ResourceIndicator extends StatelessWidget {
           size: textSize,
           color: textColor,
         ),
-        HBox((textSize + iconSize) / 4),
+        HBox((textSize + iconSize) / 8),
         Icon(
           icon,
           size: iconSize,
