@@ -16,104 +16,39 @@ class HeaderBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          LeftSection(state.colony),
-          const Spacer(),
-          RightSection(state.colony),
-        ],
-      ),
+      child: ResourcesSection(state.colony),
     );
   }
 }
 
-class LeftSection extends StatelessWidget {
+class ResourcesSection extends StatelessWidget {
   final Colony colony;
 
-  const LeftSection(this.colony);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            LabeledText(
-              label: 'DAY:',
-              text: Formatter.days(colony.day),
-            ),
-            const HBox(15),
-            LabeledText(
-              label: 'YEAR:',
-              text: Formatter.years(colony.year),
-            ),
-          ],
-        ),
-        const VBox(10),
-        LabeledText(
-          label: 'COLONY SIZE:',
-          text: '${colony.territorySlotsUsed}/${colony.territorySlotsTotal}',
-        ),
-        const VBox(10),
-        const LabeledText(
-          label: 'SEASON:',
-          text: 'SUMMER',
-        ),
-        const VBox(10),
-        const LabeledText(
-          label: 'NEXT CHALLENGE:',
-          text: '30 DAYS',
-        ),
-        const VBox(10),
-        const LabeledText(
-          label: 'NEXT ATTACK:',
-          text: '14 DAYS',
-        ),
-      ],
-    );
-  }
-}
-
-class RightSection extends StatelessWidget {
-  final Colony colony;
-
-  const RightSection(this.colony);
+  const ResourcesSection(this.colony);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        LabeledText(
-          label: 'IDLE VILLAGERS:',
-          text: colony.freeVillagers.toString(),
-          labelColor:
-              (colony.freeVillagers > 0) ? Palette.error : Palette.black,
-          textColor: (colony.freeVillagers > 0) ? Palette.error : Palette.black,
-        ),
-        const VBox(10),
-        LabeledText(
-          label: 'POPULATION:',
-          text:
-              '${Formatter.resource(colony.currentPopulation)}/${Formatter.resource(colony.populationLimit)}',
+        ResourceLabel(
+          colony: colony,
+          resourceType: ResourceType.energy,
         ),
         const VBox(10),
         ResourceLabel(
           colony: colony,
-          resourceType: ResourceType.food,
+          resourceType: ResourceType.supplies,
         ),
         const VBox(10),
         ResourceLabel(
           colony: colony,
-          resourceType: ResourceType.wood,
+          resourceType: ResourceType.population,
         ),
         const VBox(10),
         ResourceLabel(
           colony: colony,
-          resourceType: ResourceType.stone,
+          resourceType: ResourceType.technology,
         ),
       ],
     );

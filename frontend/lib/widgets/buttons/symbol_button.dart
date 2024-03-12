@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/images/image_grayscale.dart';
@@ -25,17 +24,6 @@ class SymbolButton extends StatelessWidget {
   }) =>
       SymbolButton(
         icon: Icons.add,
-        color: Palette.success,
-        size: size,
-        onTap: onTap,
-      );
-
-  factory SymbolButton.villager({
-    required double size,
-    required VoidCallback? onTap,
-  }) =>
-      SymbolButton(
-        sprite: Assets.IMAGES_UNITS_VILLAGER,
         color: Palette.success,
         size: size,
         onTap: onTap,

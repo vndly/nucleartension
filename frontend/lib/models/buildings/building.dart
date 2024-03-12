@@ -1,12 +1,8 @@
 import 'package:nucleartension/extensions/resource_map_extension.dart';
-import 'package:nucleartension/models/buildings/consumers/house.dart';
-import 'package:nucleartension/models/buildings/consumers/town_center.dart';
-import 'package:nucleartension/models/buildings/producers/copper_mine.dart';
-import 'package:nucleartension/models/buildings/producers/farm.dart';
-import 'package:nucleartension/models/buildings/producers/gold_mine.dart';
-import 'package:nucleartension/models/buildings/producers/iron_mine.dart';
-import 'package:nucleartension/models/buildings/producers/logging_camp.dart';
-import 'package:nucleartension/models/buildings/producers/quarry.dart';
+import 'package:nucleartension/models/buildings/producers/power_plant.dart';
+import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
+import 'package:nucleartension/models/buildings/producers/supply_center.dart';
+import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/colony.dart';
 import 'package:nucleartension/types/building_type.dart';
 
@@ -27,8 +23,6 @@ class Building {
 
   bool get isProducer => false;
 
-  bool get isConsumer => false;
-
   bool get canUpgrade => colony.resourceInventory.hasItems(upgradeCost);
 
   void upgrade() {
@@ -46,55 +40,30 @@ class Building {
     required Colony colony,
     required BuildingType buildingType,
     required int level,
-    required int villagers,
   }) {
     switch (buildingType) {
-      case BuildingType.townCenter:
-        return TownCenter(
+      case BuildingType.power_plant:
+        return PowerPlant(
           colony: colony,
           level: level,
         );
-      case BuildingType.house:
-        return House(
+      case BuildingType.supply_center:
+        return SupplyCenter(
           colony: colony,
           level: level,
         );
-      case BuildingType.farm:
-        return Farm(
+      case BuildingType.propaganda_station:
+        return PropagandaStation(
           colony: colony,
           level: level,
-          villagers: villagers,
         );
-      case BuildingType.loggingCamp:
-        return LoggingCamp(
+      case BuildingType.tech_lab:
+        return TechLab(
           colony: colony,
           level: level,
-          villagers: villagers,
         );
-      case BuildingType.quarry:
-        return Quarry(
-          colony: colony,
-          level: level,
-          villagers: villagers,
-        );
-      case BuildingType.copperMine:
-        return CopperMine(
-          colony: colony,
-          level: level,
-          villagers: villagers,
-        );
-      case BuildingType.ironMine:
-        return IronMine(
-          colony: colony,
-          level: level,
-          villagers: villagers,
-        );
-      case BuildingType.goldMine:
-        return GoldMine(
-          colony: colony,
-          level: level,
-          villagers: villagers,
-        );
+      case BuildingType.silo:
+        throw Exception();
     }
   }
 }

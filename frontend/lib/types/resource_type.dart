@@ -1,17 +1,15 @@
-import 'package:nucleartension/utils/assets.dart';
+import 'package:flutter/material.dart';
 
 enum ResourceType {
-  food(sprite: Assets.IMAGES_RESOURCES_FOOD),
-  wood(sprite: Assets.IMAGES_RESOURCES_WOOD),
-  stone(sprite: Assets.IMAGES_RESOURCES_STONE),
-  copper(sprite: Assets.IMAGES_RESOURCES_COPPER),
-  iron(sprite: Assets.IMAGES_RESOURCES_IRON),
-  gold(sprite: Assets.IMAGES_RESOURCES_GOLD);
+  energy(icon: Icons.bolt),
+  supplies(icon: Icons.widgets),
+  population(icon: Icons.people),
+  technology(icon: Icons.science);
 
-  final String sprite;
+  final IconData icon;
 
   const ResourceType({
-    required this.sprite,
+    required this.icon,
   });
 
   @override

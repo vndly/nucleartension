@@ -24,7 +24,7 @@ class UpgradeBuildingButton extends StatelessWidget {
         const VBox(5),
         for (final ResourceMapEntry resource in building.upgradeCost.entries)
           ResourceIndicator(
-            sprite: resource.key.sprite,
+            icon: resource.key.icon,
             value: Formatter.resource(resource.value),
             textColor: building.colony.resourceInventory.hasItem(resource)
                 ? Palette.black

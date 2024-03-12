@@ -1,17 +1,10 @@
-import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/extensions/resource_map_extension.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/colony.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/types/building_type.dart';
-import 'package:nucleartension/utils/formatter.dart';
-import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/producer_block.dart';
-import 'package:nucleartension/widgets/buttons/primary_button.dart';
-import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/labels/resource_indicator.dart';
 
 class ResourcesView extends StatelessWidget {
   final GameState state;
@@ -26,32 +19,22 @@ class ResourcesView extends StatelessWidget {
           HeaderBlock(state),
           ProducerList(
             colony: state.colony,
-            buildingType: BuildingType.farm,
+            buildingType: BuildingType.power_plant,
             producers: state.colony.producers,
           ),
           ProducerList(
             colony: state.colony,
-            buildingType: BuildingType.loggingCamp,
+            buildingType: BuildingType.supply_center,
             producers: state.colony.producers,
           ),
           ProducerList(
             colony: state.colony,
-            buildingType: BuildingType.quarry,
+            buildingType: BuildingType.propaganda_station,
             producers: state.colony.producers,
           ),
           ProducerList(
             colony: state.colony,
-            buildingType: BuildingType.copperMine,
-            producers: state.colony.producers,
-          ),
-          ProducerList(
-            colony: state.colony,
-            buildingType: BuildingType.ironMine,
-            producers: state.colony.producers,
-          ),
-          ProducerList(
-            colony: state.colony,
-            buildingType: BuildingType.goldMine,
+            buildingType: BuildingType.tech_lab,
             producers: state.colony.producers,
           ),
         ],
@@ -80,123 +63,14 @@ class _Content extends State<ProducerList> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Producer> list = widget.producers
+    final List<Producer> producers = widget.producers
         .where((e) => e.buildingType == widget.buildingType)
         .toList();
 
-    return ExpansionPanelList(
-      elevation: 0,
-      dividerColor: Palette.transparent,
-      materialGapSize: 0,
-      expandedHeaderPadding: const EdgeInsets.all(0),
-      expansionCallback: (index, isExpanded) {
-        setState(() {
-          expanded = isExpanded;
-        });
-      },
-      children: [
-        ExpansionPanel(
-          backgroundColor: Palette.lightGrey,
-          isExpanded: expanded,
-          canTapOnHeader: true,
-          headerBuilder: (context, isExpanded) => ProducerListHeader(
-              '${widget.buildingType.name.toUpperCase()} (${list.length})'),
-          body: ProducerListContent(
-            colony: widget.colony,
-            buildingType: widget.buildingType,
-            producers: list,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ProducerListHeader extends StatelessWidget {
-  final String title;
-
-  const ProducerListHeader(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 10),
-        child: Label(
-          text: title,
-          color: Palette.black,
-          weight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-}
-
-class ProducerListContent extends StatelessWidget {
-  final Colony colony;
-  final BuildingType buildingType;
-  final List<Producer> producers;
-
-  const ProducerListContent({
-    required this.colony,
-    required this.buildingType,
-    required this.producers,
-  });
-
-  @override
-  Widget build(BuildContext context) {
     return Column(
       children: [
         for (final Producer producer in producers) ProducerBlock(producer),
-        BuildProducerButton(
-          colony: colony,
-          buildingType: buildingType,
-        )
       ],
-    );
-  }
-}
-
-class BuildProducerButton extends StatelessWidget {
-  final Colony colony;
-  final BuildingType buildingType;
-
-  const BuildProducerButton({
-    required this.colony,
-    required this.buildingType,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      color: Palette.producerBlock,
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          PrimaryButton(
-            text: 'BUILD',
-            color: Palette.success,
-            onPressed: colony.canBuild(buildingType)
-                ? () => colony.build(buildingType)
-                : null,
-            icon: Icons.construction,
-            expand: false,
-          ),
-          const VBox(10),
-          for (final ResourceMapEntry resource in buildingType.cost(1).entries)
-            ResourceIndicator(
-              sprite: resource.key.sprite,
-              value: Formatter.resource(resource.value),
-              textColor: colony.resourceInventory.hasItem(resource)
-                  ? Palette.black
-                  : Palette.error,
-              textSize: 14,
-              iconSize: 14,
-            ),
-        ],
-      ),
     );
   }
 }

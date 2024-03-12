@@ -3,14 +3,13 @@ import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
-class Quarry extends Producer {
-  Quarry({
+class TechLab extends Producer {
+  TechLab({
     required super.colony,
     required super.level,
-    required super.villagers,
   }) : super(
-          buildingType: BuildingType.quarry,
-          resourceType: ResourceType.stone,
-          productionRate: Constants.QUARRY_PRODUCTION_RATE,
+          buildingType: BuildingType.tech_lab,
+          resourceType: ResourceType.technology,
+          productionRate: Constants.TECH_LAB_PRODUCTION_RATE,
         );
 }

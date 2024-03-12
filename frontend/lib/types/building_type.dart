@@ -3,53 +3,39 @@ import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 
 enum BuildingType {
-  townCenter(
-    sprite: Assets.IMAGES_BUILDINGS_CONSUMERS_HOUSE,
+  power_plant(
+    sprite: Assets.IMAGES_BUILDINGS_FARM,
     initialCost: {
-      ResourceType.wood: 100,
+      ResourceType.energy: 50,
+      ResourceType.supplies: 50,
     },
   ),
-  house(
-    sprite: Assets.IMAGES_BUILDINGS_CONSUMERS_HOUSE,
+  supply_center(
+    sprite: Assets.IMAGES_BUILDINGS_FARM,
     initialCost: {
-      ResourceType.wood: 50,
+      ResourceType.energy: 50,
+      ResourceType.supplies: 50,
     },
   ),
-
-  farm(
-    sprite: Assets.IMAGES_BUILDINGS_PRODUCERS_FARM,
+  propaganda_station(
+    sprite: Assets.IMAGES_BUILDINGS_FARM,
     initialCost: {
-      ResourceType.wood: 50,
+      ResourceType.energy: 50,
+      ResourceType.supplies: 50,
     },
   ),
-  loggingCamp(
-    sprite: Assets.IMAGES_BUILDINGS_PRODUCERS_LOGGING_CAMP,
+  tech_lab(
+    sprite: Assets.IMAGES_BUILDINGS_FARM,
     initialCost: {
-      ResourceType.wood: 50,
+      ResourceType.energy: 50,
+      ResourceType.supplies: 50,
     },
   ),
-  quarry(
-    sprite: Assets.IMAGES_BUILDINGS_PRODUCERS_QUARRY,
+  silo(
+    sprite: Assets.IMAGES_BUILDINGS_FARM,
     initialCost: {
-      ResourceType.wood: 100,
-    },
-  ),
-  copperMine(
-    sprite: Assets.IMAGES_BUILDINGS_PRODUCERS_QUARRY,
-    initialCost: {
-      ResourceType.wood: 100,
-    },
-  ),
-  ironMine(
-    sprite: Assets.IMAGES_BUILDINGS_PRODUCERS_QUARRY,
-    initialCost: {
-      ResourceType.wood: 100,
-    },
-  ),
-  goldMine(
-    sprite: Assets.IMAGES_BUILDINGS_PRODUCERS_QUARRY,
-    initialCost: {
-      ResourceType.wood: 100,
+      ResourceType.energy: 50,
+      ResourceType.supplies: 50,
     },
   );
 

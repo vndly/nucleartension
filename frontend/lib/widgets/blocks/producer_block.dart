@@ -4,10 +4,8 @@ import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
-import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/selectors/workers_selector.dart';
 
 class ProducerBlock extends StatelessWidget {
   final Producer producer;
@@ -31,9 +29,6 @@ class ProducerBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LeftSection(producer),
-          Expanded(
-            child: MiddleSection(producer),
-          ),
           RightSection(producer),
         ],
       ),
@@ -90,8 +85,8 @@ class LeftSection extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ImageAsset(
-                  path: producer.resourceType.sprite,
+                Icon(
+                  producer.resourceType.icon,
                   size: 18,
                 ),
                 const HBox(10),
@@ -106,22 +101,6 @@ class LeftSection extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-}
-
-class MiddleSection extends StatelessWidget {
-  final Producer producer;
-
-  const MiddleSection(this.producer);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: WorkersSelector(
-        building: producer,
-        size: 20,
-      ),
     );
   }
 }

@@ -2,10 +2,10 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/views/headquarters_view.dart';
 import 'package:nucleartension/views/military_view.dart';
 import 'package:nucleartension/views/research_view.dart';
 import 'package:nucleartension/views/resources_view.dart';
-import 'package:nucleartension/views/town_center_view.dart';
 import 'package:nucleartension/widgets/misc/game_container.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
 
@@ -57,7 +57,7 @@ class _GameContentState extends State<GameContent> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'TOWN CENTER',
+            label: 'HEADQUARTERS',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.dataset),
@@ -84,7 +84,7 @@ class _GameContentState extends State<GameContent> {
 
   Widget _body(int index) {
     if (currentIndex == 0) {
-      return TownCenterView(widget.state);
+      return HeadquartersView(widget.state);
     } else if (currentIndex == 1) {
       return ResourcesView(widget.state);
     } else if (currentIndex == 2) {

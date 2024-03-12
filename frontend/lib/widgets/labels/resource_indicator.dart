@@ -1,18 +1,17 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class ResourceIndicator extends StatelessWidget {
-  final String sprite;
+  final IconData icon;
   final String value;
   final double textSize;
   final double iconSize;
   final Color textColor;
 
   const ResourceIndicator({
-    required this.sprite,
+    required this.icon,
     required this.value,
     required this.textSize,
     required this.iconSize,
@@ -31,8 +30,8 @@ class ResourceIndicator extends StatelessWidget {
           color: textColor,
         ),
         HBox((textSize + iconSize) / 4),
-        ImageAsset(
-          path: sprite,
+        Icon(
+          icon,
           size: iconSize,
         ),
       ],

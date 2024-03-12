@@ -1,52 +1,23 @@
-import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
-import 'package:nucleartension/models/buildings/consumers/consumer.dart';
-import 'package:nucleartension/models/buildings/consumers/house.dart';
-import 'package:nucleartension/models/buildings/consumers/town_center.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/inventory/unit_inventory.dart';
-import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
-import 'package:nucleartension/types/unit_type.dart';
 
 class Colony {
   final ResourceInventory resourceInventory;
-  final UnitInventory unitInventory;
   final List<Building> buildings;
   num timeElapsed;
-  int freeVillagers;
 
   Colony({
     required this.resourceInventory,
-    required this.unitInventory,
     required this.buildings,
     required this.timeElapsed,
-    required this.freeVillagers,
   });
-
-  // ============================ TERRITORY ================================= \\
-
-  int get territorySlotsUsed => buildings.length;
-
-  TownCenter get townCenter => buildingsByType<TownCenter>(TownCenter).first;
-
-  int get territorySlotsTotal =>
-      townCenter.level * Constants.SLOTS_PER_TOWN_CENTER_LEVEL;
-
-  // =========================== TIME ELAPSED =============================== \\
-
-  num get day => (timeElapsed / Constants.SECONDS_PER_DAY) + 1;
-
-  num get year => (day / 365).floor() + 1;
 
   // ============================ BUILDINGS ================================= \\
 
   List<Producer> get producers =>
       buildings.where((b) => b.isProducer).map((b) => b as Producer).toList();
-
-  List<Consumer> get consumers =>
-      buildings.where((b) => b.isConsumer).map((b) => b as Consumer).toList();
 
   List<T> buildingsByType<T extends Building>(Type type) =>
       buildings.where((b) => b.runtimeType == type).map((e) => e as T).toList();
@@ -63,66 +34,12 @@ class Colony {
     return total;
   }
 
-  bool get hasSlotsToBuild => territorySlotsUsed < territorySlotsTotal;
-
-  bool canBuild(BuildingType buildingType) =>
-      resourceInventory.hasItems(buildingType.cost(1)) && hasSlotsToBuild;
-
-  void build(BuildingType buildingType) {
-    if (canBuild(buildingType)) {
-      final Building building = Building.create(
-        colony: this,
-        buildingType: buildingType,
-        level: 1,
-        villagers: 0,
-      );
-      buildings.add(building);
-      resourceInventory.removeItems(buildingType.cost(1));
-    }
-  }
-
   void addBuildings(List<Building> list) {
     buildings.addAll(list);
   }
 
   void removeBuilding(Building building) {
     buildings.remove(building);
-  }
-
-  // =========================== POPULATION ================================= \\
-
-  bool get hasFreeVillagers => freeVillagers > 0;
-
-  int get currentPopulation => unitInventory.get(UnitType.villager).toInt();
-
-  int get populationLimit {
-    int total = 0;
-
-    for (final Building building in buildings) {
-      if (building is House) {
-        total += Constants.HOUSE_POPULATION;
-      }
-    }
-
-    return total + Constants.BASE_POPULATION_LIMIT;
-  }
-
-  int addFreeVillagers(int amount) {
-    freeVillagers += amount;
-
-    return amount;
-  }
-
-  int removeFreeVillagers(int amount) {
-    freeVillagers -= amount;
-
-    return amount;
-  }
-
-  void createVillager() {
-    resourceInventory.removeItems(UnitType.villager.cost);
-    unitInventory.add(UnitType.villager, 1);
-    addFreeVillagers(1);
   }
 
   // ============================= UPDATE =================================== \\
