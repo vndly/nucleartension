@@ -14,14 +14,16 @@ class BaseGameState extends BaseState {
     colony = Colony(
       resourceInventory: ResourceInventory.create(
         resources: {
-          ResourceType.population: 80,
-          ResourceType.energy: 100,
-          ResourceType.supplies: 30,
-        },
-        capacities: {
-          ResourceType.population: 100,
           ResourceType.energy: 100,
           ResourceType.supplies: 100,
+          ResourceType.population: 1000000,
+          ResourceType.technology: 0,
+        },
+        capacities: {
+          ResourceType.energy: double.maxFinite,
+          ResourceType.supplies: double.maxFinite,
+          ResourceType.population: double.maxFinite,
+          ResourceType.technology: double.maxFinite,
         },
       ),
       buildings: [],

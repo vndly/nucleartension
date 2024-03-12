@@ -8,19 +8,7 @@ class Formatter {
   }
 
   static String resource(num amount) {
-    final NumberFormat formatter = NumberFormat('0');
-
-    return formatter.format(amount);
-  }
-
-  static String days(num amount) {
-    final NumberFormat formatter = NumberFormat('0');
-
-    return formatter.format(amount);
-  }
-
-  static String years(num amount) {
-    final NumberFormat formatter = NumberFormat('0');
+    final NumberFormat formatter = NumberFormat('#,##0');
 
     return formatter.format(amount);
   }

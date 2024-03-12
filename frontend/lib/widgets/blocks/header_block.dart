@@ -29,7 +29,7 @@ class ResourcesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ResourceLabel(
           colony: colony,
@@ -67,18 +67,14 @@ class ResourceLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final num amount = colony.resourceInventory.get(resourceType);
-    final num capacity = colony.resourceInventory.capacityOf(resourceType);
-    final bool full = amount >= capacity;
-    final String production = full
-        ? 'FULL'
-        : '${Formatter.production(colony.productionOf(resourceType))}/s';
+    final String production =
+        '${Formatter.production(colony.productionOf(resourceType))}/s';
 
     return LabeledText(
       label: '${resourceType.name.toUpperCase()}:',
-      text:
-          '${Formatter.resource(amount)}/${Formatter.resource(capacity)} ($production)',
-      labelColor: full ? Palette.error : Palette.black,
-      textColor: full ? Palette.error : Palette.black,
+      text: '${Formatter.resource(amount)} ($production)',
+      labelColor: Palette.black,
+      textColor: Palette.black,
     );
   }
 }
