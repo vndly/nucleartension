@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return const GameContainer(
       child: Center(
         child: CircularProgressIndicator(
-          color: Palette.white,
+          color: Palette.progress,
         ),
       ),
     );
@@ -33,7 +33,7 @@ class Content extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Palette.grey,
+        color: Palette.backgroundScreen,
         borderRadius: BorderRadius.circular(5),
       ),
       child: IntrinsicWidth(
@@ -44,19 +44,19 @@ class Content extends StatelessWidget {
             PrimaryButton(
               text: 'Continue',
               icon: Icons.play_arrow,
-              color: Palette.primary,
+              color: Palette.text,
               onPressed: state.onContinue,
             ),
             PrimaryButton(
               text: 'Settings',
               icon: Icons.settings,
-              color: Palette.primary,
+              color: Palette.text,
               onPressed: state.onSettings,
             ),
             PrimaryButton(
               text: 'Info',
               icon: Icons.info,
-              color: Palette.primary,
+              color: Palette.text,
               onPressed: state.onInfo,
             ),
           ],

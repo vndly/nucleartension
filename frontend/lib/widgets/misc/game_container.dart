@@ -16,7 +16,7 @@ class GameContainer extends StatelessWidget {
         backgroundColor: Palette.transparent,
         body: Environment.hasSmallScreen
             ? SmallScreenContainer(child)
-            : BigScreenContainer(child, Palette.black),
+            : BigScreenContainer(child, Palette.backgroundContainer),
       ),
     );
   }

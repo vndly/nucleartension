@@ -50,8 +50,9 @@ class _GameContentState extends State<GameContent> {
             currentIndex = index;
           });
         },
-        selectedItemColor: Palette.black,
-        unselectedItemColor: Palette.lightGrey,
+        selectedItemColor: Palette.menuSelected,
+        unselectedItemColor: Palette.menuUnselected,
+        backgroundColor: Palette.backgroundScreen,
         selectedFontSize: 12,
         unselectedFontSize: 12,
         items: const [
@@ -76,7 +77,7 @@ class _GameContentState extends State<GameContent> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: Palette.white,
+        color: Palette.backgroundScreen,
         child: _body(currentIndex),
       ),
     );

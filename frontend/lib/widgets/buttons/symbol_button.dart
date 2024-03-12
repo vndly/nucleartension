@@ -57,7 +57,7 @@ class SymbolButton extends StatelessWidget {
     final Widget image = (icon != null)
         ? Icon(
             icon,
-            color: Palette.white,
+            color: Palette.icon,
             size: dimensions,
           )
         : ImageAsset(
@@ -68,7 +68,7 @@ class SymbolButton extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      color: (onTap != null) ? color : Palette.lightGrey,
+      color: (onTap != null) ? color : Palette.buttonDisabled,
       child: Material(
         color: Palette.transparent,
         child: InkWell(

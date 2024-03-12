@@ -78,10 +78,10 @@ class ConfirmationDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: const EdgeInsets.fromLTRB(25, 20, 25, 25),
-      backgroundColor: Palette.grey,
+      backgroundColor: Palette.dialog,
       content: Label(
         text: message,
-        color: Palette.white,
+        color: Palette.text,
         size: 30,
       ),
       actions: [
@@ -93,7 +93,7 @@ class ConfirmationDialog extends StatelessWidget {
           ),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Palette.primary,
+              backgroundColor: Palette.buttonEnabled,
               minimumSize: const Size(0, 45),
             ),
             onPressed: () {

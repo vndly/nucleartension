@@ -13,7 +13,7 @@ class MilitaryView extends StatelessWidget {
     return const Center(
       child: Label(
         text: 'MILITARY',
-        color: Palette.black,
+        color: Palette.text,
       ),
     );
   }

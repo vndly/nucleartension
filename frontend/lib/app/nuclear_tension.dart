@@ -18,7 +18,7 @@ class NuclearTension extends StatelessWidget {
         useMaterial3: false,
         primaryColor: Palette.primary,
         primarySwatch: Palette.primary,
-        scaffoldBackgroundColor: Palette.black,
+        scaffoldBackgroundColor: Palette.backgroundScreen,
         fontFamily: Constants.FONT_NAME,
       ),
       navigatorKey: Navigation.getRoutes.key,

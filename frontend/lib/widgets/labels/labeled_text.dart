@@ -12,8 +12,8 @@ class LabeledText extends StatelessWidget {
   const LabeledText({
     required this.label,
     required this.text,
-    this.labelColor = Palette.black,
-    this.textColor = Palette.black,
+    this.labelColor = Palette.text,
+    this.textColor = Palette.text,
   });
 
   @override

@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
     return const GameContainer(
       child: Center(
         child: CircularProgressIndicator(
-          color: Palette.white,
+          color: Palette.progress,
         ),
       ),
     );

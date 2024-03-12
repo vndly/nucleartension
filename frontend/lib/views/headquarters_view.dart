@@ -13,7 +13,7 @@ class HeadquartersView extends StatelessWidget {
     return const Center(
       child: Label(
         text: 'HEADQUARTERS',
-        color: Palette.black,
+        color: Palette.text,
       ),
     );
   }

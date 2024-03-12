@@ -73,8 +73,8 @@ class ResourceLabel extends StatelessWidget {
     return LabeledText(
       label: '${resourceType.name.toUpperCase()}:',
       text: '${Formatter.resource(amount)} ($production)',
-      labelColor: Palette.black,
-      textColor: Palette.black,
+      labelColor: Palette.text,
+      textColor: Palette.text,
     );
   }
 }

@@ -17,11 +17,11 @@ class ProducerBlock extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: const BoxDecoration(
-        color: Palette.producerBlock,
+        color: Palette.backgroundProducer,
         border: Border(
           bottom: BorderSide(
             width: 0.5,
-            color: Palette.lightGrey,
+            color: Palette.separator,
           ),
         ),
       ),
@@ -61,7 +61,7 @@ class LeftSection extends StatelessWidget {
               children: [
                 Label(
                   text: producer.buildingType.toString().toUpperCase(),
-                  color: Palette.black,
+                  color: Palette.text,
                   weight: FontWeight.bold,
                   size: 18,
                 ),
@@ -70,13 +70,13 @@ class LeftSection extends StatelessWidget {
                   width: 18,
                   height: 18,
                   decoration: const BoxDecoration(
-                    color: Palette.lightGrey,
+                    color: Palette.chip,
                     shape: BoxShape.circle,
                   ),
                   child: Center(
                     child: Label(
                       text: producer.level.toString(),
-                      color: Palette.white,
+                      color: Palette.text,
                       align: TextAlign.center,
                       size: 8,
                     ),
@@ -91,13 +91,14 @@ class LeftSection extends StatelessWidget {
                 Icon(
                   producer.resourceType.icon,
                   size: 18,
+                  color: Palette.icon,
                 ),
                 const HBox(5),
                 Label(
                   text: '${Formatter.production(producer.production)}/s',
                   color: (producer.production == 0)
                       ? Palette.error
-                      : Palette.black,
+                      : Palette.text,
                   size: 18,
                 ),
               ],

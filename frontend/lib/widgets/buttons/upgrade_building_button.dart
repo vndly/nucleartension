@@ -26,7 +26,7 @@ class UpgradeBuildingButton extends StatelessWidget {
                 icon: resource.key.icon,
                 value: Formatter.resource(resource.value),
                 textColor: building.colony.resourceInventory.hasItem(resource)
-                    ? Palette.black
+                    ? Palette.text
                     : Palette.error,
                 textSize: 18,
                 iconSize: 18,
