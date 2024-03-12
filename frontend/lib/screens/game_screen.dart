@@ -1,0 +1,98 @@
+import 'package:dafluta/dafluta.dart';
+import 'package:flutter/material.dart';
+import 'package:nucleartension/states/game_state.dart';
+import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/views/military_view.dart';
+import 'package:nucleartension/views/research_view.dart';
+import 'package:nucleartension/views/resources_view.dart';
+import 'package:nucleartension/views/town_center_view.dart';
+import 'package:nucleartension/widgets/misc/game_container.dart';
+import 'package:nucleartension/widgets/misc/game_loop.dart';
+
+class GameScreen extends StatelessWidget {
+  final GameState state;
+
+  const GameScreen(this.state);
+
+  factory GameScreen.instance() => GameScreen(GameState());
+
+  @override
+  Widget build(BuildContext context) {
+    return PopScope(
+      canPop: false,
+      child: GameContainer(
+        child: GameLoop(state),
+      ),
+    );
+  }
+}
+
+class GameContent extends StatefulWidget {
+  final GameState state;
+
+  const GameContent(this.state);
+
+  @override
+  State<GameContent> createState() => _GameContentState();
+}
+
+class _GameContentState extends State<GameContent> {
+  int currentIndex = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+        selectedItemColor: Palette.black,
+        unselectedItemColor: Palette.lightGrey,
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'TOWN CENTER',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dataset),
+            label: 'RESOURCES',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shield),
+            label: 'MILITARY',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.science),
+            label: 'RESEARCH',
+          ),
+        ],
+      ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Palette.white,
+        child: _body(currentIndex),
+      ),
+    );
+  }
+
+  Widget _body(int index) {
+    if (currentIndex == 0) {
+      return TownCenterView(widget.state);
+    } else if (currentIndex == 1) {
+      return ResourcesView(widget.state);
+    } else if (currentIndex == 2) {
+      return MilitaryView(widget.state);
+    } else if (currentIndex == 3) {
+      return ResearchView(widget.state);
+    } else {
+      return const Empty();
+    }
+  }
+}
