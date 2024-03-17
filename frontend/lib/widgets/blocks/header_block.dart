@@ -1,6 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/base.dart';
+import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
@@ -16,15 +16,15 @@ class HeaderBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      child: ResourcesSection(state.base),
+      child: ResourcesSection(state.game),
     );
   }
 }
 
 class ResourcesSection extends StatelessWidget {
-  final Base base;
+  final Game game;
 
-  const ResourcesSection(this.base);
+  const ResourcesSection(this.game);
 
   @override
   Widget build(BuildContext context) {
@@ -32,22 +32,22 @@ class ResourcesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ResourceLabel(
-          base: base,
+          game: game,
           resourceType: ResourceType.energy,
         ),
         const VBox(10),
         ResourceLabel(
-          base: base,
+          game: game,
           resourceType: ResourceType.supplies,
         ),
         const VBox(10),
         ResourceLabel(
-          base: base,
+          game: game,
           resourceType: ResourceType.population,
         ),
         const VBox(10),
         ResourceLabel(
-          base: base,
+          game: game,
           resourceType: ResourceType.technology,
         ),
       ],
@@ -56,19 +56,19 @@ class ResourcesSection extends StatelessWidget {
 }
 
 class ResourceLabel extends StatelessWidget {
-  final Base base;
+  final Game game;
   final ResourceType resourceType;
 
   const ResourceLabel({
-    required this.base,
+    required this.game,
     required this.resourceType,
   });
 
   @override
   Widget build(BuildContext context) {
-    final num amount = base.resourceInventory.get(resourceType);
+    final num amount = game.resourceInventory.get(resourceType);
     final String production =
-        '${Formatter.production(base.productionOf(resourceType))}/s';
+        '${Formatter.production(game.productionOf(resourceType))}/s';
 
     return LabeledText(
       label: '${resourceType.name.toUpperCase()}:',

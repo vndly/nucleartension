@@ -3,11 +3,11 @@ import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
-class Base {
+class Game {
   final ResourceInventory resourceInventory;
   final List<Building> buildings;
 
-  Base({
+  Game({
     required this.resourceInventory,
     required this.buildings,
   });

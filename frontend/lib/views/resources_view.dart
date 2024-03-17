@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/base.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
+import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
@@ -19,24 +19,24 @@ class ResourcesView extends StatelessWidget {
         children: [
           HeaderBlock(state),
           ProducerList(
-            base: state.base,
+            game: state.game,
             buildingType: BuildingType.power_plant,
-            producers: state.base.producers,
+            producers: state.game.producers,
           ),
           ProducerList(
-            base: state.base,
+            game: state.game,
             buildingType: BuildingType.supply_center,
-            producers: state.base.producers,
+            producers: state.game.producers,
           ),
           ProducerList(
-            base: state.base,
+            game: state.game,
             buildingType: BuildingType.propaganda_station,
-            producers: state.base.producers,
+            producers: state.game.producers,
           ),
           ProducerList(
-            base: state.base,
+            game: state.game,
             buildingType: BuildingType.tech_lab,
-            producers: state.base.producers,
+            producers: state.game.producers,
           ),
         ],
       ),
@@ -45,12 +45,12 @@ class ResourcesView extends StatelessWidget {
 }
 
 class ProducerList extends StatelessWidget {
-  final Base base;
+  final Game game;
   final BuildingType buildingType;
   final List<Producer> producers;
 
   const ProducerList({
-    required this.base,
+    required this.game,
     required this.buildingType,
     required this.producers,
   });

@@ -5,7 +5,7 @@ import 'package:nucleartension/types/resource_type.dart';
 
 class TechLab extends Producer {
   TechLab({
-    required super.base,
+    required super.game,
     required super.level,
   }) : super(
           buildingType: BuildingType.tech_lab,

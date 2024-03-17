@@ -5,7 +5,7 @@ import 'package:nucleartension/types/resource_type.dart';
 
 class PropagandaStation extends Producer {
   PropagandaStation({
-    required super.base,
+    required super.game,
     required super.level,
   }) : super(
           buildingType: BuildingType.propaganda_station,
