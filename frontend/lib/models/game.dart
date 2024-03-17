@@ -6,6 +6,8 @@ import 'package:nucleartension/types/resource_type.dart';
 class Game {
   final ResourceInventory resourceInventory;
   final List<Building> buildings;
+  num timeElapsed = 0;
+  int defcon = 5;
 
   Game({
     required this.resourceInventory,
@@ -43,6 +45,8 @@ class Game {
   // ============================= UPDATE =================================== \\
 
   void update(double dt) {
+    timeElapsed += dt;
+    
     for (final Building building in buildings) {
       building.update(dt);
     }

@@ -9,8 +9,6 @@ import 'package:nucleartension/types/resource_type.dart';
 
 class GameState extends BaseState {
   late final Game game;
-  num timeElapsed = 0;
-  int defcon = 5;
 
   GameState() {
     game = Game(
@@ -53,6 +51,5 @@ class GameState extends BaseState {
 
   void update(double dt) {
     game.update(dt);
-    timeElapsed += dt;
   }
 }
