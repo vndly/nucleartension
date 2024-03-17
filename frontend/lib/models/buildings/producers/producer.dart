@@ -13,7 +13,7 @@ abstract class Producer extends Building {
     required super.level,
   });
 
-  double get production => productionRate * level;
+  double get production => productionRate * game.defconProductionBoost * level;
 
   @override
   bool get isProducer => true;

@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
@@ -13,6 +16,8 @@ class Game {
     required this.resourceInventory,
     required this.buildings,
   });
+
+  int get defconStep => 6 - defcon;
 
   // ============================ BUILDINGS ================================= \\
 
@@ -42,11 +47,16 @@ class Game {
     buildings.remove(building);
   }
 
+  // =========================== PRODUCTION ================================= \\
+
+  num get defconProductionBoost =>
+      pow(Constants.DEFCON_PRODUCTION_RATE, defconStep - 1);
+
   // ============================= UPDATE =================================== \\
 
   void update(double dt) {
     timeElapsed += dt;
-    
+
     for (final Building building in buildings) {
       building.update(dt);
     }
