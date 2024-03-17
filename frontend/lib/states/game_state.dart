@@ -3,6 +3,7 @@ import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
+import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -43,6 +44,10 @@ class GameState extends BaseState {
         level: 0,
       ),
       TechLab(
+        game: game,
+        level: 0,
+      ),
+      Silo(
         game: game,
         level: 0,
       ),
