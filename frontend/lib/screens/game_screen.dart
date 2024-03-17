@@ -2,10 +2,10 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/views/headquarters_view.dart';
 import 'package:nucleartension/views/military_view.dart';
 import 'package:nucleartension/views/research_view.dart';
 import 'package:nucleartension/views/resources_view.dart';
+import 'package:nucleartension/views/war_room_view.dart';
 import 'package:nucleartension/widgets/misc/game_container.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
 
@@ -57,8 +57,8 @@ class _GameContentState extends State<GameContent> {
         unselectedFontSize: 12,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'HEADQUARTERS',
+            icon: Icon(Icons.radar),
+            label: 'WAR ROOM',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.dataset),
@@ -85,7 +85,7 @@ class _GameContentState extends State<GameContent> {
 
   Widget _body(int index) {
     if (currentIndex == 0) {
-      return HeadquartersView(widget.state);
+      return WarRoomView(widget.state);
     } else if (currentIndex == 1) {
       return ResourcesView(widget.state);
     } else if (currentIndex == 2) {
