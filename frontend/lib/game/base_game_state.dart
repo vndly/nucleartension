@@ -9,6 +9,7 @@ import 'package:nucleartension/types/resource_type.dart';
 
 class BaseGameState extends BaseState {
   late final Base base;
+  num timeElapsed = 0;
 
   BaseGameState() {
     base = Base(
@@ -27,7 +28,6 @@ class BaseGameState extends BaseState {
         },
       ),
       buildings: [],
-      timeElapsed: 0,
     );
 
     base.addBuildings([
@@ -52,5 +52,6 @@ class BaseGameState extends BaseState {
 
   void update(double dt) {
     base.update(dt);
+    timeElapsed += dt;
   }
 }

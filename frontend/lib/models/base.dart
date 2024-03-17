@@ -6,12 +6,10 @@ import 'package:nucleartension/types/resource_type.dart';
 class Base {
   final ResourceInventory resourceInventory;
   final List<Building> buildings;
-  num timeElapsed;
 
   Base({
     required this.resourceInventory,
     required this.buildings,
-    required this.timeElapsed,
   });
 
   // ============================ BUILDINGS ================================= \\
@@ -45,8 +43,6 @@ class Base {
   // ============================= UPDATE =================================== \\
 
   void update(double dt) {
-    timeElapsed += dt;
-
     for (final Building building in buildings) {
       building.update(dt);
     }
