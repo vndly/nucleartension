@@ -6,15 +6,15 @@ enum BuildingType {
   power_plant(
     sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
     initialCost: {
-      ResourceType.energy: 50,
-      ResourceType.supplies: 50,
+      ResourceType.energy: 20,
+      ResourceType.supplies: 20,
     },
   ),
   supply_center(
     sprite: Assets.IMAGES_BUILDINGS_SUPPLY_CENTER,
     initialCost: {
-      ResourceType.energy: 50,
-      ResourceType.supplies: 50,
+      ResourceType.energy: 20,
+      ResourceType.supplies: 20,
     },
   ),
   propaganda_station(
@@ -27,15 +27,15 @@ enum BuildingType {
   tech_lab(
     sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
     initialCost: {
-      ResourceType.energy: 50,
-      ResourceType.supplies: 50,
+      ResourceType.energy: 100,
+      ResourceType.supplies: 100,
     },
   ),
   silo(
     sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
     initialCost: {
-      ResourceType.energy: 50,
-      ResourceType.supplies: 50,
+      ResourceType.energy: 200,
+      ResourceType.supplies: 200,
     },
   );
 
