@@ -9,7 +9,7 @@ abstract class Producer extends Building {
     required this.resourceType,
     required this.productionRate,
     required super.buildingType,
-    required super.colony,
+    required super.base,
     required super.level,
   });
 
@@ -23,6 +23,6 @@ abstract class Producer extends Building {
     super.update(dt);
 
     final double produced = production * dt;
-    colony.resourceInventory.add(resourceType, produced);
+    base.resourceInventory.add(resourceType, produced);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/colony.dart';
+import 'package:nucleartension/models/base.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
@@ -16,15 +16,15 @@ class HeaderBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      child: ResourcesSection(state.colony),
+      child: ResourcesSection(state.base),
     );
   }
 }
 
 class ResourcesSection extends StatelessWidget {
-  final Colony colony;
+  final Base base;
 
-  const ResourcesSection(this.colony);
+  const ResourcesSection(this.base);
 
   @override
   Widget build(BuildContext context) {
@@ -32,22 +32,22 @@ class ResourcesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ResourceLabel(
-          colony: colony,
+          base: base,
           resourceType: ResourceType.energy,
         ),
         const VBox(10),
         ResourceLabel(
-          colony: colony,
+          base: base,
           resourceType: ResourceType.supplies,
         ),
         const VBox(10),
         ResourceLabel(
-          colony: colony,
+          base: base,
           resourceType: ResourceType.population,
         ),
         const VBox(10),
         ResourceLabel(
-          colony: colony,
+          base: base,
           resourceType: ResourceType.technology,
         ),
       ],
@@ -56,19 +56,19 @@ class ResourcesSection extends StatelessWidget {
 }
 
 class ResourceLabel extends StatelessWidget {
-  final Colony colony;
+  final Base base;
   final ResourceType resourceType;
 
   const ResourceLabel({
-    required this.colony,
+    required this.base,
     required this.resourceType,
   });
 
   @override
   Widget build(BuildContext context) {
-    final num amount = colony.resourceInventory.get(resourceType);
+    final num amount = base.resourceInventory.get(resourceType);
     final String production =
-        '${Formatter.production(colony.productionOf(resourceType))}/s';
+        '${Formatter.production(base.productionOf(resourceType))}/s';
 
     return LabeledText(
       label: '${resourceType.name.toUpperCase()}:',

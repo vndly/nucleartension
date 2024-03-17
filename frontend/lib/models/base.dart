@@ -3,12 +3,12 @@ import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
-class Colony {
+class Base {
   final ResourceInventory resourceInventory;
   final List<Building> buildings;
   num timeElapsed;
 
-  Colony({
+  Base({
     required this.resourceInventory,
     required this.buildings,
     required this.timeElapsed,
