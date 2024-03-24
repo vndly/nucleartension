@@ -56,33 +56,11 @@ class LeftSection extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Label(
-                  text: producer.buildingType.toString().toUpperCase(),
-                  color: Palette.text,
-                  weight: FontWeight.bold,
-                  size: 18,
-                ),
-                const HBox(5),
-                Container(
-                  width: 18,
-                  height: 18,
-                  decoration: const BoxDecoration(
-                    color: Palette.chip,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Label(
-                      text: producer.level.toString(),
-                      color: Palette.text,
-                      align: TextAlign.center,
-                      size: 8,
-                    ),
-                  ),
-                ),
-              ],
+            Label(
+              text: producer.buildingType.toString().toUpperCase(),
+              color: Palette.text,
+              weight: FontWeight.bold,
+              size: 16,
             ),
             const VBox(10),
             Row(
@@ -90,16 +68,15 @@ class LeftSection extends StatelessWidget {
               children: [
                 Icon(
                   producer.resourceType.icon,
-                  size: 18,
+                  size: 16,
                   color: Palette.icon,
                 ),
                 const HBox(5),
                 Label(
                   text: '${Formatter.production(producer.production)}/s',
-                  color: (producer.production == 0)
-                      ? Palette.error
-                      : Palette.text,
-                  size: 18,
+                  color:
+                      (producer.production == 0) ? Palette.error : Palette.text,
+                  size: 16,
                 ),
               ],
             ),
@@ -117,6 +94,47 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeBuildingButton(producer);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Label(
+              text: 'LEVEL',
+              color: Palette.text,
+              weight: FontWeight.bold,
+              size: 16,
+            ),
+            const HBox(10),
+            Container(
+              decoration: const BoxDecoration(
+                color: Palette.chip,
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                shape: BoxShape.rectangle,
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 2,
+                    bottom: 4,
+                    left: 5,
+                    right: 5,
+                  ),
+                  child: Label(
+                    text: producer.level.toString(),
+                    color: Palette.text,
+                    align: TextAlign.center,
+                    size: 14,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const VBox(10),
+        UpgradeBuildingButton(producer),
+      ],
+    );
   }
 }
