@@ -70,11 +70,22 @@ class ResourceLabel extends StatelessWidget {
     final String production =
         '${Formatter.production(game.productionOf(resourceType))}/s';
 
-    return LabeledText(
-      label: '${resourceType.name.toUpperCase()}:',
-      text: '${Formatter.resource(amount)} ($production)',
-      labelColor: Palette.text,
-      textColor: Palette.text,
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          resourceType.icon,
+          size: 14,
+          color: Palette.icon,
+        ),
+        const HBox(10),
+        LabeledText(
+          label: '${resourceType.name.toUpperCase()}:',
+          text: '${Formatter.resource(amount)} ($production)',
+          labelColor: Palette.text,
+          textColor: Palette.text,
+        ),
+      ],
     );
   }
 }
