@@ -10,9 +10,9 @@ const RESOURCES = {"main.dart.js": "9dc9ed2fa0e10ca0e3ee19f7e285a343",
 "assets/assets/images/units/aircraft.png": "8962eddba97e457a871e56bdaae4c305",
 "assets/assets/images/units/vehicle.png": "6d958c1b6f25d0bfc532c1a9995b0c04",
 "assets/assets/images/buildings/propaganda_station.png": "c44621ff3d3e7f3b9db26f2a743b17cf",
-"assets/assets/images/buildings/supply_center.png": "8ddeefd3c63db938240f1cfb3143c680",
+"assets/assets/images/buildings/supply_center.png": "6f65542c91a92c286fe94bca1d8d3f13",
 "assets/assets/images/buildings/missile_silo.png": "39a7bb092f5247ce4c665b3a864d3235",
-"assets/assets/images/buildings/power_plant.png": "899ae16b81e452ec209a6bd00af74910",
+"assets/assets/images/buildings/power_plant.png": "f0d7e824ab6b3b0beca1d612eb0a0f4e",
 "assets/assets/images/buildings/military_facility.png": "defcae7066ac427e1bf1837baf37d268",
 "assets/assets/images/buildings/tech_lab.png": "1feb6660a2e586bff5a1ccaa698813e9",
 "assets/assets/images/other/upgrade.png": "3320fa1d357dd741fe3ac1993ade9648",
@@ -39,8 +39,8 @@ const RESOURCES = {"main.dart.js": "9dc9ed2fa0e10ca0e3ee19f7e285a343",
 "firebase-messaging-sw.js": "5b8b5435d89eea9d02ed9ea9565635c6",
 "favicon.png": "70a31eb877b5e97fdb9a12a5a469dc1a",
 "version.json": "0ff45af32d7b9fd732a03f7d2ed6a3af",
-"index.html": "8ae59266738ecfdc324d6ceed4b590c8",
-"/": "8ae59266738ecfdc324d6ceed4b590c8"};
+"index.html": "160677cd54730e2ee5b2ccb6b9c0d5ea",
+"/": "160677cd54730e2ee5b2ccb6b9c0d5ea"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
