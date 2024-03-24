@@ -26,7 +26,7 @@ class ChipText extends StatelessWidget {
         Container(
           decoration: const BoxDecoration(
             color: Palette.chip,
-            borderRadius: BorderRadius.all(Radius.circular(5)),
+            borderRadius: BorderRadius.all(Radius.circular(4)),
             shape: BoxShape.rectangle,
           ),
           child: Center(
@@ -34,13 +34,14 @@ class ChipText extends StatelessWidget {
               padding: const EdgeInsets.only(
                 top: 1,
                 bottom: 2,
-                left: 6,
-                right: 6,
+                left: 4,
+                right: 4,
               ),
               child: Label(
                 text: text,
                 color: Palette.text,
                 align: TextAlign.center,
+                weight: FontWeight.bold,
               ),
             ),
           ),

@@ -8,7 +8,6 @@ import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/level_indicator.dart';
-import 'package:nucleartension/widgets/labels/chip_text.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class SiloBlock extends StatelessWidget {
@@ -143,20 +142,10 @@ class MissileLeftSection extends StatelessWidget {
           size: 50,
         ),
         const HBox(15),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Label(
-              text: unitType.toString().toUpperCase(),
-              color: Palette.text,
-              weight: FontWeight.bold,
-            ),
-            const VBox(15),
-            const ChipText(
-              label: 'AMOUNT',
-              text: '0',
-            ),
-          ],
+        Label(
+          text: unitType.toString().toUpperCase(),
+          color: Palette.text,
+          weight: FontWeight.bold,
         ),
       ],
     );
