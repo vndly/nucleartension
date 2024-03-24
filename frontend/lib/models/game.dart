@@ -26,7 +26,7 @@ class Game {
   List<Producer> get producers =>
       buildings.where((b) => b.isProducer).map((b) => b as Producer).toList();
 
-  MissileSilo get silo => buildingsByType(MissileSilo)[0] as MissileSilo;
+  MissileSilo get missileSilo => buildingsByType(MissileSilo)[0] as MissileSilo;
 
   MilitaryFacility get militaryFacility =>
       buildingsByType(MilitaryFacility)[0] as MilitaryFacility;

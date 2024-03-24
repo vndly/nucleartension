@@ -11,9 +11,9 @@ import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class MissileSiloBlock extends StatelessWidget {
-  final MissileSilo silo;
+  final MissileSilo missileSilo;
 
-  const MissileSiloBlock(this.silo);
+  const MissileSiloBlock(this.missileSilo);
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +23,19 @@ class MissileSiloBlock extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SiloLeftSection(silo),
+              SiloLeftSection(missileSilo),
               const Spacer(),
-              SiloRightSection(silo),
+              SiloRightSection(missileSilo),
             ],
           ),
           const VBox(25),
           MissilesSection(
-            silo: silo,
+            missileSilo: missileSilo,
             unitType: UnitType.missile_attack,
           ),
           const VBox(25),
           MissilesSection(
-            silo: silo,
+            missileSilo: missileSilo,
             unitType: UnitType.missile_defense,
           ),
         ],
@@ -45,9 +45,9 @@ class MissileSiloBlock extends StatelessWidget {
 }
 
 class SiloLeftSection extends StatelessWidget {
-  final MissileSilo silo;
+  final MissileSilo missileSilo;
 
-  const SiloLeftSection(this.silo);
+  const SiloLeftSection(this.missileSilo);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class SiloLeftSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ImageBlock(
-          path: silo.buildingType.sprite,
+          path: missileSilo.buildingType.sprite,
           size: 70,
         ),
         const HBox(15),
@@ -64,12 +64,12 @@ class SiloLeftSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Label(
-              text: silo.buildingType.toString().toUpperCase(),
+              text: missileSilo.buildingType.toString().toUpperCase(),
               color: Palette.text,
               weight: FontWeight.bold,
             ),
             const VBox(12),
-            LevelIndicator(silo),
+            LevelIndicator(missileSilo),
             const VBox(12),
             const Label(
               text: 'CAPACITY: 10/20',
@@ -84,22 +84,22 @@ class SiloLeftSection extends StatelessWidget {
 }
 
 class SiloRightSection extends StatelessWidget {
-  final MissileSilo silo;
+  final MissileSilo missileSilo;
 
-  const SiloRightSection(this.silo);
+  const SiloRightSection(this.missileSilo);
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeBuildingButton(silo);
+    return UpgradeBuildingButton(missileSilo);
   }
 }
 
 class MissilesSection extends StatelessWidget {
-  final MissileSilo silo;
+  final MissileSilo missileSilo;
   final UnitType unitType;
 
   const MissilesSection({
-    required this.silo,
+    required this.missileSilo,
     required this.unitType,
   });
 
@@ -109,12 +109,12 @@ class MissilesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MissileLeftSection(
-          silo: silo,
+          missileSilo: missileSilo,
           unitType: unitType,
         ),
         const Spacer(),
         MissileRightSection(
-          silo: silo,
+          missileSilo: missileSilo,
           unitType: unitType,
         ),
       ],
@@ -123,11 +123,11 @@ class MissilesSection extends StatelessWidget {
 }
 
 class MissileLeftSection extends StatelessWidget {
-  final MissileSilo silo;
+  final MissileSilo missileSilo;
   final UnitType unitType;
 
   const MissileLeftSection({
-    required this.silo,
+    required this.missileSilo,
     required this.unitType,
   });
 
@@ -153,18 +153,18 @@ class MissileLeftSection extends StatelessWidget {
 }
 
 class MissileRightSection extends StatelessWidget {
-  final MissileSilo silo;
+  final MissileSilo missileSilo;
   final UnitType unitType;
 
   const MissileRightSection({
-    required this.silo,
+    required this.missileSilo,
     required this.unitType,
   });
 
   @override
   Widget build(BuildContext context) {
     return CreateUnitButton(
-      game: silo.game,
+      game: missileSilo.game,
       unitType: unitType,
     );
   }

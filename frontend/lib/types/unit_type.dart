@@ -18,21 +18,21 @@ enum UnitType {
     },
   ),
   military_infantry(
-    sprite: Assets.IMAGES_UNITS_INFANTRY1,
+    sprite: Assets.IMAGES_UNITS_INFANTRY,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
     },
   ),
   military_vehicles(
-    sprite: Assets.IMAGES_UNITS_VEHICLE1,
+    sprite: Assets.IMAGES_UNITS_VEHICLE,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
     },
   ),
   military_aircraft(
-    sprite: Assets.IMAGES_UNITS_AIRCRAFT1,
+    sprite: Assets.IMAGES_UNITS_AIRCRAFT,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,

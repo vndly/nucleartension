@@ -39,7 +39,7 @@ enum BuildingType {
     },
   ),
   military_facility(
-    sprite: Assets.IMAGES_BUILDINGS_MILITARY_FACILITY1,
+    sprite: Assets.IMAGES_BUILDINGS_MILITARY_FACILITY,
     initialCost: {
       ResourceType.energy: 200,
       ResourceType.supplies: 200,
