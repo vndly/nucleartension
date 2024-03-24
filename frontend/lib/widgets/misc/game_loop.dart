@@ -15,15 +15,17 @@ class _GameLoopState extends State<GameLoop>
     with SingleTickerProviderStateMixin {
   late AnimationController _animation;
   final DateTime _initialTime = DateTime.now();
-  double previous = 0;
+  double _previous = 0;
 
-  double get currentTime =>
+  static const int CLOCK_RATE = 1;
+
+  double get _currentTime =>
       DateTime.now().difference(_initialTime).inMilliseconds / 1000.0;
 
   @override
   void initState() {
     super.initState();
-    previous = currentTime;
+    _previous = _currentTime;
     _animation = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this,
@@ -41,10 +43,13 @@ class _GameLoopState extends State<GameLoop>
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
-        final double current = currentTime;
-        final double dt = current - previous;
-        previous = current;
-        widget.state.update(dt);
+        final double current = _currentTime;
+        final double dt = current - _previous;
+
+        if (dt >= CLOCK_RATE) {
+          _previous = current;
+          widget.state.update(dt);
+        }
 
         return GameContent(widget.state);
       },
