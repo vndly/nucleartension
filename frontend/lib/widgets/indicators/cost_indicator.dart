@@ -20,14 +20,19 @@ class CostIndicator extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         for (final ResourceMapEntry resource in cost.entries)
-          ResourceIndicator(
-            icon: resource.key.icon,
-            value: Formatter.resource(resource.value),
-            textColor: game.resourceInventory.hasItem(resource)
-                ? Palette.text
-                : Palette.error,
-            textSize: 14,
-            iconSize: 14,
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 2,
+              bottom: 2,
+            ),
+            child: ResourceIndicator(
+              icon: resource.key.icon(16),
+              value: Formatter.resource(resource.value),
+              textColor: game.resourceInventory.hasItem(resource)
+                  ? Palette.text
+                  : Palette.error,
+              textSize: 16,
+            ),
           ),
       ],
     );

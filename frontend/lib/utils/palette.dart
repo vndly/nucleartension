@@ -16,6 +16,11 @@ class Palette {
   static const Color backgroundScreen = Color(0xff111111);
   static const Color backgroundBuilding = Color(0xff222222);
 
+  static const Color resourceEnergy = Colors.yellow;
+  static const Color resourceSupplies = Colors.green;
+  static const Color resourcePopulation = Colors.red;
+  static const Color resourceTechnology = Colors.lightBlue;
+
   static const Color separator = Color(0xff505050);
 
   static const Color buttonEnabled = Colors.green;

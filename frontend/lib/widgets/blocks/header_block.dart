@@ -73,11 +73,7 @@ class ResourceLabel extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          resourceType.icon,
-          size: 14,
-          color: Palette.icon,
-        ),
+        resourceType.icon(14),
         const HBox(10),
         LabeledText(
           label: '${resourceType.name.toUpperCase()}:',
