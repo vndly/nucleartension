@@ -1,10 +1,12 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/silo.dart';
+import 'package:nucleartension/types/missile_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
+import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
@@ -16,22 +18,28 @@ class SiloBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BuildingContainer(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
         children: [
-          LeftSection(silo),
-          const Spacer(),
-          RightSection(silo),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SiloLeftSection(silo),
+              const Spacer(),
+              SiloRightSection(silo),
+            ],
+          ),
+          const VBox(20),
+          AttackMissilesSection(silo),
         ],
       ),
     );
   }
 }
 
-class LeftSection extends StatelessWidget {
+class SiloLeftSection extends StatelessWidget {
   final Silo silo;
 
-  const LeftSection(this.silo);
+  const SiloLeftSection(this.silo);
 
   @override
   Widget build(BuildContext context) {
@@ -61,13 +69,65 @@ class LeftSection extends StatelessWidget {
   }
 }
 
-class RightSection extends StatelessWidget {
+class SiloRightSection extends StatelessWidget {
   final Silo silo;
 
-  const RightSection(this.silo);
+  const SiloRightSection(this.silo);
 
   @override
   Widget build(BuildContext context) {
     return UpgradeBuildingButton(silo);
+  }
+}
+
+class AttackMissilesSection extends StatelessWidget {
+  final Silo silo;
+
+  const AttackMissilesSection(this.silo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AttackMissileLeftSection(silo),
+      ],
+    );
+  }
+}
+
+class AttackMissileLeftSection extends StatelessWidget {
+  final Silo silo;
+
+  const AttackMissileLeftSection(this.silo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ImageBlock(
+          path: MissileType.attack.sprite,
+          size: 50,
+        ),
+        const HBox(15),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Label(
+              text: 'ATTACK MISSILES',
+              color: Palette.text,
+              weight: FontWeight.bold,
+            ),
+            const VBox(5),
+            CostIndicator(
+              game: silo.game,
+              cost: MissileType.attack.cost,
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }

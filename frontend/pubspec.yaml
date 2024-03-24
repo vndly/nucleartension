@@ -40,4 +40,5 @@ flutter:
   assets:
     - assets/images/
     - assets/images/buildings/
+    - assets/images/missiles/
     - assets/images/other/
