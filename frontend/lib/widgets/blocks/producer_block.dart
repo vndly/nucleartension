@@ -95,13 +95,14 @@ class ProductionIndicator extends StatelessWidget {
       children: [
         Icon(
           producer.resourceType.icon,
-          size: 14,
+          size: 15,
           color: Palette.icon,
         ),
-        const HBox(5),
+        const HBox(10),
         Label(
           text: '${Formatter.production(producer.production)}/s',
           color: (producer.production == 0) ? Palette.error : Palette.text,
+          size: 15,
         ),
       ],
     );

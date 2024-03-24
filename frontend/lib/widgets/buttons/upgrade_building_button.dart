@@ -35,7 +35,7 @@ class UpgradeBuildingButton extends StatelessWidget {
         ),
         const HBox(10),
         SymbolButton.upgrade(
-          size: 40,
+          size: 70,
           onTap: building.canUpgrade ? building.upgrade : null,
         ),
       ],
