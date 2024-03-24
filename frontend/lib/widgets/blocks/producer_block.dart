@@ -62,22 +62,9 @@ class LeftSection extends StatelessWidget {
               weight: FontWeight.bold,
             ),
             const VBox(10),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  producer.resourceType.icon,
-                  size: 14,
-                  color: Palette.icon,
-                ),
-                const HBox(5),
-                Label(
-                  text: '${Formatter.production(producer.production)}/s',
-                  color:
-                      (producer.production == 0) ? Palette.error : Palette.text,
-                ),
-              ],
-            ),
+            ProductionIndicator(producer),
+            const VBox(10),
+            LevelIndicator(producer),
           ],
         ),
       ],
@@ -92,44 +79,73 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+    return UpgradeBuildingButton(producer);
+  }
+}
+
+class ProductionIndicator extends StatelessWidget {
+  final Producer producer;
+
+  const ProductionIndicator(this.producer);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Label(
-              text: 'LEVEL',
-              color: Palette.text,
-              weight: FontWeight.bold,
-            ),
-            const HBox(10),
-            Container(
-              decoration: const BoxDecoration(
-                color: Palette.chip,
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                shape: BoxShape.rectangle,
-              ),
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 2,
-                    bottom: 3,
-                    left: 6,
-                    right: 6,
-                  ),
-                  child: Label(
-                    text: producer.level.toString(),
-                    color: Palette.text,
-                    align: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
-          ],
+        Icon(
+          producer.resourceType.icon,
+          size: 14,
+          color: Palette.icon,
         ),
-        const VBox(10),
-        UpgradeBuildingButton(producer),
+        const HBox(5),
+        Label(
+          text: '${Formatter.production(producer.production)}/s',
+          color: (producer.production == 0) ? Palette.error : Palette.text,
+        ),
+      ],
+    );
+  }
+}
+
+class LevelIndicator extends StatelessWidget {
+  final Producer producer;
+
+  const LevelIndicator(this.producer);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Label(
+          text: 'LEVEL',
+          color: Palette.text,
+          weight: FontWeight.bold,
+        ),
+        const HBox(10),
+        Container(
+          decoration: const BoxDecoration(
+            color: Palette.chip,
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            shape: BoxShape.rectangle,
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 1,
+                bottom: 2,
+                left: 6,
+                right: 6,
+              ),
+              child: Label(
+                text: producer.level.toString(),
+                color: Palette.text,
+                align: TextAlign.center,
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
