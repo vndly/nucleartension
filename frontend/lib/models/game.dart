@@ -1,12 +1,11 @@
 import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/types/missile_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
+import 'package:nucleartension/types/unit_type.dart';
 
 class Game {
   final ResourceInventory resourceInventory;
@@ -58,10 +57,10 @@ class Game {
 
   // ============================== UNITS =================================== \\
 
-  bool canBuildUnit(MissileType unitType) =>
+  bool canBuildUnit(UnitType unitType) =>
       resourceInventory.hasItems(unitType.cost);
 
-  void createUnit(MissileType unitType) {}
+  void createUnit(UnitType unitType) {}
 
   // ============================= UPDATE =================================== \\
 

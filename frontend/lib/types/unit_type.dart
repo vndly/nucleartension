@@ -2,15 +2,15 @@ import 'package:nucleartension/extensions/resource_map_extension.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 
-enum MissileType {
-  attack(
+enum UnitType {
+  missile_attack(
     sprite: Assets.IMAGES_MISSILES_ATTACK,
     cost: {
-      ResourceType.energy: 20,
-      ResourceType.supplies: 20,
+      ResourceType.energy: 60,
+      ResourceType.supplies: 60,
     },
   ),
-  defense(
+  missile_defense(
     sprite: Assets.IMAGES_MISSILES_DEFENSE,
     cost: {
       ResourceType.energy: 20,
@@ -21,7 +21,7 @@ enum MissileType {
   final String sprite;
   final ResourceMap cost;
 
-  const MissileType({
+  const UnitType({
     required this.sprite,
     required this.cost,
   });

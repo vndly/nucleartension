@@ -1,13 +1,13 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/types/missile_type.dart';
+import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/widgets/buttons/symbol_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 
 class CreateUnitButton extends StatelessWidget {
   final Game game;
-  final MissileType unitType;
+  final UnitType unitType;
 
   const CreateUnitButton({
     required this.game,

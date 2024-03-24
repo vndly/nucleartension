@@ -1,14 +1,14 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/silo.dart';
-import 'package:nucleartension/types/missile_type.dart';
+import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
-import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 import 'package:nucleartension/widgets/indicators/level_indicator.dart';
+import 'package:nucleartension/widgets/labels/chip_text.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class SiloBlock extends StatelessWidget {
@@ -29,8 +29,16 @@ class SiloBlock extends StatelessWidget {
               SiloRightSection(silo),
             ],
           ),
-          const VBox(20),
-          AttackMissilesSection(silo),
+          const VBox(25),
+          MissilesSection(
+            silo: silo,
+            unitType: UnitType.missile_attack,
+          ),
+          const VBox(25),
+          MissilesSection(
+            silo: silo,
+            unitType: UnitType.missile_defense,
+          ),
         ],
       ),
     );
@@ -61,8 +69,14 @@ class SiloLeftSection extends StatelessWidget {
               color: Palette.text,
               weight: FontWeight.bold,
             ),
-            const VBox(10),
+            const VBox(12),
             LevelIndicator(silo),
+            const VBox(12),
+            const Label(
+              text: 'CAPACITY: 10/20',
+              color: Palette.text,
+              weight: FontWeight.bold,
+            ),
           ],
         ),
       ],
@@ -81,28 +95,42 @@ class SiloRightSection extends StatelessWidget {
   }
 }
 
-class AttackMissilesSection extends StatelessWidget {
+class MissilesSection extends StatelessWidget {
   final Silo silo;
+  final UnitType unitType;
 
-  const AttackMissilesSection(this.silo);
+  const MissilesSection({
+    required this.silo,
+    required this.unitType,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AttackMissileLeftSection(silo),
+        MissileLeftSection(
+          silo: silo,
+          unitType: unitType,
+        ),
         const Spacer(),
-        AttackMissileRightSection(silo),
+        MissileRightSection(
+          silo: silo,
+          unitType: unitType,
+        ),
       ],
     );
   }
 }
 
-class AttackMissileLeftSection extends StatelessWidget {
+class MissileLeftSection extends StatelessWidget {
   final Silo silo;
+  final UnitType unitType;
 
-  const AttackMissileLeftSection(this.silo);
+  const MissileLeftSection({
+    required this.silo,
+    required this.unitType,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -111,22 +139,22 @@ class AttackMissileLeftSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ImageBlock(
-          path: MissileType.attack.sprite,
+          path: unitType.sprite,
           size: 50,
         ),
         const HBox(15),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Label(
-              text: 'ATTACK MISSILES',
+            Label(
+              text: unitType.toString().toUpperCase(),
               color: Palette.text,
               weight: FontWeight.bold,
             ),
-            const VBox(5),
-            CostIndicator(
-              game: silo.game,
-              cost: MissileType.attack.cost,
+            const VBox(15),
+            const ChipText(
+              label: 'AMOUNT',
+              text: '0',
             ),
           ],
         ),
@@ -135,16 +163,20 @@ class AttackMissileLeftSection extends StatelessWidget {
   }
 }
 
-class AttackMissileRightSection extends StatelessWidget {
+class MissileRightSection extends StatelessWidget {
   final Silo silo;
+  final UnitType unitType;
 
-  const AttackMissileRightSection(this.silo);
+  const MissileRightSection({
+    required this.silo,
+    required this.unitType,
+  });
 
   @override
   Widget build(BuildContext context) {
     return CreateUnitButton(
       game: silo.game,
-      unitType: MissileType.attack,
+      unitType: unitType,
     );
   }
 }
