@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/level_indicator.dart';
@@ -15,17 +16,7 @@ class ProducerBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      decoration: const BoxDecoration(
-        color: Palette.backgroundProducer,
-        border: Border(
-          bottom: BorderSide(
-            width: 0.5,
-            color: Palette.separator,
-          ),
-        ),
-      ),
+    return BuildingContainer(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
