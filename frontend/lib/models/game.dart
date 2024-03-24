@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/models/buildings/military_facility.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
@@ -25,7 +26,10 @@ class Game {
   List<Producer> get producers =>
       buildings.where((b) => b.isProducer).map((b) => b as Producer).toList();
 
-  Silo get silo => buildingsByType(Silo)[0] as Silo;
+  MissileSilo get silo => buildingsByType(MissileSilo)[0] as MissileSilo;
+
+  MilitaryFacility get militaryFacility =>
+      buildingsByType(MilitaryFacility)[0] as MilitaryFacility;
 
   List<T> buildingsByType<T extends Building>(Type type) =>
       buildings.where((b) => b.runtimeType == type).map((e) => e as T).toList();

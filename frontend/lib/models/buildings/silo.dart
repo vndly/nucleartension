@@ -1,9 +1,9 @@
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/types/building_type.dart';
 
-class Silo extends Building {
-  Silo({
+class MissileSilo extends Building {
+  MissileSilo({
     required super.game,
     required super.level,
-  }) : super(buildingType: BuildingType.silo);
+  }) : super(buildingType: BuildingType.missile_silo);
 }

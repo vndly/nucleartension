@@ -1,4 +1,5 @@
 import 'package:dafluta/dafluta.dart';
+import 'package:nucleartension/models/buildings/military_facility.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
@@ -47,7 +48,11 @@ class GameState extends BaseState {
         game: game,
         level: 0,
       ),
-      Silo(
+      MissileSilo(
+        game: game,
+        level: 0,
+      ),
+      MilitaryFacility(
         game: game,
         level: 0,
       ),

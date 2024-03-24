@@ -16,6 +16,27 @@ enum UnitType {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
     },
+  ),
+  military_infantry(
+    sprite: Assets.IMAGES_UNITS_INFANTRY1,
+    cost: {
+      ResourceType.energy: 20,
+      ResourceType.supplies: 20,
+    },
+  ),
+  military_vehicles(
+    sprite: Assets.IMAGES_UNITS_VEHICLE1,
+    cost: {
+      ResourceType.energy: 20,
+      ResourceType.supplies: 20,
+    },
+  ),
+  military_aircraft(
+    sprite: Assets.IMAGES_UNITS_AIRCRAFT1,
+    cost: {
+      ResourceType.energy: 20,
+      ResourceType.supplies: 20,
+    },
   );
 
   final String sprite;

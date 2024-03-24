@@ -1,6 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/buildings/silo.dart';
+import 'package:nucleartension/models/buildings/military_facility.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
@@ -10,10 +10,10 @@ import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
-class SiloBlock extends StatelessWidget {
-  final Silo silo;
+class MilitaryFacilityBlock extends StatelessWidget {
+  final MilitaryFacility militaryFacility;
 
-  const SiloBlock(this.silo);
+  const MilitaryFacilityBlock(this.militaryFacility);
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +23,25 @@ class SiloBlock extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SiloLeftSection(silo),
+              MilitaryFacilityLeftSection(militaryFacility),
               const Spacer(),
-              SiloRightSection(silo),
+              MilitaryFacilityRightSection(militaryFacility),
             ],
           ),
           const VBox(25),
-          MissilesSection(
-            silo: silo,
-            unitType: UnitType.missile_attack,
+          UnitSection(
+            militaryFacility: militaryFacility,
+            unitType: UnitType.military_infantry,
           ),
           const VBox(25),
-          MissilesSection(
-            silo: silo,
-            unitType: UnitType.missile_defense,
+          UnitSection(
+            militaryFacility: militaryFacility,
+            unitType: UnitType.military_vehicles,
+          ),
+          const VBox(25),
+          UnitSection(
+            militaryFacility: militaryFacility,
+            unitType: UnitType.military_aircraft,
           ),
         ],
       ),
@@ -44,10 +49,10 @@ class SiloBlock extends StatelessWidget {
   }
 }
 
-class SiloLeftSection extends StatelessWidget {
-  final Silo silo;
+class MilitaryFacilityLeftSection extends StatelessWidget {
+  final MilitaryFacility militaryFacility;
 
-  const SiloLeftSection(this.silo);
+  const MilitaryFacilityLeftSection(this.militaryFacility);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +61,7 @@ class SiloLeftSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ImageBlock(
-          path: silo.buildingType.sprite,
+          path: militaryFacility.buildingType.sprite,
           size: 70,
         ),
         const HBox(15),
@@ -64,18 +69,12 @@ class SiloLeftSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Label(
-              text: silo.buildingType.toString().toUpperCase(),
+              text: militaryFacility.buildingType.toString().toUpperCase(),
               color: Palette.text,
               weight: FontWeight.bold,
             ),
             const VBox(12),
-            LevelIndicator(silo),
-            const VBox(12),
-            const Label(
-              text: 'CAPACITY: 10/20',
-              color: Palette.text,
-              weight: FontWeight.bold,
-            ),
+            LevelIndicator(militaryFacility),
           ],
         ),
       ],
@@ -83,23 +82,23 @@ class SiloLeftSection extends StatelessWidget {
   }
 }
 
-class SiloRightSection extends StatelessWidget {
-  final Silo silo;
+class MilitaryFacilityRightSection extends StatelessWidget {
+  final MilitaryFacility militaryFacility;
 
-  const SiloRightSection(this.silo);
+  const MilitaryFacilityRightSection(this.militaryFacility);
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeBuildingButton(silo);
+    return UpgradeBuildingButton(militaryFacility);
   }
 }
 
-class MissilesSection extends StatelessWidget {
-  final Silo silo;
+class UnitSection extends StatelessWidget {
+  final MilitaryFacility militaryFacility;
   final UnitType unitType;
 
-  const MissilesSection({
-    required this.silo,
+  const UnitSection({
+    required this.militaryFacility,
     required this.unitType,
   });
 
@@ -109,12 +108,12 @@ class MissilesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MissileLeftSection(
-          silo: silo,
+          militaryFacility: militaryFacility,
           unitType: unitType,
         ),
         const Spacer(),
-        MissileRightSection(
-          silo: silo,
+        UnitRightSection(
+          militaryFacility: militaryFacility,
           unitType: unitType,
         ),
       ],
@@ -123,11 +122,11 @@ class MissilesSection extends StatelessWidget {
 }
 
 class MissileLeftSection extends StatelessWidget {
-  final Silo silo;
+  final MilitaryFacility militaryFacility;
   final UnitType unitType;
 
   const MissileLeftSection({
-    required this.silo,
+    required this.militaryFacility,
     required this.unitType,
   });
 
@@ -152,19 +151,19 @@ class MissileLeftSection extends StatelessWidget {
   }
 }
 
-class MissileRightSection extends StatelessWidget {
-  final Silo silo;
+class UnitRightSection extends StatelessWidget {
+  final MilitaryFacility militaryFacility;
   final UnitType unitType;
 
-  const MissileRightSection({
-    required this.silo,
+  const UnitRightSection({
+    required this.militaryFacility,
     required this.unitType,
   });
 
   @override
   Widget build(BuildContext context) {
     return CreateUnitButton(
-      game: silo.game,
+      game: militaryFacility.game,
       unitType: unitType,
     );
   }

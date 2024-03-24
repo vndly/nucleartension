@@ -62,7 +62,8 @@ class Building {
           game: game,
           level: level,
         );
-      case BuildingType.silo:
+      case BuildingType.missile_silo:
+      case BuildingType.military_facility:
         throw Exception();
     }
   }
