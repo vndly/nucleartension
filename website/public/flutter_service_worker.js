@@ -3,20 +3,23 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"main.dart.js": "3813405d5893c3e00da75b4d8eaf2e4e",
+const RESOURCES = {"main.dart.js": "1a777eba6df07aa4455dcd3ea0bb1f49",
 "assets/NOTICES": "473c51423fe80cc338192c076034c727",
 "assets/FontManifest.json": "38d088b85cbd1af87912c7c23d2f652a",
 "assets/assets/images/buildings/propaganda_station.png": "c44621ff3d3e7f3b9db26f2a743b17cf",
 "assets/assets/images/buildings/supply_center.png": "0d4d1feaba10acb564466e58f50c178a",
 "assets/assets/images/buildings/power_plant.png": "899ae16b81e452ec209a6bd00af74910",
+"assets/assets/images/buildings/silo.png": "39a7bb092f5247ce4c665b3a864d3235",
 "assets/assets/images/buildings/tech_lab.png": "1feb6660a2e586bff5a1ccaa698813e9",
 "assets/assets/images/other/upgrade.png": "3320fa1d357dd741fe3ac1993ade9648",
+"assets/assets/images/missiles/defense.png": "a6ca0edc1e705874d5acb6592835f9b0",
+"assets/assets/images/missiles/attack.png": "6be388b86d372ffc97d8ee2f5ed23cfe",
 "assets/assets/fonts/HellasCour-Regular.ttf": "0292d8c2f850c8e3fa7967092bdc9ed1",
 "assets/fonts/MaterialIcons-Regular.otf": "f717b121ade95fe54de2a4813cd26da2",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
-"assets/AssetManifest.bin": "6d864bc6e4da37c310697a64474c01ba",
-"assets/AssetManifest.json": "6ae50f45fe4b05374be8fcc7bb88d470",
-"assets/AssetManifest.bin.json": "3bcf14e782097d727bc5d4d897bfd99a",
+"assets/AssetManifest.bin": "b2275b2a835d580d830dcad88c0c1a65",
+"assets/AssetManifest.json": "078f0f3ccf1a3dcacd61c1989d64b987",
+"assets/AssetManifest.bin.json": "aab00e3f16215a910a22c90bc4df9595",
 "manifest.json": "c34eb726612a72eb29c4a2466dc489df",
 "canvaskit/canvaskit.wasm": "3d2a2d663e8c5111ac61a46367f751ac",
 "canvaskit/skwasm.js": "445e9e400085faead4493be2224d95aa",
@@ -32,8 +35,8 @@ const RESOURCES = {"main.dart.js": "3813405d5893c3e00da75b4d8eaf2e4e",
 "firebase-messaging-sw.js": "5b8b5435d89eea9d02ed9ea9565635c6",
 "favicon.png": "70a31eb877b5e97fdb9a12a5a469dc1a",
 "version.json": "0ff45af32d7b9fd732a03f7d2ed6a3af",
-"index.html": "a99bd6398bf6979c23092c9ea11eed96",
-"/": "a99bd6398bf6979c23092c9ea11eed96"};
+"index.html": "bd099b35e3fc3e1f203e5a71ec3d2d20",
+"/": "bd099b35e3fc3e1f203e5a71ec3d2d20"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

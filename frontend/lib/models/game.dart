@@ -60,7 +60,11 @@ class Game {
   bool canBuildUnit(UnitType unitType) =>
       resourceInventory.hasItems(unitType.cost);
 
-  void createUnit(UnitType unitType) {}
+  void createUnit(UnitType unitType) {
+    if (canBuildUnit(unitType)) {
+      resourceInventory.removeItems(unitType.cost);
+    }
+  }
 
   // ============================= UPDATE =================================== \\
 
