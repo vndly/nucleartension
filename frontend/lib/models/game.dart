@@ -5,6 +5,7 @@ import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/types/missile_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
 class Game {
@@ -54,6 +55,13 @@ class Game {
 
   num get defconProductionBoost =>
       pow(Constants.DEFCON_PRODUCTION_RATE, defconStep - 1);
+
+  // ============================== UNITS =================================== \\
+
+  bool canBuildUnit(MissileType unitType) =>
+      resourceInventory.hasItems(unitType.cost);
+
+  void createUnit(MissileType unitType) {}
 
   // ============================= UPDATE =================================== \\
 

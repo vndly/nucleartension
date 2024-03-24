@@ -4,6 +4,7 @@ import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/types/missile_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
+import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
@@ -91,6 +92,8 @@ class AttackMissilesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AttackMissileLeftSection(silo),
+        const Spacer(),
+        AttackMissileRightSection(silo),
       ],
     );
   }
@@ -128,6 +131,20 @@ class AttackMissileLeftSection extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class AttackMissileRightSection extends StatelessWidget {
+  final Silo silo;
+
+  const AttackMissileRightSection(this.silo);
+
+  @override
+  Widget build(BuildContext context) {
+    return CreateUnitButton(
+      game: silo.game,
+      unitType: MissileType.attack,
     );
   }
 }
