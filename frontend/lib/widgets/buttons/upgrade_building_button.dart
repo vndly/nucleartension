@@ -28,12 +28,12 @@ class UpgradeBuildingButton extends StatelessWidget {
                 textColor: building.game.resourceInventory.hasItem(resource)
                     ? Palette.text
                     : Palette.error,
-                textSize: 18,
-                iconSize: 18,
+                textSize: 14,
+                iconSize: 14,
               ),
           ],
         ),
-        const HBox(5),
+        const HBox(10),
         SymbolButton.upgrade(
           size: 40,
           onTap: building.canUpgrade ? building.upgrade : null,

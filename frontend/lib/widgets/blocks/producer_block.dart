@@ -50,7 +50,7 @@ class LeftSection extends StatelessWidget {
       children: [
         ImageBlock(
           path: producer.buildingType.sprite,
-          size: 80,
+          size: 70,
         ),
         const HBox(15),
         Column(
@@ -60,7 +60,6 @@ class LeftSection extends StatelessWidget {
               text: producer.buildingType.toString().toUpperCase(),
               color: Palette.text,
               weight: FontWeight.bold,
-              size: 16,
             ),
             const VBox(10),
             Row(
@@ -68,7 +67,7 @@ class LeftSection extends StatelessWidget {
               children: [
                 Icon(
                   producer.resourceType.icon,
-                  size: 16,
+                  size: 14,
                   color: Palette.icon,
                 ),
                 const HBox(5),
@@ -76,7 +75,6 @@ class LeftSection extends StatelessWidget {
                   text: '${Formatter.production(producer.production)}/s',
                   color:
                       (producer.production == 0) ? Palette.error : Palette.text,
-                  size: 16,
                 ),
               ],
             ),
@@ -104,7 +102,6 @@ class RightSection extends StatelessWidget {
               text: 'LEVEL',
               color: Palette.text,
               weight: FontWeight.bold,
-              size: 16,
             ),
             const HBox(10),
             Container(
@@ -117,15 +114,14 @@ class RightSection extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 2,
-                    bottom: 4,
-                    left: 5,
-                    right: 5,
+                    bottom: 3,
+                    left: 6,
+                    right: 6,
                   ),
                   child: Label(
                     text: producer.level.toString(),
                     color: Palette.text,
                     align: TextAlign.center,
-                    size: 14,
                   ),
                 ),
               ),
