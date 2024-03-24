@@ -3,35 +3,35 @@ import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 
 enum UnitType {
-  missile_attack(
-    sprite: Assets.IMAGES_MISSILES_ATTACK,
-    cost: {
-      ResourceType.energy: 60,
-      ResourceType.supplies: 60,
-    },
-  ),
-  missile_defense(
+  defense(
     sprite: Assets.IMAGES_MISSILES_DEFENSE,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
     },
   ),
-  military_infantry(
+  attack(
+    sprite: Assets.IMAGES_MISSILES_ATTACK,
+    cost: {
+      ResourceType.energy: 60,
+      ResourceType.supplies: 60,
+    },
+  ),
+  infantry(
     sprite: Assets.IMAGES_UNITS_INFANTRY,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
     },
   ),
-  military_vehicles(
+  vehicles(
     sprite: Assets.IMAGES_UNITS_VEHICLE,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
     },
   ),
-  military_aircraft(
+  aircraft(
     sprite: Assets.IMAGES_UNITS_AIRCRAFT,
     cost: {
       ResourceType.energy: 20,

@@ -31,17 +31,17 @@ class MilitaryFacilityBlock extends StatelessWidget {
           const VBox(25),
           UnitSection(
             militaryFacility: militaryFacility,
-            unitType: UnitType.military_infantry,
+            unitType: UnitType.infantry,
           ),
           const VBox(25),
           UnitSection(
             militaryFacility: militaryFacility,
-            unitType: UnitType.military_vehicles,
+            unitType: UnitType.vehicles,
           ),
           const VBox(25),
           UnitSection(
             militaryFacility: militaryFacility,
-            unitType: UnitType.military_aircraft,
+            unitType: UnitType.aircraft,
           ),
         ],
       ),
