@@ -1,6 +1,12 @@
+import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/widgets/blocks/header_block.dart';
+import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
+import 'package:nucleartension/widgets/images/image_block.dart';
+import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class MilitaryView extends StatelessWidget {
@@ -10,11 +16,88 @@ class MilitaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Label(
-        text: 'MILITARY',
-        color: Palette.text,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HeaderBlock(state),
+          SiloBlock(state.game.silo),
+        ],
       ),
     );
+  }
+}
+
+class SiloBlock extends StatelessWidget {
+  final Silo silo;
+
+  const SiloBlock(this.silo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(15),
+      decoration: const BoxDecoration(
+        color: Palette.backgroundProducer,
+        border: Border(
+          bottom: BorderSide(
+            width: 0.5,
+            color: Palette.separator,
+          ),
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          LeftSection(silo),
+          const Spacer(),
+          RightSection(silo),
+        ],
+      ),
+    );
+  }
+}
+
+class LeftSection extends StatelessWidget {
+  final Silo silo;
+
+  const LeftSection(this.silo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ImageBlock(
+          path: silo.buildingType.sprite,
+          size: 70,
+        ),
+        const HBox(15),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Label(
+              text: silo.buildingType.toString().toUpperCase(),
+              color: Palette.text,
+              weight: FontWeight.bold,
+            ),
+            const VBox(10),
+            LevelIndicator(silo),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class RightSection extends StatelessWidget {
+  final Silo silo;
+
+  const RightSection(this.silo);
+
+  @override
+  Widget build(BuildContext context) {
+    return UpgradeBuildingButton(silo);
   }
 }

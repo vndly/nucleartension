@@ -32,7 +32,7 @@ enum BuildingType {
     },
   ),
   silo(
-    sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
+    sprite: Assets.IMAGES_BUILDINGS_SILO,
     initialCost: {
       ResourceType.energy: 200,
       ResourceType.supplies: 200,

@@ -5,6 +5,7 @@ import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
+import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class ProducerBlock extends StatelessWidget {
@@ -103,49 +104,6 @@ class ProductionIndicator extends StatelessWidget {
           text: '${Formatter.production(producer.production)}/s',
           color: (producer.production == 0) ? Palette.error : Palette.text,
           size: 15,
-        ),
-      ],
-    );
-  }
-}
-
-class LevelIndicator extends StatelessWidget {
-  final Producer producer;
-
-  const LevelIndicator(this.producer);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const Label(
-          text: 'LEVEL',
-          color: Palette.text,
-          weight: FontWeight.bold,
-        ),
-        const HBox(10),
-        Container(
-          decoration: const BoxDecoration(
-            color: Palette.chip,
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            shape: BoxShape.rectangle,
-          ),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 1,
-                bottom: 2,
-                left: 6,
-                right: 6,
-              ),
-              child: Label(
-                text: producer.level.toString(),
-                color: Palette.text,
-                align: TextAlign.center,
-              ),
-            ),
-          ),
         ),
       ],
     );
