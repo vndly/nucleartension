@@ -4,12 +4,14 @@ import 'package:nucleartension/models/buildings/producers/propaganda_station.dar
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/game.dart';
+import 'package:nucleartension/models/tasks/upgrade_building_task.dart';
 import 'package:nucleartension/types/building_type.dart';
 
 class Building {
   final Game game;
   final BuildingType buildingType;
   int level;
+  UpgradeBuildingTask? upgradeTask;
 
   Building({
     required this.game,
@@ -19,16 +21,31 @@ class Building {
 
   ResourceMap get upgradeCost => buildingType.cost(level + 1);
 
-  void update(double dt) {}
-
   bool get isProducer => false;
 
   bool get canUpgrade => game.resourceInventory.hasItems(upgradeCost);
 
-  void upgrade() {
-    if (canUpgrade) {
-      game.resourceInventory.removeItems(upgradeCost);
+  void update(double dt) {
+    if ((upgradeTask != null) && upgradeTask!.update(dt)) {
       level++;
+      upgradeTask = null;
+    }
+  }
+
+  void upgrade() {
+    if ((upgradeTask == null) && canUpgrade) {
+      game.resourceInventory.removeItems(upgradeCost);
+      upgradeTask = UpgradeBuildingTask(
+        building: this,
+        cost: upgradeCost,
+      );
+    }
+  }
+
+  void cancelUpgrade() {
+    if (upgradeTask != null) {
+      game.resourceInventory.addItems(upgradeCost);
+      upgradeTask = null;
     }
   }
 
