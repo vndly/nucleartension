@@ -17,7 +17,7 @@ class _GameLoopState extends State<GameLoop>
   final DateTime _initialTime = DateTime.now();
   double _previous = 0;
 
-  static const int CLOCK_RATE = 1;
+  //static const int CLOCK_RATE = 1;
 
   double get _currentTime =>
       DateTime.now().difference(_initialTime).inMilliseconds / 1000.0;
@@ -46,10 +46,10 @@ class _GameLoopState extends State<GameLoop>
         final double current = _currentTime;
         final double dt = current - _previous;
 
-        if (dt >= CLOCK_RATE) {
-          _previous = current;
-          widget.state.update(dt);
-        }
+        //if (dt >= CLOCK_RATE) {
+        _previous = current;
+        widget.state.update(dt);
+        //}
 
         return GameContent(widget.state);
       },

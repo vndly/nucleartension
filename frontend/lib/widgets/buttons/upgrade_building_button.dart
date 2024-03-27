@@ -47,7 +47,7 @@ class UpgradeBuildingButtonProgress extends StatelessWidget {
           Container(
             width: 70,
             height: 70,
-            color: Palette.success,
+            color: Palette.buttonDisabled,
             child: const Center(
               child: Icon(
                 Icons.arrow_upward,
