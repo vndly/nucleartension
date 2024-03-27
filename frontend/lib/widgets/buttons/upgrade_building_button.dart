@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/symbol_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 
@@ -19,10 +20,40 @@ class UpgradeBuildingButton extends StatelessWidget {
           cost: building.upgradeCost,
         ),
         const HBox(10),
-        SymbolButton.upgrade(
-          size: 70,
-          onTap: building.canUpgrade ? building.upgrade : null,
-        ),
+        if (building.isUpgrading)
+          SizedBox(
+            width: 70,
+            height: 70,
+            child: Stack(
+              children: [
+                Container(
+                  width: 70,
+                  height: 70,
+                  color: Palette.success,
+                  child: const Center(
+                    child: Icon(
+                      Icons.arrow_upward,
+                      color: Palette.icon,
+                      size: 70 * 2 / 3,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    width: 70,
+                    height: 70 - (70 * building.upgradeProgress),
+                    color: Palette.buttonProgress,
+                  ),
+                )
+              ],
+            ),
+          )
+        else
+          SymbolButton.upgrade(
+            size: 70,
+            onTap: building.canUpgrade ? building.upgrade : null,
+          ),
       ],
     );
   }

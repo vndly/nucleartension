@@ -13,7 +13,7 @@ class Task {
     remainingTime = totalTime;
   }
 
-  num get progress => 1 - (remainingTime / totalTime);
+  double get progress => 1 - (remainingTime / totalTime);
 
   bool get isCompleted => remainingTime <= 0;
 

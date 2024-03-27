@@ -13,7 +13,7 @@ extension ResourceMapExtension on ResourceMap {
       sum += item.value;
     }
 
-    return sum / 100;
+    return sum / 10;
   }
 
   ResourceMap multiply(int factor) {

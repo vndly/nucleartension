@@ -23,7 +23,12 @@ class Building {
 
   bool get isProducer => false;
 
-  bool get canUpgrade => game.resourceInventory.hasItems(upgradeCost);
+  bool get isUpgrading => upgradeTask != null;
+
+  double get upgradeProgress => upgradeTask?.progress ?? 0;
+
+  bool get canUpgrade =>
+      !isUpgrading && game.resourceInventory.hasItems(upgradeCost);
 
   void update(double dt) {
     if ((upgradeTask != null) && upgradeTask!.update(dt)) {
@@ -33,7 +38,7 @@ class Building {
   }
 
   void upgrade() {
-    if ((upgradeTask == null) && canUpgrade) {
+    if (canUpgrade) {
       game.resourceInventory.removeItems(upgradeCost);
       upgradeTask = UpgradeBuildingTask(
         building: this,

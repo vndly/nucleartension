@@ -25,6 +25,7 @@ class Palette {
 
   static const Color buttonEnabled = Colors.green;
   static const Color buttonDisabled = Color(0xffa0a0a0);
+  static const Color buttonProgress = Color(0x88000000);
 
   static const Color chip = Color(0xff808080);
 
