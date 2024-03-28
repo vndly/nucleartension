@@ -50,7 +50,7 @@ class UpgradeBuildingButtonProgress extends StatelessWidget {
             color: Palette.buttonDisabled,
             child: const Center(
               child: Icon(
-                Icons.arrow_upward,
+                Icons.watch_later_outlined,
                 color: Palette.icon,
                 size: 70 * 2 / 3,
               ),
