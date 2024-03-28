@@ -28,21 +28,23 @@ class MilitaryFacilityBlock extends StatelessWidget {
               MilitaryFacilityRightSection(militaryFacility),
             ],
           ),
-          const VBox(25),
-          UnitSection(
-            militaryFacility: militaryFacility,
-            unitType: UnitType.infantry,
-          ),
-          const VBox(25),
-          UnitSection(
-            militaryFacility: militaryFacility,
-            unitType: UnitType.vehicles,
-          ),
-          const VBox(25),
-          UnitSection(
-            militaryFacility: militaryFacility,
-            unitType: UnitType.aircraft,
-          ),
+          if (militaryFacility.level > 0) ...[
+            const VBox(25),
+            UnitSection(
+              militaryFacility: militaryFacility,
+              unitType: UnitType.infantry,
+            ),
+            const VBox(25),
+            UnitSection(
+              militaryFacility: militaryFacility,
+              unitType: UnitType.vehicles,
+            ),
+            const VBox(25),
+            UnitSection(
+              militaryFacility: militaryFacility,
+              unitType: UnitType.aircraft,
+            ),
+          ],
         ],
       ),
     );

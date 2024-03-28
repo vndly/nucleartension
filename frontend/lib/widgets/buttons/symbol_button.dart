@@ -51,6 +51,17 @@ class SymbolButton extends StatelessWidget {
         onTap: onTap,
       );
 
+  factory SymbolButton.build({
+    required double size,
+    required VoidCallback? onTap,
+  }) =>
+      SymbolButton(
+        icon: Icons.construction,
+        color: Palette.success,
+        size: size,
+        onTap: onTap,
+      );
+
   factory SymbolButton.upgrade({
     required double size,
     required VoidCallback? onTap,
@@ -64,7 +75,7 @@ class SymbolButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double dimensions = size * 2 / 3;
+    final double dimensions = size * 0.5;
     final Widget image = (icon != null)
         ? Icon(
             icon,

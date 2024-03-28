@@ -28,16 +28,18 @@ class MissileSiloBlock extends StatelessWidget {
               SiloRightSection(missileSilo),
             ],
           ),
-          const VBox(25),
-          MissilesSection(
-            missileSilo: missileSilo,
-            unitType: UnitType.defense,
-          ),
-          const VBox(25),
-          MissilesSection(
-            missileSilo: missileSilo,
-            unitType: UnitType.attack,
-          ),
+          if (missileSilo.level > 0) ...[
+            const VBox(25),
+            MissilesSection(
+              missileSilo: missileSilo,
+              unitType: UnitType.defense,
+            ),
+            const VBox(25),
+            MissilesSection(
+              missileSilo: missileSilo,
+              unitType: UnitType.attack,
+            ),
+          ],
         ],
       ),
     );

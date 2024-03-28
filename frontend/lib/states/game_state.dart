@@ -16,8 +16,8 @@ class GameState extends BaseState {
     game = Game(
       resourceInventory: ResourceInventory.create(
         resources: {
-          ResourceType.energy: 100,
-          ResourceType.supplies: 100,
+          ResourceType.energy: 200,
+          ResourceType.supplies: 200,
           ResourceType.population: 1000000,
           ResourceType.technology: 0,
         },

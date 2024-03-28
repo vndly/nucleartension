@@ -23,12 +23,30 @@ class UpgradeBuildingButton extends StatelessWidget {
         if (building.isUpgrading)
           UpgradeBuildingButtonProgress(building)
         else
-          SymbolButton.upgrade(
-            size: 70,
-            onTap: building.canUpgrade ? building.upgrade : null,
-          ),
+          UpgradeOrBuildButton(building),
       ],
     );
+  }
+}
+
+class UpgradeOrBuildButton extends StatelessWidget {
+  final Building building;
+
+  const UpgradeOrBuildButton(this.building);
+
+  @override
+  Widget build(BuildContext context) {
+    if (building.level == 0) {
+      return SymbolButton.build(
+        size: 70,
+        onTap: building.canUpgrade ? building.upgrade : null,
+      );
+    } else {
+      return SymbolButton.upgrade(
+        size: 70,
+        onTap: building.canUpgrade ? building.upgrade : null,
+      );
+    }
   }
 }
 
@@ -52,7 +70,7 @@ class UpgradeBuildingButtonProgress extends StatelessWidget {
               child: Icon(
                 Icons.watch_later_outlined,
                 color: Palette.icon,
-                size: 70 * 2 / 3,
+                size: 35,
               ),
             ),
           ),
