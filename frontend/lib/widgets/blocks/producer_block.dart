@@ -40,8 +40,8 @@ class LeftSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ImageBlock(
-          path: producer.buildingType.sprite,
+        BuildingImageBlock(
+          building: producer,
           size: 70,
         ),
         const HBox(15),

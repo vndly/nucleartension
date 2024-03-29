@@ -57,8 +57,8 @@ class SiloLeftSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ImageBlock(
-          path: missileSilo.buildingType.sprite,
+        BuildingImageBlock(
+          building: missileSilo,
           size: 70,
         ),
         const HBox(15),
@@ -139,8 +139,8 @@ class MissileLeftSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ImageBlock(
-          path: unitType.sprite,
+        UnitImageBlock(
+          unitType: unitType,
           size: 50,
         ),
         const HBox(15),
