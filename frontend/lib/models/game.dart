@@ -2,7 +2,11 @@ import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/military_facility.dart';
+import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
+import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
+import 'package:nucleartension/models/buildings/producers/supply_center.dart';
+import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -23,8 +27,13 @@ class Game {
 
   // ============================ BUILDINGS ================================= \\
 
-  List<Producer> get producers =>
-      buildings.where((b) => b.isProducer).map((b) => b as Producer).toList();
+  PowerPlant get powerPlant => getBuilding(PowerPlant);
+
+  SupplyCenter get supplyCenter => getBuilding(SupplyCenter);
+
+  PropagandaStation get propagandaStation => getBuilding(PropagandaStation);
+
+  TechLab get techLab => getBuilding(TechLab);
 
   MissileSilo get missileSilo => getBuilding(MissileSilo);
 
@@ -32,9 +41,6 @@ class Game {
 
   T getBuilding<T extends Building>(Type type) =>
       buildings.where((b) => b.runtimeType == type).first as T;
-
-  List<T> buildingsByType<T extends Building>(Type type) =>
-      buildings.where((b) => b.runtimeType == type).map((e) => e as T).toList();
 
   double productionOf(ResourceType resourceType) {
     double total = 0;
