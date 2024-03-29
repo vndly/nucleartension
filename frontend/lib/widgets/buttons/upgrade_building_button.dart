@@ -71,7 +71,7 @@ class UpgradeBuildingButtonProgress extends StatelessWidget {
             child: Center(
               child: Label(
                 text: building.upgradeTimeLeft.formatted,
-                size: 16,
+                size: building.upgradeTimeLeft.hasHours ? 12 : 16,
                 weight: FontWeight.bold,
               ),
             ),

@@ -1,9 +1,11 @@
 import 'package:intl/intl.dart';
 
-extension DurationExtension on Duration {
-  String get formatted {
-    final NumberFormat formatter = NumberFormat('00');
+typedef TimeDuration = (int, int, int);
 
+extension DurationExtension on Duration {
+  bool get hasHours => timeDuration.$1 > 0;
+
+  TimeDuration get timeDuration {
     int totalTime = inSeconds;
     final int hours = totalTime ~/ 3600;
 
@@ -13,6 +15,17 @@ extension DurationExtension on Duration {
     totalTime -= minutes * 60;
     final int seconds = totalTime;
 
-    return '${formatter.format(minutes)}:${formatter.format(seconds)}';
+    return (hours, minutes, seconds);
+  }
+
+  String get formatted {
+    final NumberFormat formatter = NumberFormat('00');
+    final TimeDuration duration = timeDuration;
+
+    if (hasHours) {
+      return '${formatter.format(duration.$1)}:${formatter.format(duration.$2)}:${formatter.format(duration.$3)}';
+    } else {
+      return '${formatter.format(duration.$2)}:${formatter.format(duration.$3)}';
+    }
   }
 }
