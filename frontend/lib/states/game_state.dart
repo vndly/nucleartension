@@ -50,11 +50,11 @@ class GameState extends BaseState {
       ),
       MissileSilo(
         game: game,
-        level: 0,
+        level: 1,
       ),
       MilitaryFacility(
         game: game,
-        level: 0,
+        level: 1,
       ),
     ]);
   }

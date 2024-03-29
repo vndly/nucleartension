@@ -69,12 +69,15 @@ class SiloLeftSection extends StatelessWidget {
               color: Palette.text,
               weight: FontWeight.bold,
             ),
-            const VBox(12),
-            const Label(
-              text: 'CAPACITY: 10/20',
-              color: Palette.text,
-              weight: FontWeight.bold,
-            ),
+            if (missileSilo.level > 0) ...[
+              const VBox(12),
+              Label(
+                text:
+                    'CAPACITY: ${missileSilo.currentCapacity}/${missileSilo.maxCapacity}',
+                color: Palette.text,
+                weight: FontWeight.bold,
+              ),
+            ],
           ],
         ),
       ],
