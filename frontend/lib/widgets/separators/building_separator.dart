@@ -8,7 +8,7 @@ class BuildingSeparator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 1,
-      color: Palette.separator,
+      color: Palette.borderSeparator,
     );
   }
 }

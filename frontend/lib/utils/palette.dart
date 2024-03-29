@@ -21,7 +21,8 @@ class Palette {
   static const Color resourcePopulation = Colors.red;
   static const Color resourceTechnology = Colors.lightBlue;
 
-  static const Color separator = Color(0xff505050);
+  static const Color borderSeparator = Color(0xff505050);
+  static const Color borderImage = Color(0xff404040);
 
   static const Color buttonEnabled = Colors.green;
   static const Color buttonDisabled = Color(0xffa0a0a0);
