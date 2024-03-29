@@ -12,15 +12,7 @@ class BuildingContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(15),
-      decoration: const BoxDecoration(
-        color: Palette.backgroundBuilding,
-        border: Border(
-          bottom: BorderSide(
-            width: 0.5,
-            color: Palette.separator,
-          ),
-        ),
-      ),
+      color: Palette.backgroundBuilding,
       child: child,
     );
   }
