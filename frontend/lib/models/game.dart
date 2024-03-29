@@ -26,10 +26,12 @@ class Game {
   List<Producer> get producers =>
       buildings.where((b) => b.isProducer).map((b) => b as Producer).toList();
 
-  MissileSilo get missileSilo => buildingsByType(MissileSilo)[0] as MissileSilo;
+  MissileSilo get missileSilo => getBuilding(MissileSilo);
 
-  MilitaryFacility get militaryFacility =>
-      buildingsByType(MilitaryFacility)[0] as MilitaryFacility;
+  MilitaryFacility get militaryFacility => getBuilding(MilitaryFacility);
+
+  T getBuilding<T extends Building>(Type type) =>
+      buildings.where((b) => b.runtimeType == type).first as T;
 
   List<T> buildingsByType<T extends Building>(Type type) =>
       buildings.where((b) => b.runtimeType == type).map((e) => e as T).toList();
