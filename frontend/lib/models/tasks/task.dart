@@ -15,6 +15,8 @@ class Task {
 
   double get progress => 1 - (remainingTime / totalTime);
 
+  Duration get timeLeft => Duration(seconds: remainingTime.ceil());
+
   bool get isCompleted => remainingTime <= 0;
 
   bool update(double dt) {

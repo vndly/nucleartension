@@ -12,13 +12,4 @@ class Formatter {
 
     return formatter.format(amount);
   }
-
-  static String time(num amount) {
-    final NumberFormat formatter = NumberFormat('00');
-
-    final int minutes = amount ~/ 60;
-    final int seconds = amount.toInt() - minutes;
-
-    return '${formatter.format(minutes)}:${formatter.format(seconds)}';
-  }
 }

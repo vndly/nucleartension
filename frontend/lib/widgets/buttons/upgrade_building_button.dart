@@ -1,7 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/extensions/duration_extension.dart';
 import 'package:nucleartension/models/buildings/building.dart';
-import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/symbol_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
@@ -70,7 +70,7 @@ class UpgradeBuildingButtonProgress extends StatelessWidget {
             color: Palette.buttonDisabled,
             child: Center(
               child: Label(
-                text: Formatter.time(building.upgradeRemainingTime),
+                text: building.upgradeTimeLeft.formatted,
                 size: 16,
                 weight: FontWeight.bold,
               ),

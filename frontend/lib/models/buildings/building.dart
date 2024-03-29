@@ -27,8 +27,7 @@ class Building {
 
   double get upgradeProgress => upgradeTask?.progress ?? 0;
 
-  num get upgradeRemainingTime =>
-      (upgradeTask != null) ? upgradeTask!.remainingTime + 1 : 0;
+  Duration get upgradeTimeLeft => upgradeTask?.timeLeft ?? Duration.zero;
 
   bool get canUpgrade =>
       !isUpgrading && game.resourceInventory.hasItems(upgradeCost);
