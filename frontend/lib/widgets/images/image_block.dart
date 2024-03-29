@@ -43,8 +43,8 @@ class BuildingImageBlock extends StatelessWidget {
           padding: const EdgeInsets.only(
             top: 3,
             bottom: 1,
-            left: 4,
-            right: 2,
+            left: 7,
+            right: 4,
           ),
           child: Label(
             text: building.level.toString(),
