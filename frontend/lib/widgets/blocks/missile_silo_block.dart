@@ -7,7 +7,6 @@ import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
-import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class MissileSiloBlock extends StatelessWidget {
@@ -70,8 +69,6 @@ class SiloLeftSection extends StatelessWidget {
               color: Palette.text,
               weight: FontWeight.bold,
             ),
-            const VBox(12),
-            LevelIndicator(missileSilo),
             const VBox(12),
             const Label(
               text: 'CAPACITY: 10/20',

@@ -6,7 +6,6 @@ import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
-import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class ProducerBlock extends StatelessWidget {
@@ -53,10 +52,8 @@ class LeftSection extends StatelessWidget {
               color: Palette.text,
               weight: FontWeight.bold,
             ),
-            const VBox(10),
+            const VBox(12),
             ProductionIndicator(producer),
-            const VBox(10),
-            LevelIndicator(producer),
           ],
         ),
       ],

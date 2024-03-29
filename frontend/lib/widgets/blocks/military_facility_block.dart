@@ -7,7 +7,6 @@ import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
-import 'package:nucleartension/widgets/indicators/level_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class MilitaryFacilityBlock extends StatelessWidget {
@@ -75,8 +74,6 @@ class MilitaryFacilityLeftSection extends StatelessWidget {
               color: Palette.text,
               weight: FontWeight.bold,
             ),
-            const VBox(12),
-            LevelIndicator(militaryFacility),
           ],
         ),
       ],
