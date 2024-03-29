@@ -1,9 +1,11 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/symbol_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
+import 'package:nucleartension/widgets/labels/label.dart';
 
 class UpgradeBuildingButton extends StatelessWidget {
   final Building building;
@@ -66,11 +68,11 @@ class UpgradeBuildingButtonProgress extends StatelessWidget {
             width: 70,
             height: 70,
             color: Palette.buttonDisabled,
-            child: const Center(
-              child: Icon(
-                Icons.watch_later_outlined,
-                color: Palette.icon,
-                size: 35,
+            child: Center(
+              child: Label(
+                text: Formatter.time(building.upgradeRemainingTime),
+                size: 16,
+                weight: FontWeight.bold,
               ),
             ),
           ),
