@@ -18,28 +18,6 @@ class SymbolButton extends StatelessWidget {
     this.sprite,
   });
 
-  factory SymbolButton.add({
-    required double size,
-    required VoidCallback? onTap,
-  }) =>
-      SymbolButton(
-        icon: Icons.add,
-        color: Palette.success,
-        size: size,
-        onTap: onTap,
-      );
-
-  factory SymbolButton.remove({
-    required double size,
-    required VoidCallback? onTap,
-  }) =>
-      SymbolButton(
-        icon: Icons.remove,
-        color: Palette.error,
-        size: size,
-        onTap: onTap,
-      );
-
   factory SymbolButton.create({
     required double size,
     required VoidCallback? onTap,
