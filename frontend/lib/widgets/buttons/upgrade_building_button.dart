@@ -6,6 +6,7 @@ import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/symbol_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
+import 'package:nucleartension/widgets/overlays/progress_overlay.dart';
 
 class UpgradeBuildingButton extends StatelessWidget {
   final Building building;
@@ -59,32 +60,18 @@ class UpgradeBuildingButtonProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 70,
-      height: 70,
-      child: Stack(
-        children: [
-          Container(
-            width: 70,
-            height: 70,
-            color: Palette.buttonDisabled,
-            child: Center(
-              child: Label(
-                text: building.upgradeTimeLeft.formatted,
-                size: building.upgradeTimeLeft.hasHours ? 12 : 16,
-                weight: FontWeight.bold,
-              ),
-            ),
+    return ProgressOverlay(
+      size: 70,
+      progress: building.upgradeProgress,
+      child: Container(
+        color: Palette.buttonDisabled,
+        child: Center(
+          child: Label(
+            text: building.upgradeTimeLeft.formatted,
+            size: building.upgradeTimeLeft.hasHours ? 12 : 16,
+            weight: FontWeight.bold,
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              width: 70,
-              height: 70 - (70 * building.upgradeProgress),
-              color: Palette.buttonProgress,
-            ),
-          )
-        ],
+        ),
       ),
     );
   }
