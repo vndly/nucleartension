@@ -120,13 +120,14 @@ class ResourceLabel extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        resourceType.icon(14),
+        resourceType.icon(13),
         const HBox(10),
         LabeledText(
           label: '${resourceType.name.toUpperCase()}:',
           text: '${Formatter.resource(amount)} ($production)',
           labelColor: Palette.textLight,
           textColor: Palette.textLight,
+          size: 13,
         ),
       ],
     );
@@ -154,7 +155,7 @@ class MilitaryLabel extends StatelessWidget {
         Icon(
           icon,
           color: color,
-          size: 14,
+          size: 13,
         ),
         const HBox(10),
         LabeledText(
@@ -162,6 +163,7 @@ class MilitaryLabel extends StatelessWidget {
           text: value,
           labelColor: Palette.textLight,
           textColor: Palette.textLight,
+          size: 13,
         ),
       ],
     );

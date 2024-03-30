@@ -6,12 +6,14 @@ import 'package:nucleartension/widgets/labels/label.dart';
 class LabeledText extends StatelessWidget {
   final String label;
   final String text;
+  final double size;
   final Color labelColor;
   final Color textColor;
 
   const LabeledText({
     required this.label,
     required this.text,
+    required this.size,
     this.labelColor = Palette.textLight,
     this.textColor = Palette.textLight,
   });
@@ -25,11 +27,13 @@ class LabeledText extends StatelessWidget {
           text: label,
           color: labelColor,
           weight: FontWeight.bold,
+          size: size,
         ),
         const HBox(5),
         Label(
           text: text,
           color: textColor,
+          size: size,
         ),
       ],
     );
