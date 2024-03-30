@@ -34,25 +34,26 @@ class BuildingImageBlock extends StatelessWidget {
             shape: BoxShape.rectangle,
           ),
         ),
-        Container(
-          color: Palette.borderImage,
-          margin: EdgeInsets.only(
-            bottom: size / 35,
-            right: size / 35,
+        if (building.level > 0)
+          Container(
+            color: Palette.borderImage,
+            margin: EdgeInsets.only(
+              bottom: size / 35,
+              right: size / 35,
+            ),
+            padding: const EdgeInsets.only(
+              top: 3,
+              bottom: 1,
+              left: 7,
+              right: 4,
+            ),
+            child: Label(
+              text: building.level.toString(),
+              size: 16,
+              color: Palette.textDark,
+              weight: FontWeight.bold,
+            ),
           ),
-          padding: const EdgeInsets.only(
-            top: 3,
-            bottom: 1,
-            left: 7,
-            right: 4,
-          ),
-          child: Label(
-            text: building.level.toString(),
-            size: 16,
-            color: Palette.textDark,
-            weight: FontWeight.bold,
-          ),
-        ),
       ],
     );
   }
