@@ -41,6 +41,8 @@ class Player {
   T getBuilding<T extends Building>(Type type) =>
       buildings.where((b) => b.runtimeType == type).first as T;
 
+  // =========================== PRODUCTION ================================= \\
+
   double productionOf(ResourceType resourceType) {
     double total = 0;
 
@@ -53,18 +55,16 @@ class Player {
     return total;
   }
 
-  // =========================== PRODUCTION ================================= \\
-
   num get defconProductionBoost =>
       pow(Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
 
   // ============================== UNITS =================================== \\
 
-  bool canBuildUnit(UnitType unitType) =>
+  bool canCreateUnit(UnitType unitType) =>
       resourceInventory.hasItems(unitType.cost);
 
   void createUnit(UnitType unitType) {
-    if (canBuildUnit(unitType)) {
+    if (canCreateUnit(unitType)) {
       resourceInventory.removeItems(unitType.cost);
     }
   }

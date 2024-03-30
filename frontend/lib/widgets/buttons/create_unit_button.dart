@@ -26,7 +26,7 @@ class CreateUnitButton extends StatelessWidget {
         const HBox(10),
         SymbolButton.create(
           size: 50,
-          onTap: player.canBuildUnit(unitType)
+          onTap: player.canCreateUnit(unitType)
               ? () => player.createUnit(unitType)
               : null,
         ),
