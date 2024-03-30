@@ -1,5 +1,6 @@
 import 'package:nucleartension/extensions/resource_map_extension.dart';
 import 'package:nucleartension/types/resource_type.dart';
+import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 
 enum BuildingType {
@@ -55,6 +56,27 @@ enum BuildingType {
   });
 
   ResourceMap cost(int level) => initialCost.multiply(level);
+
+  List<UnitType> get units {
+    switch (this) {
+      case BuildingType.power_plant:
+      case BuildingType.supply_center:
+      case BuildingType.propaganda_station:
+      case BuildingType.tech_lab:
+        return [];
+      case BuildingType.missile_silo:
+        return [
+          UnitType.defense,
+          UnitType.attack,
+        ];
+      case BuildingType.military_facility:
+        return [
+          UnitType.infantry,
+          UnitType.vehicle,
+          UnitType.aircraft,
+        ];
+    }
+  }
 
   @override
   String toString() => name.replaceAll('_', ' ');

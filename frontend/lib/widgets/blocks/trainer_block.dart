@@ -1,6 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
+import 'package:nucleartension/models/buildings/trainers/trainer.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
@@ -10,10 +10,10 @@ import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
-class MissileSiloBlock extends StatelessWidget {
-  final MissileSilo missileSilo;
+class TrainerBlock extends StatelessWidget {
+  final Trainer trainer;
 
-  const MissileSiloBlock(this.missileSilo);
+  const TrainerBlock(this.trainer);
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +23,17 @@ class MissileSiloBlock extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SiloLeftSection(missileSilo),
+              TrainerLeftSection(trainer),
               const Spacer(),
-              SiloRightSection(missileSilo),
+              TrainerRightSection(trainer),
             ],
           ),
-          if (missileSilo.level > 0) ...[
-            const VBox(25),
-            MissilesSection(
-              missileSilo: missileSilo,
-              unitType: UnitType.defense,
-            ),
-            const VBox(25),
-            MissilesSection(
-              missileSilo: missileSilo,
-              unitType: UnitType.attack,
-            ),
+          if (trainer.level > 0) ...[
+            for (final UnitType unitType in trainer.buildingType.units)
+              UnitSection(
+                trainer: trainer,
+                unitType: unitType,
+              ),
           ],
         ],
       ),
@@ -46,10 +41,10 @@ class MissileSiloBlock extends StatelessWidget {
   }
 }
 
-class SiloLeftSection extends StatelessWidget {
-  final MissileSilo missileSilo;
+class TrainerLeftSection extends StatelessWidget {
+  final Trainer trainer;
 
-  const SiloLeftSection(this.missileSilo);
+  const TrainerLeftSection(this.trainer);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +53,7 @@ class SiloLeftSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         BuildingImageBlock(
-          building: missileSilo,
+          building: trainer,
           size: 70,
         ),
         const HBox(15),
@@ -66,14 +61,13 @@ class SiloLeftSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Label(
-              text: missileSilo.buildingType.toString().toUpperCase(),
+              text: trainer.buildingType.toString().toUpperCase(),
               color: Palette.textLight,
               weight: FontWeight.bold,
             ),
             const VBox(12),
             Label(
-              text:
-                  'QUEUE: ${missileSilo.queueSize}/${missileSilo.queueMaxCapacity}',
+              text: 'QUEUE: ${trainer.queueSize}/${trainer.queueMaxCapacity}',
               color: Palette.textLight,
               weight: FontWeight.bold,
             ),
@@ -84,56 +78,59 @@ class SiloLeftSection extends StatelessWidget {
   }
 }
 
-class SiloRightSection extends StatelessWidget {
-  final MissileSilo missileSilo;
+class TrainerRightSection extends StatelessWidget {
+  final Trainer trainer;
 
-  const SiloRightSection(this.missileSilo);
+  const TrainerRightSection(this.trainer);
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeBuildingButton(missileSilo);
+    return UpgradeBuildingButton(trainer);
   }
 }
 
-class MissilesSection extends StatelessWidget {
-  final MissileSilo missileSilo;
+class UnitSection extends StatelessWidget {
+  final Trainer trainer;
   final UnitType unitType;
 
-  const MissilesSection({
-    required this.missileSilo,
+  const UnitSection({
+    required this.trainer,
     required this.unitType,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        MissileLeftSection(
-          missileSilo: missileSilo,
-          unitType: unitType,
-        ),
-        const Spacer(),
-        MissileCenterSection(
-          missileSilo: missileSilo,
-          unitType: unitType,
-        ),
-        const Spacer(),
-        MissileRightSection(
-          missileSilo: missileSilo,
-          unitType: unitType,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 25),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          UnitLeftSection(
+            trainer: trainer,
+            unitType: unitType,
+          ),
+          const Spacer(),
+          UnitCenterSection(
+            trainer: trainer,
+            unitType: unitType,
+          ),
+          const Spacer(),
+          UnitRightSection(
+            trainer: trainer,
+            unitType: unitType,
+          ),
+        ],
+      ),
     );
   }
 }
 
-class MissileLeftSection extends StatelessWidget {
-  final MissileSilo missileSilo;
+class UnitLeftSection extends StatelessWidget {
+  final Trainer trainer;
   final UnitType unitType;
 
-  const MissileLeftSection({
-    required this.missileSilo,
+  const UnitLeftSection({
+    required this.trainer,
     required this.unitType,
   });
 
@@ -158,7 +155,7 @@ class MissileLeftSection extends StatelessWidget {
             ),
             const VBox(12),
             Label(
-              text: 'QUEUE: ${missileSilo.enqueuedUnits(unitType)}',
+              text: 'QUEUE: ${trainer.enqueuedUnits(unitType)}',
               color: Palette.textLight,
               weight: FontWeight.bold,
             ),
@@ -169,21 +166,21 @@ class MissileLeftSection extends StatelessWidget {
   }
 }
 
-class MissileCenterSection extends StatelessWidget {
-  final MissileSilo missileSilo;
+class UnitCenterSection extends StatelessWidget {
+  final Trainer trainer;
   final UnitType unitType;
 
-  const MissileCenterSection({
-    required this.missileSilo,
+  const UnitCenterSection({
+    required this.trainer,
     required this.unitType,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (missileSilo.enqueuedUnits(unitType) > 0) {
+    if (trainer.enqueuedUnits(unitType) > 0) {
       return TaskProgressIndicator(
         size: 50,
-        task: missileSilo.firstTask(unitType),
+        task: trainer.firstTask(unitType),
       );
     } else {
       return const Empty();
@@ -191,19 +188,19 @@ class MissileCenterSection extends StatelessWidget {
   }
 }
 
-class MissileRightSection extends StatelessWidget {
-  final MissileSilo missileSilo;
+class UnitRightSection extends StatelessWidget {
+  final Trainer trainer;
   final UnitType unitType;
 
-  const MissileRightSection({
-    required this.missileSilo,
+  const UnitRightSection({
+    required this.trainer,
     required this.unitType,
   });
 
   @override
   Widget build(BuildContext context) {
     return CreateUnitButton(
-      trainer: missileSilo,
+      trainer: trainer,
       unitType: unitType,
     );
   }
