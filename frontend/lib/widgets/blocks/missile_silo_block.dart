@@ -1,6 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/buildings/silo.dart';
+import 'package:nucleartension/models/buildings/missile_silo.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
@@ -69,15 +69,6 @@ class SiloLeftSection extends StatelessWidget {
               color: Palette.textLight,
               weight: FontWeight.bold,
             ),
-            if (missileSilo.level > 0) ...[
-              const VBox(12),
-              Label(
-                text:
-                    'CAPACITY: ${missileSilo.currentCapacity}/${missileSilo.maxCapacity}',
-                color: Palette.textLight,
-                weight: FontWeight.bold,
-              ),
-            ],
           ],
         ),
       ],

@@ -1,10 +1,10 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:nucleartension/models/buildings/military_facility.dart';
+import 'package:nucleartension/models/buildings/missile_silo.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
-import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/player.dart';
@@ -37,6 +37,9 @@ class GameState extends BaseState {
         },
       ),
       buildings: [],
+      militaryPower: 0,
+      defenseMissiles: 0,
+      attackMissiles: 0,
     );
 
     player.buildings.addAll([

@@ -2,12 +2,12 @@ import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/military_facility.dart';
+import 'package:nucleartension/models/buildings/missile_silo.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
-import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -17,11 +17,17 @@ class Player {
   final Game game;
   final ResourceInventory resourceInventory;
   final List<Building> buildings;
+  int militaryPower;
+  int defenseMissiles;
+  int attackMissiles;
 
   Player({
     required this.game,
     required this.resourceInventory,
     required this.buildings,
+    required this.militaryPower,
+    required this.defenseMissiles,
+    required this.attackMissiles,
   });
 
   // ============================ BUILDINGS ================================= \\

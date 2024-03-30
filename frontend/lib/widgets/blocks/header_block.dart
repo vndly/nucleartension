@@ -77,25 +77,25 @@ class MilitarySection extends StatelessWidget {
           value: player.game.defcon.toString(),
         ),
         const VBox(10),
-        const MilitaryLabel(
+        MilitaryLabel(
           icon: Icons.star,
           color: Palette.militaryPower,
           title: 'MILITARY POWER:',
-          value: '15',
+          value: player.militaryPower.toString(),
         ),
         const VBox(10),
-        const MilitaryLabel(
+        MilitaryLabel(
           icon: Icons.local_fire_department_rounded,
           color: Palette.militaryAttackMissile,
           title: 'ATTACK MISSILES:',
-          value: '5',
+          value: player.defenseMissiles.toString(),
         ),
         const VBox(10),
-        const MilitaryLabel(
+        MilitaryLabel(
           icon: Icons.shield,
           color: Palette.militaryDefenseMissile,
           title: 'DEFENSE MISSILES:',
-          value: '5',
+          value: player.attackMissiles.toString(),
         ),
       ],
     );
