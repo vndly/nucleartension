@@ -9,6 +9,7 @@ import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/player.dart';
 import 'package:nucleartension/types/resource_type.dart';
+import 'package:nucleartension/types/unit_type.dart';
 
 class GameState extends BaseState {
   late final Game game;
@@ -54,12 +55,19 @@ class GameState extends BaseState {
       MissileSilo(
         player: player,
         level: 1,
-        missileDefenseQueue: [],
-        missileAttackQueue: [],
+        queues: {
+          UnitType.defense: [],
+          UnitType.attack: [],
+        },
       ),
       MilitaryFacility(
         player: player,
         level: 1,
+        queues: {
+          UnitType.infantry: [],
+          UnitType.vehicle: [],
+          UnitType.aircraft: [],
+        },
       ),
     ]);
 
