@@ -5,6 +5,7 @@ import 'package:nucleartension/utils/assets.dart';
 enum UnitType {
   defense(
     sprite: Assets.IMAGES_MISSILES_DEFENSE,
+    power: 0,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
@@ -12,6 +13,7 @@ enum UnitType {
   ),
   attack(
     sprite: Assets.IMAGES_MISSILES_ATTACK,
+    power: 0,
     cost: {
       ResourceType.energy: 60,
       ResourceType.supplies: 60,
@@ -19,13 +21,15 @@ enum UnitType {
   ),
   infantry(
     sprite: Assets.IMAGES_UNITS_INFANTRY,
+    power: 1,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
     },
   ),
-  vehicles(
+  vehicle(
     sprite: Assets.IMAGES_UNITS_VEHICLE,
+    power: 3,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
@@ -33,6 +37,7 @@ enum UnitType {
   ),
   aircraft(
     sprite: Assets.IMAGES_UNITS_AIRCRAFT,
+    power: 7,
     cost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
@@ -40,10 +45,12 @@ enum UnitType {
   );
 
   final String sprite;
+  final int power;
   final ResourceMap cost;
 
   const UnitType({
     required this.sprite,
+    required this.power,
     required this.cost,
   });
 

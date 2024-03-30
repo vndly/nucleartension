@@ -36,7 +36,7 @@ class MilitaryFacilityBlock extends StatelessWidget {
             const VBox(25),
             UnitSection(
               militaryFacility: militaryFacility,
-              unitType: UnitType.vehicles,
+              unitType: UnitType.vehicle,
             ),
             const VBox(25),
             UnitSection(
