@@ -2,7 +2,7 @@ import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/tasks/create_unit_task.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
-abstract class Trainer extends Building {
+class Trainer extends Building {
   final Map<UnitType, List<CreateUnitTask>> queues;
 
   Trainer({
