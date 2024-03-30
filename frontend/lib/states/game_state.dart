@@ -22,20 +22,12 @@ class GameState extends BaseState {
 
     final Player player = Player(
       game: game,
-      resourceInventory: ResourceInventory.create(
-        resources: {
-          ResourceType.energy: 200,
-          ResourceType.supplies: 200,
-          ResourceType.population: 1000000,
-          ResourceType.technology: 0,
-        },
-        capacities: {
-          ResourceType.energy: double.maxFinite,
-          ResourceType.supplies: double.maxFinite,
-          ResourceType.population: double.maxFinite,
-          ResourceType.technology: double.maxFinite,
-        },
-      ),
+      resourceInventory: ResourceInventory({
+        ResourceType.energy: 200,
+        ResourceType.supplies: 200,
+        ResourceType.population: 1000000,
+        ResourceType.technology: 0,
+      }),
       buildings: [],
       militaryPower: 0,
       defenseMissiles: 0,
