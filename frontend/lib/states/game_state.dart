@@ -54,12 +54,12 @@ class GameState extends BaseState {
       MissileSilo(
         player: player,
         level: 1,
-        createUnitTasks: [],
+        missileDefenseQueue: [],
+        missileAttackQueue: [],
       ),
       MilitaryFacility(
         player: player,
         level: 1,
-        createUnitTasks: [],
       ),
     ]);
 
