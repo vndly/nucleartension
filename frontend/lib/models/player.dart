@@ -66,28 +66,21 @@ class Player {
 
   // ============================== UNITS =================================== \\
 
-  bool canCreateUnit(UnitType unitType) =>
-      resourceInventory.hasItems(unitType.cost);
-
   void createUnit(UnitType unitType) {
-    if (canCreateUnit(unitType)) {
-      resourceInventory.removeItems(unitType.cost);
+    switch (unitType) {
+      case UnitType.defense:
+        defenseMissiles++;
+        break;
 
-      switch (unitType) {
-        case UnitType.defense:
-          defenseMissiles++;
-          break;
+      case UnitType.attack:
+        attackMissiles++;
+        break;
 
-        case UnitType.attack:
-          attackMissiles++;
-          break;
-
-        case UnitType.infantry:
-        case UnitType.vehicle:
-        case UnitType.aircraft:
-          militaryPower += unitType.power;
-          break;
-      }
+      case UnitType.infantry:
+      case UnitType.vehicle:
+      case UnitType.aircraft:
+        militaryPower += unitType.power;
+        break;
     }
   }
 

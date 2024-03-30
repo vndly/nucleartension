@@ -157,7 +157,7 @@ class MissileRightSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CreateUnitButton(
-      player: missileSilo.player,
+      trainer: missileSilo,
       unitType: unitType,
     );
   }

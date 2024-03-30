@@ -1,16 +1,16 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/player.dart';
+import 'package:nucleartension/models/buildings/trainers/trainer.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/widgets/buttons/symbol_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 
 class CreateUnitButton extends StatelessWidget {
-  final Player player;
+  final Trainer trainer;
   final UnitType unitType;
 
   const CreateUnitButton({
-    required this.player,
+    required this.trainer,
     required this.unitType,
   });
 
@@ -20,14 +20,14 @@ class CreateUnitButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         CostIndicator(
-          player: player,
+          player: trainer.player,
           cost: unitType.cost,
         ),
         const HBox(10),
         SymbolButton.create(
           size: 50,
-          onTap: player.canCreateUnit(unitType)
-              ? () => player.createUnit(unitType)
+          onTap: trainer.canCreateUnit(unitType)
+              ? () => trainer.createUnit(unitType)
               : null,
         ),
       ],
