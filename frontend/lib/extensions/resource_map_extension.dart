@@ -9,18 +9,14 @@ extension ResourceMapExtension on ResourceMap {
 
   num get(ResourceType type) => this[type] ?? 0;
 
-  String join() {
-    String result = '';
-
-    for (final ResourceType type in keys) {
-      if (result.isNotEmpty) {
-        result += '\n';
+  bool get isEmpty {
+    for (final ResourceMapEntry item in entries) {
+      if (item.value != 0) {
+        return false;
       }
-
-      result += '$type: ${get(type)}';
     }
 
-    return result;
+    return true;
   }
 
   num get duration {
