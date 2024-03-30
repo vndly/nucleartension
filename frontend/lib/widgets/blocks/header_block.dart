@@ -88,14 +88,14 @@ class MilitarySection extends StatelessWidget {
           icon: Icons.local_fire_department_rounded,
           color: Palette.militaryAttackMissile,
           title: 'ATTACK MISSILES:',
-          value: player.defenseMissiles.toString(),
+          value: player.attackMissiles.toString(),
         ),
         const VBox(10),
         MilitaryLabel(
           icon: Icons.shield,
           color: Palette.militaryDefenseMissile,
           title: 'DEFENSE MISSILES:',
-          value: player.attackMissiles.toString(),
+          value: player.defenseMissiles.toString(),
         ),
       ],
     );

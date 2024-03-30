@@ -8,14 +8,14 @@ class ResourceInventory {
 
   bool get isEmpty => _items.isEmpty;
 
-  num get(ResourceType type) => _items.get(type);
+  num get(ResourceType resourceType) => _items.get(resourceType);
 
-  void add(ResourceType type, num amount) {
-    _items[type] = get(type) + amount;
+  void add(ResourceType resourceType, num amount) {
+    _items[resourceType] = get(resourceType) + amount;
   }
 
-  void remove(ResourceType type, num amount) {
-    _items[type] = get(type) - amount;
+  void remove(ResourceType resourceType, num amount) {
+    _items[resourceType] = get(resourceType) - amount;
   }
 
   void addItem(ResourceMapEntry item) => add(item.key, item.value);
@@ -39,9 +39,10 @@ class ResourceInventory {
   void removeInventory(ResourceInventory inventory) =>
       removeItems(inventory._items);
 
-  bool has(ResourceType type, num amount) => get(type) >= amount;
+  bool has(ResourceType resourceType, num amount) =>
+      get(resourceType) >= amount;
 
-  bool hasType(ResourceType type) => get(type) != 0;
+  bool hasType(ResourceType resourceType) => get(resourceType) != 0;
 
   bool hasItem(ResourceMapEntry item) => has(item.key, item.value);
 

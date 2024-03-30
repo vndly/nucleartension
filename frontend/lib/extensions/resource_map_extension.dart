@@ -5,9 +5,9 @@ typedef ResourceMap = Map<ResourceType, num>;
 typedef ResourceMapEntry = MapEntry<ResourceType, num>;
 
 extension ResourceMapExtension on ResourceMap {
-  bool contains(ResourceType type) => keys.contains(type);
+  bool contains(ResourceType resourceType) => keys.contains(resourceType);
 
-  num get(ResourceType type) => this[type] ?? 0;
+  num get(ResourceType resourceType) => this[resourceType] ?? 0;
 
   bool get isEmpty {
     for (final ResourceMapEntry item in entries) {

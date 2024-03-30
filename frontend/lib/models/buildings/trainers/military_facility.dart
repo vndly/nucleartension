@@ -5,5 +5,6 @@ class MilitaryFacility extends Trainer {
   MilitaryFacility({
     required super.player,
     required super.level,
+    required super.createUnitTasks,
   }) : super(buildingType: BuildingType.military_facility);
 }

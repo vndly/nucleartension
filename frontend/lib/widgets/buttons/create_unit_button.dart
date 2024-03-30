@@ -27,7 +27,7 @@ class CreateUnitButton extends StatelessWidget {
         SymbolButton.create(
           size: 50,
           onTap: trainer.canCreateUnit(unitType)
-              ? () => trainer.createUnit(unitType)
+              ? () => trainer.enqueueUnit(unitType)
               : null,
         ),
       ],

@@ -47,13 +47,6 @@ class Building {
     }
   }
 
-  void cancelUpgrade() {
-    if (upgradeTask != null) {
-      player.resourceInventory.addItems(upgradeCost);
-      upgradeTask = null;
-    }
-  }
-
   factory Building.create({
     required Player player,
     required BuildingType buildingType,

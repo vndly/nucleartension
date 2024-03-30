@@ -5,5 +5,6 @@ class MissileSilo extends Trainer {
   MissileSilo({
     required super.player,
     required super.level,
+    required super.createUnitTasks,
   }) : super(buildingType: BuildingType.missile_silo);
 }
