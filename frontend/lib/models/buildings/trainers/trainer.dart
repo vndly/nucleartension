@@ -13,7 +13,12 @@ abstract class Trainer extends Building {
     required this.createUnitTasks,
   });
 
+  int get queueSize => createUnitTasks.length;
+
+  int get queueMaxCapacity => level * 2;
+
   bool canCreateUnit(UnitType unitType) =>
+      (queueSize < queueMaxCapacity) &&
       player.resourceInventory.hasItems(unitType.cost);
 
   void enqueueUnit(UnitType unitType) {

@@ -74,6 +74,13 @@ class MilitaryFacilityLeftSection extends StatelessWidget {
               color: Palette.textLight,
               weight: FontWeight.bold,
             ),
+            const VBox(12),
+            Label(
+              text:
+                  'QUEUE: ${militaryFacility.queueSize}/${militaryFacility.queueMaxCapacity}',
+              color: Palette.textLight,
+              weight: FontWeight.bold,
+            ),
           ],
         ),
       ],
