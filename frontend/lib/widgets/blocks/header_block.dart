@@ -114,20 +114,18 @@ class ResourceLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final num amount = player.resourceInventory.get(resourceType);
-    final String production =
-        '${Formatter.production(player.productionOf(resourceType))}/s';
 
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        resourceType.icon(13),
+        resourceType.icon(14),
         const HBox(10),
         LabeledText(
           label: '${resourceType.name.toUpperCase()}:',
-          text: '${Formatter.resource(amount)} ($production)',
+          text: Formatter.resource(amount),
           labelColor: Palette.textLight,
           textColor: Palette.textLight,
-          size: 13,
+          size: 14,
         ),
       ],
     );
@@ -155,7 +153,7 @@ class MilitaryLabel extends StatelessWidget {
         Icon(
           icon,
           color: color,
-          size: 13,
+          size: 14,
         ),
         const HBox(10),
         LabeledText(
@@ -163,7 +161,7 @@ class MilitaryLabel extends StatelessWidget {
           text: value,
           labelColor: Palette.textLight,
           textColor: Palette.textLight,
-          size: 13,
+          size: 14,
         ),
       ],
     );

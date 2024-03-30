@@ -8,8 +8,22 @@ class Formatter {
   }
 
   static String resource(num amount) {
-    final NumberFormat formatter = NumberFormat('#,##0');
+    final int intAmount = amount.ceil();
 
-    return formatter.format(amount);
+    if (intAmount < 1000) {
+      final NumberFormat formatter = NumberFormat('##0');
+
+      return formatter.format(intAmount);
+    } else if (intAmount < 1000000) {
+      final NumberFormat formatter = NumberFormat('##0');
+      final String value = formatter.format(intAmount / 1000);
+
+      return '${value}K';
+    } else {
+      final NumberFormat formatter = NumberFormat('##0');
+      final String value = formatter.format(intAmount / 1000000);
+
+      return '${value}M';
+    }
   }
 }
