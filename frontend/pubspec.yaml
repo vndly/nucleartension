@@ -4,7 +4,7 @@ publish_to: none
 version: 0.0.1+1
 
 environment:
-  sdk: '>=3.3.2 <4.0.0'
+  sdk: '>=3.3.3 <4.0.0'
 
 dependencies:
   get_it: ^7.6.7
@@ -25,8 +25,8 @@ dev_dependencies:
   daassets: ^1.5.0
   daunused: ^1.6.1
   dapublock: ^1.1.0
-  build_runner: ^2.4.8
-  flutter_lints: ^3.0.1
+  build_runner: ^2.4.9
+  flutter_lints: ^3.0.2
   json_serializable: ^6.7.1
 
 flutter:
