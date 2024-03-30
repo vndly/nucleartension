@@ -14,9 +14,15 @@ class HeaderBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: const EdgeInsets.all(10),
-      child: ResourcesSection(state.game),
+      child: Row(
+        children: [
+          ResourcesSection(state.game),
+          const Spacer(),
+          MilitarySection(state.game),
+        ],
+      ),
     );
   }
 }
@@ -55,6 +61,48 @@ class ResourcesSection extends StatelessWidget {
   }
 }
 
+class MilitarySection extends StatelessWidget {
+  final Game game;
+
+  const MilitarySection(this.game);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        MilitaryLabel(
+          icon: Icons.warning_rounded,
+          color: Palette.militaryDefcon,
+          title: 'DEFCON:',
+          value: '5',
+        ),
+        VBox(10),
+        MilitaryLabel(
+          icon: Icons.star,
+          color: Palette.militaryPower,
+          title: 'MILITARY POWER:',
+          value: '15',
+        ),
+        VBox(10),
+        MilitaryLabel(
+          icon: Icons.local_fire_department_rounded,
+          color: Palette.militaryAttackMissile,
+          title: 'ATTACK MISSILES:',
+          value: '5',
+        ),
+        VBox(10),
+        MilitaryLabel(
+          icon: Icons.shield,
+          color: Palette.militaryDefenseMissile,
+          title: 'DEFENSE MISSILES:',
+          value: '5',
+        ),
+      ],
+    );
+  }
+}
+
 class ResourceLabel extends StatelessWidget {
   final Game game;
   final ResourceType resourceType;
@@ -78,6 +126,41 @@ class ResourceLabel extends StatelessWidget {
         LabeledText(
           label: '${resourceType.name.toUpperCase()}:',
           text: '${Formatter.resource(amount)} ($production)',
+          labelColor: Palette.textLight,
+          textColor: Palette.textLight,
+        ),
+      ],
+    );
+  }
+}
+
+class MilitaryLabel extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final String title;
+  final String value;
+
+  const MilitaryLabel({
+    required this.icon,
+    required this.color,
+    required this.title,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          icon,
+          color: color,
+          size: 14,
+        ),
+        const HBox(10),
+        LabeledText(
+          label: title,
+          text: value,
           labelColor: Palette.textLight,
           textColor: Palette.textLight,
         ),
