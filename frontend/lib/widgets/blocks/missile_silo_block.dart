@@ -7,6 +7,7 @@ import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
+import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class MissileSiloBlock extends StatelessWidget {
@@ -179,10 +180,14 @@ class MissileCenterSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CreateUnitButton(
-      trainer: missileSilo,
-      unitType: unitType,
-    );
+    if (missileSilo.enqueuedUnits(unitType) > 0) {
+      return TaskProgressIndicator(
+        size: 50,
+        task: missileSilo.firstTask(unitType),
+      );
+    } else {
+      return const Empty();
+    }
   }
 }
 

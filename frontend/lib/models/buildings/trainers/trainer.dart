@@ -1,5 +1,6 @@
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/tasks/create_unit_task.dart';
+import 'package:nucleartension/models/tasks/task.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
 class Trainer extends Building {
@@ -18,6 +19,8 @@ class Trainer extends Building {
   int get queueMaxCapacity => level * 2;
 
   int enqueuedUnits(UnitType unitType) => queues[unitType]?.length ?? 0;
+
+  Task firstTask(UnitType unitType) => queues[unitType]![0];
 
   bool canCreateUnit(UnitType unitType) =>
       (queueSize < queueMaxCapacity) &&
