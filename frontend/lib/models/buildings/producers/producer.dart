@@ -17,9 +17,6 @@ abstract class Producer extends Building {
       productionRate * player.defconProductionBoost * level;
 
   @override
-  bool get isProducer => true;
-
-  @override
   void update(double dt) {
     super.update(dt);
 

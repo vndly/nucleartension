@@ -1,7 +1,7 @@
-import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/models/buildings/trainers/trainer.dart';
 import 'package:nucleartension/types/building_type.dart';
 
-class MilitaryFacility extends Building {
+class MilitaryFacility extends Trainer {
   MilitaryFacility({
     required super.player,
     required super.level,

@@ -1,6 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/buildings/missile_silo.dart';
+import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';

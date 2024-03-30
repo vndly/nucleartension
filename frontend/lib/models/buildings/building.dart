@@ -21,8 +21,6 @@ class Building {
 
   ResourceMap get upgradeCost => buildingType.cost(level + 1);
 
-  bool get isProducer => false;
-
   bool get isUpgrading => upgradeTask != null;
 
   double get upgradeProgress => upgradeTask?.progress ?? 0;
