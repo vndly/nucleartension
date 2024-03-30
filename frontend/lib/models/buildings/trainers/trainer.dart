@@ -17,6 +17,8 @@ class Trainer extends Building {
 
   int get queueMaxCapacity => level * 2;
 
+  int enqueuedUnits(UnitType unitType) => queues[unitType]?.length ?? 0;
+
   bool canCreateUnit(UnitType unitType) =>
       (queueSize < queueMaxCapacity) &&
       player.resourceInventory.hasItems(unitType.cost);

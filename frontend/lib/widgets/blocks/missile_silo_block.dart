@@ -106,9 +106,14 @@ class MissilesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         MissileLeftSection(
+          missileSilo: missileSilo,
+          unitType: unitType,
+        ),
+        const Spacer(),
+        MissileCenterSection(
           missileSilo: missileSilo,
           unitType: unitType,
         ),
@@ -142,12 +147,41 @@ class MissileLeftSection extends StatelessWidget {
           size: 50,
         ),
         const HBox(15),
-        Label(
-          text: unitType.toString().toUpperCase(),
-          color: Palette.textLight,
-          weight: FontWeight.bold,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Label(
+              text: unitType.toString().toUpperCase(),
+              color: Palette.textLight,
+              weight: FontWeight.bold,
+            ),
+            const VBox(12),
+            Label(
+              text: 'QUEUE: ${missileSilo.enqueuedUnits(unitType)}',
+              color: Palette.textLight,
+              weight: FontWeight.bold,
+            ),
+          ],
         ),
       ],
+    );
+  }
+}
+
+class MissileCenterSection extends StatelessWidget {
+  final MissileSilo missileSilo;
+  final UnitType unitType;
+
+  const MissileCenterSection({
+    required this.missileSilo,
+    required this.unitType,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CreateUnitButton(
+      trainer: missileSilo,
+      unitType: unitType,
     );
   }
 }
