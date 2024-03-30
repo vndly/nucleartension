@@ -62,7 +62,7 @@ class GameState extends BaseState {
       ),
       MilitaryFacility(
         player: player,
-        level: 1,
+        level: 0,
         queues: {
           UnitType.infantry: [],
           UnitType.vehicle: [],
