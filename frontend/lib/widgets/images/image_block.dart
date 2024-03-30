@@ -49,7 +49,7 @@ class BuildingImageBlock extends StatelessWidget {
           child: Label(
             text: building.level.toString(),
             size: 16,
-            color: Palette.text,
+            color: Palette.textDark,
             weight: FontWeight.bold,
           ),
         ),

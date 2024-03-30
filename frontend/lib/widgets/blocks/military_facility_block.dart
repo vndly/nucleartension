@@ -71,7 +71,7 @@ class MilitaryFacilityLeftSection extends StatelessWidget {
           children: [
             Label(
               text: militaryFacility.buildingType.toString().toUpperCase(),
-              color: Palette.text,
+              color: Palette.textLight,
               weight: FontWeight.bold,
             ),
           ],
@@ -142,7 +142,7 @@ class MissileLeftSection extends StatelessWidget {
         const HBox(15),
         Label(
           text: unitType.toString().toUpperCase(),
-          color: Palette.text,
+          color: Palette.textLight,
           weight: FontWeight.bold,
         ),
       ],

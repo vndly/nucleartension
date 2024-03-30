@@ -19,7 +19,7 @@ class ChipText extends StatelessWidget {
       children: [
         Label(
           text: label.toUpperCase(),
-          color: Palette.text,
+          color: Palette.textLight,
           weight: FontWeight.bold,
         ),
         const HBox(10),
@@ -39,7 +39,7 @@ class ChipText extends StatelessWidget {
               ),
               child: Label(
                 text: text,
-                color: Palette.text,
+                color: Palette.textLight,
                 align: TextAlign.center,
                 weight: FontWeight.bold,
               ),

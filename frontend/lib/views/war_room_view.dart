@@ -13,7 +13,7 @@ class WarRoomView extends StatelessWidget {
     return const Center(
       child: Label(
         text: 'WAR ROOM',
-        color: Palette.text,
+        color: Palette.textLight,
       ),
     );
   }

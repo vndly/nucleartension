@@ -49,7 +49,7 @@ class LeftSection extends StatelessWidget {
           children: [
             Label(
               text: producer.buildingType.toString().toUpperCase(),
-              color: Palette.text,
+              color: Palette.textLight,
               weight: FontWeight.bold,
             ),
             const VBox(12),
@@ -86,7 +86,7 @@ class ProductionIndicator extends StatelessWidget {
         const HBox(10),
         Label(
           text: '${Formatter.production(producer.production)}/s',
-          color: (producer.production == 0) ? Palette.error : Palette.text,
+          color: (producer.production == 0) ? Palette.error : Palette.textLight,
           size: 15,
         ),
       ],

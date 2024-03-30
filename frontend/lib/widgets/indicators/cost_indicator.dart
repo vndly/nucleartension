@@ -29,7 +29,7 @@ class CostIndicator extends StatelessWidget {
               icon: resource.key.icon(16),
               value: Formatter.resource(resource.value),
               textColor: game.resourceInventory.hasItem(resource)
-                  ? Palette.text
+                  ? Palette.textLight
                   : Palette.error,
               textSize: 16,
             ),

@@ -15,7 +15,7 @@ class Label extends StatelessWidget {
 
   const Label({
     required this.text,
-    this.color = Palette.text,
+    this.color = Palette.textLight,
     this.size = 14,
     this.weight = FontWeight.normal,
     this.decoration = TextDecoration.none,

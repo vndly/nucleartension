@@ -8,7 +8,8 @@ class Palette {
   static const Color success = Colors.green;
   static const Color error = Colors.red;
 
-  static const Color text = Colors.white;
+  static const Color textLight = Colors.white;
+  static const Color textDark = Colors.black;
 
   static const Color icon = Colors.white;
 
@@ -22,7 +23,7 @@ class Palette {
   static const Color resourceTechnology = Colors.lightBlue;
 
   static const Color borderSeparator = Color(0xff505050);
-  static const Color borderImage = Color(0xff404040);
+  static const Color borderImage = Color(0xffc0c0c0);
 
   static const Color buttonEnabled = Colors.green;
   static const Color buttonDisabled = Color(0xffa0a0a0);

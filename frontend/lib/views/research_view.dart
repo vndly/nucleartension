@@ -13,7 +13,7 @@ class ResearchView extends StatelessWidget {
     return const Center(
       child: Label(
         text: 'RESEARCH',
-        color: Palette.text,
+        color: Palette.textLight,
       ),
     );
   }

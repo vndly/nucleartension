@@ -66,7 +66,7 @@ class SiloLeftSection extends StatelessWidget {
           children: [
             Label(
               text: missileSilo.buildingType.toString().toUpperCase(),
-              color: Palette.text,
+              color: Palette.textLight,
               weight: FontWeight.bold,
             ),
             if (missileSilo.level > 0) ...[
@@ -74,7 +74,7 @@ class SiloLeftSection extends StatelessWidget {
               Label(
                 text:
                     'CAPACITY: ${missileSilo.currentCapacity}/${missileSilo.maxCapacity}',
-                color: Palette.text,
+                color: Palette.textLight,
                 weight: FontWeight.bold,
               ),
             ],
@@ -146,7 +146,7 @@ class MissileLeftSection extends StatelessWidget {
         const HBox(15),
         Label(
           text: unitType.toString().toUpperCase(),
-          color: Palette.text,
+          color: Palette.textLight,
           weight: FontWeight.bold,
         ),
       ],
