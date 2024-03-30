@@ -32,15 +32,15 @@ enum UnitType {
     power: 3,
     cost: {
       ResourceType.energy: 20,
-      ResourceType.supplies: 20,
+      ResourceType.supplies: 40,
     },
   ),
   aircraft(
     sprite: Assets.IMAGES_UNITS_AIRCRAFT,
     power: 7,
     cost: {
-      ResourceType.energy: 20,
-      ResourceType.supplies: 20,
+      ResourceType.energy: 80,
+      ResourceType.supplies: 60,
     },
   );
 
