@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:nucleartension/states/game_state.dart';
+import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/producer_block.dart';
 import 'package:nucleartension/widgets/separators/building_separator.dart';
 
 class ResourcesView extends StatelessWidget {
-  final GameState state;
+  final Game game;
 
-  const ResourcesView(this.state);
+  const ResourcesView(this.game);
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +15,15 @@ class ResourcesView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderBlock(state),
+          HeaderBlock(game),
           const BuildingSeparator(),
-          ProducerBlock(state.game.powerPlant),
+          ProducerBlock(game.player.powerPlant),
           const BuildingSeparator(),
-          ProducerBlock(state.game.supplyCenter),
+          ProducerBlock(game.player.supplyCenter),
           const BuildingSeparator(),
-          ProducerBlock(state.game.propagandaStation),
+          ProducerBlock(game.player.propagandaStation),
           const BuildingSeparator(),
-          ProducerBlock(state.game.techLab),
+          ProducerBlock(game.player.techLab),
           const BuildingSeparator(),
         ],
       ),

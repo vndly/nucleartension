@@ -3,7 +3,7 @@ import 'package:nucleartension/types/building_type.dart';
 
 class MilitaryFacility extends Building {
   MilitaryFacility({
-    required super.game,
+    required super.player,
     required super.level,
   }) : super(buildingType: BuildingType.military_facility);
 }

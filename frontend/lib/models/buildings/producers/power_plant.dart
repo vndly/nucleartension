@@ -5,7 +5,7 @@ import 'package:nucleartension/types/resource_type.dart';
 
 class PowerPlant extends Producer {
   PowerPlant({
-    required super.game,
+    required super.player,
     required super.level,
   }) : super(
           buildingType: BuildingType.power_plant,

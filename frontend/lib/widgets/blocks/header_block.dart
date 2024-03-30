@@ -1,16 +1,16 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/states/game_state.dart';
+import 'package:nucleartension/models/player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class HeaderBlock extends StatelessWidget {
-  final GameState state;
+  final Game game;
 
-  const HeaderBlock(this.state);
+  const HeaderBlock(this.game);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class HeaderBlock extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
-          ResourcesSection(state.game),
+          ResourcesSection(game.player),
           const Spacer(),
-          MilitarySection(state.game),
+          MilitarySection(game),
         ],
       ),
     );
@@ -28,9 +28,9 @@ class HeaderBlock extends StatelessWidget {
 }
 
 class ResourcesSection extends StatelessWidget {
-  final Game game;
+  final Player player;
 
-  const ResourcesSection(this.game);
+  const ResourcesSection(this.player);
 
   @override
   Widget build(BuildContext context) {
@@ -38,22 +38,22 @@ class ResourcesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ResourceLabel(
-          game: game,
+          player: player,
           resourceType: ResourceType.energy,
         ),
         const VBox(10),
         ResourceLabel(
-          game: game,
+          player: player,
           resourceType: ResourceType.supplies,
         ),
         const VBox(10),
         ResourceLabel(
-          game: game,
+          player: player,
           resourceType: ResourceType.population,
         ),
         const VBox(10),
         ResourceLabel(
-          game: game,
+          player: player,
           resourceType: ResourceType.technology,
         ),
       ],
@@ -68,31 +68,31 @@ class MilitarySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MilitaryLabel(
           icon: Icons.warning_rounded,
           color: Palette.militaryDefcon,
           title: 'DEFCON:',
-          value: '5',
+          value: game.defcon.toString(),
         ),
-        VBox(10),
-        MilitaryLabel(
+        const VBox(10),
+        const MilitaryLabel(
           icon: Icons.star,
           color: Palette.militaryPower,
           title: 'MILITARY POWER:',
           value: '15',
         ),
-        VBox(10),
-        MilitaryLabel(
+        const VBox(10),
+        const MilitaryLabel(
           icon: Icons.local_fire_department_rounded,
           color: Palette.militaryAttackMissile,
           title: 'ATTACK MISSILES:',
           value: '5',
         ),
-        VBox(10),
-        MilitaryLabel(
+        const VBox(10),
+        const MilitaryLabel(
           icon: Icons.shield,
           color: Palette.militaryDefenseMissile,
           title: 'DEFENSE MISSILES:',
@@ -104,19 +104,19 @@ class MilitarySection extends StatelessWidget {
 }
 
 class ResourceLabel extends StatelessWidget {
-  final Game game;
+  final Player player;
   final ResourceType resourceType;
 
   const ResourceLabel({
-    required this.game,
+    required this.player,
     required this.resourceType,
   });
 
   @override
   Widget build(BuildContext context) {
-    final num amount = game.resourceInventory.get(resourceType);
+    final num amount = player.resourceInventory.get(resourceType);
     final String production =
-        '${Formatter.production(game.productionOf(resourceType))}/s';
+        '${Formatter.production(player.productionOf(resourceType))}/s';
 
     return Row(
       mainAxisSize: MainAxisSize.min,

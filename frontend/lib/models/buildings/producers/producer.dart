@@ -9,11 +9,12 @@ abstract class Producer extends Building {
     required this.resourceType,
     required this.productionRate,
     required super.buildingType,
-    required super.game,
+    required super.player,
     required super.level,
   });
 
-  double get production => productionRate * game.defconProductionBoost * level;
+  double get production =>
+      productionRate * player.defconProductionBoost * level;
 
   @override
   bool get isProducer => true;
@@ -23,6 +24,6 @@ abstract class Producer extends Building {
     super.update(dt);
 
     final double produced = production * dt;
-    game.resourceInventory.add(resourceType, produced);
+    player.resourceInventory.add(resourceType, produced);
   }
 }

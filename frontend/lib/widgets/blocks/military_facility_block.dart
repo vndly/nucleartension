@@ -162,7 +162,7 @@ class UnitRightSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CreateUnitButton(
-      game: militaryFacility.game,
+      player: militaryFacility.player,
       unitType: unitType,
     );
   }

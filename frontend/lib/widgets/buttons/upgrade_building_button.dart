@@ -18,7 +18,7 @@ class UpgradeBuildingButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         CostIndicator(
-          game: building.game,
+          player: building.player,
           cost: building.upgradeCost,
         ),
         const HBox(10),

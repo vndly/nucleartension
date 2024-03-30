@@ -7,6 +7,7 @@ import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/buildings/silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
 class GameState extends BaseState {
@@ -14,6 +15,13 @@ class GameState extends BaseState {
 
   GameState() {
     game = Game(
+      players: [],
+      timeElapsed: 0,
+      defcon: 5,
+    );
+
+    final Player player = Player(
+      game: game,
       resourceInventory: ResourceInventory.create(
         resources: {
           ResourceType.energy: 200,
@@ -31,32 +39,34 @@ class GameState extends BaseState {
       buildings: [],
     );
 
-    game.addBuildings([
+    player.addBuildings([
       PowerPlant(
-        game: game,
+        player: player,
         level: 1,
       ),
       SupplyCenter(
-        game: game,
+        player: player,
         level: 1,
       ),
       PropagandaStation(
-        game: game,
+        player: player,
         level: 0,
       ),
       TechLab(
-        game: game,
+        player: player,
         level: 0,
       ),
       MissileSilo(
-        game: game,
+        player: player,
         level: 1,
       ),
       MilitaryFacility(
-        game: game,
+        player: player,
         level: 1,
       ),
     ]);
+
+    game.players.add(player);
   }
 
   void update(double dt) {

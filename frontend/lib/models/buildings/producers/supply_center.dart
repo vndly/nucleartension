@@ -5,7 +5,7 @@ import 'package:nucleartension/types/resource_type.dart';
 
 class SupplyCenter extends Producer {
   SupplyCenter({
-    required super.game,
+    required super.player,
     required super.level,
   }) : super(
           buildingType: BuildingType.supply_center,

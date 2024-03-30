@@ -5,7 +5,7 @@ class MissileSilo extends Building {
   int currentCapacity = 0;
 
   MissileSilo({
-    required super.game,
+    required super.player,
     required super.level,
   }) : super(buildingType: BuildingType.missile_silo);
 

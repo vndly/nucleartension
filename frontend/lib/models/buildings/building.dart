@@ -3,18 +3,18 @@ import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
-import 'package:nucleartension/models/game.dart';
+import 'package:nucleartension/models/player.dart';
 import 'package:nucleartension/models/tasks/upgrade_building_task.dart';
 import 'package:nucleartension/types/building_type.dart';
 
 class Building {
-  final Game game;
+  final Player player;
   final BuildingType buildingType;
   int level;
   UpgradeBuildingTask? upgradeTask;
 
   Building({
-    required this.game,
+    required this.player,
     required this.buildingType,
     required this.level,
   });
@@ -30,7 +30,7 @@ class Building {
   Duration get upgradeTimeLeft => upgradeTask?.timeLeft ?? Duration.zero;
 
   bool get canUpgrade =>
-      !isUpgrading && game.resourceInventory.hasItems(upgradeCost);
+      !isUpgrading && player.resourceInventory.hasItems(upgradeCost);
 
   void update(double dt) {
     if ((upgradeTask != null) && upgradeTask!.update(dt)) {
@@ -41,7 +41,7 @@ class Building {
 
   void upgrade() {
     if (canUpgrade) {
-      game.resourceInventory.removeItems(upgradeCost);
+      player.resourceInventory.removeItems(upgradeCost);
       upgradeTask = UpgradeBuildingTask(
         building: this,
         cost: upgradeCost,
@@ -51,39 +51,39 @@ class Building {
 
   void cancelUpgrade() {
     if (upgradeTask != null) {
-      game.resourceInventory.addItems(upgradeCost);
+      player.resourceInventory.addItems(upgradeCost);
       upgradeTask = null;
     }
   }
 
   void destroy() {
-    game.removeBuilding(this);
+    player.removeBuilding(this);
   }
 
   factory Building.create({
-    required Game game,
+    required Player player,
     required BuildingType buildingType,
     required int level,
   }) {
     switch (buildingType) {
       case BuildingType.power_plant:
         return PowerPlant(
-          game: game,
+          player: player,
           level: level,
         );
       case BuildingType.supply_center:
         return SupplyCenter(
-          game: game,
+          player: player,
           level: level,
         );
       case BuildingType.propaganda_station:
         return PropagandaStation(
-          game: game,
+          player: player,
           level: level,
         );
       case BuildingType.tech_lab:
         return TechLab(
-          game: game,
+          player: player,
           level: level,
         );
       case BuildingType.missile_silo:

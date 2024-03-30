@@ -85,13 +85,13 @@ class _GameContentState extends State<GameContent> {
 
   Widget _body(int index) {
     if (currentIndex == 0) {
-      return WarRoomView(widget.state);
+      return WarRoomView(widget.state.game);
     } else if (currentIndex == 1) {
-      return ResourcesView(widget.state);
+      return ResourcesView(widget.state.game);
     } else if (currentIndex == 2) {
-      return MilitaryView(widget.state);
+      return MilitaryView(widget.state.game);
     } else if (currentIndex == 3) {
-      return ResearchView(widget.state);
+      return ResearchView(widget.state.game);
     } else {
       return const Empty();
     }
