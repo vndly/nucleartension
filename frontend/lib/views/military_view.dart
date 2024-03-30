@@ -16,7 +16,7 @@ class MilitaryView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderBlock(game),
+          HeaderBlock(game.player),
           const BuildingSeparator(),
           MissileSiloBlock(game.player.missileSilo),
           const BuildingSeparator(),

@@ -1,6 +1,5 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
@@ -8,9 +7,9 @@ import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class HeaderBlock extends StatelessWidget {
-  final Game game;
+  final Player player;
 
-  const HeaderBlock(this.game);
+  const HeaderBlock(this.player);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +17,9 @@ class HeaderBlock extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
-          ResourcesSection(game.player),
+          ResourcesSection(player),
           const Spacer(),
-          MilitarySection(game),
+          MilitarySection(player),
         ],
       ),
     );
@@ -62,9 +61,9 @@ class ResourcesSection extends StatelessWidget {
 }
 
 class MilitarySection extends StatelessWidget {
-  final Game game;
+  final Player player;
 
-  const MilitarySection(this.game);
+  const MilitarySection(this.player);
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +74,7 @@ class MilitarySection extends StatelessWidget {
           icon: Icons.warning_rounded,
           color: Palette.militaryDefcon,
           title: 'DEFCON:',
-          value: game.defcon.toString(),
+          value: player.game.defcon.toString(),
         ),
         const VBox(10),
         const MilitaryLabel(

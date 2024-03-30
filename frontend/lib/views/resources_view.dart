@@ -15,7 +15,7 @@ class ResourcesView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderBlock(game),
+          HeaderBlock(game.player),
           const BuildingSeparator(),
           ProducerBlock(game.player.powerPlant),
           const BuildingSeparator(),

@@ -53,14 +53,6 @@ class Player {
     return total;
   }
 
-  void addBuildings(List<Building> list) {
-    buildings.addAll(list);
-  }
-
-  void removeBuilding(Building building) {
-    buildings.remove(building);
-  }
-
   // =========================== PRODUCTION ================================= \\
 
   num get defconProductionBoost =>

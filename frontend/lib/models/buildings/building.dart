@@ -56,10 +56,6 @@ class Building {
     }
   }
 
-  void destroy() {
-    player.removeBuilding(this);
-  }
-
   factory Building.create({
     required Player player,
     required BuildingType buildingType,

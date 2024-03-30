@@ -39,7 +39,7 @@ class GameState extends BaseState {
       buildings: [],
     );
 
-    player.addBuildings([
+    player.buildings.addAll([
       PowerPlant(
         player: player,
         level: 1,
