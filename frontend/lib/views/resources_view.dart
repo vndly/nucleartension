@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/producer_block.dart';
-import 'package:nucleartension/widgets/separators/building_separator.dart';
+import 'package:nucleartension/widgets/separators/block_separator.dart';
 
 class ResourcesView extends StatelessWidget {
   final Game game;
@@ -16,15 +16,15 @@ class ResourcesView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           HeaderBlock(game.player),
-          const BuildingSeparator(),
+          const BlockSeparator(),
           ProducerBlock(game.player.powerPlant),
-          const BuildingSeparator(),
+          const BlockSeparator(),
           ProducerBlock(game.player.supplyCenter),
-          const BuildingSeparator(),
+          const BlockSeparator(),
           ProducerBlock(game.player.techLab),
-          const BuildingSeparator(),
+          const BlockSeparator(),
           ProducerBlock(game.player.propagandaStation),
-          const BuildingSeparator(),
+          const BlockSeparator(),
         ],
       ),
     );

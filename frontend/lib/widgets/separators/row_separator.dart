@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/utils/palette.dart';
 
-class BuildingSeparator extends StatelessWidget {
-  const BuildingSeparator();
+class RowSeparator extends StatelessWidget {
+  const RowSeparator();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1,
+      height: 0.5,
       color: Palette.borderSeparator,
     );
   }

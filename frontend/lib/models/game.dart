@@ -18,6 +18,9 @@ class Game {
 
   SelfPlayer get player => selfPlayer!;
 
+  List<Player> get otherPlayers =>
+      players.where((e) => !(e is SelfPlayer)).toList();
+
   void setPlayers(List<Player> list) {
     players.addAll(list);
     selfPlayer = list.whereType<SelfPlayer>().first;
