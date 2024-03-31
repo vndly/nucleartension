@@ -69,7 +69,9 @@ class TrainerLeftSection extends StatelessWidget {
               const VBox(12),
               Label(
                 text: 'QUEUE: ${trainer.queueSize}/${trainer.queueMaxCapacity}',
-                color: Palette.textLight,
+                color: trainer.isQueueAvailable
+                    ? Palette.textLight
+                    : Palette.error,
                 weight: FontWeight.bold,
               ),
             ],
