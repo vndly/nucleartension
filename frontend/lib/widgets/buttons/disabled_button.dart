@@ -6,15 +6,12 @@ class DisabledButton extends StatelessWidget {
   final double size;
   final IconData icon;
 
-  static const IconData TARGET1 = Icons.adjust_rounded;
-  static const IconData TARGET2 = Icons.ads_click;
-  static const IconData TARGET3 = Icons.location_searching_sharp;
-  static const IconData QUEUE = Icons.auto_awesome_motion;
-  static const IconData RANKING1 = Icons.bar_chart;
-  static const IconData RANKING2 = Icons.leaderboard_sharp;
-
-  static const IconData XXXXXX7 = Icons.double_arrow;
-  static const IconData XXXXXX9 = Icons.forward;
+  //static const IconData TARGET1 = Icons.adjust_rounded;
+  //static const IconData TARGET2 = Icons.ads_click;
+  //static const IconData TARGET3 = Icons.location_searching_sharp;
+  //static const IconData QUEUE = Icons.auto_awesome_motion;
+  //static const IconData RANKING1 = Icons.bar_chart;
+  //static const IconData RANKING2 = Icons.leaderboard_sharp;
 
   const DisabledButton({
     required this.color,

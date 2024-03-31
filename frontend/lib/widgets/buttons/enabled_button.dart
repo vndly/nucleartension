@@ -6,12 +6,14 @@ class EnabledButton extends StatelessWidget {
   final double size;
   final VoidCallback onTap;
   final IconData icon;
+  final int rotation;
 
   const EnabledButton({
     required this.color,
     required this.size,
     required this.onTap,
     required this.icon,
+    this.rotation = 0,
   });
 
   factory EnabledButton.create({
@@ -41,10 +43,11 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.keyboard_double_arrow_up,
+        icon: Icons.forward,
         color: Palette.success,
         size: size,
         onTap: onTap,
+        rotation: 3,
       );
 
   @override
@@ -58,10 +61,13 @@ class EnabledButton extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           child: Center(
-            child: Icon(
-              icon,
-              color: Palette.icon,
-              size: size * 0.5,
+            child: RotatedBox(
+              quarterTurns: rotation,
+              child: Icon(
+                icon,
+                color: Palette.icon,
+                size: size * 0.5,
+              ),
             ),
           ),
         ),
