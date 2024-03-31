@@ -9,7 +9,7 @@ class Player {
   final List<Building> buildings;
   final Military military;
 
-  Player({
+  const Player({
     required this.game,
     required this.resources,
     required this.buildings,

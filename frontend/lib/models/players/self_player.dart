@@ -13,7 +13,7 @@ import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
 class SelfPlayer extends Player {
-  SelfPlayer({
+  const SelfPlayer({
     required super.game,
     required super.resources,
     required super.buildings,

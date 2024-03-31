@@ -61,11 +61,11 @@ class _GameContentState extends State<GameContent> {
             label: 'WAR ROOM',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.dataset),
+            icon: Icon(Icons.widgets),
             label: 'RESOURCES',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shield),
+            icon: Icon(Icons.military_tech_outlined),
             label: 'MILITARY',
           ),
           BottomNavigationBarItem(
