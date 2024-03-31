@@ -1,8 +1,10 @@
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 
 class Game {
-  final List<SelfPlayer> players;
+  final List<Player> players;
+  SelfPlayer? selfPlayer;
   num timeElapsed = 0;
   int defcon = 5;
 
@@ -14,7 +16,12 @@ class Game {
 
   int get defconStep => 6 - defcon;
 
-  SelfPlayer get player => players[0];
+  SelfPlayer get player => selfPlayer!;
+
+  void setPlayers(List<Player> list) {
+    players.addAll(list);
+    selfPlayer = list.whereType<SelfPlayer>().first;
+  }
 
   // ============================= DEFCON =================================== \\
 
@@ -38,7 +45,7 @@ class Game {
   void update(double dt) {
     timeElapsed += dt;
 
-    for (final SelfPlayer player in players) {
+    for (final Player player in players) {
       player.update(dt);
     }
   }

@@ -78,6 +78,7 @@ class SelfPlayer extends Player {
 
   // ============================= UPDATE =================================== \\
 
+  @override
   void update(double dt) {
     for (final Building building in buildings) {
       building.update(dt);

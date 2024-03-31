@@ -15,4 +15,6 @@ class Player {
     required this.buildings,
     required this.military,
   });
+
+  void update(double dt) {}
 }

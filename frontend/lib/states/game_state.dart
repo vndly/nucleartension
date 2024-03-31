@@ -74,7 +74,9 @@ class GameState extends BaseState {
       ),
     ]);
 
-    game.players.add(player);
+    game.setPlayers([
+      player,
+    ]);
   }
 
   void update(double dt) {
