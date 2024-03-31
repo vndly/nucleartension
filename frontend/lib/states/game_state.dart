@@ -8,6 +8,7 @@ import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/military.dart';
+import 'package:nucleartension/models/players/passive_player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -24,6 +25,7 @@ class GameState extends BaseState {
 
     final SelfPlayer player = SelfPlayer(
       game: game,
+      name: 'Momo',
       resources: ResourceInventory({
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
@@ -76,6 +78,50 @@ class GameState extends BaseState {
 
     game.setPlayers([
       player,
+      PassivePlayer(
+        game: game,
+        name: 'Player 2',
+        resources: ResourceInventory({}),
+        buildings: [],
+        military: Military(
+          power: 0,
+          defenseMissiles: 0,
+          attackMissiles: 0,
+        ),
+      ),
+      PassivePlayer(
+        game: game,
+        name: 'Player 3',
+        resources: ResourceInventory({}),
+        buildings: [],
+        military: Military(
+          power: 0,
+          defenseMissiles: 0,
+          attackMissiles: 0,
+        ),
+      ),
+      PassivePlayer(
+        game: game,
+        name: 'Player 4',
+        resources: ResourceInventory({}),
+        buildings: [],
+        military: Military(
+          power: 0,
+          defenseMissiles: 0,
+          attackMissiles: 0,
+        ),
+      ),
+      PassivePlayer(
+        game: game,
+        name: 'Player 5',
+        resources: ResourceInventory({}),
+        buildings: [],
+        military: Military(
+          power: 0,
+          defenseMissiles: 0,
+          attackMissiles: 0,
+        ),
+      ),
     ]);
   }
 

@@ -5,12 +5,14 @@ import 'package:nucleartension/models/military.dart';
 
 class Player {
   final Game game;
+  final String name;
   final ResourceInventory resources;
   final List<Building> buildings;
   final Military military;
 
   const Player({
     required this.game,
+    required this.name,
     required this.resources,
     required this.buildings,
     required this.military,

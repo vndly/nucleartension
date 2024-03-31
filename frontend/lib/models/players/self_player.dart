@@ -15,6 +15,7 @@ import 'package:nucleartension/types/unit_type.dart';
 class SelfPlayer extends Player {
   const SelfPlayer({
     required super.game,
+    required super.name,
     required super.resources,
     required super.buildings,
     required super.military,
