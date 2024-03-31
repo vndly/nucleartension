@@ -9,7 +9,8 @@ class BlockTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      color: Palette.backgroundTitle,
       padding: const EdgeInsets.all(15),
       child: Center(
         child: Label(

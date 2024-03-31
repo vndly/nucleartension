@@ -18,6 +18,7 @@ class Palette {
 
   static const Color backgroundContainer = Colors.black;
   static const Color backgroundScreen = Color(0xff111111);
+  static const Color backgroundTitle = Color(0xff222222);
   static const Color backgroundBuilding = Color(0xff222222);
   static const Color backgroundSnackbar = Color(0xff222222);
 
