@@ -17,9 +17,9 @@ class MilitaryView extends StatelessWidget {
         children: [
           HeaderBlock(game.player),
           const BuildingSeparator(),
-          TrainerBlock(game.player.missileSilo),
-          const BuildingSeparator(),
           TrainerBlock(game.player.militaryFacility),
+          const BuildingSeparator(),
+          TrainerBlock(game.player.missileSilo),
           const BuildingSeparator(),
         ],
       ),

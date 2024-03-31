@@ -44,13 +44,22 @@ class GameState extends BaseState {
         player: player,
         level: 1,
       ),
+      TechLab(
+        player: player,
+        level: 0,
+      ),
       PropagandaStation(
         player: player,
         level: 0,
       ),
-      TechLab(
+      MilitaryFacility(
         player: player,
-        level: 0,
+        level: 1,
+        queues: {
+          UnitType.infantry: [],
+          UnitType.vehicle: [],
+          UnitType.aircraft: [],
+        },
       ),
       MissileSilo(
         player: player,
@@ -58,15 +67,6 @@ class GameState extends BaseState {
         queues: {
           UnitType.defense: [],
           UnitType.attack: [],
-        },
-      ),
-      MilitaryFacility(
-        player: player,
-        level: 0,
-        queues: {
-          UnitType.infantry: [],
-          UnitType.vehicle: [],
-          UnitType.aircraft: [],
         },
       ),
     ]);

@@ -147,21 +147,10 @@ class UnitLeftSection extends StatelessWidget {
           size: 50,
         ),
         const HBox(15),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Label(
-              text: unitType.toString().toUpperCase(),
-              color: Palette.textLight,
-              weight: FontWeight.bold,
-            ),
-            const VBox(12),
-            Label(
-              text: 'QUEUE: ${trainer.enqueuedUnits(unitType)}',
-              color: Palette.textLight,
-              weight: FontWeight.bold,
-            ),
-          ],
+        Label(
+          text: unitType.toString().toUpperCase(),
+          color: Palette.textLight,
+          weight: FontWeight.bold,
         ),
       ],
     );
@@ -180,9 +169,26 @@ class UnitCenterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (trainer.enqueuedUnits(unitType) > 0) {
-      return TaskProgressIndicator(
-        size: 50,
-        task: trainer.firstTask(unitType),
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Label(
+            text: trainer.enqueuedUnits(unitType).toString(),
+            size: 14,
+            color: Palette.textLight,
+          ),
+          const HBox(4),
+          const Icon(
+            Icons.auto_awesome_motion,
+            color: Palette.icon,
+            size: 14,
+          ),
+          const HBox(10),
+          TaskProgressIndicator(
+            size: 50,
+            task: trainer.firstTask(unitType),
+          )
+        ],
       );
     } else {
       return const Empty();
