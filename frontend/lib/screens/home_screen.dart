@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return const GameContainer(
       child: Center(
         child: CircularProgressIndicator(
-          color: Palette.progress,
+          color: Palette.loader,
         ),
       ),
     );

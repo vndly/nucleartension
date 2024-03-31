@@ -39,7 +39,7 @@ class Palette {
 
   static const Color dialog = Color(0xff404040);
 
-  static const Color progress = Colors.white;
+  static const Color loader = Colors.white;
 
   static const Color menuSelected = Color(0xffffffff);
   static const Color menuUnselected = Color(0xff707070);
