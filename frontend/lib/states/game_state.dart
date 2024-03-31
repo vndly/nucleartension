@@ -80,7 +80,7 @@ class GameState extends BaseState {
       player,
       PassivePlayer(
         game: game,
-        name: 'Player 2',
+        name: 'Bob',
         resources: ResourceInventory({}),
         buildings: [],
         military: Military(
@@ -91,7 +91,7 @@ class GameState extends BaseState {
       ),
       PassivePlayer(
         game: game,
-        name: 'Player 3',
+        name: 'Max',
         resources: ResourceInventory({}),
         buildings: [],
         military: Military(
@@ -102,7 +102,7 @@ class GameState extends BaseState {
       ),
       PassivePlayer(
         game: game,
-        name: 'Player 4',
+        name: 'Ray',
         resources: ResourceInventory({}),
         buildings: [],
         military: Military(
@@ -113,7 +113,7 @@ class GameState extends BaseState {
       ),
       PassivePlayer(
         game: game,
-        name: 'Player 5',
+        name: 'Tom',
         resources: ResourceInventory({}),
         buildings: [],
         military: Military(

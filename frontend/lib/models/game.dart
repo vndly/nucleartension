@@ -43,6 +43,12 @@ class Game {
     }
   }
 
+  // ============================ MILITARY ================================== \\
+
+  void onAttackPlayerMilitary(Player player) {}
+
+  void onAttackPlayerMissiles(Player player) {}
+
   // ============================= UPDATE =================================== \\
 
   void update(double dt) {

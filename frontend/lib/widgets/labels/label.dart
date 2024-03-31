@@ -10,8 +10,6 @@ class Label extends StatelessWidget {
   final TextDecoration decoration;
   final TextAlign? align;
   final TextOverflow? overflow;
-  final int? maxLines;
-  final double? height;
 
   const Label({
     required this.text,
@@ -21,8 +19,6 @@ class Label extends StatelessWidget {
     this.decoration = TextDecoration.none,
     this.align,
     this.overflow,
-    this.maxLines,
-    this.height,
   });
 
   @override
@@ -30,7 +26,7 @@ class Label extends StatelessWidget {
     return Text(
       text,
       textAlign: align,
-      maxLines: maxLines,
+      overflow: overflow,
       style: TextStyle(
         color: color,
         fontSize: size,

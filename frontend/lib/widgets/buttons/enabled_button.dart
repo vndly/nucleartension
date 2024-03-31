@@ -50,6 +50,28 @@ class EnabledButton extends StatelessWidget {
         rotation: 3,
       );
 
+  factory EnabledButton.attackMilitary({
+    required double size,
+    required VoidCallback onTap,
+  }) =>
+      EnabledButton(
+        icon: Icons.ads_click,
+        color: Palette.error,
+        size: size,
+        onTap: onTap,
+      );
+
+  factory EnabledButton.attackMissiles({
+    required double size,
+    required VoidCallback onTap,
+  }) =>
+      EnabledButton(
+        icon: Icons.location_searching_sharp,
+        color: Palette.error,
+        size: size,
+        onTap: onTap,
+      );
+
   @override
   Widget build(BuildContext context) {
     return Container(
