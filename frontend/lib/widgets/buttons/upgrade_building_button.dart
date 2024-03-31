@@ -52,6 +52,8 @@ class UpgradeOrBuildButton extends StatelessWidget {
           onTap: building.upgrade,
         );
       }
+    } else if (!building.hasResourcesToUpgrade) {
+      return DisabledButton.noResources(size: 70);
     } else {
       return DisabledButton.disabled(size: 70);
     }

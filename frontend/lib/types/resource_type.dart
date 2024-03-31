@@ -7,7 +7,7 @@ enum ResourceType {
     color: Palette.resourceEnergy,
   ),
   supplies(
-    sprite: Icons.construction,
+    sprite: Icons.token,
     color: Palette.resourceSupplies,
   ),
   population(

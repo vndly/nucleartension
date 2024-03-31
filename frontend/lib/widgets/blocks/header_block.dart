@@ -48,12 +48,12 @@ class ResourcesSection extends StatelessWidget {
         const VBox(10),
         ResourceLabel(
           player: player,
-          resourceType: ResourceType.population,
+          resourceType: ResourceType.technology,
         ),
         const VBox(10),
         ResourceLabel(
           player: player,
-          resourceType: ResourceType.technology,
+          resourceType: ResourceType.population,
         ),
       ],
     );
@@ -85,17 +85,17 @@ class MilitarySection extends StatelessWidget {
         ),
         const VBox(10),
         MilitaryLabel(
-          icon: Icons.local_fire_department_rounded,
-          color: Palette.militaryAttackMissile,
-          title: 'ATTACK MISSILES:',
-          value: player.attackMissiles.toString(),
-        ),
-        const VBox(10),
-        MilitaryLabel(
           icon: Icons.shield,
           color: Palette.militaryDefenseMissile,
           title: 'DEFENSE MISSILES:',
           value: player.defenseMissiles.toString(),
+        ),
+        const VBox(10),
+        MilitaryLabel(
+          icon: Icons.local_fire_department_rounded,
+          color: Palette.militaryAttackMissile,
+          title: 'ATTACK MISSILES:',
+          value: player.attackMissiles.toString(),
         ),
       ],
     );
