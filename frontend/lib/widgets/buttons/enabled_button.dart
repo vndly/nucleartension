@@ -32,7 +32,7 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.front_loader,
+        icon: Icons.construction,
         color: Palette.success,
         size: size,
         onTap: onTap,

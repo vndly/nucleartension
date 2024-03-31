@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/widgets/labels/label.dart';
+import 'package:nucleartension/widgets/blocks/header_block.dart';
 
 class WarRoomView extends StatelessWidget {
   final Game game;
@@ -10,10 +9,12 @@ class WarRoomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Label(
-        text: 'WAR ROOM',
-        color: Palette.textLight,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HeaderBlock(game.player),
+        ],
       ),
     );
   }
