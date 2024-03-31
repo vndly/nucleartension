@@ -15,7 +15,6 @@ class DisabledButton extends StatelessWidget {
 
   static const IconData XXXXXX7 = Icons.double_arrow;
   static const IconData XXXXXX9 = Icons.forward;
-  static const IconData XXXXXX12 = Icons.keyboard_double_arrow_up;
 
   const DisabledButton({
     required this.color,

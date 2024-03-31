@@ -41,7 +41,7 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.arrow_upward,
+        icon: Icons.keyboard_double_arrow_up,
         color: Palette.success,
         size: size,
         onTap: onTap,
