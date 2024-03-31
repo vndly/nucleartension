@@ -1,7 +1,8 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
-import 'package:nucleartension/widgets/buttons/symbol_button.dart';
+import 'package:nucleartension/widgets/buttons/disabled_button.dart';
+import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 
@@ -41,40 +42,20 @@ class UpgradeOrBuildButton extends StatelessWidget {
   Widget build(BuildContext context) {
     if (building.canUpgrade) {
       if (building.level == 0) {
-        return SymbolButton.build(
+        return EnabledButton.build(
           size: 70,
           onTap: building.upgrade,
         );
       } else {
-        return SymbolButton.upgrade(
+        return EnabledButton.upgrade(
           size: 70,
           onTap: building.upgrade,
         );
       }
     } else if (!building.hasResourcesToUpgrade) {
-      if (building.level == 0) {
-        return SymbolButton.build(
-          size: 70,
-          onTap: building.canUpgrade ? building.upgrade : null,
-        );
-      } else {
-        return SymbolButton.upgrade(
-          size: 70,
-          onTap: building.canUpgrade ? building.upgrade : null,
-        );
-      }
+      return DisabledButton.noResources(size: 70);
     } else {
-      if (building.level == 0) {
-        return SymbolButton.build(
-          size: 70,
-          onTap: null,
-        );
-      } else {
-        return SymbolButton.upgrade(
-          size: 70,
-          onTap: null,
-        );
-      }
+      return DisabledButton.disabled(size: 70);
     }
   }
 }

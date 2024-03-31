@@ -22,9 +22,13 @@ class Trainer extends Building {
 
   Task firstTask(UnitType unitType) => queues[unitType]![0];
 
-  bool canCreateUnit(UnitType unitType) =>
-      (queueSize < queueMaxCapacity) &&
+  bool get isQueueAvailable => queueSize < queueMaxCapacity;
+
+  bool hasResourcesToCreate(UnitType unitType) =>
       player.resourceInventory.hasItems(unitType.cost);
+
+  bool canCreateUnit(UnitType unitType) =>
+      isQueueAvailable && hasResourcesToCreate(unitType);
 
   void enqueueUnit(UnitType unitType) {
     if (canCreateUnit(unitType)) {
