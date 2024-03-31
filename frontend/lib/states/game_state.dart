@@ -7,7 +7,7 @@ import 'package:nucleartension/models/buildings/trainers/military_facility.dart'
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/player.dart';
+import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
@@ -21,9 +21,9 @@ class GameState extends BaseState {
       defcon: 5,
     );
 
-    final Player player = Player(
+    final SelfPlayer player = SelfPlayer(
       game: game,
-      resourceInventory: ResourceInventory({
+      resources: ResourceInventory({
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
         ResourceType.population: 1000000,

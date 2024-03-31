@@ -3,12 +3,12 @@ import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
-import 'package:nucleartension/models/player.dart';
+import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/tasks/upgrade_building_task.dart';
 import 'package:nucleartension/types/building_type.dart';
 
 class Building {
-  final Player player;
+  final SelfPlayer player;
   final BuildingType buildingType;
   int level;
   UpgradeBuildingTask? upgradeTask;
@@ -25,8 +25,7 @@ class Building {
 
   bool get canUpgrade => !isUpgrading && hasResourcesToUpgrade;
 
-  bool get hasResourcesToUpgrade =>
-      player.resourceInventory.hasItems(upgradeCost);
+  bool get hasResourcesToUpgrade => player.resources.hasItems(upgradeCost);
 
   void update(double dt) {
     if ((upgradeTask != null) && upgradeTask!.update(dt)) {
@@ -37,7 +36,7 @@ class Building {
 
   void upgrade() {
     if (canUpgrade) {
-      player.resourceInventory.removeItems(upgradeCost);
+      player.resources.removeItems(upgradeCost);
       upgradeTask = UpgradeBuildingTask(
         building: this,
         cost: upgradeCost,
@@ -46,7 +45,7 @@ class Building {
   }
 
   factory Building.create({
-    required Player player,
+    required SelfPlayer player,
     required BuildingType buildingType,
     required int level,
   }) {

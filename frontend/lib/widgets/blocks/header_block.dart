@@ -1,13 +1,13 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/player.dart';
+import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class HeaderBlock extends StatelessWidget {
-  final Player player;
+  final SelfPlayer player;
 
   const HeaderBlock(this.player);
 
@@ -27,7 +27,7 @@ class HeaderBlock extends StatelessWidget {
 }
 
 class ResourcesSection extends StatelessWidget {
-  final Player player;
+  final SelfPlayer player;
 
   const ResourcesSection(this.player);
 
@@ -61,7 +61,7 @@ class ResourcesSection extends StatelessWidget {
 }
 
 class MilitarySection extends StatelessWidget {
-  final Player player;
+  final SelfPlayer player;
 
   const MilitarySection(this.player);
 
@@ -103,7 +103,7 @@ class MilitarySection extends StatelessWidget {
 }
 
 class ResourceLabel extends StatelessWidget {
-  final Player player;
+  final SelfPlayer player;
   final ResourceType resourceType;
 
   const ResourceLabel({
@@ -113,7 +113,7 @@ class ResourceLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final num amount = player.resourceInventory.get(resourceType);
+    final num amount = player.resources.get(resourceType);
 
     return Row(
       mainAxisSize: MainAxisSize.min,

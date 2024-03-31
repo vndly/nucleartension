@@ -8,26 +8,18 @@ import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/buildings/trainers/military_facility.dart';
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
-import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
-class Player {
-  final Game game;
-  final ResourceInventory resourceInventory;
-  final List<Building> buildings;
-  int militaryPower;
-  int defenseMissiles;
-  int attackMissiles;
-
-  Player({
-    required this.game,
-    required this.resourceInventory,
-    required this.buildings,
-    required this.militaryPower,
-    required this.defenseMissiles,
-    required this.attackMissiles,
+class SelfPlayer extends Player {
+  SelfPlayer({
+    required super.game,
+    required super.resources,
+    required super.buildings,
+    required super.militaryPower,
+    required super.defenseMissiles,
+    required super.attackMissiles,
   });
 
   // ============================ BUILDINGS ================================= \\

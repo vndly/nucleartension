@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/extensions/resource_map_extension.dart';
-import 'package:nucleartension/models/player.dart';
+import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/resource_indicator.dart';
 
 class CostIndicator extends StatelessWidget {
-  final Player player;
+  final SelfPlayer player;
   final ResourceMap cost;
 
   const CostIndicator({
@@ -28,7 +28,7 @@ class CostIndicator extends StatelessWidget {
             child: ResourceIndicator(
               icon: resource.key.icon(16),
               value: Formatter.resource(resource.value),
-              textColor: player.resourceInventory.hasItem(resource)
+              textColor: player.resources.hasItem(resource)
                   ? Palette.textLight
                   : Palette.error,
               textSize: 16,
