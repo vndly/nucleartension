@@ -1,4 +1,5 @@
 import 'package:nucleartension/models/player.dart';
+import 'package:nucleartension/utils/custom_snackbar.dart';
 
 class Game {
   final List<Player> players;
@@ -28,6 +29,7 @@ class Game {
   void _applyDefcon(int value) {
     if (defcon > value) {
       defcon = value;
+      CustomSnackbar.defcon(value);
     }
   }
 
