@@ -113,12 +113,10 @@ class UnitSection extends StatelessWidget {
             trainer: trainer,
             unitType: unitType,
           ),
-          const Spacer(),
           UnitCenterSection(
             trainer: trainer,
             unitType: unitType,
           ),
-          const Spacer(),
           UnitRightSection(
             trainer: trainer,
             unitType: unitType,
@@ -171,29 +169,35 @@ class UnitCenterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (trainer.enqueuedUnits(unitType) > 0) {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Label(
-            text: trainer.enqueuedUnits(unitType).toString(),
-            size: 14,
-            color: Palette.textLight,
-          ),
-          const HBox(4),
-          const Icon(
-            Icons.auto_awesome_motion,
-            color: Palette.icon,
-            size: 14,
-          ),
-          const HBox(10),
-          TaskProgressIndicator(
-            size: 50,
-            task: trainer.firstTask(unitType),
-          )
-        ],
+      return Expanded(
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const Spacer(),
+            Label(
+              text: trainer.enqueuedUnits(unitType).toString(),
+              size: 14,
+              color: Palette.textLight,
+            ),
+            const HBox(4),
+            const Icon(
+              Icons.auto_awesome_motion,
+              color: Palette.icon,
+              size: 14,
+            ),
+            const HBox(10),
+            TaskProgressIndicator(
+              size: 50,
+              task: trainer.firstTask(unitType),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.07,
+            ),
+          ],
+        ),
       );
     } else {
-      return const Empty();
+      return const Spacer();
     }
   }
 }
