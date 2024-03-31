@@ -7,6 +7,7 @@ import 'package:nucleartension/models/buildings/trainers/military_facility.dart'
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/military.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -30,9 +31,11 @@ class GameState extends BaseState {
         ResourceType.technology: 0,
       }),
       buildings: [],
-      militaryPower: 0,
-      defenseMissiles: 0,
-      attackMissiles: 0,
+      military: Military(
+        power: 0,
+        defenseMissiles: 0,
+        attackMissiles: 0,
+      ),
     );
 
     player.buildings.addAll([

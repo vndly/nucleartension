@@ -17,9 +17,7 @@ class SelfPlayer extends Player {
     required super.game,
     required super.resources,
     required super.buildings,
-    required super.militaryPower,
-    required super.defenseMissiles,
-    required super.attackMissiles,
+    required super.military,
   });
 
   // ============================ BUILDINGS ================================= \\
@@ -61,18 +59,18 @@ class SelfPlayer extends Player {
   void createUnit(UnitType unitType) {
     switch (unitType) {
       case UnitType.defense:
-        defenseMissiles++;
+        military.defenseMissiles++;
         break;
 
       case UnitType.attack:
-        attackMissiles++;
+        military.attackMissiles++;
         game.onAttackMissileCreated();
         break;
 
       case UnitType.infantry:
       case UnitType.vehicle:
       case UnitType.aircraft:
-        militaryPower += unitType.power;
+        military.power += unitType.power;
         game.onMilitaryCreated();
         break;
     }

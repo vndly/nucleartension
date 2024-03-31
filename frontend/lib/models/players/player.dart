@@ -1,21 +1,18 @@
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/military.dart';
 
 class Player {
   final Game game;
   final ResourceInventory resources;
   final List<Building> buildings;
-  int militaryPower;
-  int defenseMissiles;
-  int attackMissiles;
+  final Military military;
 
   Player({
     required this.game,
     required this.resources,
     required this.buildings,
-    required this.militaryPower,
-    required this.defenseMissiles,
-    required this.attackMissiles,
+    required this.military,
   });
 }
