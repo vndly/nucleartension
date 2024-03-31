@@ -31,8 +31,8 @@ class Palette {
   static const Color borderImage = Color(0xffc0c0c0);
 
   static const Color buttonEnabled = Colors.green;
-  static const Color buttonDisabled = Color(0xffa0a0a0);
-  static const Color buttonBlocked = Colors.red;
+  static const Color buttonDisabled = Color(0xFFB9372D);
+  static const Color buttonBlocked = Color(0xffa0a0a0);
   static const Color buttonProgress = Color(0x88000000);
 
   static const Color chip = Color(0xff808080);

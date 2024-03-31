@@ -19,7 +19,7 @@ class TaskProgressIndicator extends StatelessWidget {
       size: size,
       progress: task.progress,
       child: Container(
-        color: Palette.buttonDisabled,
+        color: Palette.buttonBlocked,
         child: Center(
           child: Label(
             text: task.timeLeft.formatted,

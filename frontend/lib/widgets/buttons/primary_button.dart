@@ -54,7 +54,7 @@ class ButtonContent extends StatelessWidget {
     return Container(
       width: expand ? double.infinity : null,
       height: 40,
-      color: (onPressed != null) ? color : Palette.buttonDisabled,
+      color: (onPressed != null) ? color : Palette.buttonBlocked,
       child: Material(
         color: Palette.transparent,
         child: InkWell(
