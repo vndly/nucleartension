@@ -39,16 +39,42 @@ class UpgradeOrBuildButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (building.level == 0) {
-      return SymbolButton.build(
-        size: 70,
-        onTap: building.canUpgrade ? building.upgrade : null,
-      );
+    if (building.canUpgrade) {
+      if (building.level == 0) {
+        return SymbolButton.build(
+          size: 70,
+          onTap: building.upgrade,
+        );
+      } else {
+        return SymbolButton.upgrade(
+          size: 70,
+          onTap: building.upgrade,
+        );
+      }
+    } else if (!building.hasResourcesToUpgrade) {
+      if (building.level == 0) {
+        return SymbolButton.build(
+          size: 70,
+          onTap: building.canUpgrade ? building.upgrade : null,
+        );
+      } else {
+        return SymbolButton.upgrade(
+          size: 70,
+          onTap: building.canUpgrade ? building.upgrade : null,
+        );
+      }
     } else {
-      return SymbolButton.upgrade(
-        size: 70,
-        onTap: building.canUpgrade ? building.upgrade : null,
-      );
+      if (building.level == 0) {
+        return SymbolButton.build(
+          size: 70,
+          onTap: null,
+        );
+      } else {
+        return SymbolButton.upgrade(
+          size: 70,
+          onTap: null,
+        );
+      }
     }
   }
 }

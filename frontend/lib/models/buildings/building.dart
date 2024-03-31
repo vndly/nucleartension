@@ -23,8 +23,10 @@ class Building {
 
   bool get isUpgrading => upgradeTask != null;
 
-  bool get canUpgrade =>
-      !isUpgrading && player.resourceInventory.hasItems(upgradeCost);
+  bool get canUpgrade => !isUpgrading && hasResourcesToUpgrade;
+
+  bool get hasResourcesToUpgrade =>
+      player.resourceInventory.hasItems(upgradeCost);
 
   void update(double dt) {
     if ((upgradeTask != null) && upgradeTask!.update(dt)) {

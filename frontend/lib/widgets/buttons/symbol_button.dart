@@ -4,16 +4,18 @@ import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/images/image_grayscale.dart';
 
 class SymbolButton extends StatelessWidget {
-  final Color color;
+  final Color enableColor;
+  final Color disableColor;
   final double size;
   final VoidCallback? onTap;
   final IconData? icon;
   final String? sprite;
 
   const SymbolButton({
-    required this.color,
+    required this.enableColor,
     required this.size,
     required this.onTap,
+    this.disableColor = Palette.buttonDisabled,
     this.icon,
     this.sprite,
   });
@@ -24,7 +26,7 @@ class SymbolButton extends StatelessWidget {
   }) =>
       SymbolButton(
         icon: Icons.add,
-        color: Palette.success,
+        enableColor: Palette.success,
         size: size,
         onTap: onTap,
       );
@@ -35,7 +37,7 @@ class SymbolButton extends StatelessWidget {
   }) =>
       SymbolButton(
         icon: Icons.construction,
-        color: Palette.success,
+        enableColor: Palette.success,
         size: size,
         onTap: onTap,
       );
@@ -46,7 +48,7 @@ class SymbolButton extends StatelessWidget {
   }) =>
       SymbolButton(
         icon: Icons.arrow_upward,
-        color: Palette.success,
+        enableColor: Palette.success,
         size: size,
         onTap: onTap,
       );
@@ -68,7 +70,7 @@ class SymbolButton extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      color: (onTap != null) ? color : Palette.buttonDisabled,
+      color: (onTap != null) ? enableColor : disableColor,
       child: Material(
         color: Palette.transparent,
         child: InkWell(
