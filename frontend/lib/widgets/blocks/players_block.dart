@@ -52,23 +52,35 @@ class PlayerRow extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Label(
-              text: player.name,
-              color: Palette.textLight,
-              weight: FontWeight.bold,
-              overflow: TextOverflow.ellipsis,
+            child: SizedBox(
+              height: 30,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Label(
+                  text: player.name,
+                  color: Palette.textLight,
+                  weight: FontWeight.bold,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
           ),
-          const HBox(15),
-          EnabledButton.attackMilitary(
-            size: 30,
-            onTap: () => game.onAttackPlayerMilitary(player),
-          ),
-          const HBox(15),
-          EnabledButton.attackMissiles(
-            size: 30,
-            onTap: () => game.onAttackPlayerMissiles(player),
-          ),
+          if (game.player.military.hasPower)
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: EnabledButton.attackMilitary(
+                size: 30,
+                onTap: () => game.onAttackPlayerMilitary(player),
+              ),
+            ),
+          if (game.player.military.hasAttackMissiles)
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: EnabledButton.attackMissiles(
+                size: 30,
+                onTap: () => game.onAttackPlayerMissiles(player),
+              ),
+            ),
         ],
       ),
     );

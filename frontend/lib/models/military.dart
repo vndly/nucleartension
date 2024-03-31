@@ -8,4 +8,8 @@ class Military {
     required this.defenseMissiles,
     required this.attackMissiles,
   });
+
+  bool get hasPower => power > 0;
+
+  bool get hasAttackMissiles => attackMissiles > 0;
 }
