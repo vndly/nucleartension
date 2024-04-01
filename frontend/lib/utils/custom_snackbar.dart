@@ -13,34 +13,30 @@ class CustomSnackbar {
 
   static const Duration DURATION_LONG = Duration(seconds: 5);
 
-  static void defcon(int value) {
+  static void _show({
+    required Widget widget,
+    required Duration duration,
+  }) {
     final SnackBar snackBar = SnackBar(
-      padding: const EdgeInsets.all(0),
-      content: SizedBox(
-        height: 50,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.warning,
-              color: Palette.error,
-              size: 20,
-            ),
-            const HBox(10),
-            Label(
-              text: 'DEFCON $value',
-              color: Palette.textLight,
-            ),
-          ],
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      behavior: SnackBarBehavior.floating,
+      dismissDirection: DismissDirection.none,
+      padding: EdgeInsets.zero,
+      duration: duration,
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(Navigation.context).size.height / 2,
+      ),
+      content: Center(
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            color: Palette.backgroundSnackbar,
+          ),
+          child: widget,
         ),
       ),
-      behavior: SnackBarBehavior.floating,
-      margin: EdgeInsets.only(
-        bottom: MediaQuery.of(Navigation.context).size.height - 50,
-      ),
-      backgroundColor: Palette.backgroundSnackbar,
-      duration: DURATION_MEDIUM,
     );
 
     Delayed.post(() {
@@ -51,4 +47,26 @@ class CustomSnackbar {
       }
     });
   }
+
+  static void defcon(int value) => _show(
+        widget: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.warning,
+              color: Palette.error,
+              size: 30,
+            ),
+            const HBox(10),
+            Label(
+              text: 'DEFCON $value',
+              color: Palette.error,
+              size: 20,
+              weight: FontWeight.bold,
+            ),
+          ],
+        ),
+        duration: DURATION_MEDIUM,
+      );
 }

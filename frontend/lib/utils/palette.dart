@@ -20,7 +20,7 @@ class Palette {
   static const Color backgroundScreen = Color(0xff111111);
   static const Color backgroundTitle = Color(0xff222222);
   static const Color backgroundBuilding = Color(0xff222222);
-  static const Color backgroundSnackbar = Color(0xff222222);
+  static const Color backgroundSnackbar = Color(0xff111111);
 
   static const Color resourceEnergy = Colors.yellow;
   static const Color resourceSupplies = Colors.green;
