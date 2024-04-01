@@ -1,5 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/trainers/trainer.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -9,6 +10,7 @@ import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
+import 'package:nucleartension/widgets/labels/labeled_info.dart';
 
 class TrainerBlock extends StatelessWidget {
   final Trainer trainer;
@@ -19,7 +21,14 @@ class TrainerBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return BuildingContainer(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
+          LabeledInfo(
+            title: trainer.buildingType.toString().toUpperCase(),
+            onTap: () => InformationDialog.building(trainer),
+          ),
+          const VBox(12),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,33 +59,19 @@ class TrainerLeftSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         BuildingImageBlock(
           building: trainer,
           size: 70,
         ),
         const HBox(15),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Label(
-              text: trainer.buildingType.toString().toUpperCase(),
-              color: Palette.textLight,
-              weight: FontWeight.bold,
-            ),
-            if (trainer.level > 0) ...[
-              const VBox(12),
-              Label(
-                text: 'QUEUE: ${trainer.queueSize}/${trainer.queueMaxCapacity}',
-                color: trainer.isQueueAvailable
-                    ? Palette.textLight
-                    : Palette.error,
-                weight: FontWeight.bold,
-              ),
-            ],
-          ],
-        ),
+        if (trainer.level > 0)
+          Label(
+            text: 'QUEUE: ${trainer.queueSize}/${trainer.queueMaxCapacity}',
+            color: trainer.isQueueAvailable ? Palette.textLight : Palette.error,
+            weight: FontWeight.bold,
+          ),
       ],
     );
   }
@@ -106,20 +101,31 @@ class UnitSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 25),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          UnitLeftSection(
-            trainer: trainer,
-            unitType: unitType,
+          LabeledInfo(
+            title: unitType.toString().toUpperCase(),
+            onTap: () => InformationDialog.unit(unitType),
           ),
-          UnitCenterSection(
-            trainer: trainer,
-            unitType: unitType,
-          ),
-          UnitRightSection(
-            trainer: trainer,
-            unitType: unitType,
+          const VBox(12),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              UnitLeftSection(
+                trainer: trainer,
+                unitType: unitType,
+              ),
+              UnitCenterSection(
+                trainer: trainer,
+                unitType: unitType,
+              ),
+              UnitRightSection(
+                trainer: trainer,
+                unitType: unitType,
+              ),
+            ],
           ),
         ],
       ),
@@ -138,21 +144,9 @@ class UnitLeftSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        UnitImageBlock(
-          unitType: unitType,
-          size: 50,
-        ),
-        const HBox(15),
-        Label(
-          text: unitType.toString().toUpperCase(),
-          color: Palette.textLight,
-          weight: FontWeight.bold,
-        ),
-      ],
+    return UnitImageBlock(
+      unitType: unitType,
+      size: 50,
     );
   }
 }
@@ -191,7 +185,7 @@ class UnitCenterSection extends StatelessWidget {
               task: trainer.firstTask(unitType),
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.07,
+              width: MediaQuery.of(context).size.width * 0.15,
             ),
           ],
         ),

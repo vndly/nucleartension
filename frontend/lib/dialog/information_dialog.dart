@@ -1,25 +1,28 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class InformationDialog extends StatelessWidget {
   final String title;
-  final String message;
+  final Widget content;
   final String buttonAccept;
   final VoidCallback? onAccept;
 
   const InformationDialog._({
     required this.title,
-    required this.message,
+    required this.content,
     required this.buttonAccept,
     required this.onAccept,
   });
 
   static DialogController _show({
     required String title,
-    required String message,
+    required Widget content,
     required String buttonAccept,
     VoidCallback? onAccept,
   }) {
@@ -31,7 +34,7 @@ class InformationDialog extends StatelessWidget {
       barrierColor: Palette.transparent,
       builder: (context) => InformationDialog._(
         title: title,
-        message: message,
+        content: content,
         buttonAccept: buttonAccept,
         onAccept: onAccept,
       ),
@@ -40,14 +43,43 @@ class InformationDialog extends StatelessWidget {
     return DialogController(context);
   }
 
-  static DialogController information({
+  static DialogController _entityInfo({
     required String title,
-    required String message,
+    required String description,
+    required String sprite,
   }) =>
       _show(
-        title: title,
-        message: message,
+        title: title.toUpperCase(),
+        content: Row(
+          children: [
+            ImageAsset(
+              path: sprite,
+              size: 50,
+            ),
+            const HBox(12),
+            Expanded(
+              child: Label(
+                text: description,
+                color: Palette.textLight,
+              ),
+            ),
+          ],
+        ),
         buttonAccept: 'Ok',
+      );
+
+  static DialogController building(Building building) => _entityInfo(
+        title: building.buildingType.toString(),
+        description:
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+        sprite: building.buildingType.sprite,
+      );
+
+  static DialogController unit(UnitType unitType) => _entityInfo(
+        title: unitType.toString(),
+        description:
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+        sprite: unitType.sprite,
       );
 
   @override
@@ -60,10 +92,7 @@ class InformationDialog extends StatelessWidget {
         color: Palette.textLight,
         weight: FontWeight.bold,
       ),
-      content: Label(
-        text: message,
-        color: Palette.textLight,
-      ),
+      content: content,
       actions: [
         Padding(
           padding: const EdgeInsets.only(

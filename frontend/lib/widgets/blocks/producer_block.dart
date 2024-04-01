@@ -25,11 +25,7 @@ class ProducerBlock extends StatelessWidget {
         children: [
           LabeledInfo(
             title: producer.buildingType.toString().toUpperCase(),
-            onTap: () => InformationDialog.information(
-              title: producer.buildingType.toString().toUpperCase(),
-              message:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
-            ),
+            onTap: () => InformationDialog.building(producer),
           ),
           const VBox(12),
           Row(
