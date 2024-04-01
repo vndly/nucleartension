@@ -92,7 +92,7 @@ class InformationDialog extends StatelessWidget {
       child: AlertDialog(
         titlePadding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
         contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
-        actionsPadding: const EdgeInsets.fromLTRB(5, 5, 5, 3),
+        actionsPadding: const EdgeInsets.fromLTRB(5, 5, 5, 2),
         backgroundColor: Palette.backgroundDialog,
         title: Label(
           text: title,
