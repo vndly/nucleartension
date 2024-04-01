@@ -42,37 +42,59 @@ class _GameContentState extends State<GameContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        selectedItemColor: Palette.menuSelected,
-        unselectedItemColor: Palette.menuUnselected,
-        backgroundColor: Palette.backgroundScreen,
-        selectedFontSize: 12,
-        unselectedFontSize: 12,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.radar),
-            label: 'WAR ROOM',
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: Palette.borderSeparator,
+              width: 0.5,
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.widgets),
-            label: 'RESOURCES',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.military_tech_outlined),
-            label: 'MILITARY',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.science),
-            label: 'RESEARCH',
-          ),
-        ],
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentIndex,
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          selectedItemColor: Palette.menuSelected,
+          unselectedItemColor: Palette.menuUnselected,
+          backgroundColor: Palette.backgroundScreen,
+          selectedFontSize: 12,
+          unselectedFontSize: 12,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Icon(Icons.radar),
+              ),
+              label: 'WAR ROOM',
+            ),
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Icon(Icons.widgets),
+              ),
+              label: 'RESOURCES',
+            ),
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Icon(Icons.military_tech_outlined),
+              ),
+              label: 'MILITARY',
+            ),
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Icon(Icons.science),
+              ),
+              label: 'RESEARCH',
+            ),
+          ],
+        ),
       ),
       body: Container(
         width: double.infinity,
