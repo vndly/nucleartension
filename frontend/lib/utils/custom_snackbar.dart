@@ -32,6 +32,10 @@ class CustomSnackbar {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
+            border: Border.all(
+              color: Palette.borderSeparator,
+              width: 0.5,
+            ),
             color: Palette.backgroundSnackbar,
           ),
           child: widget,
