@@ -90,7 +90,7 @@ class InformationDialog extends StatelessWidget {
       titlePadding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
       contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
       buttonPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-      backgroundColor: Palette.dialog,
+      backgroundColor: Palette.backgroundDialog,
       title: Label(
         text: title,
         color: Palette.textLight,

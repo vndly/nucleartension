@@ -56,7 +56,7 @@ class ProgressOverlay extends StatelessWidget {
             child: Container(
               width: size,
               height: size - (size * progress),
-              color: Palette.buttonProgress,
+              color: Palette.overlayProgress,
             ),
           )
         ],

@@ -18,9 +18,10 @@ class Palette {
 
   static const Color backgroundContainer = Colors.black;
   static const Color backgroundScreen = Color(0xff101010);
-  static const Color backgroundTitle = Color(0xff222222);
+  static const Color backgroundTitle = Color(0xff202020);
   static const Color backgroundBuilding = Color(0xff181818);
   static const Color backgroundSnackbar = Color(0xff101010);
+  static const Color backgroundDialog = Color(0xff404040);
 
   static const Color resourceEnergy = Colors.yellow;
   static const Color resourceSupplies = Colors.green;
@@ -38,11 +39,10 @@ class Palette {
   static const Color buttonEnabled = Color(0xff279b2b);
   static const Color buttonDisabled = Color(0xffb9372d);
   static const Color buttonBlocked = Color(0xff606060);
-  static const Color buttonProgress = Color(0x88000000);
+
+  static const Color overlayProgress = Color(0x88000000);
 
   static const Color chip = Color(0xff808080);
-
-  static const Color dialog = Color(0xff404040);
 
   static const Color loader = Colors.white;
 
