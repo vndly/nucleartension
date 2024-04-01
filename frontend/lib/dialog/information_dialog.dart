@@ -69,7 +69,7 @@ class InformationDialog extends StatelessWidget {
             ),
           ],
         ),
-        buttonAccept: 'Ok',
+        buttonAccept: 'OK',
       );
 
   static DialogController building(BuildingType buildingType) => _entityInfo(
@@ -89,7 +89,7 @@ class InformationDialog extends StatelessWidget {
     return AlertDialog(
       titlePadding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
       contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
-      buttonPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      actionsPadding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
       backgroundColor: Palette.backgroundDialog,
       title: Label(
         text: title,
@@ -98,22 +98,16 @@ class InformationDialog extends StatelessWidget {
       ),
       content: content,
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(
-            right: 10,
-            bottom: 10,
+        TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: Palette.textLight,
           ),
-          child: TextButton(
-            style: TextButton.styleFrom(
-              foregroundColor: Palette.textLight,
-            ),
-            onPressed: () {
-              Navigation.pop();
-              onAccept?.call();
-            },
-            child: Label(
-              text: buttonAccept,
-            ),
+          onPressed: () {
+            Navigation.pop();
+            onAccept?.call();
+          },
+          child: Label(
+            text: buttonAccept,
           ),
         ),
       ],

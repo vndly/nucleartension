@@ -27,7 +27,7 @@ class LabeledInfo extends StatelessWidget {
           child: const Icon(
             Icons.info_outline,
             color: Palette.icon,
-            size: 12,
+            size: 14,
           ),
         ),
       ],
