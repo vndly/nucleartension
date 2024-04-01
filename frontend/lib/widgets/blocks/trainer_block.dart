@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/trainers/trainer.dart';
 import 'package:nucleartension/types/unit_type.dart';
+import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
@@ -11,6 +12,7 @@ import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_info.dart';
+import 'package:nucleartension/widgets/separators/row_separator.dart';
 
 class TrainerBlock extends StatelessWidget {
   final Trainer trainer;
@@ -100,11 +102,13 @@ class UnitSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25),
+      padding: const EdgeInsets.only(top: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          const RowSeparator(),
+          const VBox(12),
           LabeledInfo(
             title: unitType.toString().toUpperCase(),
             onTap: () => InformationDialog.unit(unitType),
@@ -163,6 +167,8 @@ class UnitCenterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (trainer.enqueuedUnits(unitType) > 0) {
+      final double gap = Environment.hasSmallScreen ? 0.15 : 0.07;
+
       return Expanded(
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -185,7 +191,7 @@ class UnitCenterSection extends StatelessWidget {
               task: trainer.firstTask(unitType),
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.15,
+              width: MediaQuery.of(context).size.width * gap,
             ),
           ],
         ),

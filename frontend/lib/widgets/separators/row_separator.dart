@@ -7,7 +7,7 @@ class RowSeparator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 0.5,
+      height: 0.2,
       color: Palette.borderSeparator,
     );
   }

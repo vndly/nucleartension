@@ -50,10 +50,10 @@ class CreateUnitButtonContent extends StatelessWidget {
         size: 50,
         onTap: () => trainer.enqueueUnit(unitType),
       );
-    } else if (!trainer.hasResourcesToCreate(unitType)) {
-      return DisabledButton.noResources(size: 50);
     } else if (!trainer.isQueueAvailable) {
       return DisabledButton.queueFull(size: 50);
+    } else if (!trainer.hasResourcesToCreate(unitType)) {
+      return DisabledButton.noResources(size: 50);
     } else {
       return DisabledButton.disabled(size: 50);
     }
