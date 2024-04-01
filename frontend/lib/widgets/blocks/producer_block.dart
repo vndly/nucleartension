@@ -1,5 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -7,6 +9,7 @@ import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
+import 'package:nucleartension/widgets/labels/labeled_info.dart';
 
 class ProducerBlock extends StatelessWidget {
   final Producer producer;
@@ -16,12 +19,27 @@ class ProducerBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BuildingContainer(
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          LeftSection(producer),
-          const Spacer(),
-          RightSection(producer),
+          LabeledInfo(
+            title: producer.buildingType.toString().toUpperCase(),
+            onTap: () => InformationDialog.information(
+              title: producer.buildingType.toString().toUpperCase(),
+              message:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+            ),
+          ),
+          const VBox(12),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              LeftSection(producer),
+              const Spacer(),
+              RightSection(producer),
+            ],
+          ),
         ],
       ),
     );
@@ -37,25 +55,14 @@ class LeftSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         BuildingImageBlock(
           building: producer,
           size: 70,
         ),
         const HBox(15),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Label(
-              text: producer.buildingType.toString().toUpperCase(),
-              color: Palette.textLight,
-              weight: FontWeight.bold,
-            ),
-            const VBox(12),
-            ProductionIndicator(producer),
-          ],
-        ),
+        ProductionIndicator(producer),
       ],
     );
   }
