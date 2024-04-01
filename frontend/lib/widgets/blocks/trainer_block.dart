@@ -26,7 +26,7 @@ class TrainerBlock extends StatelessWidget {
         children: [
           LabeledInfo(
             title: trainer.buildingType.toString().toUpperCase(),
-            onTap: () => InformationDialog.building(trainer),
+            onTap: () => InformationDialog.building(trainer.buildingType),
           ),
           const VBox(12),
           Row(

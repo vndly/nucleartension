@@ -78,6 +78,23 @@ enum BuildingType {
     }
   }
 
+  String get description {
+    switch (this) {
+      case power_plant:
+        return 'AAA';
+      case supply_center:
+        return 'BBB';
+      case propaganda_station:
+        return 'CCC';
+      case tech_lab:
+        return 'DDD';
+      case missile_silo:
+        return 'EEE';
+      case military_facility:
+        return 'FFF';
+    }
+  }
+
   @override
   String toString() => name.replaceAll('_', ' ');
 }

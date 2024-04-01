@@ -1,6 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -51,10 +51,14 @@ class InformationDialog extends StatelessWidget {
       _show(
         title: title.toUpperCase(),
         content: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageAsset(
-              path: sprite,
-              size: 50,
+            Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: ImageAsset(
+                path: sprite,
+                size: 50,
+              ),
             ),
             const HBox(12),
             Expanded(
@@ -68,24 +72,24 @@ class InformationDialog extends StatelessWidget {
         buttonAccept: 'Ok',
       );
 
-  static DialogController building(Building building) => _entityInfo(
-        title: building.buildingType.toString(),
-        description:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
-        sprite: building.buildingType.sprite,
+  static DialogController building(BuildingType buildingType) => _entityInfo(
+        title: buildingType.toString(),
+        description: buildingType.description,
+        sprite: buildingType.sprite,
       );
 
   static DialogController unit(UnitType unitType) => _entityInfo(
         title: unitType.toString(),
-        description:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+        description: unitType.description,
         sprite: unitType.sprite,
       );
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      contentPadding: const EdgeInsets.fromLTRB(25, 20, 25, 25),
+      titlePadding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+      contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+      buttonPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       backgroundColor: Palette.dialog,
       title: Label(
         text: title,

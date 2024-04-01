@@ -54,6 +54,21 @@ enum UnitType {
     required this.cost,
   });
 
+  String get description {
+    switch (this) {
+      case defense:
+        return 'GGG';
+      case attack:
+        return 'HHH';
+      case infantry:
+        return 'III';
+      case vehicle:
+        return 'JJJ';
+      case aircraft:
+        return 'KKK';
+    }
+  }
+
   @override
   String toString() => name.replaceAll('_', ' ');
 }
