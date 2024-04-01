@@ -27,7 +27,7 @@ class TrainerBlock extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           LabeledInfo(
-            title: trainer.buildingType.toString().toUpperCase(),
+            title: trainer.buildingType.localized.toUpperCase(),
             onTap: () => InformationDialog.building(trainer.buildingType),
           ),
           const VBox(12),
@@ -110,7 +110,7 @@ class UnitSection extends StatelessWidget {
           const RowSeparator(),
           const VBox(12),
           LabeledInfo(
-            title: unitType.toString().toUpperCase(),
+            title: unitType.localized.toUpperCase(),
             onTap: () => InformationDialog.unit(unitType),
           ),
           const VBox(12),

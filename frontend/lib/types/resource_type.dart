@@ -33,6 +33,16 @@ enum ResourceType {
         size: size,
       );
 
-  @override
-  String toString() => name.replaceAll('_', ' ');
+  String get localized {
+    switch (this) {
+      case energy:
+        return 'Energy';
+      case supplies:
+        return 'Supplies';
+      case population:
+        return 'Population';
+      case technology:
+        return 'Technology';
+    }
+  }
 }

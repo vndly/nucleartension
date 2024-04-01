@@ -54,6 +54,21 @@ enum UnitType {
     required this.cost,
   });
 
+  String get localized {
+    switch (this) {
+      case defense:
+        return 'Defense';
+      case attack:
+        return 'Attack';
+      case infantry:
+        return 'Infantry';
+      case vehicle:
+        return 'Vehicle';
+      case aircraft:
+        return 'Aircraft';
+    }
+  }
+
   String get description {
     switch (this) {
       case defense:
@@ -68,7 +83,4 @@ enum UnitType {
         return 'KKK';
     }
   }
-
-  @override
-  String toString() => name.replaceAll('_', ' ');
 }

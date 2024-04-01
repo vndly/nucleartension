@@ -24,7 +24,7 @@ class ProducerBlock extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           LabeledInfo(
-            title: producer.buildingType.toString().toUpperCase(),
+            title: producer.buildingType.localized.toUpperCase(),
             onTap: () => InformationDialog.building(producer.buildingType),
           ),
           const VBox(12),

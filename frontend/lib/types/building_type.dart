@@ -78,6 +78,23 @@ enum BuildingType {
     }
   }
 
+  String get localized {
+    switch (this) {
+      case power_plant:
+        return 'Power Plant';
+      case supply_center:
+        return 'Supply Center';
+      case propaganda_station:
+        return 'Propaganda Station';
+      case tech_lab:
+        return 'Tech Lab';
+      case missile_silo:
+        return 'Missile Silo';
+      case military_facility:
+        return 'Military Facility';
+    }
+  }
+
   String get description {
     switch (this) {
       case power_plant:
@@ -94,7 +111,4 @@ enum BuildingType {
         return 'FFF';
     }
   }
-
-  @override
-  String toString() => name.replaceAll('_', ' ');
 }

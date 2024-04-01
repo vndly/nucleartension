@@ -74,13 +74,13 @@ class InformationDialog extends StatelessWidget {
       );
 
   static DialogController building(BuildingType buildingType) => _entityInfo(
-        title: buildingType.toString(),
+        title: buildingType.localized,
         description: buildingType.description,
         sprite: buildingType.sprite,
       );
 
   static DialogController unit(UnitType unitType) => _entityInfo(
-        title: unitType.toString(),
+        title: unitType.localized,
         description: unitType.description,
         sprite: unitType.sprite,
       );

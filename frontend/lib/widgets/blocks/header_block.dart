@@ -121,7 +121,7 @@ class ResourceLabel extends StatelessWidget {
         resourceType.icon(14),
         const HBox(10),
         LabeledText(
-          label: '${resourceType.name.toUpperCase()}:',
+          label: '${resourceType.localized.toUpperCase()}:',
           text: Formatter.resource(amount),
           labelColor: Palette.textLight,
           textColor: Palette.textLight,
