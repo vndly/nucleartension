@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/types/building_type.dart';
@@ -86,31 +87,34 @@ class InformationDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      titlePadding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
-      contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
-      actionsPadding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-      backgroundColor: Palette.backgroundDialog,
-      title: Label(
-        text: title,
-        color: Palette.textLight,
-        weight: FontWeight.bold,
-      ),
-      content: content,
-      actions: [
-        TextButton(
-          style: TextButton.styleFrom(
-            foregroundColor: Palette.textLight,
-          ),
-          onPressed: () {
-            Navigation.pop();
-            onAccept?.call();
-          },
-          child: Label(
-            text: buttonAccept,
-          ),
+    return BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+      child: AlertDialog(
+        titlePadding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+        contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+        actionsPadding: const EdgeInsets.fromLTRB(5, 5, 5, 3),
+        backgroundColor: Palette.backgroundDialog,
+        title: Label(
+          text: title,
+          color: Palette.textLight,
+          weight: FontWeight.bold,
         ),
-      ],
+        content: content,
+        actions: [
+          TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Palette.textLight,
+            ),
+            onPressed: () {
+              Navigation.pop();
+              onAccept?.call();
+            },
+            child: Label(
+              text: buttonAccept,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
