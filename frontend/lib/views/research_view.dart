@@ -22,6 +22,10 @@ class ResearchView extends StatelessWidget {
           ResearchResources(game.player),
           ResearchMissiles(game.player),
           ResearchWarning(game.player),
+          ResearchMilitary(game.player),
+          ResearchWeapons(game.player),
+          ResearchResilience(game.player),
+          ResearchIntel(game.player),
           const BlockSeparator(),
         ],
       ),
@@ -103,6 +107,101 @@ class ResearchWarning extends StatelessWidget {
         const BlockSeparator(),
         ResearchBlock(
             player.getResearch(ResearchType.warning_military_fast_deployments)),
+      ],
+    );
+  }
+}
+
+class ResearchMilitary extends StatelessWidget {
+  final SelfPlayer player;
+
+  const ResearchMilitary(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const BlockSeparator(),
+        const BlockTitle('MILITARY'),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.military_barracks_cost)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.military_barracks_time)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.military_factory_cost)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.military_factory_time)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.military_airfield_cost)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.military_airfield_time)),
+      ],
+    );
+  }
+}
+
+class ResearchWeapons extends StatelessWidget {
+  final SelfPlayer player;
+
+  const ResearchWeapons(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const BlockSeparator(),
+        const BlockTitle('WEAPONS'),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.weapons_fission_bomb)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.weapons_fusion_bomb)),
+      ],
+    );
+  }
+}
+
+class ResearchResilience extends StatelessWidget {
+  final SelfPlayer player;
+
+  const ResearchResilience(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const BlockSeparator(),
+        const BlockTitle('RESILIENCE'),
+        const BlockSeparator(),
+        ResearchBlock(
+            player.getResearch(ResearchType.resilience_emergency_planning)),
+      ],
+    );
+  }
+}
+
+class ResearchIntel extends StatelessWidget {
+  final SelfPlayer player;
+
+  const ResearchIntel(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const BlockSeparator(),
+        const BlockTitle('INTEL'),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.intel_economy_1)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.intel_economy_2)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.intel_military_1)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.intel_military_2)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.intel_technology_1)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.intel_technology_2)),
       ],
     );
   }

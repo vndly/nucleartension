@@ -44,6 +44,7 @@ class GameState extends BaseState {
     );
 
     player.researches.addAll([
+      // resources
       Research(
         player: player,
         researchType: ResearchType.resources_energy,
@@ -64,6 +65,8 @@ class GameState extends BaseState {
         researchType: ResearchType.resources_technology,
         level: 3,
       ),
+
+      // missiles
       Research(
         player: player,
         researchType: ResearchType.missiles_additive_manufacturing,
@@ -84,6 +87,8 @@ class GameState extends BaseState {
         researchType: ResearchType.missiles_signal_jamming,
         level: 0,
       ),
+
+      // warning
       Research(
         player: player,
         researchType: ResearchType.warning_missiles_radar_network,
@@ -102,6 +107,89 @@ class GameState extends BaseState {
       Research(
         player: player,
         researchType: ResearchType.warning_military_fast_deployments,
+        level: 0,
+      ),
+
+      // military
+      Research(
+        player: player,
+        researchType: ResearchType.military_barracks_cost,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.military_barracks_time,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.military_factory_cost,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.military_factory_time,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.military_airfield_cost,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.military_airfield_time,
+        level: 0,
+      ),
+
+      // weapons
+      Research(
+        player: player,
+        researchType: ResearchType.weapons_fission_bomb,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.weapons_fusion_bomb,
+        level: 0,
+      ),
+
+      // resilience
+      Research(
+        player: player,
+        researchType: ResearchType.resilience_emergency_planning,
+        level: 0,
+      ),
+
+      // intel
+      Research(
+        player: player,
+        researchType: ResearchType.intel_economy_1,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.intel_economy_2,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.intel_military_1,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.intel_military_2,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.intel_technology_1,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.intel_technology_2,
         level: 0,
       ),
     ]);
