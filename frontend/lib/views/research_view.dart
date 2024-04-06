@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
+import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/widgets/blocks/block_title.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
@@ -18,36 +19,91 @@ class ResearchView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           HeaderBlock(game.player),
-          const BlockSeparator(),
-          const BlockTitle('RESOURCES'),
-          const BlockSeparator(),
-          ResearchBlock(game.player.getResearch(ResearchType.resources_energy)),
-          const BlockSeparator(),
-          ResearchBlock(
-              game.player.getResearch(ResearchType.resources_supplies)),
-          const BlockSeparator(),
-          ResearchBlock(
-              game.player.getResearch(ResearchType.resources_population)),
-          const BlockSeparator(),
-          ResearchBlock(
-              game.player.getResearch(ResearchType.resources_technology)),
-          const BlockSeparator(),
-          const BlockTitle('MISSIES'),
-          const BlockSeparator(),
-          ResearchBlock(game.player
-              .getResearch(ResearchType.missiles_additive_manufacturing)),
-          const BlockSeparator(),
-          ResearchBlock(game.player
-              .getResearch(ResearchType.missiles_assembly_automation)),
-          const BlockSeparator(),
-          ResearchBlock(game.player
-              .getResearch(ResearchType.missiles_enhanced_guidance_systems)),
-          const BlockSeparator(),
-          ResearchBlock(
-              game.player.getResearch(ResearchType.missiles_signal_jamming)),
+          ResearchResources(game.player),
+          ResearchMissiles(game.player),
+          ResearchWarning(game.player),
           const BlockSeparator(),
         ],
       ),
+    );
+  }
+}
+
+class ResearchResources extends StatelessWidget {
+  final SelfPlayer player;
+
+  const ResearchResources(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const BlockSeparator(),
+        const BlockTitle('RESOURCES'),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.resources_energy)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.resources_supplies)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.resources_population)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.resources_technology)),
+      ],
+    );
+  }
+}
+
+class ResearchMissiles extends StatelessWidget {
+  final SelfPlayer player;
+
+  const ResearchMissiles(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const BlockSeparator(),
+        const BlockTitle('MISSILES'),
+        const BlockSeparator(),
+        ResearchBlock(
+            player.getResearch(ResearchType.missiles_additive_manufacturing)),
+        const BlockSeparator(),
+        ResearchBlock(
+            player.getResearch(ResearchType.missiles_assembly_automation)),
+        const BlockSeparator(),
+        ResearchBlock(player
+            .getResearch(ResearchType.missiles_enhanced_guidance_systems)),
+        const BlockSeparator(),
+        ResearchBlock(player.getResearch(ResearchType.missiles_signal_jamming)),
+      ],
+    );
+  }
+}
+
+class ResearchWarning extends StatelessWidget {
+  final SelfPlayer player;
+
+  const ResearchWarning(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const BlockSeparator(),
+        const BlockTitle('WARNING'),
+        const BlockSeparator(),
+        ResearchBlock(
+            player.getResearch(ResearchType.warning_missiles_radar_network)),
+        const BlockSeparator(),
+        ResearchBlock(player
+            .getResearch(ResearchType.warning_missiles_hypersonic_propulsion)),
+        const BlockSeparator(),
+        ResearchBlock(
+            player.getResearch(ResearchType.warning_military_early_warning)),
+        const BlockSeparator(),
+        ResearchBlock(
+            player.getResearch(ResearchType.warning_military_fast_deployments)),
+      ],
     );
   }
 }

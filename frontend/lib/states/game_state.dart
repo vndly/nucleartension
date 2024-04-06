@@ -84,6 +84,26 @@ class GameState extends BaseState {
         researchType: ResearchType.missiles_signal_jamming,
         level: 0,
       ),
+      Research(
+        player: player,
+        researchType: ResearchType.warning_missiles_radar_network,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.warning_missiles_hypersonic_propulsion,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.warning_military_early_warning,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.warning_military_fast_deployments,
+        level: 0,
+      ),
     ]);
 
     player.buildings.addAll([
