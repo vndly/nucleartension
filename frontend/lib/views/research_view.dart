@@ -29,6 +29,19 @@ class ResearchView extends StatelessWidget {
           const BlockSeparator(),
           ResearchBlock(game.player.getResearch(ResearchType.technology)),
           const BlockSeparator(),
+          const BlockTitle('MISSIES'),
+          const BlockSeparator(),
+          ResearchBlock(
+              game.player.getResearch(ResearchType.additive_manufacturing)),
+          const BlockSeparator(),
+          ResearchBlock(
+              game.player.getResearch(ResearchType.assembly_automation)),
+          const BlockSeparator(),
+          ResearchBlock(
+              game.player.getResearch(ResearchType.enhanced_guidance_systems)),
+          const BlockSeparator(),
+          ResearchBlock(game.player.getResearch(ResearchType.signal_jamming)),
+          const BlockSeparator(),
         ],
       ),
     );

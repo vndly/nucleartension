@@ -86,7 +86,10 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeButton(producer);
+    return UpgradeButton(
+      upgradable: producer,
+      size: 70,
+    );
   }
 }
 

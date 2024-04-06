@@ -68,7 +68,7 @@ class LeftSection extends StatelessWidget {
       children: [
         ResearchImageBlock(
           research: research,
-          size: 70,
+          size: 50,
         ),
       ],
     );
@@ -82,6 +82,9 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeButton(research);
+    return UpgradeButton(
+      upgradable: research,
+      size: 50,
+    );
   }
 }

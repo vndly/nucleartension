@@ -64,6 +64,26 @@ class GameState extends BaseState {
         researchType: ResearchType.technology,
         level: 3,
       ),
+      Research(
+        player: player,
+        researchType: ResearchType.additive_manufacturing,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.assembly_automation,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.enhanced_guidance_systems,
+        level: 0,
+      ),
+      Research(
+        player: player,
+        researchType: ResearchType.signal_jamming,
+        level: 0,
+      ),
     ]);
 
     player.buildings.addAll([

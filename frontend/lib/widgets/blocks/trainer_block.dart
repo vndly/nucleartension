@@ -101,7 +101,10 @@ class TrainerRightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeButton(trainer);
+    return UpgradeButton(
+      upgradable: trainer,
+      size: 70,
+    );
   }
 }
 

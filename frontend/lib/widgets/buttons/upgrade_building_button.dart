@@ -8,8 +8,12 @@ import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 
 class UpgradeButton extends StatelessWidget {
   final Upgradable upgradable;
+  final double size;
 
-  const UpgradeButton(this.upgradable);
+  const UpgradeButton({
+    required this.upgradable,
+    required this.size,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +27,14 @@ class UpgradeButton extends StatelessWidget {
         const HBox(10),
         if (upgradable.isUpgrading)
           TaskProgressIndicator(
-            size: 70,
+            size: size,
             task: upgradable.upgradeTask!,
           )
         else
-          UpgradeOrBuildButton(upgradable),
+          UpgradeOrBuildButton(
+            upgradable: upgradable,
+            size: size,
+          ),
       ],
     );
   }
@@ -35,27 +42,31 @@ class UpgradeButton extends StatelessWidget {
 
 class UpgradeOrBuildButton extends StatelessWidget {
   final Upgradable upgradable;
+  final double size;
 
-  const UpgradeOrBuildButton(this.upgradable);
+  const UpgradeOrBuildButton({
+    required this.upgradable,
+    required this.size,
+  });
 
   @override
   Widget build(BuildContext context) {
     if (upgradable.canUpgrade) {
       if (upgradable.level == 0) {
         return EnabledButton.build(
-          size: 70,
+          size: size,
           onTap: upgradable.upgrade,
         );
       } else {
         return EnabledButton.upgrade(
-          size: 70,
+          size: size,
           onTap: upgradable.upgrade,
         );
       }
     } else if (!upgradable.hasResourcesToUpgrade) {
-      return DisabledButton.noResources(size: 70);
+      return DisabledButton.noResources(size: size);
     } else {
-      return DisabledButton.disabled(size: 70);
+      return DisabledButton.disabled(size: size);
     }
   }
 }

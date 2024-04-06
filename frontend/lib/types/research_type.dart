@@ -3,6 +3,7 @@ import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 
 enum ResearchType {
+  // resources
   energy(
     sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
     initialCost: {
@@ -22,6 +23,32 @@ enum ResearchType {
     },
   ),
   technology(
+    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    initialCost: {
+      ResourceType.technology: 100,
+    },
+  ),
+  
+  // missiles
+  additive_manufacturing(
+    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    initialCost: {
+      ResourceType.technology: 100,
+    },
+  ),
+  assembly_automation(
+    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    initialCost: {
+      ResourceType.technology: 100,
+    },
+  ),
+  enhanced_guidance_systems(
+    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    initialCost: {
+      ResourceType.technology: 100,
+    },
+  ),
+  signal_jamming(
     sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
     initialCost: {
       ResourceType.technology: 100,
@@ -48,6 +75,14 @@ enum ResearchType {
         return 'Population';
       case technology:
         return 'Technology';
+      case additive_manufacturing:
+        return 'Additive Manufacturing';
+      case assembly_automation:
+        return 'Assembly Automation';
+      case enhanced_guidance_systems:
+        return 'Enhanced Guidance Systems';
+      case signal_jamming:
+        return 'Signal Jamming';
     }
   }
 
@@ -61,6 +96,14 @@ enum ResearchType {
         return '333';
       case technology:
         return '444';
+      case additive_manufacturing:
+        return '555';
+      case assembly_automation:
+        return '666';
+      case enhanced_guidance_systems:
+        return '777';
+      case signal_jamming:
+        return '888';
     }
   }
 }
