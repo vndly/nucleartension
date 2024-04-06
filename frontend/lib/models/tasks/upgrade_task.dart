@@ -1,12 +1,12 @@
 import 'package:nucleartension/extensions/resource_map_extension.dart';
-import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/tasks/task.dart';
+import 'package:nucleartension/models/upgradable.dart';
 
-class UpgradeBuildingTask extends Task {
-  final Building building;
+class UpgradeTask extends Task {
+  final Upgradable upgradable;
 
-  UpgradeBuildingTask({
-    required this.building,
+  UpgradeTask({
+    required this.upgradable,
     required super.cost,
   }) : super(
           duration: cost.duration,

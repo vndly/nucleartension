@@ -1,15 +1,15 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/widgets/buttons/disabled_button.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 
-class UpgradeBuildingButton extends StatelessWidget {
-  final Building building;
+class UpgradeButton extends StatelessWidget {
+  final Upgradable upgradable;
 
-  const UpgradeBuildingButton(this.building);
+  const UpgradeButton(this.upgradable);
 
   @override
   Widget build(BuildContext context) {
@@ -17,42 +17,42 @@ class UpgradeBuildingButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         CostIndicator(
-          player: building.player,
-          cost: building.upgradeCost,
+          player: upgradable.player,
+          cost: upgradable.upgradeCost,
         ),
         const HBox(10),
-        if (building.isUpgrading)
+        if (upgradable.isUpgrading)
           TaskProgressIndicator(
             size: 70,
-            task: building.upgradeTask!,
+            task: upgradable.upgradeTask!,
           )
         else
-          UpgradeOrBuildButton(building),
+          UpgradeOrBuildButton(upgradable),
       ],
     );
   }
 }
 
 class UpgradeOrBuildButton extends StatelessWidget {
-  final Building building;
+  final Upgradable upgradable;
 
-  const UpgradeOrBuildButton(this.building);
+  const UpgradeOrBuildButton(this.upgradable);
 
   @override
   Widget build(BuildContext context) {
-    if (building.canUpgrade) {
-      if (building.level == 0) {
+    if (upgradable.canUpgrade) {
+      if (upgradable.level == 0) {
         return EnabledButton.build(
           size: 70,
-          onTap: building.upgrade,
+          onTap: upgradable.upgrade,
         );
       } else {
         return EnabledButton.upgrade(
           size: 70,
-          onTap: building.upgrade,
+          onTap: upgradable.upgrade,
         );
       }
-    } else if (!building.hasResourcesToUpgrade) {
+    } else if (!upgradable.hasResourcesToUpgrade) {
       return DisabledButton.noResources(size: 70);
     } else {
       return DisabledButton.disabled(size: 70);

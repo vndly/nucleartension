@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
+import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/labeled_info.dart';
 
@@ -65,6 +66,6 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Empty(); //UpgradeBuildingButton(research);
+    return UpgradeButton(research);
   }
 }

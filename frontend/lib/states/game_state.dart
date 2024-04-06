@@ -44,19 +44,23 @@ class GameState extends BaseState {
     );
 
     player.researches.addAll([
-      const Research(
+      Research(
+        player: player,
         researchType: ResearchType.energy,
         level: 0,
       ),
-      const Research(
+      Research(
+        player: player,
         researchType: ResearchType.supplies,
         level: 1,
       ),
-      const Research(
+      Research(
+        player: player,
         researchType: ResearchType.population,
         level: 2,
       ),
-      const Research(
+      Research(
+        player: player,
         researchType: ResearchType.technology,
         level: 3,
       ),

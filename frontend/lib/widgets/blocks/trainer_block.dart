@@ -86,7 +86,7 @@ class TrainerRightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeBuildingButton(trainer);
+    return UpgradeButton(trainer);
   }
 }
 

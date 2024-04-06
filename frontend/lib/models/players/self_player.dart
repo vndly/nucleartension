@@ -92,5 +92,9 @@ class SelfPlayer extends Player {
     for (final Building building in buildings) {
       building.update(dt);
     }
+
+    for (final Research research in researches) {
+      research.update(dt);
+    }
   }
 }

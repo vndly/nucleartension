@@ -4,45 +4,20 @@ import 'package:nucleartension/models/buildings/producers/propaganda_station.dar
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/players/self_player.dart';
-import 'package:nucleartension/models/tasks/upgrade_building_task.dart';
+import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/types/building_type.dart';
 
-class Building {
-  final SelfPlayer player;
+class Building extends Upgradable {
   final BuildingType buildingType;
-  int level;
-  UpgradeBuildingTask? upgradeTask;
 
   Building({
-    required this.player,
+    required super.player,
+    required super.level,
     required this.buildingType,
-    required this.level,
   });
 
+  @override
   ResourceMap get upgradeCost => buildingType.cost(level + 1);
-
-  bool get isUpgrading => upgradeTask != null;
-
-  bool get canUpgrade => !isUpgrading && hasResourcesToUpgrade;
-
-  bool get hasResourcesToUpgrade => player.resources.hasItems(upgradeCost);
-
-  void update(double dt) {
-    if ((upgradeTask != null) && upgradeTask!.update(dt)) {
-      level++;
-      upgradeTask = null;
-    }
-  }
-
-  void upgrade() {
-    if (canUpgrade) {
-      player.resources.removeItems(upgradeCost);
-      upgradeTask = UpgradeBuildingTask(
-        building: this,
-        cost: upgradeCost,
-      );
-    }
-  }
 
   factory Building.create({
     required SelfPlayer player,
