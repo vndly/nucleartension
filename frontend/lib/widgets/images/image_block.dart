@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/unit_type.dart';
-import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
-import 'package:nucleartension/widgets/labels/label.dart';
 
 class BuildingImageBlock extends StatelessWidget {
   final Building building;
@@ -45,6 +43,26 @@ class ResearchImageBlock extends StatelessWidget {
 }
 
 class LeveledImageBlock extends StatelessWidget {
+  final String sprite;
+  final int level;
+  final double size;
+
+  const LeveledImageBlock({
+    required this.sprite,
+    required this.level,
+    required this.size,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ImageAsset(
+      path: sprite,
+      size: size,
+    );
+  }
+}
+
+/*class LeveledImageBlock extends StatelessWidget {
   final String sprite;
   final int level;
   final double size;
@@ -98,7 +116,7 @@ class LeveledImageBlock extends StatelessWidget {
       ],
     );
   }
-}
+}*/
 
 class UnitImageBlock extends StatelessWidget {
   final UnitType unitType;

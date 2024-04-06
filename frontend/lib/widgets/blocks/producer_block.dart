@@ -10,6 +10,7 @@ import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_info.dart';
+import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class ProducerBlock extends StatelessWidget {
   final Producer producer;
@@ -23,9 +24,23 @@ class ProducerBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          LabeledInfo(
-            title: producer.buildingType.localized.toUpperCase(),
-            onTap: () => InformationDialog.building(producer.buildingType),
+          Row(
+            children: [
+              LabeledInfo(
+                title: producer.buildingType.localized.toUpperCase(),
+                onTap: () => InformationDialog.building(producer.buildingType),
+              ),
+              if (producer.level > 0) ...[
+                const Spacer(),
+                LabeledText(
+                  label: 'LEVEL:',
+                  text: producer.level.toString(),
+                  labelColor: Palette.textLight,
+                  textColor: Palette.textLight,
+                  size: 14,
+                ),
+              ],
+            ],
           ),
           const VBox(12),
           Row(

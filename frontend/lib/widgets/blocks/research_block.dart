@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/labeled_info.dart';
+import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class ResearchBlock extends StatelessWidget {
   final Research research;
@@ -20,9 +22,23 @@ class ResearchBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          LabeledInfo(
-            title: research.researchType.localized.toUpperCase(),
-            onTap: () => InformationDialog.research(research.researchType),
+          Row(
+            children: [
+              LabeledInfo(
+                title: research.researchType.localized.toUpperCase(),
+                onTap: () => InformationDialog.research(research.researchType),
+              ),
+              if (research.level > 0) ...[
+                const Spacer(),
+                LabeledText(
+                  label: 'LEVEL:',
+                  text: research.level.toString(),
+                  labelColor: Palette.textLight,
+                  textColor: Palette.textLight,
+                  size: 14,
+                ),
+              ],
+            ],
           ),
           const VBox(12),
           Row(

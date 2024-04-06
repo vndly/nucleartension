@@ -12,6 +12,7 @@ import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_info.dart';
+import 'package:nucleartension/widgets/labels/labeled_text.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
 
 class TrainerBlock extends StatelessWidget {
@@ -26,9 +27,23 @@ class TrainerBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          LabeledInfo(
-            title: trainer.buildingType.localized.toUpperCase(),
-            onTap: () => InformationDialog.building(trainer.buildingType),
+          Row(
+            children: [
+              LabeledInfo(
+                title: trainer.buildingType.localized.toUpperCase(),
+                onTap: () => InformationDialog.building(trainer.buildingType),
+              ),
+              if (trainer.level > 0) ...[
+                const Spacer(),
+                LabeledText(
+                  label: 'LEVEL:',
+                  text: trainer.level.toString(),
+                  labelColor: Palette.textLight,
+                  textColor: Palette.textLight,
+                  size: 14,
+                ),
+              ],
+            ],
           ),
           const VBox(12),
           Row(
