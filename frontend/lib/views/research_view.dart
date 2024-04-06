@@ -21,26 +21,30 @@ class ResearchView extends StatelessWidget {
           const BlockSeparator(),
           const BlockTitle('RESOURCES'),
           const BlockSeparator(),
-          ResearchBlock(game.player.getResearch(ResearchType.energy)),
+          ResearchBlock(game.player.getResearch(ResearchType.resources_energy)),
           const BlockSeparator(),
-          ResearchBlock(game.player.getResearch(ResearchType.supplies)),
+          ResearchBlock(
+              game.player.getResearch(ResearchType.resources_supplies)),
           const BlockSeparator(),
-          ResearchBlock(game.player.getResearch(ResearchType.population)),
+          ResearchBlock(
+              game.player.getResearch(ResearchType.resources_population)),
           const BlockSeparator(),
-          ResearchBlock(game.player.getResearch(ResearchType.technology)),
+          ResearchBlock(
+              game.player.getResearch(ResearchType.resources_technology)),
           const BlockSeparator(),
           const BlockTitle('MISSIES'),
           const BlockSeparator(),
-          ResearchBlock(
-              game.player.getResearch(ResearchType.additive_manufacturing)),
+          ResearchBlock(game.player
+              .getResearch(ResearchType.missiles_additive_manufacturing)),
+          const BlockSeparator(),
+          ResearchBlock(game.player
+              .getResearch(ResearchType.missiles_assembly_automation)),
+          const BlockSeparator(),
+          ResearchBlock(game.player
+              .getResearch(ResearchType.missiles_enhanced_guidance_systems)),
           const BlockSeparator(),
           ResearchBlock(
-              game.player.getResearch(ResearchType.assembly_automation)),
-          const BlockSeparator(),
-          ResearchBlock(
-              game.player.getResearch(ResearchType.enhanced_guidance_systems)),
-          const BlockSeparator(),
-          ResearchBlock(game.player.getResearch(ResearchType.signal_jamming)),
+              game.player.getResearch(ResearchType.missiles_signal_jamming)),
           const BlockSeparator(),
         ],
       ),

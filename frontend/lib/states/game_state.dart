@@ -46,42 +46,42 @@ class GameState extends BaseState {
     player.researches.addAll([
       Research(
         player: player,
-        researchType: ResearchType.energy,
+        researchType: ResearchType.resources_energy,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.supplies,
+        researchType: ResearchType.resources_supplies,
         level: 1,
       ),
       Research(
         player: player,
-        researchType: ResearchType.population,
+        researchType: ResearchType.resources_population,
         level: 2,
       ),
       Research(
         player: player,
-        researchType: ResearchType.technology,
+        researchType: ResearchType.resources_technology,
         level: 3,
       ),
       Research(
         player: player,
-        researchType: ResearchType.additive_manufacturing,
+        researchType: ResearchType.missiles_additive_manufacturing,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.assembly_automation,
+        researchType: ResearchType.missiles_assembly_automation,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.enhanced_guidance_systems,
+        researchType: ResearchType.missiles_enhanced_guidance_systems,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.signal_jamming,
+        researchType: ResearchType.missiles_signal_jamming,
         level: 0,
       ),
     ]);

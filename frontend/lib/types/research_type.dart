@@ -4,25 +4,25 @@ import 'package:nucleartension/utils/assets.dart';
 
 enum ResearchType {
   // resources
-  energy(
+  resources_energy(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
-  supplies(
+  resources_supplies(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
-  population(
+  resources_population(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 50,
     },
   ),
-  technology(
+  resources_technology(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
@@ -30,25 +30,25 @@ enum ResearchType {
   ),
 
   // missiles
-  additive_manufacturing(
+  missiles_additive_manufacturing(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
-  assembly_automation(
+  missiles_assembly_automation(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
-  enhanced_guidance_systems(
+  missiles_enhanced_guidance_systems(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
-  signal_jamming(
+  missiles_signal_jamming(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
@@ -67,42 +67,42 @@ enum ResearchType {
 
   String get localized {
     switch (this) {
-      case energy:
+      case resources_energy:
         return 'Energy';
-      case supplies:
+      case resources_supplies:
         return 'Supplies';
-      case population:
+      case resources_population:
         return 'Population';
-      case technology:
+      case resources_technology:
         return 'Technology';
-      case additive_manufacturing:
+      case missiles_additive_manufacturing:
         return 'Additive Manufacturing';
-      case assembly_automation:
+      case missiles_assembly_automation:
         return 'Assembly Automation';
-      case enhanced_guidance_systems:
+      case missiles_enhanced_guidance_systems:
         return 'Enhanced Guidance Systems';
-      case signal_jamming:
+      case missiles_signal_jamming:
         return 'Signal Jamming';
     }
   }
 
   String get description {
     switch (this) {
-      case energy:
+      case resources_energy:
         return '111';
-      case supplies:
+      case resources_supplies:
         return '222';
-      case population:
+      case resources_population:
         return '333';
-      case technology:
+      case resources_technology:
         return '444';
-      case additive_manufacturing:
+      case missiles_additive_manufacturing:
         return '555';
-      case assembly_automation:
+      case missiles_assembly_automation:
         return '666';
-      case enhanced_guidance_systems:
+      case missiles_enhanced_guidance_systems:
         return '777';
-      case signal_jamming:
+      case missiles_signal_jamming:
         return '888';
     }
   }
