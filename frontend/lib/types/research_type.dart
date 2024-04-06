@@ -5,51 +5,51 @@ import 'package:nucleartension/utils/assets.dart';
 enum ResearchType {
   // resources
   energy(
-    sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
   supplies(
-    sprite: Assets.IMAGES_BUILDINGS_SUPPLY_CENTER,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
   population(
-    sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 50,
     },
   ),
   technology(
-    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
-  
+
   // missiles
   additive_manufacturing(
-    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   assembly_automation(
-    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   enhanced_guidance_systems(
-    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   signal_jamming(
-    sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
+    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },

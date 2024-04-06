@@ -15,7 +15,8 @@ class Assets {
       'assets/images/missiles/attack.png';
   static const String IMAGES_MISSILES_DEFENSE =
       'assets/images/missiles/defense.png';
-  static const String IMAGES_OTHER_UPGRADE = 'assets/images/other/upgrade.png';
+  static const String IMAGES_RESEARCH_RESEARCH =
+      'assets/images/research/research.png';
   static const String IMAGES_UNITS_AIRCRAFT =
       'assets/images/units/aircraft.png';
   static const String IMAGES_UNITS_INFANTRY =
