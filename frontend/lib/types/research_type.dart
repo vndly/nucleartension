@@ -6,29 +6,25 @@ enum ResearchType {
   energy(
     sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
     initialCost: {
-      ResourceType.energy: 20,
-      ResourceType.supplies: 20,
+      ResourceType.technology: 20,
     },
   ),
   supplies(
     sprite: Assets.IMAGES_BUILDINGS_SUPPLY_CENTER,
     initialCost: {
-      ResourceType.energy: 20,
-      ResourceType.supplies: 20,
+      ResourceType.technology: 20,
     },
   ),
   population(
     sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
     initialCost: {
-      ResourceType.energy: 50,
-      ResourceType.supplies: 50,
+      ResourceType.technology: 50,
     },
   ),
   technology(
     sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
     initialCost: {
-      ResourceType.energy: 100,
-      ResourceType.supplies: 100,
+      ResourceType.technology: 100,
     },
   );
 

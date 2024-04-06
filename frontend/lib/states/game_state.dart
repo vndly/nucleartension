@@ -32,7 +32,7 @@ class GameState extends BaseState {
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
         ResourceType.population: 1000000,
-        ResourceType.technology: 0,
+        ResourceType.technology: 200,
       }),
       buildings: [],
       researches: [],
