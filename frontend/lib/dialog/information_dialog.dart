@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -83,6 +84,12 @@ class InformationDialog extends StatelessWidget {
         title: unitType.localized,
         description: unitType.description,
         sprite: unitType.sprite,
+      );
+
+  static DialogController research(ResearchType researchType) => _entityInfo(
+        title: researchType.localized,
+        description: researchType.description,
+        sprite: researchType.sprite,
       );
 
   @override

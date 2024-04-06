@@ -2,12 +2,14 @@ import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/military.dart';
+import 'package:nucleartension/models/research.dart';
 
 class Player {
   final Game game;
   final String name;
   final ResourceInventory resources;
   final List<Building> buildings;
+  final List<Research> researches;
   final Military military;
 
   const Player({
@@ -15,6 +17,7 @@ class Player {
     required this.name,
     required this.resources,
     required this.buildings,
+    required this.researches,
     required this.military,
   });
 

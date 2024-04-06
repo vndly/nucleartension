@@ -10,6 +10,8 @@ import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/military.dart';
 import 'package:nucleartension/models/players/passive_player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
@@ -33,12 +35,32 @@ class GameState extends BaseState {
         ResourceType.technology: 0,
       }),
       buildings: [],
+      researches: [],
       military: Military(
         power: 0,
         defenseMissiles: 0,
         attackMissiles: 0,
       ),
     );
+
+    player.researches.addAll([
+      const Research(
+        researchType: ResearchType.energy,
+        level: 0,
+      ),
+      const Research(
+        researchType: ResearchType.supplies,
+        level: 1,
+      ),
+      const Research(
+        researchType: ResearchType.population,
+        level: 2,
+      ),
+      const Research(
+        researchType: ResearchType.technology,
+        level: 3,
+      ),
+    ]);
 
     player.buildings.addAll([
       PowerPlant(
@@ -83,6 +105,7 @@ class GameState extends BaseState {
         name: 'Bob',
         resources: ResourceInventory({}),
         buildings: [],
+        researches: [],
         military: Military(
           power: 0,
           defenseMissiles: 0,
@@ -94,6 +117,7 @@ class GameState extends BaseState {
         name: 'Max',
         resources: ResourceInventory({}),
         buildings: [],
+        researches: [],
         military: Military(
           power: 0,
           defenseMissiles: 0,
@@ -105,6 +129,7 @@ class GameState extends BaseState {
         name: 'Ray',
         resources: ResourceInventory({}),
         buildings: [],
+        researches: [],
         military: Military(
           power: 0,
           defenseMissiles: 0,
@@ -116,6 +141,7 @@ class GameState extends BaseState {
         name: 'Tom',
         resources: ResourceInventory({}),
         buildings: [],
+        researches: [],
         military: Military(
           power: 0,
           defenseMissiles: 0,

@@ -6,6 +6,7 @@ class ActivePlayer extends Player {
     required super.name,
     required super.resources,
     required super.buildings,
+    required super.researches,
     required super.military,
   });
 }

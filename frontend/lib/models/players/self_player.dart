@@ -9,6 +9,8 @@ import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/buildings/trainers/military_facility.dart';
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
@@ -18,6 +20,7 @@ class SelfPlayer extends Player {
     required super.name,
     required super.resources,
     required super.buildings,
+    required super.researches,
     required super.military,
   });
 
@@ -37,6 +40,11 @@ class SelfPlayer extends Player {
 
   T getBuilding<T extends Building>(Type type) =>
       buildings.where((b) => b.runtimeType == type).first as T;
+
+  // ============================ RESEARCHES ================================ \\
+
+  Research getResearch(ResearchType researchType) =>
+      researches.where((b) => b.researchType == researchType).first;
 
   // =========================== PRODUCTION ================================= \\
 
