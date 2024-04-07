@@ -1,4 +1,5 @@
 import 'package:dafluta/dafluta.dart';
+import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
@@ -28,6 +29,7 @@ class GameState extends BaseState {
     final SelfPlayer player = SelfPlayer(
       game: game,
       name: 'Momo',
+      color: Colors.red,
       resources: ResourceInventory({
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
@@ -235,6 +237,7 @@ class GameState extends BaseState {
       PassivePlayer(
         game: game,
         name: 'Bob',
+        color: Colors.blue,
         resources: ResourceInventory({}),
         buildings: [],
         researches: [],
@@ -247,6 +250,7 @@ class GameState extends BaseState {
       PassivePlayer(
         game: game,
         name: 'Max',
+        color: Colors.green,
         resources: ResourceInventory({}),
         buildings: [],
         researches: [],
@@ -259,6 +263,7 @@ class GameState extends BaseState {
       PassivePlayer(
         game: game,
         name: 'Ray',
+        color: Colors.yellow,
         resources: ResourceInventory({}),
         buildings: [],
         researches: [],
@@ -271,6 +276,7 @@ class GameState extends BaseState {
       PassivePlayer(
         game: game,
         name: 'Tom',
+        color: Colors.pink,
         resources: ResourceInventory({}),
         buildings: [],
         researches: [],

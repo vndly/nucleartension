@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
@@ -57,7 +56,7 @@ class PlayerRow extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Label(
                   text: player.name,
-                  color: Palette.textLight,
+                  color: player.color,
                   weight: FontWeight.bold,
                   overflow: TextOverflow.ellipsis,
                 ),

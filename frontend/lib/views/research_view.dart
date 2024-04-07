@@ -26,7 +26,6 @@ class ResearchView extends StatelessWidget {
           ResearchWeapons(game.player),
           ResearchResilience(game.player),
           ResearchIntel(game.player),
-          const BlockSeparator(),
         ],
       ),
     );

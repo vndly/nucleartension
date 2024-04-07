@@ -56,7 +56,7 @@ class EnabledButton extends StatelessWidget {
   }) =>
       EnabledButton(
         icon: Icons.ads_click,
-        color: Palette.error,
+        color: Palette.success,
         size: size,
         onTap: onTap,
       );

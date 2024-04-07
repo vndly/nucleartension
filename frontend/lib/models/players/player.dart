@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
@@ -7,6 +8,7 @@ import 'package:nucleartension/models/research.dart';
 class Player {
   final Game game;
   final String name;
+  final Color color;
   final ResourceInventory resources;
   final List<Building> buildings;
   final List<Research> researches;
@@ -15,6 +17,7 @@ class Player {
   const Player({
     required this.game,
     required this.name,
+    required this.color,
     required this.resources,
     required this.buildings,
     required this.researches,
