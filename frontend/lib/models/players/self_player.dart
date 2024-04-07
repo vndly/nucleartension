@@ -28,22 +28,26 @@ class SelfPlayer extends Player {
 
   // ============================ BUILDINGS ================================= \\
 
-  PowerPlant get powerPlant => buildings[BuildingType.power_plant] as PowerPlant;
+  PowerPlant get powerPlant =>
+      buildings[BuildingType.power_plant] as PowerPlant;
 
-  SupplyCenter get supplyCenter =>  buildings[BuildingType.supply_center] as SupplyCenter;
+  SupplyCenter get supplyCenter =>
+      buildings[BuildingType.supply_center] as SupplyCenter;
 
-  PropagandaStation get propagandaStation => buildings[BuildingType.propaganda_station] as PropagandaStation;
+  PropagandaStation get propagandaStation =>
+      buildings[BuildingType.propaganda_station] as PropagandaStation;
 
-  TechLab get techLab =>  buildings[BuildingType.tech_lab] as TechLab;
+  TechLab get techLab => buildings[BuildingType.tech_lab] as TechLab;
 
-  MissileSilo get missileSilo => buildings[BuildingType.missile_silo] as MissileSilo;
+  MissileSilo get missileSilo =>
+      buildings[BuildingType.missile_silo] as MissileSilo;
 
-  MilitaryFacility get militaryFacility => buildings[BuildingType.military_facility] as MilitaryFacility;
+  MilitaryFacility get militaryFacility =>
+      buildings[BuildingType.military_facility] as MilitaryFacility;
 
   // ============================ RESEARCHES ================================ \\
 
-  Research getResearch(ResearchType researchType) =>
-      researches.where((b) => b.researchType == researchType).first;
+  Research getResearch(ResearchType researchType) => researches[researchType]!;
 
   // =========================== PRODUCTION ================================= \\
 
@@ -92,7 +96,7 @@ class SelfPlayer extends Player {
       building.update(dt);
     }
 
-    for (final Research research in researches) {
+    for (final Research research in researches.values) {
       research.update(dt);
     }
   }

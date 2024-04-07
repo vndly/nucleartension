@@ -37,7 +37,7 @@ class GameState extends BaseState {
         ResourceType.technology: 200,
       }),
       buildings: {},
-      researches: [],
+      researches: {},
       military: Military(
         power: 0,
         defenseMissiles: 0,
@@ -45,7 +45,7 @@ class GameState extends BaseState {
       ),
     );
 
-    player.researches.addAll([
+    player.addResearches([
       // resources
       Research(
         player: player,
@@ -240,7 +240,7 @@ class GameState extends BaseState {
         color: Colors.blue,
         resources: ResourceInventory({}),
         buildings: {},
-        researches: [],
+        researches: {},
         military: Military(
           power: 0,
           defenseMissiles: 0,
@@ -253,7 +253,7 @@ class GameState extends BaseState {
         color: Colors.green,
         resources: ResourceInventory({}),
         buildings: {},
-        researches: [],
+        researches: {},
         military: Military(
           power: 0,
           defenseMissiles: 0,
@@ -266,7 +266,7 @@ class GameState extends BaseState {
         color: Colors.yellow,
         resources: ResourceInventory({}),
         buildings: {},
-        researches: [],
+        researches: {},
         military: Military(
           power: 0,
           defenseMissiles: 0,
@@ -279,7 +279,7 @@ class GameState extends BaseState {
         color: Colors.pink,
         resources: ResourceInventory({}),
         buildings: {},
-        researches: [],
+        researches: {},
         military: Military(
           power: 0,
           defenseMissiles: 0,

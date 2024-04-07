@@ -5,6 +5,7 @@ import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/military.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/types/research_type.dart';
 
 class Player {
   final Game game;
@@ -12,7 +13,7 @@ class Player {
   final Color color;
   final ResourceInventory resources;
   final Map<BuildingType, Building> buildings;
-  final List<Research> researches;
+  final Map<ResearchType, Research> researches;
   final Military military;
 
   const Player({
@@ -28,6 +29,12 @@ class Player {
   void addBuildings(List<Building> list) {
     for (final Building building in list) {
       buildings[building.buildingType] = building;
+    }
+  }
+
+  void addResearches(List<Research> list) {
+    for (final Research research in list) {
+      researches[research.researchType] = research;
     }
   }
 
