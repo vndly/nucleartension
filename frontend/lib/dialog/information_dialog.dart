@@ -9,6 +9,7 @@ import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
+import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class InformationDialog extends StatelessWidget {
   final Widget title;
@@ -115,9 +116,34 @@ class InformationDialog extends StatelessWidget {
             ),
           ],
         ),
-        content: const Label(
-          text: 'PLAYER DESCRIPTION',
-          color: Palette.textLight,
+        content: const Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            LabeledText(
+              label: 'Economy:',
+              text: 'unknown',
+              size: 14,
+              labelColor: Palette.textLight,
+              textColor: Palette.textLight,
+            ),
+            VBox(10),
+            LabeledText(
+              label: 'Military:',
+              text: 'unknown',
+              size: 14,
+              labelColor: Palette.textLight,
+              textColor: Palette.textLight,
+            ),
+            VBox(10),
+            LabeledText(
+              label: 'Technology:',
+              text: 'unknown',
+              size: 14,
+              labelColor: Palette.textLight,
+              textColor: Palette.textLight,
+            ),
+          ],
         ),
         buttonAccept: 'OK',
       );
