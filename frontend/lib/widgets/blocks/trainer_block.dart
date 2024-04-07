@@ -27,24 +27,7 @@ class TrainerBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            children: [
-              LabeledInfo(
-                title: trainer.buildingType.localized.toUpperCase(),
-                onTap: () => InformationDialog.building(trainer.buildingType),
-              ),
-              if (trainer.level > 0) ...[
-                const Spacer(),
-                LabeledText(
-                  label: 'LEVEL:',
-                  text: trainer.level.toString(),
-                  labelColor: Palette.textLight,
-                  textColor: Palette.textLight,
-                  size: 14,
-                ),
-              ],
-            ],
-          ),
+          HeaderSection(trainer),
           const VBox(12),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,6 +46,34 @@ class TrainerBlock extends StatelessWidget {
           ],
         ],
       ),
+    );
+  }
+}
+
+class HeaderSection extends StatelessWidget {
+  final Trainer trainer;
+
+  const HeaderSection(this.trainer);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        LabeledInfo(
+          title: trainer.buildingType.localized.toUpperCase(),
+          onTap: () => InformationDialog.building(trainer.buildingType),
+        ),
+        if (trainer.level > 0) ...[
+          const Spacer(),
+          LabeledText(
+            label: 'LEVEL:',
+            text: trainer.level.toString(),
+            labelColor: Palette.textLight,
+            textColor: Palette.textLight,
+            size: 14,
+          ),
+        ],
+      ],
     );
   }
 }

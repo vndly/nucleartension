@@ -22,24 +22,7 @@ class ResearchBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            children: [
-              LabeledInfo(
-                title: research.researchType.localized.toUpperCase(),
-                onTap: () => InformationDialog.research(research.researchType),
-              ),
-              if (research.level > 0) ...[
-                const Spacer(),
-                LabeledText(
-                  label: 'LEVEL:',
-                  text: research.level.toString(),
-                  labelColor: Palette.textLight,
-                  textColor: Palette.textLight,
-                  size: 14,
-                ),
-              ],
-            ],
-          ),
+          HeaderSection(research),
           const VBox(12),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,6 +34,34 @@ class ResearchBlock extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class HeaderSection extends StatelessWidget {
+  final Research research;
+
+  const HeaderSection(this.research);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        LabeledInfo(
+          title: research.researchType.localized.toUpperCase(),
+          onTap: () => InformationDialog.research(research.researchType),
+        ),
+        if (research.level > 0) ...[
+          const Spacer(),
+          LabeledText(
+            label: 'LEVEL:',
+            text: research.level.toString(),
+            labelColor: Palette.textLight,
+            textColor: Palette.textLight,
+            size: 14,
+          ),
+        ],
+      ],
     );
   }
 }

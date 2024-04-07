@@ -24,24 +24,7 @@ class ProducerBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            children: [
-              LabeledInfo(
-                title: producer.buildingType.localized.toUpperCase(),
-                onTap: () => InformationDialog.building(producer.buildingType),
-              ),
-              if (producer.level > 0) ...[
-                const Spacer(),
-                LabeledText(
-                  label: 'LEVEL:',
-                  text: producer.level.toString(),
-                  labelColor: Palette.textLight,
-                  textColor: Palette.textLight,
-                  size: 14,
-                ),
-              ],
-            ],
-          ),
+          HeaderSection(producer),
           const VBox(12),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,6 +36,34 @@ class ProducerBlock extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class HeaderSection extends StatelessWidget {
+  final Producer producer;
+
+  const HeaderSection(this.producer);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        LabeledInfo(
+          title: producer.buildingType.localized.toUpperCase(),
+          onTap: () => InformationDialog.building(producer.buildingType),
+        ),
+        if (producer.level > 0) ...[
+          const Spacer(),
+          LabeledText(
+            label: 'LEVEL:',
+            text: producer.level.toString(),
+            labelColor: Palette.textLight,
+            textColor: Palette.textLight,
+            size: 14,
+          ),
+        ],
+      ],
     );
   }
 }
