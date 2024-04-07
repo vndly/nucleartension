@@ -4,7 +4,7 @@ class PassivePlayer extends Player {
   const PassivePlayer({
     required super.game,
     required super.name,
-    required super.color,
+    required super.country,
     required super.resources,
     required super.buildings,
     required super.researches,

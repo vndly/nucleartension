@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
@@ -14,6 +13,7 @@ import 'package:nucleartension/models/inventory/military_inventory.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/types/country.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -22,7 +22,7 @@ import 'package:nucleartension/types/unit_type.dart';
 class Player {
   final Game game;
   final String name;
-  final Color color;
+  final Country country;
   final ResourceInventory resources;
   final MilitaryInventory military;
   final Map<BuildingType, Building> buildings;
@@ -31,7 +31,7 @@ class Player {
   const Player({
     required this.game,
     required this.name,
-    required this.color,
+    required this.country,
     required this.resources,
     required this.buildings,
     required this.researches,

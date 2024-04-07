@@ -1,5 +1,4 @@
 import 'package:dafluta/dafluta.dart';
-import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
@@ -12,6 +11,7 @@ import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/passive_player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/country.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -30,7 +30,7 @@ class GameState extends BaseState {
     final SelfPlayer player = SelfPlayer(
       game: game,
       name: 'Momo',
-      color: Colors.red,
+      country: Country.usa,
       resources: ResourceInventory.create({
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
@@ -237,8 +237,8 @@ class GameState extends BaseState {
       player,
       PassivePlayer(
         game: game,
-        name: 'Bob',
-        color: Colors.blue,
+        name: 'Sergey',
+        country: Country.russia,
         resources: ResourceInventory.empty(),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -246,8 +246,8 @@ class GameState extends BaseState {
       ),
       PassivePlayer(
         game: game,
-        name: 'Max',
-        color: Colors.green,
+        name: 'Ming',
+        country: Country.china,
         resources: ResourceInventory.empty(),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -255,8 +255,8 @@ class GameState extends BaseState {
       ),
       PassivePlayer(
         game: game,
-        name: 'Ray',
-        color: Colors.yellow,
+        name: 'Harry',
+        country: Country.uk,
         resources: ResourceInventory.empty(),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -264,8 +264,44 @@ class GameState extends BaseState {
       ),
       PassivePlayer(
         game: game,
-        name: 'Tom',
-        color: Colors.pink,
+        name: 'Louis',
+        country: Country.france,
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
+        buildings: {},
+        researches: {},
+      ),
+      PassivePlayer(
+        game: game,
+        name: 'Jong',
+        country: Country.north_korea,
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
+        buildings: {},
+        researches: {},
+      ),
+      PassivePlayer(
+        game: game,
+        name: 'Ram',
+        country: Country.india,
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
+        buildings: {},
+        researches: {},
+      ),
+      PassivePlayer(
+        game: game,
+        name: 'Muhammad',
+        country: Country.pakistan,
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
+        buildings: {},
+        researches: {},
+      ),
+      PassivePlayer(
+        game: game,
+        name: 'Ariel',
+        country: Country.israel,
         resources: ResourceInventory.empty(),
         military: MilitaryInventory.empty(),
         buildings: {},

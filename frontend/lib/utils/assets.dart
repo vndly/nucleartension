@@ -11,6 +11,15 @@ class Assets {
       'assets/images/buildings/supply_center.png';
   static const String IMAGES_BUILDINGS_TECH_LAB =
       'assets/images/buildings/tech_lab.png';
+  static const String IMAGES_COUNTRIES_CN = 'assets/images/countries/cn.png';
+  static const String IMAGES_COUNTRIES_FR = 'assets/images/countries/fr.png';
+  static const String IMAGES_COUNTRIES_GB = 'assets/images/countries/gb.png';
+  static const String IMAGES_COUNTRIES_IL = 'assets/images/countries/il.png';
+  static const String IMAGES_COUNTRIES_IN = 'assets/images/countries/in.png';
+  static const String IMAGES_COUNTRIES_KP = 'assets/images/countries/kp.png';
+  static const String IMAGES_COUNTRIES_PK = 'assets/images/countries/pk.png';
+  static const String IMAGES_COUNTRIES_RU = 'assets/images/countries/ru.png';
+  static const String IMAGES_COUNTRIES_US = 'assets/images/countries/us.png';
   static const String IMAGES_MISSILES_ATTACK =
       'assets/images/missiles/attack.png';
   static const String IMAGES_MISSILES_DEFENSE =

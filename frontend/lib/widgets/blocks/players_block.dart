@@ -1,7 +1,9 @@
+import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
+import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
 
@@ -52,14 +54,22 @@ class PlayerRow extends StatelessWidget {
           Expanded(
             child: SizedBox(
               height: 30,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Label(
-                  text: player.name,
-                  color: player.color,
-                  weight: FontWeight.bold,
-                  overflow: TextOverflow.ellipsis,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ImageAsset(
+                    path: player.country.flag,
+                    width: 21,
+                    height: 14,
+                  ),
+                  const HBox(15),
+                  Label(
+                    text: player.name,
+                    color: player.country.color,
+                    weight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
               ),
             ),
           ),
