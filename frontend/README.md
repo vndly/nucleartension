@@ -1,5 +1,6 @@
 # Nuclear Tension
 
-* Implement technology research
-* Create basic War Room
+* Implement technology researches
+* Implement event queue
+* Implement basic War Room
 * Send/Receive attacks
