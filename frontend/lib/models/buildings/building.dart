@@ -1,8 +1,8 @@
-import 'package:nucleartension/extensions/resource_map_extension.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
+import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/types/building_type.dart';

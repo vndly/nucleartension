@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nucleartension/extensions/resource_map_extension.dart';
+import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';

@@ -1,4 +1,4 @@
-import 'package:nucleartension/extensions/resource_map_extension.dart';
+import 'package:nucleartension/models/inventory/resource_inventory.dart';
 
 class Task {
   num totalTime = 0;
