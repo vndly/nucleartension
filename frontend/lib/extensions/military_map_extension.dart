@@ -6,16 +6,6 @@ typedef MilitaryMap = ItemMap<MilitaryType>;
 typedef MilitaryMapEntry = MapEntry<MilitaryType, num>;
 
 extension MilitaryMapExtension on MilitaryMap {
-  num get duration {
-    num sum = 0;
-
-    for (final MilitaryMapEntry item in entries) {
-      sum += item.value;
-    }
-
-    return sum / 10;
-  }
-
   MilitaryMap multiply(int factor) {
     final MilitaryMap result = {};
 

@@ -1,4 +1,4 @@
-import 'package:nucleartension/extensions/resource_map_extension.dart';
+import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/tasks/task.dart';
 import 'package:nucleartension/types/unit_type.dart';
 

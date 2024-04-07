@@ -7,17 +7,13 @@ extension ItemMapExtension<T> on ItemMap<T> {
 
   num get(T type) => this[type] ?? 0;
 
-  String join() {
-    String result = '';
+  num get duration {
+    num sum = 0;
 
-    for (final T type in keys) {
-      if (result.isNotEmpty) {
-        result += '\n';
-      }
-
-      result += '$type: ${get(type)}';
+    for (final MapEntry<T, num> item in entries) {
+      sum += item.value;
     }
 
-    return result;
+    return sum / 10;
   }
 }
