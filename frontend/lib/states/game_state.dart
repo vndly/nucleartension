@@ -167,32 +167,17 @@ class GameState extends BaseState {
       // intel
       Research(
         player: player,
-        researchType: ResearchType.intel_economy_1,
+        researchType: ResearchType.intel_economy,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.intel_economy_2,
+        researchType: ResearchType.intel_military,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.intel_military_1,
-        level: 0,
-      ),
-      Research(
-        player: player,
-        researchType: ResearchType.intel_military_2,
-        level: 0,
-      ),
-      Research(
-        player: player,
-        researchType: ResearchType.intel_technology_1,
-        level: 0,
-      ),
-      Research(
-        player: player,
-        researchType: ResearchType.intel_technology_2,
+        researchType: ResearchType.intel_technology,
         level: 0,
       ),
     ]);

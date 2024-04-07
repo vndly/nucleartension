@@ -143,37 +143,19 @@ enum ResearchType {
   ),
 
   // intel
-  intel_economy_1(
+  intel_economy(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
-  intel_economy_2(
+  intel_military(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
-  intel_military_1(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    initialCost: {
-      ResourceType.technology: 100,
-    },
-  ),
-  intel_military_2(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    initialCost: {
-      ResourceType.technology: 100,
-    },
-  ),
-  intel_technology_1(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    initialCost: {
-      ResourceType.technology: 100,
-    },
-  ),
-  intel_technology_2(
+  intel_technology(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
@@ -234,18 +216,12 @@ enum ResearchType {
         return 'Fusion Bomb';
       case resilience_emergency_planning:
         return 'Emergency Planning';
-      case intel_economy_1:
-        return 'Economy Level 1';
-      case intel_economy_2:
-        return 'Economy Level 2';
-      case intel_military_1:
-        return 'Military Level 1';
-      case intel_military_2:
-        return 'Military Level 2';
-      case intel_technology_1:
-        return 'Technology Level 1';
-      case intel_technology_2:
-        return 'Technology Level 2';
+      case intel_economy:
+        return 'Economy';
+      case intel_military:
+        return 'Military';
+      case intel_technology:
+        return 'Technology';
     }
   }
 
@@ -293,18 +269,12 @@ enum ResearchType {
         return 'Increases fusion bomb yield by 2x';
       case resilience_emergency_planning:
         return 'Decrease the amount of casualties by 10%';
-      case intel_economy_1:
-        return 'See ranking of economies among all players';
-      case intel_economy_2:
-        return 'See building levels of all players';
-      case intel_military_1:
-        return 'See ranking of military among all players';
-      case intel_military_2:
-        return 'See building levels of all players';
-      case intel_technology_1:
-        return 'See ranking of technologies among all players';
-      case intel_technology_2:
-        return 'See technologies levels of all players';
+      case intel_economy:
+        return 'Level 1: See ranking of economies among all players\nLevel 2: See building levels of all players';
+      case intel_military:
+        return 'Level 1: See ranking of military among all players\nLevel 2: See building levels of all players';
+      case intel_technology:
+        return 'Level 1: See ranking of technologies among all players\nLevel 2: See technologies levels of all players';
     }
   }
 }
