@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 enum ResourceType {
@@ -43,6 +44,19 @@ enum ResourceType {
         return 'Population';
       case technology:
         return 'Technology';
+    }
+  }
+
+  ResearchType get research {
+    switch (this) {
+      case energy:
+        return ResearchType.resources_grid_management;
+      case supplies:
+        return ResearchType.resources_production_chain;
+      case population:
+        return ResearchType.resources_indoctrination;
+      case technology:
+        return ResearchType.resources_quantum_computing;
     }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
 abstract class Producer extends Building {
@@ -12,10 +13,13 @@ abstract class Producer extends Building {
     required super.level,
   });
 
-  double get productionRate => Constants.PRODUCTION_RATE[buildingType]!;
+  double get production {
+    final double baseProductionRate =
+        level * Constants.PRODUCTION_RATE[buildingType]!;
+    final Research research = player.getResearch(resourceType.research);
 
-  double get production =>
-      productionRate * player.defconProductionBoost * level;
+    return baseProductionRate * research.rate * player.defconProductionBoost;
+  }
 
   @override
   void update(double dt) {
