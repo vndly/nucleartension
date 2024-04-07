@@ -1,24 +1,11 @@
+import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
-typedef ResourceMap = Map<ResourceType, num>;
+typedef ResourceMap = ItemMap<ResourceType>;
 
 typedef ResourceMapEntry = MapEntry<ResourceType, num>;
 
 extension ResourceMapExtension on ResourceMap {
-  bool contains(ResourceType resourceType) => keys.contains(resourceType);
-
-  num get(ResourceType resourceType) => this[resourceType] ?? 0;
-
-  bool get isEmpty {
-    for (final ResourceMapEntry item in entries) {
-      if (item.value != 0) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
   num get duration {
     num sum = 0;
 

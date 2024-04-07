@@ -63,7 +63,7 @@ class PlayerRow extends StatelessWidget {
               ),
             ),
           ),
-          if (game.player.military.hasPower)
+          if (game.player.hasMilitaryPower)
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: EnabledButton.attackMilitary(
@@ -71,7 +71,7 @@ class PlayerRow extends StatelessWidget {
                 onTap: () => game.onAttackPlayerMilitary(player),
               ),
             ),
-          if (game.player.military.hasAttackMissiles)
+          if (game.player.hasAttackMissiles)
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: EnabledButton.attackMissiles(

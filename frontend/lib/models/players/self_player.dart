@@ -11,6 +11,7 @@ import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -71,18 +72,18 @@ class SelfPlayer extends Player {
   void createUnit(UnitType unitType) {
     switch (unitType) {
       case UnitType.defense:
-        military.defenseMissiles++;
+        military.add(MilitaryType.defense_missiles, 1);
         break;
 
       case UnitType.attack:
-        military.attackMissiles++;
+        military.add(MilitaryType.attack_missiles, 1);
         game.onAttackMissileCreated();
         break;
 
       case UnitType.infantry:
       case UnitType.vehicle:
       case UnitType.aircraft:
-        military.power += unitType.power;
+        military.add(MilitaryType.power, unitType.power);
         game.onMilitaryCreated();
         break;
     }

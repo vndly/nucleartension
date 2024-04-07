@@ -7,11 +7,12 @@ import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/buildings/trainers/military_facility.dart';
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
+import 'package:nucleartension/models/inventory/military_inventory.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/military.dart';
 import 'package:nucleartension/models/players/passive_player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -30,19 +31,19 @@ class GameState extends BaseState {
       game: game,
       name: 'Momo',
       color: Colors.red,
-      resources: ResourceInventory({
+      resources: ResourceInventory.create({
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
         ResourceType.population: 1000000,
         ResourceType.technology: 200,
       }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 10,
+        MilitaryType.defense_missiles: 5,
+        MilitaryType.attack_missiles: 0,
+      }),
       buildings: {},
       researches: {},
-      military: Military(
-        power: 0,
-        defenseMissiles: 0,
-        attackMissiles: 0,
-      ),
     );
 
     player.addResearches([
@@ -238,53 +239,37 @@ class GameState extends BaseState {
         game: game,
         name: 'Bob',
         color: Colors.blue,
-        resources: ResourceInventory({}),
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
         buildings: {},
         researches: {},
-        military: Military(
-          power: 0,
-          defenseMissiles: 0,
-          attackMissiles: 0,
-        ),
       ),
       PassivePlayer(
         game: game,
         name: 'Max',
         color: Colors.green,
-        resources: ResourceInventory({}),
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
         buildings: {},
         researches: {},
-        military: Military(
-          power: 0,
-          defenseMissiles: 0,
-          attackMissiles: 0,
-        ),
       ),
       PassivePlayer(
         game: game,
         name: 'Ray',
         color: Colors.yellow,
-        resources: ResourceInventory({}),
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
         buildings: {},
         researches: {},
-        military: Military(
-          power: 0,
-          defenseMissiles: 0,
-          attackMissiles: 0,
-        ),
       ),
       PassivePlayer(
         game: game,
         name: 'Tom',
         color: Colors.pink,
-        resources: ResourceInventory({}),
+        resources: ResourceInventory.empty(),
+        military: MilitaryInventory.empty(),
         buildings: {},
         researches: {},
-        military: Military(
-          power: 0,
-          defenseMissiles: 0,
-          attackMissiles: 0,
-        ),
       ),
     ]);
   }
