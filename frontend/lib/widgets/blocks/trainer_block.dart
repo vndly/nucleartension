@@ -68,8 +68,8 @@ class HeaderSection extends StatelessWidget {
           LabeledText(
             label: 'LEVEL:',
             text: trainer.level.toString(),
-            labelColor: Palette.textLight,
-            textColor: Palette.textLight,
+            labelColor: Palette.textMain,
+            textColor: Palette.textMain,
             size: 14,
           ),
         ],
@@ -97,7 +97,7 @@ class TrainerLeftSection extends StatelessWidget {
         if (trainer.level > 0)
           Label(
             text: 'QUEUE: ${trainer.queueSize}/${trainer.queueMaxCapacity}',
-            color: trainer.isQueueAvailable ? Palette.textLight : Palette.error,
+            color: trainer.isQueueAvailable ? Palette.textMain : Palette.error,
             weight: FontWeight.bold,
           ),
       ],
@@ -206,7 +206,7 @@ class UnitCenterSection extends StatelessWidget {
             Label(
               text: trainer.enqueuedUnits(unitType).toString(),
               size: 14,
-              color: Palette.textLight,
+              color: Palette.textMain,
             ),
             const HBox(4),
             const Icon(

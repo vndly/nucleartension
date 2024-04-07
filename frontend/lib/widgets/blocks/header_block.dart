@@ -123,8 +123,8 @@ class ResourceLabel extends StatelessWidget {
         LabeledText(
           label: '${resourceType.localized.toUpperCase()}:',
           text: Formatter.resource(amount),
-          labelColor: Palette.textLight,
-          textColor: Palette.textLight,
+          labelColor: Palette.textMain,
+          textColor: Palette.textMain,
           size: 14,
         ),
       ],
@@ -159,8 +159,8 @@ class MilitaryLabel extends StatelessWidget {
         LabeledText(
           label: title,
           text: value,
-          labelColor: Palette.textLight,
-          textColor: Palette.textLight,
+          labelColor: Palette.textMain,
+          textColor: Palette.textMain,
           size: 14,
         ),
       ],

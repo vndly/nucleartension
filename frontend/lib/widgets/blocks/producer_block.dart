@@ -58,8 +58,8 @@ class HeaderSection extends StatelessWidget {
           LabeledText(
             label: 'LEVEL:',
             text: producer.level.toString(),
-            labelColor: Palette.textLight,
-            textColor: Palette.textLight,
+            labelColor: Palette.textMain,
+            textColor: Palette.textMain,
             size: 14,
           ),
         ],
@@ -118,7 +118,7 @@ class ProductionIndicator extends StatelessWidget {
         const HBox(10),
         Label(
           text: '${Formatter.production(producer.production)}/s',
-          color: (producer.production == 0) ? Palette.error : Palette.textLight,
+          color: (producer.production == 0) ? Palette.error : Palette.textMain,
           size: 15,
         ),
       ],

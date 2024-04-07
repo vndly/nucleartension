@@ -18,7 +18,7 @@ class LabeledInfo extends StatelessWidget {
       children: [
         Label(
           text: title,
-          color: Palette.textLight,
+          color: Palette.textMain,
           weight: FontWeight.bold,
         ),
         const HBox(10),

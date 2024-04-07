@@ -54,7 +54,7 @@ class InformationDialog extends StatelessWidget {
       _show(
         title: Label(
           text: title.toUpperCase(),
-          color: Palette.textLight,
+          color: Palette.textMain,
           weight: FontWeight.bold,
         ),
         content: Row(
@@ -71,7 +71,7 @@ class InformationDialog extends StatelessWidget {
             Expanded(
               child: Label(
                 text: description,
-                color: Palette.textLight,
+                color: Palette.textMain,
               ),
             ),
           ],
@@ -117,24 +117,24 @@ class InformationDialog extends StatelessWidget {
               label: 'Economy:',
               text: 'unknown',
               size: 14,
-              labelColor: Palette.textLight,
-              textColor: Palette.textLight,
+              labelColor: Palette.textMain,
+              textColor: Palette.textMain,
             ),
             VBox(10),
             LabeledText(
               label: 'Military:',
               text: 'unknown',
               size: 14,
-              labelColor: Palette.textLight,
-              textColor: Palette.textLight,
+              labelColor: Palette.textMain,
+              textColor: Palette.textMain,
             ),
             VBox(10),
             LabeledText(
               label: 'Technology:',
               text: 'unknown',
               size: 14,
-              labelColor: Palette.textLight,
-              textColor: Palette.textLight,
+              labelColor: Palette.textMain,
+              textColor: Palette.textMain,
             ),
           ],
         ),
@@ -155,7 +155,7 @@ class InformationDialog extends StatelessWidget {
         actions: [
           TextButton(
             style: TextButton.styleFrom(
-              foregroundColor: Palette.textLight,
+              foregroundColor: Palette.textMain,
             ),
             onPressed: () {
               Navigation.pop();

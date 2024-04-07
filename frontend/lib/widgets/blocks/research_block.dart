@@ -27,7 +27,7 @@ class ResearchBlock extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               LeftSection(research),
-              const Spacer(),
+              const HBox(20),
               RightSection(research),
             ],
           ),
@@ -48,7 +48,7 @@ class HeaderSection extends StatelessWidget {
       children: [
         Label(
           text: research.researchType.localized.toUpperCase(),
-          color: Palette.textLight,
+          color: Palette.textMain,
           weight: FontWeight.bold,
         ),
         if (research.level > 0) ...[
@@ -56,8 +56,8 @@ class HeaderSection extends StatelessWidget {
           LabeledText(
             label: 'LEVEL:',
             text: research.level.toString(),
-            labelColor: Palette.textLight,
-            textColor: Palette.textLight,
+            labelColor: Palette.textMain,
+            textColor: Palette.textMain,
             size: 14,
           ),
         ],
@@ -73,20 +73,24 @@ class LeftSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ResearchImageBlock(
-          research: research,
-          size: 50,
-        ),
-        const HBox(10),
-        Label(
-          text: research.researchType.description,
-          color: Palette.textLight,
-        ),
-      ],
+    return Expanded(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ResearchImageBlock(
+            research: research,
+            size: 50,
+          ),
+          const HBox(10),
+          Expanded(
+            child: Label(
+              text: research.researchType.description,
+              color: Palette.textDescription,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
