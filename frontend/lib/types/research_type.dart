@@ -276,11 +276,11 @@ enum ResearchType {
       case resilience_emergency_planning:
         return 'Decrease the amount of casualties by $rateDescription';
       case intel_economy:
-        return 'Level 1: See ranking of economies among all players\nLevel 2: See building levels of all players';
+        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
       case intel_military:
-        return 'Level 1: See ranking of military among all players\nLevel 2: See building levels of all players';
+        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
       case intel_technology:
-        return 'Level 1: See ranking of technologies among all players\nLevel 2: See technologies levels of all players';
+        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
     }
   }
 }
