@@ -7,6 +7,13 @@ class Formatter {
     return formatter.format(amount);
   }
 
+  static String rate(num amount) {
+    final NumberFormat formatter = NumberFormat('#.##');
+    final String value = formatter.format((amount - 1) * 100);
+
+    return '$value%';
+  }
+
   static String resource(num amount) {
     final int intAmount = amount.floor();
 

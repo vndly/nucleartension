@@ -1,7 +1,9 @@
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
+import 'package:nucleartension/utils/formatter.dart';
 
 enum ResearchType {
   // resources
@@ -170,6 +172,8 @@ enum ResearchType {
     required this.initialCost,
   });
 
+  String get rate => Formatter.rate(Constants.RESEARCH_RATE[this]!);
+
   ResourceMap cost(int level) => initialCost.multiply(level);
 
   String get localized {
@@ -228,47 +232,47 @@ enum ResearchType {
   String get description {
     switch (this) {
       case resources_grid_management:
-        return 'Increases energy production by 10%';
+        return 'Increases energy production by $rate';
       case resources_production_chain:
-        return 'Increases supplies production by 10%';
+        return 'Increases supplies production by $rate';
       case resources_indoctrination:
-        return 'Increases population production by 10%';
+        return 'Increases population production by $rate';
       case resources_quantum_computing:
-        return 'Increases technology production by 10%';
+        return 'Increases technology production by $rate';
       case missiles_additive_manufacturing:
-        return 'Decreases missile cost production by 10%';
+        return 'Decreases missile cost production by $rate';
       case missiles_assembly_automation:
-        return 'Decreases missile time production by 10%';
+        return 'Decreases missile time production by $rate';
       case missiles_enhanced_guidance_systems:
-        return 'Increases defense missiles effectiveness by 10%';
+        return 'Increases defense missiles effectiveness by $rate';
       case missiles_signal_jamming:
-        return 'Decreases defense missiles effectiveness by 10%';
+        return 'Decreases defense missiles effectiveness by $rate';
       case warning_missiles_radar_network:
-        return 'Increases the warning time when receiving a missile attack by 10%';
+        return 'Increases the warning time when receiving a missile attack by $rate';
       case warning_missiles_hypersonic_propulsion:
-        return 'Decreases the warning time when launching a missile attack by 10%';
+        return 'Decreases the warning time when launching a missile attack by $rate';
       case warning_military_early_warning:
-        return 'Increases the warning time when receiving a military invasion by 10%';
+        return 'Increases the warning time when receiving a military invasion by $rate';
       case warning_military_fast_deployments:
-        return 'Decreases the warning time when launching a military invasion by 10%';
+        return 'Decreases the warning time when launching a military invasion by $rate';
       case military_barracks_cost:
-        return 'Decreases infantry cost production by 10%';
+        return 'Decreases infantry cost production by $rate';
       case military_barracks_time:
-        return 'Decreases infantry time production by 10%';
+        return 'Decreases infantry time production by $rate';
       case military_factory_cost:
-        return 'Decreases vehicles cost production by 10%';
+        return 'Decreases vehicles cost production by $rate';
       case military_factory_time:
-        return 'Decreases vehicles time production by 10%';
+        return 'Decreases vehicles time production by $rate';
       case military_airfield_cost:
-        return 'Decreases aircraft cost production by 10%';
+        return 'Decreases aircraft cost production by $rate';
       case military_airfield_time:
-        return 'Decreases aircraft time production by 10%';
+        return 'Decreases aircraft time production by $rate';
       case weapons_fission_bomb:
         return 'Increases fission bomb yield by 2x';
       case weapons_fusion_bomb:
         return 'Increases fusion bomb yield by 2x';
       case resilience_emergency_planning:
-        return 'Decrease the amount of casualties by 10%';
+        return 'Decrease the amount of casualties by $rate';
       case intel_economy:
         return 'Level 1: See ranking of economies among all players\nLevel 2: See building levels of all players';
       case intel_military:

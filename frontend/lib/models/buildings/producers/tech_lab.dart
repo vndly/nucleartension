@@ -1,4 +1,3 @@
-import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -10,6 +9,5 @@ class TechLab extends Producer {
   }) : super(
           buildingType: BuildingType.tech_lab,
           resourceType: ResourceType.technology,
-          productionRate: Constants.TECH_LAB_PRODUCTION_RATE,
         );
 }
