@@ -1,7 +1,9 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -42,54 +44,60 @@ class PlayerRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 10,
-        bottom: 10,
-        left: 15,
-        right: 15,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: SizedBox(
-              height: 30,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ImageAsset(
-                    path: player.country.flag,
-                    width: 21,
-                    height: 14,
-                  ),
-                  const HBox(15),
-                  Label(
-                    text: player.name,
-                    color: player.country.color,
-                    weight: FontWeight.bold,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-              ),
-            ),
+    return Material(
+      color: Palette.transparent,
+      child: InkWell(
+        onTap: () => InformationDialog.player(player),
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 10,
+            bottom: 10,
+            left: 15,
+            right: 15,
           ),
-          if (game.player.hasMilitaryPower)
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: EnabledButton.attackMilitary(
-                size: 30,
-                onTap: () => game.onAttackPlayerMilitary(player),
+          child: Row(
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 30,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      ImageAsset(
+                        path: player.country.flag,
+                        width: 21,
+                        height: 14,
+                      ),
+                      const HBox(15),
+                      Label(
+                        text: player.name,
+                        color: player.country.color,
+                        weight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          if (game.player.hasAttackMissiles)
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: EnabledButton.attackMissiles(
-                size: 30,
-                onTap: () => game.onAttackPlayerMissiles(player),
-              ),
-            ),
-        ],
+              if (game.player.hasMilitaryPower)
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: EnabledButton.attackMilitary(
+                    size: 30,
+                    onTap: () => game.onAttackPlayerMilitary(player),
+                  ),
+                ),
+              if (game.player.hasAttackMissiles)
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: EnabledButton.attackMissiles(
+                    size: 30,
+                    onTap: () => game.onAttackPlayerMissiles(player),
+                  ),
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }

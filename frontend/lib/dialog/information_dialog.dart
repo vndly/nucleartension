@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -10,7 +11,7 @@ import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class InformationDialog extends StatelessWidget {
-  final String title;
+  final Widget title;
   final Widget content;
   final String buttonAccept;
   final VoidCallback? onAccept;
@@ -23,7 +24,7 @@ class InformationDialog extends StatelessWidget {
   });
 
   static DialogController _show({
-    required String title,
+    required Widget title,
     required Widget content,
     required String buttonAccept,
     VoidCallback? onAccept,
@@ -51,7 +52,11 @@ class InformationDialog extends StatelessWidget {
     required String sprite,
   }) =>
       _show(
-        title: title.toUpperCase(),
+        title: Label(
+          text: title.toUpperCase(),
+          color: Palette.textLight,
+          weight: FontWeight.bold,
+        ),
         content: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -92,6 +97,31 @@ class InformationDialog extends StatelessWidget {
         sprite: researchType.sprite,
       );
 
+  static DialogController player(Player player) => _show(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            ImageAsset(
+              path: player.country.flag,
+              width: 21,
+              height: 14,
+            ),
+            const HBox(15),
+            Label(
+              text: player.name,
+              color: player.country.color,
+              weight: FontWeight.bold,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
+        content: const Label(
+          text: 'PLAYER DESCRIPTION',
+          color: Palette.textLight,
+        ),
+        buttonAccept: 'OK',
+      );
+
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
@@ -101,11 +131,7 @@ class InformationDialog extends StatelessWidget {
         contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
         actionsPadding: const EdgeInsets.fromLTRB(5, 5, 5, 2),
         backgroundColor: Palette.backgroundDialog,
-        title: Label(
-          text: title,
-          color: Palette.textLight,
-          weight: FontWeight.bold,
-        ),
+        title: title,
         content: content,
         actions: [
           TextButton(
