@@ -87,6 +87,7 @@ class LeftSection extends StatelessWidget {
             child: Label(
               text: research.researchType.description,
               color: Palette.textDescription,
+              size: 12,
             ),
           ),
         ],
