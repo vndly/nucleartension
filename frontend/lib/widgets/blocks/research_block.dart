@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
@@ -50,6 +51,11 @@ class HeaderSection extends StatelessWidget {
           text: research.researchType.localized.toUpperCase(),
           color: Palette.textMain,
           weight: FontWeight.bold,
+        ),
+        const HBox(10),
+        Label(
+          text: '(CURRENT: ${NumberFormat('#.##').format(research.rate)})',
+          color: Palette.textMain,
         ),
         if (research.level > 0) ...[
           const Spacer(),

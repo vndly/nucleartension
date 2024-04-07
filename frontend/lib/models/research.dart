@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/types/research_type.dart';
@@ -13,4 +14,6 @@ class Research extends Upgradable {
 
   @override
   ResourceMap get upgradeCost => researchType.cost(level + 1);
+
+  double get rate => pow(researchType.rate, level).toDouble();
 }
