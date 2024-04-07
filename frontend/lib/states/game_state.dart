@@ -36,7 +36,7 @@ class GameState extends BaseState {
         ResourceType.population: 1000000,
         ResourceType.technology: 200,
       }),
-      buildings: [],
+      buildings: {},
       researches: [],
       military: Military(
         power: 0,
@@ -196,7 +196,7 @@ class GameState extends BaseState {
       ),
     ]);
 
-    player.buildings.addAll([
+    player.addBuildings([
       PowerPlant(
         player: player,
         level: 1,
@@ -239,7 +239,7 @@ class GameState extends BaseState {
         name: 'Bob',
         color: Colors.blue,
         resources: ResourceInventory({}),
-        buildings: [],
+        buildings: {},
         researches: [],
         military: Military(
           power: 0,
@@ -252,7 +252,7 @@ class GameState extends BaseState {
         name: 'Max',
         color: Colors.green,
         resources: ResourceInventory({}),
-        buildings: [],
+        buildings: {},
         researches: [],
         military: Military(
           power: 0,
@@ -265,7 +265,7 @@ class GameState extends BaseState {
         name: 'Ray',
         color: Colors.yellow,
         resources: ResourceInventory({}),
-        buildings: [],
+        buildings: {},
         researches: [],
         military: Military(
           power: 0,
@@ -278,7 +278,7 @@ class GameState extends BaseState {
         name: 'Tom',
         color: Colors.pink,
         resources: ResourceInventory({}),
-        buildings: [],
+        buildings: {},
         researches: [],
         military: Military(
           power: 0,

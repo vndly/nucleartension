@@ -10,6 +10,7 @@ import 'package:nucleartension/models/buildings/trainers/military_facility.dart'
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -27,20 +28,17 @@ class SelfPlayer extends Player {
 
   // ============================ BUILDINGS ================================= \\
 
-  PowerPlant get powerPlant => getBuilding(PowerPlant);
+  PowerPlant get powerPlant => buildings[BuildingType.power_plant] as PowerPlant;
 
-  SupplyCenter get supplyCenter => getBuilding(SupplyCenter);
+  SupplyCenter get supplyCenter =>  buildings[BuildingType.supply_center] as SupplyCenter;
 
-  PropagandaStation get propagandaStation => getBuilding(PropagandaStation);
+  PropagandaStation get propagandaStation => buildings[BuildingType.propaganda_station] as PropagandaStation;
 
-  TechLab get techLab => getBuilding(TechLab);
+  TechLab get techLab =>  buildings[BuildingType.tech_lab] as TechLab;
 
-  MissileSilo get missileSilo => getBuilding(MissileSilo);
+  MissileSilo get missileSilo => buildings[BuildingType.missile_silo] as MissileSilo;
 
-  MilitaryFacility get militaryFacility => getBuilding(MilitaryFacility);
-
-  T getBuilding<T extends Building>(Type type) =>
-      buildings.where((b) => b.runtimeType == type).first as T;
+  MilitaryFacility get militaryFacility => buildings[BuildingType.military_facility] as MilitaryFacility;
 
   // ============================ RESEARCHES ================================ \\
 
@@ -52,7 +50,7 @@ class SelfPlayer extends Player {
   double productionOf(ResourceType resourceType) {
     double total = 0;
 
-    for (final Building building in buildings) {
+    for (final Building building in buildings.values) {
       if ((building is Producer) && (building.resourceType == resourceType)) {
         total += building.production;
       }
@@ -90,7 +88,7 @@ class SelfPlayer extends Player {
 
   @override
   void update(double dt) {
-    for (final Building building in buildings) {
+    for (final Building building in buildings.values) {
       building.update(dt);
     }
 
