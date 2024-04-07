@@ -50,22 +50,22 @@ class GameState extends BaseState {
       // resources
       Research(
         player: player,
-        researchType: ResearchType.resources_energy,
+        researchType: ResearchType.resources_grid_management,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.resources_supplies,
+        researchType: ResearchType.resources_production_chain,
         level: 1,
       ),
       Research(
         player: player,
-        researchType: ResearchType.resources_population,
+        researchType: ResearchType.resources_indoctrination,
         level: 2,
       ),
       Research(
         player: player,
-        researchType: ResearchType.resources_technology,
+        researchType: ResearchType.resources_quantum_computing,
         level: 3,
       ),
 

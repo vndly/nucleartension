@@ -1,13 +1,12 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
-import 'package:nucleartension/widgets/labels/labeled_info.dart';
+import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class ResearchBlock extends StatelessWidget {
@@ -47,9 +46,10 @@ class HeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        LabeledInfo(
-          title: research.researchType.localized.toUpperCase(),
-          onTap: () => InformationDialog.research(research.researchType),
+        Label(
+          text: research.researchType.localized.toUpperCase(),
+          color: Palette.textLight,
+          weight: FontWeight.bold,
         ),
         if (research.level > 0) ...[
           const Spacer(),
@@ -75,11 +75,16 @@ class LeftSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ResearchImageBlock(
           research: research,
           size: 50,
+        ),
+        const HBox(10),
+        Label(
+          text: research.researchType.description,
+          color: Palette.textLight,
         ),
       ],
     );

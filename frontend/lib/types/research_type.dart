@@ -5,25 +5,25 @@ import 'package:nucleartension/utils/assets.dart';
 
 enum ResearchType {
   // resources
-  resources_energy(
+  resources_grid_management(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
-  resources_supplies(
+  resources_production_chain(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
-  resources_population(
+  resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 50,
     },
   ),
-  resources_technology(
+  resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
@@ -192,14 +192,14 @@ enum ResearchType {
 
   String get localized {
     switch (this) {
-      case resources_energy:
-        return 'Energy';
-      case resources_supplies:
-        return 'Supplies';
-      case resources_population:
-        return 'Population';
-      case resources_technology:
-        return 'Technology';
+      case resources_grid_management:
+        return 'Grid Management';
+      case resources_production_chain:
+        return 'Production Chain';
+      case resources_indoctrination:
+        return 'Indoctrination';
+      case resources_quantum_computing:
+        return 'Quantum computing';
       case missiles_additive_manufacturing:
         return 'Additive Manufacturing';
       case missiles_assembly_automation:
@@ -251,60 +251,60 @@ enum ResearchType {
 
   String get description {
     switch (this) {
-      case resources_energy:
-        return '111';
-      case resources_supplies:
-        return '222';
-      case resources_population:
-        return '333';
-      case resources_technology:
-        return '444';
+      case resources_grid_management:
+        return 'Increases energy production by 10%';
+      case resources_production_chain:
+        return 'Increases supplies production by 10%';
+      case resources_indoctrination:
+        return 'Increases population production by 10%';
+      case resources_quantum_computing:
+        return 'Increases technology production by 10%';
       case missiles_additive_manufacturing:
-        return '555';
+        return 'Decreases missile cost production by 10%';
       case missiles_assembly_automation:
-        return '666';
+        return 'Decreases missile time production by 10%';
       case missiles_enhanced_guidance_systems:
-        return '777';
+        return 'Increases defense missiles effectiveness by 10%';
       case missiles_signal_jamming:
-        return '888';
+        return 'Decreases defense missiles effectiveness by 10%';
       case warning_missiles_radar_network:
-        return '999';
+        return 'Increases the warning time when receiving a missile attack by 10%';
       case warning_missiles_hypersonic_propulsion:
-        return '1010';
+        return 'Decreases the warning time when launching a missile attack by 10%';
       case warning_military_early_warning:
-        return '1111';
+        return 'Increases the warning time when receiving a military invasion by 10%';
       case warning_military_fast_deployments:
-        return '1212';
+        return 'Decreases the warning time when launching a military invasion by 10%';
       case military_barracks_cost:
-        return '1313';
+        return 'Decreases infantry cost production by 10%';
       case military_barracks_time:
-        return '1414';
+        return 'Decreases infantry time production by 10%';
       case military_factory_cost:
-        return '1515';
+        return 'Decreases vehicles cost production by 10%';
       case military_factory_time:
-        return '1616';
+        return 'Decreases vehicles time production by 10%';
       case military_airfield_cost:
-        return '1717';
+        return 'Decreases aircraft cost production by 10%';
       case military_airfield_time:
-        return '1818';
+        return 'Decreases aircraft time production by 10%';
       case weapons_fission_bomb:
-        return '1919';
+        return 'Increases fission bomb yield by 2x';
       case weapons_fusion_bomb:
-        return '2020';
+        return 'Increases fusion bomb yield by 2x';
       case resilience_emergency_planning:
-        return '2121';
+        return 'Decrease the amount of casualties by 10%';
       case intel_economy_1:
-        return '2222';
+        return 'See ranking of economies among all players';
       case intel_economy_2:
-        return '2323';
+        return 'See building levels of all players';
       case intel_military_1:
-        return '2424';
+        return 'See ranking of military among all players';
       case intel_military_2:
-        return '2525';
+        return 'See building levels of all players';
       case intel_technology_1:
-        return '2626';
+        return 'See ranking of technologies among all players';
       case intel_technology_2:
-        return '2727';
+        return 'See technologies levels of all players';
     }
   }
 }

@@ -44,13 +44,17 @@ class ResearchResources extends StatelessWidget {
         const BlockSeparator(),
         const BlockTitle('RESOURCES'),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.resources_energy)),
+        ResearchBlock(
+            player.getResearch(ResearchType.resources_grid_management)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.resources_supplies)),
+        ResearchBlock(
+            player.getResearch(ResearchType.resources_production_chain)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.resources_population)),
+        ResearchBlock(
+            player.getResearch(ResearchType.resources_indoctrination)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.resources_technology)),
+        ResearchBlock(
+            player.getResearch(ResearchType.resources_quantum_computing)),
       ],
     );
   }
