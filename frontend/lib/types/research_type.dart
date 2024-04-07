@@ -1,3 +1,4 @@
+import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/extensions/resource_map_extension.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
