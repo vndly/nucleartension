@@ -61119,7 +61119,7 @@ case 20:return"Emergency Planning"
 case 21:return"Economy"
 case 22:return"Military"
 case 23:return"Technology"}},
-glg(a){var s,r=this
+glg(a){var s,r=this,q="Level 1: Global players' ranking\nLevel 2: Players's building level"
 switch(r.a){case 0:s=B.a3.i(0,r)
 return"Increases energy production by "+A.db(s==null?1:s)
 case 1:s=B.a3.i(0,r)
@@ -61160,9 +61160,9 @@ case 18:return"Increases fission bomb yield by 2x"
 case 19:return"Increases fusion bomb yield by 2x"
 case 20:s=B.a3.i(0,r)
 return"Decrease the amount of casualties by "+A.db(s==null?1:s)
-case 21:return"Level 1: See ranking of economies among all players\nLevel 2: See building levels of all players"
-case 22:return"Level 1: See ranking of military among all players\nLevel 2: See building levels of all players"
-case 23:return"Level 1: See ranking of technologies among all players\nLevel 2: See technologies levels of all players"}}}
+case 21:return q
+case 22:return q
+case 23:return q}}}
 A.k9.prototype={
 F(){return"ResourceType."+this.b},
 gfJ(){switch(this.a){case 0:return"Energy"
