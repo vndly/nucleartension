@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/military.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 
 class Player {
@@ -14,7 +14,7 @@ class Player {
   final ResourceInventory resources;
   final Map<BuildingType, Building> buildings;
   final Map<ResearchType, Research> researches;
-  final Military military;
+  final Map<MilitaryType, int> military;
 
   const Player({
     required this.game,
@@ -25,6 +25,20 @@ class Player {
     required this.researches,
     required this.military,
   });
+
+  // ============================ MILITARY ================================== \\
+
+  int get militaryPower => military[MilitaryType.power]!;
+
+  int get militaryDefenseMissiles => military[MilitaryType.defense_missiles]!;
+
+  int get militaryAttackMissiles => military[MilitaryType.attack_missiles]!;
+
+  bool get hasPower => militaryPower > 0;
+
+  bool get hasAttackMissiles => militaryAttackMissiles > 0;
+
+  // ============================== OTHER =================================== \\
 
   void addBuildings(List<Building> list) {
     for (final Building building in list) {
