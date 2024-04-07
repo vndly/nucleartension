@@ -8,7 +8,7 @@ class Formatter {
   }
 
   static String resource(num amount) {
-    final int intAmount = amount.ceil();
+    final int intAmount = amount.floor();
 
     if (intAmount < 1000) {
       final NumberFormat formatter = NumberFormat('##0');
