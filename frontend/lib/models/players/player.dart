@@ -85,7 +85,7 @@ class Player {
   }
 
   num get defconProductionBoost =>
-      pow(Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
+      pow(1 + Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
 
   // ============================== UNITS =================================== \\
 
@@ -127,11 +127,39 @@ class Player {
     final Research research =
         getResearch(ResearchType.missiles_enhanced_guidance_systems);
 
-    return Constants.DEFENSE_MISSILE_EFFECTIVENESS * research.increaseRate;
+    return research.increaseRate;
   }
 
   num get attackMissilesEffectiveness {
     final Research research = getResearch(ResearchType.missiles_signal_jamming);
+
+    return research.decreaseRate;
+  }
+
+  num get missileAttackWarningWhenDefending {
+    final Research research =
+        getResearch(ResearchType.warning_missiles_radar_network);
+
+    return research.increaseRate;
+  }
+
+  num get missileAttackWarningWhenAttacking {
+    final Research research =
+        getResearch(ResearchType.warning_missiles_hypersonic_propulsion);
+
+    return research.decreaseRate;
+  }
+
+  num get unitAttackWarningWhenDefending {
+    final Research research =
+        getResearch(ResearchType.warning_military_early_warning);
+
+    return research.increaseRate;
+  }
+
+  num get unitAttackWarningWhenAttacking {
+    final Research research =
+        getResearch(ResearchType.warning_military_fast_deployments);
 
     return research.decreaseRate;
   }

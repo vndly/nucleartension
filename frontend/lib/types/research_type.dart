@@ -60,28 +60,24 @@ enum ResearchType {
 
   // warning
   warning_missiles_radar_network(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_missiles_hypersonic_propulsion(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_military_early_warning(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_military_fast_deployments(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
