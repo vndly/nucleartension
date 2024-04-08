@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/formatter.dart';
@@ -146,7 +145,7 @@ enum ResearchType {
   weapons_nuclear_bomb(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 15,
+    maxLevel: 14,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -348,7 +347,7 @@ enum ResearchType {
         return '-$baseRate';
 
       case weapons_nuclear_bomb:
-        return Formatter.yield(pow(2, level - 1) * 10);
+        return Formatter.yield(Research.yield(level));
 
       case intel_economy:
       case intel_military:

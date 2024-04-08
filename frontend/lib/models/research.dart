@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/types/research_type.dart';
@@ -21,4 +22,13 @@ class Research extends Upgradable {
   double get increaseRate => rate + 1;
 
   double get decreaseRate => 1 - rate;
+
+  // In kt
+  static int yield(int level) {
+    if (level <= 7) {
+      return (pow(2, level - 1) * 10).toInt();
+    } else {
+      return (pow(2, level - 8) * 1000).toInt();
+    }
+  }
 }
