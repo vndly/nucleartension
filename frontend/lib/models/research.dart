@@ -16,7 +16,9 @@ class Research extends Upgradable {
 
   bool get isMax => level >= researchType.maxLevel;
 
-  double get increaseRate => (researchType.rate * level) + 1;
+  double get rate => researchType.rate * level;
 
-  double get decreaseRate => 1 - (researchType.rate * level);
+  double get increaseRate => rate + 1;
+
+  double get decreaseRate => 1 - rate;
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/disabled_button.dart';
@@ -86,10 +87,25 @@ class LeftSection extends StatelessWidget {
           ),
           const HBox(10),
           Expanded(
-            child: Label(
-              text: research.researchType.description,
-              color: Palette.textDescription,
-              size: 12,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Label(
+                  text: research.researchType.description,
+                  color: Palette.textDescription,
+                  size: 12,
+                ),
+                if (research.level > 0) ...[
+                  const VBox(10),
+                  LabeledText(
+                    label: 'Current:',
+                    text: Formatter.rate(research.rate),
+                    labelColor: Palette.textDescription,
+                    textColor: Palette.textDescription,
+                    size: 12,
+                  ),
+                ],
+              ],
             ),
           ),
         ],
