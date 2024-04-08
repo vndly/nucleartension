@@ -15,17 +15,16 @@ class Formatter {
   }
 
   static String yield(num amount) {
-    final NumberFormat yieldFormatter = NumberFormat('0');
-    final NumberFormat populationFormatter = NumberFormat('0,000');
+    final NumberFormat formatter = NumberFormat('0');
 
     if (amount < 1000) {
-      final String value = yieldFormatter.format(amount);
+      final String value = formatter.format(amount);
 
-      return '$value Kt (~${populationFormatter.format(amount * 1000)} people)';
+      return '$value Kt';
     } else {
-      final String value = yieldFormatter.format(amount / 1000);
+      final String value = formatter.format(amount / 1000);
 
-      return '$value Mt (~${populationFormatter.format(amount * 1000)} people)';
+      return '$value Mt';
     }
   }
 
