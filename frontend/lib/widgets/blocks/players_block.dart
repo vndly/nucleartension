@@ -16,7 +16,7 @@ class PlayersBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> players = game.otherPlayers;
+    final List<Player> players = game.players;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -44,60 +44,85 @@ class PlayerRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Palette.transparent,
-      child: InkWell(
-        onTap: () => InformationDialog.player(player),
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 10,
-            bottom: 10,
-            left: 15,
-            right: 15,
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  height: 30,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ImageAsset(
-                        path: player.country.flag,
-                        width: 21,
-                        height: 14,
-                      ),
-                      const HBox(15),
-                      Label(
-                        text: player.name,
-                        color: player.country.color,
-                        weight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              if (game.player.hasMilitaryPower)
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: EnabledButton.attackMilitary(
-                    size: 30,
-                    onTap: () => game.onAttackPlayerMilitary(player),
-                  ),
-                ),
-              if (game.player.hasAttackMissiles)
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: EnabledButton.attackMissiles(
-                    size: 30,
-                    onTap: () => game.onAttackPlayerMissiles(player),
-                  ),
-                ),
-            ],
+    if (player.isSelf) {
+      return PlayerRowContent(
+        game: game,
+        player: player,
+      );
+    } else {
+      return Material(
+        color: Palette.transparent,
+        child: InkWell(
+          onTap: () => InformationDialog.player(player),
+          child: PlayerRowContent(
+            game: game,
+            player: player,
           ),
         ),
+      );
+    }
+  }
+}
+
+class PlayerRowContent extends StatelessWidget {
+  final Game game;
+  final Player player;
+
+  const PlayerRowContent({
+    required this.game,
+    required this.player,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 10,
+        bottom: 10,
+        left: 15,
+        right: 15,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: SizedBox(
+              height: 30,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ImageAsset(
+                    path: player.country.flag,
+                    width: 21,
+                    height: 14,
+                  ),
+                  const HBox(15),
+                  Label(
+                    text: player.name,
+                    color: player.country.color,
+                    weight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (game.player.hasMilitaryPower && !player.isSelf)
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: EnabledButton.attackMilitary(
+                size: 30,
+                onTap: () => game.onAttackPlayerMilitary(player),
+              ),
+            ),
+          if (game.player.hasAttackMissiles && !player.isSelf)
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: EnabledButton.attackMissiles(
+                size: 30,
+                onTap: () => game.onAttackPlayerMissiles(player),
+              ),
+            ),
+        ],
       ),
     );
   }

@@ -11,6 +11,7 @@ import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/military_inventory.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/country.dart';
@@ -37,6 +38,8 @@ class Player {
     required this.researches,
     required this.military,
   });
+
+  bool get isSelf => this is SelfPlayer;
 
   // ============================ BUILDINGS ================================= \\
 
