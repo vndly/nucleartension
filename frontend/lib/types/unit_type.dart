@@ -61,7 +61,7 @@ enum UnitType {
   ResourceMap effectiveCost(Player player) {
     final Research research = player.getResearch(researchCost);
 
-    return cost.multiply(research.rate);
+    return cost.multiply(research.decreaseRate);
   }
 
   String get localized {

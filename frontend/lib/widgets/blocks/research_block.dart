@@ -54,7 +54,8 @@ class HeaderSection extends StatelessWidget {
         ),
         const HBox(10),
         Label(
-          text: '(CURRENT: ${NumberFormat('#.##').format(research.rate)})',
+          text:
+              '(CURRENT: ${NumberFormat('#.##').format(research.increaseRate)})',
           color: Palette.textMain,
         ),
         if (research.level > 0) ...[
