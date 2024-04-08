@@ -64,6 +64,12 @@ enum UnitType {
     return cost.multiply(research.decreaseRate);
   }
 
+  num effectiveDuration(Player player) {
+    final Research research = player.getResearch(researchTime);
+
+    return cost.duration * research.decreaseRate;
+  }
+
   String get localized {
     switch (this) {
       case defense:
@@ -105,6 +111,20 @@ enum UnitType {
         return ResearchType.military_factory_cost;
       case aircraft:
         return ResearchType.military_airfield_cost;
+    }
+  }
+
+  ResearchType get researchTime {
+    switch (this) {
+      case defense:
+      case attack:
+        return ResearchType.missiles_assembly_automation;
+      case infantry:
+        return ResearchType.military_barracks_time;
+      case vehicle:
+        return ResearchType.military_factory_time;
+      case aircraft:
+        return ResearchType.military_airfield_time;
     }
   }
 }

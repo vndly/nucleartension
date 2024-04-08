@@ -33,6 +33,7 @@ class Trainer extends Building {
 
   void enqueueUnit(UnitType unitType) {
     final ResourceMap cost = unitType.effectiveCost(player);
+    final num duration = unitType.effectiveDuration(player);
 
     if (canCreateUnit(unitType)) {
       player.resources.removeItems(cost);
@@ -40,6 +41,7 @@ class Trainer extends Building {
       queues[unitType]?.add(CreateUnitTask(
         unitType: unitType,
         cost: cost,
+        duration: duration,
       ));
     }
   }
