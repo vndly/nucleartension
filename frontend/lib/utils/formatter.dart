@@ -9,7 +9,7 @@ class Formatter {
 
   static String rate(num amount) {
     final NumberFormat formatter = NumberFormat('#.##');
-    final String value = formatter.format((amount - 1) * 100);
+    final String value = formatter.format(amount * 100);
 
     return '$value%';
   }

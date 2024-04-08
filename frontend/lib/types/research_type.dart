@@ -172,7 +172,7 @@ enum ResearchType {
     required this.initialCost,
   });
 
-  double get rate => Constants.RESEARCH_RATE[this] ?? 1;
+  double get rate => Constants.RESEARCH_RATE[this] ?? 0;
 
   String get rateDescription => Formatter.rate(rate);
 
