@@ -9,24 +9,28 @@ enum ResearchType {
   // resources
   resources_grid_management(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
   resources_production_chain(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 20,
     },
   ),
   resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 50,
     },
   ),
   resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -35,24 +39,28 @@ enum ResearchType {
   // missiles
   missiles_additive_manufacturing(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   missiles_assembly_automation(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   missiles_enhanced_guidance_systems(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   missiles_signal_jamming(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -61,24 +69,28 @@ enum ResearchType {
   // warning
   warning_missiles_radar_network(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_missiles_hypersonic_propulsion(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_military_early_warning(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_military_fast_deployments(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -87,36 +99,42 @@ enum ResearchType {
   // military
   military_barracks_cost(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   military_barracks_time(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   military_factory_cost(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   military_factory_time(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   military_airfield_cost(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   military_airfield_time(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -126,6 +144,7 @@ enum ResearchType {
   weapons_fission_bomb(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 7,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -133,6 +152,7 @@ enum ResearchType {
   weapons_fusion_bomb(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 7,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -142,6 +162,7 @@ enum ResearchType {
   resilience_emergency_planning(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 5,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -151,6 +172,7 @@ enum ResearchType {
   intel_economy(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 2,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -158,6 +180,7 @@ enum ResearchType {
   intel_military(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 2,
     initialCost: {
       ResourceType.technology: 100,
     },
@@ -165,16 +188,19 @@ enum ResearchType {
   intel_technology(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    maxLevel: 2,
     initialCost: {
       ResourceType.technology: 100,
     },
   );
 
   final String sprite;
+  final int maxLevel;
   final ResourceMap initialCost;
 
   const ResearchType({
     required this.sprite,
+    required this.maxLevel,
     required this.initialCost,
   });
 
