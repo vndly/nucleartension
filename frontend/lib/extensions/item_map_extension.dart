@@ -17,7 +17,7 @@ extension ItemMapExtension<T> on ItemMap<T> {
     return sum / 10;
   }
 
-  Map<T, num> multiply(int factor) {
+  Map<T, num> multiply(num factor) {
     final Map<T, num> result = {};
 
     for (final MapEntry<T, num> item in entries) {

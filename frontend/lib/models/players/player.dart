@@ -62,7 +62,13 @@ class Player {
 
   // ============================ RESEARCHES ================================ \\
 
-  Research getResearch(ResearchType researchType) => researches[researchType]!;
+  Research getResearch(ResearchType researchType) =>
+      researches[researchType] ??
+      Research(
+        player: this,
+        level: 0,
+        researchType: researchType,
+      );
 
   // =========================== PRODUCTION ================================= \\
 

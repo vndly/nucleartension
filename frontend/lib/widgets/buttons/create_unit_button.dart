@@ -22,7 +22,7 @@ class CreateUnitButton extends StatelessWidget {
       children: [
         CostIndicator(
           player: trainer.player,
-          cost: unitType.cost,
+          cost: unitType.effectiveCost(trainer.player),
         ),
         const HBox(10),
         CreateUnitButtonContent(

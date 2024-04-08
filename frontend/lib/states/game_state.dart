@@ -9,6 +9,7 @@ import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/military_inventory.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/passive_player.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/country.dart';
@@ -27,7 +28,7 @@ class GameState extends BaseState {
       defcon: 5,
     );
 
-    final SelfPlayer player = SelfPlayer(
+    final Player player = SelfPlayer(
       game: game,
       name: 'Momo',
       country: Country.usa,
@@ -35,7 +36,7 @@ class GameState extends BaseState {
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
         ResourceType.population: 1000000,
-        ResourceType.technology: 200,
+        ResourceType.technology: 2000,
       }),
       military: MilitaryInventory.create({
         MilitaryType.power: 10,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/resource_indicator.dart';
 
 class CostIndicator extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
   final ResourceMap cost;
 
   const CostIndicator({

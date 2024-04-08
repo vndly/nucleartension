@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/widgets/blocks/block_title.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
@@ -33,7 +33,7 @@ class ResearchView extends StatelessWidget {
 }
 
 class ResearchResources extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
 
   const ResearchResources(this.player);
 
@@ -61,7 +61,7 @@ class ResearchResources extends StatelessWidget {
 }
 
 class ResearchMissiles extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
 
   const ResearchMissiles(this.player);
 
@@ -88,7 +88,7 @@ class ResearchMissiles extends StatelessWidget {
 }
 
 class ResearchWarning extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
 
   const ResearchWarning(this.player);
 
@@ -116,7 +116,7 @@ class ResearchWarning extends StatelessWidget {
 }
 
 class ResearchMilitary extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
 
   const ResearchMilitary(this.player);
 
@@ -144,7 +144,7 @@ class ResearchMilitary extends StatelessWidget {
 }
 
 class ResearchWeapons extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
 
   const ResearchWeapons(this.player);
 
@@ -164,7 +164,7 @@ class ResearchWeapons extends StatelessWidget {
 }
 
 class ResearchResilience extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
 
   const ResearchResilience(this.player);
 
@@ -183,7 +183,7 @@ class ResearchResilience extends StatelessWidget {
 }
 
 class ResearchIntel extends StatelessWidget {
-  final SelfPlayer player;
+  final Player player;
 
   const ResearchIntel(this.player);
 

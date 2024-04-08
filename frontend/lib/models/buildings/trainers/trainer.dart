@@ -1,4 +1,5 @@
 import 'package:nucleartension/models/buildings/building.dart';
+import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/tasks/create_unit_task.dart';
 import 'package:nucleartension/models/tasks/task.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -20,23 +21,25 @@ class Trainer extends Building {
 
   int enqueuedUnits(UnitType unitType) => queues[unitType]?.length ?? 0;
 
-  Task firstTask(UnitType unitType) => queues[unitType]![0];
+  Task firstTask(UnitType unitType) => queues[unitType]!.first;
 
   bool get isQueueAvailable => queueSize < queueMaxCapacity;
 
   bool hasResourcesToCreate(UnitType unitType) =>
-      player.resources.hasItems(unitType.cost);
+      player.resources.hasItems(unitType.effectiveCost(player));
 
   bool canCreateUnit(UnitType unitType) =>
       isQueueAvailable && hasResourcesToCreate(unitType);
 
   void enqueueUnit(UnitType unitType) {
+    final ResourceMap cost = unitType.effectiveCost(player);
+
     if (canCreateUnit(unitType)) {
-      player.resources.removeItems(unitType.cost);
+      player.resources.removeItems(cost);
 
       queues[unitType]?.add(CreateUnitTask(
         unitType: unitType,
-        cost: unitType.cost,
+        cost: cost,
       ));
     }
   }

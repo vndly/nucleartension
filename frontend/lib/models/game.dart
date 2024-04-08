@@ -4,7 +4,7 @@ import 'package:nucleartension/utils/custom_snackbar.dart';
 
 class Game {
   final List<Player> players;
-  SelfPlayer? selfPlayer;
+  Player? selfPlayer;
   num timeElapsed = 0;
   int defcon = 5;
 
@@ -16,7 +16,7 @@ class Game {
 
   int get defconStep => 6 - defcon;
 
-  SelfPlayer get player => selfPlayer!;
+  Player get player => selfPlayer!;
 
   void setPlayers(List<Player> list) {
     players.addAll(list);

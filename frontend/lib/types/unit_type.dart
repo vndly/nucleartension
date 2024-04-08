@@ -1,4 +1,8 @@
+import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 
@@ -54,6 +58,12 @@ enum UnitType {
     required this.cost,
   });
 
+  ResourceMap effectiveCost(Player player) {
+    final Research research = player.getResearch(researchCost);
+
+    return cost.multiply(research.rate);
+  }
+
   String get localized {
     switch (this) {
       case defense:
@@ -81,6 +91,20 @@ enum UnitType {
         return 'JJJ';
       case aircraft:
         return 'KKK';
+    }
+  }
+
+  ResearchType get researchCost {
+    switch (this) {
+      case defense:
+      case attack:
+        return ResearchType.missiles_additive_manufacturing;
+      case infantry:
+        return ResearchType.military_barracks_cost;
+      case vehicle:
+        return ResearchType.military_factory_cost;
+      case aircraft:
+        return ResearchType.military_airfield_cost;
     }
   }
 }

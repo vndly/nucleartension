@@ -3,7 +3,7 @@ import 'package:nucleartension/models/buildings/producers/propaganda_station.dar
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
 import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/types/building_type.dart';
 
@@ -20,7 +20,7 @@ class Building extends Upgradable {
   ResourceMap get upgradeCost => buildingType.cost(level + 1);
 
   factory Building.create({
-    required SelfPlayer player,
+    required Player player,
     required BuildingType buildingType,
     required int level,
   }) {
