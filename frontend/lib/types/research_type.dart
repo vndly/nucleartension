@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
@@ -206,8 +208,6 @@ enum ResearchType {
 
   double get rate => Constants.RESEARCH_RATE[this] ?? 0;
 
-  String rateDescription(int level) => Formatter.rate(rate * level);
-
   ResourceMap cost(int level) => initialCost.multiply(level);
 
   String get localized {
@@ -325,7 +325,43 @@ enum ResearchType {
       case missiles_enhanced_guidance_systems:
       case warning_missiles_radar_network:
       case warning_military_early_warning:
-        return '$description.\n\n${levelDetails('+')}';
+      case missiles_additive_manufacturing:
+      case missiles_assembly_automation:
+      case missiles_signal_jamming:
+      case warning_missiles_hypersonic_propulsion:
+      case warning_military_fast_deployments:
+      case military_barracks_cost:
+      case military_barracks_time:
+      case military_factory_cost:
+      case military_factory_time:
+      case military_airfield_cost:
+      case military_airfield_time:
+      case resilience_emergency_planning:
+      case weapons_fission_bomb:
+      case weapons_fusion_bomb:
+        return '$description.\n\n$levelDetails';
+
+      case intel_economy:
+        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
+      case intel_military:
+        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
+      case intel_technology:
+        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
+    }
+  }
+
+  String rateDescription(int level) {
+    final String baseRate = Formatter.rate(rate * level);
+
+    switch (this) {
+      case resources_grid_management:
+      case resources_production_chain:
+      case resources_indoctrination:
+      case resources_quantum_computing:
+      case missiles_enhanced_guidance_systems:
+      case warning_missiles_radar_network:
+      case warning_military_early_warning:
+        return '+$baseRate';
 
       case missiles_additive_manufacturing:
       case missiles_assembly_automation:
@@ -339,12 +375,12 @@ enum ResearchType {
       case military_airfield_cost:
       case military_airfield_time:
       case resilience_emergency_planning:
-        return '$description.\n\n${levelDetails('-')}';
+        return '-$baseRate';
 
       case weapons_fission_bomb:
-        return '$description.\n\nLevel 1: 10 Kt\nLevel 2: 20 Kt\nLevel 3: 40 Kt\nLevel 4: 80 Kt\nLevel 5: 160 Kt\nLevel 6: 320 Kt\nLevel 7: 640 Kt';
+        return '${pow(2, level - 1) * 10} Kt';
       case weapons_fusion_bomb:
-        return '$description.\n\nLevel 1: 1 Mt\nLevel 2: 2 Mt\nLevel 3: 4 Mt\nLevel 4: 8 Mt\nLevel 5: 16 Mt\nLevel 6: 32 Mt\nLevel 7: 64 Mt';
+        return '${pow(2, level - 1)} Mt';
 
       case intel_economy:
         return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
@@ -355,7 +391,7 @@ enum ResearchType {
     }
   }
 
-  String levelDetails(String sign) {
+  String get levelDetails {
     String result = '';
 
     for (int i = 1; i <= maxLevel; i++) {
@@ -363,7 +399,7 @@ enum ResearchType {
         result += '\n';
       }
 
-      result += 'Level $i: $sign${rateDescription(i)}';
+      result += 'Level $i: ${rateDescription(i)}';
     }
 
     return result;
