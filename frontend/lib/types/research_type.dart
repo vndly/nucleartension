@@ -9,28 +9,28 @@ enum ResearchType {
   // resources
   resources_grid_management(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 5,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   resources_production_chain(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 5,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 5,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 5,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -268,11 +268,11 @@ enum ResearchType {
       case resources_grid_management:
         return 'Increases energy production';
       case resources_production_chain:
-        return 'Increases supplies production by $rateDescription';
+        return 'Increases supplies production';
       case resources_indoctrination:
-        return 'Increases population production by $rateDescription';
+        return 'Increases population production';
       case resources_quantum_computing:
-        return 'Increases technology production by $rateDescription';
+        return 'Increases technology production';
       case missiles_additive_manufacturing:
         return 'Decreases missile cost production by $rateDescription';
       case missiles_assembly_automation:
@@ -319,13 +319,10 @@ enum ResearchType {
   String get details {
     switch (this) {
       case resources_grid_management:
-        return 'Increases energy production.\n\nLevel 1: +${rateDescription(1)}\nLevel 2: +${rateDescription(2)}\nLevel 3: +${rateDescription(3)}\nLevel 4: +${rateDescription(4)}\nLevel 5: +${rateDescription(5)}';
       case resources_production_chain:
-        return 'Increases supplies production by $rateDescription';
       case resources_indoctrination:
-        return 'Increases population production by $rateDescription';
       case resources_quantum_computing:
-        return 'Increases technology production by $rateDescription';
+        return '$description.\n\n${levelDetails('+')}';
       case missiles_additive_manufacturing:
         return 'Decreases missile cost production by $rateDescription';
       case missiles_assembly_automation:
@@ -367,5 +364,19 @@ enum ResearchType {
       case intel_technology:
         return "Level 1: Global players' ranking\nLevel 2: Players's building level";
     }
+  }
+
+  String levelDetails(String sign) {
+    String result = '';
+
+    for (int i = 1; i <= maxLevel; i++) {
+      if (result.isNotEmpty) {
+        result += '\n';
+      }
+
+      result += 'Level $i: $sign${rateDescription(i)}';
+    }
+
+    return result;
   }
 }
