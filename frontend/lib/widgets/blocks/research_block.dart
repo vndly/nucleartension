@@ -1,13 +1,15 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
+import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/building_container.dart';
+import 'package:nucleartension/widgets/buttons/disabled_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
+import 'package:nucleartension/widgets/labels/labeled_info.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class ResearchBlock extends StatelessWidget {
@@ -47,16 +49,9 @@ class HeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Label(
-          text: research.researchType.localized.toUpperCase(),
-          color: Palette.textMain,
-          weight: FontWeight.bold,
-        ),
-        const HBox(10),
-        Label(
-          text:
-              '(CURRENT: ${NumberFormat('#.##').format(research.increaseRate)})',
-          color: Palette.textMain,
+        LabeledInfo(
+          title: research.researchType.localized.toUpperCase(),
+          onTap: () => InformationDialog.research(research.researchType),
         ),
         if (research.level > 0) ...[
           const Spacer(),
@@ -110,9 +105,16 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeButton(
-      upgradable: research,
-      size: 50,
-    );
+    if (research.isMax) {
+      return DisabledButton.text(
+        text: 'MAX',
+        size: 50,
+      );
+    } else {
+      return UpgradeButton(
+        upgradable: research,
+        size: 50,
+      );
+    }
   }
 }
