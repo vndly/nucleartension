@@ -316,38 +316,20 @@ enum ResearchType {
     }
   }
 
-  String get details {
-    switch (this) {
-      case resources_grid_management:
-      case resources_production_chain:
-      case resources_indoctrination:
-      case resources_quantum_computing:
-      case missiles_enhanced_guidance_systems:
-      case warning_missiles_radar_network:
-      case warning_military_early_warning:
-      case missiles_additive_manufacturing:
-      case missiles_assembly_automation:
-      case missiles_signal_jamming:
-      case warning_missiles_hypersonic_propulsion:
-      case warning_military_fast_deployments:
-      case military_barracks_cost:
-      case military_barracks_time:
-      case military_factory_cost:
-      case military_factory_time:
-      case military_airfield_cost:
-      case military_airfield_time:
-      case resilience_emergency_planning:
-      case weapons_fission_bomb:
-      case weapons_fusion_bomb:
-        return '$description.\n\n$levelDetails';
+  String get details => '$description.\n\n$levelDetails';
 
-      case intel_economy:
-        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
-      case intel_military:
-        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
-      case intel_technology:
-        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
+  String get levelDetails {
+    String result = '';
+
+    for (int i = 1; i <= maxLevel; i++) {
+      if (result.isNotEmpty) {
+        result += '\n';
+      }
+
+      result += 'Level $i: ${rateDescription(i)}';
     }
+
+    return result;
   }
 
   String rateDescription(int level) {
@@ -383,25 +365,15 @@ enum ResearchType {
         return '${pow(2, level - 1)} Mt';
 
       case intel_economy:
-        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
       case intel_military:
-        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
       case intel_technology:
-        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
+        if (level == 1) {
+          return "Global players' ranking";
+        } else if (level == 2) {
+          return "Players's building level";
+        } else {
+          return '';
+        }
     }
-  }
-
-  String get levelDetails {
-    String result = '';
-
-    for (int i = 1; i <= maxLevel; i++) {
-      if (result.isNotEmpty) {
-        result += '\n';
-      }
-
-      result += 'Level $i: ${rateDescription(i)}';
-    }
-
-    return result;
   }
 }
