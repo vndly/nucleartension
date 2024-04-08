@@ -326,6 +326,7 @@ enum ResearchType {
       case warning_missiles_radar_network:
       case warning_military_early_warning:
         return '$description.\n\n${levelDetails('+')}';
+
       case missiles_additive_manufacturing:
       case missiles_assembly_automation:
       case missiles_signal_jamming:
@@ -341,9 +342,10 @@ enum ResearchType {
         return '$description.\n\n${levelDetails('-')}';
 
       case weapons_fission_bomb:
-        return '$description.\n\nIncreases fission bomb yield by 2x';
+        return '$description.\n\nLevel 1: 10 Kt\nLevel 2: 20 Kt\nLevel 3: 40 Kt\nLevel 4: 80 Kt\nLevel 5: 160 Kt\nLevel 6: 320 Kt\nLevel 7: 640 Kt';
       case weapons_fusion_bomb:
-        return '$description.\n\nIncreases fusion bomb yield by 2x';
+        return '$description.\n\nLevel 1: 1 Mt\nLevel 2: 2 Mt\nLevel 3: 4 Mt\nLevel 4: 8 Mt\nLevel 5: 16 Mt\nLevel 6: 32 Mt\nLevel 7: 64 Mt';
+
       case intel_economy:
         return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
       case intel_military:
