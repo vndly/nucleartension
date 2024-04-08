@@ -53,7 +53,7 @@ enum ResearchType {
   ),
   missiles_enhanced_guidance_systems(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 5,
+    maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -274,45 +274,45 @@ enum ResearchType {
       case resources_quantum_computing:
         return 'Increases technology production';
       case missiles_additive_manufacturing:
-        return 'Decreases missile cost production by $rateDescription';
+        return 'Decreases missile cost production';
       case missiles_assembly_automation:
-        return 'Decreases missile time production by $rateDescription';
+        return 'Decreases missile time production';
       case missiles_enhanced_guidance_systems:
-        return 'Increases defense missiles effectiveness by $rateDescription';
+        return 'Increases defense missiles effectiveness';
       case missiles_signal_jamming:
-        return 'Decreases defense missiles effectiveness by $rateDescription';
+        return 'Decreases defense missiles effectiveness';
       case warning_missiles_radar_network:
-        return 'Increases the warning time when receiving a missile attack by $rateDescription';
+        return 'Increases the warning time when receiving a missile attack';
       case warning_missiles_hypersonic_propulsion:
-        return 'Decreases the warning time when launching a missile attack by $rateDescription';
+        return 'Decreases the warning time when launching a missile attack';
       case warning_military_early_warning:
-        return 'Increases the warning time when receiving a military invasion by $rateDescription';
+        return 'Increases the warning time when receiving a military invasion';
       case warning_military_fast_deployments:
-        return 'Decreases the warning time when launching a military invasion by $rateDescription';
+        return 'Decreases the warning time when launching a military invasion';
       case military_barracks_cost:
-        return 'Decreases infantry cost production by $rateDescription';
+        return 'Decreases infantry cost production';
       case military_barracks_time:
-        return 'Decreases infantry time production by $rateDescription';
+        return 'Decreases infantry time production';
       case military_factory_cost:
-        return 'Decreases vehicles cost production by $rateDescription';
+        return 'Decreases vehicles cost production';
       case military_factory_time:
-        return 'Decreases vehicles time production by $rateDescription';
+        return 'Decreases vehicles time production';
       case military_airfield_cost:
-        return 'Decreases aircraft cost production by $rateDescription';
+        return 'Decreases aircraft cost production';
       case military_airfield_time:
-        return 'Decreases aircraft time production by $rateDescription';
+        return 'Decreases aircraft time production';
       case weapons_fission_bomb:
-        return 'Increases fission bomb yield by 2x';
+        return 'Increases fission bomb yield';
       case weapons_fusion_bomb:
-        return 'Increases fusion bomb yield by 2x';
+        return 'Increases fusion bomb yield';
       case resilience_emergency_planning:
-        return 'Decrease the amount of casualties by $rateDescription';
+        return 'Decrease the amount of casualties';
       case intel_economy:
-        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
+        return 'Reveals economy intel about other players';
       case intel_military:
-        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
+        return 'Reveals military intel about other players';
       case intel_technology:
-        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
+        return 'Reveals technology intel about other players';
     }
   }
 
@@ -322,47 +322,34 @@ enum ResearchType {
       case resources_production_chain:
       case resources_indoctrination:
       case resources_quantum_computing:
+      case missiles_enhanced_guidance_systems:
+      case warning_missiles_radar_network:
+      case warning_military_early_warning:
         return '$description.\n\n${levelDetails('+')}';
       case missiles_additive_manufacturing:
-        return 'Decreases missile cost production by $rateDescription';
       case missiles_assembly_automation:
-        return 'Decreases missile time production by $rateDescription';
-      case missiles_enhanced_guidance_systems:
-        return 'Increases defense missiles effectiveness by $rateDescription';
       case missiles_signal_jamming:
-        return 'Decreases defense missiles effectiveness by $rateDescription';
-      case warning_missiles_radar_network:
-        return 'Increases the warning time when receiving a missile attack by $rateDescription';
       case warning_missiles_hypersonic_propulsion:
-        return 'Decreases the warning time when launching a missile attack by $rateDescription';
-      case warning_military_early_warning:
-        return 'Increases the warning time when receiving a military invasion by $rateDescription';
       case warning_military_fast_deployments:
-        return 'Decreases the warning time when launching a military invasion by $rateDescription';
       case military_barracks_cost:
-        return 'Decreases infantry cost production by $rateDescription';
       case military_barracks_time:
-        return 'Decreases infantry time production by $rateDescription';
       case military_factory_cost:
-        return 'Decreases vehicles cost production by $rateDescription';
       case military_factory_time:
-        return 'Decreases vehicles time production by $rateDescription';
       case military_airfield_cost:
-        return 'Decreases aircraft cost production by $rateDescription';
       case military_airfield_time:
-        return 'Decreases aircraft time production by $rateDescription';
-      case weapons_fission_bomb:
-        return 'Increases fission bomb yield by 2x';
-      case weapons_fusion_bomb:
-        return 'Increases fusion bomb yield by 2x';
       case resilience_emergency_planning:
-        return 'Decrease the amount of casualties by $rateDescription';
+        return '$description.\n\n${levelDetails('-')}';
+
+      case weapons_fission_bomb:
+        return '$description.\n\nIncreases fission bomb yield by 2x';
+      case weapons_fusion_bomb:
+        return '$description.\n\nIncreases fusion bomb yield by 2x';
       case intel_economy:
-        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
+        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
       case intel_military:
-        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
+        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
       case intel_technology:
-        return "Level 1: Global players' ranking\nLevel 2: Players's building level";
+        return "$description.\n\nLevel 1: Global players' ranking\nLevel 2: Players's building level";
     }
   }
 
