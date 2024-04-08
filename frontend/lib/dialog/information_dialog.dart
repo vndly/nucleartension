@@ -65,7 +65,7 @@ class InformationDialog extends StatelessWidget {
               padding: const EdgeInsets.only(top: 3),
               child: ImageAsset(
                 path: sprite,
-                size: 50,
+                size: 70,
               ),
             ),
             const HBox(12),
