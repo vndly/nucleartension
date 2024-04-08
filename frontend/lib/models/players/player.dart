@@ -60,7 +60,7 @@ class Player {
   MilitaryFacility get militaryFacility =>
       buildings[BuildingType.military_facility] as MilitaryFacility;
 
-  // ============================ RESEARCHES ================================ \\
+  // ============================ RESEARCH ================================== \\
 
   Research getResearch(ResearchType researchType) =>
       researches[researchType] ??
@@ -69,6 +69,24 @@ class Player {
         level: 0,
         researchType: researchType,
       );
+
+  bool hasIntelEconomy(int level) {
+    final Research research = getResearch(ResearchType.intel_economy);
+
+    return research.level >= level;
+  }
+
+  bool hasIntelMilitary(int level) {
+    final Research research = getResearch(ResearchType.intel_military);
+
+    return research.level >= level;
+  }
+
+  bool hasIntelTechnology(int level) {
+    final Research research = getResearch(ResearchType.intel_technology);
+
+    return research.level >= level;
+  }
 
   // =========================== PRODUCTION ================================= \\
 
