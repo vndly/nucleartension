@@ -143,18 +143,10 @@ enum ResearchType {
   ),
 
   // weapons
-  weapons_fission_bomb(
+  weapons_nuclear_bomb(
     // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 7,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  weapons_fusion_bomb(
-    // TODO(momo): apply
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
-    maxLevel: 7,
+    maxLevel: 15,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -248,10 +240,8 @@ enum ResearchType {
         return 'Airfield Cost';
       case military_airfield_time:
         return 'Airfield Time';
-      case weapons_fission_bomb:
-        return 'Fission Bomb';
-      case weapons_fusion_bomb:
-        return 'Fusion Bomb';
+      case weapons_nuclear_bomb:
+        return 'Nuclear Bomb';
       case resilience_emergency_planning:
         return 'Emergency Planning';
       case intel_economy:
@@ -301,10 +291,8 @@ enum ResearchType {
         return 'Decreases aircraft cost production';
       case military_airfield_time:
         return 'Decreases aircraft time production';
-      case weapons_fission_bomb:
-        return 'Increases fission bomb yield';
-      case weapons_fusion_bomb:
-        return 'Increases fusion bomb yield';
+      case weapons_nuclear_bomb:
+        return 'Increases nuclear bomb yield';
       case resilience_emergency_planning:
         return 'Decrease the amount of casualties';
       case intel_economy:
@@ -359,10 +347,8 @@ enum ResearchType {
       case resilience_emergency_planning:
         return '-$baseRate';
 
-      case weapons_fission_bomb:
-        return '${pow(2, level - 1) * 10} Kt';
-      case weapons_fusion_bomb:
-        return '${pow(2, level - 1)} Mt';
+      case weapons_nuclear_bomb:
+        return Formatter.yield(pow(2, level - 1) * 10);
 
       case intel_economy:
       case intel_military:

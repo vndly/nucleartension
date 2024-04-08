@@ -149,12 +149,7 @@ class GameState extends BaseState {
       // weapons
       Research(
         player: player,
-        researchType: ResearchType.weapons_fission_bomb,
-        level: 0,
-      ),
-      Research(
-        player: player,
-        researchType: ResearchType.weapons_fusion_bomb,
+        researchType: ResearchType.weapons_nuclear_bomb,
         level: 0,
       ),
 

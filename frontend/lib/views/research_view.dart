@@ -155,9 +155,7 @@ class ResearchWeapons extends StatelessWidget {
         const BlockSeparator(),
         const BlockTitle('WEAPONS'),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.weapons_fission_bomb)),
-        const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.weapons_fusion_bomb)),
+        ResearchBlock(player.getResearch(ResearchType.weapons_nuclear_bomb)),
       ],
     );
   }

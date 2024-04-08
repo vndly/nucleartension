@@ -14,6 +14,20 @@ class Formatter {
     return '$value%';
   }
 
+  static String yield(num amount) {
+    final NumberFormat formatter = NumberFormat('0.#');
+
+    if (amount < 1000) {
+      final String value = formatter.format(amount);
+
+      return '$value Kt';
+    } else {
+      final String value = formatter.format(amount / 1000);
+
+      return '$value Mt';
+    }
+  }
+
   static String resource(num amount) {
     final int intAmount = amount.floor();
 
