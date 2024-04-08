@@ -60,24 +60,28 @@ enum ResearchType {
 
   // warning
   warning_missiles_radar_network(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_missiles_hypersonic_propulsion(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_military_early_warning(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   warning_military_fast_deployments(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
@@ -124,12 +128,14 @@ enum ResearchType {
 
   // weapons
   weapons_fission_bomb(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   weapons_fusion_bomb(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
@@ -138,6 +144,7 @@ enum ResearchType {
 
   // resilience
   resilience_emergency_planning(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
@@ -146,18 +153,21 @@ enum ResearchType {
 
   // intel
   intel_economy(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   intel_military(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,
     },
   ),
   intel_technology(
+    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     initialCost: {
       ResourceType.technology: 100,

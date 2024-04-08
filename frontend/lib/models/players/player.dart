@@ -123,6 +123,19 @@ class Player {
 
   bool get hasAttackMissiles => militaryAttackMissiles > 0;
 
+  num get defenseMissilesEffectiveness {
+    final Research research =
+        getResearch(ResearchType.missiles_enhanced_guidance_systems);
+
+    return Constants.DEFENSE_MISSILE_EFFECTIVENESS * research.increaseRate;
+  }
+
+  num get attackMissilesEffectiveness {
+    final Research research = getResearch(ResearchType.missiles_signal_jamming);
+
+    return research.decreaseRate;
+  }
+
   // ============================== OTHER =================================== \\
 
   void addBuildings(List<Building> list) {

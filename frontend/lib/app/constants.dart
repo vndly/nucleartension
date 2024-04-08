@@ -5,6 +5,7 @@ class Constants {
   static const String FONT_NAME = 'CustomFont';
 
   static const double DEFCON_PRODUCTION_RATE = 1.1;
+  static const double DEFENSE_MISSILE_EFFECTIVENESS = 0.5;
 
   static const Map<BuildingType, double> PRODUCTION_RATE = {
     BuildingType.power_plant: 1,
