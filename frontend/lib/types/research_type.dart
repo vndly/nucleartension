@@ -275,9 +275,9 @@ enum ResearchType {
       case warning_missiles_hypersonic_propulsion:
         return 'Decreases warning time when launching a missile attack';
       case warning_military_early_warning:
-        return 'Increases warning time when receiving a military invasion';
+        return 'Increases warning time when receiving a military attack';
       case warning_military_fast_deployments:
-        return 'Decreases warning time when launching a military invasion';
+        return 'Decreases warning time when launching a military attack';
       case military_barracks_cost:
         return 'Decreases infantry cost production';
       case military_barracks_time:

@@ -2,6 +2,8 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/trainers/trainer.dart';
+import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -259,9 +261,28 @@ class UnitRightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CreateUnitButton(
-      trainer: trainer,
-      unitType: unitType,
-    );
+    if (unitType == UnitType.attack) {
+      final Research research =
+          trainer.player.getResearch(ResearchType.weapons_nuclear_bomb);
+
+      if (research.level > 0) {
+        return CreateUnitButton(
+          trainer: trainer,
+          unitType: unitType,
+        );
+      } else {
+        return const Label(
+          text: 'Requires nuclear\nbomb research',
+          color: Palette.error,
+          align: TextAlign.center,
+          size: 12,
+        );
+      }
+    } else {
+      return CreateUnitButton(
+        trainer: trainer,
+        unitType: unitType,
+      );
+    }
   }
 }
