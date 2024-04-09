@@ -1,11 +1,9 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -19,22 +17,29 @@ class ProducerBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BuildingContainer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          HeaderSection(producer),
-          const VBox(12),
-          Row(
+    return Material(
+      color: Palette.backgroundRow,
+      child: InkWell(
+        onTap: () => InformationDialog.building(producer.buildingType),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              LeftSection(producer),
-              const Spacer(),
-              RightSection(producer),
+              HeaderSection(producer),
+              const VBox(12),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  LeftSection(producer),
+                  const Spacer(),
+                  RightSection(producer),
+                ],
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

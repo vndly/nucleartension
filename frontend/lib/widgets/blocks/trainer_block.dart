@@ -5,7 +5,6 @@ import 'package:nucleartension/models/buildings/trainers/trainer.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/widgets/blocks/building_container.dart';
 import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
@@ -22,27 +21,44 @@ class TrainerBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BuildingContainer(
+    return Material(
+      color: Palette.backgroundRow,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          HeaderSection(trainer),
-          const VBox(12),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TrainerLeftSection(trainer),
-              const Spacer(),
-              TrainerRightSection(trainer),
-            ],
+          InkWell(
+            onTap: () => InformationDialog.building(trainer.buildingType),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  HeaderSection(trainer),
+                  const VBox(12),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TrainerLeftSection(trainer),
+                      const Spacer(),
+                      TrainerRightSection(trainer),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
           if (trainer.level > 0) ...[
-            for (final UnitType unitType in trainer.buildingType.units)
+            for (final UnitType unitType in trainer.buildingType.units) ...[
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: RowSeparator(),
+              ),
               UnitSection(
                 trainer: trainer,
                 unitType: unitType,
               ),
+            ]
           ],
         ],
       ),
@@ -130,37 +146,38 @@ class UnitSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const RowSeparator(),
-          const VBox(12),
-          LabeledInfo(
-            title: unitType.localized.toUpperCase(),
-            onTap: () => InformationDialog.unit(unitType),
-          ),
-          const VBox(12),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              UnitLeftSection(
-                trainer: trainer,
-                unitType: unitType,
-              ),
-              UnitCenterSection(
-                trainer: trainer,
-                unitType: unitType,
-              ),
-              UnitRightSection(
-                trainer: trainer,
-                unitType: unitType,
-              ),
-            ],
-          ),
-        ],
+    return InkWell(
+      onTap: () => InformationDialog.unit(unitType),
+      child: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            LabeledInfo(
+              title: unitType.localized.toUpperCase(),
+              onTap: () => InformationDialog.unit(unitType),
+            ),
+            const VBox(12),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                UnitLeftSection(
+                  trainer: trainer,
+                  unitType: unitType,
+                ),
+                UnitCenterSection(
+                  trainer: trainer,
+                  unitType: unitType,
+                ),
+                UnitRightSection(
+                  trainer: trainer,
+                  unitType: unitType,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
