@@ -48,8 +48,8 @@ const RESOURCES = {"main.dart.js": "cd9148b846d4ec7367bea278d25acc6b",
 "firebase-messaging-sw.js": "5b8b5435d89eea9d02ed9ea9565635c6",
 "favicon.png": "70a31eb877b5e97fdb9a12a5a469dc1a",
 "version.json": "0ff45af32d7b9fd732a03f7d2ed6a3af",
-"index.html": "4cc916190ee596ddf6b317f2aef10c2a",
-"/": "4cc916190ee596ddf6b317f2aef10c2a"};
+"index.html": "388e4f2cd0739b1b602b7e1a9db422af",
+"/": "388e4f2cd0739b1b602b7e1a9db422af"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
