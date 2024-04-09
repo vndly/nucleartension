@@ -37,7 +37,7 @@ class GameContent extends StatefulWidget {
 }
 
 class _GameContentState extends State<GameContent> {
-  int currentIndex = 3;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
