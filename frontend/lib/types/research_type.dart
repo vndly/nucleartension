@@ -52,7 +52,7 @@ enum ResearchType {
       ResourceType.technology: 10,
     },
   ),
-  missiles_enhanced_guidance_systems(
+  missiles_active_tracking(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 10,
     initialCost: {
@@ -98,42 +98,42 @@ enum ResearchType {
   ),
 
   // military
-  military_barracks_cost(
+  military_infantry_cost(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_barracks_time(
+  military_infantry_time(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_factory_cost(
+  military_vehicles_cost(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_factory_time(
+  military_vehicles_time(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_airfield_cost(
+  military_aircraft_cost(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_airfield_time(
+  military_aircraft_time(
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 5,
     initialCost: {
@@ -215,8 +215,8 @@ enum ResearchType {
         return 'Additive Manufacturing';
       case missiles_assembly_automation:
         return 'Assembly Automation';
-      case missiles_enhanced_guidance_systems:
-        return 'Enhanced Guidance Systems';
+      case missiles_active_tracking:
+        return 'Active Tracking';
       case missiles_signal_jamming:
         return 'Signal Jamming';
       case warning_missiles_radar_network:
@@ -227,18 +227,18 @@ enum ResearchType {
         return 'Early Warning';
       case warning_military_fast_deployments:
         return 'Fast Deployments';
-      case military_barracks_cost:
-        return 'Barracks Cost';
-      case military_barracks_time:
-        return 'Barracks Time';
-      case military_factory_cost:
-        return 'Factory Cost';
-      case military_factory_time:
-        return 'Factory Time';
-      case military_airfield_cost:
-        return 'Airfield Cost';
-      case military_airfield_time:
-        return 'Airfield Time';
+      case military_infantry_cost:
+        return 'Infantry Cost';
+      case military_infantry_time:
+        return 'Infantry Time';
+      case military_vehicles_cost:
+        return 'Vehicles Cost';
+      case military_vehicles_time:
+        return 'Vehicles Time';
+      case military_aircraft_cost:
+        return 'Aircraft Cost';
+      case military_aircraft_time:
+        return 'Aircraft Time';
       case weapons_nuclear_bomb:
         return 'Nuclear Bomb';
       case resilience_emergency_planning:
@@ -266,7 +266,7 @@ enum ResearchType {
         return 'Decreases missile cost production';
       case missiles_assembly_automation:
         return 'Decreases missile time production';
-      case missiles_enhanced_guidance_systems:
+      case missiles_active_tracking:
         return 'Increases defense missiles effectiveness';
       case missiles_signal_jamming:
         return 'Decreases defense missiles effectiveness';
@@ -278,17 +278,17 @@ enum ResearchType {
         return 'Increases warning time when receiving a military attack';
       case warning_military_fast_deployments:
         return 'Decreases warning time when launching a military attack';
-      case military_barracks_cost:
+      case military_infantry_cost:
         return 'Decreases infantry cost production';
-      case military_barracks_time:
+      case military_infantry_time:
         return 'Decreases infantry time production';
-      case military_factory_cost:
+      case military_vehicles_cost:
         return 'Decreases vehicles cost production';
-      case military_factory_time:
+      case military_vehicles_time:
         return 'Decreases vehicles time production';
-      case military_airfield_cost:
+      case military_aircraft_cost:
         return 'Decreases aircraft cost production';
-      case military_airfield_time:
+      case military_aircraft_time:
         return 'Decreases aircraft time production';
       case weapons_nuclear_bomb:
         return 'Increases nuclear bomb yield';
@@ -327,7 +327,7 @@ enum ResearchType {
       case resources_production_chain:
       case resources_indoctrination:
       case resources_quantum_computing:
-      case missiles_enhanced_guidance_systems:
+      case missiles_active_tracking:
       case warning_missiles_radar_network:
       case warning_military_early_warning:
         return '+$baseRate';
@@ -337,12 +337,12 @@ enum ResearchType {
       case missiles_signal_jamming:
       case warning_missiles_hypersonic_propulsion:
       case warning_military_fast_deployments:
-      case military_barracks_cost:
-      case military_barracks_time:
-      case military_factory_cost:
-      case military_factory_time:
-      case military_airfield_cost:
-      case military_airfield_time:
+      case military_infantry_cost:
+      case military_infantry_time:
+      case military_vehicles_cost:
+      case military_vehicles_time:
+      case military_aircraft_cost:
+      case military_aircraft_time:
       case resilience_emergency_planning:
         return '-$baseRate';
 

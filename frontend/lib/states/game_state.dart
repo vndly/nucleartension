@@ -83,7 +83,7 @@ class GameState extends BaseState {
       ),
       Research(
         player: player,
-        researchType: ResearchType.missiles_enhanced_guidance_systems,
+        researchType: ResearchType.missiles_active_tracking,
         level: 0,
       ),
       Research(
@@ -117,32 +117,32 @@ class GameState extends BaseState {
       // military
       Research(
         player: player,
-        researchType: ResearchType.military_barracks_cost,
+        researchType: ResearchType.military_infantry_cost,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_barracks_time,
+        researchType: ResearchType.military_infantry_time,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_factory_cost,
+        researchType: ResearchType.military_vehicles_cost,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_factory_time,
+        researchType: ResearchType.military_vehicles_time,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_airfield_cost,
+        researchType: ResearchType.military_aircraft_cost,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_airfield_time,
+        researchType: ResearchType.military_aircraft_time,
         level: 0,
       ),
 

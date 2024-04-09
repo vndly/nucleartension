@@ -78,8 +78,8 @@ class ResearchMissiles extends StatelessWidget {
         ResearchBlock(
             player.getResearch(ResearchType.missiles_assembly_automation)),
         const BlockSeparator(),
-        ResearchBlock(player
-            .getResearch(ResearchType.missiles_enhanced_guidance_systems)),
+        ResearchBlock(
+            player.getResearch(ResearchType.missiles_active_tracking)),
         const BlockSeparator(),
         ResearchBlock(player.getResearch(ResearchType.missiles_signal_jamming)),
       ],
@@ -127,17 +127,17 @@ class ResearchMilitary extends StatelessWidget {
         const BlockSeparator(),
         const BlockTitle('MILITARY'),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_barracks_cost)),
+        ResearchBlock(player.getResearch(ResearchType.military_infantry_cost)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_barracks_time)),
+        ResearchBlock(player.getResearch(ResearchType.military_infantry_time)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_factory_cost)),
+        ResearchBlock(player.getResearch(ResearchType.military_vehicles_cost)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_factory_time)),
+        ResearchBlock(player.getResearch(ResearchType.military_vehicles_time)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_airfield_cost)),
+        ResearchBlock(player.getResearch(ResearchType.military_aircraft_cost)),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_airfield_time)),
+        ResearchBlock(player.getResearch(ResearchType.military_aircraft_time)),
       ],
     );
   }

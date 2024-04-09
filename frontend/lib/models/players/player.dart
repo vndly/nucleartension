@@ -149,7 +149,7 @@ class Player {
 
   num get defenseMissilesEffectiveness {
     final Research research =
-        getResearch(ResearchType.missiles_enhanced_guidance_systems);
+        getResearch(ResearchType.missiles_active_tracking);
 
     return research.increaseRate;
   }
