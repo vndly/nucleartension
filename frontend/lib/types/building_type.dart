@@ -99,17 +99,17 @@ enum BuildingType {
   String get description {
     switch (this) {
       case power_plant:
-        return 'AAA';
+        return 'Produces energy';
       case supply_center:
-        return 'BBB';
+        return 'Produces supplies';
       case propaganda_station:
-        return 'CCC';
+        return 'Produces population';
       case tech_lab:
-        return 'DDD';
+        return 'Produces technology';
       case missile_silo:
-        return 'EEE';
+        return 'Creates defense and attack missiles';
       case military_facility:
-        return 'FFF';
+        return 'Creates military units:\n* Infantry\n* Vehicles\n* Aircraft';
     }
   }
 }

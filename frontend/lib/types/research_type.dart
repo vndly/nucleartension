@@ -271,13 +271,13 @@ enum ResearchType {
       case missiles_signal_jamming:
         return 'Decreases defense missiles effectiveness';
       case warning_missiles_radar_network:
-        return 'Increases the warning time when receiving a missile attack';
+        return 'Increases warning time when receiving a missile attack';
       case warning_missiles_hypersonic_propulsion:
-        return 'Decreases the warning time when launching a missile attack';
+        return 'Decreases warning time when launching a missile attack';
       case warning_military_early_warning:
-        return 'Increases the warning time when receiving a military invasion';
+        return 'Increases warning time when receiving a military invasion';
       case warning_military_fast_deployments:
-        return 'Decreases the warning time when launching a military invasion';
+        return 'Decreases warning time when launching a military invasion';
       case military_barracks_cost:
         return 'Decreases infantry cost production';
       case military_barracks_time:
