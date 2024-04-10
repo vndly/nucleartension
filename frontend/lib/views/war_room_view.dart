@@ -18,32 +18,28 @@ class WarRoomView extends StatelessWidget {
       children: [
         HeaderBlock(game.player),
         const BlockSeparator(),
-        Expanded(
-          child: DefaultTabController(
-            length: 3,
-            child: Scaffold(
-              body: Expanded(
-                child: Column(
-                  children: [
-                    const TabBar(
-                      tabs: [
-                        TabTitle('PLAYERS'),
-                        TabTitle('EVENTS'),
-                        TabTitle('INTEL'),
-                      ],
-                    ),
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          PlayersTab(game),
-                          EventsTab(game),
-                          IntelTab(game),
-                        ],
-                      ),
-                    ),
+        DefaultTabController(
+          length: 3,
+          child: Expanded(
+            child: Column(
+              children: [
+                const TabBar(
+                  tabs: [
+                    TabTitle('PLAYERS'),
+                    TabTitle('EVENTS'),
+                    TabTitle('INTEL'),
                   ],
                 ),
-              ),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      PlayersTab(game),
+                      EventsTab(game),
+                      IntelTab(game),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
