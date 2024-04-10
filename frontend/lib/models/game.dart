@@ -1,15 +1,20 @@
+import 'package:nucleartension/models/events/defcon_update_event.dart';
+import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/types/event_type.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 
 class Game {
   final List<Player> players;
+  final List<Event> events;
   Player? selfPlayer;
   num timeElapsed = 0;
   int defcon = 5;
 
   Game({
     required this.players,
+    required this.events,
     required this.timeElapsed,
     required this.defcon,
   });
@@ -22,6 +27,8 @@ class Game {
     players.addAll(list);
     selfPlayer = list.whereType<SelfPlayer>().first;
   }
+
+  void addEvent(Event event) => events.insert(0, event);
 
   // ============================= DEFCON =================================== \\
 
@@ -37,6 +44,10 @@ class Game {
     if (defcon > value) {
       defcon = value;
       CustomSnackbar.defcon(value);
+      addEvent(DefconUpdateEvent(
+        eventType: EventType.defcon_update,
+        defconLevel: defcon,
+      ));
     }
   }
 
