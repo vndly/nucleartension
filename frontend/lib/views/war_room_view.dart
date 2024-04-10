@@ -26,6 +26,7 @@ class WarRoomView extends StatelessWidget {
             child: Column(
               children: [
                 const TabBar(
+                  labelPadding: EdgeInsets.zero,
                   tabs: [
                     TabTitle('PLAYERS'),
                     TabTitle('EVENTS'),
@@ -57,11 +58,15 @@ class TabTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Tab(
-      child: Label(
-        text: title,
-        color: Palette.textMain,
-        weight: FontWeight.bold,
+    return Container(
+      width: double.infinity,
+      color: Palette.backgroundTitle,
+      child: Tab(
+        child: Label(
+          text: title,
+          color: Palette.textMain,
+          weight: FontWeight.bold,
+        ),
       ),
     );
   }

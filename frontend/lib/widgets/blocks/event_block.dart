@@ -27,13 +27,14 @@ class _EventBlockState extends State<EventBlock> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Padding(
+        Container(
           padding: const EdgeInsets.only(
             top: 15,
             bottom: 15,
             left: 15,
             right: 15,
           ),
+          color: Palette.backgroundRow,
           child: Row(
             children: [
               Container(
