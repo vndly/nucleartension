@@ -8,4 +8,8 @@ class Event {
   Event({
     required this.eventType,
   }) : dateTime = DateTime.now();
+
+  void markAsSeen() {
+    seen = true;
+  }
 }

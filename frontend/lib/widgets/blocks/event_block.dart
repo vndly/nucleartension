@@ -6,10 +6,21 @@ import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
 
-class EventBlock extends StatelessWidget {
+class EventBlock extends StatefulWidget {
   final Event event;
 
   const EventBlock(this.event);
+
+  @override
+  State<EventBlock> createState() => _EventBlockState();
+}
+
+class _EventBlockState extends State<EventBlock> {
+  @override
+  void dispose() {
+    widget.event.markAsSeen();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +36,25 @@ class EventBlock extends StatelessWidget {
           ),
           child: Row(
             children: [
+              Container(
+                width: 5,
+                height: 5,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color:
+                      widget.event.seen ? Palette.transparent : Palette.error,
+                ),
+              ),
+              const HBox(10),
               Expanded(
                 child: Label(
-                  text: event.toString(),
+                  text: widget.event.toString(),
                   color: Palette.textMain,
                 ),
               ),
               const HBox(10),
               Label(
-                text: Formatter.hoursMinutes(event.dateTime),
+                text: Formatter.hoursMinutes(widget.event.dateTime),
                 color: Palette.textMain,
               ),
             ],
