@@ -2,6 +2,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/views/events_view.dart';
 import 'package:nucleartension/views/military_view.dart';
 import 'package:nucleartension/views/research_view.dart';
 import 'package:nucleartension/views/resources_view.dart';
@@ -75,6 +76,13 @@ class _GameContentState extends State<GameContent> {
             BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 5),
+                child: Icon(Icons.list_alt_rounded),
+              ),
+              label: 'EVENTS',
+            ),
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.widgets),
               ),
               label: 'RESOURCES',
@@ -109,10 +117,12 @@ class _GameContentState extends State<GameContent> {
     if (currentIndex == 0) {
       return WarRoomView(widget.state.game);
     } else if (currentIndex == 1) {
-      return ResourcesView(widget.state.game);
+      return EventsView(widget.state.game);
     } else if (currentIndex == 2) {
-      return MilitaryView(widget.state.game);
+      return ResourcesView(widget.state.game);
     } else if (currentIndex == 3) {
+      return MilitaryView(widget.state.game);
+    } else if (currentIndex == 4) {
       return ResearchView(widget.state.game);
     } else {
       return const Empty();
