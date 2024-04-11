@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/widgets/blocks/event_block.dart';
+import 'package:nucleartension/widgets/labels/label.dart';
 
 class EventsView extends StatelessWidget {
   final Game game;
@@ -10,15 +11,21 @@ class EventsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          for (final Event event in game.events) ...[
-            EventBlock(event),
+    if (game.events.isEmpty) {
+      return const Center(
+        child: Label(text: 'NO EVENTS'),
+      );
+    } else {
+      return SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (final Event event in game.events) ...[
+              EventBlock(event),
+            ],
           ],
-        ],
-      ),
-    );
+        ),
+      );
+    }
   }
 }
