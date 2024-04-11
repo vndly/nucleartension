@@ -272,7 +272,7 @@ class UnitRightSection extends StatelessWidget {
         );
       } else {
         return const Label(
-          text: 'Requires nuclear\nbomb research',
+          text: 'Requires\nnuclear bomb\nresearch',
           color: Palette.error,
           align: TextAlign.center,
           size: 12,

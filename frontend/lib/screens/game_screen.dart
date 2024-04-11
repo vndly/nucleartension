@@ -78,7 +78,7 @@ class _GameContentState extends State<GameContent> {
                 smallSize: widget.state.game.hasUnseenEvents ? 10 : 0,
                 child: const Padding(
                   padding: EdgeInsets.only(bottom: 5),
-                  child: Icon(Icons.list_alt_rounded),
+                  child: Icon(Icons.format_list_bulleted),
                 ),
               ),
               label: 'EVENTS',

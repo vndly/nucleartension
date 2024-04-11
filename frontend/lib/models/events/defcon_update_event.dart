@@ -9,5 +9,5 @@ class DefconUpdateEvent extends Event {
   });
 
   @override
-  String toString() => 'DEFCON level: $defconLevel';
+  String toString() => 'DEFCON $defconLevel';
 }
