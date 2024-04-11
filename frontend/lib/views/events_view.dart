@@ -13,7 +13,7 @@ class EventsView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (game.events.isEmpty) {
       return const Center(
-        child: Label(text: 'NO EVENTS'),
+        child: Label(text: 'NO EVENTSc'),
       );
     } else {
       return SingleChildScrollView(

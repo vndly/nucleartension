@@ -65,8 +65,8 @@ class _GameContentState extends State<GameContent> {
           backgroundColor: Palette.backgroundScreen,
           selectedFontSize: 12,
           unselectedFontSize: 12,
-          items: const [
-            BottomNavigationBarItem(
+          items: [
+            const BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.radar),
@@ -74,27 +74,30 @@ class _GameContentState extends State<GameContent> {
               label: 'WAR ROOM',
             ),
             BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.list_alt_rounded),
+              icon: Badge(
+                smallSize: widget.state.game.hasUnseenEvents ? 10 : 0,
+                child: const Padding(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Icon(Icons.list_alt_rounded),
+                ),
               ),
               label: 'EVENTS',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.widgets),
               ),
               label: 'RESOURCES',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.military_tech_outlined),
               ),
               label: 'MILITARY',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.science),

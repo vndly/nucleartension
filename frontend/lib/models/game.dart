@@ -28,6 +28,10 @@ class Game {
     selfPlayer = list.whereType<SelfPlayer>().first;
   }
 
+  // ============================= EVENTS =================================== \\
+
+  bool get hasUnseenEvents => events.any((e) => !e.seen);
+
   void addEvent(Event event) => events.insert(0, event);
 
   // ============================= DEFCON =================================== \\
