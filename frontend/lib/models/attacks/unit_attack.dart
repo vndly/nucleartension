@@ -53,7 +53,7 @@ class UnitAttack extends Attack {
         defender: defender,
         winner: defender,
         militaryPower: militaryPower,
-        defenderLoses: militaryPower,
+        defenderLoses: 0,
       );
     } else {
       final int diff = militaryPower - defender.militaryPower;
@@ -65,7 +65,7 @@ class UnitAttack extends Attack {
         defender: defender,
         winner: attacker,
         militaryPower: militaryPower,
-        defenderLoses: defender.militaryPower,
+        defenderLoses: population,
       );
     }
   }

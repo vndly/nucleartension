@@ -1,6 +1,7 @@
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/event_type.dart';
+import 'package:nucleartension/utils/formatter.dart';
 
 class UnitAttackResultEvent extends Event {
   final Player attacker;
@@ -18,21 +19,11 @@ class UnitAttackResultEvent extends Event {
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
-  List<String> get text {
-    if (attacker.isSelf) {
-      return [
-        'Outgoing unit attack to ${defender.name} with military power of $militaryPower finished',
-        'Winner: ${winner.name}',
-        'Defender loses: $defenderLoses',
+  List<String> get text => [
+        'UNIT ATTACK FINISHED',
+        'Attacker: ${attacker.name}${(attacker == winner) ? ' (Winner)' : ''}',
+        'Defender: ${defender.name}${(defender == winner) ? ' (Winner)' : ''}',
+        'Power: $militaryPower',
+        'Defender loses: ${Formatter.resource(defenderLoses)} people',
       ];
-    } else if (defender.isSelf) {
-      return [
-        'Incoming unit attack from ${attacker.name} with military power of $militaryPower finished',
-        'Winner: ${winner.name}',
-        'Loses: $defenderLoses',
-      ];
-    } else {
-      return [];
-    }
-  }
 }
