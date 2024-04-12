@@ -2,6 +2,7 @@ import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
+import 'package:nucleartension/models/events/unit_attack_incoming_event.dart';
 import 'package:nucleartension/models/events/unit_attack_outgoing_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
@@ -60,20 +61,30 @@ class Game {
 
   // ============================ MILITARY ================================== \\
 
-  void onAttackPlayerMilitary(Player defender) {
-    final int militaryPower = self.militaryPower;
-    self.removeMilitaryPower(militaryPower);
+  void onAttackPlayerMilitary({
+    required Player attacker,
+    required Player defender,
+    required int militaryPower,
+  }) {
+    attacker.removeMilitaryPower(militaryPower);
 
     attacks.add(UnitAttack.from(
-      attacker: self,
+      attacker: attacker,
       defender: defender,
       militaryPower: militaryPower,
     ));
 
-    addEvent(UnitAttackOutgoing(
-      defender: defender,
-      militaryPower: militaryPower,
-    ));
+    if (self == attacker) {
+      addEvent(UnitAttackOutgoing(
+        defender: defender,
+        militaryPower: militaryPower,
+      ));
+    } else if (self == defender) {
+      addEvent(UnitAttackIncoming(
+        attacker: attacker,
+        militaryPower: militaryPower,
+      ));
+    }
 
     onMilitaryUsed();
   }

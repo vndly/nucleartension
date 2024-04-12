@@ -1,0 +1,17 @@
+import 'package:nucleartension/models/events/event.dart';
+import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/types/event_type.dart';
+
+class UnitAttackIncoming extends Event {
+  final Player attacker;
+  final int militaryPower;
+
+  UnitAttackIncoming({
+    required this.attacker,
+    required this.militaryPower,
+  }) : super(eventType: EventType.unit_attack_incoming);
+
+  @override
+  String toString() =>
+      'Receiving unit attack from ${attacker.name} with military power of $militaryPower';
+}
