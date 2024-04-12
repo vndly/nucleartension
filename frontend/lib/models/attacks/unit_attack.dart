@@ -31,6 +31,13 @@ class UnitAttack extends Attack {
   }
 
   @override
-  String toString() =>
-      'ATTACK ${attacker.name} -> ${defender.name} with $militaryPower';
+  String toString() {
+    if (attacker.isSelf) {
+      return 'OUTGOING UNIT ATTACK TO ${defender.name} WITH $militaryPower';
+    } else if (defender.isSelf) {
+      return 'INCOMING UNIT ATTACK FROM ${attacker.name} WITH $militaryPower';
+    } else {
+      return '';
+    }
+  }
 }

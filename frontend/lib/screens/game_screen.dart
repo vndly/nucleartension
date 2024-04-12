@@ -7,6 +7,7 @@ import 'package:nucleartension/views/military_view.dart';
 import 'package:nucleartension/views/research_view.dart';
 import 'package:nucleartension/views/resources_view.dart';
 import 'package:nucleartension/views/war_room_view.dart';
+import 'package:nucleartension/widgets/blocks/warning_block.dart';
 import 'package:nucleartension/widgets/misc/game_container.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
 
@@ -111,7 +112,12 @@ class _GameContentState extends State<GameContent> {
         width: double.infinity,
         height: double.infinity,
         color: Palette.backgroundScreen,
-        child: _body(currentIndex),
+        child: Column(
+          children: [
+            WarningBlock(widget.state.game),
+            Expanded(child: _body(currentIndex)),
+          ],
+        ),
       ),
     );
   }
