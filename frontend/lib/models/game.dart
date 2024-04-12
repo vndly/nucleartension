@@ -2,8 +2,7 @@ import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
-import 'package:nucleartension/models/events/unit_attack_incoming_event.dart';
-import 'package:nucleartension/models/events/unit_attack_outgoing_event.dart';
+import 'package:nucleartension/models/events/unit_attack_launch_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
@@ -77,17 +76,11 @@ class Game {
       militaryPower: militaryPower,
     ));
 
-    if (self == attacker) {
-      addEvent(UnitAttackOutgoingEvent(
-        defender: defender,
-        militaryPower: militaryPower,
-      ));
-    } else if (self == defender) {
-      addEvent(UnitAttackIncomingEvent(
-        attacker: attacker,
-        militaryPower: militaryPower,
-      ));
-    }
+    addEvent(UnitAttackLaunchEvent(
+      attacker: attacker,
+      defender: defender,
+      militaryPower: militaryPower,
+    ));
 
     onMilitaryUsed();
   }
