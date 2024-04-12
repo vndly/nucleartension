@@ -1,3 +1,5 @@
+import 'package:nucleartension/models/attacks/attack.dart';
+import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
@@ -8,6 +10,7 @@ import 'package:nucleartension/utils/custom_snackbar.dart';
 class Game {
   final List<Player> players;
   final List<Event> events;
+  final List<Attack> attacks;
   Player? selfPlayer;
   num timeElapsed = 0;
   int defcon = 5;
@@ -15,13 +18,14 @@ class Game {
   Game({
     required this.players,
     required this.events,
+    required this.attacks,
     required this.timeElapsed,
     required this.defcon,
   });
 
   int get defconStep => 6 - defcon;
 
-  Player get player => selfPlayer!;
+  Player get self => selfPlayer!;
 
   void setPlayers(List<Player> list) {
     players.addAll(list);
@@ -57,7 +61,18 @@ class Game {
 
   // ============================ MILITARY ================================== \\
 
-  void onAttackPlayerMilitary(Player player) {}
+  void onAttackPlayerMilitary(Player player) {
+    final int militaryPower = self.militaryPower;
+
+    attacks.add(UnitAttack.from(
+      attacker: self,
+      defender: player,
+      militaryPower: militaryPower,
+    ));
+
+    self.removeMilitaryPower(militaryPower);
+    onMilitaryUsed();
+  }
 
   void onAttackPlayerMissiles(Player player) {}
 

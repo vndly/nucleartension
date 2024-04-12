@@ -16,7 +16,7 @@ class WarRoomView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeaderBlock(game.player),
+        HeaderBlock(game.self),
         const BlockSeparator(),
         DefaultTabController(
           length: 3,

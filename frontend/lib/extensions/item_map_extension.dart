@@ -7,6 +7,8 @@ extension ItemMapExtension<T> on ItemMap<T> {
 
   num get(T type) => this[type] ?? 0;
 
+  void set(T type, num value) => this[type] = value;
+
   num get duration {
     num sum = 0;
 

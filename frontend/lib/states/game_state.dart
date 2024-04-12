@@ -25,6 +25,7 @@ class GameState extends BaseState {
     game = Game(
       players: [],
       events: [],
+      attacks: [],
       timeElapsed: 0,
       defcon: 5,
     );

@@ -17,6 +17,8 @@ class BaseInventory<K> {
 
   num get(K type) => _items.get(type);
 
+  void set(K type, num value) => _items.set(type, value);
+
   void add(K type, num amount) {
     _items[type] = get(type) + amount;
   }

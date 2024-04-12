@@ -131,6 +131,8 @@ class Player {
 
   int get militaryPower => military.get(MilitaryType.power).toInt();
 
+  void removeMilitaryPower(int value) => military.remove(MilitaryType.power, value);
+
   int get militaryDefenseMissiles =>
       military.get(MilitaryType.defense_missiles).toInt();
 

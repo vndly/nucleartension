@@ -24,23 +24,4 @@ class Task {
 
     return isCompleted;
   }
-
-  static void updater<T extends Task>({
-    required double dt,
-    required List<T> tasks,
-    required Function(T) callback,
-  }) {
-    final List<T> tasksToRemove = [];
-
-    for (final T task in tasks) {
-      if (task.update(dt)) {
-        callback(task);
-        tasksToRemove.add(task);
-      }
-    }
-
-    for (final T task in tasksToRemove) {
-      tasks.remove(task);
-    }
-  }
 }

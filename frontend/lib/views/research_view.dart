@@ -18,14 +18,14 @@ class ResearchView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderBlock(game.player),
-          ResearchResources(game.player),
-          ResearchMissiles(game.player),
-          ResearchWarning(game.player),
-          ResearchMilitary(game.player),
-          ResearchWeapons(game.player),
-          ResearchResilience(game.player),
-          ResearchIntel(game.player),
+          HeaderBlock(game.self),
+          ResearchResources(game.self),
+          ResearchMissiles(game.self),
+          ResearchWarning(game.self),
+          ResearchMilitary(game.self),
+          ResearchWeapons(game.self),
+          ResearchResilience(game.self),
+          ResearchIntel(game.self),
         ],
       ),
     );
