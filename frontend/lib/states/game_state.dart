@@ -234,7 +234,7 @@ class GameState extends BaseState {
         name: 'Ming',
         country: Country.china,
         resources: ResourceInventory.create({
-          ResourceType.population: 1000000,
+          ResourceType.population: 900000,
         }),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -245,7 +245,7 @@ class GameState extends BaseState {
         name: 'Harry',
         country: Country.uk,
         resources: ResourceInventory.create({
-          ResourceType.population: 1000000,
+          ResourceType.population: 800000,
         }),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -256,7 +256,7 @@ class GameState extends BaseState {
         name: 'Louis',
         country: Country.france,
         resources: ResourceInventory.create({
-          ResourceType.population: 1000000,
+          ResourceType.population: 700000,
         }),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -267,7 +267,7 @@ class GameState extends BaseState {
         name: 'Jong',
         country: Country.north_korea,
         resources: ResourceInventory.create({
-          ResourceType.population: 1000000,
+          ResourceType.population: 600000,
         }),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -278,7 +278,7 @@ class GameState extends BaseState {
         name: 'Ram',
         country: Country.india,
         resources: ResourceInventory.create({
-          ResourceType.population: 1000000,
+          ResourceType.population: 500000,
         }),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -289,7 +289,7 @@ class GameState extends BaseState {
         name: 'Muhammad',
         country: Country.pakistan,
         resources: ResourceInventory.create({
-          ResourceType.population: 1000000,
+          ResourceType.population: 400000,
         }),
         military: MilitaryInventory.empty(),
         buildings: {},
@@ -300,7 +300,7 @@ class GameState extends BaseState {
         name: 'Ariel',
         country: Country.israel,
         resources: ResourceInventory.create({
-          ResourceType.population: 1000000,
+          ResourceType.population: 300000,
         }),
         military: MilitaryInventory.empty(),
         buildings: {},

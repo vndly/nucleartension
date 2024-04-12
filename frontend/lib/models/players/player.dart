@@ -20,7 +20,7 @@ import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
-class Player {
+class Player implements Comparable<Player> {
   final Game game;
   final String name;
   final Country country;
@@ -40,6 +40,8 @@ class Player {
   });
 
   bool get isSelf => this is SelfPlayer;
+
+  bool get isAlive => population > 0;
 
   // ============================ BUILDINGS ================================= \\
 
@@ -89,6 +91,8 @@ class Player {
   }
 
   // ============================ RESOURCES ================================= \\
+
+  int get population => resources.get(ResourceType.population).toInt();
 
   void removePopulation(int amount) =>
       resources.remove(ResourceType.population, amount);
@@ -220,4 +224,7 @@ class Player {
       research.update(dt);
     }
   }
+
+  @override
+  int compareTo(Player other) => other.population - population;
 }
