@@ -1,8 +1,10 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
+import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/events/unit_attack_result_event.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/types/resource_type.dart';
 
 class UnitAttack extends Attack {
   final int militaryPower;
@@ -44,29 +46,39 @@ class UnitAttack extends Attack {
   }
 
   @override
-  Event resolve() {
+  List<Event> resolve() {
     if (defender.militaryPower >= militaryPower) {
       defender.removeMilitaryPower(militaryPower);
 
-      return UnitAttackResultEvent(
-        attacker: attacker,
-        defender: defender,
-        winner: defender,
-        militaryPower: militaryPower,
-        defenderLoses: 0,
-      );
+      return [
+        UnitAttackResultEvent(
+          attacker: attacker,
+          defender: defender,
+          winner: defender,
+          militaryPower: militaryPower,
+          defenderLoses: 0,
+        )
+      ];
     } else {
       final int diff = militaryPower - defender.militaryPower;
       final int population = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
       defender.removePopulation(population);
 
-      return UnitAttackResultEvent(
-        attacker: attacker,
-        defender: defender,
-        winner: attacker,
-        militaryPower: militaryPower,
-        defenderLoses: population,
-      );
+      final List<Event> result = [
+        UnitAttackResultEvent(
+          attacker: attacker,
+          defender: defender,
+          winner: attacker,
+          militaryPower: militaryPower,
+          defenderLoses: population,
+        )
+      ];
+
+      if (!defender.resources.hasType(ResourceType.population)) {
+        result.add(PlayerDefeated(player: defender));
+      }
+
+      return result;
     }
   }
 }

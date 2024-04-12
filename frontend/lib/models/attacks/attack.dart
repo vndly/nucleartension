@@ -28,5 +28,5 @@ abstract class Attack {
     return isCompleted;
   }
 
-  Event resolve();
+  List<Event> resolve();
 }

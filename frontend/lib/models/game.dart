@@ -123,7 +123,7 @@ class Game {
     _updateAttacks(
       dt: dt,
       attacks: attacks,
-      callback: (attack) => addEvent(attack.resolve()),
+      callback: (attack) => attack.resolve().forEach(addEvent),
     );
   }
 

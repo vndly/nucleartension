@@ -43,7 +43,7 @@ class GameState extends BaseState {
       military: MilitaryInventory.create({
         MilitaryType.power: 10,
         MilitaryType.defense_missiles: 5,
-        MilitaryType.attack_missiles: 2,
+        MilitaryType.attack_missiles: 20,
       }),
       buildings: {},
       researches: {},

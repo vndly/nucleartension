@@ -2,7 +2,9 @@ import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/missile_attack_result_event.dart';
+import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 
 class MissileAttack extends Attack {
@@ -49,7 +51,7 @@ class MissileAttack extends Attack {
   }
 
   @override
-  Event resolve() {
+  List<Event> resolve() {
     // TODO(momo): implement
     final Player winner = attacker;
     final int effectiveMissiles = totalMissiles ~/ 2;
@@ -57,14 +59,24 @@ class MissileAttack extends Attack {
         ktPerMissile *
         Constants.MISSILE_ATTACK_DAMAGE_PER_KT;
 
-    return MissileAttackResultEvent(
-      attacker: attacker,
-      defender: defender,
-      winner: winner,
-      totalMissiles: totalMissiles,
-      effectiveMissiles: effectiveMissiles,
-      ktPerMissile: ktPerMissile,
-      defenderLoses: population,
-    );
+    defender.removePopulation(population);
+
+    final List<Event> result = [
+      MissileAttackResultEvent(
+        attacker: attacker,
+        defender: defender,
+        winner: winner,
+        totalMissiles: totalMissiles,
+        effectiveMissiles: effectiveMissiles,
+        ktPerMissile: ktPerMissile,
+        defenderLoses: population,
+      )
+    ];
+
+    if (!defender.resources.hasType(ResourceType.population)) {
+      result.add(PlayerDefeated(player: defender));
+    }
+
+    return result;
   }
 }
