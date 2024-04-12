@@ -1,6 +1,6 @@
 import 'package:nucleartension/types/event_type.dart';
 
-class Event {
+abstract class Event {
   final EventType eventType;
   final DateTime dateTime;
   bool seen = false;
@@ -12,4 +12,6 @@ class Event {
   void markAsSeen() {
     seen = true;
   }
+
+  List<String> get text;
 }

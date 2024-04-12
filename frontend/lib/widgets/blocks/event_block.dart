@@ -48,10 +48,7 @@ class _EventBlockState extends State<EventBlock> {
               ),
               const HBox(10),
               Expanded(
-                child: Label(
-                  text: widget.event.toString(),
-                  color: Palette.textMain,
-                ),
+                child: EventRows(widget.event.text),
               ),
               const HBox(10),
               Label(
@@ -62,6 +59,30 @@ class _EventBlockState extends State<EventBlock> {
           ),
         ),
         const RowSeparator(),
+      ],
+    );
+  }
+}
+
+class EventRows extends StatelessWidget {
+  final List<String> rows;
+
+  const EventRows(this.rows);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (int i = 0; i < rows.length; i++)
+          Padding(
+            padding: EdgeInsets.only(top: (i != 0) ? 5 : 0),
+            child: Label(
+              text: rows[i],
+              color: Palette.textMain,
+            ),
+          ),
       ],
     );
   }

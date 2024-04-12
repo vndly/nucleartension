@@ -18,19 +18,21 @@ class UnitAttackResultEvent extends Event {
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
-  String toString() {
+  List<String> get text {
     if (attacker.isSelf) {
-      return '''Outgoing unit attack to ${defender.name} with military power of $militaryPower finished
-Winner: ${winner.name}
-Defender loses: $defenderLoses
-''';
+      return [
+        'Outgoing unit attack to ${defender.name} with military power of $militaryPower finished',
+        'Winner: ${winner.name}',
+        'Defender loses: $defenderLoses',
+      ];
     } else if (defender.isSelf) {
-      return '''Incoming unit attack from ${attacker.name} with military power of $militaryPower finished
-Winner: ${winner.name}
-Loses: $defenderLoses
-''';
+      return [
+        'Incoming unit attack from ${attacker.name} with military power of $militaryPower finished',
+        'Winner: ${winner.name}',
+        'Loses: $defenderLoses',
+      ];
     } else {
-      return '';
+      return [];
     }
   }
 }

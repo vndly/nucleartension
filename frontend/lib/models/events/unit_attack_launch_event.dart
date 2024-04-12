@@ -14,13 +14,17 @@ class UnitAttackLaunchEvent extends Event {
   }) : super(eventType: EventType.unit_attack_launch);
 
   @override
-  String toString() {
+  List<String> get text {
     if (attacker.isSelf) {
-      return 'Outgoing unit attack to ${defender.name} with military power of $militaryPower';
+      return [
+        'Outgoing unit attack to ${defender.name} with military power of $militaryPower'
+      ];
     } else if (defender.isSelf) {
-      return 'Incoming unit attack from ${attacker.name} with military power of $militaryPower';
+      return [
+        'Incoming unit attack from ${attacker.name} with military power of $militaryPower'
+      ];
     } else {
-      return '';
+      return [];
     }
   }
 }
