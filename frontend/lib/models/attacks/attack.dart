@@ -26,4 +26,8 @@ class Attack {
 
     return isCompleted;
   }
+
+  void resolve() {
+    // TODO(momo): implement
+  }
 }

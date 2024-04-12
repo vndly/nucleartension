@@ -107,8 +107,29 @@ class Game {
       player.update(dt);
     }
 
-    for (final Attack attack in attacks) {
-      attack.update(dt);
+    updateAttacks(
+      dt: dt,
+      attacks: attacks,
+      callback: (attack) => attack.resolve(),
+    );
+  }
+
+  void updateAttacks({
+    required double dt,
+    required List<Attack> attacks,
+    required Function(Attack) callback,
+  }) {
+    final List<Attack> tasksToRemove = [];
+
+    for (final Attack task in attacks) {
+      if (task.update(dt)) {
+        callback(task);
+        tasksToRemove.add(task);
+      }
+    }
+
+    for (final Attack task in tasksToRemove) {
+      attacks.remove(task);
     }
   }
 }
