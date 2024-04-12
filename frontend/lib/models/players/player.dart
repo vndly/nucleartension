@@ -95,7 +95,7 @@ class Player implements Comparable<Player> {
   int get population => resources.get(ResourceType.population).toInt();
 
   void removePopulation(int amount) =>
-      resources.remove(ResourceType.population, amount);
+      resources.remove(ResourceType.population, min(amount, population));
 
   double productionOf(ResourceType resourceType) {
     double total = 0;

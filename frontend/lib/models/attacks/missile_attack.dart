@@ -4,7 +4,6 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/missile_attack_result_event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 
 class MissileAttack extends Attack {
@@ -73,7 +72,7 @@ class MissileAttack extends Attack {
       )
     ];
 
-    if (!defender.resources.hasType(ResourceType.population)) {
+    if (!defender.isAlive) {
       result.add(PlayerDefeated(player: defender));
     }
 

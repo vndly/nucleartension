@@ -4,7 +4,6 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/events/unit_attack_result_event.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/types/resource_type.dart';
 
 class UnitAttack extends Attack {
   final int militaryPower;
@@ -74,7 +73,7 @@ class UnitAttack extends Attack {
         )
       ];
 
-      if (!defender.resources.hasType(ResourceType.population)) {
+      if (!defender.isAlive) {
         result.add(PlayerDefeated(player: defender));
       }
 

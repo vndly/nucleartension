@@ -18,14 +18,18 @@ abstract class Producer extends Building {
         level * Constants.PRODUCTION_RATE[buildingType]!;
     final Research research = player.getResearch(resourceType.research);
 
-    return baseProductionRate * research.increaseRate * player.defconProductionBoost;
+    return baseProductionRate *
+        research.increaseRate *
+        player.defconProductionBoost;
   }
 
   @override
   void update(double dt) {
     super.update(dt);
 
-    final double produced = production * dt;
-    player.resources.add(resourceType, produced);
+    if (player.isAlive) {
+      final double produced = production * dt;
+      player.resources.add(resourceType, produced);
+    }
   }
 }
