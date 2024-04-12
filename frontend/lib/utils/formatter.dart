@@ -18,13 +18,13 @@ class Formatter {
   }
 
   static String yield(num amount) {
-    final NumberFormat formatter = NumberFormat('0');
-
     if (amount < 1000) {
+      final NumberFormat formatter = NumberFormat('0');
       final String value = formatter.format(amount);
 
       return '$value Kt';
     } else {
+      final NumberFormat formatter = NumberFormat('0.#');
       final String value = formatter.format(amount / 1000);
 
       return '$value Mt';
