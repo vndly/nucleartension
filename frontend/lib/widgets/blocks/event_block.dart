@@ -48,7 +48,10 @@ class _EventBlockState extends State<EventBlock> {
               ),
               const HBox(10),
               Expanded(
-                child: EventRows(widget.event.text),
+                child: EventRows(
+                  seen: widget.event.seen,
+                  rows: widget.event.text,
+                ),
               ),
               const HBox(10),
               Label(
@@ -65,9 +68,13 @@ class _EventBlockState extends State<EventBlock> {
 }
 
 class EventRows extends StatelessWidget {
+  final bool seen;
   final List<String> rows;
 
-  const EventRows(this.rows);
+  const EventRows({
+    required this.seen,
+    required this.rows,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +87,9 @@ class EventRows extends StatelessWidget {
             padding: EdgeInsets.only(top: (i != 0) ? 5 : 0),
             child: Label(
               text: rows[i],
-              color: (i == 0) ? Palette.error : Palette.textMain,
+              color: seen
+                  ? Palette.textDisabled
+                  : ((i == 0) ? Palette.error : Palette.textMain),
               weight: (i == 0) ? FontWeight.bold : FontWeight.normal,
             ),
           ),
