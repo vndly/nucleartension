@@ -106,9 +106,6 @@ class PlayerRowContent extends StatelessWidget {
                         : Palette.textDisabled,
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
-                    decoration: player.isAlive
-                        ? TextDecoration.none
-                        : TextDecoration.lineThrough,
                   ),
                 ],
               ),
