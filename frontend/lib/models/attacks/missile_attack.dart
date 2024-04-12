@@ -50,30 +50,8 @@ class MissileAttack extends Attack {
 
   @override
   Event resolve() {
-    /*if (defender.militaryPower >= militaryPower) {
-      defender.removeMilitaryPower(militaryPower);
-
-      return UnitAttackResultEvent(
-        attacker: attacker,
-        defender: defender,
-        winner: defender,
-        militaryPower: militaryPower,
-        defenderLoses: 0,
-      );
-    } else {
-      final int diff = militaryPower - defender.militaryPower;
-      final int population = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
-      defender.removePopulation(population);
-
-      return UnitAttackResultEvent(
-        attacker: attacker,
-        defender: defender,
-        winner: attacker,
-        militaryPower: militaryPower,
-        defenderLoses: population,
-      );
-    }*/
-
+    // TODO(momo): implement
+    final Player winner = attacker;
     final int effectiveMissiles = totalMissiles ~/ 2;
     final int population = effectiveMissiles *
         ktPerMissile *
@@ -82,7 +60,7 @@ class MissileAttack extends Attack {
     return MissileAttackResultEvent(
       attacker: attacker,
       defender: defender,
-      winner: attacker,
+      winner: winner,
       totalMissiles: totalMissiles,
       effectiveMissiles: effectiveMissiles,
       ktPerMissile: ktPerMissile,
