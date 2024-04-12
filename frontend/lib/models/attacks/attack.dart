@@ -1,3 +1,4 @@
+import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 
 abstract class Attack {
@@ -27,5 +28,5 @@ abstract class Attack {
     return isCompleted;
   }
 
-  void resolve();
+  Event resolve();
 }

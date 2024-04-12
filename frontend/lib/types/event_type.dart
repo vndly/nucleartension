@@ -4,7 +4,7 @@ enum EventType {
   missile_attack_result, // TODO(momo): implement
   unit_attack_incoming,
   unit_attack_outgoing,
-  unit_attack_result, // TODO(momo): implement
+  unit_attack_result,
   player_defeated, // TODO(momo): implement
   defcon_update,
 }

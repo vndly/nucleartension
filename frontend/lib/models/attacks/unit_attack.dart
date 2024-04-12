@@ -1,5 +1,7 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
+import 'package:nucleartension/models/events/event.dart';
+import 'package:nucleartension/models/events/unit_attack_result_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 
 class UnitAttack extends Attack {
@@ -42,13 +44,29 @@ class UnitAttack extends Attack {
   }
 
   @override
-  void resolve() {
+  Event resolve() {
     if (defender.militaryPower >= militaryPower) {
       defender.removeMilitaryPower(militaryPower);
+
+      return UnitAttackResultEvent(
+        attacker: attacker,
+        defender: defender,
+        winner: defender,
+        militaryPower: militaryPower,
+        defenderLoses: militaryPower,
+      );
     } else {
       final int diff = militaryPower - defender.militaryPower;
       final int population = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
       defender.removePopulation(population);
+
+      return UnitAttackResultEvent(
+        attacker: attacker,
+        defender: defender,
+        winner: attacker,
+        militaryPower: militaryPower,
+        defenderLoses: defender.militaryPower,
+      );
     }
   }
 }

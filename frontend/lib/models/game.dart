@@ -78,12 +78,12 @@ class Game {
     ));
 
     if (self == attacker) {
-      addEvent(UnitAttackOutgoing(
+      addEvent(UnitAttackOutgoingEvent(
         defender: defender,
         militaryPower: militaryPower,
       ));
     } else if (self == defender) {
-      addEvent(UnitAttackIncoming(
+      addEvent(UnitAttackIncomingEvent(
         attacker: attacker,
         militaryPower: militaryPower,
       ));
@@ -110,7 +110,7 @@ class Game {
     _updateAttacks(
       dt: dt,
       attacks: attacks,
-      callback: (attack) => attack.resolve(),
+      callback: (attack) => addEvent(attack.resolve()),
     );
   }
 
