@@ -2,9 +2,9 @@ import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
+import 'package:nucleartension/models/events/unit_attack_outgoing_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
-import 'package:nucleartension/types/event_type.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 
 class Game {
@@ -53,7 +53,6 @@ class Game {
       defcon = value;
       CustomSnackbar.defcon(value);
       addEvent(DefconUpdateEvent(
-        eventType: EventType.defcon_update,
         defconLevel: defcon,
       ));
     }
@@ -61,16 +60,21 @@ class Game {
 
   // ============================ MILITARY ================================== \\
 
-  void onAttackPlayerMilitary(Player player) {
+  void onAttackPlayerMilitary(Player defender) {
     final int militaryPower = self.militaryPower;
+    self.removeMilitaryPower(militaryPower);
 
     attacks.add(UnitAttack.from(
       attacker: self,
-      defender: player,
+      defender: defender,
       militaryPower: militaryPower,
     ));
 
-    self.removeMilitaryPower(militaryPower);
+    addEvent(UnitAttackOutgoing(
+      defender: defender,
+      militaryPower: militaryPower,
+    ));
+
     onMilitaryUsed();
   }
 
@@ -83,6 +87,10 @@ class Game {
 
     for (final Player player in players) {
       player.update(dt);
+    }
+
+    for (final Attack attack in attacks) {
+      attack.update(dt);
     }
   }
 }
