@@ -125,7 +125,7 @@ class Player {
       case UnitType.vehicle:
       case UnitType.aircraft:
         military.add(MilitaryType.power, unitType.power);
-        game.onMilitaryCreated();
+        game.onUnitCreated();
         break;
     }
   }
@@ -137,6 +137,9 @@ class Player {
   void removeMilitaryPower(int value) =>
       military.remove(MilitaryType.power, value);
 
+  void removeAttackMissiles(int value) =>
+      military.remove(MilitaryType.attack_missiles, value);
+
   int get militaryDefenseMissiles =>
       military.get(MilitaryType.defense_missiles).toInt();
 
@@ -147,7 +150,7 @@ class Player {
 
   bool get hasAttackMissiles => militaryAttackMissiles > 0;
 
-  num get attackMissileYield {
+  int get attackMissileYield {
     final Research research = getResearch(ResearchType.weapons_nuclear_bomb);
 
     return Research.yield(research.level);

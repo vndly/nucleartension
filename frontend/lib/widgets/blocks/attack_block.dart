@@ -30,12 +30,14 @@ class AttackBlock extends StatelessWidget {
                 child: Label(
                   text: attack.toString(),
                   color: Palette.textAttack,
+                  weight: FontWeight.bold,
                 ),
               ),
               const HBox(10),
               Label(
                 text: attack.timeLeft.formatted,
                 color: Palette.textAttack,
+                weight: FontWeight.bold,
               ),
             ],
           ),

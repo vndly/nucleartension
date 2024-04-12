@@ -43,7 +43,7 @@ class GameState extends BaseState {
       military: MilitaryInventory.create({
         MilitaryType.power: 10,
         MilitaryType.defense_missiles: 5,
-        MilitaryType.attack_missiles: 0,
+        MilitaryType.attack_missiles: 2,
       }),
       buildings: {},
       researches: {},
@@ -152,7 +152,7 @@ class GameState extends BaseState {
       Research(
         player: player,
         researchType: ResearchType.weapons_nuclear_bomb,
-        level: 0,
+        level: 5,
       ),
 
       // resilience

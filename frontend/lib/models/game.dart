@@ -1,7 +1,9 @@
 import 'package:nucleartension/models/attacks/attack.dart';
+import 'package:nucleartension/models/attacks/missile_attack.dart';
 import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
+import 'package:nucleartension/models/events/missile_attack_launch_event.dart';
 import 'package:nucleartension/models/events/unit_attack_launch_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
@@ -40,9 +42,9 @@ class Game {
 
   // ============================= DEFCON =================================== \\
 
-  void onMilitaryCreated() => _applyDefcon(4);
+  void onUnitCreated() => _applyDefcon(4);
 
-  void onMilitaryUsed() => _applyDefcon(3);
+  void onUnitUsed() => _applyDefcon(3);
 
   void onAttackMissileCreated() => _applyDefcon(2);
 
@@ -82,14 +84,32 @@ class Game {
       militaryPower: militaryPower,
     ));
 
-    onMilitaryUsed();
+    onUnitUsed();
   }
 
   void onMissileAttack({
     required Player attacker,
     required Player defender,
     required int amount,
-  }) {}
+  }) {
+    attacker.removeAttackMissiles(amount);
+
+    attacks.add(MissileAttack.from(
+      attacker: attacker,
+      defender: defender,
+      amount: amount,
+      ktPerMissile: attacker.attackMissileYield,
+    ));
+
+    addEvent(MissileAttackLaunchEvent(
+      attacker: attacker,
+      defender: defender,
+      totalMissiles: amount,
+      ktPerMissile: attacker.attackMissileYield,
+    ));
+
+    onAttackMissileUsed();
+  }
 
   // ============================= UPDATE =================================== \\
 
