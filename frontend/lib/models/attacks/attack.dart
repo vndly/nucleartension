@@ -1,6 +1,6 @@
 import 'package:nucleartension/models/players/player.dart';
 
-class Attack {
+abstract class Attack {
   final Player attacker;
   final Player defender;
   num totalTime = 0;
@@ -27,7 +27,5 @@ class Attack {
     return isCompleted;
   }
 
-  void resolve() {
-    // TODO(momo): implement
-  }
+  void resolve();
 }

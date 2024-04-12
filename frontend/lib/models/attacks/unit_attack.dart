@@ -40,4 +40,15 @@ class UnitAttack extends Attack {
       return '';
     }
   }
+
+  @override
+  void resolve() {
+    if (defender.militaryPower >= militaryPower) {
+      defender.removeMilitaryPower(militaryPower);
+    } else {
+      final int diff = militaryPower - defender.militaryPower;
+      final int population = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
+      defender.removePopulation(population);
+    }
+  }
 }

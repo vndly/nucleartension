@@ -107,14 +107,14 @@ class Game {
       player.update(dt);
     }
 
-    updateAttacks(
+    _updateAttacks(
       dt: dt,
       attacks: attacks,
       callback: (attack) => attack.resolve(),
     );
   }
 
-  void updateAttacks({
+  void _updateAttacks({
     required double dt,
     required List<Attack> attacks,
     required Function(Attack) callback,

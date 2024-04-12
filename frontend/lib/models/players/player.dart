@@ -88,7 +88,10 @@ class Player {
     return research.level >= level;
   }
 
-  // =========================== PRODUCTION ================================= \\
+  // ============================ RESOURCES ================================= \\
+
+  void removePopulation(int amount) =>
+      resources.remove(ResourceType.population, amount);
 
   double productionOf(ResourceType resourceType) {
     double total = 0;
@@ -131,7 +134,8 @@ class Player {
 
   int get militaryPower => military.get(MilitaryType.power).toInt();
 
-  void removeMilitaryPower(int value) => military.remove(MilitaryType.power, value);
+  void removeMilitaryPower(int value) =>
+      military.remove(MilitaryType.power, value);
 
   int get militaryDefenseMissiles =>
       military.get(MilitaryType.defense_missiles).toInt();

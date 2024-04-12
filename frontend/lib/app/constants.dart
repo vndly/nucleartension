@@ -6,8 +6,12 @@ class Constants {
 
   static const double DEFCON_PRODUCTION_RATE = 0.1; // 10%
   static const double DEFENSE_MISSILE_EFFECTIVENESS = 0.5; // 50%
-  static const double MISSILE_ATTACK_WARNING = 60; // in seconds
-  static const double UNIT_ATTACK_WARNING_TIME = 60; // in seconds
+
+  // Attacks
+  static const int MISSILE_ATTACK_WARNING_TIME = 10; // in seconds
+  static const int MISSILE_ATTACK_DAMAGE_PER_KT = 1000;
+  static const int UNIT_ATTACK_WARNING_TIME = 10; // in seconds
+  static const int UNIT_ATTACK_DAMAGE_PER_POWER = 1000;
 
   static const Map<BuildingType, double> PRODUCTION_RATE = {
     BuildingType.power_plant: 1,
