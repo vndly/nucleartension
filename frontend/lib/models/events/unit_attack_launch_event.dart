@@ -1,6 +1,7 @@
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/event_type.dart';
+import 'package:nucleartension/utils/formatter.dart';
 
 class UnitAttackLaunchEvent extends Event {
   final Player attacker;
@@ -18,6 +19,6 @@ class UnitAttackLaunchEvent extends Event {
         'UNIT ATTACK LAUNCHED',
         'Attacker: ${attacker.name}',
         'Defender: ${defender.name}',
-        'Power: $militaryPower'
+        'Power: ${Formatter.resourceRaw(militaryPower)}',
       ];
 }

@@ -50,4 +50,10 @@ class Formatter {
       return '${value}M';
     }
   }
+
+  static String resourceRaw(num amount) {
+    final NumberFormat formatter = NumberFormat('#,##0');
+
+    return formatter.format(amount);
+  }
 }

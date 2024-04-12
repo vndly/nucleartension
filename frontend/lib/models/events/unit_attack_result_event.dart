@@ -21,9 +21,9 @@ class UnitAttackResultEvent extends Event {
   @override
   List<String> get text => [
         'UNIT ATTACK FINISHED',
-        'Attacker: ${attacker.name}${(attacker == winner) ? ' (Winner)' : ''}',
-        'Defender: ${defender.name}${(defender == winner) ? ' (Winner)' : ''}',
-        'Power: $militaryPower',
-        'Defender loses: ${Formatter.resource(defenderLoses)} people',
+        'Attacker: ${attacker.name}${(attacker == winner) ? ' (winner)' : ''}',
+        'Defender: ${defender.name}${(defender == winner) ? ' (winner)' : ''}',
+        'Power: ${Formatter.resourceRaw(militaryPower)}',
+        'Defender loses: ${Formatter.resourceRaw(defenderLoses)} people',
       ];
 }

@@ -100,7 +100,7 @@ class PlayerRowContent extends StatelessWidget {
                   const HBox(15),
                   Label(
                     text:
-                        '${player.name} / Population: ${Formatter.resource(player.resources.get(ResourceType.population))}',
+                        '${player.name} / Population: ${Formatter.resourceRaw(player.resources.get(ResourceType.population))}',
                     color: player.country.color,
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,

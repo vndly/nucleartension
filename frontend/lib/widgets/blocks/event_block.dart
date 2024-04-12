@@ -80,7 +80,8 @@ class EventRows extends StatelessWidget {
             padding: EdgeInsets.only(top: (i != 0) ? 5 : 0),
             child: Label(
               text: rows[i],
-              color: Palette.textMain,
+              color: (i == 0) ? Palette.error : Palette.textMain,
+              weight: (i == 0) ? FontWeight.bold : FontWeight.normal,
             ),
           ),
       ],
