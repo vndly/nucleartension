@@ -13,5 +13,5 @@ class UnitAttackOutgoing extends Event {
 
   @override
   String toString() =>
-      'Sending unit attack to ${defender.name} with military power of $militaryPower';
+      'Outgoing unit attack to ${defender.name} with military power of $militaryPower';
 }

@@ -13,5 +13,5 @@ class UnitAttackIncoming extends Event {
 
   @override
   String toString() =>
-      'Receiving unit attack from ${attacker.name} with military power of $militaryPower';
+      'Incoming unit attack from ${attacker.name} with military power of $militaryPower';
 }

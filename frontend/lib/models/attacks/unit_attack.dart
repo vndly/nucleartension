@@ -29,4 +29,8 @@ class UnitAttack extends Attack {
       militaryPower: militaryPower,
     );
   }
+
+  @override
+  String toString() =>
+      'ATTACK ${attacker.name} -> ${defender.name} with $militaryPower';
 }

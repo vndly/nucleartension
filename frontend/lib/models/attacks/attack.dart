@@ -15,6 +15,8 @@ class Attack {
     remainingTime = totalTime;
   }
 
+  bool contains(Player player) => (attacker == player) || (defender == player);
+
   Duration get timeLeft => Duration(seconds: remainingTime.ceil());
 
   bool get isCompleted => remainingTime <= 0;

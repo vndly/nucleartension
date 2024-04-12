@@ -61,7 +61,10 @@ class Game {
 
   // ============================ MILITARY ================================== \\
 
-  void onAttackPlayerMilitary({
+  List<Attack> get selfAttacks =>
+      attacks.where((e) => e.contains(self)).toList();
+
+  void onUnitAttack({
     required Player attacker,
     required Player defender,
     required int militaryPower,
@@ -89,7 +92,11 @@ class Game {
     onMilitaryUsed();
   }
 
-  void onAttackPlayerMissiles(Player player) {}
+  void onMissileAttack({
+    required Player attacker,
+    required Player defender,
+    required int amount,
+  }) {}
 
   // ============================= UPDATE =================================== \\
 
