@@ -16,21 +16,21 @@ enum ResearchType {
     },
   ),
   resources_production_chain(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_RESOURCES_PRODUCTION_CHAIN,
     maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   resources_indoctrination(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_RESOURCES_INDOCTRINATION,
     maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   resources_quantum_computing(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING,
     maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,

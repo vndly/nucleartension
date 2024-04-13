@@ -28,6 +28,12 @@ class Assets {
       'assets/images/research/research.png';
   static const String IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT =
       'assets/images/research/resources_grid_management.png';
+  static const String IMAGES_RESEARCH_RESOURCES_INDOCTRINATION =
+      'assets/images/research/resources_indoctrination.png';
+  static const String IMAGES_RESEARCH_RESOURCES_PRODUCTION_CHAIN =
+      'assets/images/research/resources_production_chain.png';
+  static const String IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING =
+      'assets/images/research/resources_quantum_computing.png';
   static const String IMAGES_UNITS_AIRCRAFT =
       'assets/images/units/aircraft.png';
   static const String IMAGES_UNITS_INFANTRY =
