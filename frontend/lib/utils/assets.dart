@@ -24,6 +24,12 @@ class Assets {
       'assets/images/missiles/attack.png';
   static const String IMAGES_MISSILES_DEFENSE =
       'assets/images/missiles/defense.png';
+  static const String IMAGES_RESEARCH_INTEL_ECONOMY =
+      'assets/images/research/intel_economy.png';
+  static const String IMAGES_RESEARCH_INTEL_MILITARY =
+      'assets/images/research/intel_military.png';
+  static const String IMAGES_RESEARCH_INTEL_TECHNOLOGY =
+      'assets/images/research/intel_technology.png';
   static const String IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING =
       'assets/images/research/missiles_active_tracking.png';
   static const String IMAGES_RESEARCH_MISSILES_ADDITIVE_MANUFACTURING =
@@ -50,6 +56,8 @@ class Assets {
       'assets/images/research/warning_missiles_hypersonic_propulsion.png';
   static const String IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK =
       'assets/images/research/warning_missiles_radar_network.png';
+  static const String IMAGES_RESEARCH_WEAPONS_NUCLEAR_BOMB =
+      'assets/images/research/weapons_nuclear_bomb.png';
   static const String IMAGES_UNITS_AIRCRAFT =
       'assets/images/units/aircraft.png';
   static const String IMAGES_UNITS_INFANTRY =

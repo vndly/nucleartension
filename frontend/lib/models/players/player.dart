@@ -160,6 +160,13 @@ class Player implements Comparable<Player> {
     return Research.yield(research.level);
   }
 
+  num get resilienceEmergencyPlanning {
+    final Research research =
+        getResearch(ResearchType.resilience_emergency_planning);
+
+    return research.decreaseRate;
+  }
+
   num get defenseMissilesEffectiveness {
     final Research research =
         getResearch(ResearchType.missiles_active_tracking);

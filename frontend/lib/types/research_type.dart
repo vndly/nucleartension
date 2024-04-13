@@ -143,8 +143,7 @@ enum ResearchType {
 
   // weapons
   weapons_nuclear_bomb(
-    // TODO(momo): apply
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_WEAPONS_NUCLEAR_BOMB,
     maxLevel: 14,
     initialCost: {
       ResourceType.technology: 10,
@@ -153,7 +152,6 @@ enum ResearchType {
 
   // resilience
   resilience_emergency_planning(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_RESEARCH,
     maxLevel: 5,
     initialCost: {
@@ -164,7 +162,7 @@ enum ResearchType {
   // intel
   intel_economy(
     // TODO(momo): apply
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_INTEL_ECONOMY,
     maxLevel: 2,
     initialCost: {
       ResourceType.technology: 10,
@@ -172,7 +170,7 @@ enum ResearchType {
   ),
   intel_military(
     // TODO(momo): apply
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_INTEL_MILITARY,
     maxLevel: 2,
     initialCost: {
       ResourceType.technology: 10,
@@ -180,7 +178,7 @@ enum ResearchType {
   ),
   intel_technology(
     // TODO(momo): apply
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_INTEL_TECHNOLOGY,
     maxLevel: 2,
     initialCost: {
       ResourceType.technology: 10,
