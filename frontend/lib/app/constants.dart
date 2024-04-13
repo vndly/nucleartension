@@ -39,6 +39,6 @@ class Constants {
     ResearchType.military_vehicles_time: 0.1,
     ResearchType.military_aircraft_cost: 0.1,
     ResearchType.military_aircraft_time: 0.1,
-    ResearchType.resilience_emergency_planning: 0.1,
+    ResearchType.resilience_bomb_shelters: 0.1,
   };
 }

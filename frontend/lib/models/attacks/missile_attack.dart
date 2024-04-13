@@ -54,12 +54,11 @@ class MissileAttack extends Attack {
     // TODO(momo): implement
     final Player winner = attacker;
     final int effectiveMissiles = totalMissiles ~/ 2;
-    final num resilienceEmergencyPlanning =
-        defender.resilienceEmergencyPlanning;
+    final num resilienceBombShelters = defender.resilienceBombShelters;
     final num totalYield = effectiveMissiles *
         ktPerMissile *
         Constants.MISSILE_ATTACK_DAMAGE_PER_KT;
-    final int population = (totalYield * resilienceEmergencyPlanning).floor();
+    final int population = (totalYield * resilienceBombShelters).floor();
 
     defender.removePopulation(population);
 

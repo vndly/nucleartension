@@ -99,42 +99,42 @@ enum ResearchType {
 
   // military
   military_infantry_cost(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_COST,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   military_infantry_time(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_TIME,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   military_vehicles_cost(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_COST,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   military_vehicles_time(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_TIME,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   military_aircraft_cost(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_COST,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   military_aircraft_time(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_TIME,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
@@ -151,8 +151,8 @@ enum ResearchType {
   ),
 
   // resilience
-  resilience_emergency_planning(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+  resilience_bomb_shelters(
+    sprite: Assets.IMAGES_RESEARCH_RESILIENCE_BOMB_SHELTERS,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
@@ -239,8 +239,8 @@ enum ResearchType {
         return 'Aircraft Time';
       case weapons_nuclear_bomb:
         return 'Nuclear Bomb';
-      case resilience_emergency_planning:
-        return 'Emergency Planning';
+      case resilience_bomb_shelters:
+        return 'Bomb Shelters';
       case intel_economy:
         return 'Economy';
       case intel_military:
@@ -290,8 +290,8 @@ enum ResearchType {
         return 'Decreases aircraft time production';
       case weapons_nuclear_bomb:
         return 'Increases nuclear bomb yield';
-      case resilience_emergency_planning:
-        return 'Decrease the amount of casualties';
+      case resilience_bomb_shelters:
+        return 'Decrease the amount of casualties upon a missile attack';
       case intel_economy:
         return 'Reveals economy intel about other players';
       case intel_military:
@@ -341,7 +341,7 @@ enum ResearchType {
       case military_vehicles_time:
       case military_aircraft_cost:
       case military_aircraft_time:
-      case resilience_emergency_planning:
+      case resilience_bomb_shelters:
         return '-$baseRate';
 
       case weapons_nuclear_bomb:

@@ -73,9 +73,9 @@ enum UnitType {
   String get localized {
     switch (this) {
       case defense:
-        return 'Defense';
+        return 'Defense Missile';
       case attack:
-        return 'Attack';
+        return 'Attack Missile';
       case infantry:
         return 'Infantry';
       case vehicle:

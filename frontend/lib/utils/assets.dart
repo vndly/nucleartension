@@ -30,6 +30,18 @@ class Assets {
       'assets/images/research/intel_military.png';
   static const String IMAGES_RESEARCH_INTEL_TECHNOLOGY =
       'assets/images/research/intel_technology.png';
+  static const String IMAGES_RESEARCH_MILITARY_AIRCRAFT_COST =
+      'assets/images/research/military_aircraft_cost.png';
+  static const String IMAGES_RESEARCH_MILITARY_AIRCRAFT_TIME =
+      'assets/images/research/military_aircraft_time.png';
+  static const String IMAGES_RESEARCH_MILITARY_INFANTRY_COST =
+      'assets/images/research/military_infantry_cost.png';
+  static const String IMAGES_RESEARCH_MILITARY_INFANTRY_TIME =
+      'assets/images/research/military_infantry_time.png';
+  static const String IMAGES_RESEARCH_MILITARY_VEHICLES_COST =
+      'assets/images/research/military_vehicles_cost.png';
+  static const String IMAGES_RESEARCH_MILITARY_VEHICLES_TIME =
+      'assets/images/research/military_vehicles_time.png';
   static const String IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING =
       'assets/images/research/missiles_active_tracking.png';
   static const String IMAGES_RESEARCH_MISSILES_ADDITIVE_MANUFACTURING =
@@ -38,8 +50,8 @@ class Assets {
       'assets/images/research/missiles_assembly_automation.png';
   static const String IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING =
       'assets/images/research/missiles_signal_jamming.png';
-  static const String IMAGES_RESEARCH_RESEARCH =
-      'assets/images/research/research.png';
+  static const String IMAGES_RESEARCH_RESILIENCE_BOMB_SHELTERS =
+      'assets/images/research/resilience_bomb_shelters.png';
   static const String IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT =
       'assets/images/research/resources_grid_management.png';
   static const String IMAGES_RESEARCH_RESOURCES_INDOCTRINATION =

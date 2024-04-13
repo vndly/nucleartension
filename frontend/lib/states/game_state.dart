@@ -158,7 +158,7 @@ class GameState extends BaseState {
       // resilience
       Research(
         player: player,
-        researchType: ResearchType.resilience_emergency_planning,
+        researchType: ResearchType.resilience_bomb_shelters,
         level: 0,
       ),
 

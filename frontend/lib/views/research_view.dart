@@ -174,7 +174,7 @@ class ResearchResilience extends StatelessWidget {
         const BlockTitle('RESILIENCE'),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.resilience_emergency_planning)),
+            player.getResearch(ResearchType.resilience_bomb_shelters)),
       ],
     );
   }

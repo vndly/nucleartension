@@ -16375,7 +16375,7 @@ r=k.a
 j=B.bb.i(0,r)
 if(j==null)j=r
 i=k.c
-h=B.bq.i(0,i)
+h=B.bp.i(0,i)
 if(h==null)h=i
 h=j+"_null_"+A.l(h)
 if(q.i(0,h)==null)q.n(0,h,k)
@@ -16384,27 +16384,27 @@ j=(j==null?r:j)+"_null"
 if(o.i(0,j)==null)o.n(0,j,k)
 j=B.bb.i(0,r)
 if(j==null)j=r
-h=B.bq.i(0,i)
+h=B.bp.i(0,i)
 if(h==null)h=i
 h=j+"_"+A.l(h)
 if(p.i(0,h)==null)p.n(0,h,k)
 j=B.bb.i(0,r)
 r=j==null?r:j
 if(n.i(0,r)==null)n.n(0,r,k)
-r=B.bq.i(0,i)
+r=B.bp.i(0,i)
 if(r==null)r=i
 if(m.i(0,r)==null)m.n(0,r,k)}for(g=a,f=g,e=0;e<a0.length;++e){d=a0[e]
 s=d.a
 r=B.bb.i(0,s)
 if(r==null)r=s
 j=d.c
-i=B.bq.i(0,j)
+i=B.bp.i(0,j)
 if(i==null)i=j
 if(q.a4(0,r+"_null_"+A.l(i)))return d
-r=B.bq.i(0,j)
+r=B.bp.i(0,j)
 if((r==null?j:r)!=null){r=B.bb.i(0,s)
 if(r==null)r=s
-i=B.bq.i(0,j)
+i=B.bp.i(0,j)
 if(i==null)i=j
 c=p.i(0,r+"_"+A.l(i))
 if(c!=null)return c}if(f!=null)return f
@@ -16418,9 +16418,9 @@ i=B.bb.i(0,s)
 s=r===(i==null?s:i)}else s=!1
 s=!s}else s=!1
 if(s)return c
-f=c}if(g==null){s=B.bq.i(0,j)
+f=c}if(g==null){s=B.bp.i(0,j)
 s=(s==null?j:s)!=null}else s=!1
-if(s){s=B.bq.i(0,j)
+if(s){s=B.bp.i(0,j)
 c=m.i(0,s==null?j:s)
 if(c!=null)g=c}}b=f==null?g:f
 return b==null?B.b.gM(a1):b},
@@ -21323,7 +21323,7 @@ m=t.i6
 l=t.nK
 k=t.iy
 j=new A.kI(p,"Momo",B.GW,new A.hc(A.aK([B.bg,200,B.bf,200,B.a3,1e6,B.fJ,2000],q,r)),new A.h2(A.aK([B.bs,10,B.iT,5,B.cD,20],o,r)),A.x(n,m),A.x(l,k))
-j.Zh(A.a([new A.c4(B.fB,j,0),new A.c4(B.fH,j,1),new A.c4(B.fy,j,2),new A.c4(B.fv,j,3),new A.c4(B.fD,j,0),new A.c4(B.fw,j,0),new A.c4(B.j8,j,0),new A.c4(B.j9,j,0),new A.c4(B.fs,j,0),new A.c4(B.fu,j,0),new A.c4(B.fz,j,0),new A.c4(B.fx,j,0),new A.c4(B.fG,j,0),new A.c4(B.fE,j,0),new A.c4(B.fC,j,0),new A.c4(B.fA,j,0),new A.c4(B.ft,j,0),new A.c4(B.fI,j,0),new A.c4(B.dD,j,5),new A.c4(B.fF,j,0),new A.c4(B.BE,j,0),new A.c4(B.BD,j,0),new A.c4(B.BF,j,0)],t.ki))
+j.Zh(A.a([new A.c4(B.fB,j,0),new A.c4(B.fF,j,1),new A.c4(B.fz,j,2),new A.c4(B.fu,j,3),new A.c4(B.fC,j,0),new A.c4(B.fw,j,0),new A.c4(B.j8,j,0),new A.c4(B.j9,j,0),new A.c4(B.fs,j,0),new A.c4(B.ft,j,0),new A.c4(B.fA,j,0),new A.c4(B.fx,j,0),new A.c4(B.fE,j,0),new A.c4(B.fD,j,0),new A.c4(B.fG,j,0),new A.c4(B.fI,j,0),new A.c4(B.fy,j,0),new A.c4(B.fv,j,0),new A.c4(B.dD,j,5),new A.c4(B.fH,j,0),new A.c4(B.BE,j,0),new A.c4(B.BD,j,0),new A.c4(B.BF,j,0)],t.ki))
 i=t.We
 h=t.zt
 g=t.ch
@@ -34000,7 +34000,7 @@ G(){return"AppExitResponse."+this.b}}
 A.eW.prototype={
 gbT(a){var s=this.a,r=B.bb.i(0,s)
 return r==null?s:r},
-gc8(){var s=this.c,r=B.bq.i(0,s)
+gc8(){var s=this.c,r=B.bp.i(0,s)
 return r==null?s:r},
 k(a,b){var s
 if(b==null)return!1
@@ -64511,7 +64511,7 @@ A.hD.prototype={}
 A.Is.prototype={
 j(a){var s=this.e,r=A.Fn(s*this.f)
 return"OUTGOING MISSILE ATTACK TO "+this.b.b+" WITH "+s+" MISSILES ("+r+")"},
-KP(){var s,r,q,p,o=this,n=o.a,m=o.e,l=B.h.ct(m,2),k=o.b,j=k.bq(B.fF),i=B.bp.i(0,j.d)
+KP(){var s,r,q,p,o=this,n=o.a,m=o.e,l=B.h.ct(m,2),k=o.b,j=k.bq(B.fH),i=B.bq.i(0,j.d)
 if(i==null)i=0
 s=o.f
 r=B.c.er(l*s*1000*(1-i*j.b))
@@ -64540,7 +64540,7 @@ gA2(){var s,r,q,p=this,o=p.b,n=B.Ue.i(0,p.d)
 n.toString
 s=p.a
 r=s.bq(p.w.ga4I())
-q=B.bp.i(0,r.d)
+q=B.bq.i(0,r.d)
 if(q==null)q=0
 return o*n*(q*r.b+1)*Math.pow(1.1,6-s.a.f-1)},
 bM(a,b){var s,r=this
@@ -64790,7 +64790,7 @@ case 15:return"Vehicles Time"
 case 16:return"Aircraft Cost"
 case 17:return"Aircraft Time"
 case 18:return"Nuclear Bomb"
-case 19:return"Emergency Planning"
+case 19:return"Bomb Shelters"
 case 20:return"Economy"
 case 21:return"Military"
 case 22:return"Technology"}},
@@ -64813,14 +64813,14 @@ case 15:return"Decreases vehicles time production"
 case 16:return"Decreases aircraft cost production"
 case 17:return"Decreases aircraft time production"
 case 18:return"Increases nuclear bomb yield"
-case 19:return"Decrease the amount of casualties"
+case 19:return"Decrease the amount of casualties upon a missile attack"
 case 20:return"Reveals economy intel about other players"
 case 21:return"Reveals military intel about other players"
 case 22:return"Reveals technology intel about other players"}},
 gJN(){var s,r,q
 for(s=this.d,r="",q=1;q<=s;++q){if(r.length!==0)r+="\n"
 r+="Level "+q+": "+this.Kp(q)}return r},
-Kp(a){var s,r=B.bp.i(0,this)
+Kp(a){var s,r=B.bq.i(0,this)
 if(r==null)r=0
 s=A.e6("#.##",null).ce(r*a*100)+"%"
 switch(this.a){case 0:case 1:case 2:case 3:case 6:case 8:case 10:return"+"+s
@@ -64836,16 +64836,16 @@ case 1:return"Supplies"
 case 2:return"Population"
 case 3:return"Technology"}},
 ga4I(){switch(this.a){case 0:return B.fB
-case 1:return B.fH
-case 2:return B.fy
-case 3:return B.fv}}}
+case 1:return B.fF
+case 2:return B.fz
+case 3:return B.fu}}}
 A.jt.prototype={
 G(){return"UnitType."+this.b},
-ot(a){var s=a.bq(this.ga4J()),r=B.bp.i(0,s.d)
+ot(a){var s=a.bq(this.ga4J()),r=B.bq.i(0,s.d)
 if(r==null)r=0
 return A.ahc(this.e,1-r*s.b,t.Bx)},
-gdR(){switch(this.a){case 0:return"Defense"
-case 1:return"Attack"
+gdR(){switch(this.a){case 0:return"Defense Missile"
+case 1:return"Attack Missile"
 case 2:return"Infantry"
 case 3:return"Vehicle"
 case 4:return"Aircraft"}},
@@ -64855,14 +64855,14 @@ case 1:return"Missiles used to send nuclear attacks to enemies. If an attack mis
 case 2:return"Basic military soldier squad. It increases the military power by "+s.d+"."
 case 3:return"Land military vehicles. It increases the military power by "+s.d+"."
 case 4:return"Advance jet fighters. It increases the military power by "+s.d+"."}},
-ga4J(){switch(this.a){case 0:case 1:return B.fD
-case 2:return B.fG
-case 3:return B.fC
-case 4:return B.ft}},
-ga4K(){switch(this.a){case 0:case 1:return B.fw
+ga4J(){switch(this.a){case 0:case 1:return B.fC
 case 2:return B.fE
-case 3:return B.fA
-case 4:return B.fI}}}
+case 3:return B.fG
+case 4:return B.fy}},
+ga4K(){switch(this.a){case 0:case 1:return B.fw
+case 2:return B.fD
+case 3:return B.fI
+case 4:return B.fv}}}
 A.Y2.prototype={
 $0(){var s,r
 try{s=$.lp().$1$0(t.tW).a
@@ -64901,20 +64901,20 @@ r.toString
 return A.KI(A.bQ(A.a([new A.m3(r,s),new A.K2(r,s),new A.K0(r,s),new A.K4(r,s),new A.K_(r,s),new A.K5(r,s),new A.K1(r,s),new A.JZ(r,s)],t.p),B.U,B.n,B.A),s,B.aD,s,s,B.ao)}}
 A.K2.prototype={
 C(a){var s=null,r=this.c
-return A.bQ(A.a([B.B,B.DA,B.B,new A.ci(r.bq(B.fB),s),B.B,new A.ci(r.bq(B.fH),s),B.B,new A.ci(r.bq(B.fy),s),B.B,new A.ci(r.bq(B.fv),s)],t.p),B.y,B.n,B.A)}}
+return A.bQ(A.a([B.B,B.DA,B.B,new A.ci(r.bq(B.fB),s),B.B,new A.ci(r.bq(B.fF),s),B.B,new A.ci(r.bq(B.fz),s),B.B,new A.ci(r.bq(B.fu),s)],t.p),B.y,B.n,B.A)}}
 A.K0.prototype={
 C(a){var s=null,r=this.c
-return A.bQ(A.a([B.B,B.Dy,B.B,new A.ci(r.bq(B.fD),s),B.B,new A.ci(r.bq(B.fw),s),B.B,new A.ci(r.bq(B.j8),s),B.B,new A.ci(r.bq(B.j9),s)],t.p),B.y,B.n,B.A)}}
+return A.bQ(A.a([B.B,B.Dy,B.B,new A.ci(r.bq(B.fC),s),B.B,new A.ci(r.bq(B.fw),s),B.B,new A.ci(r.bq(B.j8),s),B.B,new A.ci(r.bq(B.j9),s)],t.p),B.y,B.n,B.A)}}
 A.K4.prototype={
 C(a){var s=null,r=this.c
-return A.bQ(A.a([B.B,B.DB,B.B,new A.ci(r.bq(B.fs),s),B.B,new A.ci(r.bq(B.fu),s),B.B,new A.ci(r.bq(B.fz),s),B.B,new A.ci(r.bq(B.fx),s)],t.p),B.y,B.n,B.A)}}
+return A.bQ(A.a([B.B,B.DB,B.B,new A.ci(r.bq(B.fs),s),B.B,new A.ci(r.bq(B.ft),s),B.B,new A.ci(r.bq(B.fA),s),B.B,new A.ci(r.bq(B.fx),s)],t.p),B.y,B.n,B.A)}}
 A.K_.prototype={
 C(a){var s=null,r=this.c
-return A.bQ(A.a([B.B,B.Dx,B.B,new A.ci(r.bq(B.fG),s),B.B,new A.ci(r.bq(B.fE),s),B.B,new A.ci(r.bq(B.fC),s),B.B,new A.ci(r.bq(B.fA),s),B.B,new A.ci(r.bq(B.ft),s),B.B,new A.ci(r.bq(B.fI),s)],t.p),B.y,B.n,B.A)}}
+return A.bQ(A.a([B.B,B.Dx,B.B,new A.ci(r.bq(B.fE),s),B.B,new A.ci(r.bq(B.fD),s),B.B,new A.ci(r.bq(B.fG),s),B.B,new A.ci(r.bq(B.fI),s),B.B,new A.ci(r.bq(B.fy),s),B.B,new A.ci(r.bq(B.fv),s)],t.p),B.y,B.n,B.A)}}
 A.K5.prototype={
 C(a){return A.bQ(A.a([B.B,B.DC,B.B,new A.ci(this.c.bq(B.dD),null)],t.p),B.y,B.n,B.A)}}
 A.K1.prototype={
-C(a){return A.bQ(A.a([B.B,B.Dz,B.B,new A.ci(this.c.bq(B.fF),null)],t.p),B.y,B.n,B.A)}}
+C(a){return A.bQ(A.a([B.B,B.Dz,B.B,new A.ci(this.c.bq(B.fH),null)],t.p),B.y,B.n,B.A)}}
 A.JZ.prototype={
 C(a){var s=this.c
 return A.bQ(A.a([B.B,B.Dw,B.B,new A.ci(s.bq(B.BE),null),B.B,new A.ci(s.bq(B.BD),null),B.B,new A.ci(s.bq(B.BF),null)],t.p),B.y,B.n,B.A)}}
@@ -65007,11 +65007,11 @@ s=k.e
 r=B.c.N(A.cZ(s.a,B.bs))
 s.pl(0,B.bs,r)
 q=k.bq(B.fx)
-s=B.bp.i(0,q.d)
+s=B.bq.i(0,q.d)
 if(s==null)s=0
 p=q.b
-q=m.bq(B.fz)
-o=B.bp.i(0,q.d)
+q=m.bq(B.fA)
+o=B.bq.i(0,q.d)
 if(o==null)o=0
 n=new A.LG(r,k,m)
 n.d=n.c=10*(1-s*p)*(o*q.b+1)
@@ -65027,12 +65027,12 @@ s=k.e
 r=B.c.N(A.cZ(s.a,B.cD))
 s.pl(0,B.cD,r)
 s=A.ahI(k.bq(B.dD).b)
-q=k.bq(B.fu)
-p=B.bp.i(0,q.d)
+q=k.bq(B.ft)
+p=B.bq.i(0,q.d)
 if(p==null)p=0
 o=q.b
 q=m.bq(B.fs)
-n=B.bp.i(0,q.d)
+n=B.bq.i(0,q.d)
 if(n==null)n=0
 s=new A.Is(r,s,k,m)
 s.d=s.c=10*(1-p*o)*(n*q.b+1)
@@ -65167,7 +65167,7 @@ s=l.a
 r=m.ot(s)
 q=s.bq(m.ga4K())
 p=A.alm(m.e)
-o=B.bp.i(0,q.d)
+o=B.bq.i(0,q.d)
 if(o==null)o=0
 n=q.b
 if(l.gph()<l.b*2&&s.d.mk(m.ot(s))){s.d.KD(r)
@@ -69741,29 +69741,29 @@ B.fZ=new A.aw(B.rJ,!1,!1,!1,!1)
 B.f4=new A.e(4294967309)
 B.fT=new A.aw(B.f4,!1,!1,!1,!1)
 B.U0=new A.bv([B.ju,B.C,B.jr,B.C,B.js,B.C,B.jt,B.C,B.Cn,B.C,B.Ck,B.C,B.Cl,B.C,B.Cm,B.C,B.fW,B.C,B.fX,B.C,B.fY,B.C,B.fV,B.C,B.Cf,B.C,B.Cg,B.C,B.Ch,B.C,B.Ci,B.C,B.fZ,B.C,B.fT,B.C],t.Fp)
+B.U1=new A.bv([0,"FontWeight.w100",1,"FontWeight.w200",2,"FontWeight.w300",3,"FontWeight.w400",4,"FontWeight.w500",5,"FontWeight.w600",6,"FontWeight.w700",7,"FontWeight.w800",8,"FontWeight.w900"],A.an("bv<m,n>"))
+B.Wi={BU:0,DD:1,FX:2,TP:3,YD:4,ZR:5}
+B.bp=new A.P(B.Wi,["MM","DE","FR","TL","YE","CD"],t.w)
 B.fB=new A.cc("assets/images/research/resources_grid_management.png",10,0,"resources_grid_management")
-B.fH=new A.cc("assets/images/research/resources_production_chain.png",10,1,"resources_production_chain")
-B.fy=new A.cc("assets/images/research/resources_indoctrination.png",10,2,"resources_indoctrination")
-B.fv=new A.cc("assets/images/research/resources_quantum_computing.png",10,3,"resources_quantum_computing")
-B.fD=new A.cc("assets/images/research/missiles_additive_manufacturing.png",5,4,"missiles_additive_manufacturing")
+B.fF=new A.cc("assets/images/research/resources_production_chain.png",10,1,"resources_production_chain")
+B.fz=new A.cc("assets/images/research/resources_indoctrination.png",10,2,"resources_indoctrination")
+B.fu=new A.cc("assets/images/research/resources_quantum_computing.png",10,3,"resources_quantum_computing")
+B.fC=new A.cc("assets/images/research/missiles_additive_manufacturing.png",5,4,"missiles_additive_manufacturing")
 B.fw=new A.cc("assets/images/research/missiles_assembly_automation.png",5,5,"missiles_assembly_automation")
 B.j8=new A.cc("assets/images/research/missiles_active_tracking.png",10,6,"missiles_active_tracking")
 B.j9=new A.cc("assets/images/research/missiles_signal_jamming.png",5,7,"missiles_signal_jamming")
 B.fs=new A.cc("assets/images/research/warning_missiles_radar_network.png",5,8,"warning_missiles_radar_network")
-B.fu=new A.cc("assets/images/research/warning_missiles_hypersonic_propulsion.png",5,9,"warning_missiles_hypersonic_propulsion")
-B.fz=new A.cc("assets/images/research/warning_military_early_warning.png",5,10,"warning_military_early_warning")
+B.ft=new A.cc("assets/images/research/warning_missiles_hypersonic_propulsion.png",5,9,"warning_missiles_hypersonic_propulsion")
+B.fA=new A.cc("assets/images/research/warning_military_early_warning.png",5,10,"warning_military_early_warning")
 B.fx=new A.cc("assets/images/research/warning_military_fast_deployments.png",5,11,"warning_military_fast_deployments")
-B.fG=new A.cc("assets/images/research/research.png",5,12,"military_infantry_cost")
-B.fE=new A.cc("assets/images/research/research.png",5,13,"military_infantry_time")
-B.fC=new A.cc("assets/images/research/research.png",5,14,"military_vehicles_cost")
-B.fA=new A.cc("assets/images/research/research.png",5,15,"military_vehicles_time")
-B.ft=new A.cc("assets/images/research/research.png",5,16,"military_aircraft_cost")
-B.fI=new A.cc("assets/images/research/research.png",5,17,"military_aircraft_time")
-B.fF=new A.cc("assets/images/research/research.png",5,19,"resilience_emergency_planning")
-B.bp=new A.bv([B.fB,0.1,B.fH,0.1,B.fy,0.1,B.fv,0.1,B.fD,0.1,B.fw,0.1,B.j8,0.1,B.j9,0.1,B.fs,0.1,B.fu,0.1,B.fz,0.1,B.fx,0.1,B.fG,0.1,B.fE,0.1,B.fC,0.1,B.fA,0.1,B.ft,0.1,B.fI,0.1,B.fF,0.1],A.an("bv<cc,G>"))
-B.U1=new A.bv([0,"FontWeight.w100",1,"FontWeight.w200",2,"FontWeight.w300",3,"FontWeight.w400",4,"FontWeight.w500",5,"FontWeight.w600",6,"FontWeight.w700",7,"FontWeight.w800",8,"FontWeight.w900"],A.an("bv<m,n>"))
-B.Wi={BU:0,DD:1,FX:2,TP:3,YD:4,ZR:5}
-B.bq=new A.P(B.Wi,["MM","DE","FR","TL","YE","CD"],t.w)
+B.fE=new A.cc("assets/images/research/military_infantry_cost.png",5,12,"military_infantry_cost")
+B.fD=new A.cc("assets/images/research/military_infantry_time.png",5,13,"military_infantry_time")
+B.fG=new A.cc("assets/images/research/military_vehicles_cost.png",5,14,"military_vehicles_cost")
+B.fI=new A.cc("assets/images/research/military_vehicles_time.png",5,15,"military_vehicles_time")
+B.fy=new A.cc("assets/images/research/military_aircraft_cost.png",5,16,"military_aircraft_cost")
+B.fv=new A.cc("assets/images/research/military_aircraft_time.png",5,17,"military_aircraft_time")
+B.fH=new A.cc("assets/images/research/resilience_bomb_shelters.png",5,19,"resilience_bomb_shelters")
+B.bq=new A.bv([B.fB,0.1,B.fF,0.1,B.fz,0.1,B.fu,0.1,B.fC,0.1,B.fw,0.1,B.j8,0.1,B.j9,0.1,B.fs,0.1,B.ft,0.1,B.fA,0.1,B.fx,0.1,B.fE,0.1,B.fD,0.1,B.fG,0.1,B.fI,0.1,B.fy,0.1,B.fv,0.1,B.fH,0.1],A.an("bv<cc,G>"))
 B.W9={alias:0,allScroll:1,basic:2,cell:3,click:4,contextMenu:5,copy:6,forbidden:7,grab:8,grabbing:9,help:10,move:11,none:12,noDrop:13,precise:14,progress:15,text:16,resizeColumn:17,resizeDown:18,resizeDownLeft:19,resizeDownRight:20,resizeLeft:21,resizeLeftRight:22,resizeRight:23,resizeRow:24,resizeUp:25,resizeUpDown:26,resizeUpLeft:27,resizeUpRight:28,resizeUpLeftDownRight:29,resizeUpRightDownLeft:30,verticalText:31,wait:32,zoomIn:33,zoomOut:34}
 B.U6=new A.P(B.W9,["alias","all-scroll","default","cell","pointer","context-menu","copy","not-allowed","grab","grabbing","help","move","none","no-drop","crosshair","progress","text","col-resize","s-resize","sw-resize","se-resize","w-resize","ew-resize","e-resize","row-resize","n-resize","ns-resize","nw-resize","ne-resize","nwse-resize","nesw-resize","vertical-text","wait","zoom-in","zoom-out"],t.w)
 B.Wh={type:0}
