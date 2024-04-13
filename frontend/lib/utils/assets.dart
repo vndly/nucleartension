@@ -24,6 +24,14 @@ class Assets {
       'assets/images/missiles/attack.png';
   static const String IMAGES_MISSILES_DEFENSE =
       'assets/images/missiles/defense.png';
+  static const String IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING =
+      'assets/images/research/missiles_active_tracking.png';
+  static const String IMAGES_RESEARCH_MISSILES_ADDITIVE_MANUFACTURING =
+      'assets/images/research/missiles_additive_manufacturing.png';
+  static const String IMAGES_RESEARCH_MISSILES_ASSEMBLY_AUTOMATION =
+      'assets/images/research/missiles_assembly_automation.png';
+  static const String IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING =
+      'assets/images/research/missiles_signal_jamming.png';
   static const String IMAGES_RESEARCH_RESEARCH =
       'assets/images/research/research.png';
   static const String IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT =
@@ -34,6 +42,14 @@ class Assets {
       'assets/images/research/resources_production_chain.png';
   static const String IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING =
       'assets/images/research/resources_quantum_computing.png';
+  static const String IMAGES_RESEARCH_WARNING_MILITARY_EARLY_WARNING =
+      'assets/images/research/warning_military_early_warning.png';
+  static const String IMAGES_RESEARCH_WARNING_MILITARY_FAST_DEPLOYMENTS =
+      'assets/images/research/warning_military_fast_deployments.png';
+  static const String IMAGES_RESEARCH_WARNING_MISSILES_HYPERSONIC_PROPULSION =
+      'assets/images/research/warning_missiles_hypersonic_propulsion.png';
+  static const String IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK =
+      'assets/images/research/warning_missiles_radar_network.png';
   static const String IMAGES_UNITS_AIRCRAFT =
       'assets/images/units/aircraft.png';
   static const String IMAGES_UNITS_INFANTRY =

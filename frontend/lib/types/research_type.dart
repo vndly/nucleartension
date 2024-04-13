@@ -39,28 +39,28 @@ enum ResearchType {
 
   // missiles
   missiles_additive_manufacturing(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MISSILES_ADDITIVE_MANUFACTURING,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   missiles_assembly_automation(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MISSILES_ASSEMBLY_AUTOMATION,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   missiles_active_tracking(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING,
     maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   missiles_signal_jamming(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
@@ -69,28 +69,28 @@ enum ResearchType {
 
   // warning
   warning_missiles_radar_network(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   warning_missiles_hypersonic_propulsion(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_HYPERSONIC_PROPULSION,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   warning_military_early_warning(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_EARLY_WARNING,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
   warning_military_fast_deployments(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_FAST_DEPLOYMENTS,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
