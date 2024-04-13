@@ -26,6 +26,8 @@ class Assets {
       'assets/images/missiles/defense.png';
   static const String IMAGES_RESEARCH_RESEARCH =
       'assets/images/research/research.png';
+  static const String IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT =
+      'assets/images/research/resources_grid_management.png';
   static const String IMAGES_UNITS_AIRCRAFT =
       'assets/images/units/aircraft.png';
   static const String IMAGES_UNITS_INFANTRY =

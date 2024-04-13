@@ -9,7 +9,7 @@ import 'package:nucleartension/utils/formatter.dart';
 enum ResearchType {
   // resources
   resources_grid_management(
-    sprite: Assets.IMAGES_RESEARCH_RESEARCH,
+    sprite: Assets.IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT,
     maxLevel: 10,
     initialCost: {
       ResourceType.technology: 10,
