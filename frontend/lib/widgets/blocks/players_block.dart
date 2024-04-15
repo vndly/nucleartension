@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
@@ -48,9 +47,12 @@ class PlayerRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (player.isSelf) {
-      return PlayerRowContent(
-        game: game,
-        player: player,
+      return Container(
+        color: Palette.backgroundRowSelf,
+        child: PlayerRowContent(
+          game: game,
+          player: player,
+        ),
       );
     } else {
       return Material(
@@ -100,8 +102,7 @@ class PlayerRowContent extends StatelessWidget {
                   ),
                   const HBox(15),
                   Label(
-                    text:
-                        '${player.name} / Population: ${Formatter.resourceRaw(player.population)}',
+                    text: player.name,
                     color: player.isAlive
                         ? player.country.color
                         : Palette.textDisabled,

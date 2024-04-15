@@ -5,6 +5,7 @@ import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/block_title.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -137,7 +138,8 @@ class PlayerRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      color: player.isSelf ? Palette.backgroundRowSelf : Palette.transparent,
       padding: const EdgeInsets.only(
         top: 10,
         bottom: 10,

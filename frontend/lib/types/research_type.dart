@@ -161,7 +161,6 @@ enum ResearchType {
 
   // intel
   intel_economy(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_INTEL_ECONOMY,
     maxLevel: 2,
     initialCost: {
@@ -169,7 +168,6 @@ enum ResearchType {
     },
   ),
   intel_military(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_INTEL_MILITARY,
     maxLevel: 2,
     initialCost: {
@@ -177,7 +175,6 @@ enum ResearchType {
     },
   ),
   intel_technology(
-    // TODO(momo): apply
     sprite: Assets.IMAGES_RESEARCH_INTEL_TECHNOLOGY,
     maxLevel: 2,
     initialCost: {
