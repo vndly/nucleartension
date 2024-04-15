@@ -74,6 +74,19 @@ class Player {
     return result;
   }
 
+  bool get hasIntel {
+    final int researchIntelEconomy =
+        game.self.getResearch(ResearchType.intel_economy).level;
+    final int researchIntelMilitary =
+        game.self.getResearch(ResearchType.intel_military).level;
+    final int researchIntelTechnology =
+        game.self.getResearch(ResearchType.intel_technology).level;
+
+    return (researchIntelEconomy > 0) ||
+        (researchIntelMilitary > 0) ||
+        (researchIntelTechnology > 0);
+  }
+
   Research getResearch(ResearchType researchType) =>
       researches[researchType] ??
       Research(

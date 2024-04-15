@@ -24,18 +24,18 @@ class WarRoomView extends StatelessWidget {
           child: Expanded(
             child: Column(
               children: [
-                const TabBar(
+                TabBar(
                   labelPadding: EdgeInsets.zero,
                   tabs: [
-                    TabTitle('PLAYERS'),
-                    TabTitle('INTEL'),
+                    const TabTitle('PLAYERS'),
+                    if (game.self.hasIntel) const TabTitle('INTEL'),
                   ],
                 ),
                 Expanded(
                   child: TabBarView(
                     children: [
                       PlayersTab(game),
-                      IntelTab(game),
+                      if (game.self.hasIntel) IntelTab(game),
                     ],
                   ),
                 ),
