@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
@@ -98,55 +99,73 @@ class InformationDialog extends StatelessWidget {
         sprite: researchType.sprite,
       );
 
-  static DialogController player(Player player) => _show(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            ImageAsset(
-              path: player.country.flag,
-              width: 21,
-              height: 14,
-            ),
-            const HBox(15),
-            Label(
-              text: player.name,
-              color: player.country.color,
-              weight: FontWeight.bold,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ],
-        ),
-        content: const Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            LabeledText(
-              label: 'Economy:',
-              text: 'unknown',
-              size: 14,
-              labelColor: Palette.textMain,
-              textColor: Palette.textMain,
-            ),
-            VBox(10),
-            LabeledText(
-              label: 'Military:',
-              text: 'unknown',
-              size: 14,
-              labelColor: Palette.textMain,
-              textColor: Palette.textMain,
-            ),
-            VBox(10),
-            LabeledText(
-              label: 'Technology:',
-              text: 'unknown',
-              size: 14,
-              labelColor: Palette.textMain,
-              textColor: Palette.textMain,
-            ),
-          ],
-        ),
-        buttonAccept: 'OK',
-      );
+  static DialogController player({
+    required Game game,
+    required Player player,
+  }) {
+    final int researchIntelEconomy =
+        game.self.getResearch(ResearchType.intel_economy).level;
+    final int researchIntelMilitary =
+        game.self.getResearch(ResearchType.intel_military).level;
+    final int researchIntelTechnology =
+        game.self.getResearch(ResearchType.intel_technology).level;
+
+    return _show(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ImageAsset(
+            path: player.country.flag,
+            width: 21,
+            height: 14,
+          ),
+          const HBox(15),
+          Label(
+            text: player.name,
+            color: player.country.color,
+            weight: FontWeight.bold,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          LabeledText(
+            label: 'Economy:',
+            text: (researchIntelEconomy > 0)
+                ? player.population.toString()
+                : 'unknown',
+            size: 14,
+            labelColor: Palette.textMain,
+            textColor: Palette.textMain,
+          ),
+          const VBox(10),
+          LabeledText(
+            label: 'Military:',
+            text: (researchIntelMilitary > 0)
+                ? player.militaryPower.toString()
+                : 'unknown',
+            size: 14,
+            labelColor: Palette.textMain,
+            textColor: Palette.textMain,
+          ),
+          const VBox(10),
+          LabeledText(
+            label: 'Technology:',
+            text: (researchIntelTechnology > 0)
+                ? player.technologyLevel.toString()
+                : 'unknown',
+            size: 14,
+            labelColor: Palette.textMain,
+            textColor: Palette.textMain,
+          ),
+        ],
+      ),
+      buttonAccept: 'OK',
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

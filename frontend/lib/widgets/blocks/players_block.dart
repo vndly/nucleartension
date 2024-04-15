@@ -58,7 +58,10 @@ class PlayerRow extends StatelessWidget {
       return Material(
         color: Palette.transparent,
         child: InkWell(
-          onTap: () => InformationDialog.player(player),
+          onTap: () => InformationDialog.player(
+            game: game,
+            player: player,
+          ),
           child: PlayerRowContent(
             game: game,
             player: player,
