@@ -43,6 +43,13 @@ class Game {
     return result;
   }
 
+  List<Player> get playersByTechnology {
+    final List<Player> result = List.from(players);
+    result.sort((a, b) => b.technologyLevel - a.technologyLevel);
+
+    return result;
+  }
+
   void setPlayers(List<Player> list) {
     players.addAll(list);
     selfPlayer = list.whereType<SelfPlayer>().first;

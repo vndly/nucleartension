@@ -18,7 +18,7 @@ class PlayersBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> players = game.playersByPopulation;
+    final List<Player> players = game.players;
 
     return Column(
       mainAxisSize: MainAxisSize.min,

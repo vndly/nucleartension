@@ -64,6 +64,16 @@ class Player {
 
   // ============================ RESEARCH ================================== \\
 
+  int get technologyLevel {
+    int result = 0;
+
+    for (final Research research in researches.values) {
+      result += research.level;
+    }
+
+    return result;
+  }
+
   Research getResearch(ResearchType researchType) =>
       researches[researchType] ??
       Research(

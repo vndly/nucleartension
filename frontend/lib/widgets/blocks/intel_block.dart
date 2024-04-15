@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
-import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/block_title.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -22,6 +21,7 @@ class IntelBlock extends StatelessWidget {
       children: [
         PlayersByPopulation(game),
         PlayersByMilitary(game),
+        PlayersByTechnology(game),
       ],
     );
   }
@@ -34,21 +34,10 @@ class PlayersByPopulation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> players = game.playersByPopulation;
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const BlockTitle('POPULATION'),
-        for (int i = 0; i < players.length; i++) ...[
-          PlayerRow(
-            game: game,
-            player: players[i],
-          ),
-          if (i < players.length - 1) const RowSeparator(),
-        ],
-        const BlockSeparator(),
-      ],
+    return PlayersList(
+      title: 'POPULATION',
+      players: game.playersByPopulation,
+      function: (p) => Formatter.resourceRaw(p.population),
     );
   }
 }
@@ -60,17 +49,52 @@ class PlayersByMilitary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> players = game.playersByMilitary;
+    return PlayersList(
+      title: 'MILITARY',
+      players: game.playersByMilitary,
+      function: (p) => Formatter.resourceRaw(p.militaryPower),
+    );
+  }
+}
 
+class PlayersByTechnology extends StatelessWidget {
+  final Game game;
+
+  const PlayersByTechnology(this.game);
+
+  @override
+  Widget build(BuildContext context) {
+    return PlayersList(
+      title: 'TECHNOLOGY',
+      players: game.playersByTechnology,
+      function: (p) => Formatter.resourceRaw(p.technologyLevel),
+    );
+  }
+}
+
+class PlayersList extends StatelessWidget {
+  final String title;
+  final List<Player> players;
+  final String Function(Player) function;
+
+  const PlayersList({
+    required this.title,
+    required this.players,
+    required this.function,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const BlockTitle('MILITARY'),
+        BlockTitle(title),
         for (int i = 0; i < players.length; i++) ...[
-          PlayerRow(
-            game: game,
-            player: players[i],
-          ),
+          if (players[i].isAlive)
+            PlayerRow(
+              player: players[i],
+              value: function(players[i]),
+            ),
           if (i < players.length - 1) const RowSeparator(),
         ],
         const BlockSeparator(),
@@ -80,12 +104,12 @@ class PlayersByMilitary extends StatelessWidget {
 }
 
 class PlayerRow extends StatelessWidget {
-  final Game game;
   final Player player;
+  final String value;
 
   const PlayerRow({
-    required this.game,
     required this.player,
+    required this.value,
   });
 
   @override
@@ -113,9 +137,7 @@ class PlayerRow extends StatelessWidget {
                   const HBox(15),
                   Label(
                     text: player.name,
-                    color: player.isAlive
-                        ? player.country.color
-                        : Palette.textDisabled,
+                    color: player.country.color,
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -124,12 +146,12 @@ class PlayerRow extends StatelessWidget {
             ),
           ),
           const HBox(15),
-          Label(
-            text: Formatter.resourceRaw(player.population),
-            color: player.isAlive ? player.country.color : Palette.textDisabled,
-            weight: FontWeight.bold,
-            overflow: TextOverflow.ellipsis,
-          ),
+          if (value.isNotEmpty)
+            Label(
+              text: value,
+              color: player.country.color,
+              weight: FontWeight.bold,
+            ),
         ],
       ),
     );
