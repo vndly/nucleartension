@@ -38,7 +38,7 @@ const RESOURCES = {"main.dart.js": "7ab5c9799cb2e9786804989482008636",
 "assets/assets/images/research/missiles_signal_jamming.png": "cf8550a6009dc34172818a0c795f6ebd",
 "assets/assets/images/research/missiles_additive_manufacturing.png": "bbbe781e7943ab57cd1b76de82059d50",
 "assets/assets/images/research/military_infantry_time.png": "a24fbe72a276872f25af43fb303f94db",
-"assets/assets/images/research/weapons_nuclear_bomb.png": "ae19cf7313f9c189f39c1ad6d4396eb9",
+"assets/assets/images/research/weapons_nuclear_bomb.png": "454f8967c66ca901cd6f693efc75db53",
 "assets/assets/images/research/resilience_bomb_shelters.png": "ee41746f6a39c485abf0c531f4f10bdc",
 "assets/assets/images/research/military_aircraft_cost.png": "d89eac28801ca6bba38b9489e7fb5360",
 "assets/assets/images/research/intel_population.png": "dcae1682af327d16d4919342808547be",
@@ -70,8 +70,8 @@ const RESOURCES = {"main.dart.js": "7ab5c9799cb2e9786804989482008636",
 "firebase-messaging-sw.js": "5b8b5435d89eea9d02ed9ea9565635c6",
 "favicon.png": "70a31eb877b5e97fdb9a12a5a469dc1a",
 "version.json": "0ff45af32d7b9fd732a03f7d2ed6a3af",
-"index.html": "4801fb66e8c189f5abb26aacda46d528",
-"/": "4801fb66e8c189f5abb26aacda46d528"};
+"index.html": "9d52f7bc7866b25ea5f36c7bccb2d779",
+"/": "9d52f7bc7866b25ea5f36c7bccb2d779"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
