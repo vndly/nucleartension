@@ -17,7 +17,7 @@ class PlayersBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> players = game.players;
+    final List<Player> players = game.playersByAlive;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -46,9 +46,9 @@ class PlayerRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (player.isSelf) {
+    if (player.isSelf || !player.isAlive) {
       return Container(
-        color: Palette.backgroundRowSelf,
+        color: player.isSelf ? Palette.backgroundRowSelf : Palette.transparent,
         child: PlayerRowContent(
           game: game,
           player: player,

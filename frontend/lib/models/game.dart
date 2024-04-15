@@ -29,6 +29,21 @@ class Game {
 
   Player get self => selfPlayer!;
 
+  List<Player> get playersByAlive {
+    final List<Player> result = List.from(players);
+    result.sort((a, b) {
+      final int byAlive = (b.isAlive ? 1 : 0) - (a.isAlive ? 1 : 0);
+
+      if (byAlive == 0) {
+        return a.name.compareTo(b.name);
+      } else {
+        return byAlive;
+      }
+    });
+
+    return result;
+  }
+
   List<Player> get playersByPopulation {
     final List<Player> result = List.from(players);
     result.sort((a, b) => b.population - a.population);
