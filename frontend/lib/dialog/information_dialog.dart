@@ -7,6 +7,7 @@ import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
+import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
@@ -136,7 +137,7 @@ class InformationDialog extends StatelessWidget {
           LabeledText(
             label: 'Population:',
             text: (researchIntelPopulation.level > 0)
-                ? player.population.toString()
+                ? Formatter.resourceRaw(player.population)
                 : 'unknown',
             size: 14,
             labelColor: Palette.textMain,
@@ -146,7 +147,7 @@ class InformationDialog extends StatelessWidget {
           LabeledText(
             label: 'Military:',
             text: (researchIntelMilitary.level > 0)
-                ? player.militaryPower.toString()
+                ? Formatter.resourceRaw(player.militaryPower)
                 : 'unknown',
             size: 14,
             labelColor: Palette.textMain,
@@ -156,7 +157,7 @@ class InformationDialog extends StatelessWidget {
           LabeledText(
             label: 'Technology:',
             text: (researchIntelTechnology.level > 0)
-                ? player.technologyLevel.toString()
+                ? Formatter.resourceRaw(player.technologyLevel)
                 : 'unknown',
             size: 14,
             labelColor: Palette.textMain,
