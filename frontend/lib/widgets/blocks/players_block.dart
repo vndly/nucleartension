@@ -102,6 +102,7 @@ class PlayerRowContent extends StatelessWidget {
                     path: player.country.flag,
                     width: 21,
                     height: 14,
+                    grayscale: !player.isAlive,
                   ),
                   const HBox(15),
                   Label(
