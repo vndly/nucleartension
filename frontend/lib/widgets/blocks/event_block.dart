@@ -37,16 +37,6 @@ class _EventBlockState extends State<EventBlock> {
           color: Palette.backgroundRow,
           child: Row(
             children: [
-              Container(
-                width: 5,
-                height: 5,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color:
-                      widget.event.seen ? Palette.transparent : Palette.error,
-                ),
-              ),
-              const HBox(10),
               Expanded(
                 child: EventRows(
                   seen: widget.event.seen,
@@ -56,7 +46,8 @@ class _EventBlockState extends State<EventBlock> {
               const HBox(10),
               Label(
                 text: Formatter.hoursMinutes(widget.event.dateTime),
-                color: Palette.textMain,
+                color:
+                    widget.event.seen ? Palette.textDisabled : Palette.textMain,
               ),
             ],
           ),
