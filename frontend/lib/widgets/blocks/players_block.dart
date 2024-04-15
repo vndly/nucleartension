@@ -8,6 +8,7 @@ import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
+import 'package:nucleartension/widgets/separators/block_separator.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
 
 class PlayersBlock extends StatelessWidget {
@@ -17,8 +18,7 @@ class PlayersBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> players = game.players;
-    players.sort();
+    final List<Player> players = game.playersByPopulation;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -28,8 +28,9 @@ class PlayersBlock extends StatelessWidget {
             game: game,
             player: players[i],
           ),
-          if (i < players.length - 1) const RowSeparator()
+          if (i < players.length - 1) const RowSeparator(),
         ],
+        const BlockSeparator(),
       ],
     );
   }

@@ -29,6 +29,20 @@ class Game {
 
   Player get self => selfPlayer!;
 
+  List<Player> get playersByPopulation {
+    final List<Player> result = List.from(players);
+    result.sort((a, b) => b.population - a.population);
+
+    return result;
+  }
+
+  List<Player> get playersByMilitary {
+    final List<Player> result = List.from(players);
+    result.sort((a, b) => b.militaryPower - a.militaryPower);
+
+    return result;
+  }
+
   void setPlayers(List<Player> list) {
     players.addAll(list);
     selfPlayer = list.whereType<SelfPlayer>().first;

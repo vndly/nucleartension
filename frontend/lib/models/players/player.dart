@@ -20,7 +20,7 @@ import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
-class Player implements Comparable<Player> {
+class Player {
   final Game game;
   final String name;
   final Country country;
@@ -231,7 +231,4 @@ class Player implements Comparable<Player> {
       research.update(dt);
     }
   }
-
-  @override
-  int compareTo(Player other) => other.population - population;
 }

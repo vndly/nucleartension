@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
+import 'package:nucleartension/widgets/blocks/intel_block.dart';
 import 'package:nucleartension/widgets/blocks/players_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
@@ -76,13 +77,7 @@ class PlayersTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          PlayersBlock(game),
-          const BlockSeparator(),
-        ],
-      ),
+      child: PlayersBlock(game),
     );
   }
 }
@@ -94,15 +89,8 @@ class IntelTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Label(text: 'INTEL'),
-          ),
-        ],
-      ),
+    return SingleChildScrollView(
+      child: IntelBlock(game),
     );
   }
 }
