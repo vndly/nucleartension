@@ -350,7 +350,7 @@ enum ResearchType {
         if (level == 1) {
           return "Global players' ranking";
         } else if (level == 2) {
-          return "Players's ranking with levels";
+          return "Players's values";
         } else {
           return '';
         }
