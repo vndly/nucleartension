@@ -3,6 +3,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
@@ -103,12 +104,12 @@ class InformationDialog extends StatelessWidget {
     required Game game,
     required Player player,
   }) {
-    final int researchIntelEconomy =
-        game.self.getResearch(ResearchType.intel_economy).level;
-    final int researchIntelMilitary =
-        game.self.getResearch(ResearchType.intel_military).level;
-    final int researchIntelTechnology =
-        game.self.getResearch(ResearchType.intel_technology).level;
+    final Research researchIntelPopulation =
+        game.self.getResearch(ResearchType.intel_population);
+    final Research researchIntelMilitary =
+        game.self.getResearch(ResearchType.intel_military);
+    final Research researchIntelTechnology =
+        game.self.getResearch(ResearchType.intel_technology);
 
     return _show(
       title: Row(
@@ -133,8 +134,8 @@ class InformationDialog extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LabeledText(
-            label: 'Economy:',
-            text: (researchIntelEconomy > 0)
+            label: 'Population:',
+            text: (researchIntelPopulation.level > 0)
                 ? player.population.toString()
                 : 'unknown',
             size: 14,
@@ -144,7 +145,7 @@ class InformationDialog extends StatelessWidget {
           const VBox(10),
           LabeledText(
             label: 'Military:',
-            text: (researchIntelMilitary > 0)
+            text: (researchIntelMilitary.level > 0)
                 ? player.militaryPower.toString()
                 : 'unknown',
             size: 14,
@@ -154,7 +155,7 @@ class InformationDialog extends StatelessWidget {
           const VBox(10),
           LabeledText(
             label: 'Technology:',
-            text: (researchIntelTechnology > 0)
+            text: (researchIntelTechnology.level > 0)
                 ? player.technologyLevel.toString()
                 : 'unknown',
             size: 14,

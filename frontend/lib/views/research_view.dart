@@ -192,7 +192,7 @@ class ResearchIntel extends StatelessWidget {
         const BlockSeparator(),
         const BlockTitle('INTEL'),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.intel_economy)),
+        ResearchBlock(player.getResearch(ResearchType.intel_population)),
         const BlockSeparator(),
         ResearchBlock(player.getResearch(ResearchType.intel_military)),
         const BlockSeparator(),

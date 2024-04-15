@@ -75,14 +75,14 @@ class Player {
   }
 
   bool get hasIntel {
-    final int researchIntelEconomy =
-        game.self.getResearch(ResearchType.intel_economy).level;
+    final int researchIntelPopulation =
+        game.self.getResearch(ResearchType.intel_population).level;
     final int researchIntelMilitary =
         game.self.getResearch(ResearchType.intel_military).level;
     final int researchIntelTechnology =
         game.self.getResearch(ResearchType.intel_technology).level;
 
-    return (researchIntelEconomy > 0) ||
+    return (researchIntelPopulation > 0) ||
         (researchIntelMilitary > 0) ||
         (researchIntelTechnology > 0);
   }
@@ -94,24 +94,6 @@ class Player {
         level: 0,
         researchType: researchType,
       );
-
-  bool hasIntelEconomy(int level) {
-    final Research research = getResearch(ResearchType.intel_economy);
-
-    return research.level >= level;
-  }
-
-  bool hasIntelMilitary(int level) {
-    final Research research = getResearch(ResearchType.intel_military);
-
-    return research.level >= level;
-  }
-
-  bool hasIntelTechnology(int level) {
-    final Research research = getResearch(ResearchType.intel_technology);
-
-    return research.level >= level;
-  }
 
   // ============================ RESOURCES ================================= \\
 

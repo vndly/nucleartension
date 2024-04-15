@@ -160,8 +160,8 @@ enum ResearchType {
   ),
 
   // intel
-  intel_economy(
-    sprite: Assets.IMAGES_RESEARCH_INTEL_ECONOMY,
+  intel_population(
+    sprite: Assets.IMAGES_RESEARCH_INTEL_POPULATION,
     maxLevel: 2,
     initialCost: {
       ResourceType.technology: 10,
@@ -238,8 +238,8 @@ enum ResearchType {
         return 'Nuclear Bomb';
       case resilience_bomb_shelters:
         return 'Bomb Shelters';
-      case intel_economy:
-        return 'Economy';
+      case intel_population:
+        return 'Population';
       case intel_military:
         return 'Military';
       case intel_technology:
@@ -289,8 +289,8 @@ enum ResearchType {
         return 'Increases nuclear bomb yield';
       case resilience_bomb_shelters:
         return 'Decrease the amount of casualties upon a missile attack';
-      case intel_economy:
-        return 'Reveals economy intel about other players';
+      case intel_population:
+        return 'Reveals population intel about other players';
       case intel_military:
         return 'Reveals military intel about other players';
       case intel_technology:
@@ -344,13 +344,13 @@ enum ResearchType {
       case weapons_nuclear_bomb:
         return Formatter.yield(Research.yield(level));
 
-      case intel_economy:
+      case intel_population:
       case intel_military:
       case intel_technology:
         if (level == 1) {
           return "Global players' ranking";
         } else if (level == 2) {
-          return "Players's building level";
+          return "Players's ranking with levels";
         } else {
           return '';
         }

@@ -41,7 +41,8 @@ class PlayersByPopulation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Research research = game.self.getResearch(ResearchType.intel_economy);
+    final Research research =
+        game.self.getResearch(ResearchType.intel_population);
 
     return PlayersList(
       title: 'POPULATION',

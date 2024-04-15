@@ -24,10 +24,10 @@ class Assets {
       'assets/images/missiles/attack.png';
   static const String IMAGES_MISSILES_DEFENSE =
       'assets/images/missiles/defense.png';
-  static const String IMAGES_RESEARCH_INTEL_ECONOMY =
-      'assets/images/research/intel_economy.png';
   static const String IMAGES_RESEARCH_INTEL_MILITARY =
       'assets/images/research/intel_military.png';
+  static const String IMAGES_RESEARCH_INTEL_POPULATION =
+      'assets/images/research/intel_population.png';
   static const String IMAGES_RESEARCH_INTEL_TECHNOLOGY =
       'assets/images/research/intel_technology.png';
   static const String IMAGES_RESEARCH_MILITARY_AIRCRAFT_COST =
