@@ -1,3 +1,5 @@
+import 'dart:html';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/screens/game_screen.dart';
 import 'package:nucleartension/states/game_state.dart';
@@ -16,6 +18,7 @@ class _GameLoopState extends State<GameLoop>
   late AnimationController _animation;
   final DateTime _initialTime = DateTime.now();
   double _previous = 0;
+  AppLifecycleState state = AppLifecycleState.resumed;
 
   //static const int CLOCK_RATE = 1;
 
@@ -40,19 +43,85 @@ class _GameLoopState extends State<GameLoop>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _animation,
-      builder: (context, child) {
-        final double current = _currentTime;
-        final double dt = current - _previous;
+    return UniversalLifecycleWatcher(
+      onChange: _onLifecycleChange,
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (context, child) {
+          final double current = _currentTime;
+          final double dt = current - _previous;
 
-        //if (dt >= CLOCK_RATE) {
-        _previous = current;
-        widget.state.update(dt);
-        //}
+          _previous = current;
 
-        return GameContent(widget.state);
-      },
+          if (state == AppLifecycleState.resumed) {
+            widget.state.update(dt);
+          }
+
+          return GameContent(widget.state);
+        },
+      ),
     );
   }
+
+  Future _onLifecycleChange(AppLifecycleState newState) async {
+    if ((state != AppLifecycleState.resumed) &&
+        (newState == AppLifecycleState.resumed)) {
+      _previous = _currentTime;
+    }
+
+    state = newState;
+  }
+}
+
+class UniversalLifecycleWatcher extends StatefulWidget {
+  final Widget child;
+  final Function(AppLifecycleState) onChange;
+
+  const UniversalLifecycleWatcher({
+    required this.child,
+    required this.onChange,
+  });
+
+  @override
+  State<UniversalLifecycleWatcher> createState() =>
+      _UniversalLifecycleWatcherState();
+}
+
+class _UniversalLifecycleWatcherState extends State<UniversalLifecycleWatcher>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+
+    if (kIsWeb) {
+      window.addEventListener('focus', onFocus);
+      window.addEventListener('blur', onBlur);
+    } else {
+      WidgetsBinding.instance.addObserver(this);
+    }
+  }
+
+  @override
+  void dispose() {
+    if (kIsWeb) {
+      window.removeEventListener('focus', onFocus);
+      window.removeEventListener('blur', onBlur);
+    } else {
+      WidgetsBinding.instance.removeObserver(this);
+    }
+
+    super.dispose();
+  }
+
+  void onFocus(Event e) =>
+      didChangeAppLifecycleState(AppLifecycleState.resumed);
+
+  void onBlur(Event e) => didChangeAppLifecycleState(AppLifecycleState.paused);
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) =>
+      widget.onChange(state);
+
+  @override
+  Widget build(BuildContext context) => widget.child;
 }
