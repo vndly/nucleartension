@@ -34,7 +34,7 @@ class _EventBlockState extends State<EventBlock> {
             left: 15,
             right: 15,
           ),
-          color: Palette.backgroundRow,
+          color: Palette.backgroundRowDark,
           child: Row(
             children: [
               Expanded(
