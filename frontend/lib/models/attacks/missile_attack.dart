@@ -60,18 +60,20 @@ class MissileAttack extends Attack {
     // -------------------------------------------------------------------------
 
     // TODO(momo): implement
-    final int effectiveMissiles = ((totalMissiles / 2) *
+    final int usedDefenseMissiles = defender.militaryDefenseMissiles;
+    final int effectiveAttackMissiles = ((totalMissiles / 2) *
             defenseMissilesEffectiveness *
             attackMissilesEffectiveness)
         .toInt();
-    final num totalYield = effectiveMissiles *
+    final num totalYield = effectiveAttackMissiles *
         ktPerMissile *
         Constants.MISSILE_ATTACK_DAMAGE_PER_KT;
     final int population = (totalYield * resilienceBombShelters).floor();
 
     // -------------------------------------------------------------------------
 
-    final Player winner = (effectiveMissiles > 0) ? attacker : defender;
+    final Player winner = (effectiveAttackMissiles > 0) ? attacker : defender;
+    defender.removeDefenseMissiles(usedDefenseMissiles);
     defender.removePopulation(population);
 
     final List<Event> result = [
@@ -80,7 +82,7 @@ class MissileAttack extends Attack {
         defender: defender,
         winner: winner,
         totalMissiles: totalMissiles,
-        effectiveMissiles: effectiveMissiles,
+        effectiveMissiles: effectiveAttackMissiles,
         ktPerMissile: ktPerMissile,
         defenderLoses: population,
       )

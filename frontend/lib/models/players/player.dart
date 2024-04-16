@@ -119,7 +119,7 @@ class Player {
     return total;
   }
 
-  // ============================== UNITS =================================== \\
+  // ============================ MILITARY ================================== \\
 
   void createUnit(UnitType unitType) {
     switch (unitType) {
@@ -141,12 +141,13 @@ class Player {
     }
   }
 
-  // ============================ MILITARY ================================== \\
-
   int get militaryPower => military.get(MilitaryType.power).toInt();
 
   void removeMilitaryPower(int value) =>
       military.remove(MilitaryType.power, value);
+
+  void removeDefenseMissiles(int value) =>
+      military.remove(MilitaryType.defense_missiles, value);
 
   void removeAttackMissiles(int value) =>
       military.remove(MilitaryType.attack_missiles, value);
