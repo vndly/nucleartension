@@ -3,7 +3,6 @@ import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/widgets/blocks/block_title.dart';
-import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/research_block.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
 
@@ -18,7 +17,6 @@ class ResearchView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderBlock(game.self),
           ResearchResources(game.self),
           ResearchMissiles(game.self),
           ResearchWarning(game.self),

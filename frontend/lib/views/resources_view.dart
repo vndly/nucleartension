@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/producer_block.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
 
@@ -15,8 +14,6 @@ class ResourcesView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderBlock(game.self),
-          const BlockSeparator(),
           ProducerBlock(game.self.powerPlant),
           const BlockSeparator(),
           ProducerBlock(game.self.supplyCenter),

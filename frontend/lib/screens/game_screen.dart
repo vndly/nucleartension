@@ -7,9 +7,11 @@ import 'package:nucleartension/views/military_view.dart';
 import 'package:nucleartension/views/research_view.dart';
 import 'package:nucleartension/views/resources_view.dart';
 import 'package:nucleartension/views/war_room_view.dart';
+import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/warning_block.dart';
 import 'package:nucleartension/widgets/misc/game_container.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
+import 'package:nucleartension/widgets/separators/block_separator.dart';
 
 class GameScreen extends StatelessWidget {
   final GameState state;
@@ -115,6 +117,8 @@ class _GameContentState extends State<GameContent> {
         child: Column(
           children: [
             WarningBlock(widget.state.game),
+            HeaderBlock(widget.state.game.self),
+            const BlockSeparator(),
             Expanded(child: _body(currentIndex)),
           ],
         ),

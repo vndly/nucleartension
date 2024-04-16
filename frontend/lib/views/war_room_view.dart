@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/intel_block.dart';
 import 'package:nucleartension/widgets/blocks/players_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/separators/block_separator.dart';
 
 class WarRoomView extends StatelessWidget {
   final Game game;
@@ -14,36 +12,29 @@ class WarRoomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        HeaderBlock(game.self),
-        const BlockSeparator(),
-        DefaultTabController(
-          length: 3,
-          child: Expanded(
-            child: Column(
-              children: [
-                TabBar(
-                  labelPadding: EdgeInsets.zero,
-                  tabs: [
-                    const TabTitle('PLAYERS'),
-                    if (game.self.hasIntel) const TabTitle('INTEL'),
-                  ],
-                ),
-                Expanded(
-                  child: TabBarView(
-                    children: [
-                      PlayersTab(game),
-                      if (game.self.hasIntel) IntelTab(game),
-                    ],
-                  ),
-                ),
+    return DefaultTabController(
+      length: 3,
+      child: Expanded(
+        child: Column(
+          children: [
+            TabBar(
+              labelPadding: EdgeInsets.zero,
+              tabs: [
+                const TabTitle('PLAYERS'),
+                if (game.self.hasIntel) const TabTitle('INTEL'),
               ],
             ),
-          ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  PlayersTab(game),
+                  if (game.self.hasIntel) IntelTab(game),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
