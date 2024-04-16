@@ -6,6 +6,7 @@ import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
+import 'package:nucleartension/widgets/separators/row_separator.dart';
 
 class HeaderBlock extends StatelessWidget {
   final Player player;
@@ -31,6 +32,8 @@ class CollapsedHeaderBlock extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         CollapsedResourcesSection(player),
+        const RowSeparator(),
+        CollapsedMilitarySection(player),
       ],
     );
   }
@@ -93,6 +96,83 @@ class CollapsedResourceLabel extends StatelessWidget {
             const HBox(10),
             Label(
               text: Formatter.resourceRaw(player.resources.get(resourceType)),
+              color: Palette.textMain,
+              size: 14,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CollapsedMilitarySection extends StatelessWidget {
+  final Player player;
+
+  const CollapsedMilitarySection(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        CollapsedMilitaryLabel(
+          value: player.game.defcon.toString(),
+          icon: Icons.warning_rounded,
+          color: Palette.militaryDefcon,
+        ),
+        CollapsedMilitaryLabel(
+          value: Formatter.resourceRaw(player.militaryPower),
+          icon: Icons.star,
+          color: Palette.militaryPower,
+        ),
+        CollapsedMilitaryLabel(
+          value: Formatter.resourceRaw(player.militaryDefenseMissiles),
+          icon: Icons.shield,
+          color: Palette.militaryDefenseMissile,
+        ),
+        CollapsedMilitaryLabel(
+          value: Formatter.resourceRaw(player.militaryAttackMissiles),
+          icon: Icons.local_fire_department_rounded,
+          color: Palette.militaryAttackMissile,
+        ),
+      ],
+    );
+  }
+}
+
+class CollapsedMilitaryLabel extends StatelessWidget {
+  final String value;
+  final IconData icon;
+  final Color color;
+
+  const CollapsedMilitaryLabel({
+    required this.value,
+    required this.icon,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 10,
+          bottom: 10,
+          left: 10,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              color: color,
+              size: 14,
+            ),
+            const HBox(10),
+            Label(
+              text: value,
               color: Palette.textMain,
               size: 14,
             ),
