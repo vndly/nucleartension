@@ -51,15 +51,27 @@ class MissileAttack extends Attack {
 
   @override
   List<Event> resolve() {
-    // TODO(momo): implement
-    final Player winner = attacker;
-    final int effectiveMissiles = totalMissiles ~/ 2;
     final num resilienceBombShelters = defender.resilienceBombShelters;
+    final num defenseMissilesEffectiveness =
+        defender.defenseMissilesEffectiveness;
+    final num attackMissilesEffectiveness =
+        attacker.attackMissilesEffectiveness;
+
+    // -------------------------------------------------------------------------
+
+    // TODO(momo): implement
+    final int effectiveMissiles = ((totalMissiles / 2) *
+            defenseMissilesEffectiveness *
+            attackMissilesEffectiveness)
+        .toInt();
     final num totalYield = effectiveMissiles *
         ktPerMissile *
         Constants.MISSILE_ATTACK_DAMAGE_PER_KT;
     final int population = (totalYield * resilienceBombShelters).floor();
 
+    // -------------------------------------------------------------------------
+
+    final Player winner = (effectiveMissiles > 0) ? attacker : defender;
     defender.removePopulation(population);
 
     final List<Event> result = [
