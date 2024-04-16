@@ -62,6 +62,8 @@ class Player {
   MilitaryFacility get militaryFacility =>
       buildings[BuildingType.military_facility] as MilitaryFacility;
 
+  Building building(BuildingType buildingType) => buildings[buildingType]!;
+
   // ============================ RESEARCH ================================== \\
 
   int get technologyLevel {

@@ -45,16 +45,25 @@ class ResearchResources extends StatelessWidget {
         const BlockTitle('RESOURCES'),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.resources_grid_management)),
+          player: player,
+          research: player.getResearch(ResearchType.resources_grid_management),
+        ),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.resources_production_chain)),
+          player: player,
+          research: player.getResearch(ResearchType.resources_production_chain),
+        ),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.resources_indoctrination)),
+          player: player,
+          research:
+              player.getResearch(ResearchType.resources_quantum_computing),
+        ),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.resources_quantum_computing)),
+          player: player,
+          research: player.getResearch(ResearchType.resources_indoctrination),
+        ),
       ],
     );
   }
@@ -73,15 +82,26 @@ class ResearchMissiles extends StatelessWidget {
         const BlockTitle('MISSILES'),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.missiles_additive_manufacturing)),
+          player: player,
+          research:
+              player.getResearch(ResearchType.missiles_additive_manufacturing),
+        ),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.missiles_assembly_automation)),
+          player: player,
+          research:
+              player.getResearch(ResearchType.missiles_assembly_automation),
+        ),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.missiles_active_tracking)),
+          player: player,
+          research: player.getResearch(ResearchType.missiles_active_tracking),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.missiles_signal_jamming)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.missiles_signal_jamming),
+        ),
       ],
     );
   }
@@ -100,16 +120,28 @@ class ResearchWarning extends StatelessWidget {
         const BlockTitle('WARNING'),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.warning_missiles_radar_network)),
-        const BlockSeparator(),
-        ResearchBlock(player
-            .getResearch(ResearchType.warning_missiles_hypersonic_propulsion)),
-        const BlockSeparator(),
-        ResearchBlock(
-            player.getResearch(ResearchType.warning_military_early_warning)),
+          player: player,
+          research:
+              player.getResearch(ResearchType.warning_missiles_radar_network),
+        ),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.warning_military_fast_deployments)),
+          player: player,
+          research: player
+              .getResearch(ResearchType.warning_missiles_hypersonic_propulsion),
+        ),
+        const BlockSeparator(),
+        ResearchBlock(
+          player: player,
+          research:
+              player.getResearch(ResearchType.warning_military_early_warning),
+        ),
+        const BlockSeparator(),
+        ResearchBlock(
+          player: player,
+          research: player
+              .getResearch(ResearchType.warning_military_fast_deployments),
+        ),
       ],
     );
   }
@@ -127,17 +159,35 @@ class ResearchMilitary extends StatelessWidget {
         const BlockSeparator(),
         const BlockTitle('MILITARY'),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_infantry_cost)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.military_infantry_cost),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_infantry_time)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.military_infantry_time),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_vehicles_cost)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.military_vehicles_cost),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_vehicles_time)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.military_vehicles_time),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_aircraft_cost)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.military_aircraft_cost),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.military_aircraft_time)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.military_aircraft_time),
+        ),
       ],
     );
   }
@@ -155,7 +205,10 @@ class ResearchWeapons extends StatelessWidget {
         const BlockSeparator(),
         const BlockTitle('WEAPONS'),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.weapons_nuclear_bomb)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.weapons_nuclear_bomb),
+        ),
       ],
     );
   }
@@ -174,7 +227,9 @@ class ResearchResilience extends StatelessWidget {
         const BlockTitle('RESILIENCE'),
         const BlockSeparator(),
         ResearchBlock(
-            player.getResearch(ResearchType.resilience_bomb_shelters)),
+          player: player,
+          research: player.getResearch(ResearchType.resilience_bomb_shelters),
+        ),
       ],
     );
   }
@@ -192,11 +247,20 @@ class ResearchIntel extends StatelessWidget {
         const BlockSeparator(),
         const BlockTitle('INTEL'),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.intel_population)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.intel_population),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.intel_military)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.intel_military),
+        ),
         const BlockSeparator(),
-        ResearchBlock(player.getResearch(ResearchType.intel_technology)),
+        ResearchBlock(
+          player: player,
+          research: player.getResearch(ResearchType.intel_technology),
+        ),
       ],
     );
   }

@@ -1,7 +1,9 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/disabled_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
@@ -11,9 +13,13 @@ import 'package:nucleartension/widgets/labels/labeled_info.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class ResearchBlock extends StatelessWidget {
+  final Player player;
   final Research research;
 
-  const ResearchBlock(this.research);
+  const ResearchBlock({
+    required this.player,
+    required this.research,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,10 @@ class ResearchBlock extends StatelessWidget {
                 children: [
                   LeftSection(research),
                   const HBox(20),
-                  RightSection(research),
+                  RightSection(
+                    player: player,
+                    research: research,
+                  ),
                 ],
               ),
             ],
@@ -123,21 +132,38 @@ class LeftSection extends StatelessWidget {
 }
 
 class RightSection extends StatelessWidget {
+  final Player player;
   final Research research;
 
-  const RightSection(this.research);
+  const RightSection({
+    required this.player,
+    required this.research,
+  });
 
   @override
   Widget build(BuildContext context) {
-    if (research.isMax) {
-      return DisabledButton.text(
-        text: 'MAX',
-        size: 50,
-      );
+    final BuildingType? buildingType = research.buildingType;
+    final int buildingLevel =
+        (buildingType != null) ? player.building(buildingType).level : 1;
+
+    if (buildingLevel > 0) {
+      if (research.isMax) {
+        return DisabledButton.text(
+          text: 'MAX',
+          size: 50,
+        );
+      } else {
+        return UpgradeButton(
+          upgradable: research,
+          size: 50,
+        );
+      }
     } else {
-      return UpgradeButton(
-        upgradable: research,
-        size: 50,
+      return Label(
+        text: 'Requires\n${buildingType?.localized.replaceAll(' ', '\n')}',
+        color: Palette.error,
+        align: TextAlign.center,
+        size: 12,
       );
     }
   }

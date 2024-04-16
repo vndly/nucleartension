@@ -59,17 +59,17 @@ class GameState extends BaseState {
       Research(
         player: player,
         researchType: ResearchType.resources_production_chain,
-        level: 1,
+        level: 0,
       ),
       Research(
         player: player,
         researchType: ResearchType.resources_indoctrination,
-        level: 2,
+        level: 0,
       ),
       Research(
         player: player,
         researchType: ResearchType.resources_quantum_computing,
-        level: 3,
+        level: 0,
       ),
 
       // missiles

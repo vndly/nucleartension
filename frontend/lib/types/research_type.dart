@@ -264,7 +264,7 @@ enum ResearchType {
       case missiles_active_tracking:
         return 'Increases defense missiles effectiveness';
       case missiles_signal_jamming:
-        return 'Decreases defense missiles effectiveness';
+        return "Decreases the effectiveness of enemy's defense missiles";
       case warning_missiles_radar_network:
         return 'Increases warning time when receiving a missile attack';
       case warning_missiles_hypersonic_propulsion:

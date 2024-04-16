@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/upgradable.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 
 class Research extends Upgradable {
@@ -22,6 +23,35 @@ class Research extends Upgradable {
   double get increaseRate => rate + 1;
 
   double get decreaseRate => 1 - rate;
+
+  BuildingType? get buildingType {
+    switch (researchType) {
+      case ResearchType.resources_grid_management:
+        return BuildingType.power_plant;
+      case ResearchType.resources_production_chain:
+        return BuildingType.supply_center;
+      case ResearchType.resources_indoctrination:
+        return BuildingType.propaganda_station;
+      case ResearchType.resources_quantum_computing:
+        return BuildingType.tech_lab;
+      case ResearchType.missiles_additive_manufacturing:
+      case ResearchType.missiles_assembly_automation:
+      case ResearchType.missiles_active_tracking:
+      case ResearchType.missiles_signal_jamming:
+      case ResearchType.warning_missiles_hypersonic_propulsion:
+        return BuildingType.missile_silo;
+      case ResearchType.warning_military_fast_deployments:
+      case ResearchType.military_infantry_cost:
+      case ResearchType.military_infantry_time:
+      case ResearchType.military_vehicles_cost:
+      case ResearchType.military_vehicles_time:
+      case ResearchType.military_aircraft_cost:
+      case ResearchType.military_aircraft_time:
+        return BuildingType.military_facility;
+      default:
+        return null;
+    }
+  }
 
   // In kt
   static int yield(int level) {
