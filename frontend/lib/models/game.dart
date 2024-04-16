@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
 import 'package:nucleartension/models/attacks/unit_attack.dart';
@@ -78,6 +81,9 @@ class Game {
 
   // ============================= DEFCON =================================== \\
 
+  num get defconProductionBoost =>
+      pow(1 + Constants.DEFCON_PRODUCTION_RATE, defconStep - 1);
+
   void onUnitCreated() => _applyDefcon(4);
 
   void onUnitUsed() => _applyDefcon(3);
@@ -92,6 +98,8 @@ class Game {
       CustomSnackbar.defcon(value);
       addEvent(DefconUpdateEvent(
         defconLevel: defcon,
+        productionBoost:
+            Constants.DEFCON_PRODUCTION_RATE * (defconStep - 1) * 100,
       ));
     }
   }

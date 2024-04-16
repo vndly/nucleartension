@@ -20,7 +20,7 @@ abstract class Producer extends Building {
 
     return baseProductionRate *
         research.increaseRate *
-        player.defconProductionBoost;
+        player.game.defconProductionBoost;
   }
 
   @override
