@@ -3,14 +3,14 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"main.dart.js": "0a0a7fe4bb2c1dd52d49190c1bd9b66c",
+const RESOURCES = {"main.dart.js": "c35f0237680fc609c131c3274397e27f",
 "assets/NOTICES": "473c51423fe80cc338192c076034c727",
 "assets/FontManifest.json": "38d088b85cbd1af87912c7c23d2f652a",
 "assets/assets/images/units/infantry.png": "e5f6cd6261075c4b2f7bcb859c3f7fc9",
 "assets/assets/images/units/aircraft.png": "8962eddba97e457a871e56bdaae4c305",
 "assets/assets/images/units/vehicle.png": "6d958c1b6f25d0bfc532c1a9995b0c04",
 "assets/assets/images/buildings/propaganda_station.png": "c44621ff3d3e7f3b9db26f2a743b17cf",
-"assets/assets/images/buildings/supply_center.png": "6f65542c91a92c286fe94bca1d8d3f13",
+"assets/assets/images/buildings/supply_center.png": "5518862def11612b0b54ef10d43d3816",
 "assets/assets/images/buildings/missile_silo.png": "39a7bb092f5247ce4c665b3a864d3235",
 "assets/assets/images/buildings/power_plant.png": "f0d7e824ab6b3b0beca1d612eb0a0f4e",
 "assets/assets/images/buildings/military_facility.png": "defcae7066ac427e1bf1837baf37d268",
@@ -70,8 +70,8 @@ const RESOURCES = {"main.dart.js": "0a0a7fe4bb2c1dd52d49190c1bd9b66c",
 "firebase-messaging-sw.js": "5b8b5435d89eea9d02ed9ea9565635c6",
 "favicon.png": "70a31eb877b5e97fdb9a12a5a469dc1a",
 "version.json": "0ff45af32d7b9fd732a03f7d2ed6a3af",
-"index.html": "1853cd735ec0e0fb8aeb47957d133962",
-"/": "1853cd735ec0e0fb8aeb47957d133962"};
+"index.html": "104c4387bf550de130f2c105b84e6ddb",
+"/": "104c4387bf550de130f2c105b84e6ddb"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
@@ -80,9 +78,6 @@ class Game {
   void addEvent(Event event) => events.insert(0, event);
 
   // ============================= DEFCON =================================== \\
-
-  num get defconProductionBoost =>
-      pow(1 + Constants.DEFCON_PRODUCTION_RATE, defconStep - 1);
 
   void onUnitCreated() => _applyDefcon(4);
 

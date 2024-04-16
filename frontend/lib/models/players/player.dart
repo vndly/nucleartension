@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
@@ -97,6 +98,9 @@ class Player {
       );
 
   // ============================ RESOURCES ================================= \\
+
+  num get defconProductionBoost =>
+      pow(1 + Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
 
   int get population => resources.get(ResourceType.population).toInt();
 
