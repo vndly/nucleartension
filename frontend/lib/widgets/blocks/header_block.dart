@@ -13,6 +13,17 @@ class HeaderBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ExpandedHeaderBlock(player);
+  }
+}
+
+class ExpandedHeaderBlock extends StatelessWidget {
+  final Player player;
+
+  const ExpandedHeaderBlock(this.player);
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Row(
