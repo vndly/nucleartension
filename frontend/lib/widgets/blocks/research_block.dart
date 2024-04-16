@@ -82,7 +82,7 @@ class LeftSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ResearchImageBlock(
@@ -91,25 +91,29 @@ class LeftSection extends StatelessWidget {
           ),
           const HBox(10),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Label(
-                  text: research.researchType.description,
-                  color: Palette.textDescription,
-                  size: 12,
-                ),
-                if (research.level > 0) ...[
-                  const VBox(10),
-                  LabeledText(
-                    label: 'Current:',
-                    text: research.researchType.rateDescription(research.level),
-                    labelColor: Palette.textDescription,
-                    textColor: Palette.textDescription,
+            child: SizedBox(
+              height: 50,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Label(
+                    text: research.researchType.description,
+                    color: Palette.textDescription,
                     size: 12,
                   ),
+                  if (research.level > 0) ...[
+                    const Spacer(),
+                    LabeledText(
+                      label: 'Current:',
+                      text:
+                          research.researchType.rateDescription(research.level),
+                      labelColor: Palette.textDescription,
+                      textColor: Palette.textDescription,
+                      size: 12,
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ],

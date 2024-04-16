@@ -268,11 +268,11 @@ enum ResearchType {
       case warning_missiles_radar_network:
         return 'Increases warning time when receiving a missile attack';
       case warning_missiles_hypersonic_propulsion:
-        return 'Decreases warning time when launching a missile attack';
+        return 'Increases attack missiles speed';
       case warning_military_early_warning:
         return 'Increases warning time when receiving a military attack';
       case warning_military_fast_deployments:
-        return 'Decreases warning time when launching a military attack';
+        return 'Increases attack units speed';
       case military_infantry_cost:
         return 'Decreases infantry cost production';
       case military_infantry_time:
@@ -325,13 +325,13 @@ enum ResearchType {
       case missiles_active_tracking:
       case warning_missiles_radar_network:
       case warning_military_early_warning:
+      case warning_missiles_hypersonic_propulsion:
+      case warning_military_fast_deployments:
         return '+$baseRate';
 
       case missiles_additive_manufacturing:
       case missiles_assembly_automation:
       case missiles_signal_jamming:
-      case warning_missiles_hypersonic_propulsion:
-      case warning_military_fast_deployments:
       case military_infantry_cost:
       case military_infantry_time:
       case military_vehicles_cost:
