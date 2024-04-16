@@ -15,7 +15,7 @@ class HeaderBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CollapsedHeaderBlock(player);
+    return ExpandedHeaderBlock(player);
   }
 }
 
@@ -92,12 +92,12 @@ class CollapsedResourceLabel extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            resourceType.icon(14),
+            resourceType.icon(12),
             const HBox(10),
             Label(
               text: Formatter.resourceRaw(player.resources.get(resourceType)),
               color: Palette.textMain,
-              size: 14,
+              size: 12,
             ),
           ],
         ),
@@ -168,13 +168,13 @@ class CollapsedMilitaryLabel extends StatelessWidget {
             Icon(
               icon,
               color: color,
-              size: 14,
+              size: 12,
             ),
             const HBox(10),
             Label(
               text: value,
               color: Palette.textMain,
-              size: 14,
+              size: 12,
             ),
           ],
         ),
