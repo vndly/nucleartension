@@ -4,6 +4,7 @@ import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class HeaderBlock extends StatelessWidget {
@@ -13,9 +14,96 @@ class HeaderBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ExpandedHeaderBlock(player);
+    return CollapsedHeaderBlock(player);
   }
 }
+
+// -----------------------------------------------------------------------------
+
+class CollapsedHeaderBlock extends StatelessWidget {
+  final Player player;
+
+  const CollapsedHeaderBlock(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        CollapsedResourcesSection(player),
+      ],
+    );
+  }
+}
+
+class CollapsedResourcesSection extends StatelessWidget {
+  final Player player;
+
+  const CollapsedResourcesSection(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        CollapsedResourceLabel(
+          player: player,
+          resourceType: ResourceType.energy,
+        ),
+        CollapsedResourceLabel(
+          player: player,
+          resourceType: ResourceType.supplies,
+        ),
+        CollapsedResourceLabel(
+          player: player,
+          resourceType: ResourceType.technology,
+        ),
+        CollapsedResourceLabel(
+          player: player,
+          resourceType: ResourceType.population,
+        ),
+      ],
+    );
+  }
+}
+
+class CollapsedResourceLabel extends StatelessWidget {
+  final Player player;
+  final ResourceType resourceType;
+
+  const CollapsedResourceLabel({
+    required this.player,
+    required this.resourceType,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 10,
+          bottom: 10,
+          left: 10,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            resourceType.icon(14),
+            const HBox(10),
+            Label(
+              text: Formatter.resourceRaw(player.resources.get(resourceType)),
+              color: Palette.textMain,
+              size: 14,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// -----------------------------------------------------------------------------
 
 class ExpandedHeaderBlock extends StatelessWidget {
   final Player player;
@@ -28,41 +116,41 @@ class ExpandedHeaderBlock extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
-          ResourcesSection(player),
+          ExpandedResourcesSection(player),
           const Spacer(),
-          MilitarySection(player),
+          ExpandedMilitarySection(player),
         ],
       ),
     );
   }
 }
 
-class ResourcesSection extends StatelessWidget {
+class ExpandedResourcesSection extends StatelessWidget {
   final Player player;
 
-  const ResourcesSection(this.player);
+  const ExpandedResourcesSection(this.player);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ResourceLabel(
+        ExpandedResourceLabel(
           player: player,
           resourceType: ResourceType.energy,
         ),
         const VBox(10),
-        ResourceLabel(
+        ExpandedResourceLabel(
           player: player,
           resourceType: ResourceType.supplies,
         ),
         const VBox(10),
-        ResourceLabel(
+        ExpandedResourceLabel(
           player: player,
           resourceType: ResourceType.technology,
         ),
         const VBox(10),
-        ResourceLabel(
+        ExpandedResourceLabel(
           player: player,
           resourceType: ResourceType.population,
         ),
@@ -71,38 +159,38 @@ class ResourcesSection extends StatelessWidget {
   }
 }
 
-class MilitarySection extends StatelessWidget {
+class ExpandedMilitarySection extends StatelessWidget {
   final Player player;
 
-  const MilitarySection(this.player);
+  const ExpandedMilitarySection(this.player);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MilitaryLabel(
+        ExpandedMilitaryLabel(
           icon: Icons.warning_rounded,
           color: Palette.militaryDefcon,
           title: 'DEFCON:',
           value: player.game.defcon.toString(),
         ),
         const VBox(10),
-        MilitaryLabel(
+        ExpandedMilitaryLabel(
           icon: Icons.star,
           color: Palette.militaryPower,
           title: 'MILITARY POWER:',
           value: Formatter.resourceRaw(player.militaryPower),
         ),
         const VBox(10),
-        MilitaryLabel(
+        ExpandedMilitaryLabel(
           icon: Icons.shield,
           color: Palette.militaryDefenseMissile,
           title: 'DEFENSE MISSILES:',
           value: Formatter.resourceRaw(player.militaryDefenseMissiles),
         ),
         const VBox(10),
-        MilitaryLabel(
+        ExpandedMilitaryLabel(
           icon: Icons.local_fire_department_rounded,
           color: Palette.militaryAttackMissile,
           title: 'ATTACK MISSILES:',
@@ -113,19 +201,17 @@ class MilitarySection extends StatelessWidget {
   }
 }
 
-class ResourceLabel extends StatelessWidget {
+class ExpandedResourceLabel extends StatelessWidget {
   final Player player;
   final ResourceType resourceType;
 
-  const ResourceLabel({
+  const ExpandedResourceLabel({
     required this.player,
     required this.resourceType,
   });
 
   @override
   Widget build(BuildContext context) {
-    final num amount = player.resources.get(resourceType);
-
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -133,7 +219,7 @@ class ResourceLabel extends StatelessWidget {
         const HBox(10),
         LabeledText(
           label: '${resourceType.localized.toUpperCase()}:',
-          text: Formatter.resource(amount),
+          text: Formatter.resource(player.resources.get(resourceType)),
           labelColor: Palette.textMain,
           textColor: Palette.textMain,
           size: 14,
@@ -143,13 +229,13 @@ class ResourceLabel extends StatelessWidget {
   }
 }
 
-class MilitaryLabel extends StatelessWidget {
+class ExpandedMilitaryLabel extends StatelessWidget {
   final IconData icon;
   final Color color;
   final String title;
   final String value;
 
-  const MilitaryLabel({
+  const ExpandedMilitaryLabel({
     required this.icon,
     required this.color,
     required this.title,
