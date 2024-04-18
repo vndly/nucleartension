@@ -85,18 +85,30 @@ enum UnitType {
     }
   }
 
-  String get description {
+  List<String> get description {
     switch (this) {
       case defense:
-        return 'Missiles used to intercept incoming missiles attacks. Each defense missile has a base effectiveness of 50% that can be improved researching new technologies.';
+        return [
+          'Missiles used to intercept incoming missiles attacks.',
+          'Each defense missile has a base effectiveness of 50% that can be improved researching new technologies.'
+        ];
       case attack:
-        return "Missiles used to send nuclear attacks to enemies. If an attack missiles is not intercepted, it kills an amount of the enemy's population proportionally to the missile yield.";
+        return [
+          'Missiles used to send nuclear attacks to enemies.',
+          "If an attack missiles is not intercepted, it kills an amount of the enemy's population proportionally to the missile yield.",
+        ];
       case infantry:
-        return 'Basic military soldier squad. It increases the military power by $power.';
+        return [
+          'Basic military soldier squad. It increases the military power by $power.'
+        ];
       case vehicle:
-        return 'Land military vehicles. It increases the military power by $power.';
+        return [
+          'Land military vehicles. It increases the military power by $power.'
+        ];
       case aircraft:
-        return 'Advance jet fighters. It increases the military power by $power.';
+        return [
+          'Advance jet fighters. It increases the military power by $power.'
+        ];
     }
   }
 
