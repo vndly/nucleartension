@@ -1,4 +1,6 @@
 class Assets {
+  static const String ICONS_MISSILE = 'assets/icons/missile.svg';
+  static const String ICONS_TANK = 'assets/icons/tank.svg';
   static const String IMAGES_BUILDINGS_MILITARY_FACILITY =
       'assets/images/buildings/military_facility.png';
   static const String IMAGES_BUILDINGS_MISSILE_SILO =

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/palette.dart';
+import 'package:nucleartension/widgets/icons/svg_icon.dart';
 
 class EnabledButton extends StatelessWidget {
   final Color color;
   final double size;
   final VoidCallback onTap;
-  final IconData icon;
+  final Widget icon;
   final int rotation;
 
   const EnabledButton({
@@ -21,7 +23,10 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.add,
+        icon: _materialIcon(
+          icon: Icons.add,
+          size: size,
+        ),
         color: Palette.success,
         size: size,
         onTap: onTap,
@@ -32,7 +37,10 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.construction,
+        icon: _materialIcon(
+          icon: Icons.construction,
+          size: size,
+        ),
         color: Palette.success,
         size: size,
         onTap: onTap,
@@ -43,7 +51,10 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.forward,
+        icon: _materialIcon(
+          icon: Icons.forward,
+          size: size,
+        ),
         color: Palette.success,
         size: size,
         onTap: onTap,
@@ -55,7 +66,10 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.ads_click,
+        icon: _svgIcon(
+          icon: Assets.ICONS_TANK,
+          size: size,
+        ),
         color: Palette.success,
         size: size,
         onTap: onTap,
@@ -66,10 +80,33 @@ class EnabledButton extends StatelessWidget {
     required VoidCallback onTap,
   }) =>
       EnabledButton(
-        icon: Icons.location_searching_sharp,
+        icon: _svgIcon(
+          icon: Assets.ICONS_MISSILE,
+          size: size,
+        ),
         color: Palette.error,
         size: size,
         onTap: onTap,
+      );
+
+  static Widget _materialIcon({
+    required IconData icon,
+    required double size,
+  }) =>
+      Icon(
+        icon,
+        color: Palette.icon,
+        size: size * 0.5,
+      );
+
+  static Widget _svgIcon({
+    required String icon,
+    required double size,
+  }) =>
+      SvgIcon(
+        icon: icon,
+        size: size * 0.6,
+        color: Palette.icon,
       );
 
   @override
@@ -85,11 +122,7 @@ class EnabledButton extends StatelessWidget {
           child: Center(
             child: RotatedBox(
               quarterTurns: rotation,
-              child: Icon(
-                icon,
-                color: Palette.icon,
-                size: size * 0.5,
-              ),
+              child: icon,
             ),
           ),
         ),

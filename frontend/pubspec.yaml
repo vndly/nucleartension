@@ -10,6 +10,7 @@ dependencies:
   get_it: ^7.7.0
   logger: ^2.2.0
   dafluta: ^5.3.0
+  flutter_svg: ^2.0.10+1
   url_strategy: ^0.2.0
   json_annotation: ^4.8.1
   shared_preferences: ^2.2.3
@@ -38,6 +39,7 @@ flutter:
         - asset: assets/fonts/HellasCour-Regular.ttf
 
   assets:
+    - assets/icons/
     - assets/images/
     - assets/images/buildings/
     - assets/images/countries/

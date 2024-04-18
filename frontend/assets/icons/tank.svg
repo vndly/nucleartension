@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+     fill="#000000"
+     height="800px"
+     width="800px"
+     version="1.1"
+     id="Layer_1"
+     viewBox="0 0 511.994 511.994"
+     xml:space="preserve"
+     sodipodi:docname="tank.svg"
+     inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs6" /><sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.48375"
+     inkscape:cx="256.33"
+     inkscape:cy="159.17"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+<g
+     id="g2"
+     transform="matrix(-1,0,0,1,483.07,27.81)">
+	<g
+     id="g1">
+		<path
+     d="M 374.85,181.25 L 353.78,128.21 L 230.53,128.78 C 229.97,128.83 229.42,128.89 228.86,128.94 L 183.11,129.02 L 162.22,148.83 C 158.81,152.07 158.39,157.38 153.68,157.37 L -27.936,156.81 L -28.16,165.91 V 182.99 H 153.68 V 191.53 C 153.68,196.24 157.51,200.06 162.22,200.06 H 179.3 H 367.13 C 371.85,200.06 375.67,196.24 375.67,191.53 V 184.91 C 375.67,183.64 375.39,182.4 374.85,181.25 Z"
+     id="path1"
+     sodipodi:nodetypes="cccccssccccsscsssc" />
+	</g>
+</g>
+<g
+     id="g4"
+     transform="matrix(-1,0,0,1,509.47,-1.487)">
+	<g
+     id="g3">
+		<path
+     d="M 401.21,219.36 L 183.57,222 L 56.172,248.14 L 45.333,294.02 L 60.8,279.84 C 62.471,278.31 64.574,277.34 66.836,277.34 H 486.67 C 491.38,277.34 497.96,272.64 495.21,268.8 L 479.23,246.42 C 476.49,242.59 405.92,219.36 401.21,219.36 Z"
+     id="path2"
+     sodipodi:nodetypes="ccccsssssc" />
+	</g>
+</g>
+<g
+     id="g6"
+     transform="matrix(-1,0,0,1,516.25,-39.82)">
+	<g
+     id="g5">
+		<path
+     d="M 510.72,323.46 C 506.48,306.09 493.39,294.42 478.13,294.42 C 478.05,294.42 477.97,294.41 477.89,294.42 H 85.141 C 69.884,294.42 56.786,306.09 52.551,323.46 C 48.632,339.55 53.328,360.27 72.368,370.13 L 132.13,404.29 C 133.42,405.03 134.88,405.41 136.37,405.41 H 426.9 C 428.39,405.41 429.85,405.03 431.14,404.29 L 490.59,370.3 C 509.95,360.27 514.64,339.55 510.72,323.46 Z"
+     id="path4" />
+	</g>
+</g>
+</svg>
