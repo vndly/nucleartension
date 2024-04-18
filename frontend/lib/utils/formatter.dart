@@ -38,13 +38,7 @@ class Formatter {
       final NumberFormat formatter = NumberFormat('#,##0');
 
       return formatter.format(intAmount);
-    } /*else if (intAmount < 1000000) {
-      final NumberFormat formatter = NumberFormat('##0.###');
-      final String value = formatter.format(intAmount / 1000);
-
-      return '${value}K';
-    } */
-    else {
+    } else {
       final NumberFormat formatter = NumberFormat('##0.###');
       final String value = formatter.format(intAmount / 1000000);
 
