@@ -72,19 +72,21 @@ class InformationDialog extends StatelessWidget {
               ),
             ),
             const HBox(12),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                for (final String description in descriptions)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: Label(
-                      text: description,
-                      color: Palette.textMain,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (final String description in descriptions)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5),
+                      child: Label(
+                        text: description,
+                        color: Palette.textMain,
+                      ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
