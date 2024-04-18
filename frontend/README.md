@@ -1,7 +1,6 @@
 # Nuclear Tension
 
 * Implement missile attack resolution
-* Produce resources and units only if alive
 * Function to mark player as dead (building levels to zero, remove population, units and missiles, etc)
 * SVG icons
 * Lost condition and lost screen

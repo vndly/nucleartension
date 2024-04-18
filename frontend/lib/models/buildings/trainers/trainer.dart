@@ -48,11 +48,13 @@ class Trainer extends Building {
 
   @override
   void update(double dt) {
-    for (final List<CreateUnitTask> queue in queues.values) {
-      _processQueue(
-        dt: dt,
-        queue: queue,
-      );
+    if (player.isAlive) {
+      for (final List<CreateUnitTask> queue in queues.values) {
+        _processQueue(
+          dt: dt,
+          queue: queue,
+        );
+      }
     }
 
     super.update(dt);
