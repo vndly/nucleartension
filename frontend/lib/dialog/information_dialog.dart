@@ -1,6 +1,6 @@
-import 'dart:ui';
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
@@ -32,23 +32,13 @@ class InformationDialog extends StatelessWidget {
     required Widget content,
     required String buttonAccept,
     VoidCallback? onAccept,
-  }) {
-    final BuildContext context = Navigation.context;
-
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      barrierColor: Palette.transparent,
-      builder: (context) => InformationDialog._(
+  }) =>
+      BaseDialog.show(InformationDialog._(
         title: title,
         content: content,
         buttonAccept: buttonAccept,
         onAccept: onAccept,
-      ),
-    );
-
-    return DialogController(context);
-  }
+      ));
 
   static DialogController _entityInfo({
     required String title,
@@ -181,32 +171,25 @@ class InformationDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-      child: AlertDialog(
-        titlePadding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
-        contentPadding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
-        actionsPadding: const EdgeInsets.fromLTRB(5, 5, 5, 2),
-        backgroundColor: Palette.backgroundDialog,
-        title: title,
-        content: content,
-        actions: [
-          TextButton(
-            style: TextButton.styleFrom(
-              foregroundColor: Palette.textPrimary,
-            ),
-            onPressed: () {
-              Navigation.pop();
-              onAccept?.call();
-            },
-            child: Label(
-              text: buttonAccept,
-              color: Palette.textPrimary,
-              weight: FontWeight.bold,
-            ),
+    return BaseDialog(
+      title: title,
+      content: content,
+      actions: [
+        TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: Palette.textPrimary,
           ),
-        ],
-      ),
+          onPressed: () {
+            Navigation.pop();
+            onAccept?.call();
+          },
+          child: Label(
+            text: buttonAccept,
+            color: Palette.textPrimary,
+            weight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 }

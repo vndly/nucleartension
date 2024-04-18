@@ -1,5 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -25,24 +26,14 @@ class ConfirmationDialog extends StatelessWidget {
     required String buttonCancel,
     required VoidCallback onAccept,
     VoidCallback? onCancel,
-  }) {
-    final BuildContext context = Navigation.context;
-
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      barrierColor: Palette.transparent,
-      builder: (context) => ConfirmationDialog._(
+  }) =>
+      BaseDialog.show(ConfirmationDialog._(
         message: message,
         buttonAccept: buttonAccept,
         buttonCancel: buttonCancel,
         onAccept: onAccept,
         onCancel: onCancel ?? () {},
-      ),
-    );
-
-    return DialogController(context);
-  }
+      ));
 
   static DialogController cancelExploration({
     required VoidCallback onAccept,
@@ -76,14 +67,13 @@ class ConfirmationDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      contentPadding: const EdgeInsets.fromLTRB(25, 20, 25, 25),
-      backgroundColor: Palette.backgroundDialog,
-      content: Label(
-        text: message,
+    return BaseDialog(
+      title: Label(
+        text: message.toUpperCase(),
         color: Palette.textPrimary,
-        size: 30,
+        weight: FontWeight.bold,
       ),
+      content: const Empty(),
       actions: [
         Padding(
           padding: const EdgeInsets.only(
