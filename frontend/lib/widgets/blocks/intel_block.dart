@@ -142,8 +142,8 @@ class PlayerRow extends StatelessWidget {
     return Container(
       color: player.isSelf ? Palette.backgroundRowSelf : Palette.transparent,
       padding: const EdgeInsets.only(
-        top: 10,
-        bottom: 10,
+        top: 5,
+        bottom: 5,
         left: 15,
         right: 15,
       ),
@@ -151,14 +151,14 @@ class PlayerRow extends StatelessWidget {
         children: [
           Expanded(
             child: SizedBox(
-              height: 30,
+              height: 35,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ImageAsset(
                     path: player.country.flag,
-                    width: 21,
-                    height: 14,
+                    width: 30,
+                    height: 20,
                   ),
                   const HBox(15),
                   Label(
@@ -166,6 +166,7 @@ class PlayerRow extends StatelessWidget {
                     color: player.country.color,
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
+                    size: 16,
                   ),
                 ],
               ),
@@ -177,6 +178,7 @@ class PlayerRow extends StatelessWidget {
               text: value,
               color: player.country.color,
               weight: FontWeight.bold,
+              size: 16,
             ),
         ],
       ),

@@ -85,8 +85,8 @@ class PlayerRowContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 10,
-        bottom: 10,
+        top: 5,
+        bottom: 5,
         left: 15,
         right: 15,
       ),
@@ -94,14 +94,14 @@ class PlayerRowContent extends StatelessWidget {
         children: [
           Expanded(
             child: SizedBox(
-              height: 30,
+              height: 35,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ImageAsset(
                     path: player.country.flag,
-                    width: 21,
-                    height: 14,
+                    width: 30,
+                    height: 20,
                     grayscale: !player.isAlive,
                   ),
                   const HBox(15),
@@ -112,6 +112,7 @@ class PlayerRowContent extends StatelessWidget {
                         : Palette.textDisabled,
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
+                    size: 16,
                   ),
                 ],
               ),
@@ -121,7 +122,7 @@ class PlayerRowContent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: EnabledButton.attackMilitary(
-                size: 30,
+                size: 35,
                 onTap: () => game.onUnitAttack(
                   attacker: game.self,
                   defender: player,
@@ -133,7 +134,7 @@ class PlayerRowContent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: EnabledButton.attackMissiles(
-                size: 30,
+                size: 35,
                 onTap: () => game.onMissileAttack(
                   attacker: game.self,
                   defender: player,

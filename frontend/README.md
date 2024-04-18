@@ -3,8 +3,6 @@
 * Implement missile attack resolution
 * SVG icons
 * Lost condition and lost screen
-* Bigger rows in Intel tables
-* Bigger rows in players list
 * Header block not showing decimals?
 * Intel sub tables with icons
 * Pause menu when going back
