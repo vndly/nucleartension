@@ -31,11 +31,9 @@ abstract class Upgradable {
   }
 
   void update(double dt) {
-    if (player.isAlive) {
-      if ((upgradeTask != null) && upgradeTask!.update(dt)) {
-        level++;
-        upgradeTask = null;
-      }
+    if ((upgradeTask != null) && upgradeTask!.update(dt)) {
+      level++;
+      upgradeTask = null;
     }
   }
 }

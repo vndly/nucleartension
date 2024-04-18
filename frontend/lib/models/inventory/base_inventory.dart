@@ -64,4 +64,6 @@ class BaseInventory<K> {
 
     return true;
   }
+
+  void clear() => _items.clear();
 }

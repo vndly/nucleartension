@@ -27,9 +27,7 @@ abstract class Producer extends Building {
   void update(double dt) {
     super.update(dt);
 
-    if (player.isAlive) {
-      final double produced = production * dt;
-      player.resources.add(resourceType, produced);
-    }
+    final double produced = production * dt;
+    player.resources.add(resourceType, produced);
   }
 }

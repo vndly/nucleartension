@@ -102,10 +102,16 @@ class Player {
   num get defconProductionBoost =>
       pow(1 + Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
 
-  int get population => resources.get(ResourceType.population).toInt();
+  int get population => resources.get(ResourceType.population).ceil();
 
-  void removePopulation(int amount) =>
-      resources.remove(ResourceType.population, min(amount, population));
+  void removePopulation(int amount) {
+    resources.remove(ResourceType.population, min(amount, population));
+
+    if (!isAlive) {
+      resources.clear();
+      military.clear();
+    }
+  }
 
   double productionOf(ResourceType resourceType) {
     double total = 0;
@@ -231,12 +237,14 @@ class Player {
   }
 
   void update(double dt) {
-    for (final Building building in buildings.values) {
-      building.update(dt);
-    }
+    if (isAlive) {
+      for (final Building building in buildings.values) {
+        building.update(dt);
+      }
 
-    for (final Research research in researches.values) {
-      research.update(dt);
+      for (final Research research in researches.values) {
+        research.update(dt);
+      }
     }
   }
 }

@@ -1,7 +1,6 @@
 # Nuclear Tension
 
 * Implement missile attack resolution
-* Function to mark player as dead (building levels to zero, remove population, units and missiles, etc)
 * SVG icons
 * Lost condition and lost screen
 * Explain what each level of a building does when upgraded
