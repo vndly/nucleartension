@@ -52,7 +52,7 @@ class InformationDialog extends StatelessWidget {
 
   static DialogController _entityInfo({
     required String title,
-    required String description,
+    required List<String> descriptions,
     required String sprite,
   }) =>
       _show(
@@ -72,11 +72,19 @@ class InformationDialog extends StatelessWidget {
               ),
             ),
             const HBox(12),
-            Expanded(
-              child: Label(
-                text: description,
-                color: Palette.textMain,
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (final String description in descriptions)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Label(
+                      text: description,
+                      color: Palette.textMain,
+                    ),
+                  ),
+              ],
             ),
           ],
         ),
@@ -85,19 +93,19 @@ class InformationDialog extends StatelessWidget {
 
   static DialogController building(BuildingType buildingType) => _entityInfo(
         title: buildingType.localized,
-        description: buildingType.description,
+        descriptions: buildingType.description,
         sprite: buildingType.sprite,
       );
 
   static DialogController unit(UnitType unitType) => _entityInfo(
         title: unitType.localized,
-        description: unitType.description,
+        descriptions: [unitType.description],
         sprite: unitType.sprite,
       );
 
   static DialogController research(ResearchType researchType) => _entityInfo(
         title: researchType.localized,
-        description: researchType.details,
+        descriptions: [researchType.details],
         sprite: researchType.sprite,
       );
 

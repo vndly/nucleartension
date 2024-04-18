@@ -3,8 +3,6 @@
 * Implement missile attack resolution
 * SVG icons
 * Lost condition and lost screen
-* Explain what each level of a building does when upgraded
-* Explain what resources are used for in building description
 * Bigger rows in Intel tables
 * Bigger rows in players list
 * Header block not showing decimals?

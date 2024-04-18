@@ -96,20 +96,43 @@ enum BuildingType {
     }
   }
 
-  String get description {
+  List<String> get description {
     switch (this) {
       case power_plant:
-        return 'Produces energy';
+        return [
+          'Produces energy',
+          'Each level of this building increases its production output',
+        ];
       case supply_center:
-        return 'Produces supplies';
+        return [
+          'Produces supplies',
+          'Each level of this building increases its production output',
+        ];
       case propaganda_station:
-        return 'Produces population';
+        return [
+          'Produces population',
+          'Each level of this building increases its production output',
+        ];
       case tech_lab:
-        return 'Produces technology';
+        return [
+          'Produces technology',
+          'Each level of this building increases its production output',
+        ];
       case missile_silo:
-        return 'Creates defense and attack missiles';
+        return [
+          'Creates defense and attack missiles',
+          '',
+          'Each level of this building increases its queue size',
+        ];
       case military_facility:
-        return 'Creates military units:\n* Infantry\n* Vehicles\n* Aircraft';
+        return [
+          'Creates military units:',
+          '* Infantry',
+          '* Vehicles',
+          '* Aircraft',
+          '',
+          'Each level of this building increases its queue size',
+        ];
     }
   }
 }
