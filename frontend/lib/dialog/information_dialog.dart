@@ -58,7 +58,7 @@ class InformationDialog extends StatelessWidget {
       _show(
         title: Label(
           text: title.toUpperCase(),
-          color: Palette.textMain,
+          color: Palette.textPrimary,
           weight: FontWeight.bold,
         ),
         content: Row(
@@ -82,7 +82,7 @@ class InformationDialog extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Label(
                         text: description,
-                        color: Palette.textMain,
+                        color: Palette.textPrimary,
                       ),
                     ),
                 ],
@@ -150,8 +150,8 @@ class InformationDialog extends StatelessWidget {
                 ? Formatter.resourceRaw(player.population)
                 : 'unknown',
             size: 14,
-            labelColor: Palette.textMain,
-            textColor: Palette.textMain,
+            labelColor: Palette.textPrimary,
+            textColor: Palette.textPrimary,
           ),
           const VBox(10),
           LabeledText(
@@ -160,8 +160,8 @@ class InformationDialog extends StatelessWidget {
                 ? Formatter.resourceRaw(player.militaryPower)
                 : 'unknown',
             size: 14,
-            labelColor: Palette.textMain,
-            textColor: Palette.textMain,
+            labelColor: Palette.textPrimary,
+            textColor: Palette.textPrimary,
           ),
           const VBox(10),
           LabeledText(
@@ -170,8 +170,8 @@ class InformationDialog extends StatelessWidget {
                 ? Formatter.resourceRaw(player.technologyLevel)
                 : 'unknown',
             size: 14,
-            labelColor: Palette.textMain,
-            textColor: Palette.textMain,
+            labelColor: Palette.textPrimary,
+            textColor: Palette.textPrimary,
           ),
         ],
       ),
@@ -193,7 +193,7 @@ class InformationDialog extends StatelessWidget {
         actions: [
           TextButton(
             style: TextButton.styleFrom(
-              foregroundColor: Palette.textMain,
+              foregroundColor: Palette.textPrimary,
             ),
             onPressed: () {
               Navigation.pop();
@@ -201,6 +201,8 @@ class InformationDialog extends StatelessWidget {
             },
             child: Label(
               text: buttonAccept,
+              color: Palette.textPrimary,
+              weight: FontWeight.bold,
             ),
           ),
         ],

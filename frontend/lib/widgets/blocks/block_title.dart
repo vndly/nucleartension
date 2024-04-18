@@ -15,7 +15,7 @@ class BlockTitle extends StatelessWidget {
       child: Center(
         child: Label(
           text: title,
-          color: Palette.textMain,
+          color: Palette.textPrimary,
           weight: FontWeight.bold,
         ),
       ),

@@ -23,7 +23,7 @@ class ImageAsset extends StatelessWidget {
       width: width ?? size,
       height: height ?? size,
       fit: BoxFit.cover,
-      color: grayscale ? Palette.textMain : null,
+      color: grayscale ? Palette.textPrimary : null,
       colorBlendMode: grayscale ? BlendMode.saturation : null,
     );
   }

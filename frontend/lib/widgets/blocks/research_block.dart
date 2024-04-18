@@ -72,8 +72,8 @@ class HeaderSection extends StatelessWidget {
           LabeledText(
             label: 'LEVEL:',
             text: research.level.toString(),
-            labelColor: Palette.textMain,
-            textColor: Palette.textMain,
+            labelColor: Palette.textPrimary,
+            textColor: Palette.textPrimary,
             size: 14,
           ),
         ],

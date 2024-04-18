@@ -96,7 +96,7 @@ class CollapsedResourceLabel extends StatelessWidget {
             const HBox(10),
             Label(
               text: Formatter.resourceRaw(player.resources.get(resourceType)),
-              color: Palette.textMain,
+              color: Palette.textPrimary,
               size: 12,
             ),
           ],
@@ -173,7 +173,7 @@ class CollapsedMilitaryLabel extends StatelessWidget {
             const HBox(10),
             Label(
               text: value,
-              color: Palette.textMain,
+              color: Palette.textPrimary,
               size: 12,
             ),
           ],
@@ -300,8 +300,8 @@ class ExpandedResourceLabel extends StatelessWidget {
         LabeledText(
           label: '${resourceType.localized.toUpperCase()}:',
           text: Formatter.resource(player.resources.get(resourceType)),
-          labelColor: Palette.textMain,
-          textColor: Palette.textMain,
+          labelColor: Palette.textPrimary,
+          textColor: Palette.textPrimary,
           size: 14,
         ),
       ],
@@ -336,8 +336,8 @@ class ExpandedMilitaryLabel extends StatelessWidget {
         LabeledText(
           label: title,
           text: value,
-          labelColor: Palette.textMain,
-          textColor: Palette.textMain,
+          labelColor: Palette.textPrimary,
+          textColor: Palette.textPrimary,
           size: 14,
         ),
       ],

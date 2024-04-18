@@ -61,7 +61,7 @@ class DisabledButton extends StatelessWidget {
         child: Label(
           text: text,
           size: size / 3,
-          color: Palette.textMain,
+          color: Palette.textPrimary,
         ),
       );
 

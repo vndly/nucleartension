@@ -126,7 +126,6 @@ class PlayerRowContent extends StatelessWidget {
                 onTap: () => game.onUnitAttack(
                   attacker: game.self,
                   defender: player,
-                  militaryPower: game.self.militaryPower,
                 ),
               ),
             ),
@@ -138,7 +137,6 @@ class PlayerRowContent extends StatelessWidget {
                 onTap: () => game.onMissileAttack(
                   attacker: game.self,
                   defender: player,
-                  amount: game.self.militaryAttackMissiles,
                 ),
               ),
             ),

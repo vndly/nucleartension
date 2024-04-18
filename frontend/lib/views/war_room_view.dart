@@ -52,7 +52,7 @@ class TabTitle extends StatelessWidget {
       child: Tab(
         child: Label(
           text: title,
-          color: Palette.textMain,
+          color: Palette.textPrimary,
           weight: FontWeight.bold,
         ),
       ),

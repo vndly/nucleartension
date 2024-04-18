@@ -11,7 +11,7 @@ class Palette {
   static const Color success = Colors.green;
   static const Color error = Colors.red;
 
-  static const Color textMain = Colors.white;
+  static const Color textPrimary = Colors.white;
   static const Color textAttack = Colors.red;
   static const Color textDisabled = Color(0xff808080);
   static const Color textDescription = Color(0xffd0d0d0);

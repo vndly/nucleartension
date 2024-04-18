@@ -46,8 +46,9 @@ class _EventBlockState extends State<EventBlock> {
               const HBox(10),
               Label(
                 text: Formatter.hoursMinutes(widget.event.dateTime),
-                color:
-                    widget.event.seen ? Palette.textDisabled : Palette.textMain,
+                color: widget.event.seen
+                    ? Palette.textDisabled
+                    : Palette.textPrimary,
               ),
             ],
           ),
@@ -80,7 +81,7 @@ class EventRows extends StatelessWidget {
               text: rows[i],
               color: seen
                   ? Palette.textDisabled
-                  : ((i == 0) ? Palette.error : Palette.textMain),
+                  : ((i == 0) ? Palette.error : Palette.textPrimary),
               weight: (i == 0) ? FontWeight.bold : FontWeight.normal,
             ),
           ),

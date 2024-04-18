@@ -13,7 +13,7 @@ class ResourceIndicator extends StatelessWidget {
     required this.icon,
     required this.value,
     required this.textSize,
-    this.textColor = Palette.textMain,
+    this.textColor = Palette.textPrimary,
   });
 
   @override
