@@ -3,9 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"main.dart.js": "657295b95c40524e900e434cbb50f68f",
-"assets/NOTICES": "473c51423fe80cc338192c076034c727",
+const RESOURCES = {"main.dart.js": "3363b19634731773b170ce52c51e63c3",
+"assets/NOTICES": "14666e27a81b91252fb7dd848c26145a",
 "assets/FontManifest.json": "38d088b85cbd1af87912c7c23d2f652a",
+"assets/assets/icons/tank.svg": "107fe3b4cb0533dd5115de0554f744d9",
+"assets/assets/icons/missile.svg": "093a1d8f8fe0a8e05de95398df936683",
 "assets/assets/images/units/infantry.png": "e5f6cd6261075c4b2f7bcb859c3f7fc9",
 "assets/assets/images/units/aircraft.png": "8962eddba97e457a871e56bdaae4c305",
 "assets/assets/images/units/vehicle.png": "6d958c1b6f25d0bfc532c1a9995b0c04",
@@ -50,11 +52,11 @@ const RESOURCES = {"main.dart.js": "657295b95c40524e900e434cbb50f68f",
 "assets/assets/images/missiles/defense.png": "a6ca0edc1e705874d5acb6592835f9b0",
 "assets/assets/images/missiles/attack.png": "8cb639cab7d1f7f6614157dd67fef51b",
 "assets/assets/fonts/HellasCour-Regular.ttf": "0292d8c2f850c8e3fa7967092bdc9ed1",
-"assets/fonts/MaterialIcons-Regular.otf": "10f8373394aba315478b5edb306d31a7",
+"assets/fonts/MaterialIcons-Regular.otf": "1ebe4fc280d09826e19b56044f7cfc0e",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
-"assets/AssetManifest.bin": "8df29637481746e8443b2c898867996c",
-"assets/AssetManifest.json": "4120dbb52806fd7c6084185230cb6d4e",
-"assets/AssetManifest.bin.json": "c229ff0f5c61e1674f4764010cf30edc",
+"assets/AssetManifest.bin": "f51c13e47e56355c171c824cec6d0231",
+"assets/AssetManifest.json": "316313daadd9b32b9467e5afebe76a10",
+"assets/AssetManifest.bin.json": "b6647952829a9c9c0df43e38c33ba2c6",
 "manifest.json": "c34eb726612a72eb29c4a2466dc489df",
 "canvaskit/canvaskit.wasm": "3d2a2d663e8c5111ac61a46367f751ac",
 "canvaskit/skwasm.js": "445e9e400085faead4493be2224d95aa",
@@ -70,8 +72,8 @@ const RESOURCES = {"main.dart.js": "657295b95c40524e900e434cbb50f68f",
 "firebase-messaging-sw.js": "5b8b5435d89eea9d02ed9ea9565635c6",
 "favicon.png": "70a31eb877b5e97fdb9a12a5a469dc1a",
 "version.json": "0ff45af32d7b9fd732a03f7d2ed6a3af",
-"index.html": "ec082b9d517f7d97bcecd82ba130c0ba",
-"/": "ec082b9d517f7d97bcecd82ba130c0ba"};
+"index.html": "8fc021e4adbffb2a3007a2773c0fdf7f",
+"/": "8fc021e4adbffb2a3007a2773c0fdf7f"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

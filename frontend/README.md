@@ -1,9 +1,9 @@
 # Nuclear Tension
 
-* SVG icons
+* Implement unit and missile selector
 * Implement missile attack resolution
-* Lost condition and lost screen
 * Pause menu when going back
+* Lost condition and lost screen
 
 * Save game progress as JSON
 * Localize text
