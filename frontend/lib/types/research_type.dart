@@ -298,17 +298,17 @@ enum ResearchType {
     }
   }
 
-  String get details => '$description.\n\n$levelDetails';
+  List<String> get details => [
+        '$description.',
+        '',
+        ...levelDetails,
+      ];
 
-  String get levelDetails {
-    String result = '';
+  List<String> get levelDetails {
+    final List<String> result = [];
 
     for (int i = 1; i <= maxLevel; i++) {
-      if (result.isNotEmpty) {
-        result += '\n';
-      }
-
-      result += 'Level $i: ${rateDescription(i)}';
+      result.add('Level $i: ${rateDescription(i)}');
     }
 
     return result;

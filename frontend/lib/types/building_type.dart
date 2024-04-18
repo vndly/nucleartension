@@ -100,29 +100,29 @@ enum BuildingType {
     switch (this) {
       case power_plant:
         return [
-          'Produces energy',
-          'Each level of this building increases its production output',
+          'Produces energy.',
+          'Each level of this building increases its production output.',
         ];
       case supply_center:
         return [
-          'Produces supplies',
-          'Each level of this building increases its production output',
+          'Produces supplies.',
+          'Each level of this building increases its production output.',
         ];
       case propaganda_station:
         return [
-          'Produces population',
-          'Each level of this building increases its production output',
+          'Produces population.',
+          'Each level of this building increases its production output.',
         ];
       case tech_lab:
         return [
-          'Produces technology',
-          'Each level of this building increases its production output',
+          'Produces technology.',
+          'Each level of this building increases its production output.',
         ];
       case missile_silo:
         return [
-          'Creates defense and attack missiles',
+          'Creates defense and attack missiles.',
           '',
-          'Each level of this building increases its queue size',
+          'Each level of this building increases its queue size.',
         ];
       case military_facility:
         return [
@@ -131,7 +131,7 @@ enum BuildingType {
           '* Vehicles',
           '* Aircraft',
           '',
-          'Each level of this building increases its queue size',
+          'Each level of this building increases its queue size.',
         ];
     }
   }

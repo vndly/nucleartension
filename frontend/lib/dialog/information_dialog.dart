@@ -97,7 +97,7 @@ class InformationDialog extends StatelessWidget {
 
   static DialogController research(ResearchType researchType) => _entityInfo(
         title: researchType.localized,
-        descriptions: [researchType.details],
+        descriptions: researchType.details,
         sprite: researchType.sprite,
       );
 
