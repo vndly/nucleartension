@@ -23,7 +23,7 @@ extension ItemMapExtension<T> on ItemMap<T> {
     final Map<T, num> result = {};
 
     for (final MapEntry<T, num> item in entries) {
-      result[item.key] = (item.value * factor).ceil();
+      result[item.key] = item.value * factor;
     }
 
     return result;

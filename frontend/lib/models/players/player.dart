@@ -102,7 +102,7 @@ class Player {
   num get defconProductionBoost =>
       pow(1 + Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
 
-  int get population => resources.get(ResourceType.population).ceil();
+  int get population => resources.get(ResourceType.population).floor();
 
   void removePopulation(int amount) {
     resources.remove(ResourceType.population, min(amount, population));

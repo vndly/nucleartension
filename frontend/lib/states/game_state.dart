@@ -37,13 +37,13 @@ class GameState extends BaseState {
       resources: ResourceInventory.create({
         ResourceType.energy: 200,
         ResourceType.supplies: 200,
-        ResourceType.population: 1000000,
-        ResourceType.technology: 2000,
+        ResourceType.population: 1234567,
+        ResourceType.technology: 123456,
       }),
       military: MilitaryInventory.create({
         MilitaryType.power: 10,
         MilitaryType.defense_missiles: 5,
-        MilitaryType.attack_missiles: 20,
+        MilitaryType.attack_missiles: 654321,
       }),
       buildings: {},
       researches: {},
