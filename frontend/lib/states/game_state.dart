@@ -332,5 +332,5 @@ class GameState extends BaseState {
     running = true;
   }
 
-  void _onQuit() => Navigation.pop();
+  void _onQuit() => Delayed.post(Navigation.pop);
 }

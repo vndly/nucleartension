@@ -39,7 +39,7 @@ class Content extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               PrimaryButton(
-                text: 'Continue',
+                text: 'CONTINUE',
                 icon: Icons.play_arrow,
                 color: Palette.buttonEnabled,
                 onPressed: state.onContinue,
@@ -47,7 +47,7 @@ class Content extends StatelessWidget {
               ),
               const VBox(20),
               PrimaryButton(
-                text: 'Settings',
+                text: 'SETTINGS',
                 icon: Icons.settings,
                 color: Palette.buttonEnabled,
                 onPressed: state.onSettings,
@@ -55,7 +55,7 @@ class Content extends StatelessWidget {
               ),
               const VBox(20),
               PrimaryButton(
-                text: 'Info',
+                text: 'INFO',
                 icon: Icons.info,
                 color: Palette.buttonEnabled,
                 onPressed: state.onInfo,
