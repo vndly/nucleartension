@@ -82,6 +82,7 @@ class ButtonContent extends StatelessWidget {
                 Label(
                   text: text,
                   size: textSize,
+                  weight: FontWeight.bold,
                 ),
               ],
             ),

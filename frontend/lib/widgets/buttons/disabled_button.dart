@@ -62,6 +62,7 @@ class DisabledButton extends StatelessWidget {
           text: text,
           size: size / 3,
           color: Palette.textPrimary,
+          weight: FontWeight.bold,
         ),
       );
 
