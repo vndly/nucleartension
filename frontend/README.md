@@ -1,6 +1,6 @@
 # Nuclear Tension
 
-* Lost condition and lost screen
+* Lost/Victory condition and lost/victory screen
 * Save game progress as JSON
 * Localize text
 * Implement AI
