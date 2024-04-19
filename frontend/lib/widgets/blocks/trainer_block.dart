@@ -6,6 +6,7 @@ import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/environment.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
@@ -84,7 +85,7 @@ class HeaderSection extends StatelessWidget {
         if (trainer.level > 0) ...[
           const Spacer(),
           LabeledText(
-            label: 'LEVEL:',
+            label: '${Localized.get.labelLevel}:',
             text: trainer.level.toString(),
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
@@ -114,7 +115,8 @@ class TrainerLeftSection extends StatelessWidget {
         const HBox(15),
         if (trainer.level > 0)
           Label(
-            text: 'QUEUE: ${trainer.queueSize}/${trainer.queueMaxCapacity}',
+            text: Localized.get
+                .labelQueue(trainer.queueSize, trainer.queueMaxCapacity),
             color:
                 trainer.isQueueAvailable ? Palette.textPrimary : Palette.error,
             weight: FontWeight.bold,
@@ -272,8 +274,10 @@ class UnitRightSection extends StatelessWidget {
           unitType: unitType,
         );
       } else {
-        return const Label(
-          text: 'Requires\nnuclear bomb\nresearch',
+        return Label(
+          text: Localized.get
+              .labelRequires(ResearchType.weapons_nuclear_bomb.localized)
+              .replaceAll(' ', '\n'),
           color: Palette.error,
           align: TextAlign.center,
           size: 12,

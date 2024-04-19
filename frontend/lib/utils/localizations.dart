@@ -50,6 +50,8 @@ abstract class BaseLocalized {
 
   String get labelMax;
 
+  String labelQueue(int param1, int param2);
+
   String labelRequires(String param1);
 
   String get labelSecond;
@@ -147,6 +149,10 @@ class ENLocalized extends BaseLocalized {
   String get labelMax => 'Max';
 
   @override
+  String labelQueue(int param1, int param2) =>
+      'Queue ${param1.toString()}/${param2.toString()}';
+
+  @override
   String labelRequires(String param1) => 'Requires ${param1.toString()}';
 
   @override
@@ -156,13 +162,13 @@ class ENLocalized extends BaseLocalized {
   String get screenEventsNoEvents => 'No events';
 
   @override
-  String get screenWarRoomIntelMilitary => '';
+  String get screenWarRoomIntelMilitary => 'Military';
 
   @override
-  String get screenWarRoomIntelPopulation => '';
+  String get screenWarRoomIntelPopulation => 'Population';
 
   @override
-  String get screenWarRoomIntelResearch => '';
+  String get screenWarRoomIntelResearch => 'Research';
 
   @override
   String get screenWarRoomTabIntel => 'Intel';
