@@ -20,7 +20,7 @@ class ConfirmationDialog extends StatelessWidget {
     required this.onCancel,
   });
 
-  static DialogController _show({
+  static DialogController show({
     required String message,
     required String buttonAccept,
     required String buttonCancel,
@@ -34,36 +34,6 @@ class ConfirmationDialog extends StatelessWidget {
         onAccept: onAccept,
         onCancel: onCancel ?? () {},
       ));
-
-  static DialogController cancelExploration({
-    required VoidCallback onAccept,
-  }) =>
-      _show(
-        message: 'Stop exploration?',
-        buttonAccept: 'Stop',
-        buttonCancel: 'Cancel',
-        onAccept: onAccept,
-      );
-
-  static DialogController cancelConstruction({
-    required VoidCallback onAccept,
-  }) =>
-      _show(
-        message: 'Stop construction?',
-        buttonAccept: 'Stop',
-        buttonCancel: 'Cancel',
-        onAccept: onAccept,
-      );
-
-  static DialogController destroyBuilding({
-    required VoidCallback onAccept,
-  }) =>
-      _show(
-        message: 'Destroy building?',
-        buttonAccept: 'Destroy',
-        buttonCancel: 'Cancel',
-        onAccept: onAccept,
-      );
 
   @override
   Widget build(BuildContext context) {

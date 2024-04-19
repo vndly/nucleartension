@@ -8,6 +8,7 @@ import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
@@ -80,7 +81,7 @@ class InformationDialog extends StatelessWidget {
             ),
           ],
         ),
-        buttonAccept: 'OK',
+        buttonAccept: Localized.get.buttonOk,
       );
 
   static DialogController building(BuildingType buildingType) => _entityInfo(
@@ -135,37 +136,39 @@ class InformationDialog extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LabeledText(
-            label: 'Population:',
+            label:
+                Localized.get.dialogInformationPlayerPopulation.toUpperCase(),
             text: (researchIntelPopulation.level > 0)
                 ? Formatter.resourceRaw(player.population)
-                : 'unknown',
+                : Localized.get.dialogInformationPlayerUnknown.toUpperCase(),
             size: 14,
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
           ),
           const VBox(10),
           LabeledText(
-            label: 'Military:',
+            label: Localized.get.dialogInformationPlayerMilitary.toUpperCase(),
             text: (researchIntelMilitary.level > 0)
                 ? Formatter.resourceRaw(player.militaryPower)
-                : 'unknown',
+                : Localized.get.dialogInformationPlayerUnknown.toUpperCase(),
             size: 14,
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
           ),
           const VBox(10),
           LabeledText(
-            label: 'Technology:',
+            label:
+                Localized.get.dialogInformationPlayerTechnology.toUpperCase(),
             text: (researchIntelTechnology.level > 0)
                 ? Formatter.resourceRaw(player.technologyLevel)
-                : 'unknown',
+                : Localized.get.dialogInformationPlayerUnknown.toUpperCase(),
             size: 14,
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
           ),
         ],
       ),
-      buttonAccept: 'OK',
+      buttonAccept: Localized.get.buttonOk,
     );
   }
 
