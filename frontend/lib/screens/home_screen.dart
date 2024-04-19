@@ -1,3 +1,4 @@
+import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/home_state.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -13,12 +14,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GameContainer(
-      child: Center(
-        child: CircularProgressIndicator(
-          color: Palette.loader,
-        ),
-      ),
+    return GameContainer(
+      child: Content(state),
     );
   }
 }
@@ -36,30 +33,36 @@ class Content extends StatelessWidget {
         color: Palette.backgroundScreen,
         borderRadius: BorderRadius.circular(5),
       ),
-      child: IntrinsicWidth(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            PrimaryButton(
-              text: 'Continue',
-              icon: Icons.play_arrow,
-              color: Palette.textPrimary,
-              onPressed: state.onContinue,
-            ),
-            PrimaryButton(
-              text: 'Settings',
-              icon: Icons.settings,
-              color: Palette.textPrimary,
-              onPressed: state.onSettings,
-            ),
-            PrimaryButton(
-              text: 'Info',
-              icon: Icons.info,
-              color: Palette.textPrimary,
-              onPressed: state.onInfo,
-            ),
-          ],
+      child: Center(
+        child: IntrinsicWidth(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              PrimaryButton(
+                text: 'Continue',
+                icon: Icons.play_arrow,
+                color: Palette.buttonEnabled,
+                onPressed: state.onContinue,
+                expand: true,
+              ),
+              const VBox(20),
+              PrimaryButton(
+                text: 'Settings',
+                icon: Icons.settings,
+                color: Palette.buttonEnabled,
+                onPressed: state.onSettings,
+                expand: true,
+              ),
+              const VBox(20),
+              PrimaryButton(
+                text: 'Info',
+                icon: Icons.info,
+                color: Palette.buttonEnabled,
+                onPressed: state.onInfo,
+                expand: true,
+              ),
+            ],
+          ),
         ),
       ),
     );

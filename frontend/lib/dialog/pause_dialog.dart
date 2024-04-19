@@ -8,16 +8,20 @@ import 'package:nucleartension/widgets/labels/label.dart';
 
 class PauseDialog extends StatelessWidget {
   final VoidCallback onResume;
+  final VoidCallback onQuit;
 
   const PauseDialog._({
     required this.onResume,
+    required this.onQuit,
   });
 
   static DialogController show({
     required VoidCallback onResume,
+    required VoidCallback onQuit,
   }) =>
       BaseDialog.show(PauseDialog._(
         onResume: onResume,
+        onQuit: onQuit,
       ));
 
   @override
@@ -39,6 +43,15 @@ class PauseDialog extends StatelessWidget {
             onPressed: () {
               Navigation.pop();
               onResume();
+            },
+          ),
+          const VBox(10),
+          PrimaryButton(
+            text: 'QUIT',
+            color: Palette.buttonDisabled,
+            onPressed: () {
+              Navigation.pop();
+              onQuit();
             },
           ),
         ],

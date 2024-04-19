@@ -1,6 +1,5 @@
 # Nuclear Tension
 
-* Pause menu when going back
 * Lost condition and lost screen
 
 * Save game progress as JSON

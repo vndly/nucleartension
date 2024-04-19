@@ -18,6 +18,7 @@ import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
+import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
   late final Game game;
@@ -321,10 +322,15 @@ class GameState extends BaseState {
 
   void onPause() {
     running = false;
-    PauseDialog.show(onResume: _onResume);
+    PauseDialog.show(
+      onResume: _onResume,
+      onQuit: _onQuit,
+    );
   }
 
   void _onResume() {
     running = true;
   }
+
+  void _onQuit() => Navigation.pop();
 }
