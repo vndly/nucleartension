@@ -225,7 +225,9 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 1000000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({
+          MilitaryType.defense_missiles: 1000,
+        }),
         buildings: {},
         researches: {},
       ),
@@ -236,7 +238,7 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 900000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
       ),
@@ -247,7 +249,7 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 800000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
       ),
@@ -258,7 +260,7 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 700000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
       ),
@@ -269,7 +271,7 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 600000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
       ),
@@ -280,7 +282,7 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 500000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
       ),
@@ -291,7 +293,7 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 400000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
       ),
@@ -302,7 +304,7 @@ class GameState extends BaseState {
         resources: ResourceInventory.create({
           ResourceType.population: 300000,
         }),
-        military: MilitaryInventory.empty(),
+        military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
       ),

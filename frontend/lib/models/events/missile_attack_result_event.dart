@@ -28,7 +28,7 @@ class MissileAttackResultEvent extends Event {
         'Attacker: ${attacker.name}${(attacker == winner) ? ' (winner)' : ''}',
         'Defender: ${defender.name}${(defender == winner) ? ' (winner)' : ''}',
         'Total missiles: $totalMissiles (${Formatter.yield(totalMissiles * ktPerMissile)})',
-        'Effective missiles: $successfulAttackMissiles (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})',
-        'Defender loses: ${Formatter.resourceRaw(defenderLoses)} people',
+        'Successful missiles: $successfulAttackMissiles${successfulAttackMissiles > 0 ? ' (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})' : ''}',
+        'Defender loses: ${defenderLoses > 0 ? '${Formatter.resourceRaw(defenderLoses)} people' : 'none'}',
       ];
 }

@@ -1,6 +1,5 @@
 # Nuclear Tension
 
-* Implement missile attack resolution
 * Pause menu when going back
 * Lost condition and lost screen
 
