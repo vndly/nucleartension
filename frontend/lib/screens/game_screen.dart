@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/views/events_view.dart';
 import 'package:nucleartension/views/military_view.dart';
@@ -70,12 +71,12 @@ class _GameContentState extends State<GameContent> {
           selectedFontSize: 12,
           unselectedFontSize: 12,
           items: [
-            const BottomNavigationBarItem(
-              icon: Padding(
+            BottomNavigationBarItem(
+              icon: const Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.radar),
               ),
-              label: 'WAR ROOM',
+              label: Localized.get.bottomBarWarRoom.toUpperCase(),
             ),
             BottomNavigationBarItem(
               icon: Badge(
@@ -85,28 +86,28 @@ class _GameContentState extends State<GameContent> {
                   child: Icon(Icons.format_list_bulleted),
                 ),
               ),
-              label: 'EVENTS',
+              label: Localized.get.bottomBarEvents.toUpperCase(),
             ),
-            const BottomNavigationBarItem(
-              icon: Padding(
+            BottomNavigationBarItem(
+              icon: const Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.widgets),
               ),
-              label: 'RESOURCES',
+              label: Localized.get.bottomBarResources.toUpperCase(),
             ),
-            const BottomNavigationBarItem(
-              icon: Padding(
+            BottomNavigationBarItem(
+              icon: const Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.military_tech_outlined),
               ),
-              label: 'MILITARY',
+              label: Localized.get.bottomBarMilitary.toUpperCase(),
             ),
-            const BottomNavigationBarItem(
-              icon: Padding(
+            BottomNavigationBarItem(
+              icon: const Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.science),
               ),
-              label: 'RESEARCH',
+              label: Localized.get.bottomBarResearch.toUpperCase(),
             ),
           ],
         ),

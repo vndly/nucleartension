@@ -39,7 +39,7 @@ class ConfirmationDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseDialog(
       title: Label(
-        text: message.toUpperCase(),
+        text: message,
         color: Palette.textPrimary,
         weight: FontWeight.bold,
       ),

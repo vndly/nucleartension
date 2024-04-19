@@ -2,6 +2,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -41,10 +42,10 @@ class SelectorDialog extends StatefulWidget {
     required Function(int) onAccept,
   }) =>
       _show(
-        title: 'Select military power',
+        title: Localized.get.dialogSelectorMilitaryTitle,
         max: max,
-        buttonAccept: 'Attack',
-        buttonCancel: 'Cancel',
+        buttonAccept: Localized.get.buttonAttack,
+        buttonCancel: Localized.get.buttonCancel,
         onAccept: onAccept,
       );
 
@@ -53,10 +54,10 @@ class SelectorDialog extends StatefulWidget {
     required Function(int) onAccept,
   }) =>
       _show(
-        title: 'Select amount of missiles',
+        title: Localized.get.dialogSelectorMissilesTitle,
         max: max,
-        buttonAccept: 'Attack',
-        buttonCancel: 'Cancel',
+        buttonAccept: Localized.get.buttonAttack,
+        buttonCancel: Localized.get.buttonCancel,
         onAccept: onAccept,
       );
 
@@ -71,7 +72,7 @@ class _SelectorDialogState extends State<SelectorDialog> {
   Widget build(BuildContext context) {
     return BaseDialog(
       title: Label(
-        text: widget.title.toUpperCase(),
+        text: widget.title,
         color: Palette.textPrimary,
         weight: FontWeight.bold,
       ),

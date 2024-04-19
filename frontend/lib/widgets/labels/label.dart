@@ -10,6 +10,7 @@ class Label extends StatelessWidget {
   final TextDecoration decoration;
   final TextAlign? align;
   final TextOverflow? overflow;
+  final bool uppercase;
 
   const Label({
     required this.text,
@@ -19,12 +20,13 @@ class Label extends StatelessWidget {
     this.decoration = TextDecoration.none,
     this.align,
     this.overflow,
+    this.uppercase = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
+      uppercase ? text.toUpperCase() : text,
       textAlign: align,
       overflow: overflow,
       style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/primary_button.dart';
@@ -27,9 +28,9 @@ class PauseDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseDialog(
-      title: const Center(
+      title: Center(
         child: Label(
-          text: 'PAUSE',
+          text: Localized.get.dialogPauseTitle,
           color: Palette.textPrimary,
           weight: FontWeight.bold,
         ),
@@ -38,7 +39,7 @@ class PauseDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           PrimaryButton(
-            text: 'RESUME',
+            text: Localized.get.dialogPauseResume,
             color: Palette.buttonEnabled,
             onPressed: () {
               Navigation.pop();

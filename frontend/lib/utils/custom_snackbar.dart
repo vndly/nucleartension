@@ -1,5 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -64,7 +65,7 @@ class CustomSnackbar {
             ),
             const HBox(10),
             Label(
-              text: 'DEFCON $value',
+              text: Localized.get.snackDefcon(value),
               color: Palette.error,
               size: 20,
               weight: FontWeight.bold,

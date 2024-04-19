@@ -48,7 +48,7 @@ class InformationDialog extends StatelessWidget {
   }) =>
       _show(
         title: Label(
-          text: title.toUpperCase(),
+          text: title,
           color: Palette.textPrimary,
           weight: FontWeight.bold,
         ),
@@ -136,32 +136,30 @@ class InformationDialog extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LabeledText(
-            label:
-                Localized.get.dialogInformationPlayerPopulation.toUpperCase(),
+            label: Localized.get.dialogInformationPlayerPopulation,
             text: (researchIntelPopulation.level > 0)
                 ? Formatter.resourceRaw(player.population)
-                : Localized.get.dialogInformationPlayerUnknown.toUpperCase(),
+                : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
           ),
           const VBox(10),
           LabeledText(
-            label: Localized.get.dialogInformationPlayerMilitary.toUpperCase(),
+            label: Localized.get.dialogInformationPlayerMilitary,
             text: (researchIntelMilitary.level > 0)
                 ? Formatter.resourceRaw(player.militaryPower)
-                : Localized.get.dialogInformationPlayerUnknown.toUpperCase(),
+                : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
           ),
           const VBox(10),
           LabeledText(
-            label:
-                Localized.get.dialogInformationPlayerTechnology.toUpperCase(),
+            label: Localized.get.dialogInformationPlayerTechnology,
             text: (researchIntelTechnology.level > 0)
                 ? Formatter.resourceRaw(player.technologyLevel)
-                : Localized.get.dialogInformationPlayerUnknown.toUpperCase(),
+                : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
