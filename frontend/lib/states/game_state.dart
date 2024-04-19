@@ -1,4 +1,5 @@
 import 'package:dafluta/dafluta.dart';
+import 'package:nucleartension/dialog/pause_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
@@ -20,6 +21,7 @@ import 'package:nucleartension/types/unit_type.dart';
 
 class GameState extends BaseState {
   late final Game game;
+  bool running = true;
 
   GameState() {
     game = Game(
@@ -312,6 +314,17 @@ class GameState extends BaseState {
   }
 
   void update(double dt) {
-    game.update(dt);
+    if (running) {
+      game.update(dt);
+    }
+  }
+
+  void onPause() {
+    running = false;
+    PauseDialog.show(onResume: _onResume);
+  }
+
+  void _onResume() {
+    running = true;
   }
 }
