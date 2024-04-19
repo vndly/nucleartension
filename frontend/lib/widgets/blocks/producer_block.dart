@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
@@ -61,7 +62,7 @@ class HeaderSection extends StatelessWidget {
         if (producer.level > 0) ...[
           const Spacer(),
           LabeledText(
-            label: 'LEVEL:',
+            label: '${Localized.get.labelLevel}:',
             text: producer.level.toString(),
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
@@ -122,7 +123,8 @@ class ProductionIndicator extends StatelessWidget {
         producer.resourceType.icon(15),
         const HBox(10),
         Label(
-          text: '${Formatter.production(producer.production)}/s',
+          text:
+              '${Formatter.production(producer.production)}/${Localized.get.labelSecond}',
           color:
               (producer.production == 0) ? Palette.error : Palette.textPrimary,
           size: 15,

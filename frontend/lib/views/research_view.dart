@@ -257,7 +257,7 @@ class ResearchIntel extends StatelessWidget {
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.intel_technology),
+          research: player.getResearch(ResearchType.intel_research),
         ),
       ],
     );

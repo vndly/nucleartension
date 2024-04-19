@@ -174,8 +174,8 @@ enum ResearchType {
       ResourceType.technology: 10,
     },
   ),
-  intel_technology(
-    sprite: Assets.IMAGES_RESEARCH_INTEL_TECHNOLOGY,
+  intel_research(
+    sprite: Assets.IMAGES_RESEARCH_INTEL_RESEARCH,
     maxLevel: 2,
     initialCost: {
       ResourceType.technology: 10,
@@ -242,8 +242,8 @@ enum ResearchType {
         return 'Population';
       case intel_military:
         return 'Military';
-      case intel_technology:
-        return 'Technology';
+      case intel_research:
+        return 'Research';
     }
   }
 
@@ -293,8 +293,8 @@ enum ResearchType {
         return 'Reveals population intel about other players';
       case intel_military:
         return 'Reveals military intel about other players';
-      case intel_technology:
-        return 'Reveals technology intel about other players';
+      case intel_research:
+        return 'Reveals research intel about other players';
     }
   }
 
@@ -346,7 +346,7 @@ enum ResearchType {
 
       case intel_population:
       case intel_military:
-      case intel_technology:
+      case intel_research:
         if (level == 1) {
           return "Global players' ranking";
         } else if (level == 2) {

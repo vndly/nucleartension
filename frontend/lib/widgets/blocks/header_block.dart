@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
@@ -252,28 +253,28 @@ class ExpandedMilitarySection extends StatelessWidget {
         ExpandedMilitaryLabel(
           icon: Icons.warning_rounded,
           color: Palette.militaryDefcon,
-          title: 'DEFCON:',
+          title: Localized.get.headerDefcon,
           value: player.game.defcon.toString(),
         ),
         const VBox(10),
         ExpandedMilitaryLabel(
           icon: Icons.star,
           color: Palette.militaryPower,
-          title: 'MILITARY POWER:',
+          title: Localized.get.headerMilitaryPower,
           value: Formatter.resourceRaw(player.militaryPower),
         ),
         const VBox(10),
         ExpandedMilitaryLabel(
           icon: Icons.shield,
           color: Palette.militaryDefenseMissile,
-          title: 'DEFENSE MISSILES:',
+          title: Localized.get.headerDefenseMissiles,
           value: Formatter.resourceRaw(player.militaryDefenseMissiles),
         ),
         const VBox(10),
         ExpandedMilitaryLabel(
           icon: Icons.local_fire_department_rounded,
           color: Palette.militaryAttackMissile,
-          title: 'ATTACK MISSILES:',
+          title: Localized.get.headerAttackMissiles,
           value: Formatter.resourceRaw(player.militaryAttackMissiles),
         ),
       ],

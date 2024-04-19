@@ -106,12 +106,12 @@ class InformationDialog extends StatelessWidget {
     required Game game,
     required Player player,
   }) {
-    final Research researchIntelPopulation =
+    final Research intelPopulation =
         game.self.getResearch(ResearchType.intel_population);
-    final Research researchIntelMilitary =
+    final Research intelMilitary =
         game.self.getResearch(ResearchType.intel_military);
-    final Research researchIntelTechnology =
-        game.self.getResearch(ResearchType.intel_technology);
+    final Research intelResearch =
+        game.self.getResearch(ResearchType.intel_research);
 
     return _show(
       title: Row(
@@ -137,7 +137,7 @@ class InformationDialog extends StatelessWidget {
         children: [
           LabeledText(
             label: Localized.get.dialogInformationPlayerPopulation,
-            text: (researchIntelPopulation.level > 0)
+            text: (intelPopulation.level > 0)
                 ? Formatter.resourceRaw(player.population)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
@@ -147,7 +147,7 @@ class InformationDialog extends StatelessWidget {
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerMilitary,
-            text: (researchIntelMilitary.level > 0)
+            text: (intelMilitary.level > 0)
                 ? Formatter.resourceRaw(player.militaryPower)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
@@ -156,9 +156,9 @@ class InformationDialog extends StatelessWidget {
           ),
           const VBox(10),
           LabeledText(
-            label: Localized.get.dialogInformationPlayerTechnology,
-            text: (researchIntelTechnology.level > 0)
-                ? Formatter.resourceRaw(player.technologyLevel)
+            label: Localized.get.dialogInformationPlayerResearch,
+            text: (intelResearch.level > 0)
+                ? Formatter.resourceRaw(player.researchLevel)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
             labelColor: Palette.textPrimary,

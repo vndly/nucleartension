@@ -60,9 +60,9 @@ class Game {
     return result;
   }
 
-  List<Player> get playersByTechnology {
+  List<Player> get playersByResearch {
     final List<Player> result = List.from(players);
-    result.sort((a, b) => b.technologyLevel - a.technologyLevel);
+    result.sort((a, b) => b.researchLevel - a.researchLevel);
 
     return result;
   }

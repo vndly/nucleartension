@@ -24,7 +24,7 @@ abstract class BaseLocalized {
 
   String get dialogInformationPlayerPopulation;
 
-  String get dialogInformationPlayerTechnology;
+  String get dialogInformationPlayerResearch;
 
   String get dialogInformationPlayerUnknown;
 
@@ -36,15 +36,35 @@ abstract class BaseLocalized {
 
   String get dialogSelectorMissilesTitle;
 
+  String get headerAttackMissiles;
+
+  String get headerDefcon;
+
+  String get headerDefenseMissiles;
+
+  String get headerMilitaryPower;
+
+  String get labelCurrent;
+
+  String get labelLevel;
+
+  String get labelMax;
+
+  String labelRequires(String param1);
+
+  String get labelSecond;
+
   String get screenEventsNoEvents;
 
-  String get screenLevelsUnlockAllLevels;
+  String get screenWarRoomIntelMilitary;
 
-  String get screenSettingsAudio;
+  String get screenWarRoomIntelPopulation;
 
-  String get screenSettingsRestorePurchases;
+  String get screenWarRoomIntelResearch;
 
-  String get screenSettingsVibration;
+  String get screenWarRoomTabIntel;
+
+  String get screenWarRoomTabPlayers;
 
   String snackDefcon(int param1);
 
@@ -88,7 +108,7 @@ class ENLocalized extends BaseLocalized {
   String get dialogInformationPlayerPopulation => 'Population:';
 
   @override
-  String get dialogInformationPlayerTechnology => 'Technology:';
+  String get dialogInformationPlayerResearch => 'Research:';
 
   @override
   String get dialogInformationPlayerUnknown => 'Unknown';
@@ -106,19 +126,49 @@ class ENLocalized extends BaseLocalized {
   String get dialogSelectorMissilesTitle => 'Select amount of missiles';
 
   @override
+  String get headerAttackMissiles => 'Attack Missiles:';
+
+  @override
+  String get headerDefcon => 'DEFCON:';
+
+  @override
+  String get headerDefenseMissiles => 'Defense Missiles:';
+
+  @override
+  String get headerMilitaryPower => 'Military Power:';
+
+  @override
+  String get labelCurrent => 'Current';
+
+  @override
+  String get labelLevel => 'Level';
+
+  @override
+  String get labelMax => 'Max';
+
+  @override
+  String labelRequires(String param1) => 'Requires ${param1.toString()}';
+
+  @override
+  String get labelSecond => 's';
+
+  @override
   String get screenEventsNoEvents => 'No events';
 
   @override
-  String get screenLevelsUnlockAllLevels => '';
+  String get screenWarRoomIntelMilitary => '';
 
   @override
-  String get screenSettingsAudio => '';
+  String get screenWarRoomIntelPopulation => '';
 
   @override
-  String get screenSettingsRestorePurchases => '';
+  String get screenWarRoomIntelResearch => '';
 
   @override
-  String get screenSettingsVibration => '';
+  String get screenWarRoomTabIntel => 'Intel';
+
+  @override
+  String get screenWarRoomTabPlayers => 'Players';
 
   @override
   String snackDefcon(int param1) => 'DEFCON ${param1.toString()}';

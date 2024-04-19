@@ -5,6 +5,7 @@ import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/block_title.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
@@ -25,7 +26,7 @@ class IntelBlock extends StatelessWidget {
         children: [
           PlayersByPopulation(game),
           PlayersByMilitary(game),
-          PlayersByTechnology(game),
+          PlayersByResearch(game),
         ],
       );
     } else {
@@ -45,7 +46,7 @@ class PlayersByPopulation extends StatelessWidget {
         game.self.getResearch(ResearchType.intel_population);
 
     return PlayersList(
-      title: 'POPULATION',
+      title: Localized.get.screenWarRoomIntelPopulation,
       players: game.playersByPopulation,
       researchLevel: research.level,
       function: (p) => Formatter.resourceRaw(p.population),
@@ -64,7 +65,7 @@ class PlayersByMilitary extends StatelessWidget {
         game.self.getResearch(ResearchType.intel_military);
 
     return PlayersList(
-      title: 'MILITARY',
+      title: Localized.get.screenWarRoomIntelMilitary,
       players: game.playersByMilitary,
       researchLevel: research.level,
       function: (p) => Formatter.resourceRaw(p.militaryPower),
@@ -72,21 +73,21 @@ class PlayersByMilitary extends StatelessWidget {
   }
 }
 
-class PlayersByTechnology extends StatelessWidget {
+class PlayersByResearch extends StatelessWidget {
   final Game game;
 
-  const PlayersByTechnology(this.game);
+  const PlayersByResearch(this.game);
 
   @override
   Widget build(BuildContext context) {
     final Research research =
-        game.self.getResearch(ResearchType.intel_technology);
+        game.self.getResearch(ResearchType.intel_research);
 
     return PlayersList(
-      title: 'TECHNOLOGY',
-      players: game.playersByTechnology,
+      title: Localized.get.screenWarRoomIntelResearch,
+      players: game.playersByResearch,
       researchLevel: research.level,
-      function: (p) => Formatter.resourceRaw(p.technologyLevel),
+      function: (p) => Formatter.resourceRaw(p.researchLevel),
     );
   }
 }

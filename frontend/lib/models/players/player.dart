@@ -66,7 +66,7 @@ class Player {
 
   // ============================ RESEARCH ================================== \\
 
-  int get technologyLevel {
+  int get researchLevel {
     int result = 0;
 
     for (final Research research in researches.values) {
@@ -81,12 +81,12 @@ class Player {
         game.self.getResearch(ResearchType.intel_population).level;
     final int researchIntelMilitary =
         game.self.getResearch(ResearchType.intel_military).level;
-    final int researchIntelTechnology =
-        game.self.getResearch(ResearchType.intel_technology).level;
+    final int researchIntelResearch =
+        game.self.getResearch(ResearchType.intel_research).level;
 
     return (researchIntelPopulation > 0) ||
         (researchIntelMilitary > 0) ||
-        (researchIntelTechnology > 0);
+        (researchIntelResearch > 0);
   }
 
   Research getResearch(ResearchType researchType) =>

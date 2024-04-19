@@ -4,6 +4,7 @@ import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/disabled_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
@@ -70,7 +71,7 @@ class HeaderSection extends StatelessWidget {
         if (research.level > 0) ...[
           const Spacer(),
           LabeledText(
-            label: 'LEVEL:',
+            label: '${Localized.get.labelLevel}:',
             text: research.level.toString(),
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
@@ -113,7 +114,7 @@ class LeftSection extends StatelessWidget {
                   if (research.level > 0) ...[
                     const Spacer(),
                     LabeledText(
-                      label: 'Current:',
+                      label: '${Localized.get.labelCurrent}:',
                       text:
                           research.researchType.rateDescription(research.level),
                       labelColor: Palette.textDescription,
@@ -149,7 +150,7 @@ class RightSection extends StatelessWidget {
     if (buildingLevel > 0) {
       if (research.isMax) {
         return DisabledButton.text(
-          text: 'MAX',
+          text: Localized.get.labelMax,
           size: 50,
         );
       } else {
@@ -160,7 +161,9 @@ class RightSection extends StatelessWidget {
       }
     } else {
       return Label(
-        text: 'Requires\n${buildingType?.localized.replaceAll(' ', '\n')}',
+        text: Localized.get
+            .labelRequires(buildingType!.localized)
+            .replaceAll(' ', '\n'),
         color: Palette.error,
         align: TextAlign.center,
         size: 12,

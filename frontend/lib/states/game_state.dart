@@ -178,7 +178,7 @@ class GameState extends BaseState {
       ),
       Research(
         player: player,
-        researchType: ResearchType.intel_technology,
+        researchType: ResearchType.intel_research,
         level: 2,
       ),
     ]);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/blocks/intel_block.dart';
 import 'package:nucleartension/widgets/blocks/players_block.dart';
@@ -20,8 +21,9 @@ class WarRoomView extends StatelessWidget {
             TabBar(
               labelPadding: EdgeInsets.zero,
               tabs: [
-                const TabTitle('PLAYERS'),
-                if (game.self.hasIntel) const TabTitle('INTEL'),
+                TabTitle(Localized.get.screenWarRoomTabPlayers),
+                if (game.self.hasIntel)
+                  TabTitle(Localized.get.screenWarRoomTabIntel),
               ],
             ),
             Expanded(
