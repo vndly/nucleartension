@@ -1,7 +1,6 @@
 # Nuclear Tension
 
 * Lost condition and lost screen
-
 * Save game progress as JSON
 * Localize text
 * Implement AI
@@ -9,3 +8,4 @@
     - Create unit
     - Create missile
     - Research technology
+    - Attack a player

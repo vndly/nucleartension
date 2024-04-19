@@ -14,8 +14,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GameContainer(
-      child: Content(state),
+    return const GameContainer(
+      child: Empty(),
     );
   }
 }

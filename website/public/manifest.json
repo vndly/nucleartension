@@ -1,11 +1,11 @@
 {
-    "name": "nucleartension",
-    "short_name": "nucleartension",
+    "name": "Nuclear Tension",
+    "short_name": "Nuclear Tension",
+    "description": "A base builder, resource management, nuclear war, survival game",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
