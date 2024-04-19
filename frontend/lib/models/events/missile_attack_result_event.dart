@@ -8,7 +8,7 @@ class MissileAttackResultEvent extends Event {
   final Player defender;
   final Player winner;
   final int totalMissiles;
-  final int effectiveMissiles;
+  final int successfulAttackMissiles;
   final int ktPerMissile;
   final int defenderLoses;
 
@@ -17,7 +17,7 @@ class MissileAttackResultEvent extends Event {
     required this.defender,
     required this.winner,
     required this.totalMissiles,
-    required this.effectiveMissiles,
+    required this.successfulAttackMissiles,
     required this.ktPerMissile,
     required this.defenderLoses,
   }) : super(eventType: EventType.unit_attack_result);
@@ -28,7 +28,7 @@ class MissileAttackResultEvent extends Event {
         'Attacker: ${attacker.name}${(attacker == winner) ? ' (winner)' : ''}',
         'Defender: ${defender.name}${(defender == winner) ? ' (winner)' : ''}',
         'Total missiles: $totalMissiles (${Formatter.yield(totalMissiles * ktPerMissile)})',
-        'Effective missiles: $effectiveMissiles (${Formatter.yield(effectiveMissiles * ktPerMissile)})',
+        'Effective missiles: $successfulAttackMissiles (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})',
         'Defender loses: ${Formatter.resourceRaw(defenderLoses)} people',
       ];
 }

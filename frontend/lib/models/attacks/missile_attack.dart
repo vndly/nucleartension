@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
@@ -51,29 +53,13 @@ class MissileAttack extends Attack {
 
   @override
   List<Event> resolve() {
-    final num resilienceBombShelters = defender.resilienceBombShelters;
-    final num defenseMissilesEffectiveness =
-        defender.defenseMissilesEffectiveness;
-    final num attackMissilesEffectiveness =
-        attacker.attackMissilesEffectiveness;
-
-    // -------------------------------------------------------------------------
-
-    // TODO(momo): implement
-    final int usedDefenseMissiles = defender.militaryDefenseMissiles;
-    final int effectiveAttackMissiles = ((totalMissiles / 2) *
-            defenseMissilesEffectiveness *
-            attackMissilesEffectiveness)
-        .toInt();
-    final num totalYield = effectiveAttackMissiles *
+    final int successfulAttackMissiles = _computeMissiles();
+    final num totalYield = successfulAttackMissiles *
         ktPerMissile *
         Constants.MISSILE_ATTACK_DAMAGE_PER_KT;
-    final int population = (totalYield * resilienceBombShelters).floor();
-
-    // -------------------------------------------------------------------------
-
-    final Player winner = (effectiveAttackMissiles > 0) ? attacker : defender;
-    defender.removeDefenseMissiles(usedDefenseMissiles);
+    final int population =
+        (totalYield * defender.resilienceBombShelters).floor();
+    final Player winner = (successfulAttackMissiles > 0) ? attacker : defender;
     defender.removePopulation(population);
 
     final List<Event> result = [
@@ -82,7 +68,7 @@ class MissileAttack extends Attack {
         defender: defender,
         winner: winner,
         totalMissiles: totalMissiles,
-        effectiveMissiles: effectiveAttackMissiles,
+        successfulAttackMissiles: successfulAttackMissiles,
         ktPerMissile: ktPerMissile,
         defenderLoses: population,
       )
@@ -93,5 +79,25 @@ class MissileAttack extends Attack {
     }
 
     return result;
+  }
+
+  int _computeMissiles() {
+    final num defenseMissilesEffectiveness =
+        defender.defenseMissilesEffectiveness *
+            attacker.attackMissilesEffectiveness *
+            Constants.DEFENSE_MISSILE_EFFECTIVENESS;
+    final Random random = Random();
+    int remainingAttackMissiles = totalMissiles;
+
+    while ((remainingAttackMissiles > 0) &&
+        (defender.militaryDefenseMissiles > 0)) {
+      defender.removeDefenseMissiles(1);
+
+      if (random.nextDouble() < defenseMissilesEffectiveness) {
+        remainingAttackMissiles--;
+      }
+    }
+
+    return remainingAttackMissiles;
   }
 }
