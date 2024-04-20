@@ -74,5 +74,9 @@
     "type.country.pakistan": "Pakistan",
     "type.country.russia": "Russia",
     "type.country.uk": "United Kingdom",
-    "type.country.usa": "USA"
+    "type.country.usa": "USA",
+    "type.resource.energy": "Energy",
+    "type.resource.population": "Population",
+    "type.resource.supplies": "Supplies",
+    "type.resource.technology": "Technology"
 }

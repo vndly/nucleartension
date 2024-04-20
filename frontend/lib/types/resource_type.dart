@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/types/research_type.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 enum ResourceType {
@@ -11,13 +12,13 @@ enum ResourceType {
     sprite: Icons.token,
     color: Palette.resourceSupplies,
   ),
-  population(
-    sprite: Icons.people,
-    color: Palette.resourcePopulation,
-  ),
   technology(
     sprite: Icons.science,
     color: Palette.resourceTechnology,
+  ),
+  population(
+    sprite: Icons.people,
+    color: Palette.resourcePopulation,
   );
 
   final IconData sprite;
@@ -34,17 +35,16 @@ enum ResourceType {
         size: size,
       );
 
-  // TODO(momo): localize
   String get localized {
     switch (this) {
       case energy:
-        return 'Energy';
+        return Localized.get.typeResourceEnergy;
       case supplies:
-        return 'Supplies';
-      case population:
-        return 'Population';
+        return Localized.get.typeResourceSupplies;
       case technology:
-        return 'Technology';
+        return Localized.get.typeResourceTechnology;
+      case population:
+        return Localized.get.typeResourcePopulation;
     }
   }
 
@@ -54,10 +54,10 @@ enum ResourceType {
         return ResearchType.resources_grid_management;
       case supplies:
         return ResearchType.resources_production_chain;
-      case population:
-        return ResearchType.resources_indoctrination;
       case technology:
         return ResearchType.resources_quantum_computing;
+      case population:
+        return ResearchType.resources_indoctrination;
     }
   }
 }

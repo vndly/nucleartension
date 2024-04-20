@@ -20,18 +20,18 @@ enum BuildingType {
       ResourceType.supplies: 20,
     },
   ),
-  propaganda_station(
-    sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
-    initialCost: {
-      ResourceType.energy: 50,
-      ResourceType.supplies: 50,
-    },
-  ),
   tech_lab(
     sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
     initialCost: {
       ResourceType.energy: 100,
       ResourceType.supplies: 100,
+    },
+  ),
+  propaganda_station(
+    sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
+    initialCost: {
+      ResourceType.energy: 50,
+      ResourceType.supplies: 50,
     },
   ),
   missile_silo(
@@ -63,8 +63,8 @@ enum BuildingType {
     switch (this) {
       case BuildingType.power_plant:
       case BuildingType.supply_center:
-      case BuildingType.propaganda_station:
       case BuildingType.tech_lab:
+      case BuildingType.propaganda_station:
         return [];
       case BuildingType.missile_silo:
         return [

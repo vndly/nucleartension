@@ -153,6 +153,14 @@ abstract class BaseLocalized {
   String get typeCountryUk;
 
   String get typeCountryUsa;
+
+  String get typeResourceEnergy;
+
+  String get typeResourcePopulation;
+
+  String get typeResourceSupplies;
+
+  String get typeResourceTechnology;
 }
 
 class ENLocalized extends BaseLocalized {
@@ -393,6 +401,18 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeCountryUsa => 'USA';
+
+  @override
+  String get typeResourceEnergy => 'Energy';
+
+  @override
+  String get typeResourcePopulation => 'Population';
+
+  @override
+  String get typeResourceSupplies => 'Supplies';
+
+  @override
+  String get typeResourceTechnology => 'Technology';
 }
 
 class Localized {
