@@ -113,6 +113,7 @@ class PlayerRowContent extends StatelessWidget {
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                     size: 16,
+                    uppercase: false,
                   ),
                 ],
               ),

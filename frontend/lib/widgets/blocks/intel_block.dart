@@ -168,6 +168,7 @@ class PlayerRow extends StatelessWidget {
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                     size: 16,
+                    uppercase: false,
                   ),
                 ],
               ),
@@ -178,7 +179,6 @@ class PlayerRow extends StatelessWidget {
             Label(
               text: value,
               color: player.country.color,
-              weight: FontWeight.bold,
               size: 16,
             ),
         ],

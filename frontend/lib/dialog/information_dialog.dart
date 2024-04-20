@@ -74,6 +74,7 @@ class InformationDialog extends StatelessWidget {
                       child: Label(
                         text: description,
                         color: Palette.textPrimary,
+                        uppercase: false,
                       ),
                     ),
                 ],
