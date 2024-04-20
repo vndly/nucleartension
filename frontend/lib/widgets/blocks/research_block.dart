@@ -110,6 +110,7 @@ class LeftSection extends StatelessWidget {
                     text: research.researchType.description,
                     color: Palette.textDescription,
                     size: 12,
+                    uppercase: false,
                   ),
                   if (research.level > 0) ...[
                     const Spacer(),

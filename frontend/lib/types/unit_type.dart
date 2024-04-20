@@ -91,11 +91,13 @@ enum UnitType {
       case defense:
         return [
           Localized.get.typeUnitDefenseMissileDescription1,
+          '',
           Localized.get.typeUnitDefenseMissileDescription2,
         ];
       case attack:
         return [
           Localized.get.typeUnitAttackMissileDescription1,
+          '',
           Localized.get.typeUnitAttackMissileDescription2,
         ];
       case infantry:
