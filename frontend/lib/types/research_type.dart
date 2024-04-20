@@ -191,41 +191,41 @@ enum ResearchType {
   String get localized {
     switch (this) {
       case resources_grid_management:
-        return Localized.get.typeResearchGridManagementName;
+        return Localized.get.typeResearchResourcesGridManagementName;
       case resources_production_chain:
-        return Localized.get.typeResearchProductionChainName;
+        return Localized.get.typeResearchResourcesProductionChainName;
       case resources_indoctrination:
-        return Localized.get.typeResearchIndoctrinationName;
+        return Localized.get.typeResearchResourcesIndoctrinationName;
       case resources_quantum_computing:
-        return Localized.get.typeResearchQuantumComputingName;
+        return Localized.get.typeResearchResourcesQuantumComputingName;
       case missiles_additive_manufacturing:
-        return Localized.get.typeResearchAdditiveManufacturingName;
+        return Localized.get.typeResearchMissilesAdditiveManufacturingName;
       case missiles_assembly_automation:
-        return Localized.get.typeResearchAssemblyAutomationName;
+        return Localized.get.typeResearchMissilesAssemblyAutomationName;
       case missiles_active_tracking:
-        return Localized.get.typeResearchActiveTrackingName;
+        return Localized.get.typeResearchMissilesActiveTrackingName;
       case missiles_signal_jamming:
-        return Localized.get.typeResearchSignalJammingName;
+        return Localized.get.typeResearchMissilesSignalJammingName;
       case warning_missiles_radar_network:
-        return Localized.get.typeResearchRadarNetworkName;
+        return Localized.get.typeResearchWarningRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
-        return Localized.get.typeResearchHypersonicPropulsionName;
+        return Localized.get.typeResearchWarningHypersonicPropulsionName;
       case warning_military_early_warning:
-        return Localized.get.typeResearchEarlyWarningName;
+        return Localized.get.typeResearchWarningEarlyWarningName;
       case warning_military_fast_deployments:
-        return Localized.get.typeResearchFastDeploymentsName;
+        return Localized.get.typeResearchWarningFastDeploymentsName;
       case military_infantry_cost:
-        return Localized.get.typeResearchInfantryCostName;
+        return Localized.get.typeResearchMilitaryInfantryCostName;
       case military_infantry_time:
-        return Localized.get.typeResearchInfantryTimeName;
+        return Localized.get.typeResearchMilitaryInfantryTimeName;
       case military_vehicles_cost:
-        return Localized.get.typeResearchVehiclesCostName;
+        return Localized.get.typeResearchMilitaryVehiclesCostName;
       case military_vehicles_time:
-        return Localized.get.typeResearchVehiclesTimeName;
+        return Localized.get.typeResearchMilitaryVehiclesTimeName;
       case military_aircraft_cost:
-        return Localized.get.typeResearchAircraftCostName;
+        return Localized.get.typeResearchMilitaryAircraftCostName;
       case military_aircraft_time:
-        return Localized.get.typeResearchAircraftTimeName;
+        return Localized.get.typeResearchMilitaryAircraftTimeName;
       case weapons_nuclear_bomb:
         return Localized.get.typeResearchWeaponsNuclearBombName;
       case intel_population:
@@ -240,41 +240,42 @@ enum ResearchType {
   String get description {
     switch (this) {
       case resources_grid_management:
-        return Localized.get.typeResearchGridManagementDescription;
+        return Localized.get.typeResearchResourcesGridManagementDescription;
       case resources_production_chain:
-        return Localized.get.typeResearchProductionChainDescription;
+        return Localized.get.typeResearchResourcesProductionChainDescription;
       case resources_indoctrination:
-        return Localized.get.typeResearchIndoctrinationDescription;
+        return Localized.get.typeResearchResourcesIndoctrinationDescription;
       case resources_quantum_computing:
-        return Localized.get.typeResearchQuantumComputingDescription;
+        return Localized.get.typeResearchResourcesQuantumComputingDescription;
       case missiles_additive_manufacturing:
-        return Localized.get.typeResearchAdditiveManufacturingDescription;
+        return Localized
+            .get.typeResearchMissilesAdditiveManufacturingDescription;
       case missiles_assembly_automation:
-        return Localized.get.typeResearchAssemblyAutomationDescription;
+        return Localized.get.typeResearchMissilesAssemblyAutomationDescription;
       case missiles_active_tracking:
-        return Localized.get.typeResearchActiveTrackingDescription;
+        return Localized.get.typeResearchMissilesActiveTrackingDescription;
       case missiles_signal_jamming:
-        return Localized.get.typeResearchSignalJammingDescription;
+        return Localized.get.typeResearchMissilesSignalJammingDescription;
       case warning_missiles_radar_network:
-        return Localized.get.typeResearchRadarNetworkDescription;
+        return Localized.get.typeResearchWarningRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:
-        return Localized.get.typeResearchHypersonicPropulsionDescription;
+        return Localized.get.typeResearchWarningHypersonicPropulsionDescription;
       case warning_military_early_warning:
-        return Localized.get.typeResearchEarlyWarningDescription;
+        return Localized.get.typeResearchWarningEarlyWarningDescription;
       case warning_military_fast_deployments:
-        return Localized.get.typeResearchFastDeploymentsDescription;
+        return Localized.get.typeResearchWarningFastDeploymentsDescription;
       case military_infantry_cost:
-        return Localized.get.typeResearchInfantryCostDescription;
+        return Localized.get.typeResearchMilitaryInfantryCostDescription;
       case military_infantry_time:
-        return Localized.get.typeResearchInfantryTimeDescription;
+        return Localized.get.typeResearchMilitaryInfantryTimeDescription;
       case military_vehicles_cost:
-        return Localized.get.typeResearchVehiclesCostDescription;
+        return Localized.get.typeResearchMilitaryVehiclesCostDescription;
       case military_vehicles_time:
-        return Localized.get.typeResearchVehiclesTimeDescription;
+        return Localized.get.typeResearchMilitaryVehiclesTimeDescription;
       case military_aircraft_cost:
-        return Localized.get.typeResearchAircraftCostDescription;
+        return Localized.get.typeResearchMilitaryAircraftCostDescription;
       case military_aircraft_time:
-        return Localized.get.typeResearchAircraftTimeDescription;
+        return Localized.get.typeResearchMilitaryAircraftTimeDescription;
       case weapons_nuclear_bomb:
         return Localized.get.typeResearchWeaponsNuclearBombDescription;
       case intel_population:

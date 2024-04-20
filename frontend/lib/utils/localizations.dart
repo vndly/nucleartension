@@ -220,54 +220,6 @@ abstract class BaseLocalized {
 
   String get typeCountryUsa;
 
-  String get typeResearchActiveTrackingDescription;
-
-  String get typeResearchActiveTrackingName;
-
-  String get typeResearchAdditiveManufacturingDescription;
-
-  String get typeResearchAdditiveManufacturingName;
-
-  String get typeResearchAircraftCostDescription;
-
-  String get typeResearchAircraftCostName;
-
-  String get typeResearchAircraftTimeDescription;
-
-  String get typeResearchAircraftTimeName;
-
-  String get typeResearchAssemblyAutomationDescription;
-
-  String get typeResearchAssemblyAutomationName;
-
-  String get typeResearchEarlyWarningDescription;
-
-  String get typeResearchEarlyWarningName;
-
-  String get typeResearchFastDeploymentsDescription;
-
-  String get typeResearchFastDeploymentsName;
-
-  String get typeResearchGridManagementDescription;
-
-  String get typeResearchGridManagementName;
-
-  String get typeResearchHypersonicPropulsionDescription;
-
-  String get typeResearchHypersonicPropulsionName;
-
-  String get typeResearchIndoctrinationDescription;
-
-  String get typeResearchIndoctrinationName;
-
-  String get typeResearchInfantryCostDescription;
-
-  String get typeResearchInfantryCostName;
-
-  String get typeResearchInfantryTimeDescription;
-
-  String get typeResearchInfantryTimeName;
-
   String get typeResearchIntelLevel1;
 
   String get typeResearchIntelLevel2;
@@ -284,29 +236,77 @@ abstract class BaseLocalized {
 
   String get typeResearchIntelResearchName;
 
-  String get typeResearchProductionChainDescription;
+  String get typeResearchMilitaryAircraftCostDescription;
 
-  String get typeResearchProductionChainName;
+  String get typeResearchMilitaryAircraftCostName;
 
-  String get typeResearchQuantumComputingDescription;
+  String get typeResearchMilitaryAircraftTimeDescription;
 
-  String get typeResearchQuantumComputingName;
+  String get typeResearchMilitaryAircraftTimeName;
 
-  String get typeResearchRadarNetworkDescription;
+  String get typeResearchMilitaryInfantryCostDescription;
 
-  String get typeResearchRadarNetworkName;
+  String get typeResearchMilitaryInfantryCostName;
 
-  String get typeResearchSignalJammingDescription;
+  String get typeResearchMilitaryInfantryTimeDescription;
 
-  String get typeResearchSignalJammingName;
+  String get typeResearchMilitaryInfantryTimeName;
 
-  String get typeResearchVehiclesCostDescription;
+  String get typeResearchMilitaryVehiclesCostDescription;
 
-  String get typeResearchVehiclesCostName;
+  String get typeResearchMilitaryVehiclesCostName;
 
-  String get typeResearchVehiclesTimeDescription;
+  String get typeResearchMilitaryVehiclesTimeDescription;
 
-  String get typeResearchVehiclesTimeName;
+  String get typeResearchMilitaryVehiclesTimeName;
+
+  String get typeResearchMissilesActiveTrackingDescription;
+
+  String get typeResearchMissilesActiveTrackingName;
+
+  String get typeResearchMissilesAdditiveManufacturingDescription;
+
+  String get typeResearchMissilesAdditiveManufacturingName;
+
+  String get typeResearchMissilesAssemblyAutomationDescription;
+
+  String get typeResearchMissilesAssemblyAutomationName;
+
+  String get typeResearchMissilesSignalJammingDescription;
+
+  String get typeResearchMissilesSignalJammingName;
+
+  String get typeResearchResourcesGridManagementDescription;
+
+  String get typeResearchResourcesGridManagementName;
+
+  String get typeResearchResourcesIndoctrinationDescription;
+
+  String get typeResearchResourcesIndoctrinationName;
+
+  String get typeResearchResourcesProductionChainDescription;
+
+  String get typeResearchResourcesProductionChainName;
+
+  String get typeResearchResourcesQuantumComputingDescription;
+
+  String get typeResearchResourcesQuantumComputingName;
+
+  String get typeResearchWarningEarlyWarningDescription;
+
+  String get typeResearchWarningEarlyWarningName;
+
+  String get typeResearchWarningFastDeploymentsDescription;
+
+  String get typeResearchWarningFastDeploymentsName;
+
+  String get typeResearchWarningHypersonicPropulsionDescription;
+
+  String get typeResearchWarningHypersonicPropulsionName;
+
+  String get typeResearchWarningRadarNetworkDescription;
+
+  String get typeResearchWarningRadarNetworkName;
 
   String get typeResearchWeaponsNuclearBombDescription;
 
@@ -708,90 +708,6 @@ class ENLocalized extends BaseLocalized {
   String get typeCountryUsa => 'USA';
 
   @override
-  String get typeResearchActiveTrackingDescription =>
-      'Increases defense missiles effectiveness';
-
-  @override
-  String get typeResearchActiveTrackingName => 'Active Tracking';
-
-  @override
-  String get typeResearchAdditiveManufacturingDescription =>
-      'Decreases missile cost production';
-
-  @override
-  String get typeResearchAdditiveManufacturingName => 'Additive Manufacturing';
-
-  @override
-  String get typeResearchAircraftCostDescription =>
-      'Decreases aircraft cost production';
-
-  @override
-  String get typeResearchAircraftCostName => 'Aircraft Cost';
-
-  @override
-  String get typeResearchAircraftTimeDescription =>
-      'Decreases aircraft time production';
-
-  @override
-  String get typeResearchAircraftTimeName => 'Aircraft Time';
-
-  @override
-  String get typeResearchAssemblyAutomationDescription =>
-      'Decreases missile time production';
-
-  @override
-  String get typeResearchAssemblyAutomationName => 'Assembly Automation';
-
-  @override
-  String get typeResearchEarlyWarningDescription =>
-      'Increases warning time when receiving a military attack';
-
-  @override
-  String get typeResearchEarlyWarningName => 'Early Warning';
-
-  @override
-  String get typeResearchFastDeploymentsDescription =>
-      'Increases attack units speed';
-
-  @override
-  String get typeResearchFastDeploymentsName => 'Fast Deployments';
-
-  @override
-  String get typeResearchGridManagementDescription =>
-      'Increases energy production';
-
-  @override
-  String get typeResearchGridManagementName => 'Grid Management';
-
-  @override
-  String get typeResearchHypersonicPropulsionDescription =>
-      'Increases attack missiles speed';
-
-  @override
-  String get typeResearchHypersonicPropulsionName => 'Hypersonic Propulsion';
-
-  @override
-  String get typeResearchIndoctrinationDescription =>
-      'Increases population production';
-
-  @override
-  String get typeResearchIndoctrinationName => 'Indoctrination';
-
-  @override
-  String get typeResearchInfantryCostDescription =>
-      'Decreases infantry cost production';
-
-  @override
-  String get typeResearchInfantryCostName => 'Infantry Cost';
-
-  @override
-  String get typeResearchInfantryTimeDescription =>
-      'Decreases infantry time production';
-
-  @override
-  String get typeResearchInfantryTimeName => 'Infantry Time';
-
-  @override
   String get typeResearchIntelLevel1 => "Global players' ranking";
 
   @override
@@ -819,46 +735,133 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchIntelResearchName => 'Research';
 
   @override
-  String get typeResearchProductionChainDescription =>
-      'Increases supplies production';
+  String get typeResearchMilitaryAircraftCostDescription =>
+      'Decreases aircraft cost production';
 
   @override
-  String get typeResearchProductionChainName => 'Production Chain';
+  String get typeResearchMilitaryAircraftCostName => 'Aircraft Cost';
 
   @override
-  String get typeResearchQuantumComputingDescription =>
-      'Increases technology production';
+  String get typeResearchMilitaryAircraftTimeDescription =>
+      'Decreases aircraft time production';
 
   @override
-  String get typeResearchQuantumComputingName => 'Quantum computing';
+  String get typeResearchMilitaryAircraftTimeName => 'Aircraft Time';
 
   @override
-  String get typeResearchRadarNetworkDescription =>
-      'Increases warning time when receiving a missile attack';
+  String get typeResearchMilitaryInfantryCostDescription =>
+      'Decreases infantry cost production';
 
   @override
-  String get typeResearchRadarNetworkName => 'Radar Network';
+  String get typeResearchMilitaryInfantryCostName => 'Infantry Cost';
 
   @override
-  String get typeResearchSignalJammingDescription =>
-      "Decreases the effectiveness of enemy's defense missiles";
+  String get typeResearchMilitaryInfantryTimeDescription =>
+      'Decreases infantry time production';
 
   @override
-  String get typeResearchSignalJammingName => 'Signal Jamming';
+  String get typeResearchMilitaryInfantryTimeName => 'Infantry Time';
 
   @override
-  String get typeResearchVehiclesCostDescription =>
+  String get typeResearchMilitaryVehiclesCostDescription =>
       'Decreases vehicles cost production';
 
   @override
-  String get typeResearchVehiclesCostName => 'Vehicles Cost';
+  String get typeResearchMilitaryVehiclesCostName => 'Vehicles Cost';
 
   @override
-  String get typeResearchVehiclesTimeDescription =>
+  String get typeResearchMilitaryVehiclesTimeDescription =>
       'Decreases vehicles time production';
 
   @override
-  String get typeResearchVehiclesTimeName => 'Vehicles Time';
+  String get typeResearchMilitaryVehiclesTimeName => 'Vehicles Time';
+
+  @override
+  String get typeResearchMissilesActiveTrackingDescription =>
+      'Increases defense missiles effectiveness';
+
+  @override
+  String get typeResearchMissilesActiveTrackingName => 'Active Tracking';
+
+  @override
+  String get typeResearchMissilesAdditiveManufacturingDescription =>
+      'Decreases missile cost production';
+
+  @override
+  String get typeResearchMissilesAdditiveManufacturingName =>
+      'Additive Manufacturing';
+
+  @override
+  String get typeResearchMissilesAssemblyAutomationDescription =>
+      'Decreases missile time production';
+
+  @override
+  String get typeResearchMissilesAssemblyAutomationName =>
+      'Assembly Automation';
+
+  @override
+  String get typeResearchMissilesSignalJammingDescription =>
+      "Decreases the effectiveness of enemy's defense missiles";
+
+  @override
+  String get typeResearchMissilesSignalJammingName => 'Signal Jamming';
+
+  @override
+  String get typeResearchResourcesGridManagementDescription =>
+      'Increases energy production';
+
+  @override
+  String get typeResearchResourcesGridManagementName => 'Grid Management';
+
+  @override
+  String get typeResearchResourcesIndoctrinationDescription =>
+      'Increases population production';
+
+  @override
+  String get typeResearchResourcesIndoctrinationName => 'Indoctrination';
+
+  @override
+  String get typeResearchResourcesProductionChainDescription =>
+      'Increases supplies production';
+
+  @override
+  String get typeResearchResourcesProductionChainName => 'Production Chain';
+
+  @override
+  String get typeResearchResourcesQuantumComputingDescription =>
+      'Increases technology production';
+
+  @override
+  String get typeResearchResourcesQuantumComputingName => 'Quantum computing';
+
+  @override
+  String get typeResearchWarningEarlyWarningDescription =>
+      'Increases warning time when receiving a military attack';
+
+  @override
+  String get typeResearchWarningEarlyWarningName => 'Early Warning';
+
+  @override
+  String get typeResearchWarningFastDeploymentsDescription =>
+      'Increases attack units speed';
+
+  @override
+  String get typeResearchWarningFastDeploymentsName => 'Fast Deployments';
+
+  @override
+  String get typeResearchWarningHypersonicPropulsionDescription =>
+      'Increases attack missiles speed';
+
+  @override
+  String get typeResearchWarningHypersonicPropulsionName =>
+      'Hypersonic Propulsion';
+
+  @override
+  String get typeResearchWarningRadarNetworkDescription =>
+      'Increases warning time when receiving a missile attack';
+
+  @override
+  String get typeResearchWarningRadarNetworkName => 'Radar Network';
 
   @override
   String get typeResearchWeaponsNuclearBombDescription =>
