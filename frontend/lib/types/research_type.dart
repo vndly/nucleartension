@@ -208,13 +208,13 @@ enum ResearchType {
       case missiles_signal_jamming:
         return Localized.get.typeResearchSignalJammingName;
       case warning_missiles_radar_network:
-        return 'Radar Network';
+        return Localized.get.typeResearchRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
-        return 'Hypersonic Propulsion';
+        return Localized.get.typeResearchHypersonicPropulsionName;
       case warning_military_early_warning:
-        return 'Early Warning';
+        return Localized.get.typeResearchEarlyWarningName;
       case warning_military_fast_deployments:
-        return 'Fast Deployments';
+        return Localized.get.typeResearchFastDeploymentsName;
       case military_infantry_cost:
         return 'Infantry Cost';
       case military_infantry_time:
@@ -258,13 +258,13 @@ enum ResearchType {
       case missiles_signal_jamming:
         return Localized.get.typeResearchSignalJammingDescription;
       case warning_missiles_radar_network:
-        return 'Increases warning time when receiving a missile attack';
+        return Localized.get.typeResearchRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:
-        return 'Increases attack missiles speed';
+        return Localized.get.typeResearchHypersonicPropulsionDescription;
       case warning_military_early_warning:
-        return 'Increases warning time when receiving a military attack';
+        return Localized.get.typeResearchEarlyWarningDescription;
       case warning_military_fast_deployments:
-        return 'Increases attack units speed';
+        return Localized.get.typeResearchFastDeploymentsDescription;
       case military_infantry_cost:
         return 'Decreases infantry cost production';
       case military_infantry_time:

@@ -232,9 +232,21 @@ abstract class BaseLocalized {
 
   String get typeResearchAssemblyAutomationName;
 
+  String get typeResearchEarlyWarningDescription;
+
+  String get typeResearchEarlyWarningName;
+
+  String get typeResearchFastDeploymentsDescription;
+
+  String get typeResearchFastDeploymentsName;
+
   String get typeResearchGridManagementDescription;
 
   String get typeResearchGridManagementName;
+
+  String get typeResearchHypersonicPropulsionDescription;
+
+  String get typeResearchHypersonicPropulsionName;
 
   String get typeResearchIndoctrinationDescription;
 
@@ -247,6 +259,10 @@ abstract class BaseLocalized {
   String get typeResearchQuantumComputingDescription;
 
   String get typeResearchQuantumComputingName;
+
+  String get typeResearchRadarNetworkDescription;
+
+  String get typeResearchRadarNetworkName;
 
   String get typeResearchSignalJammingDescription;
 
@@ -669,11 +685,32 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchAssemblyAutomationName => 'Assembly Automation';
 
   @override
+  String get typeResearchEarlyWarningDescription =>
+      'Increases warning time when receiving a military attack';
+
+  @override
+  String get typeResearchEarlyWarningName => 'Early Warning';
+
+  @override
+  String get typeResearchFastDeploymentsDescription =>
+      'Increases attack units speed';
+
+  @override
+  String get typeResearchFastDeploymentsName => 'Fast Deployments';
+
+  @override
   String get typeResearchGridManagementDescription =>
       'Increases energy production';
 
   @override
   String get typeResearchGridManagementName => 'Grid Management';
+
+  @override
+  String get typeResearchHypersonicPropulsionDescription =>
+      'Increases attack missiles speed';
+
+  @override
+  String get typeResearchHypersonicPropulsionName => 'Hypersonic Propulsion';
 
   @override
   String get typeResearchIndoctrinationDescription =>
@@ -695,6 +732,13 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchQuantumComputingName => 'Quantum computing';
+
+  @override
+  String get typeResearchRadarNetworkDescription =>
+      'Increases warning time when receiving a missile attack';
+
+  @override
+  String get typeResearchRadarNetworkName => 'Radar Network';
 
   @override
   String get typeResearchSignalJammingDescription =>
