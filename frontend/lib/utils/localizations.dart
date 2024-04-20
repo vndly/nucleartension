@@ -44,6 +44,18 @@ abstract class BaseLocalized {
 
   String get dialogSelectorMissilesTitle;
 
+  String eventDefconLine1(int param1);
+
+  String get eventDefconLine2Level1;
+
+  String get eventDefconLine2Level2;
+
+  String get eventDefconLine2Level3;
+
+  String get eventDefconLine2Level4;
+
+  String eventDefconLine3(int param1);
+
   String get headerAttackMissiles;
 
   String get headerDefcon;
@@ -238,6 +250,25 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogSelectorMissilesTitle => 'Select amount of missiles';
+
+  @override
+  String eventDefconLine1(int param1) => 'DEFCON ${param1.toString()}';
+
+  @override
+  String get eventDefconLine2Level1 => 'A player has launched a missile attack';
+
+  @override
+  String get eventDefconLine2Level2 => 'A player has created an attack missile';
+
+  @override
+  String get eventDefconLine2Level3 => 'A player has launched a unit attack';
+
+  @override
+  String get eventDefconLine2Level4 => 'A player has created a military unit';
+
+  @override
+  String eventDefconLine3(int param1) =>
+      'Economy production boost increased to +${param1.toString()}%';
 
   @override
   String get headerAttackMissiles => 'Attack Missiles:';

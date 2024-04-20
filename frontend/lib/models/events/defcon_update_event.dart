@@ -1,5 +1,6 @@
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/types/event_type.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 class DefconUpdateEvent extends Event {
   final int defconLevel;
@@ -11,25 +12,23 @@ class DefconUpdateEvent extends Event {
   }) : super(eventType: EventType.defcon_update);
 
   String get subtext {
-    // TODO(momo): localize
     if (defconLevel == 4) {
-      return 'A player has created a military unit';
+      return Localized.get.eventDefconLine2Level4;
     } else if (defconLevel == 3) {
-      return 'A player has launched a unit attack';
+      return Localized.get.eventDefconLine2Level3;
     } else if (defconLevel == 2) {
-      return 'A player has created an attack missile';
+      return Localized.get.eventDefconLine2Level2;
     } else if (defconLevel == 1) {
-      return 'A player has launched a missile attack';
+      return Localized.get.eventDefconLine2Level1;
     } else {
       return '';
     }
   }
 
   @override
-  // TODO(momo): localize
   List<String> get text => [
-        'DEFCON $defconLevel',
+        Localized.get.eventDefconLine1(defconLevel),
         subtext,
-        'Economy production boost increased to +${productionBoost.toInt()}%'
+        Localized.get.eventDefconLine3(productionBoost.toInt()),
       ];
 }
