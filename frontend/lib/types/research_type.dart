@@ -216,17 +216,17 @@ enum ResearchType {
       case warning_military_fast_deployments:
         return Localized.get.typeResearchFastDeploymentsName;
       case military_infantry_cost:
-        return 'Infantry Cost';
+        return Localized.get.typeResearchInfantryCostName;
       case military_infantry_time:
-        return 'Infantry Time';
+        return Localized.get.typeResearchInfantryTimeName;
       case military_vehicles_cost:
-        return 'Vehicles Cost';
+        return Localized.get.typeResearchVehiclesCostName;
       case military_vehicles_time:
-        return 'Vehicles Time';
+        return Localized.get.typeResearchVehiclesTimeName;
       case military_aircraft_cost:
-        return 'Aircraft Cost';
+        return Localized.get.typeResearchAircraftCostName;
       case military_aircraft_time:
-        return 'Aircraft Time';
+        return Localized.get.typeResearchAircraftTimeName;
       case weapons_nuclear_bomb:
         return 'Nuclear Bomb';
       case intel_population:
@@ -266,17 +266,17 @@ enum ResearchType {
       case warning_military_fast_deployments:
         return Localized.get.typeResearchFastDeploymentsDescription;
       case military_infantry_cost:
-        return 'Decreases infantry cost production';
+        return Localized.get.typeResearchInfantryCostDescription;
       case military_infantry_time:
-        return 'Decreases infantry time production';
+        return Localized.get.typeResearchInfantryTimeDescription;
       case military_vehicles_cost:
-        return 'Decreases vehicles cost production';
+        return Localized.get.typeResearchVehiclesCostDescription;
       case military_vehicles_time:
-        return 'Decreases vehicles time production';
+        return Localized.get.typeResearchVehiclesTimeDescription;
       case military_aircraft_cost:
-        return 'Decreases aircraft cost production';
+        return Localized.get.typeResearchAircraftCostDescription;
       case military_aircraft_time:
-        return 'Decreases aircraft time production';
+        return Localized.get.typeResearchAircraftTimeDescription;
       case weapons_nuclear_bomb:
         return 'Increases nuclear bomb yield';
       case intel_population:

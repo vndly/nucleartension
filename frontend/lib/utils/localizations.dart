@@ -228,6 +228,14 @@ abstract class BaseLocalized {
 
   String get typeResearchAdditiveManufacturingName;
 
+  String get typeResearchAircraftCostDescription;
+
+  String get typeResearchAircraftCostName;
+
+  String get typeResearchAircraftTimeDescription;
+
+  String get typeResearchAircraftTimeName;
+
   String get typeResearchAssemblyAutomationDescription;
 
   String get typeResearchAssemblyAutomationName;
@@ -252,6 +260,14 @@ abstract class BaseLocalized {
 
   String get typeResearchIndoctrinationName;
 
+  String get typeResearchInfantryCostDescription;
+
+  String get typeResearchInfantryCostName;
+
+  String get typeResearchInfantryTimeDescription;
+
+  String get typeResearchInfantryTimeName;
+
   String get typeResearchProductionChainDescription;
 
   String get typeResearchProductionChainName;
@@ -267,6 +283,14 @@ abstract class BaseLocalized {
   String get typeResearchSignalJammingDescription;
 
   String get typeResearchSignalJammingName;
+
+  String get typeResearchVehiclesCostDescription;
+
+  String get typeResearchVehiclesCostName;
+
+  String get typeResearchVehiclesTimeDescription;
+
+  String get typeResearchVehiclesTimeName;
 
   String get typeResourceEnergy;
 
@@ -678,6 +702,20 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchAdditiveManufacturingName => 'Additive Manufacturing';
 
   @override
+  String get typeResearchAircraftCostDescription =>
+      'Decreases aircraft cost production';
+
+  @override
+  String get typeResearchAircraftCostName => 'Aircraft Cost';
+
+  @override
+  String get typeResearchAircraftTimeDescription =>
+      'Decreases aircraft time production';
+
+  @override
+  String get typeResearchAircraftTimeName => 'Aircraft Time';
+
+  @override
   String get typeResearchAssemblyAutomationDescription =>
       'Decreases missile time production';
 
@@ -720,6 +758,20 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchIndoctrinationName => 'Indoctrination';
 
   @override
+  String get typeResearchInfantryCostDescription =>
+      'Decreases infantry cost production';
+
+  @override
+  String get typeResearchInfantryCostName => 'Infantry Cost';
+
+  @override
+  String get typeResearchInfantryTimeDescription =>
+      'Decreases infantry time production';
+
+  @override
+  String get typeResearchInfantryTimeName => 'Infantry Time';
+
+  @override
   String get typeResearchProductionChainDescription =>
       'Increases supplies production';
 
@@ -746,6 +798,20 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchSignalJammingName => 'Signal Jamming';
+
+  @override
+  String get typeResearchVehiclesCostDescription =>
+      'Decreases vehicles cost production';
+
+  @override
+  String get typeResearchVehiclesCostName => 'Vehicles Cost';
+
+  @override
+  String get typeResearchVehiclesTimeDescription =>
+      'Decreases vehicles time production';
+
+  @override
+  String get typeResearchVehiclesTimeName => 'Vehicles Time';
 
   @override
   String get typeResourceEnergy => 'Energy';
