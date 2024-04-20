@@ -9,6 +9,7 @@ class LabeledText extends StatelessWidget {
   final double size;
   final Color labelColor;
   final Color textColor;
+  final bool uppercase;
 
   const LabeledText({
     required this.label,
@@ -16,6 +17,7 @@ class LabeledText extends StatelessWidget {
     required this.size,
     this.labelColor = Palette.textPrimary,
     this.textColor = Palette.textPrimary,
+    this.uppercase = true,
   });
 
   @override
@@ -28,12 +30,14 @@ class LabeledText extends StatelessWidget {
           color: labelColor,
           weight: FontWeight.bold,
           size: size,
+          uppercase: uppercase,
         ),
         const HBox(5),
         Label(
           text: text,
           color: textColor,
           size: size,
+          uppercase: uppercase,
         ),
       ],
     );

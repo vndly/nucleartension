@@ -121,6 +121,7 @@ class LeftSection extends StatelessWidget {
                       labelColor: Palette.textDescription,
                       textColor: Palette.textDescription,
                       size: 12,
+                      uppercase: false,
                     ),
                   ],
                 ],

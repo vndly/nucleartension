@@ -902,7 +902,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeUnitDefenseMissileDescription1 =>
-      'Missiles used to intercept incoming missiles attacks.';
+      'Missiles used to intercept incoming missile attacks.';
 
   @override
   String get typeUnitDefenseMissileDescription2 =>

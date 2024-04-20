@@ -22283,13 +22283,14 @@ _.a=h},
 nE:function nE(a,b,c){this.c=a
 this.d=b
 this.a=c},
-he:function he(a,b,c,d,e,f){var _=this
+he:function he(a,b,c,d,e,f,g){var _=this
 _.c=a
 _.d=b
 _.e=c
 _.f=d
 _.r=e
-_.a=f},
+_.w=f
+_.a=g},
 NR:function NR(a,b,c,d,e){var _=this
 _.c=a
 _.d=b
@@ -69874,7 +69875,7 @@ return"Aircraft"}},
 gic(a){var s=this
 switch(s.a){case 0:$.J.A()
 $.J.A()
-return A.a(["Missiles used to intercept incoming missiles attacks.","","Each defense missile has a base effectiveness of 50% that can be improved researching new technologies."],t.s)
+return A.a(["Missiles used to intercept incoming missile attacks.","","Each defense missile has a base effectiveness of 50% that can be improved researching new technologies."],t.s)
 case 1:$.J.A()
 $.J.A()
 return A.a(["Missiles used to send nuclear attacks to enemies.","","If an attack missiles is not intercepted, it kills an amount of the enemy's population proportionally to the missile yield."],t.s)
@@ -70030,10 +70031,10 @@ s=B.c.W(A.c3(s,B.cU))
 return A.bW(A.a([new A.n4(B.MI,B.yM,"DEFCON:",r,o),B.c6,new A.n4(B.MD,B.cS,"Military Power:",q,o),B.c6,new A.n4(B.MC,B.cR,"Defense Missiles:",p,o),B.c6,new A.n4(B.MH,B.aT,"Attack Missiles:",A.cX(n,o).bT(s),o)],t.p),B.a3,B.n,B.B)}}
 A.n5.prototype={
 G(a){var s=this.d
-return A.bS(A.a([A.nt(s.c,s.d,14),B.b1,new A.he(s.gdJ()+":",A.asF(A.c3(this.c.d.a,s)),14,B.i,B.i,null)],t.p),B.x,B.n,B.I)}}
+return A.bS(A.a([A.nt(s.c,s.d,14),B.b1,new A.he(s.gdJ()+":",A.asF(A.c3(this.c.d.a,s)),14,B.i,B.i,!0,null)],t.p),B.x,B.n,B.I)}}
 A.n4.prototype={
 G(a){var s=this
-return A.bS(A.a([A.nt(s.c,s.d,14),B.b1,new A.he(s.e,s.f,14,B.i,B.i,null)],t.p),B.x,B.n,B.I)}}
+return A.bS(A.a([A.nt(s.c,s.d,14),B.b1,new A.he(s.e,s.f,14,B.i,B.i,!0,null)],t.p),B.x,B.n,B.I)}}
 A.Jc.prototype={
 G(a){var s=this.c
 if(s.d.gBr())return A.bW(A.a([new A.MD(s,null),new A.MC(s,null),new A.ME(s,null)],t.p),B.x,B.n,B.I)
@@ -70105,7 +70106,7 @@ n=A.cX(l,m).bT(n)}else{$.J.A()
 n=k}$.J.A()
 if(q.b>0){j=j.gwl()
 j=A.cX(l,m).bT(j)}else{$.J.A()
-j=k}i=A.bW(A.a([new A.he("Population:",o,14,B.i,B.i,m),B.c6,new A.he("Military:",n,14,B.i,B.i,m),B.c6,new A.he("Research:",j,14,B.i,B.i,m)],i),B.a3,B.n,B.I)
+j=k}i=A.bW(A.a([new A.he("Population:",o,14,B.i,B.i,!0,m),B.c6,new A.he("Military:",n,14,B.i,B.i,!0,m),B.c6,new A.he("Research:",j,14,B.i,B.i,!0,m)],i),B.a3,B.n,B.I)
 $.J.A()
 return A.asS("Ok",i,p)},
 $S:0}
@@ -70136,7 +70137,7 @@ $S:0}
 A.IR.prototype={
 G(a){var s=this.c,r=t.p,q=A.a([new A.nE(s.d.gdJ().toUpperCase(),new A.a55(this),null)],r)
 if(s.b>0){$.J.A()
-B.b.C(q,A.a([B.bB,new A.he("Level:",B.e.j(s.b),14,B.i,B.i,null)],r))}return A.bS(q,B.x,B.n,B.B)}}
+B.b.C(q,A.a([B.bB,new A.he("Level:",B.e.j(s.b),14,B.i,B.i,!0,null)],r))}return A.bS(q,B.x,B.n,B.B)}}
 A.a55.prototype={
 $0(){var s=this.a.c.d,r=s.gdJ()
 return A.nw(s.gic(0),s.c,r)},
@@ -70164,7 +70165,7 @@ $S:0}
 A.IP.prototype={
 G(a){var s=this.c,r=t.p,q=A.a([new A.nE(s.d.gdJ().toUpperCase(),new A.a53(this),null)],r)
 if(s.b>0){$.J.A()
-B.b.C(q,A.a([B.bB,new A.he("Level:",B.e.j(s.b),14,B.i,B.i,null)],r))}return A.bS(q,B.x,B.n,B.B)}}
+B.b.C(q,A.a([B.bB,new A.he("Level:",B.e.j(s.b),14,B.i,B.i,!0,null)],r))}return A.bS(q,B.x,B.n,B.B)}}
 A.a53.prototype={
 $0(){var s=this.a.c.d,r=s.gdJ()
 return A.nw(s.gLm(0),s.c,r)},
@@ -70172,7 +70173,7 @@ $S:0}
 A.Jt.prototype={
 G(a){var s=null,r=this.c,q=r.d,p=t.p,o=A.a([A.cg(s,B.iu,s,12,q.gic(0),!1,B.m)],p)
 if(r.b>0){$.J.A()
-B.b.C(o,A.a([B.bB,new A.he("Current:",q.NE(r.b),12,B.iu,B.iu,s)],p))}return A.fx(A.bS(A.a([new A.NE(r,50,s),B.b1,A.fx(A.e_(A.bW(o,B.a3,B.n,B.B),50,s),1)],p),B.a3,B.n,B.B),1)}}
+B.b.C(o,A.a([B.bB,new A.he("Current:",q.NE(r.b),12,B.iu,B.iu,!1,s)],p))}return A.fx(A.bS(A.a([new A.NE(r,50,s),B.b1,A.fx(A.e_(A.bW(o,B.a3,B.n,B.B),50,s),1)],p),B.a3,B.n,B.B),1)}}
 A.NV.prototype={
 G(a){var s=null,r=this.d,q=r.ga41()
 if((q!=null?this.c.f.i(0,q).b:1)>0)if(r.b>=r.d.d){$.J.A()
@@ -70192,7 +70193,7 @@ $S:0}
 A.IQ.prototype={
 G(a){var s=this.c,r=t.p,q=A.a([new A.nE(s.d.gdJ().toUpperCase(),new A.a54(this),null)],r)
 if(s.b>0){$.J.A()
-B.b.C(q,A.a([B.bB,new A.he("Level:",B.e.j(s.b),14,B.i,B.i,null)],r))}return A.bS(q,B.x,B.n,B.B)}}
+B.b.C(q,A.a([B.bB,new A.he("Level:",B.e.j(s.b),14,B.i,B.i,!0,null)],r))}return A.bS(q,B.x,B.n,B.B)}}
 A.a54.prototype={
 $0(){var s=this.a.c.d,r=s.gdJ()
 return A.nw(s.gic(0),s.c,r)},
@@ -70335,8 +70336,8 @@ A.nE.prototype={
 G(a){var s=null
 return A.bS(A.a([A.cg(s,B.i,s,14,this.c,!0,B.V),B.b1,A.a4J(s,B.MQ,B.aG,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,this.d,s,s,s,s,s,s)],t.p),B.x,B.n,B.B)}}
 A.he.prototype={
-G(a){var s=this,r=null,q=s.e
-return A.bS(A.a([A.cg(r,s.f,r,q,s.c,!0,B.V),B.Mo,A.cg(r,s.r,r,q,s.d,!0,B.m)],t.p),B.x,B.n,B.I)}}
+G(a){var s=this,r=null,q=s.e,p=s.w
+return A.bS(A.a([A.cg(r,s.f,r,q,s.c,p,B.V),B.Mo,A.cg(r,s.r,r,q,s.d,p,B.m)],t.p),B.x,B.n,B.I)}}
 A.NR.prototype={
 G(a){var s=this,r=s.e
 return A.bS(A.a([A.cg(null,s.f,null,r,s.d,!0,B.m),new A.iX(r/4,null),s.c],t.p),B.x,B.n,B.I)}}
