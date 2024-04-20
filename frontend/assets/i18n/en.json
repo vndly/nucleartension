@@ -88,5 +88,17 @@
     "type.resource.energy": "Energy",
     "type.resource.population": "Population",
     "type.resource.supplies": "Supplies",
-    "type.resource.technology": "Technology"
+    "type.resource.technology": "Technology",
+    "type.unit.aircraft.description": "Advance jet fighters. It increases the military power by %1$d",
+    "type.unit.aircraft.name": "Aircraft",
+    "type.unit.attackMissile.description1": "Missiles used to send nuclear attacks to enemies.",
+    "type.unit.attackMissile.description2": "If an attack missiles is not intercepted, it kills an amount of the enemy's population proportionally to the missile yield.",
+    "type.unit.attackMissile.name": "Attack Missile",
+    "type.unit.defenseMissile.description1": "Missiles used to intercept incoming missiles attacks.",
+    "type.unit.defenseMissile.description2": "Each defense missile has a base effectiveness of 50% that can be improved researching new technologies.",
+    "type.unit.defenseMissile.name": "Defense Missile",
+    "type.unit.infantry.description": "Basic military soldier squad. It increases the military power by %1$d",
+    "type.unit.infantry.name": "Infantry",
+    "type.unit.vehicles.description": "Land military vehicles. It increases the military power by %1$d",
+    "type.unit.vehicles.name": "Vehicle"
 }

@@ -181,6 +181,30 @@ abstract class BaseLocalized {
   String get typeResourceSupplies;
 
   String get typeResourceTechnology;
+
+  String typeUnitAircraftDescription(int param1);
+
+  String get typeUnitAircraftName;
+
+  String get typeUnitAttackMissileDescription1;
+
+  String get typeUnitAttackMissileDescription2;
+
+  String get typeUnitAttackMissileName;
+
+  String get typeUnitDefenseMissileDescription1;
+
+  String get typeUnitDefenseMissileDescription2;
+
+  String get typeUnitDefenseMissileName;
+
+  String typeUnitInfantryDescription(int param1);
+
+  String get typeUnitInfantryName;
+
+  String typeUnitVehiclesDescription(int param1);
+
+  String get typeUnitVehiclesName;
 }
 
 class ENLocalized extends BaseLocalized {
@@ -468,6 +492,49 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResourceTechnology => 'Technology';
+
+  @override
+  String typeUnitAircraftDescription(int param1) =>
+      'Advance jet fighters. It increases the military power by ${param1.toString()}';
+
+  @override
+  String get typeUnitAircraftName => 'Aircraft';
+
+  @override
+  String get typeUnitAttackMissileDescription1 =>
+      'Missiles used to send nuclear attacks to enemies.';
+
+  @override
+  String get typeUnitAttackMissileDescription2 =>
+      "If an attack missiles is not intercepted, it kills an amount of the enemy's population proportionally to the missile yield.";
+
+  @override
+  String get typeUnitAttackMissileName => 'Attack Missile';
+
+  @override
+  String get typeUnitDefenseMissileDescription1 =>
+      'Missiles used to intercept incoming missiles attacks.';
+
+  @override
+  String get typeUnitDefenseMissileDescription2 =>
+      'Each defense missile has a base effectiveness of 50% that can be improved researching new technologies.';
+
+  @override
+  String get typeUnitDefenseMissileName => 'Defense Missile';
+
+  @override
+  String typeUnitInfantryDescription(int param1) =>
+      'Basic military soldier squad. It increases the military power by ${param1.toString()}';
+
+  @override
+  String get typeUnitInfantryName => 'Infantry';
+
+  @override
+  String typeUnitVehiclesDescription(int param1) =>
+      'Land military vehicles. It increases the military power by ${param1.toString()}';
+
+  @override
+  String get typeUnitVehiclesName => 'Vehicle';
 }
 
 class Localized {

@@ -5,6 +5,7 @@ import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 enum UnitType {
   defense(
@@ -70,46 +71,44 @@ enum UnitType {
     return cost.duration * research.decreaseRate;
   }
 
-  // TODO(momo): localize
   String get localized {
     switch (this) {
       case defense:
-        return 'Defense Missile';
+        return Localized.get.typeUnitDefenseMissileName;
       case attack:
-        return 'Attack Missile';
+        return Localized.get.typeUnitAttackMissileName;
       case infantry:
-        return 'Infantry';
+        return Localized.get.typeUnitInfantryName;
       case vehicle:
-        return 'Vehicle';
+        return Localized.get.typeUnitVehiclesName;
       case aircraft:
-        return 'Aircraft';
+        return Localized.get.typeUnitAircraftName;
     }
   }
 
-  // TODO(momo): localize
   List<String> get description {
     switch (this) {
       case defense:
         return [
-          'Missiles used to intercept incoming missiles attacks.',
-          'Each defense missile has a base effectiveness of 50% that can be improved researching new technologies.'
+          Localized.get.typeUnitDefenseMissileDescription1,
+          Localized.get.typeUnitDefenseMissileDescription2,
         ];
       case attack:
         return [
-          'Missiles used to send nuclear attacks to enemies.',
-          "If an attack missiles is not intercepted, it kills an amount of the enemy's population proportionally to the missile yield.",
+          Localized.get.typeUnitAttackMissileDescription1,
+          Localized.get.typeUnitAttackMissileDescription2,
         ];
       case infantry:
         return [
-          'Basic military soldier squad. It increases the military power by $power.'
+          Localized.get.typeUnitInfantryDescription(power),
         ];
       case vehicle:
         return [
-          'Land military vehicles. It increases the military power by $power.'
+          Localized.get.typeUnitVehiclesDescription(power),
         ];
       case aircraft:
         return [
-          'Advance jet fighters. It increases the military power by $power.'
+          Localized.get.typeUnitAircraftDescription(power),
         ];
     }
   }
