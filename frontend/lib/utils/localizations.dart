@@ -58,6 +58,18 @@ abstract class BaseLocalized {
 
   String get screenEventsNoEvents;
 
+  String get screenResearchIntel;
+
+  String get screenResearchMilitary;
+
+  String get screenResearchMissiles;
+
+  String get screenResearchResources;
+
+  String get screenResearchWarning;
+
+  String get screenResearchWeapons;
+
   String get screenWarRoomIntelMilitary;
 
   String get screenWarRoomIntelPopulation;
@@ -69,10 +81,6 @@ abstract class BaseLocalized {
   String get screenWarRoomTabPlayers;
 
   String snackDefcon(int param1);
-
-  String get splashLoading;
-
-  String get splashWeb;
 }
 
 class ENLocalized extends BaseLocalized {
@@ -162,6 +170,24 @@ class ENLocalized extends BaseLocalized {
   String get screenEventsNoEvents => 'No events';
 
   @override
+  String get screenResearchIntel => 'Intel';
+
+  @override
+  String get screenResearchMilitary => 'Military';
+
+  @override
+  String get screenResearchMissiles => 'Missiles';
+
+  @override
+  String get screenResearchResources => 'Resources';
+
+  @override
+  String get screenResearchWarning => 'Warning';
+
+  @override
+  String get screenResearchWeapons => 'Weapons';
+
+  @override
   String get screenWarRoomIntelMilitary => 'Military';
 
   @override
@@ -178,12 +204,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String snackDefcon(int param1) => 'DEFCON ${param1.toString()}';
-
-  @override
-  String get splashLoading => 'Loading';
-
-  @override
-  String get splashWeb => 'Tap to start';
 }
 
 class Localized {

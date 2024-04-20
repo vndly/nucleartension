@@ -70,6 +70,7 @@ enum UnitType {
     return cost.duration * research.decreaseRate;
   }
 
+  // TODO(momo): localize
   String get localized {
     switch (this) {
       case defense:
@@ -85,6 +86,7 @@ enum UnitType {
     }
   }
 
+  // TODO(momo): localize
   List<String> get description {
     switch (this) {
       case defense:

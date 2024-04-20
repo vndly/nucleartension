@@ -11,6 +11,7 @@ class DefconUpdateEvent extends Event {
   }) : super(eventType: EventType.defcon_update);
 
   String get subtext {
+    // TODO(momo): localize
     if (defconLevel == 4) {
       return 'A player has created a military unit';
     } else if (defconLevel == 3) {
@@ -25,6 +26,7 @@ class DefconUpdateEvent extends Event {
   }
 
   @override
+  // TODO(momo): localize
   List<String> get text => [
         'DEFCON $defconLevel',
         subtext,

@@ -22,12 +22,12 @@ class Formatter {
       final NumberFormat formatter = NumberFormat('0');
       final String value = formatter.format(amount);
 
-      return '$value Kt';
+      return '$value Kt'; // TODO(momo): localize
     } else {
       final NumberFormat formatter = NumberFormat('0.#');
       final String value = formatter.format(amount / 1000);
 
-      return '$value Mt';
+      return '$value Mt'; // TODO(momo): localize
     }
   }
 
@@ -42,7 +42,7 @@ class Formatter {
       final NumberFormat formatter = NumberFormat('##0.###');
       final String value = formatter.format(intAmount / 1000000);
 
-      return '${value}M';
+      return '${value}M'; // TODO(momo): localize
     }
   }
 

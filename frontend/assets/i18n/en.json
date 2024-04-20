@@ -27,12 +27,16 @@
     "label.requires": "Requires %1$s",
     "label.second": "s",
     "screen.events.noEvents": "No events",
+    "screen.research.intel": "Intel",
+    "screen.research.military": "Military",
+    "screen.research.missiles": "Missiles",
+    "screen.research.resources": "Resources",
+    "screen.research.warning": "Warning",
+    "screen.research.weapons": "Weapons",
     "screen.warRoom.intel.military": "Military",
     "screen.warRoom.intel.population": "Population",
     "screen.warRoom.intel.research": "Research",
     "screen.warRoom.tab.intel": "Intel",
     "screen.warRoom.tab.players": "Players",
-    "snack.defcon": "DEFCON %1$d",
-    "splash.loading": "Loading",
-    "splash.web": "Tap to start"
+    "snack.defcon": "DEFCON %1$d"
 }

@@ -150,15 +150,6 @@ enum ResearchType {
     },
   ),
 
-  // resilience
-  resilience_bomb_shelters(
-    sprite: Assets.IMAGES_RESEARCH_RESILIENCE_BOMB_SHELTERS,
-    maxLevel: 5,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-
   // intel
   intel_population(
     sprite: Assets.IMAGES_RESEARCH_INTEL_POPULATION,
@@ -196,6 +187,7 @@ enum ResearchType {
 
   ResourceMap cost(int level) => initialCost.multiply(level);
 
+  // TODO(momo): localize
   String get localized {
     switch (this) {
       case resources_grid_management:
@@ -236,8 +228,6 @@ enum ResearchType {
         return 'Aircraft Time';
       case weapons_nuclear_bomb:
         return 'Nuclear Bomb';
-      case resilience_bomb_shelters:
-        return 'Bomb Shelters';
       case intel_population:
         return 'Population';
       case intel_military:
@@ -247,6 +237,7 @@ enum ResearchType {
     }
   }
 
+  // TODO(momo): localize
   String get description {
     switch (this) {
       case resources_grid_management:
@@ -287,8 +278,6 @@ enum ResearchType {
         return 'Decreases aircraft time production';
       case weapons_nuclear_bomb:
         return 'Increases nuclear bomb yield';
-      case resilience_bomb_shelters:
-        return 'Decrease the amount of casualties upon a missile attack';
       case intel_population:
         return 'Reveals population intel about other players';
       case intel_military:
@@ -307,6 +296,7 @@ enum ResearchType {
   List<String> get levelDetails {
     final List<String> result = [];
 
+    // TODO(momo): localize
     for (int i = 1; i <= maxLevel; i++) {
       result.add('Level $i: ${rateDescription(i)}');
     }
@@ -338,12 +328,12 @@ enum ResearchType {
       case military_vehicles_time:
       case military_aircraft_cost:
       case military_aircraft_time:
-      case resilience_bomb_shelters:
         return '-$baseRate';
 
       case weapons_nuclear_bomb:
         return Formatter.yield(Research.yield(level));
 
+      // TODO(momo): localize
       case intel_population:
       case intel_military:
       case intel_research:

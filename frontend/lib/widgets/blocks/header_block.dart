@@ -299,7 +299,7 @@ class ExpandedResourceLabel extends StatelessWidget {
         resourceType.icon(14),
         const HBox(10),
         LabeledText(
-          label: '${resourceType.localized.toUpperCase()}:',
+          label: '${resourceType.localized}:',
           text: Formatter.resource(player.resources.get(resourceType)),
           labelColor: Palette.textPrimary,
           textColor: Palette.textPrimary,

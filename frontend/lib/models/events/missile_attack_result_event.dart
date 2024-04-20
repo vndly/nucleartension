@@ -23,6 +23,7 @@ class MissileAttackResultEvent extends Event {
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
+  // TODO(momo): localize
   List<String> get text => [
         'MISSILE ATTACK FINISHED',
         'Attacker: ${attacker.name}${(attacker == winner) ? ' (winner)' : ''}',

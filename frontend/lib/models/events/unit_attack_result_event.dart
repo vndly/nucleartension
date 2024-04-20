@@ -19,6 +19,7 @@ class UnitAttackResultEvent extends Event {
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
+  // TODO(momo): localize
   List<String> get text => [
         'UNIT ATTACK FINISHED',
         'Attacker: ${attacker.name}${(attacker == winner) ? ' (winner)' : ''}',

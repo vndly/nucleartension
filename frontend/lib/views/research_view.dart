@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/research_type.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/widgets/blocks/block_title.dart';
 import 'package:nucleartension/widgets/blocks/research_block.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
@@ -22,7 +23,6 @@ class ResearchView extends StatelessWidget {
           ResearchWarning(game.self),
           ResearchMilitary(game.self),
           ResearchWeapons(game.self),
-          ResearchResilience(game.self),
           ResearchIntel(game.self),
         ],
       ),
@@ -40,7 +40,7 @@ class ResearchResources extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        const BlockTitle('RESOURCES'),
+        BlockTitle(Localized.get.screenResearchResources),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
@@ -77,7 +77,7 @@ class ResearchMissiles extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        const BlockTitle('MISSILES'),
+        BlockTitle(Localized.get.screenResearchMissiles),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
@@ -115,7 +115,7 @@ class ResearchWarning extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        const BlockTitle('WARNING'),
+        BlockTitle(Localized.get.screenResearchWarning),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
@@ -155,7 +155,7 @@ class ResearchMilitary extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        const BlockTitle('MILITARY'),
+        BlockTitle(Localized.get.screenResearchMilitary),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
@@ -201,32 +201,11 @@ class ResearchWeapons extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        const BlockTitle('WEAPONS'),
+        BlockTitle(Localized.get.screenResearchWeapons),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
           research: player.getResearch(ResearchType.weapons_nuclear_bomb),
-        ),
-      ],
-    );
-  }
-}
-
-class ResearchResilience extends StatelessWidget {
-  final Player player;
-
-  const ResearchResilience(this.player);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const BlockSeparator(),
-        const BlockTitle('RESILIENCE'),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research: player.getResearch(ResearchType.resilience_bomb_shelters),
         ),
       ],
     );
@@ -243,7 +222,7 @@ class ResearchIntel extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        const BlockTitle('INTEL'),
+        BlockTitle(Localized.get.screenResearchIntel),
         const BlockSeparator(),
         ResearchBlock(
           player: player,

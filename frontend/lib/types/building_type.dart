@@ -79,6 +79,7 @@ enum BuildingType {
     }
   }
 
+  // TODO(momo): localize
   String get localized {
     switch (this) {
       case power_plant:
@@ -96,6 +97,7 @@ enum BuildingType {
     }
   }
 
+  // TODO(momo): localize
   List<String> get description {
     switch (this) {
       case power_plant:

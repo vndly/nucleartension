@@ -34,6 +34,7 @@ enum ResourceType {
         size: size,
       );
 
+  // TODO(momo): localize
   String get localized {
     switch (this) {
       case energy:

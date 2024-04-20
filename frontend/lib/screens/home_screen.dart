@@ -38,6 +38,7 @@ class Content extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              // TODO(momo): localize
               PrimaryButton(
                 text: 'CONTINUE',
                 icon: Icons.play_arrow,

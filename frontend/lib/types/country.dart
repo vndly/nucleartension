@@ -71,6 +71,7 @@ enum Country {
     }
   }
 
+  // TODO(momo): localize
   String get localized {
     switch (this) {
       case usa:

@@ -35,6 +35,7 @@ class UnitAttack extends Attack {
 
   @override
   String toString() {
+    // TODO(momo): localize
     if (attacker.isSelf) {
       return 'OUTGOING UNIT ATTACK TO ${defender.name} WITH $militaryPower';
     } else if (defender.isSelf) {

@@ -52,8 +52,6 @@ class Assets {
       'assets/images/research/missiles_assembly_automation.png';
   static const String IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING =
       'assets/images/research/missiles_signal_jamming.png';
-  static const String IMAGES_RESEARCH_RESILIENCE_BOMB_SHELTERS =
-      'assets/images/research/resilience_bomb_shelters.png';
   static const String IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT =
       'assets/images/research/resources_grid_management.png';
   static const String IMAGES_RESEARCH_RESOURCES_INDOCTRINATION =

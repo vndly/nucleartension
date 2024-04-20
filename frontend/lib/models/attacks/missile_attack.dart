@@ -10,14 +10,14 @@ import 'package:nucleartension/utils/formatter.dart';
 
 class MissileAttack extends Attack {
   final int totalMissiles;
-  final int ktPerMissile;
+  final int yieldPerMissile;
 
   MissileAttack._({
     required super.attacker,
     required super.defender,
     required super.duration,
     required this.totalMissiles,
-    required this.ktPerMissile,
+    required this.yieldPerMissile,
   });
 
   factory MissileAttack.from({
@@ -36,16 +36,17 @@ class MissileAttack extends Attack {
       defender: defender,
       duration: duration,
       totalMissiles: amount,
-      ktPerMissile: ktPerMissile,
+      yieldPerMissile: ktPerMissile,
     );
   }
 
   @override
   String toString() {
+    // TODO(momo): localize
     if (attacker.isSelf) {
-      return 'OUTGOING MISSILE ATTACK TO ${defender.name} WITH $totalMissiles MISSILES (${Formatter.yield(totalMissiles * ktPerMissile)})';
+      return 'OUTGOING MISSILE ATTACK TO ${defender.name} WITH $totalMissiles MISSILES (${Formatter.yield(totalMissiles * yieldPerMissile)})';
     } else if (defender.isSelf) {
-      return 'INCOMING MISSILE ATTACK FROM ${attacker.name} WITH $totalMissiles MISSILES (${Formatter.yield(totalMissiles * ktPerMissile)})';
+      return 'INCOMING MISSILE ATTACK FROM ${attacker.name} WITH $totalMissiles MISSILES (${Formatter.yield(totalMissiles * yieldPerMissile)})';
     } else {
       return '';
     }
@@ -54,11 +55,9 @@ class MissileAttack extends Attack {
   @override
   List<Event> resolve() {
     final int successfulAttackMissiles = _computeMissiles();
-    final num totalYield = successfulAttackMissiles *
-        ktPerMissile *
-        Constants.MISSILE_ATTACK_DAMAGE_PER_KT;
+    final num totalYield = successfulAttackMissiles * yieldPerMissile;
     final int population =
-        (totalYield * defender.resilienceBombShelters).floor();
+        (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
     final Player winner = (successfulAttackMissiles > 0) ? attacker : defender;
     defender.removePopulation(population);
 
@@ -69,7 +68,7 @@ class MissileAttack extends Attack {
         winner: winner,
         totalMissiles: totalMissiles,
         successfulAttackMissiles: successfulAttackMissiles,
-        ktPerMissile: ktPerMissile,
+        ktPerMissile: yieldPerMissile,
         defenderLoses: population,
       )
     ];

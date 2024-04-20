@@ -174,13 +174,6 @@ class Player {
     return Research.yield(research.level);
   }
 
-  num get resilienceBombShelters {
-    final Research research =
-        getResearch(ResearchType.resilience_bomb_shelters);
-
-    return research.decreaseRate;
-  }
-
   num get defenseMissilesEffectiveness {
     final Research research =
         getResearch(ResearchType.missiles_active_tracking);

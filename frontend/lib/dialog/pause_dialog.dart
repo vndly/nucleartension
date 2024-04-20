@@ -46,15 +46,6 @@ class PauseDialog extends StatelessWidget {
               onResume();
             },
           ),
-          /*const VBox(10),
-          PrimaryButton(
-            text: 'QUIT',
-            color: Palette.buttonDisabled,
-            onPressed: () {
-              Navigation.pop();
-              onQuit();
-            },
-          ),*/
         ],
       ),
       actions: const [],

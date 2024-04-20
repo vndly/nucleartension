@@ -15,6 +15,7 @@ class UnitAttackLaunchEvent extends Event {
   }) : super(eventType: EventType.unit_attack_launch);
 
   @override
+  // TODO(momo): localize
   List<String> get text => [
         'UNIT ATTACK LAUNCHED',
         'Attacker: ${attacker.name}',

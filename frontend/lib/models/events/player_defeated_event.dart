@@ -10,5 +10,6 @@ class PlayerDefeated extends Event {
   }) : super(eventType: EventType.player_defeated);
 
   @override
+  // TODO(momo): localize
   List<String> get text => ['PLAYER DEFEATED: ${player.name}'];
 }
