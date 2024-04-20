@@ -65,5 +65,14 @@
     "type.building.supplyCenter.name": "Supply Center",
     "type.building.techLab.description1": "Produces technology.",
     "type.building.techLab.description2": "Each level of this building increases its production output.",
-    "type.building.techLab.name": "Tech Lab"
+    "type.building.techLab.name": "Tech Lab",
+    "type.country.china": "China",
+    "type.country.france": "France",
+    "type.country.india": "India",
+    "type.country.israel": "Israel",
+    "type.country.northKorea": "North Korea",
+    "type.country.pakistan": "Pakistan",
+    "type.country.russia": "Russia",
+    "type.country.uk": "United Kingdom",
+    "type.country.usa": "USA"
 }

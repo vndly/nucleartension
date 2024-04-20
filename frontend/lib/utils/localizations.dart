@@ -135,6 +135,24 @@ abstract class BaseLocalized {
   String get typeBuildingTechLabDescription2;
 
   String get typeBuildingTechLabName;
+
+  String get typeCountryChina;
+
+  String get typeCountryFrance;
+
+  String get typeCountryIndia;
+
+  String get typeCountryIsrael;
+
+  String get typeCountryNorthKorea;
+
+  String get typeCountryPakistan;
+
+  String get typeCountryRussia;
+
+  String get typeCountryUk;
+
+  String get typeCountryUsa;
 }
 
 class ENLocalized extends BaseLocalized {
@@ -348,6 +366,33 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeBuildingTechLabName => 'Tech Lab';
+
+  @override
+  String get typeCountryChina => 'China';
+
+  @override
+  String get typeCountryFrance => 'France';
+
+  @override
+  String get typeCountryIndia => 'India';
+
+  @override
+  String get typeCountryIsrael => 'Israel';
+
+  @override
+  String get typeCountryNorthKorea => 'North Korea';
+
+  @override
+  String get typeCountryPakistan => 'Pakistan';
+
+  @override
+  String get typeCountryRussia => 'Russia';
+
+  @override
+  String get typeCountryUk => 'United Kingdom';
+
+  @override
+  String get typeCountryUsa => 'USA';
 }
 
 class Localized {

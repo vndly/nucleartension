@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:nucleartension/utils/assets.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 enum Country {
@@ -71,27 +72,26 @@ enum Country {
     }
   }
 
-  // TODO(momo): localize
   String get localized {
     switch (this) {
       case usa:
-        return 'USA';
+        return Localized.get.typeCountryUsa;
       case russia:
-        return 'Russia';
+        return Localized.get.typeCountryRussia;
       case Country.china:
-        return 'China';
+        return Localized.get.typeCountryChina;
       case Country.uk:
-        return 'United Kingdom';
+        return Localized.get.typeCountryUk;
       case Country.france:
-        return 'France';
+        return Localized.get.typeCountryFrance;
       case Country.north_korea:
-        return 'North Korea';
+        return Localized.get.typeCountryNorthKorea;
       case Country.india:
-        return 'India';
+        return Localized.get.typeCountryIndia;
       case Country.pakistan:
-        return 'Pakistan';
+        return Localized.get.typeCountryPakistan;
       case Country.israel:
-        return 'Israel';
+        return Localized.get.typeCountryIsrael;
     }
   }
 }
