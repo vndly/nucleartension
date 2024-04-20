@@ -93,6 +93,48 @@ abstract class BaseLocalized {
   String get screenWarRoomTabPlayers;
 
   String snackDefcon(int param1);
+
+  String get typeBuildingMilitaryFacilityDescription1;
+
+  String get typeBuildingMilitaryFacilityDescription2;
+
+  String get typeBuildingMilitaryFacilityDescription3;
+
+  String get typeBuildingMilitaryFacilityDescription4;
+
+  String get typeBuildingMilitaryFacilityDescription5;
+
+  String get typeBuildingMilitaryFacilityName;
+
+  String get typeBuildingMissileSiloDescription1;
+
+  String get typeBuildingMissileSiloDescription2;
+
+  String get typeBuildingMissileSiloName;
+
+  String get typeBuildingPowerPlantDescription1;
+
+  String get typeBuildingPowerPlantDescription2;
+
+  String get typeBuildingPowerPlantName;
+
+  String get typeBuildingPropagandaStationDescription1;
+
+  String get typeBuildingPropagandaStationDescription2;
+
+  String get typeBuildingPropagandaStationName;
+
+  String get typeBuildingSupplyCenterDescription1;
+
+  String get typeBuildingSupplyCenterDescription2;
+
+  String get typeBuildingSupplyCenterName;
+
+  String get typeBuildingTechLabDescription1;
+
+  String get typeBuildingTechLabDescription2;
+
+  String get typeBuildingTechLabName;
 }
 
 class ENLocalized extends BaseLocalized {
@@ -234,6 +276,78 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String snackDefcon(int param1) => 'DEFCON ${param1.toString()}';
+
+  @override
+  String get typeBuildingMilitaryFacilityDescription1 =>
+      'Creates military units:';
+
+  @override
+  String get typeBuildingMilitaryFacilityDescription2 => '* Infantry';
+
+  @override
+  String get typeBuildingMilitaryFacilityDescription3 => '* Vehicles';
+
+  @override
+  String get typeBuildingMilitaryFacilityDescription4 => '* Aircraft';
+
+  @override
+  String get typeBuildingMilitaryFacilityDescription5 =>
+      'Each level of this building increases its queue size.';
+
+  @override
+  String get typeBuildingMilitaryFacilityName => 'Military Facility';
+
+  @override
+  String get typeBuildingMissileSiloDescription1 =>
+      'Creates defense and attack missiles.';
+
+  @override
+  String get typeBuildingMissileSiloDescription2 =>
+      'Each level of this building increases its queue size.';
+
+  @override
+  String get typeBuildingMissileSiloName => 'Missile Silo';
+
+  @override
+  String get typeBuildingPowerPlantDescription1 => 'Produces energy.';
+
+  @override
+  String get typeBuildingPowerPlantDescription2 =>
+      'Each level of this building increases its production output.';
+
+  @override
+  String get typeBuildingPowerPlantName => 'Power Plant';
+
+  @override
+  String get typeBuildingPropagandaStationDescription1 =>
+      'Produces population.';
+
+  @override
+  String get typeBuildingPropagandaStationDescription2 =>
+      'Each level of this building increases its production output.';
+
+  @override
+  String get typeBuildingPropagandaStationName => 'Propaganda Station';
+
+  @override
+  String get typeBuildingSupplyCenterDescription1 => 'Produces supplies.';
+
+  @override
+  String get typeBuildingSupplyCenterDescription2 =>
+      'Each level of this building increases its production output.';
+
+  @override
+  String get typeBuildingSupplyCenterName => 'Supply Center';
+
+  @override
+  String get typeBuildingTechLabDescription1 => 'Produces technology.';
+
+  @override
+  String get typeBuildingTechLabDescription2 =>
+      'Each level of this building increases its production output.';
+
+  @override
+  String get typeBuildingTechLabName => 'Tech Lab';
 }
 
 class Localized {

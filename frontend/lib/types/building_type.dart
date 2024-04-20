@@ -3,6 +3,7 @@ import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/assets.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 enum BuildingType {
   power_plant(
@@ -79,61 +80,59 @@ enum BuildingType {
     }
   }
 
-  // TODO(momo): localize
   String get localized {
     switch (this) {
       case power_plant:
-        return 'Power Plant';
+        return Localized.get.typeBuildingPowerPlantName;
       case supply_center:
-        return 'Supply Center';
-      case propaganda_station:
-        return 'Propaganda Station';
+        return Localized.get.typeBuildingSupplyCenterName;
       case tech_lab:
-        return 'Tech Lab';
+        return Localized.get.typeBuildingTechLabName;
+      case propaganda_station:
+        return Localized.get.typeBuildingPropagandaStationName;
       case missile_silo:
-        return 'Missile Silo';
+        return Localized.get.typeBuildingMissileSiloName;
       case military_facility:
-        return 'Military Facility';
+        return Localized.get.typeBuildingMilitaryFacilityName;
     }
   }
 
-  // TODO(momo): localize
   List<String> get description {
     switch (this) {
       case power_plant:
         return [
-          'Produces energy.',
-          'Each level of this building increases its production output.',
+          Localized.get.typeBuildingPowerPlantDescription1,
+          Localized.get.typeBuildingPowerPlantDescription2,
         ];
       case supply_center:
         return [
-          'Produces supplies.',
-          'Each level of this building increases its production output.',
-        ];
-      case propaganda_station:
-        return [
-          'Produces population.',
-          'Each level of this building increases its production output.',
+          Localized.get.typeBuildingSupplyCenterDescription1,
+          Localized.get.typeBuildingSupplyCenterDescription2,
         ];
       case tech_lab:
         return [
-          'Produces technology.',
-          'Each level of this building increases its production output.',
+          Localized.get.typeBuildingTechLabDescription1,
+          Localized.get.typeBuildingTechLabDescription2,
+        ];
+      case propaganda_station:
+        return [
+          Localized.get.typeBuildingPropagandaStationDescription1,
+          Localized.get.typeBuildingPropagandaStationDescription2,
         ];
       case missile_silo:
         return [
-          'Creates defense and attack missiles.',
+          Localized.get.typeBuildingMissileSiloDescription1,
           '',
-          'Each level of this building increases its queue size.',
+          Localized.get.typeBuildingMissileSiloDescription2,
         ];
       case military_facility:
         return [
-          'Creates military units:',
-          '* Infantry',
-          '* Vehicles',
-          '* Aircraft',
+          Localized.get.typeBuildingMilitaryFacilityDescription1,
+          Localized.get.typeBuildingMilitaryFacilityDescription2,
+          Localized.get.typeBuildingMilitaryFacilityDescription3,
+          Localized.get.typeBuildingMilitaryFacilityDescription4,
           '',
-          'Each level of this building increases its queue size.',
+          Localized.get.typeBuildingMilitaryFacilityDescription5,
         ];
     }
   }
