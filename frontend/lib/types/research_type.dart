@@ -188,7 +188,6 @@ enum ResearchType {
 
   ResourceMap cost(int level) => initialCost.multiply(level);
 
-  // TODO(momo): localize
   String get localized {
     switch (this) {
       case resources_grid_management:
@@ -228,17 +227,16 @@ enum ResearchType {
       case military_aircraft_time:
         return Localized.get.typeResearchAircraftTimeName;
       case weapons_nuclear_bomb:
-        return 'Nuclear Bomb';
+        return Localized.get.typeResearchWeaponsNuclearBombName;
       case intel_population:
-        return 'Population';
+        return Localized.get.typeResearchIntelPopulationName;
       case intel_military:
-        return 'Military';
+        return Localized.get.typeResearchIntelMilitaryName;
       case intel_research:
-        return 'Research';
+        return Localized.get.typeResearchIntelResearchName;
     }
   }
 
-  // TODO(momo): localize
   String get description {
     switch (this) {
       case resources_grid_management:
@@ -278,13 +276,13 @@ enum ResearchType {
       case military_aircraft_time:
         return Localized.get.typeResearchAircraftTimeDescription;
       case weapons_nuclear_bomb:
-        return 'Increases nuclear bomb yield';
+        return Localized.get.typeResearchWeaponsNuclearBombDescription;
       case intel_population:
-        return 'Reveals population intel about other players';
+        return Localized.get.typeResearchIntelPopulationDescription;
       case intel_military:
-        return 'Reveals military intel about other players';
+        return Localized.get.typeResearchIntelMilitaryDescription;
       case intel_research:
-        return 'Reveals research intel about other players';
+        return Localized.get.typeResearchIntelResearchDescription;
     }
   }
 
@@ -333,14 +331,13 @@ enum ResearchType {
       case weapons_nuclear_bomb:
         return Formatter.yield(Research.yield(level));
 
-      // TODO(momo): localize
       case intel_population:
       case intel_military:
       case intel_research:
         if (level == 1) {
-          return "Global players' ranking";
+          return Localized.get.typeResearchIntelLevel1;
         } else if (level == 2) {
-          return "Players's values";
+          return Localized.get.typeResearchIntelLevel2;
         } else {
           return '';
         }

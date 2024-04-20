@@ -268,6 +268,22 @@ abstract class BaseLocalized {
 
   String get typeResearchInfantryTimeName;
 
+  String get typeResearchIntelLevel1;
+
+  String get typeResearchIntelLevel2;
+
+  String get typeResearchIntelMilitaryDescription;
+
+  String get typeResearchIntelMilitaryName;
+
+  String get typeResearchIntelPopulationDescription;
+
+  String get typeResearchIntelPopulationName;
+
+  String get typeResearchIntelResearchDescription;
+
+  String get typeResearchIntelResearchName;
+
   String get typeResearchProductionChainDescription;
 
   String get typeResearchProductionChainName;
@@ -291,6 +307,10 @@ abstract class BaseLocalized {
   String get typeResearchVehiclesTimeDescription;
 
   String get typeResearchVehiclesTimeName;
+
+  String get typeResearchWeaponsNuclearBombDescription;
+
+  String get typeResearchWeaponsNuclearBombName;
 
   String get typeResourceEnergy;
 
@@ -772,6 +792,33 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchInfantryTimeName => 'Infantry Time';
 
   @override
+  String get typeResearchIntelLevel1 => "Global players' ranking";
+
+  @override
+  String get typeResearchIntelLevel2 => "Players's values";
+
+  @override
+  String get typeResearchIntelMilitaryDescription =>
+      'Reveals military intel about other players';
+
+  @override
+  String get typeResearchIntelMilitaryName => 'Military';
+
+  @override
+  String get typeResearchIntelPopulationDescription =>
+      'Reveals population intel about other players';
+
+  @override
+  String get typeResearchIntelPopulationName => 'Population';
+
+  @override
+  String get typeResearchIntelResearchDescription =>
+      'Reveals research intel about other players';
+
+  @override
+  String get typeResearchIntelResearchName => 'Research';
+
+  @override
   String get typeResearchProductionChainDescription =>
       'Increases supplies production';
 
@@ -812,6 +859,13 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchVehiclesTimeName => 'Vehicles Time';
+
+  @override
+  String get typeResearchWeaponsNuclearBombDescription =>
+      'Increases nuclear bomb yield';
+
+  @override
+  String get typeResearchWeaponsNuclearBombName => 'Nuclear Bomb';
 
   @override
   String get typeResourceEnergy => 'Energy';
