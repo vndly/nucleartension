@@ -2,6 +2,7 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/event_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 class MissileAttackLaunchEvent extends Event {
   final Player attacker;
@@ -17,11 +18,11 @@ class MissileAttackLaunchEvent extends Event {
   }) : super(eventType: EventType.missile_attack_launch);
 
   @override
-  // TODO(momo): localize
   List<String> get text => [
-        'MISSILE ATTACK LAUNCHED',
-        'Attacker: ${attacker.name}',
-        'Defender: ${defender.name}',
-        'Amount: $totalMissiles (${Formatter.yield(totalMissiles * ktPerMissile)})',
+        Localized.get.eventAttackMissileLaunchLine1,
+        Localized.get.eventAttackMissileLaunchLine2(attacker.name),
+        Localized.get.eventAttackMissileLaunchLine3(defender.name),
+        Localized.get.eventAttackMissileLaunchLine4(
+            totalMissiles, Formatter.yield(totalMissiles * ktPerMissile)),
       ];
 }

@@ -44,6 +44,26 @@ abstract class BaseLocalized {
 
   String get dialogSelectorMissilesTitle;
 
+  String get eventAttackMissileLaunchLine1;
+
+  String eventAttackMissileLaunchLine2(String param1);
+
+  String eventAttackMissileLaunchLine3(String param1);
+
+  String eventAttackMissileLaunchLine4(int param1, String param2);
+
+  String get eventAttackMissileResultLine1;
+
+  String eventAttackMissileResultLine2(String param1, String param2);
+
+  String eventAttackMissileResultLine3(String param1, String param2);
+
+  String eventAttackMissileResultLine4(int param1, String param2);
+
+  String eventAttackMissileResultLine5(int param1, String param2);
+
+  String eventAttackMissileResultLine6(String param1);
+
   String get eventAttackUnitLaunchLine1;
 
   String eventAttackUnitLaunchLine2(String param1);
@@ -298,6 +318,44 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogSelectorMissilesTitle => 'Select amount of missiles';
+
+  @override
+  String get eventAttackMissileLaunchLine1 => 'Missile attack launched';
+
+  @override
+  String eventAttackMissileLaunchLine2(String param1) =>
+      'Attacker: ${param1.toString()}';
+
+  @override
+  String eventAttackMissileLaunchLine3(String param1) =>
+      'Defender: ${param1.toString()}';
+
+  @override
+  String eventAttackMissileLaunchLine4(int param1, String param2) =>
+      'Amount: ${param1.toString()} (${param2.toString()})';
+
+  @override
+  String get eventAttackMissileResultLine1 => 'Missile attack finished';
+
+  @override
+  String eventAttackMissileResultLine2(String param1, String param2) =>
+      'Attacker: ${param1.toString()}${param2.toString()}';
+
+  @override
+  String eventAttackMissileResultLine3(String param1, String param2) =>
+      'Defender: ${param1.toString()}${param2.toString()}';
+
+  @override
+  String eventAttackMissileResultLine4(int param1, String param2) =>
+      'Total missiles: ${param1.toString()} (${param2.toString()})';
+
+  @override
+  String eventAttackMissileResultLine5(int param1, String param2) =>
+      'Successful missiles: ${param1.toString()}${param2.toString()}';
+
+  @override
+  String eventAttackMissileResultLine6(String param1) =>
+      'Defender loses: ${param1.toString()}';
 
   @override
   String get eventAttackUnitLaunchLine1 => 'Unit attack launched';

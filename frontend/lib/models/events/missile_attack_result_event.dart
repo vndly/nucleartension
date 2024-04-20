@@ -2,6 +2,7 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/event_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 class MissileAttackResultEvent extends Event {
   final Player attacker;
@@ -23,13 +24,21 @@ class MissileAttackResultEvent extends Event {
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
-  // TODO(momo): localize
   List<String> get text => [
-        'MISSILE ATTACK FINISHED',
-        'Attacker: ${attacker.name}${(attacker == winner) ? ' (winner)' : ''}',
-        'Defender: ${defender.name}${(defender == winner) ? ' (winner)' : ''}',
-        'Total missiles: $totalMissiles (${Formatter.yield(totalMissiles * ktPerMissile)})',
-        'Successful missiles: $successfulAttackMissiles${successfulAttackMissiles > 0 ? ' (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})' : ''}',
-        'Defender loses: ${defenderLoses > 0 ? '${Formatter.resourceRaw(defenderLoses)} people' : 'none'}',
+        Localized.get.eventAttackMissileResultLine1,
+        Localized.get.eventAttackMissileResultLine2(attacker.name,
+            (attacker == winner) ? ' (${Localized.get.labelWinner})' : ''),
+        Localized.get.eventAttackMissileResultLine3(defender.name,
+            (defender == winner) ? ' (${Localized.get.labelWinner})' : ''),
+        Localized.get.eventAttackMissileResultLine4(
+            totalMissiles, Formatter.yield(totalMissiles * ktPerMissile)),
+        Localized.get.eventAttackMissileResultLine5(
+            successfulAttackMissiles,
+            (successfulAttackMissiles > 0)
+                ? ' (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})'
+                : ''),
+        Localized.get.eventAttackMissileResultLine6((defenderLoses > 0)
+            ? Localized.get.labelPeople(Formatter.resourceRaw(defenderLoses))
+            : Localized.get.labelNone),
       ];
 }
