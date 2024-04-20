@@ -4,6 +4,14 @@ import 'package:flutter/widgets.dart';
 abstract class BaseLocalized {
   String get applicationName;
 
+  String attackMissileIncoming(String param1, int param2, String param3);
+
+  String attackMissileOutgoing(String param1, int param2, String param3);
+
+  String attackUnitIncoming(String param1, int param2);
+
+  String attackUnitOutgoing(String param1, int param2);
+
   String get bottomBarEvents;
 
   String get bottomBarMilitary;
@@ -166,6 +174,22 @@ abstract class BaseLocalized {
 class ENLocalized extends BaseLocalized {
   @override
   String get applicationName => 'Nuclear Tension';
+
+  @override
+  String attackMissileIncoming(String param1, int param2, String param3) =>
+      'Incoming missile attack from ${param1.toString()} with ${param2.toString()} missiles (${param3.toString()})';
+
+  @override
+  String attackMissileOutgoing(String param1, int param2, String param3) =>
+      'Outgoing missile attack to ${param1.toString()} with ${param2.toString()} missiles (${param3.toString()})';
+
+  @override
+  String attackUnitIncoming(String param1, int param2) =>
+      'Incoming unit attack from ${param1.toString()} with ${param2.toString()}';
+
+  @override
+  String attackUnitOutgoing(String param1, int param2) =>
+      'Outgoing unit attack to ${param1.toString()} with ${param2.toString()}';
 
   @override
   String get bottomBarEvents => 'Events';

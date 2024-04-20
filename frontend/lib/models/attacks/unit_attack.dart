@@ -4,6 +4,7 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/events/unit_attack_result_event.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 class UnitAttack extends Attack {
   final int militaryPower;
@@ -35,11 +36,10 @@ class UnitAttack extends Attack {
 
   @override
   String toString() {
-    // TODO(momo): localize
     if (attacker.isSelf) {
-      return 'OUTGOING UNIT ATTACK TO ${defender.name} WITH $militaryPower';
+      return Localized.get.attackUnitOutgoing(defender.name, militaryPower);
     } else if (defender.isSelf) {
-      return 'INCOMING UNIT ATTACK FROM ${attacker.name} WITH $militaryPower';
+      return Localized.get.attackUnitIncoming(attacker.name, militaryPower);
     } else {
       return '';
     }

@@ -7,6 +7,7 @@ import 'package:nucleartension/models/events/missile_attack_result_event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 class MissileAttack extends Attack {
   final int totalMissiles;
@@ -42,11 +43,14 @@ class MissileAttack extends Attack {
 
   @override
   String toString() {
-    // TODO(momo): localize
+    final String yield = Formatter.yield(totalMissiles * yieldPerMissile);
+
     if (attacker.isSelf) {
-      return 'OUTGOING MISSILE ATTACK TO ${defender.name} WITH $totalMissiles MISSILES (${Formatter.yield(totalMissiles * yieldPerMissile)})';
+      return Localized.get
+          .attackMissileOutgoing(defender.name, totalMissiles, yield);
     } else if (defender.isSelf) {
-      return 'INCOMING MISSILE ATTACK FROM ${attacker.name} WITH $totalMissiles MISSILES (${Formatter.yield(totalMissiles * yieldPerMissile)})';
+      return Localized.get
+          .attackMissileIncoming(attacker.name, totalMissiles, yield);
     } else {
       return '';
     }

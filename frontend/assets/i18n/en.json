@@ -1,5 +1,9 @@
 {
     "application.name": "Nuclear Tension",
+    "attack.missile.incoming": "Incoming missile attack from %1$s with %2$d missiles (%3$s)",
+    "attack.missile.outgoing": "Outgoing missile attack to %1$s with %2$d missiles (%3$s)",
+    "attack.unit.incoming": "Incoming unit attack from %1$s with %2$d",
+    "attack.unit.outgoing": "Outgoing unit attack to %1$s with %2$d",
     "bottomBar.events": "Events",
     "bottomBar.military": "Military",
     "bottomBar.research": "Research",
