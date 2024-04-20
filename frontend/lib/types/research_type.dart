@@ -200,13 +200,13 @@ enum ResearchType {
       case resources_quantum_computing:
         return Localized.get.typeResearchQuantumComputingName;
       case missiles_additive_manufacturing:
-        return 'Additive Manufacturing';
+        return Localized.get.typeResearchAdditiveManufacturingName;
       case missiles_assembly_automation:
-        return 'Assembly Automation';
+        return Localized.get.typeResearchAssemblyAutomationName;
       case missiles_active_tracking:
-        return 'Active Tracking';
+        return Localized.get.typeResearchActiveTrackingName;
       case missiles_signal_jamming:
-        return 'Signal Jamming';
+        return Localized.get.typeResearchSignalJammingName;
       case warning_missiles_radar_network:
         return 'Radar Network';
       case warning_missiles_hypersonic_propulsion:
@@ -250,13 +250,13 @@ enum ResearchType {
       case resources_quantum_computing:
         return Localized.get.typeResearchQuantumComputingDescription;
       case missiles_additive_manufacturing:
-        return 'Decreases missile cost production';
+        return Localized.get.typeResearchAdditiveManufacturingDescription;
       case missiles_assembly_automation:
-        return 'Decreases missile time production';
+        return Localized.get.typeResearchAssemblyAutomationDescription;
       case missiles_active_tracking:
-        return 'Increases defense missiles effectiveness';
+        return Localized.get.typeResearchActiveTrackingDescription;
       case missiles_signal_jamming:
-        return "Decreases the effectiveness of enemy's defense missiles";
+        return Localized.get.typeResearchSignalJammingDescription;
       case warning_missiles_radar_network:
         return 'Increases warning time when receiving a missile attack';
       case warning_missiles_hypersonic_propulsion:

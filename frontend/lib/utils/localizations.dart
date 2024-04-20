@@ -220,6 +220,18 @@ abstract class BaseLocalized {
 
   String get typeCountryUsa;
 
+  String get typeResearchActiveTrackingDescription;
+
+  String get typeResearchActiveTrackingName;
+
+  String get typeResearchAdditiveManufacturingDescription;
+
+  String get typeResearchAdditiveManufacturingName;
+
+  String get typeResearchAssemblyAutomationDescription;
+
+  String get typeResearchAssemblyAutomationName;
+
   String get typeResearchGridManagementDescription;
 
   String get typeResearchGridManagementName;
@@ -235,6 +247,10 @@ abstract class BaseLocalized {
   String get typeResearchQuantumComputingDescription;
 
   String get typeResearchQuantumComputingName;
+
+  String get typeResearchSignalJammingDescription;
+
+  String get typeResearchSignalJammingName;
 
   String get typeResourceEnergy;
 
@@ -632,6 +648,27 @@ class ENLocalized extends BaseLocalized {
   String get typeCountryUsa => 'USA';
 
   @override
+  String get typeResearchActiveTrackingDescription =>
+      'Increases defense missiles effectiveness';
+
+  @override
+  String get typeResearchActiveTrackingName => 'Active Tracking';
+
+  @override
+  String get typeResearchAdditiveManufacturingDescription =>
+      'Decreases missile cost production';
+
+  @override
+  String get typeResearchAdditiveManufacturingName => 'Additive Manufacturing';
+
+  @override
+  String get typeResearchAssemblyAutomationDescription =>
+      'Decreases missile time production';
+
+  @override
+  String get typeResearchAssemblyAutomationName => 'Assembly Automation';
+
+  @override
   String get typeResearchGridManagementDescription =>
       'Increases energy production';
 
@@ -658,6 +695,13 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchQuantumComputingName => 'Quantum computing';
+
+  @override
+  String get typeResearchSignalJammingDescription =>
+      "Decreases the effectiveness of enemy's defense missiles";
+
+  @override
+  String get typeResearchSignalJammingName => 'Signal Jamming';
 
   @override
   String get typeResourceEnergy => 'Energy';
