@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/home_state.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/primary_button.dart';
 import 'package:nucleartension/widgets/misc/game_container.dart';
@@ -38,9 +39,8 @@ class Content extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // TODO(momo): localize
               PrimaryButton(
-                text: 'CONTINUE',
+                text: Localized.get.homeContinue,
                 icon: Icons.play_arrow,
                 color: Palette.buttonEnabled,
                 onPressed: state.onContinue,
@@ -48,7 +48,7 @@ class Content extends StatelessWidget {
               ),
               const VBox(20),
               PrimaryButton(
-                text: 'SETTINGS',
+                text: Localized.get.homeSettings,
                 icon: Icons.settings,
                 color: Palette.buttonEnabled,
                 onPressed: state.onSettings,
@@ -56,7 +56,7 @@ class Content extends StatelessWidget {
               ),
               const VBox(20),
               PrimaryButton(
-                text: 'INFO',
+                text: Localized.get.homeInfo,
                 icon: Icons.info,
                 color: Palette.buttonEnabled,
                 onPressed: state.onInfo,

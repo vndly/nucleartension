@@ -44,11 +44,23 @@ abstract class BaseLocalized {
 
   String get headerMilitaryPower;
 
+  String get homeContinue;
+
+  String get homeInfo;
+
+  String get homeSettings;
+
   String get labelCurrent;
+
+  String get labelKiloton;
 
   String get labelLevel;
 
   String get labelMax;
+
+  String get labelMegaton;
+
+  String get labelMillion;
 
   String labelQueue(int param1, int param2);
 
@@ -148,13 +160,31 @@ class ENLocalized extends BaseLocalized {
   String get headerMilitaryPower => 'Military Power:';
 
   @override
+  String get homeContinue => 'Continue';
+
+  @override
+  String get homeInfo => 'Info';
+
+  @override
+  String get homeSettings => 'Settings';
+
+  @override
   String get labelCurrent => 'Current';
+
+  @override
+  String get labelKiloton => 'Kt';
 
   @override
   String get labelLevel => 'Level';
 
   @override
   String get labelMax => 'Max';
+
+  @override
+  String get labelMegaton => 'Mt';
+
+  @override
+  String get labelMillion => 'M';
 
   @override
   String labelQueue(int param1, int param2) =>

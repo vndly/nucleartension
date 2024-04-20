@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 class Formatter {
   static String hoursMinutes(DateTime dateTime) =>
@@ -22,12 +23,12 @@ class Formatter {
       final NumberFormat formatter = NumberFormat('0');
       final String value = formatter.format(amount);
 
-      return '$value Kt'; // TODO(momo): localize
+      return '$value ${Localized.get.labelKiloton}';
     } else {
       final NumberFormat formatter = NumberFormat('0.#');
       final String value = formatter.format(amount / 1000);
 
-      return '$value Mt'; // TODO(momo): localize
+      return '$value ${Localized.get.labelMegaton}';
     }
   }
 
@@ -42,7 +43,7 @@ class Formatter {
       final NumberFormat formatter = NumberFormat('##0.###');
       final String value = formatter.format(intAmount / 1000000);
 
-      return '${value}M'; // TODO(momo): localize
+      return '$value${Localized.get.labelMillion}';
     }
   }
 
