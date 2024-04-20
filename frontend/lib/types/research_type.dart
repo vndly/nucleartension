@@ -5,6 +5,7 @@ import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 enum ResearchType {
   // resources
@@ -296,9 +297,8 @@ enum ResearchType {
   List<String> get levelDetails {
     final List<String> result = [];
 
-    // TODO(momo): localize
     for (int i = 1; i <= maxLevel; i++) {
-      result.add('Level $i: ${rateDescription(i)}');
+      result.add('${Localized.get.labelLevel} $i: ${rateDescription(i)}');
     }
 
     return result;
