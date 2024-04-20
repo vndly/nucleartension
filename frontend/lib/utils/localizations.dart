@@ -220,6 +220,22 @@ abstract class BaseLocalized {
 
   String get typeCountryUsa;
 
+  String get typeResearchGridManagementDescription;
+
+  String get typeResearchGridManagementName;
+
+  String get typeResearchIndoctrinationDescription;
+
+  String get typeResearchIndoctrinationName;
+
+  String get typeResearchProductionChainDescription;
+
+  String get typeResearchProductionChainName;
+
+  String get typeResearchQuantumComputingDescription;
+
+  String get typeResearchQuantumComputingName;
+
   String get typeResourceEnergy;
 
   String get typeResourcePopulation;
@@ -545,7 +561,8 @@ class ENLocalized extends BaseLocalized {
   String get typeBuildingMissileSiloName => 'Missile Silo';
 
   @override
-  String get typeBuildingPowerPlantDescription1 => 'Produces energy.';
+  String get typeBuildingPowerPlantDescription1 =>
+      'Produces energy, which is used to create units, missiles and upgrade buildings.';
 
   @override
   String get typeBuildingPowerPlantDescription2 =>
@@ -556,7 +573,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeBuildingPropagandaStationDescription1 =>
-      'Produces population.';
+      'Produces population. A player is eliminated when it loses all the population.';
 
   @override
   String get typeBuildingPropagandaStationDescription2 =>
@@ -566,7 +583,8 @@ class ENLocalized extends BaseLocalized {
   String get typeBuildingPropagandaStationName => 'Propaganda Station';
 
   @override
-  String get typeBuildingSupplyCenterDescription1 => 'Produces supplies.';
+  String get typeBuildingSupplyCenterDescription1 =>
+      'Produces supplies, which is used to create units, missiles and upgrade buildings.';
 
   @override
   String get typeBuildingSupplyCenterDescription2 =>
@@ -576,7 +594,8 @@ class ENLocalized extends BaseLocalized {
   String get typeBuildingSupplyCenterName => 'Supply Center';
 
   @override
-  String get typeBuildingTechLabDescription1 => 'Produces technology.';
+  String get typeBuildingTechLabDescription1 =>
+      'Produces technology, which is used to upgrade researches.';
 
   @override
   String get typeBuildingTechLabDescription2 =>
@@ -613,6 +632,34 @@ class ENLocalized extends BaseLocalized {
   String get typeCountryUsa => 'USA';
 
   @override
+  String get typeResearchGridManagementDescription =>
+      'Increases energy production';
+
+  @override
+  String get typeResearchGridManagementName => 'Grid Management';
+
+  @override
+  String get typeResearchIndoctrinationDescription =>
+      'Increases population production';
+
+  @override
+  String get typeResearchIndoctrinationName => 'Indoctrination';
+
+  @override
+  String get typeResearchProductionChainDescription =>
+      'Increases supplies production';
+
+  @override
+  String get typeResearchProductionChainName => 'Production Chain';
+
+  @override
+  String get typeResearchQuantumComputingDescription =>
+      'Increases technology production';
+
+  @override
+  String get typeResearchQuantumComputingName => 'Quantum computing';
+
+  @override
   String get typeResourceEnergy => 'Energy';
 
   @override
@@ -626,7 +673,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String typeUnitAircraftDescription(int param1) =>
-      'Advance jet fighters. It increases the military power by ${param1.toString()}';
+      'Advance jet fighters. It increases the military power by ${param1.toString()}.';
 
   @override
   String get typeUnitAircraftName => 'Aircraft';
@@ -655,14 +702,14 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String typeUnitInfantryDescription(int param1) =>
-      'Basic military soldier squad. It increases the military power by ${param1.toString()}';
+      'Basic military soldier squad. It increases the military power by ${param1.toString()}.';
 
   @override
   String get typeUnitInfantryName => 'Infantry';
 
   @override
   String typeUnitVehiclesDescription(int param1) =>
-      'Land military vehicles. It increases the military power by ${param1.toString()}';
+      'Land military vehicles. It increases the military power by ${param1.toString()}.';
 
   @override
   String get typeUnitVehiclesName => 'Vehicle';

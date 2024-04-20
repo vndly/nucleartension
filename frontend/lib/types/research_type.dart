@@ -192,13 +192,13 @@ enum ResearchType {
   String get localized {
     switch (this) {
       case resources_grid_management:
-        return 'Grid Management';
+        return Localized.get.typeResearchGridManagementName;
       case resources_production_chain:
-        return 'Production Chain';
+        return Localized.get.typeResearchProductionChainName;
       case resources_indoctrination:
-        return 'Indoctrination';
+        return Localized.get.typeResearchIndoctrinationName;
       case resources_quantum_computing:
-        return 'Quantum computing';
+        return Localized.get.typeResearchQuantumComputingName;
       case missiles_additive_manufacturing:
         return 'Additive Manufacturing';
       case missiles_assembly_automation:
@@ -242,13 +242,13 @@ enum ResearchType {
   String get description {
     switch (this) {
       case resources_grid_management:
-        return 'Increases energy production';
+        return Localized.get.typeResearchGridManagementDescription;
       case resources_production_chain:
-        return 'Increases supplies production';
+        return Localized.get.typeResearchProductionChainDescription;
       case resources_indoctrination:
-        return 'Increases population production';
+        return Localized.get.typeResearchIndoctrinationDescription;
       case resources_quantum_computing:
-        return 'Increases technology production';
+        return Localized.get.typeResearchQuantumComputingDescription;
       case missiles_additive_manufacturing:
         return 'Decreases missile cost production';
       case missiles_assembly_automation:
