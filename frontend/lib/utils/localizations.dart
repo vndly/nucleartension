@@ -44,6 +44,24 @@ abstract class BaseLocalized {
 
   String get dialogSelectorMissilesTitle;
 
+  String get eventAttackUnitLaunchLine1;
+
+  String eventAttackUnitLaunchLine2(String param1);
+
+  String eventAttackUnitLaunchLine3(String param1);
+
+  String eventAttackUnitLaunchLine4(String param1);
+
+  String get eventAttackUnitResultLine1;
+
+  String eventAttackUnitResultLine2(String param1, String param2);
+
+  String eventAttackUnitResultLine3(String param1, String param2);
+
+  String eventAttackUnitResultLine4(String param1);
+
+  String eventAttackUnitResultLine5(String param1);
+
   String eventDefconLine1(int param1);
 
   String get eventDefconLine2Level1;
@@ -82,11 +100,17 @@ abstract class BaseLocalized {
 
   String get labelMillion;
 
+  String get labelNone;
+
+  String labelPeople(String param1);
+
   String labelQueue(int param1, int param2);
 
   String labelRequires(String param1);
 
   String get labelSecond;
+
+  String get labelWinner;
 
   String get screenEventsNoEvents;
 
@@ -276,6 +300,40 @@ class ENLocalized extends BaseLocalized {
   String get dialogSelectorMissilesTitle => 'Select amount of missiles';
 
   @override
+  String get eventAttackUnitLaunchLine1 => 'Unit attack launched';
+
+  @override
+  String eventAttackUnitLaunchLine2(String param1) =>
+      'Attacker: ${param1.toString()}';
+
+  @override
+  String eventAttackUnitLaunchLine3(String param1) =>
+      'Defender: ${param1.toString()}';
+
+  @override
+  String eventAttackUnitLaunchLine4(String param1) =>
+      'Power: ${param1.toString()}';
+
+  @override
+  String get eventAttackUnitResultLine1 => 'Unit attack finished';
+
+  @override
+  String eventAttackUnitResultLine2(String param1, String param2) =>
+      'Attacker: ${param1.toString()}${param2.toString()}';
+
+  @override
+  String eventAttackUnitResultLine3(String param1, String param2) =>
+      'Defender: ${param1.toString()}${param2.toString()}';
+
+  @override
+  String eventAttackUnitResultLine4(String param1) =>
+      'Power: ${param1.toString()}';
+
+  @override
+  String eventAttackUnitResultLine5(String param1) =>
+      'Defender loses: ${param1.toString()}';
+
+  @override
   String eventDefconLine1(int param1) => 'DEFCON ${param1.toString()}';
 
   @override
@@ -334,6 +392,12 @@ class ENLocalized extends BaseLocalized {
   String get labelMillion => 'M';
 
   @override
+  String get labelNone => 'None';
+
+  @override
+  String labelPeople(String param1) => '${param1.toString()} People';
+
+  @override
   String labelQueue(int param1, int param2) =>
       'Queue ${param1.toString()}/${param2.toString()}';
 
@@ -342,6 +406,9 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get labelSecond => 's';
+
+  @override
+  String get labelWinner => 'Winner';
 
   @override
   String get screenEventsNoEvents => 'No events';

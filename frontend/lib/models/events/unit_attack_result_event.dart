@@ -2,6 +2,7 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/event_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
+import 'package:nucleartension/utils/localizations.dart';
 
 class UnitAttackResultEvent extends Event {
   final Player attacker;
@@ -19,12 +20,16 @@ class UnitAttackResultEvent extends Event {
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
-  // TODO(momo): localize
   List<String> get text => [
-        'UNIT ATTACK FINISHED',
-        'Attacker: ${attacker.name}${(attacker == winner) ? ' (winner)' : ''}',
-        'Defender: ${defender.name}${(defender == winner) ? ' (winner)' : ''}',
-        'Power: ${Formatter.resourceRaw(militaryPower)}',
-        'Defender loses: ${Formatter.resourceRaw(defenderLoses)} people',
+        Localized.get.eventAttackUnitResultLine1,
+        Localized.get.eventAttackUnitResultLine2(attacker.name,
+            (attacker == winner) ? ' (${Localized.get.labelWinner})' : ''),
+        Localized.get.eventAttackUnitResultLine3(defender.name,
+            (defender == winner) ? ' (${Localized.get.labelWinner})' : ''),
+        Localized.get
+            .eventAttackUnitResultLine4(Formatter.resourceRaw(militaryPower)),
+        Localized.get.eventAttackUnitResultLine5((defenderLoses > 0)
+            ? Localized.get.labelPeople(Formatter.resourceRaw(defenderLoses))
+            : Localized.get.labelNone),
       ];
 }
