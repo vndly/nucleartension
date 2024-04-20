@@ -102,21 +102,25 @@ enum BuildingType {
       case power_plant:
         return [
           Localized.get.typeBuildingPowerPlantDescription1,
+          '',
           Localized.get.typeBuildingPowerPlantDescription2,
         ];
       case supply_center:
         return [
           Localized.get.typeBuildingSupplyCenterDescription1,
+          '',
           Localized.get.typeBuildingSupplyCenterDescription2,
         ];
       case tech_lab:
         return [
           Localized.get.typeBuildingTechLabDescription1,
+          '',
           Localized.get.typeBuildingTechLabDescription2,
         ];
       case propaganda_station:
         return [
           Localized.get.typeBuildingPropagandaStationDescription1,
+          '',
           Localized.get.typeBuildingPropagandaStationDescription2,
         ];
       case missile_silo:
