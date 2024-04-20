@@ -144,7 +144,7 @@
     "type.research.resources.productionChain.name": "Production Chain",
     "type.research.resources.quantumComputing.description": "Increases technology production",
     "type.research.resources.quantumComputing.name": "Quantum computing",
-    "type.research.warning.earlyWarning.description": "Increases warning time when receiving a military attack",
+    "type.research.warning.earlyWarning.description": "Increases warning time when receiving a unit attack",
     "type.research.warning.earlyWarning.name": "Early Warning",
     "type.research.warning.fastDeployments.description": "Increases attack units speed",
     "type.research.warning.fastDeployments.name": "Fast Deployments",

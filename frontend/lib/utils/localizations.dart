@@ -836,7 +836,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchWarningEarlyWarningDescription =>
-      'Increases warning time when receiving a military attack';
+      'Increases warning time when receiving a unit attack';
 
   @override
   String get typeResearchWarningEarlyWarningName => 'Early Warning';
