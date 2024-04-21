@@ -1,3 +1,4 @@
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/tasks/create_unit_task.dart';
@@ -17,7 +18,7 @@ class Trainer extends Building {
   int get queueSize =>
       queues.values.map((e) => e.length).reduce((a, b) => a + b);
 
-  int get queueMaxCapacity => level * 2;
+  int get queueMaxCapacity => level * Constants.QUEUE_CAPACITY_PER_LEVEL;
 
   int enqueuedUnits(UnitType unitType) => queues[unitType]?.length ?? 0;
 

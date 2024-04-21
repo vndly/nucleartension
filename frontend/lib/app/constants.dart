@@ -6,6 +6,7 @@ class Constants {
 
   static const double DEFCON_PRODUCTION_RATE = 0.1; // 10%
   static const double DEFENSE_MISSILE_EFFECTIVENESS = 0.5; // 50%
+  static const int QUEUE_CAPACITY_PER_LEVEL = 2;
 
   // Attacks
   static const int MISSILE_ATTACK_WARNING_TIME = 10; // in seconds
