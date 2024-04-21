@@ -1,5 +1,7 @@
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 
 class ActivePlayer extends Player {
@@ -46,6 +48,9 @@ class ActivePlayer extends Player {
       case PlayerAction.upgrade_missile_silo:
         _upgradeBuilding(missileSilo);
         break;
+      case PlayerAction.research_resources_grid_management:
+        _researchTechnology(ResearchType.resources_grid_management);
+        break;
       case PlayerAction.create_infantry:
         _createUnit(UnitType.infantry);
         break;
@@ -61,7 +66,11 @@ class ActivePlayer extends Player {
       case PlayerAction.create_attack_missile:
         _createUnit(UnitType.attack);
         break;
-      default: // `TODO`(momo): implement rest
+      case PlayerAction.attack_unit:
+        _uniAttack();
+        break;
+      case PlayerAction.attack_missiles:
+        _missileAttack();
         break;
     }
   }
@@ -69,6 +78,14 @@ class ActivePlayer extends Player {
   void _upgradeBuilding(Building building) {
     if (building.canUpgrade) {
       building.upgrade();
+    }
+  }
+
+  void _researchTechnology(ResearchType researchType) {
+    final Research research = getResearch(researchType);
+
+    if (research.canUpgrade) {
+      research.upgrade();
     }
   }
 
@@ -84,6 +101,14 @@ class ActivePlayer extends Player {
         militaryFacility.enqueueUnit(unitType);
         break;
     }
+  }
+
+  void _uniAttack() {
+    // TODO(momo): implement
+  }
+
+  void _missileAttack() {
+    // TODO(momo): implement
   }
 }
 
@@ -169,6 +194,10 @@ enum PlayerAction {
   upgrade_military_facility,
   upgrade_missile_silo,
 
+  // research technology
+  research_resources_grid_management,
+  // TODO(momo): implement
+
   // create units
   create_infantry,
   create_vehicle,
@@ -177,10 +206,6 @@ enum PlayerAction {
   // create missiles
   create_defense_missile,
   create_attack_missile,
-
-  // research technology
-  research_resources_grid_management,
-  // TODO(momo): implement
 
   // attack
   attack_unit,
