@@ -61,39 +61,24 @@ class ActivePlayer extends Player {
 }
 
 class PlayerProfile implements ProfileChoice {
-  final List<ProbabilityAction> groups;
+  final Map<ProfileChoice, double> map;
 
-  const PlayerProfile._(this.groups);
+  const PlayerProfile._(this.map);
 
   @override
   PlayerAction get action {
-    return groups[0].action; // TODO(momo): implement
+    return map.keys.first.action; // TODO(momo): implement
   }
 
-  factory PlayerProfile.aggressive() => PlayerProfile._([
-        ProbabilityAction(
-          probability: 0.35,
-          profileChoice: PlayerProfile._(_upgradeBuildingActions()),
-        ),
-        ProbabilityAction(
-          probability: 0.25,
-          profileChoice: PlayerProfile._(_researchTechnologyActions()),
-        ),
-        ProbabilityAction(
-          probability: 0.20,
-          profileChoice: PlayerProfile._(_createUnitAction()),
-        ),
-        ProbabilityAction(
-          probability: 0.15,
-          profileChoice: PlayerProfile._(_createMissileAction()),
-        ),
-        ProbabilityAction(
-          probability: 0.5,
-          profileChoice: PlayerProfile._(_attackAction()),
-        ),
-      ]);
+  factory PlayerProfile.aggressive() => PlayerProfile._({
+        PlayerProfile.upgradeBuildingActions(): 0.35,
+        PlayerProfile.researchTechnologyActions(): 0.25,
+        PlayerProfile.createUnitAction(): 0.20,
+        PlayerProfile.createMissileAction(): 0.15,
+        PlayerProfile.attackAction(): 0.5,
+      });
 
-  static List<ProbabilityAction> _upgradeBuildingActions() => _probabilities({
+  factory PlayerProfile.upgradeBuildingActions() => PlayerProfile.finalActions({
         PlayerAction.upgrade_power_plant: 0.3,
         PlayerAction.upgrade_supply_center: 0.25,
         PlayerAction.upgrade_tech_lab: 0.15,
@@ -103,56 +88,36 @@ class PlayerProfile implements ProfileChoice {
       });
 
   // TODO(momo): implement
-  static List<ProbabilityAction> _researchTechnologyActions() =>
-      _probabilities({
+  factory PlayerProfile.researchTechnologyActions() =>
+      PlayerProfile.finalActions({
         PlayerAction.research_resources_grid_management: 1,
       });
 
-  static List<ProbabilityAction> _createUnitAction() => _probabilities({
+  factory PlayerProfile.createUnitAction() => PlayerProfile.finalActions({
         PlayerAction.create_infantry: 0.4,
         PlayerAction.create_vehicle: 0.3,
         PlayerAction.create_aircraft: 0.2,
       });
 
-  static List<ProbabilityAction> _createMissileAction() => _probabilities({
+  factory PlayerProfile.createMissileAction() => PlayerProfile.finalActions({
         PlayerAction.create_defense_missile: 0.7,
         PlayerAction.create_attack_missile: 0.3,
       });
 
-  static List<ProbabilityAction> _attackAction() => _probabilities({
+  factory PlayerProfile.attackAction() => PlayerProfile.finalActions({
         PlayerAction.attack_unit: 0.5,
         PlayerAction.attack_missiles: 0.5,
       });
 
-  static List<ProbabilityAction> _probabilities(Map<PlayerAction, double> map) {
-    final List<ProbabilityAction> result = [];
+  factory PlayerProfile.finalActions(Map<PlayerAction, double> map) {
+    final Map<ProfileChoice, double> result = {};
 
     for (final MapEntry<PlayerAction, double> entry in map.entries) {
-      result.add(ProbabilityAction(
-        probability: entry.value,
-        profileChoice: FinalAction(entry.key),
-      ));
+      result[FinalAction(entry.key)] = entry.value;
     }
 
-    return result;
+    return PlayerProfile._(result);
   }
-}
-
-abstract class ProfileChoice {
-  PlayerAction get action;
-}
-
-class ProbabilityAction implements ProfileChoice {
-  final double probability;
-  final ProfileChoice profileChoice;
-
-  const ProbabilityAction({
-    required this.probability,
-    required this.profileChoice,
-  });
-
-  @override
-  PlayerAction get action => profileChoice.action;
 }
 
 class FinalAction implements ProfileChoice {
@@ -162,6 +127,10 @@ class FinalAction implements ProfileChoice {
 
   @override
   PlayerAction get action => playerAction;
+}
+
+abstract class ProfileChoice {
+  PlayerAction get action;
 }
 
 enum PlayerAction {
