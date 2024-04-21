@@ -96,13 +96,21 @@ abstract class BaseLocalized {
 
   String eventDefconLine1(int param1);
 
-  String get eventDefconLine2Level1;
+  String get eventDefconLine2Level1Other;
 
-  String get eventDefconLine2Level2;
+  String get eventDefconLine2Level1Self;
 
-  String get eventDefconLine2Level3;
+  String get eventDefconLine2Level2Other;
 
-  String get eventDefconLine2Level4;
+  String get eventDefconLine2Level2Self;
+
+  String get eventDefconLine2Level3Other;
+
+  String get eventDefconLine2Level3Self;
+
+  String get eventDefconLine2Level4Other;
+
+  String get eventDefconLine2Level4Self;
 
   String eventDefconLine3(int param1);
 
@@ -521,16 +529,32 @@ class ENLocalized extends BaseLocalized {
   String eventDefconLine1(int param1) => 'DEFCON ${param1.toString()}';
 
   @override
-  String get eventDefconLine2Level1 => 'A player has launched a missile attack';
+  String get eventDefconLine2Level1Other =>
+      'A player has launched a missile attack';
 
   @override
-  String get eventDefconLine2Level2 => 'A player has created an attack missile';
+  String get eventDefconLine2Level1Self => 'You have launched a missile attack';
 
   @override
-  String get eventDefconLine2Level3 => 'A player has launched a unit attack';
+  String get eventDefconLine2Level2Other =>
+      'A player has created an attack missile';
 
   @override
-  String get eventDefconLine2Level4 => 'A player has created a military unit';
+  String get eventDefconLine2Level2Self => 'You have created an attack missile';
+
+  @override
+  String get eventDefconLine2Level3Other =>
+      'A player has launched a unit attack';
+
+  @override
+  String get eventDefconLine2Level3Self => 'You have launched a unit attack';
+
+  @override
+  String get eventDefconLine2Level4Other =>
+      'A player has created a military unit';
+
+  @override
+  String get eventDefconLine2Level4Self => 'You have created a military unit';
 
   @override
   String eventDefconLine3(int param1) =>

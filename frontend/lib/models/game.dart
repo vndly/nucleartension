@@ -115,19 +115,35 @@ class Game {
 
   int get defconStep => 6 - defcon;
 
-  void onUnitCreated() => _applyDefcon(4);
+  void onUnitCreated(Player player) => _applyDefcon(
+        player: player,
+        level: 4,
+      );
 
-  void onUnitUsed() => _applyDefcon(3);
+  void onUnitUsed(Player player) => _applyDefcon(
+        player: player,
+        level: 3,
+      );
 
-  void onAttackMissileCreated() => _applyDefcon(2);
+  void onAttackMissileCreated(Player player) => _applyDefcon(
+        player: player,
+        level: 2,
+      );
 
-  void onAttackMissileUsed() => _applyDefcon(1);
+  void onAttackMissileUsed(Player player) => _applyDefcon(
+        player: player,
+        level: 1,
+      );
 
-  void _applyDefcon(int value) {
-    if (defcon > value) {
-      defcon = value;
-      CustomSnackbar.defcon(value);
+  void _applyDefcon({
+    required Player player,
+    required int level,
+  }) {
+    if (defcon > level) {
+      defcon = level;
+      CustomSnackbar.defcon(level);
       _addEvent(DefconUpdateEvent(
+        player: player,
         defconLevel: defcon,
         productionBoost:
             Constants.DEFCON_PRODUCTION_RATE * (defconStep - 1) * 100,
@@ -172,7 +188,7 @@ class Game {
       militaryPower: militaryPower,
     ));
 
-    onUnitUsed();
+    onUnitUsed(attacker);
   }
 
   void onMissileAttack({
@@ -209,7 +225,7 @@ class Game {
       ktPerMissile: attacker.attackMissileYield,
     ));
 
-    onAttackMissileUsed();
+    onAttackMissileUsed(attacker);
   }
 
   // ============================= UPDATE =================================== \\

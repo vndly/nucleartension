@@ -151,14 +151,14 @@ class Player {
 
       case UnitType.attack:
         military.add(MilitaryType.attack_missiles, 1);
-        game.onAttackMissileCreated();
+        game.onAttackMissileCreated(this);
         break;
 
       case UnitType.infantry:
       case UnitType.vehicle:
       case UnitType.aircraft:
         military.add(MilitaryType.power, unitType.power);
-        game.onUnitCreated();
+        game.onUnitCreated(this);
         break;
     }
   }
