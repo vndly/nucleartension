@@ -28,6 +28,14 @@ abstract class BaseLocalized {
 
   String get buttonOk;
 
+  String get dialogAttackMilitaryMessage;
+
+  String get dialogAttackMilitaryTitle;
+
+  String get dialogAttackMissilesMessage;
+
+  String get dialogAttackMissilesTitle;
+
   String dialogInformationPlayerLostMessage(String param1);
 
   String get dialogInformationPlayerLostTitle;
@@ -47,10 +55,6 @@ abstract class BaseLocalized {
   String get dialogPauseResume;
 
   String get dialogPauseTitle;
-
-  String get dialogSelectorMilitaryTitle;
-
-  String get dialogSelectorMissilesTitle;
 
   String get eventAttackMissileLaunchLine1;
 
@@ -398,6 +402,18 @@ class ENLocalized extends BaseLocalized {
   String get buttonOk => 'Ok';
 
   @override
+  String get dialogAttackMilitaryMessage => 'Select amount of military power:';
+
+  @override
+  String get dialogAttackMilitaryTitle => 'Launch unit attack';
+
+  @override
+  String get dialogAttackMissilesMessage => 'Select amount of missiles:';
+
+  @override
+  String get dialogAttackMissilesTitle => 'Launch missile attack';
+
+  @override
   String dialogInformationPlayerLostMessage(String param1) =>
       'You have been destroyed by ${param1.toString()}.';
 
@@ -428,12 +444,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogPauseTitle => 'Pause';
-
-  @override
-  String get dialogSelectorMilitaryTitle => 'Select amount of military power';
-
-  @override
-  String get dialogSelectorMissilesTitle => 'Select amount of missiles';
 
   @override
   String get eventAttackMissileLaunchLine1 => 'Missile attack launched';

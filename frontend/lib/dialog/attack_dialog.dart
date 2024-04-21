@@ -7,15 +7,17 @@ import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
-class SelectorDialog extends StatefulWidget {
+class AttackDialog extends StatefulWidget {
   final String title;
+  final String message;
   final int max;
   final String buttonAccept;
   final String buttonCancel;
   final Function(int) onAccept;
 
-  const SelectorDialog._({
+  const AttackDialog._({
     required this.title,
+    required this.message,
     required this.max,
     required this.buttonAccept,
     required this.buttonCancel,
@@ -24,13 +26,15 @@ class SelectorDialog extends StatefulWidget {
 
   static DialogController _show({
     required String title,
+    required String message,
     required int max,
     required String buttonAccept,
     required String buttonCancel,
     required Function(int) onAccept,
   }) =>
-      BaseDialog.show(SelectorDialog._(
+      BaseDialog.show(AttackDialog._(
         title: title,
+        message: message,
         max: max,
         buttonAccept: buttonAccept,
         buttonCancel: buttonCancel,
@@ -42,7 +46,8 @@ class SelectorDialog extends StatefulWidget {
     required Function(int) onAccept,
   }) =>
       _show(
-        title: Localized.get.dialogSelectorMilitaryTitle,
+        title: Localized.get.dialogAttackMilitaryTitle,
+        message: Localized.get.dialogAttackMilitaryMessage,
         max: max,
         buttonAccept: Localized.get.buttonAttack,
         buttonCancel: Localized.get.buttonCancel,
@@ -54,7 +59,8 @@ class SelectorDialog extends StatefulWidget {
     required Function(int) onAccept,
   }) =>
       _show(
-        title: Localized.get.dialogSelectorMissilesTitle,
+        title: Localized.get.dialogAttackMissilesTitle,
+        message: Localized.get.dialogAttackMissilesMessage,
         max: max,
         buttonAccept: Localized.get.buttonAttack,
         buttonCancel: Localized.get.buttonCancel,
@@ -62,10 +68,10 @@ class SelectorDialog extends StatefulWidget {
       );
 
   @override
-  State<SelectorDialog> createState() => _SelectorDialogState();
+  State<AttackDialog> createState() => _AttackDialogState();
 }
 
-class _SelectorDialogState extends State<SelectorDialog> {
+class _AttackDialogState extends State<AttackDialog> {
   int _selected = 0;
 
   @override
@@ -77,8 +83,24 @@ class _SelectorDialogState extends State<SelectorDialog> {
         weight: FontWeight.bold,
       ),
       content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          Label(
+            text: widget.message,
+            color: Palette.textPrimary,
+            uppercase: false,
+          ),
+          const VBox(20),
+          Center(
+            child: Label(
+              text: _selected.toString(),
+              color: Palette.textPrimary,
+              weight: FontWeight.bold,
+              size: 18,
+            ),
+          ),
+          const VBox(10),
           Slider(
             value: _selected.toDouble(),
             max: widget.max.toDouble(),

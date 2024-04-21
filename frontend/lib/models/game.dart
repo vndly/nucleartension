@@ -1,5 +1,5 @@
 import 'package:nucleartension/app/constants.dart';
-import 'package:nucleartension/dialog/selector_dialog.dart';
+import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
 import 'package:nucleartension/models/attacks/unit_attack.dart';
@@ -144,7 +144,7 @@ class Game {
     required Player attacker,
     required Player defender,
   }) =>
-      SelectorDialog.military(
+      AttackDialog.military(
         max: self.militaryPower,
         onAccept: (amount) => _unitAttack(
           attacker: attacker,
@@ -179,7 +179,7 @@ class Game {
     required Player attacker,
     required Player defender,
   }) =>
-      SelectorDialog.missiles(
+      AttackDialog.missiles(
         max: self.militaryAttackMissiles,
         onAccept: (amount) => _missileAttack(
           attacker: attacker,
