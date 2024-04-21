@@ -17,8 +17,8 @@ class Constants {
   static const Map<BuildingType, double> PRODUCTION_RATE = {
     BuildingType.power_plant: 1,
     BuildingType.supply_center: 1,
-    BuildingType.propaganda_station: 100,
     BuildingType.tech_lab: 0.5,
+    BuildingType.propaganda_station: 100,
   };
 
   static const Map<ResearchType, double> RESEARCH_RATE = {
