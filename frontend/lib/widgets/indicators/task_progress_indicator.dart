@@ -15,16 +15,19 @@ class TaskProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProgressOverlay(
-      size: size,
-      progress: task.progress,
-      child: Container(
-        color: Palette.buttonBlocked,
-        child: Center(
-          child: Label(
-            text: task.timeLeft.formatted,
-            size: task.timeLeft.hasHours ? (size / 6) : (size / 4.5),
-            weight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {},
+      child: ProgressOverlay(
+        size: size,
+        progress: task.progress,
+        child: Container(
+          color: Palette.buttonBlocked,
+          child: Center(
+            child: Label(
+              text: task.timeLeft.formatted,
+              size: task.timeLeft.hasHours ? (size / 6) : (size / 4.5),
+              weight: FontWeight.bold,
+            ),
           ),
         ),
       ),

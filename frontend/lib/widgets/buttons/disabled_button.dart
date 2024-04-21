@@ -68,12 +68,15 @@ class DisabledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      color: color,
-      child: Center(
-        child: child,
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        width: size,
+        height: size,
+        color: color,
+        child: Center(
+          child: child,
+        ),
       ),
     );
   }
