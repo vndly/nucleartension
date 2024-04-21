@@ -1,4 +1,5 @@
 import 'package:dafluta/dafluta.dart';
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
 import 'package:nucleartension/models/buildings/building.dart';
@@ -46,7 +47,7 @@ class GameState extends BaseState {
         ResourceType.energy: 500,
         ResourceType.supplies: 500,
         ResourceType.technology: 0,
-        ResourceType.population: 1000000,
+        ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
         MilitaryType.power: 0,
@@ -57,135 +58,21 @@ class GameState extends BaseState {
       researches: {},
     );
 
-    usa.addResearches([
-      // resources
-      Research(
-        player: usa,
-        researchType: ResearchType.resources_grid_management,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.resources_production_chain,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.resources_indoctrination,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.resources_quantum_computing,
-        level: 0,
-      ),
-
-      // missiles
-      Research(
-        player: usa,
-        researchType: ResearchType.missiles_additive_manufacturing,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.missiles_assembly_automation,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.missiles_active_tracking,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.missiles_signal_jamming,
-        level: 0,
-      ),
-
-      // warning
-      Research(
-        player: usa,
-        researchType: ResearchType.warning_missiles_radar_network,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.warning_missiles_hypersonic_propulsion,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.warning_military_early_warning,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.warning_military_fast_deployments,
-        level: 0,
-      ),
-
-      // military
-      Research(
-        player: usa,
-        researchType: ResearchType.unit_infantry_cost,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.unit_infantry_time,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.unit_vehicles_cost,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.unit_vehicles_time,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.unit_aircraft_cost,
-        level: 0,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.unit_aircraft_time,
-        level: 0,
-      ),
-
-      // weapons
-      Research(
-        player: usa,
-        researchType: ResearchType.weapons_nuclear_bomb,
-        level: 5,
-      ),
-
-      // intel
-      Research(
-        player: usa,
-        researchType: ResearchType.intel_population,
-        level: 2,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.intel_military,
-        level: 2,
-      ),
-      Research(
-        player: usa,
-        researchType: ResearchType.intel_research,
-        level: 2,
-      ),
-    ]);
-
     usa.addBuildings(_buildings(
       player: usa,
       map: {
         BuildingType.power_plant: 1,
         BuildingType.supply_center: 1,
+      },
+    ));
+
+    usa.addResearches(_researches(
+      player: usa,
+      map: {
+        ResearchType.weapons_nuclear_bomb: 5,
+        ResearchType.intel_population: 2,
+        ResearchType.intel_military: 2,
+        ResearchType.intel_research: 2,
       },
     ));
 
@@ -214,7 +101,7 @@ class GameState extends BaseState {
         ResourceType.energy: 500,
         ResourceType.supplies: 500,
         ResourceType.technology: 0,
-        ResourceType.population: 1000000,
+        ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
         MilitaryType.power: 0,
@@ -232,6 +119,11 @@ class GameState extends BaseState {
         BuildingType.power_plant: 1,
         BuildingType.supply_center: 1,
       },
+    ));
+
+    player.addResearches(_researches(
+      player: player,
+      map: {},
     ));
 
     return player;
@@ -276,6 +168,23 @@ class GameState extends BaseState {
           },
         ),
       ];
+
+  List<Research> _researches({
+    required Player player,
+    required Map<ResearchType, int> map,
+  }) {
+    final List<Research> result = [];
+
+    for (final ResearchType researchType in ResearchType.values) {
+      result.add(Research(
+        player: player,
+        researchType: researchType,
+        level: map[researchType] ?? 0,
+      ));
+    }
+
+    return result;
+  }
 
   void update(double dt) {
     if (running) {
