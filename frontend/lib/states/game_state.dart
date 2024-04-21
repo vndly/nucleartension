@@ -36,7 +36,7 @@ class GameState extends BaseState {
       defcon: 5,
     );
 
-    final Player player = SelfPlayer(
+    final Player usa = SelfPlayer(
       game: game,
       name: 'Momo',
       country: Country.usa,
@@ -55,149 +55,149 @@ class GameState extends BaseState {
       researches: {},
     );
 
-    player.addResearches([
+    usa.addResearches([
       // resources
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.resources_grid_management,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.resources_production_chain,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.resources_indoctrination,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.resources_quantum_computing,
         level: 0,
       ),
 
       // missiles
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.missiles_additive_manufacturing,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.missiles_assembly_automation,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.missiles_active_tracking,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.missiles_signal_jamming,
         level: 0,
       ),
 
       // warning
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.warning_missiles_radar_network,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.warning_missiles_hypersonic_propulsion,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.warning_military_early_warning,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.warning_military_fast_deployments,
         level: 0,
       ),
 
       // military
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.unit_infantry_cost,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.unit_infantry_time,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.unit_vehicles_cost,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.unit_vehicles_time,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.unit_aircraft_cost,
         level: 0,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.unit_aircraft_time,
         level: 0,
       ),
 
       // weapons
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.weapons_nuclear_bomb,
         level: 5,
       ),
 
       // intel
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.intel_population,
         level: 2,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.intel_military,
         level: 2,
       ),
       Research(
-        player: player,
+        player: usa,
         researchType: ResearchType.intel_research,
         level: 2,
       ),
     ]);
 
-    player.addBuildings([
+    usa.addBuildings([
       PowerPlant(
-        player: player,
+        player: usa,
         level: 1,
       ),
       SupplyCenter(
-        player: player,
+        player: usa,
         level: 1,
       ),
       TechLab(
-        player: player,
+        player: usa,
         level: 0,
       ),
       PropagandaStation(
-        player: player,
+        player: usa,
         level: 0,
       ),
       MilitaryFacility(
-        player: player,
+        player: usa,
         level: 1,
         queues: {
           UnitType.infantry: [],
@@ -206,7 +206,7 @@ class GameState extends BaseState {
         },
       ),
       MissileSilo(
-        player: player,
+        player: usa,
         level: 1,
         queues: {
           UnitType.defense: [],
@@ -215,160 +215,176 @@ class GameState extends BaseState {
       ),
     ]);
 
+    final Player russia = ActivePlayer(
+      game: game,
+      name: 'Sergey',
+      country: Country.russia,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
+    final Player china = ActivePlayer(
+      game: game,
+      name: 'Ming',
+      country: Country.china,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
+    final Player uk = ActivePlayer(
+      game: game,
+      name: 'Harry',
+      country: Country.uk,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
+    final Player france = ActivePlayer(
+      game: game,
+      name: 'Louis',
+      country: Country.france,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
+    final Player northKorea = ActivePlayer(
+      game: game,
+      name: 'Jong',
+      country: Country.north_korea,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
+    final Player india = ActivePlayer(
+      game: game,
+      name: 'Ram',
+      country: Country.india,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
+    final Player pakistan = ActivePlayer(
+      game: game,
+      name: 'Muhammad',
+      country: Country.pakistan,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
+    final Player israel = ActivePlayer(
+      game: game,
+      name: 'Ariel',
+      country: Country.israel,
+      resources: ResourceInventory.create({
+        ResourceType.energy: 500,
+        ResourceType.supplies: 500,
+        ResourceType.technology: 0,
+        ResourceType.population: 1000000,
+      }),
+      military: MilitaryInventory.create({
+        MilitaryType.power: 0,
+        MilitaryType.defense_missiles: 0,
+        MilitaryType.attack_missiles: 0,
+      }),
+      buildings: {},
+      researches: {},
+      profile: PlayerProfile.aggressive(),
+    );
+
     game.setPlayers([
-      player,
-      ActivePlayer(
-        game: game,
-        name: 'Sergey',
-        country: Country.russia,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
-      ActivePlayer(
-        game: game,
-        name: 'Ming',
-        country: Country.china,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
-      ActivePlayer(
-        game: game,
-        name: 'Harry',
-        country: Country.uk,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
-      ActivePlayer(
-        game: game,
-        name: 'Louis',
-        country: Country.france,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
-      ActivePlayer(
-        game: game,
-        name: 'Jong',
-        country: Country.north_korea,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
-      ActivePlayer(
-        game: game,
-        name: 'Ram',
-        country: Country.india,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
-      ActivePlayer(
-        game: game,
-        name: 'Muhammad',
-        country: Country.pakistan,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
-      ActivePlayer(
-        game: game,
-        name: 'Ariel',
-        country: Country.israel,
-        resources: ResourceInventory.create({
-          ResourceType.energy: 500,
-          ResourceType.supplies: 500,
-          ResourceType.technology: 0,
-          ResourceType.population: 1000000,
-        }),
-        military: MilitaryInventory.create({
-          MilitaryType.power: 0,
-          MilitaryType.defense_missiles: 0,
-          MilitaryType.attack_missiles: 0,
-        }),
-        buildings: {},
-        researches: {},
-        profile: PlayerProfile.aggressive(),
-      ),
+      usa,
+      russia,
+      china,
+      uk,
+      france,
+      northKorea,
+      india,
+      pakistan,
+      israel,
     ]);
   }
 
