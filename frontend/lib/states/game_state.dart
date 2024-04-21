@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
+import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
 import 'package:nucleartension/models/buildings/producers/supply_center.dart';
@@ -14,6 +15,7 @@ import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/country.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
@@ -179,41 +181,13 @@ class GameState extends BaseState {
       ),
     ]);
 
-    usa.addBuildings([
-      PowerPlant(
-        player: usa,
-        level: 1,
-      ),
-      SupplyCenter(
-        player: usa,
-        level: 1,
-      ),
-      TechLab(
-        player: usa,
-        level: 0,
-      ),
-      PropagandaStation(
-        player: usa,
-        level: 0,
-      ),
-      MilitaryFacility(
-        player: usa,
-        level: 0,
-        queues: {
-          UnitType.infantry: [],
-          UnitType.vehicle: [],
-          UnitType.aircraft: [],
-        },
-      ),
-      MissileSilo(
-        player: usa,
-        level: 0,
-        queues: {
-          UnitType.defense: [],
-          UnitType.attack: [],
-        },
-      ),
-    ]);
+    usa.addBuildings(_buildings(
+      player: usa,
+      map: {
+        BuildingType.power_plant: 1,
+        BuildingType.supply_center: 1,
+      },
+    ));
 
     game.setPlayers([
       usa,
@@ -252,44 +226,56 @@ class GameState extends BaseState {
       profile: PlayerProfile.aggressive(),
     );
 
-    player.addBuildings([
-      PowerPlant(
-        player: player,
-        level: 1,
-      ),
-      SupplyCenter(
-        player: player,
-        level: 1,
-      ),
-      TechLab(
-        player: player,
-        level: 0,
-      ),
-      PropagandaStation(
-        player: player,
-        level: 0,
-      ),
-      MilitaryFacility(
-        player: player,
-        level: 0,
-        queues: {
-          UnitType.infantry: [],
-          UnitType.vehicle: [],
-          UnitType.aircraft: [],
-        },
-      ),
-      MissileSilo(
-        player: player,
-        level: 0,
-        queues: {
-          UnitType.defense: [],
-          UnitType.attack: [],
-        },
-      ),
-    ]);
+    player.addBuildings(_buildings(
+      player: player,
+      map: {
+        BuildingType.power_plant: 1,
+        BuildingType.supply_center: 1,
+      },
+    ));
 
     return player;
   }
+
+  List<Building> _buildings({
+    required Player player,
+    required Map<BuildingType, int> map,
+  }) =>
+      [
+        PowerPlant(
+          player: player,
+          level: map[BuildingType.power_plant] ?? 0,
+        ),
+        SupplyCenter(
+          player: player,
+          level: map[BuildingType.supply_center] ?? 0,
+        ),
+        TechLab(
+          player: player,
+          level: map[BuildingType.tech_lab] ?? 0,
+        ),
+        PropagandaStation(
+          player: player,
+          level: map[BuildingType.propaganda_station] ?? 0,
+        ),
+        MilitaryFacility(
+          player: player,
+          level: map[BuildingType.military_facility] ?? 0,
+          queues: {
+            UnitType.infantry: [],
+            UnitType.vehicle: [],
+            UnitType.aircraft: [],
+          },
+        ),
+        MissileSilo(
+          player: player,
+          level: map[BuildingType.missile_silo] ?? 0,
+          queues: {
+            UnitType.defense: [],
+            UnitType.attack: [],
+          },
+        ),
+      ];
 
   void update(double dt) {
     if (running) {
