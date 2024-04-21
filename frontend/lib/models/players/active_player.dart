@@ -51,6 +51,48 @@ class ActivePlayer extends Player {
       case PlayerAction.research_resources_grid_management:
         _researchTechnology(ResearchType.resources_grid_management);
         break;
+      case PlayerAction.research_resources_production_chain:
+        _researchTechnology(ResearchType.resources_production_chain);
+        break;
+      case PlayerAction.research_resources_indoctrination:
+        _researchTechnology(ResearchType.resources_indoctrination);
+        break;
+      case PlayerAction.research_resources_quantum_computing:
+        _researchTechnology(ResearchType.resources_quantum_computing);
+        break;
+      case PlayerAction.research_missiles_additive_manufacturing:
+        _researchTechnology(ResearchType.missiles_additive_manufacturing);
+        break;
+      case PlayerAction.research_missiles_assembly_automation:
+        _researchTechnology(ResearchType.missiles_assembly_automation);
+        break;
+      case PlayerAction.research_missiles_active_tracking:
+        _researchTechnology(ResearchType.missiles_active_tracking);
+        break;
+      case PlayerAction.research_missiles_signal_jamming:
+        _researchTechnology(ResearchType.missiles_signal_jamming);
+        break;
+      case PlayerAction.research_military_infantry_cost:
+        _researchTechnology(ResearchType.military_infantry_cost);
+        break;
+      case PlayerAction.research_military_infantry_time:
+        _researchTechnology(ResearchType.military_infantry_time);
+        break;
+      case PlayerAction.research_military_vehicles_cost:
+        _researchTechnology(ResearchType.military_vehicles_cost);
+        break;
+      case PlayerAction.research_military_vehicles_time:
+        _researchTechnology(ResearchType.military_vehicles_time);
+        break;
+      case PlayerAction.research_military_aircraft_cost:
+        _researchTechnology(ResearchType.military_aircraft_cost);
+        break;
+      case PlayerAction.research_military_aircraft_time:
+        _researchTechnology(ResearchType.military_aircraft_time);
+        break;
+      case PlayerAction.research_weapons_nuclear_bomb:
+        _researchTechnology(ResearchType.weapons_nuclear_bomb);
+        break;
       case PlayerAction.create_infantry:
         _createUnit(UnitType.infantry);
         break;
@@ -196,7 +238,20 @@ enum PlayerAction {
 
   // research technology
   research_resources_grid_management,
-  // TODO(momo): implement
+  research_resources_production_chain,
+  research_resources_indoctrination,
+  research_resources_quantum_computing,
+  research_missiles_additive_manufacturing,
+  research_missiles_assembly_automation,
+  research_missiles_active_tracking,
+  research_missiles_signal_jamming,
+  research_military_infantry_cost,
+  research_military_infantry_time,
+  research_military_vehicles_cost,
+  research_military_vehicles_time,
+  research_military_aircraft_cost,
+  research_military_aircraft_time,
+  research_weapons_nuclear_bomb,
 
   // create units
   create_infantry,
