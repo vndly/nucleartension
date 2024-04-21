@@ -6,6 +6,7 @@ import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/missile_attack_launch_event.dart';
+import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/events/unit_attack_launch_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
@@ -77,6 +78,22 @@ class Game {
   bool get hasUnseenEvents => events.any((e) => !e.seen);
 
   void _addEvent(Event event) => events.insert(0, event);
+
+  void _processEvents(List<Event> events) {
+    bool playerDefeated = false;
+
+    for (final Event event in events) {
+      _addEvent(event);
+
+      if (event is PlayerDefeated) {
+        playerDefeated = true;
+      }
+    }
+
+    if (playerDefeated) {
+      print('');
+    }
+  }
 
   // ============================= DEFCON =================================== \\
 
@@ -191,7 +208,7 @@ class Game {
     _updateAttacks(
       dt: dt,
       attacks: attacks,
-      callback: (attack) => attack.resolve().forEach(_addEvent),
+      callback: (attack) => _processEvents(attack.resolve()),
     );
   }
 
