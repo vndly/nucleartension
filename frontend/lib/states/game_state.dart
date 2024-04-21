@@ -26,6 +26,7 @@ class GameState extends BaseState {
 
   GameState() {
     game = Game(
+      gameState: this,
       players: [],
       events: [],
       attacks: [],
@@ -326,4 +327,8 @@ class GameState extends BaseState {
   }
 
   void _onQuit() => Delayed.post(Navigation.pop);
+
+  void onPlayerWon() {}
+
+  void onPlayerLost() {}
 }

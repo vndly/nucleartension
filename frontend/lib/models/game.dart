@@ -10,9 +10,11 @@ import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/events/unit_attack_launch_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 
 class Game {
+  final GameState gameState;
   final List<Player> players;
   final List<Event> events;
   final List<Attack> attacks;
@@ -21,6 +23,7 @@ class Game {
   int defcon = 5;
 
   Game({
+    required this.gameState,
     required this.players,
     required this.events,
     required this.attacks,
@@ -31,6 +34,8 @@ class Game {
   // ============================= PLAYERS ================================== \\
 
   Player get self => selfPlayer!;
+
+  List<Player> get playersAlive => players.where((e) => e.isAlive).toList();
 
   List<Player> get playersByName {
     final List<Player> result = List.from(players);
@@ -91,7 +96,11 @@ class Game {
     }
 
     if (playerDefeated) {
-      print('');
+      if (!self.isAlive) {
+        gameState.onPlayerLost();
+      } else if (playersAlive.length == 1) {
+        gameState.onPlayerWon();
+      }
     }
   }
 
