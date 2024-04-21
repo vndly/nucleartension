@@ -64,6 +64,12 @@ class Player {
 
   Building getBuilding(BuildingType buildingType) => buildings[buildingType]!;
 
+  void addBuildings(List<Building> list) {
+    for (final Building building in list) {
+      buildings[building.buildingType] = building;
+    }
+  }
+
   // ============================ RESEARCH ================================== \\
 
   int get researchLevel {
@@ -96,6 +102,12 @@ class Player {
         level: 0,
         researchType: researchType,
       );
+
+  void addResearches(List<Research> list) {
+    for (final Research research in list) {
+      researches[research.researchType] = research;
+    }
+  }
 
   // ============================ RESOURCES ================================= \\
 
@@ -219,19 +231,7 @@ class Player {
     return research.decreaseRate;
   }
 
-  // ============================== OTHER =================================== \\
-
-  void addBuildings(List<Building> list) {
-    for (final Building building in list) {
-      buildings[building.buildingType] = building;
-    }
-  }
-
-  void addResearches(List<Research> list) {
-    for (final Research research in list) {
-      researches[research.researchType] = research;
-    }
-  }
+  // ============================= UPDATE =================================== \\
 
   void update(double dt) {
     if (isAlive) {
