@@ -24,6 +24,7 @@ import 'package:nucleartension/utils/navigation.dart';
 class GameState extends BaseState {
   late final Game game;
   bool running = true;
+  bool finished = false;
 
   GameState() {
     game = Game(
@@ -316,11 +317,13 @@ class GameState extends BaseState {
   }
 
   void onPause() {
-    running = false;
-    PauseDialog.show(
-      onResume: _onResume,
-      onQuit: _onQuit,
-    );
+    if (!finished) {
+      running = false;
+      PauseDialog.show(
+        onResume: _onResume,
+        onQuit: _onQuit,
+      );
+    }
   }
 
   void _onResume() {
@@ -331,11 +334,13 @@ class GameState extends BaseState {
 
   void onPlayerWon() {
     running = false;
+    finished = true;
     InformationDialog.playerWon(_onQuit);
   }
 
   void onPlayerLost(Player killer) {
     running = false;
+    finished = true;
     InformationDialog.playerLost(
       killer: killer,
       onAccept: _onQuit,
