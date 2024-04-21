@@ -1,7 +1,10 @@
 import 'package:nucleartension/models/players/player.dart';
 
 class ActivePlayer extends Player {
-  const ActivePlayer({
+  final PlayerProfile profile;
+  PlayerAction? nextAction;
+
+  ActivePlayer({
     required super.game,
     required super.name,
     required super.country,
@@ -9,5 +12,66 @@ class ActivePlayer extends Player {
     required super.buildings,
     required super.researches,
     required super.military,
+    required this.profile,
   });
+
+  @override
+  void takeAction() {
+    nextAction ??= profile.action;
+    // TODO(momo): implement
+  }
+}
+
+class PlayerProfile {
+  final Map<FirstLevelAction, double> firstLevel;
+
+  const PlayerProfile._({
+    required this.firstLevel,
+  });
+
+  PlayerAction get action {
+    return PlayerAction.upgrade_power_plant; // TODO(momo): implement
+  }
+
+  factory PlayerProfile.aggressive() => const PlayerProfile._(firstLevel: {
+        FirstLevelAction.upgrade_building: 0.35,
+        FirstLevelAction.research_technology: 0.25,
+        FirstLevelAction.create_unit: 0.20,
+        FirstLevelAction.create_missile: 0.15,
+        FirstLevelAction.attack: 0.5,
+      });
+}
+
+enum FirstLevelAction {
+  upgrade_building,
+  research_technology,
+  create_unit,
+  create_missile,
+  attack;
+}
+
+enum PlayerAction {
+  // building upgrades
+  upgrade_power_plant,
+  upgrade_supply_center,
+  upgrade_tech_lab,
+  upgrade_propaganda_station,
+  upgrade_military_facility,
+  upgrade_missile_silo,
+
+  // create units
+  create_infantry,
+  create_vehicle,
+  create_aircraft,
+
+  // create missiles
+  create_defense_missile,
+  create_attack_missile,
+
+  // research technology
+  research_resources_grid_management,
+
+  // attack
+  attack_unit,
+  attack_missiles,
 }

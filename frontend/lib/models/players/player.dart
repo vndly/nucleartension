@@ -235,13 +235,11 @@ class Player {
 
   void update(double dt) {
     if (isAlive) {
-      for (final Building building in buildings.values) {
-        building.update(dt);
-      }
-
-      for (final Research research in researches.values) {
-        research.update(dt);
-      }
+      buildings.values.forEach((e) => e.update(dt));
+      researches.values.forEach((e) => e.update(dt));
+      takeAction();
     }
   }
+
+  void takeAction() {}
 }

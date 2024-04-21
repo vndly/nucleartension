@@ -10,7 +10,7 @@ import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/military_inventory.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/players/passive_player.dart';
+import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/research.dart';
@@ -217,7 +217,7 @@ class GameState extends BaseState {
 
     game.setPlayers([
       player,
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Sergey',
         country: Country.russia,
@@ -229,8 +229,9 @@ class GameState extends BaseState {
         }),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Ming',
         country: Country.china,
@@ -240,8 +241,9 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Harry',
         country: Country.uk,
@@ -251,8 +253,9 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Louis',
         country: Country.france,
@@ -262,8 +265,9 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Jong',
         country: Country.north_korea,
@@ -273,8 +277,9 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Ram',
         country: Country.india,
@@ -284,8 +289,9 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Muhammad',
         country: Country.pakistan,
@@ -295,8 +301,9 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
-      PassivePlayer(
+      ActivePlayer(
         game: game,
         name: 'Ariel',
         country: Country.israel,
@@ -306,6 +313,7 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
+        profile: PlayerProfile.aggressive(),
       ),
     ]);
   }
