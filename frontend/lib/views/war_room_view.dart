@@ -1,4 +1,3 @@
-import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/utils/localizations.dart';
@@ -35,8 +34,6 @@ class WarRoomView extends StatelessWidget {
                 ],
               ),
             ),
-            Label(text: 'FPS: ${game.fps.fps()}'),
-            const VBox(20),
           ],
         ),
       ),

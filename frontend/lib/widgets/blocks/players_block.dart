@@ -30,6 +30,9 @@ class PlayersBlock extends StatelessWidget {
           if (i < players.length - 1) const RowSeparator(),
         ],
         const BlockSeparator(),
+        const VBox(20),
+        Label(text: 'FPS: ${game.fps.fps()}'),
+        const VBox(20),
       ],
     );
   }
