@@ -1,6 +1,5 @@
 # Nuclear Tension
 
-* Lost/Victory condition and lost/victory screen
 * Implement AI
     - Upgrade building
         - Power plant

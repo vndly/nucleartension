@@ -230,7 +230,7 @@ class GameState extends BaseState {
         buildings: {},
         researches: {},
       ),
-      /*PassivePlayer(
+      PassivePlayer(
         game: game,
         name: 'Ming',
         country: Country.china,
@@ -306,7 +306,7 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
-      ),*/
+      ),
     ]);
   }
 
