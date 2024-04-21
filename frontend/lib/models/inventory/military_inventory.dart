@@ -9,6 +9,11 @@ typedef MilitaryMapEntry = MapEntry<MilitaryType, num>;
 class MilitaryInventory extends BaseInventory<MilitaryType> {
   MilitaryInventory._(super.items);
 
-  factory MilitaryInventory.create(MilitaryMap resources) =>
-      MilitaryInventory._(resources);
+  factory MilitaryInventory.create(MilitaryMap resources) {
+    if (resources.keys.length != MilitaryType.values.length) {
+      throw Exception('Inventory not initialized with all elements');
+    }
+
+    return MilitaryInventory._(resources);
+  }
 }

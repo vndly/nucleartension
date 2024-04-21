@@ -21,7 +21,9 @@ class ActivePlayer extends Player {
 
   @override
   void takeAction() {
-    switch (profile.action) {
+    final PlayerAction action = profile.action;
+
+    switch (action) {
       case PlayerAction.upgrade_power_plant:
         _upgradeBuilding(powerPlant);
         break;

@@ -9,6 +9,11 @@ typedef ResourceMapEntry = MapEntry<ResourceType, num>;
 class ResourceInventory extends BaseInventory<ResourceType> {
   ResourceInventory._(super.items);
 
-  factory ResourceInventory.create(ResourceMap resources) =>
-      ResourceInventory._(resources);
+  factory ResourceInventory.create(ResourceMap resources) {
+    if (resources.keys.length != ResourceType.values.length) {
+      throw Exception('Inventory not initialized with all elements');
+    }
+
+    return ResourceInventory._(resources);
+  }
 }
