@@ -22,35 +22,41 @@ class ActivePlayer extends Player {
     nextAction ??= profile.action;
 
     if (nextAction != null) {
-      switch (nextAction) {
-        case PlayerAction.upgrade_power_plant:
-          _upgradeBuilding(BuildingType.power_plant);
-          break;
-        case PlayerAction.upgrade_supply_center:
-          _upgradeBuilding(BuildingType.supply_center);
-          break;
-        case PlayerAction.upgrade_tech_lab:
-          _upgradeBuilding(BuildingType.tech_lab);
-          break;
-        case PlayerAction.upgrade_propaganda_station:
-          _upgradeBuilding(BuildingType.propaganda_station);
-          break;
-        case PlayerAction.upgrade_military_facility:
-          _upgradeBuilding(BuildingType.military_facility);
-          break;
-        case PlayerAction.upgrade_missile_silo:
-          _upgradeBuilding(BuildingType.missile_silo);
-          break;
-        default: // TODO(momo): implement rest
-          break;
-      }
+      _executeAction(nextAction!);
+    }
+  }
+
+  void _executeAction(PlayerAction playerAction) {
+    switch (playerAction) {
+      case PlayerAction.upgrade_power_plant:
+        _upgradeBuilding(BuildingType.power_plant);
+        break;
+      case PlayerAction.upgrade_supply_center:
+        _upgradeBuilding(BuildingType.supply_center);
+        break;
+      case PlayerAction.upgrade_tech_lab:
+        _upgradeBuilding(BuildingType.tech_lab);
+        break;
+      case PlayerAction.upgrade_propaganda_station:
+        _upgradeBuilding(BuildingType.propaganda_station);
+        break;
+      case PlayerAction.upgrade_military_facility:
+        _upgradeBuilding(BuildingType.military_facility);
+        break;
+      case PlayerAction.upgrade_missile_silo:
+        _upgradeBuilding(BuildingType.missile_silo);
+        break;
+      default: // TODO(momo): implement rest
+        break;
     }
   }
 
   void _upgradeBuilding(BuildingType buildingType) {
-    // TODO(momo): implement
     final Building building = getBuilding(buildingType);
-    building.upgrade();
+
+    if (building.canUpgrade) {
+      building.upgrade();
+    }
   }
 }
 
@@ -115,11 +121,10 @@ class PlayerProfile implements ProfileChoice {
         PlayerAction.attack_missiles: 0.5,
       });
 
-  static List<ProbabilityAction> _probabilities(
-      Map<PlayerAction, double> probabilities) {
+  static List<ProbabilityAction> _probabilities(Map<PlayerAction, double> map) {
     final List<ProbabilityAction> result = [];
 
-    for (final MapEntry<PlayerAction, double> entry in probabilities.entries) {
+    for (final MapEntry<PlayerAction, double> entry in map.entries) {
       result.add(ProbabilityAction(
         probability: entry.value,
         profileChoice: FinalAction(entry.key),
