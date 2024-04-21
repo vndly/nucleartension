@@ -147,10 +147,14 @@ class ActivePlayer extends Player {
 
   void _uniAttack() {
     // TODO(momo): implement
+    // 1. choose player
+    // 2. choose military power
   }
 
   void _missileAttack() {
     // TODO(momo): implement
+    // 1. choose player
+    // 2. choose amount of missiles
   }
 }
 
