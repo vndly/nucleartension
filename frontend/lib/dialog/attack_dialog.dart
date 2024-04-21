@@ -1,5 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
@@ -14,6 +15,8 @@ class AttackDialog extends StatefulWidget {
   final String buttonAccept;
   final String buttonCancel;
   final Function(int) onAccept;
+  final bool isMissileAttack;
+  final int missileYield;
 
   const AttackDialog._({
     required this.title,
@@ -22,6 +25,8 @@ class AttackDialog extends StatefulWidget {
     required this.buttonAccept,
     required this.buttonCancel,
     required this.onAccept,
+    required this.isMissileAttack,
+    required this.missileYield,
   });
 
   static DialogController _show({
@@ -31,6 +36,8 @@ class AttackDialog extends StatefulWidget {
     required String buttonAccept,
     required String buttonCancel,
     required Function(int) onAccept,
+    required bool isMissileAttack,
+    required int missileYield,
   }) =>
       BaseDialog.show(AttackDialog._(
         title: title,
@@ -39,6 +46,8 @@ class AttackDialog extends StatefulWidget {
         buttonAccept: buttonAccept,
         buttonCancel: buttonCancel,
         onAccept: onAccept,
+        isMissileAttack: isMissileAttack,
+        missileYield: missileYield,
       ));
 
   static DialogController military({
@@ -52,10 +61,13 @@ class AttackDialog extends StatefulWidget {
         buttonAccept: Localized.get.buttonAttack,
         buttonCancel: Localized.get.buttonCancel,
         onAccept: onAccept,
+        isMissileAttack: false,
+        missileYield: 0,
       );
 
   static DialogController missiles({
     required int max,
+    required int missileYield,
     required Function(int) onAccept,
   }) =>
       _show(
@@ -65,6 +77,8 @@ class AttackDialog extends StatefulWidget {
         buttonAccept: Localized.get.buttonAttack,
         buttonCancel: Localized.get.buttonCancel,
         onAccept: onAccept,
+        isMissileAttack: true,
+        missileYield: missileYield,
       );
 
   @override
@@ -73,6 +87,7 @@ class AttackDialog extends StatefulWidget {
 
 class _AttackDialogState extends State<AttackDialog> {
   int _selected = 0;
+  num _yield = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +115,22 @@ class _AttackDialogState extends State<AttackDialog> {
               size: 18,
             ),
           ),
-          const VBox(10),
+          if (widget.isMissileAttack)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Label(
+                  text: Localized.get.dialogAttackMissilesContent(
+                      Formatter.yield(_yield),
+                      Formatter.resourceRaw(
+                        _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT,
+                      )),
+                  color: Palette.textPrimary,
+                  uppercase: false,
+                ),
+              ),
+            ),
+          const VBox(20),
           Slider(
             value: _selected.toDouble(),
             max: widget.max.toDouble(),
@@ -109,6 +139,7 @@ class _AttackDialogState extends State<AttackDialog> {
             onChanged: (value) {
               setState(() {
                 _selected = value.toInt();
+                _yield = _selected * widget.missileYield;
               });
             },
           ),

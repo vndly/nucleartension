@@ -32,6 +32,8 @@ abstract class BaseLocalized {
 
   String get dialogAttackMilitaryTitle;
 
+  String dialogAttackMissilesContent(String param1, String param2);
+
   String get dialogAttackMissilesMessage;
 
   String get dialogAttackMissilesTitle;
@@ -414,6 +416,10 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogAttackMilitaryTitle => 'Launch unit attack';
+
+  @override
+  String dialogAttackMissilesContent(String param1, String param2) =>
+      '${param1.toString()} ≈ ${param2.toString()} people';
 
   @override
   String get dialogAttackMissilesMessage => 'Select amount of missiles:';

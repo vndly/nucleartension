@@ -197,6 +197,7 @@ class Game {
   }) =>
       AttackDialog.missiles(
         max: self.militaryAttackMissiles,
+        missileYield: attacker.attackMissileYield,
         onAccept: (amount) => _missileAttack(
           attacker: attacker,
           defender: defender,

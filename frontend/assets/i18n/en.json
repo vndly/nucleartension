@@ -14,6 +14,7 @@
     "button.ok": "Ok",
     "dialog.attack.military.message": "Select amount of military power:",
     "dialog.attack.military.title": "Launch unit attack",
+    "dialog.attack.missiles.content": "%1$s ≈ %2$s people",
     "dialog.attack.missiles.message": "Select amount of missiles:",
     "dialog.attack.missiles.title": "Launch missile attack",
     "dialog.information.player.lost.message": "You have been destroyed by %1$s.",
