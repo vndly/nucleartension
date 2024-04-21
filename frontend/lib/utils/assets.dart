@@ -28,6 +28,8 @@ class Assets {
       'assets/images/missiles/defense.png';
   static const String IMAGES_RESEARCH_INTEL_MILITARY =
       'assets/images/research/intel_military.png';
+  static const String IMAGES_RESEARCH_INTEL_MISSILES =
+      'assets/images/research/intel_missiles.png';
   static const String IMAGES_RESEARCH_INTEL_POPULATION =
       'assets/images/research/intel_population.png';
   static const String IMAGES_RESEARCH_INTEL_RESEARCH =

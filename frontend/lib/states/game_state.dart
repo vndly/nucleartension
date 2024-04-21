@@ -72,6 +72,7 @@ class GameState extends BaseState {
         ResearchType.weapons_nuclear_bomb: 5,
         ResearchType.intel_population: 2,
         ResearchType.intel_military: 2,
+        ResearchType.intel_missiles: 2,
         ResearchType.intel_research: 2,
       },
     ));

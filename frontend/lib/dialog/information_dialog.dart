@@ -147,6 +147,8 @@ class InformationDialog extends StatelessWidget {
         game.self.getResearch(ResearchType.intel_population);
     final Research intelMilitary =
         game.self.getResearch(ResearchType.intel_military);
+    final Research intelMissiles =
+        game.self.getResearch(ResearchType.intel_missiles);
     final Research intelResearch =
         game.self.getResearch(ResearchType.intel_research);
 
@@ -186,6 +188,16 @@ class InformationDialog extends StatelessWidget {
             label: Localized.get.dialogInformationPlayerMilitary,
             text: (intelMilitary.level > 0)
                 ? Formatter.resourceRaw(player.militaryPower)
+                : Localized.get.dialogInformationPlayerUnknown,
+            size: 14,
+            labelColor: Palette.textPrimary,
+            textColor: Palette.textPrimary,
+          ),
+          const VBox(10),
+          LabeledText(
+            label: Localized.get.dialogInformationPlayerMissiles,
+            text: (intelMissiles.level > 0)
+                ? Formatter.resourceRaw(player.amountOfMissiles)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
             labelColor: Palette.textPrimary,

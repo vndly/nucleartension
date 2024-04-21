@@ -68,6 +68,13 @@ class Game {
     return result;
   }
 
+  List<Player> get playersByMissiles {
+    final List<Player> result = List.from(players);
+    result.sort((a, b) => b.amountOfMissiles - a.amountOfMissiles);
+
+    return result;
+  }
+
   List<Player> get playersByResearch {
     final List<Player> result = List.from(players);
     result.sort((a, b) => b.researchLevel - a.researchLevel);

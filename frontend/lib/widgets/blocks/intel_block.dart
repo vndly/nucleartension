@@ -26,6 +26,7 @@ class IntelBlock extends StatelessWidget {
         children: [
           PlayersByPopulation(game),
           PlayersByMilitary(game),
+          PlayersByMissiles(game),
           PlayersByResearch(game),
         ],
       );
@@ -69,6 +70,25 @@ class PlayersByMilitary extends StatelessWidget {
       players: game.playersByMilitary,
       researchLevel: research.level,
       function: (p) => Formatter.resourceRaw(p.militaryPower),
+    );
+  }
+}
+
+class PlayersByMissiles extends StatelessWidget {
+  final Game game;
+
+  const PlayersByMissiles(this.game);
+
+  @override
+  Widget build(BuildContext context) {
+    final Research research =
+        game.self.getResearch(ResearchType.intel_missiles);
+
+    return PlayersList(
+      title: Localized.get.screenWarRoomIntelMissiles,
+      players: game.playersByMissiles,
+      researchLevel: research.level,
+      function: (p) => Formatter.resourceRaw(p.amountOfMissiles),
     );
   }
 }

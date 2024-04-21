@@ -87,11 +87,14 @@ class Player {
         game.self.getResearch(ResearchType.intel_population).level;
     final int researchIntelMilitary =
         game.self.getResearch(ResearchType.intel_military).level;
+    final int researchIntelMissiles =
+        game.self.getResearch(ResearchType.intel_missiles).level;
     final int researchIntelResearch =
         game.self.getResearch(ResearchType.intel_research).level;
 
     return (researchIntelPopulation > 0) ||
         (researchIntelMilitary > 0) ||
+        (researchIntelMissiles > 0) ||
         (researchIntelResearch > 0);
   }
 
@@ -181,6 +184,8 @@ class Player {
       military.get(MilitaryType.attack_missiles).toInt();
 
   bool get hasMilitaryPower => militaryPower > 0;
+
+  int get amountOfMissiles => militaryDefenseMissiles + militaryAttackMissiles;
 
   bool get hasAttackMissiles => militaryAttackMissiles > 0;
 

@@ -44,6 +44,8 @@ abstract class BaseLocalized {
 
   String get dialogInformationPlayerMilitary;
 
+  String get dialogInformationPlayerMissiles;
+
   String get dialogInformationPlayerPopulation;
 
   String get dialogInformationPlayerResearch;
@@ -172,6 +174,8 @@ abstract class BaseLocalized {
 
   String get screenWarRoomIntelMilitary;
 
+  String get screenWarRoomIntelMissiles;
+
   String get screenWarRoomIntelPopulation;
 
   String get screenWarRoomIntelResearch;
@@ -249,6 +253,10 @@ abstract class BaseLocalized {
   String get typeResearchIntelMilitaryDescription;
 
   String get typeResearchIntelMilitaryName;
+
+  String get typeResearchIntelMissilesDescription;
+
+  String get typeResearchIntelMissilesName;
 
   String get typeResearchIntelPopulationDescription;
 
@@ -436,6 +444,9 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogInformationPlayerMilitary => 'Military:';
+
+  @override
+  String get dialogInformationPlayerMissiles => 'Missiles:';
 
   @override
   String get dialogInformationPlayerPopulation => 'Population:';
@@ -653,6 +664,9 @@ class ENLocalized extends BaseLocalized {
   String get screenWarRoomIntelMilitary => 'Military';
 
   @override
+  String get screenWarRoomIntelMissiles => 'Missiles';
+
+  @override
   String get screenWarRoomIntelPopulation => 'Population';
 
   @override
@@ -781,6 +795,13 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchIntelMilitaryName => 'Military';
+
+  @override
+  String get typeResearchIntelMissilesDescription =>
+      'Reveals missile intel about other players';
+
+  @override
+  String get typeResearchIntelMissilesName => 'Missiles';
 
   @override
   String get typeResearchIntelPopulationDescription =>
