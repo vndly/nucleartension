@@ -229,7 +229,7 @@ class GameState extends BaseState {
         buildings: {},
         researches: {},
       ),
-      PassivePlayer(
+      /*PassivePlayer(
         game: game,
         name: 'Ming',
         country: Country.china,
@@ -305,7 +305,7 @@ class GameState extends BaseState {
         military: MilitaryInventory.create({}),
         buildings: {},
         researches: {},
-      ),
+      ),*/
     ]);
   }
 
@@ -329,10 +329,16 @@ class GameState extends BaseState {
 
   void _onQuit() => Delayed.post(Navigation.pop);
 
-  void onPlayerWon() => InformationDialog.playerWon(Navigation.pop);
+  void onPlayerWon() {
+    running = false;
+    InformationDialog.playerWon(_onQuit);
+  }
 
-  void onPlayerLost(Player killer) => InformationDialog.playerLost(
-        killer: killer,
-        onAccept: Navigation.pop,
-      );
+  void onPlayerLost(Player killer) {
+    running = false;
+    InformationDialog.playerLost(
+      killer: killer,
+      onAccept: _onQuit,
+    );
+  }
 }
