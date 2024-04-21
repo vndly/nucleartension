@@ -5,9 +5,11 @@ import 'package:nucleartension/utils/localizations.dart';
 
 class PlayerDefeated extends Event {
   final Player player;
+  final Player killer;
 
   PlayerDefeated({
     required this.player,
+    required this.killer,
   }) : super(eventType: EventType.player_defeated);
 
   @override

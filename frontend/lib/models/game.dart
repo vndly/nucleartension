@@ -86,18 +86,23 @@ class Game {
 
   void _processEvents(List<Event> events) {
     bool playerDefeated = false;
+    Player? killer;
 
     for (final Event event in events) {
       _addEvent(event);
 
       if (event is PlayerDefeated) {
         playerDefeated = true;
+
+        if (event.player.isSelf) {
+          killer = event.killer;
+        }
       }
     }
 
     if (playerDefeated) {
       if (!self.isAlive) {
-        gameState.onPlayerLost();
+        gameState.onPlayerLost(killer!);
       } else if (playersAlive.length == 1) {
         gameState.onPlayerWon();
       }

@@ -28,6 +28,10 @@ abstract class BaseLocalized {
 
   String get buttonOk;
 
+  String dialogInformationPlayerLostMessage(String param1);
+
+  String get dialogInformationPlayerLostTitle;
+
   String get dialogInformationPlayerMilitary;
 
   String get dialogInformationPlayerPopulation;
@@ -35,6 +39,10 @@ abstract class BaseLocalized {
   String get dialogInformationPlayerResearch;
 
   String get dialogInformationPlayerUnknown;
+
+  String get dialogInformationPlayerWonMessage;
+
+  String get dialogInformationPlayerWonTitle;
 
   String get dialogPauseResume;
 
@@ -390,6 +398,13 @@ class ENLocalized extends BaseLocalized {
   String get buttonOk => 'Ok';
 
   @override
+  String dialogInformationPlayerLostMessage(String param1) =>
+      'You have been destroyed by ${param1.toString()}.';
+
+  @override
+  String get dialogInformationPlayerLostTitle => 'You lost the match';
+
+  @override
   String get dialogInformationPlayerMilitary => 'Military:';
 
   @override
@@ -400,6 +415,13 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogInformationPlayerUnknown => 'Unknown';
+
+  @override
+  String get dialogInformationPlayerWonMessage =>
+      'You successfully destroyed all your enemies.';
+
+  @override
+  String get dialogInformationPlayerWonTitle => 'You won the match';
 
   @override
   String get dialogPauseResume => 'Resume';

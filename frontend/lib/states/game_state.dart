@@ -1,4 +1,5 @@
 import 'package:dafluta/dafluta.dart';
+import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
@@ -328,7 +329,10 @@ class GameState extends BaseState {
 
   void _onQuit() => Delayed.post(Navigation.pop);
 
-  void onPlayerWon() {}
+  void onPlayerWon() => InformationDialog.playerWon(Navigation.pop);
 
-  void onPlayerLost() {}
+  void onPlayerLost(Player killer) => InformationDialog.playerLost(
+        killer: killer,
+        onAccept: Navigation.pop,
+      );
 }

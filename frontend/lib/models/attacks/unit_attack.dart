@@ -75,7 +75,10 @@ class UnitAttack extends Attack {
       ];
 
       if (!defender.isAlive) {
-        result.add(PlayerDefeated(player: defender));
+        result.add(PlayerDefeated(
+          player: defender,
+          killer: attacker,
+        ));
       }
 
       return result;

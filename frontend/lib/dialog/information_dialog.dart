@@ -41,6 +41,42 @@ class InformationDialog extends StatelessWidget {
         onAccept: onAccept,
       ));
 
+  static DialogController _messageInfo({
+    required String title,
+    required String message,
+    required VoidCallback onAccept,
+  }) =>
+      _show(
+        title: Label(
+          text: title,
+          color: Palette.textPrimary,
+          weight: FontWeight.bold,
+        ),
+        content: Label(
+          text: message,
+          color: Palette.textPrimary,
+          uppercase: false,
+        ),
+        buttonAccept: Localized.get.buttonOk,
+        onAccept: onAccept,
+      );
+
+  static DialogController playerWon(VoidCallback onAccept) => _messageInfo(
+        title: Localized.get.dialogInformationPlayerWonTitle,
+        message: Localized.get.dialogInformationPlayerWonMessage,
+        onAccept: onAccept,
+      );
+
+  static DialogController playerLost({
+    required Player killer,
+    required VoidCallback onAccept,
+  }) =>
+      _messageInfo(
+        title: Localized.get.dialogInformationPlayerLostTitle,
+        message: Localized.get.dialogInformationPlayerLostMessage(killer.name),
+        onAccept: onAccept,
+      );
+
   static DialogController _entityInfo({
     required String title,
     required List<String> descriptions,
