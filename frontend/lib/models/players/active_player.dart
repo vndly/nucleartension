@@ -198,8 +198,8 @@ class PlayerProfile implements ProfileChoice {
 
   factory PlayerProfile.createUnitAction() => PlayerProfile.finalActions({
         PlayerAction.create_infantry: 0.4,
-        PlayerAction.create_vehicle: 0.3,
-        PlayerAction.create_aircraft: 0.2,
+        PlayerAction.create_vehicle: 0.35,
+        PlayerAction.create_aircraft: 0.25,
       });
 
   factory PlayerProfile.createMissileAction() => PlayerProfile.finalActions({
