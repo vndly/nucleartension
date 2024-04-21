@@ -6,7 +6,6 @@ import 'package:nucleartension/types/unit_type.dart';
 
 class ActivePlayer extends Player {
   final PlayerProfile profile;
-  PlayerAction? nextAction;
 
   ActivePlayer({
     required super.game,
@@ -21,15 +20,7 @@ class ActivePlayer extends Player {
 
   @override
   void takeAction() {
-    nextAction ??= profile.action;
-
-    if (nextAction != null) {
-      _executeAction(nextAction!);
-    }
-  }
-
-  void _executeAction(PlayerAction playerAction) {
-    switch (playerAction) {
+    switch (profile.action) {
       case PlayerAction.upgrade_power_plant:
         _upgradeBuilding(powerPlant);
         break;
