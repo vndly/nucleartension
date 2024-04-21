@@ -1,6 +1,6 @@
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/types/unit_type.dart';
 
 class ActivePlayer extends Player {
   final PlayerProfile profile;
@@ -29,33 +29,60 @@ class ActivePlayer extends Player {
   void _executeAction(PlayerAction playerAction) {
     switch (playerAction) {
       case PlayerAction.upgrade_power_plant:
-        _upgradeBuilding(BuildingType.power_plant);
+        _upgradeBuilding(powerPlant);
         break;
       case PlayerAction.upgrade_supply_center:
-        _upgradeBuilding(BuildingType.supply_center);
+        _upgradeBuilding(supplyCenter);
         break;
       case PlayerAction.upgrade_tech_lab:
-        _upgradeBuilding(BuildingType.tech_lab);
+        _upgradeBuilding(techLab);
         break;
       case PlayerAction.upgrade_propaganda_station:
-        _upgradeBuilding(BuildingType.propaganda_station);
+        _upgradeBuilding(propagandaStation);
         break;
       case PlayerAction.upgrade_military_facility:
-        _upgradeBuilding(BuildingType.military_facility);
+        _upgradeBuilding(militaryFacility);
         break;
       case PlayerAction.upgrade_missile_silo:
-        _upgradeBuilding(BuildingType.missile_silo);
+        _upgradeBuilding(missileSilo);
         break;
-      default: // TODO(momo): implement rest
+      case PlayerAction.create_infantry:
+        _createUnit(UnitType.infantry);
+        break;
+      case PlayerAction.create_vehicle:
+        _createUnit(UnitType.vehicle);
+        break;
+      case PlayerAction.create_aircraft:
+        _createUnit(UnitType.aircraft);
+        break;
+      case PlayerAction.create_defense_missile:
+        _createUnit(UnitType.defense);
+        break;
+      case PlayerAction.create_attack_missile:
+        _createUnit(UnitType.attack);
+        break;
+      default: // `TODO`(momo): implement rest
         break;
     }
   }
 
-  void _upgradeBuilding(BuildingType buildingType) {
-    final Building building = getBuilding(buildingType);
-
+  void _upgradeBuilding(Building building) {
     if (building.canUpgrade) {
       building.upgrade();
+    }
+  }
+
+  void _createUnit(UnitType unitType) {
+    switch (unitType) {
+      case UnitType.defense:
+      case UnitType.attack:
+        missileSilo.enqueueUnit(unitType);
+        break;
+      case UnitType.infantry:
+      case UnitType.vehicle:
+      case UnitType.aircraft:
+        militaryFacility.enqueueUnit(unitType);
+        break;
     }
   }
 }
