@@ -62,7 +62,7 @@ class Player {
   MilitaryFacility get militaryFacility =>
       buildings[BuildingType.military_facility] as MilitaryFacility;
 
-  Building building(BuildingType buildingType) => buildings[buildingType]!;
+  Building getBuilding(BuildingType buildingType) => buildings[buildingType]!;
 
   // ============================ RESEARCH ================================== \\
 
@@ -105,7 +105,11 @@ class Player {
   int get population => resources.get(ResourceType.population).floor();
 
   void removePopulation(int amount) {
-    resources.remove(ResourceType.population, min(amount, population));
+    if (population > amount) {
+      resources.remove(ResourceType.population, amount);
+    } else {
+      resources.set(ResourceType.population, 0);
+    }
 
     if (!isAlive) {
       resources.clear();

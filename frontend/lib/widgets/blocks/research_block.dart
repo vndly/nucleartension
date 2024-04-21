@@ -147,7 +147,7 @@ class RightSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final BuildingType? buildingType = research.buildingType;
     final int buildingLevel =
-        (buildingType != null) ? player.building(buildingType).level : 1;
+        (buildingType != null) ? player.getBuilding(buildingType).level : 1;
 
     if (buildingLevel > 0) {
       if (research.isMax) {
