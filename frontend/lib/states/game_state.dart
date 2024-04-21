@@ -125,32 +125,32 @@ class GameState extends BaseState {
       // military
       Research(
         player: player,
-        researchType: ResearchType.military_infantry_cost,
+        researchType: ResearchType.unit_infantry_cost,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_infantry_time,
+        researchType: ResearchType.unit_infantry_time,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_vehicles_cost,
+        researchType: ResearchType.unit_vehicles_cost,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_vehicles_time,
+        researchType: ResearchType.unit_vehicles_time,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_aircraft_cost,
+        researchType: ResearchType.unit_aircraft_cost,
         level: 0,
       ),
       Research(
         player: player,
-        researchType: ResearchType.military_aircraft_time,
+        researchType: ResearchType.unit_aircraft_time,
         level: 0,
       ),
 

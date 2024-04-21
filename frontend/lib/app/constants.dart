@@ -34,11 +34,11 @@ class Constants {
     ResearchType.warning_missiles_hypersonic_propulsion: 0.1,
     ResearchType.warning_military_early_warning: 0.1,
     ResearchType.warning_military_fast_deployments: 0.1,
-    ResearchType.military_infantry_cost: 0.1,
-    ResearchType.military_infantry_time: 0.1,
-    ResearchType.military_vehicles_cost: 0.1,
-    ResearchType.military_vehicles_time: 0.1,
-    ResearchType.military_aircraft_cost: 0.1,
-    ResearchType.military_aircraft_time: 0.1,
+    ResearchType.unit_infantry_cost: 0.1,
+    ResearchType.unit_infantry_time: 0.1,
+    ResearchType.unit_vehicles_cost: 0.1,
+    ResearchType.unit_vehicles_time: 0.1,
+    ResearchType.unit_aircraft_cost: 0.1,
+    ResearchType.unit_aircraft_time: 0.1,
   };
 }

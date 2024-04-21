@@ -146,11 +146,11 @@ abstract class BaseLocalized {
 
   String get screenResearchIntel;
 
-  String get screenResearchMilitary;
-
   String get screenResearchMissiles;
 
   String get screenResearchResources;
+
+  String get screenResearchUnits;
 
   String get screenResearchWarning;
 
@@ -244,30 +244,6 @@ abstract class BaseLocalized {
 
   String get typeResearchIntelResearchName;
 
-  String get typeResearchMilitaryAircraftCostDescription;
-
-  String get typeResearchMilitaryAircraftCostName;
-
-  String get typeResearchMilitaryAircraftTimeDescription;
-
-  String get typeResearchMilitaryAircraftTimeName;
-
-  String get typeResearchMilitaryInfantryCostDescription;
-
-  String get typeResearchMilitaryInfantryCostName;
-
-  String get typeResearchMilitaryInfantryTimeDescription;
-
-  String get typeResearchMilitaryInfantryTimeName;
-
-  String get typeResearchMilitaryVehiclesCostDescription;
-
-  String get typeResearchMilitaryVehiclesCostName;
-
-  String get typeResearchMilitaryVehiclesTimeDescription;
-
-  String get typeResearchMilitaryVehiclesTimeName;
-
   String get typeResearchMissilesActiveTrackingDescription;
 
   String get typeResearchMissilesActiveTrackingName;
@@ -299,6 +275,30 @@ abstract class BaseLocalized {
   String get typeResearchResourcesQuantumComputingDescription;
 
   String get typeResearchResourcesQuantumComputingName;
+
+  String get typeResearchUnitAircraftCostDescription;
+
+  String get typeResearchUnitAircraftCostName;
+
+  String get typeResearchUnitAircraftTimeDescription;
+
+  String get typeResearchUnitAircraftTimeName;
+
+  String get typeResearchUnitInfantryCostDescription;
+
+  String get typeResearchUnitInfantryCostName;
+
+  String get typeResearchUnitInfantryTimeDescription;
+
+  String get typeResearchUnitInfantryTimeName;
+
+  String get typeResearchUnitVehiclesCostDescription;
+
+  String get typeResearchUnitVehiclesCostName;
+
+  String get typeResearchUnitVehiclesTimeDescription;
+
+  String get typeResearchUnitVehiclesTimeName;
 
   String get typeResearchWarningEarlyWarningDescription;
 
@@ -595,13 +595,13 @@ class ENLocalized extends BaseLocalized {
   String get screenResearchIntel => 'Intel';
 
   @override
-  String get screenResearchMilitary => 'Military';
-
-  @override
   String get screenResearchMissiles => 'Missiles';
 
   @override
   String get screenResearchResources => 'Resources';
+
+  @override
+  String get screenResearchUnits => 'Units';
 
   @override
   String get screenResearchWarning => 'Warning';
@@ -629,7 +629,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeBuildingMilitaryFacilityDescription1 =>
-      'Creates military units:';
+      'Creates the following units:';
 
   @override
   String get typeBuildingMilitaryFacilityDescription2 => '* Infantry';
@@ -757,48 +757,6 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchIntelResearchName => 'Research';
 
   @override
-  String get typeResearchMilitaryAircraftCostDescription =>
-      'Decreases aircraft cost production';
-
-  @override
-  String get typeResearchMilitaryAircraftCostName => 'Aircraft Cost';
-
-  @override
-  String get typeResearchMilitaryAircraftTimeDescription =>
-      'Decreases aircraft time production';
-
-  @override
-  String get typeResearchMilitaryAircraftTimeName => 'Aircraft Time';
-
-  @override
-  String get typeResearchMilitaryInfantryCostDescription =>
-      'Decreases infantry cost production';
-
-  @override
-  String get typeResearchMilitaryInfantryCostName => 'Infantry Cost';
-
-  @override
-  String get typeResearchMilitaryInfantryTimeDescription =>
-      'Decreases infantry time production';
-
-  @override
-  String get typeResearchMilitaryInfantryTimeName => 'Infantry Time';
-
-  @override
-  String get typeResearchMilitaryVehiclesCostDescription =>
-      'Decreases vehicles cost production';
-
-  @override
-  String get typeResearchMilitaryVehiclesCostName => 'Vehicles Cost';
-
-  @override
-  String get typeResearchMilitaryVehiclesTimeDescription =>
-      'Decreases vehicles time production';
-
-  @override
-  String get typeResearchMilitaryVehiclesTimeName => 'Vehicles Time';
-
-  @override
   String get typeResearchMissilesActiveTrackingDescription =>
       'Increases defense missiles effectiveness';
 
@@ -857,6 +815,48 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchResourcesQuantumComputingName => 'Quantum computing';
 
   @override
+  String get typeResearchUnitAircraftCostDescription =>
+      'Decreases aircraft cost production';
+
+  @override
+  String get typeResearchUnitAircraftCostName => 'Aircraft Cost';
+
+  @override
+  String get typeResearchUnitAircraftTimeDescription =>
+      'Decreases aircraft time production';
+
+  @override
+  String get typeResearchUnitAircraftTimeName => 'Aircraft Time';
+
+  @override
+  String get typeResearchUnitInfantryCostDescription =>
+      'Decreases infantry cost production';
+
+  @override
+  String get typeResearchUnitInfantryCostName => 'Infantry Cost';
+
+  @override
+  String get typeResearchUnitInfantryTimeDescription =>
+      'Decreases infantry time production';
+
+  @override
+  String get typeResearchUnitInfantryTimeName => 'Infantry Time';
+
+  @override
+  String get typeResearchUnitVehiclesCostDescription =>
+      'Decreases vehicles cost production';
+
+  @override
+  String get typeResearchUnitVehiclesCostName => 'Vehicles Cost';
+
+  @override
+  String get typeResearchUnitVehiclesTimeDescription =>
+      'Decreases vehicles time production';
+
+  @override
+  String get typeResearchUnitVehiclesTimeName => 'Vehicles Time';
+
+  @override
   String get typeResearchWarningEarlyWarningDescription =>
       'Increases warning time when receiving a unit attack';
 
@@ -906,7 +906,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String typeUnitAircraftDescription(int param1) =>
-      'Advance jet fighters. It increases the military power by ${param1.toString()}.';
+      'Jet fighters. It increases the military power by ${param1.toString()}.';
 
   @override
   String get typeUnitAircraftName => 'Aircraft';
@@ -935,14 +935,14 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String typeUnitInfantryDescription(int param1) =>
-      'Basic military soldier squad. It increases the military power by ${param1.toString()}.';
+      'Soldier squad. It increases the military power by ${param1.toString()}.';
 
   @override
   String get typeUnitInfantryName => 'Infantry';
 
   @override
   String typeUnitVehiclesDescription(int param1) =>
-      'Land military vehicles. It increases the military power by ${param1.toString()}.';
+      'Land vehicles. It increases the military power by ${param1.toString()}.';
 
   @override
   String get typeUnitVehiclesName => 'Vehicle';

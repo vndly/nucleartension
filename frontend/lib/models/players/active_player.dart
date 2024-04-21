@@ -72,23 +72,23 @@ class ActivePlayer extends Player {
       case PlayerAction.research_missiles_signal_jamming:
         _researchTechnology(ResearchType.missiles_signal_jamming);
         break;
-      case PlayerAction.research_military_infantry_cost:
-        _researchTechnology(ResearchType.military_infantry_cost);
+      case PlayerAction.research_unit_infantry_cost:
+        _researchTechnology(ResearchType.unit_infantry_cost);
         break;
-      case PlayerAction.research_military_infantry_time:
-        _researchTechnology(ResearchType.military_infantry_time);
+      case PlayerAction.research_unit_infantry_time:
+        _researchTechnology(ResearchType.unit_infantry_time);
         break;
-      case PlayerAction.research_military_vehicles_cost:
-        _researchTechnology(ResearchType.military_vehicles_cost);
+      case PlayerAction.research_unit_vehicles_cost:
+        _researchTechnology(ResearchType.unit_vehicles_cost);
         break;
-      case PlayerAction.research_military_vehicles_time:
-        _researchTechnology(ResearchType.military_vehicles_time);
+      case PlayerAction.research_unit_vehicles_time:
+        _researchTechnology(ResearchType.unit_vehicles_time);
         break;
-      case PlayerAction.research_military_aircraft_cost:
-        _researchTechnology(ResearchType.military_aircraft_cost);
+      case PlayerAction.research_unit_aircraft_cost:
+        _researchTechnology(ResearchType.unit_aircraft_cost);
         break;
-      case PlayerAction.research_military_aircraft_time:
-        _researchTechnology(ResearchType.military_aircraft_time);
+      case PlayerAction.research_unit_aircraft_time:
+        _researchTechnology(ResearchType.unit_aircraft_time);
         break;
       case PlayerAction.research_weapons_nuclear_bomb:
         _researchTechnology(ResearchType.weapons_nuclear_bomb);
@@ -245,12 +245,12 @@ enum PlayerAction {
   research_missiles_assembly_automation,
   research_missiles_active_tracking,
   research_missiles_signal_jamming,
-  research_military_infantry_cost,
-  research_military_infantry_time,
-  research_military_vehicles_cost,
-  research_military_vehicles_time,
-  research_military_aircraft_cost,
-  research_military_aircraft_time,
+  research_unit_infantry_cost,
+  research_unit_infantry_time,
+  research_unit_vehicles_cost,
+  research_unit_vehicles_time,
+  research_unit_aircraft_cost,
+  research_unit_aircraft_time,
   research_weapons_nuclear_bomb,
 
   // create units

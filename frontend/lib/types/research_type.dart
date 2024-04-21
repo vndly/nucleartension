@@ -99,42 +99,42 @@ enum ResearchType {
   ),
 
   // military
-  military_infantry_cost(
+  unit_infantry_cost(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_COST,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_infantry_time(
+  unit_infantry_time(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_TIME,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_vehicles_cost(
+  unit_vehicles_cost(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_COST,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_vehicles_time(
+  unit_vehicles_time(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_TIME,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_aircraft_cost(
+  unit_aircraft_cost(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_COST,
     maxLevel: 5,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  military_aircraft_time(
+  unit_aircraft_time(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_TIME,
     maxLevel: 5,
     initialCost: {
@@ -214,18 +214,18 @@ enum ResearchType {
         return Localized.get.typeResearchWarningEarlyWarningName;
       case warning_military_fast_deployments:
         return Localized.get.typeResearchWarningFastDeploymentsName;
-      case military_infantry_cost:
-        return Localized.get.typeResearchMilitaryInfantryCostName;
-      case military_infantry_time:
-        return Localized.get.typeResearchMilitaryInfantryTimeName;
-      case military_vehicles_cost:
-        return Localized.get.typeResearchMilitaryVehiclesCostName;
-      case military_vehicles_time:
-        return Localized.get.typeResearchMilitaryVehiclesTimeName;
-      case military_aircraft_cost:
-        return Localized.get.typeResearchMilitaryAircraftCostName;
-      case military_aircraft_time:
-        return Localized.get.typeResearchMilitaryAircraftTimeName;
+      case unit_infantry_cost:
+        return Localized.get.typeResearchUnitInfantryCostName;
+      case unit_infantry_time:
+        return Localized.get.typeResearchUnitInfantryTimeName;
+      case unit_vehicles_cost:
+        return Localized.get.typeResearchUnitVehiclesCostName;
+      case unit_vehicles_time:
+        return Localized.get.typeResearchUnitVehiclesTimeName;
+      case unit_aircraft_cost:
+        return Localized.get.typeResearchUnitAircraftCostName;
+      case unit_aircraft_time:
+        return Localized.get.typeResearchUnitAircraftTimeName;
       case weapons_nuclear_bomb:
         return Localized.get.typeResearchWeaponsNuclearBombName;
       case intel_population:
@@ -264,18 +264,18 @@ enum ResearchType {
         return Localized.get.typeResearchWarningEarlyWarningDescription;
       case warning_military_fast_deployments:
         return Localized.get.typeResearchWarningFastDeploymentsDescription;
-      case military_infantry_cost:
-        return Localized.get.typeResearchMilitaryInfantryCostDescription;
-      case military_infantry_time:
-        return Localized.get.typeResearchMilitaryInfantryTimeDescription;
-      case military_vehicles_cost:
-        return Localized.get.typeResearchMilitaryVehiclesCostDescription;
-      case military_vehicles_time:
-        return Localized.get.typeResearchMilitaryVehiclesTimeDescription;
-      case military_aircraft_cost:
-        return Localized.get.typeResearchMilitaryAircraftCostDescription;
-      case military_aircraft_time:
-        return Localized.get.typeResearchMilitaryAircraftTimeDescription;
+      case unit_infantry_cost:
+        return Localized.get.typeResearchUnitInfantryCostDescription;
+      case unit_infantry_time:
+        return Localized.get.typeResearchUnitInfantryTimeDescription;
+      case unit_vehicles_cost:
+        return Localized.get.typeResearchUnitVehiclesCostDescription;
+      case unit_vehicles_time:
+        return Localized.get.typeResearchUnitVehiclesTimeDescription;
+      case unit_aircraft_cost:
+        return Localized.get.typeResearchUnitAircraftCostDescription;
+      case unit_aircraft_time:
+        return Localized.get.typeResearchUnitAircraftTimeDescription;
       case weapons_nuclear_bomb:
         return Localized.get.typeResearchWeaponsNuclearBombDescription;
       case intel_population:
@@ -321,12 +321,12 @@ enum ResearchType {
       case missiles_additive_manufacturing:
       case missiles_assembly_automation:
       case missiles_signal_jamming:
-      case military_infantry_cost:
-      case military_infantry_time:
-      case military_vehicles_cost:
-      case military_vehicles_time:
-      case military_aircraft_cost:
-      case military_aircraft_time:
+      case unit_infantry_cost:
+      case unit_infantry_time:
+      case unit_vehicles_cost:
+      case unit_vehicles_time:
+      case unit_aircraft_cost:
+      case unit_aircraft_time:
         return '-$baseRate';
 
       case weapons_nuclear_bomb:

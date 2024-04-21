@@ -121,11 +121,11 @@ enum UnitType {
       case attack:
         return ResearchType.missiles_additive_manufacturing;
       case infantry:
-        return ResearchType.military_infantry_cost;
+        return ResearchType.unit_infantry_cost;
       case vehicle:
-        return ResearchType.military_vehicles_cost;
+        return ResearchType.unit_vehicles_cost;
       case aircraft:
-        return ResearchType.military_aircraft_cost;
+        return ResearchType.unit_aircraft_cost;
     }
   }
 
@@ -135,11 +135,11 @@ enum UnitType {
       case attack:
         return ResearchType.missiles_assembly_automation;
       case infantry:
-        return ResearchType.military_infantry_time;
+        return ResearchType.unit_infantry_time;
       case vehicle:
-        return ResearchType.military_vehicles_time;
+        return ResearchType.unit_vehicles_time;
       case aircraft:
-        return ResearchType.military_aircraft_time;
+        return ResearchType.unit_aircraft_time;
     }
   }
 }
