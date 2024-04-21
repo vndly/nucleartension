@@ -3,6 +3,7 @@ import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
+import 'package:nucleartension/utils/probability.dart';
 
 class ActivePlayer extends Player {
   final PlayerProfile profile;
@@ -150,14 +151,12 @@ class ActivePlayer extends Player {
 }
 
 class PlayerProfile implements ProfileChoice {
-  final Map<ProfileChoice, double> map;
+  final Map<ProfileChoice, num> map;
 
   const PlayerProfile._(this.map);
 
   @override
-  PlayerAction get action {
-    return map.keys.first.action; // TODO(momo): implement
-  }
+  PlayerAction get action => Probability.choose(map).action;
 
   factory PlayerProfile.aggressive() => PlayerProfile._({
         PlayerProfile.upgradeBuildingActions(): 0.35,
