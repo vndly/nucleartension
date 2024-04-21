@@ -27,11 +27,11 @@ class Game {
     required this.defcon,
   });
 
-  int get defconStep => 6 - defcon;
+  // ============================= PLAYERS ================================== \\
 
   Player get self => selfPlayer!;
 
-  List<Player> get playersByAlive {
+  List<Player> get playersByName {
     final List<Player> result = List.from(players);
     result.sort((a, b) {
       final int byAlive = (b.isAlive ? 1 : 0) - (a.isAlive ? 1 : 0);
@@ -76,9 +76,11 @@ class Game {
 
   bool get hasUnseenEvents => events.any((e) => !e.seen);
 
-  void addEvent(Event event) => events.insert(0, event);
+  void _addEvent(Event event) => events.insert(0, event);
 
   // ============================= DEFCON =================================== \\
+
+  int get defconStep => 6 - defcon;
 
   void onUnitCreated() => _applyDefcon(4);
 
@@ -92,7 +94,7 @@ class Game {
     if (defcon > value) {
       defcon = value;
       CustomSnackbar.defcon(value);
-      addEvent(DefconUpdateEvent(
+      _addEvent(DefconUpdateEvent(
         defconLevel: defcon,
         productionBoost:
             Constants.DEFCON_PRODUCTION_RATE * (defconStep - 1) * 100,
@@ -131,7 +133,7 @@ class Game {
       militaryPower: militaryPower,
     ));
 
-    addEvent(UnitAttackLaunchEvent(
+    _addEvent(UnitAttackLaunchEvent(
       attacker: attacker,
       defender: defender,
       militaryPower: militaryPower,
@@ -167,7 +169,7 @@ class Game {
       ktPerMissile: attacker.attackMissileYield,
     ));
 
-    addEvent(MissileAttackLaunchEvent(
+    _addEvent(MissileAttackLaunchEvent(
       attacker: attacker,
       defender: defender,
       totalMissiles: amount,
@@ -189,7 +191,7 @@ class Game {
     _updateAttacks(
       dt: dt,
       attacks: attacks,
-      callback: (attack) => attack.resolve().forEach(addEvent),
+      callback: (attack) => attack.resolve().forEach(_addEvent),
     );
   }
 
