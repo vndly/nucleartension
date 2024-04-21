@@ -42,6 +42,60 @@ class PlayerProfile {
       });
 }
 
+abstract class ProfileChoice {
+  PlayerAction get action;
+}
+
+class GroupAction implements ProfileChoice {
+  final List<ProbabilityAction> groups;
+
+  const GroupAction(this.groups);
+
+  @override
+  PlayerAction get action {
+    return groups[0].action; // TODO(momo): implement
+  }
+
+  List<ProfileChoice> test() => [
+        const GroupAction([
+          ProbabilityAction(
+            probability: 0.35,
+            profileChoice: GroupAction([
+              ProbabilityAction(
+                probability: 0.35,
+                profileChoice:
+                    FinalAction(playerAction: PlayerAction.upgrade_power_plant),
+              ),
+            ]),
+          ),
+        ]),
+      ];
+}
+
+class ProbabilityAction implements ProfileChoice {
+  final double probability;
+  final ProfileChoice profileChoice;
+
+  const ProbabilityAction({
+    required this.probability,
+    required this.profileChoice,
+  });
+
+  @override
+  PlayerAction get action => profileChoice.action;
+}
+
+class FinalAction implements ProfileChoice {
+  final PlayerAction playerAction;
+
+  const FinalAction({
+    required this.playerAction,
+  });
+
+  @override
+  PlayerAction get action => playerAction;
+}
+
 enum FirstLevelAction {
   upgrade_building,
   research_technology,
