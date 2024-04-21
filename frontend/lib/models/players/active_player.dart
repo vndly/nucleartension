@@ -84,7 +84,7 @@ class ActivePlayer extends Player {
   void _researchTechnology(ResearchType researchType) {
     final Research research = getResearch(researchType);
 
-    if (research.canUpgrade) {
+    if (!research.isMax && research.canUpgrade) {
       research.upgrade();
     }
   }
