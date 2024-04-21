@@ -22,54 +22,108 @@ class ActivePlayer extends Player {
   }
 }
 
-class PlayerProfile {
-  final Map<FirstLevelAction, double> firstLevel;
-
-  const PlayerProfile._({
-    required this.firstLevel,
-  });
-
-  PlayerAction get action {
-    return PlayerAction.upgrade_power_plant; // TODO(momo): implement
-  }
-
-  factory PlayerProfile.aggressive() => const PlayerProfile._(firstLevel: {
-        FirstLevelAction.upgrade_building: 0.35,
-        FirstLevelAction.research_technology: 0.25,
-        FirstLevelAction.create_unit: 0.20,
-        FirstLevelAction.create_missile: 0.15,
-        FirstLevelAction.attack: 0.5,
-      });
-}
-
-abstract class ProfileChoice {
-  PlayerAction get action;
-}
-
-class GroupAction implements ProfileChoice {
+class PlayerProfile implements ProfileChoice {
   final List<ProbabilityAction> groups;
 
-  const GroupAction(this.groups);
+  const PlayerProfile._(this.groups);
 
   @override
   PlayerAction get action {
     return groups[0].action; // TODO(momo): implement
   }
 
-  List<ProfileChoice> test() => [
-        const GroupAction([
-          ProbabilityAction(
-            probability: 0.35,
-            profileChoice: GroupAction([
-              ProbabilityAction(
-                probability: 0.35,
-                profileChoice:
-                    FinalAction(playerAction: PlayerAction.upgrade_power_plant),
-              ),
-            ]),
-          ),
-        ]),
+  factory PlayerProfile.aggressive() => PlayerProfile._([
+        ProbabilityAction(
+          probability: 0.35,
+          profileChoice: PlayerProfile._(_upgradeBuildingActions()),
+        ),
+        ProbabilityAction(
+          probability: 0.25,
+          profileChoice: PlayerProfile._(_researchTechnologyActions()),
+        ),
+        ProbabilityAction(
+          probability: 0.20,
+          profileChoice: PlayerProfile._(_createUnitAction()),
+        ),
+        ProbabilityAction(
+          probability: 0.15,
+          profileChoice: PlayerProfile._(_createMissileAction()),
+        ),
+        ProbabilityAction(
+          probability: 0.5,
+          profileChoice: PlayerProfile._(_attackAction()),
+        ),
+      ]);
+
+  static List<ProbabilityAction> _upgradeBuildingActions() => [
+        const ProbabilityAction(
+          probability: 0.3,
+          profileChoice: FinalAction(PlayerAction.upgrade_power_plant),
+        ),
+        const ProbabilityAction(
+          probability: 0.25,
+          profileChoice: FinalAction(PlayerAction.upgrade_supply_center),
+        ),
+        const ProbabilityAction(
+          probability: 0.15,
+          profileChoice: FinalAction(PlayerAction.upgrade_tech_lab),
+        ),
+        const ProbabilityAction(
+          probability: 0.1,
+          profileChoice: FinalAction(PlayerAction.upgrade_propaganda_station),
+        ),
+        const ProbabilityAction(
+          probability: 0.1,
+          profileChoice: FinalAction(PlayerAction.upgrade_military_facility),
+        ),
+        const ProbabilityAction(
+          probability: 0.1,
+          profileChoice: FinalAction(PlayerAction.upgrade_missile_silo),
+        ),
       ];
+
+  static List<ProbabilityAction> _researchTechnologyActions() => [];
+
+  static List<ProbabilityAction> _createUnitAction() => [
+        const ProbabilityAction(
+          probability: 0.4,
+          profileChoice: FinalAction(PlayerAction.create_infantry),
+        ),
+        const ProbabilityAction(
+          probability: 0.3,
+          profileChoice: FinalAction(PlayerAction.create_vehicle),
+        ),
+        const ProbabilityAction(
+          probability: 0.2,
+          profileChoice: FinalAction(PlayerAction.create_aircraft),
+        ),
+      ];
+
+  static List<ProbabilityAction> _createMissileAction() => [
+        const ProbabilityAction(
+          probability: 0.7,
+          profileChoice: FinalAction(PlayerAction.create_defense_missile),
+        ),
+        const ProbabilityAction(
+          probability: 0.3,
+          profileChoice: FinalAction(PlayerAction.create_attack_missile),
+        ),
+      ];
+
+  static List<ProbabilityAction> _attackAction() => [
+        const ProbabilityAction(
+          probability: 0.5,
+          profileChoice: FinalAction(PlayerAction.attack_unit),
+        ),
+        const ProbabilityAction(
+          probability: 0.5,
+          profileChoice: FinalAction(PlayerAction.attack_missiles),
+        ),
+      ];
+}
+
+abstract class ProfileChoice {
+  PlayerAction get action;
 }
 
 class ProbabilityAction implements ProfileChoice {
@@ -88,20 +142,10 @@ class ProbabilityAction implements ProfileChoice {
 class FinalAction implements ProfileChoice {
   final PlayerAction playerAction;
 
-  const FinalAction({
-    required this.playerAction,
-  });
+  const FinalAction(this.playerAction);
 
   @override
   PlayerAction get action => playerAction;
-}
-
-enum FirstLevelAction {
-  upgrade_building,
-  research_technology,
-  create_unit,
-  create_missile,
-  attack;
 }
 
 enum PlayerAction {
