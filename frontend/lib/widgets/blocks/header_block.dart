@@ -119,7 +119,7 @@ class CollapsedMilitarySection extends StatelessWidget {
       children: [
         CollapsedMilitaryLabel(
           value: player.game.defcon.toString(),
-          icon: Icons.warning_rounded,
+          icon: Icons.warning_outlined,
           color: Palette.militaryDefcon,
         ),
         CollapsedMilitaryLabel(
