@@ -16,9 +16,9 @@ class Constants {
   static const int UNIT_ATTACK_DAMAGE_PER_POWER = 1000;
 
   static const Map<BuildingType, double> PRODUCTION_RATE = {
-    BuildingType.power_plant: 1,
-    BuildingType.supply_center: 1,
-    BuildingType.tech_lab: 0.5,
+    BuildingType.power_plant: 0.5,
+    BuildingType.supply_center: 0.5,
+    BuildingType.tech_lab: 0.25,
     BuildingType.propaganda_station: 100,
   };
 
