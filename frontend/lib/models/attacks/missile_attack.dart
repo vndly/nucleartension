@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
@@ -8,6 +6,7 @@ import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
+import 'package:nucleartension/utils/probability.dart';
 
 class MissileAttack extends Attack {
   final int totalMissiles;
@@ -92,14 +91,13 @@ class MissileAttack extends Attack {
         defender.defenseMissilesEffectiveness *
             attacker.attackMissilesEffectiveness *
             Constants.DEFENSE_MISSILE_EFFECTIVENESS;
-    final Random random = Random();
     int remainingAttackMissiles = totalMissiles;
 
     while ((remainingAttackMissiles > 0) &&
         (defender.militaryDefenseMissiles > 0)) {
       defender.removeDefenseMissiles(1);
 
-      if (random.nextDouble() < defenseMissilesEffectiveness) {
+      if (Probability.succeeds(defenseMissilesEffectiveness)) {
         remainingAttackMissiles--;
       }
     }
