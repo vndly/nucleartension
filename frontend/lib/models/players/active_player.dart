@@ -103,7 +103,10 @@ class PlayerProfile implements ProfileChoice {
       });
 
   // TODO(momo): implement
-  static List<ProbabilityAction> _researchTechnologyActions() => [];
+  static List<ProbabilityAction> _researchTechnologyActions() =>
+      _probabilities({
+        PlayerAction.research_resources_grid_management: 1,
+      });
 
   static List<ProbabilityAction> _createUnitAction() => _probabilities({
         PlayerAction.create_infantry: 0.4,
@@ -181,6 +184,7 @@ enum PlayerAction {
 
   // research technology
   research_resources_grid_management,
+  // TODO(momo): implement
 
   // attack
   attack_unit,
