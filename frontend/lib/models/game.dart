@@ -12,12 +12,14 @@ import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
+import 'package:nucleartension/utils/fps.dart';
 
 class Game {
   final GameState gameState;
   final List<Player> players;
   final List<Event> events;
   final List<Attack> attacks;
+  final FPS fps = FPS();
   Player? selfPlayer;
   num timeElapsed = 0;
   int defcon = 5;
@@ -231,6 +233,7 @@ class Game {
     required List<Attack> attacks,
     required Function(Attack) callback,
   }) {
+    fps.update(dt);
     final List<Attack> tasksToRemove = [];
 
     for (final Attack task in attacks) {
