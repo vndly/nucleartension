@@ -164,7 +164,7 @@ class PlayerProfile implements ProfileChoice {
         PlayerProfile.researchTechnologyActions(): 0.25,
         PlayerProfile.createUnitAction(): 0.20,
         PlayerProfile.createMissileAction(): 0.15,
-        PlayerProfile.attackAction(): 0.5,
+        PlayerProfile.attackAction(): 0.05,
       });
 
   factory PlayerProfile.upgradeBuildingActions() => PlayerProfile.finalActions({
@@ -176,10 +176,23 @@ class PlayerProfile implements ProfileChoice {
         PlayerAction.upgrade_missile_silo: 0.1,
       });
 
-  // TODO(momo): implement
   factory PlayerProfile.researchTechnologyActions() =>
       PlayerProfile.finalActions({
-        PlayerAction.research_resources_grid_management: 1,
+        PlayerAction.research_resources_grid_management: 0.1,
+        PlayerAction.research_resources_production_chain: 0.1,
+        PlayerAction.research_resources_indoctrination: 0.1,
+        PlayerAction.research_resources_quantum_computing: 0.1,
+        PlayerAction.research_missiles_additive_manufacturing: 0.05,
+        PlayerAction.research_missiles_assembly_automation: 0.05,
+        PlayerAction.research_missiles_active_tracking: 0.05,
+        PlayerAction.research_missiles_signal_jamming: 0.05,
+        PlayerAction.research_unit_infantry_cost: 0.05,
+        PlayerAction.research_unit_infantry_time: 0.05,
+        PlayerAction.research_unit_vehicles_cost: 0.05,
+        PlayerAction.research_unit_vehicles_time: 0.05,
+        PlayerAction.research_unit_aircraft_cost: 0.05,
+        PlayerAction.research_unit_aircraft_time: 0.05,
+        PlayerAction.research_weapons_nuclear_bomb: 0.1,
       });
 
   factory PlayerProfile.createUnitAction() => PlayerProfile.finalActions({
