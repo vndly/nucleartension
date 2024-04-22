@@ -68,7 +68,7 @@ enum UnitType {
   num effectiveDuration(Player player) {
     final Research research = player.getResearch(researchTime);
 
-    return cost.duration * research.decreaseRate;
+    return (cost.duration * research.decreaseRate) / 10;
   }
 
   String get localized {

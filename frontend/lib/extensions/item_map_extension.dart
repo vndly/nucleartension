@@ -16,7 +16,7 @@ extension ItemMapExtension<T> on ItemMap<T> {
       sum += item.value;
     }
 
-    return sum / 10;
+    return sum;
   }
 
   Map<T, num> multiply(num factor) {

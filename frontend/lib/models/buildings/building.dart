@@ -16,5 +16,5 @@ class Building extends Upgradable {
   ResourceMap get upgradeCost => buildingType.cost(level + 1);
 
   @override
-  num get upgradeTime => upgradeCost.duration;
+  num get upgradeTime => upgradeCost.duration / 10;
 }
