@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';

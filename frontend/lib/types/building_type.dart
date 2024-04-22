@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -8,6 +9,7 @@ import 'package:nucleartension/utils/localizations.dart';
 enum BuildingType {
   power_plant(
     sprite: Assets.IMAGES_BUILDINGS_POWER_PLANT,
+    costRate: 2,
     initialCost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
@@ -15,6 +17,7 @@ enum BuildingType {
   ),
   supply_center(
     sprite: Assets.IMAGES_BUILDINGS_SUPPLY_CENTER,
+    costRate: 2,
     initialCost: {
       ResourceType.energy: 20,
       ResourceType.supplies: 20,
@@ -22,20 +25,23 @@ enum BuildingType {
   ),
   tech_lab(
     sprite: Assets.IMAGES_BUILDINGS_TECH_LAB,
-    initialCost: {
-      ResourceType.energy: 100,
-      ResourceType.supplies: 100,
-    },
-  ),
-  propaganda_station(
-    sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
+    costRate: 2,
     initialCost: {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
     },
   ),
+  propaganda_station(
+    sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
+    costRate: 2,
+    initialCost: {
+      ResourceType.energy: 100,
+      ResourceType.supplies: 100,
+    },
+  ),
   missile_silo(
     sprite: Assets.IMAGES_BUILDINGS_MISSILE_SILO,
+    costRate: 2,
     initialCost: {
       ResourceType.energy: 200,
       ResourceType.supplies: 200,
@@ -43,6 +49,7 @@ enum BuildingType {
   ),
   military_facility(
     sprite: Assets.IMAGES_BUILDINGS_MILITARY_FACILITY,
+    costRate: 2,
     initialCost: {
       ResourceType.energy: 200,
       ResourceType.supplies: 200,
@@ -50,14 +57,16 @@ enum BuildingType {
   );
 
   final String sprite;
+  final double costRate;
   final ResourceMap initialCost;
 
   const BuildingType({
     required this.sprite,
+    required this.costRate,
     required this.initialCost,
   });
 
-  ResourceMap cost(int level) => initialCost.multiply(level);
+  ResourceMap cost(int level) => initialCost.multiply(pow(costRate, level - 1));
 
   List<UnitType> get units {
     switch (this) {
