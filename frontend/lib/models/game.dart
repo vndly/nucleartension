@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
@@ -15,6 +13,7 @@ import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
+import 'package:nucleartension/utils/probability.dart';
 
 class Game {
   final GameState gameState;
@@ -85,9 +84,10 @@ class Game {
   }
 
   Player? randomPlayer(Player player) {
-    final List<Player> result = players.where((e) => e != player).toList();
+    final List<Player> list =
+        players.where((e) => e.isAlive && (e != player)).toList();
 
-    return result.isNotEmpty ? result[Random().nextInt(result.length)] : null;
+    return Probability.element(list);
   }
 
   void setPlayers(List<Player> list) {

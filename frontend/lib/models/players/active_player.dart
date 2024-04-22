@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/players/player.dart';
@@ -154,7 +153,7 @@ class ActivePlayer extends Player {
   void _uniAttack() {
     if (militaryPower > 10) {
       final Player? defender = game.randomPlayer(this);
-      final int amount = Random().nextInt(militaryPower) + 1;
+      final int amount = Probability.between(1, militaryPower);
 
       if (defender != null) {
         debugPrint(
@@ -171,7 +170,7 @@ class ActivePlayer extends Player {
   void _missileAttack() {
     if (militaryAttackMissiles > 10) {
       final Player? defender = game.randomPlayer(this);
-      final int amount = Random().nextInt(militaryAttackMissiles) + 1;
+      final int amount = Probability.between(1, militaryAttackMissiles);
 
       if (defender != null) {
         debugPrint(

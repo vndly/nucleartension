@@ -19,4 +19,9 @@ class Probability {
 
     throw Exception('Cannot pick an item from $probabilities');
   }
+
+  static int between(int min, int max) => random.nextInt(max) + min;
+
+  static T? element<T>(List<T> list) =>
+      list.isNotEmpty ? list[random.nextInt(list.length)] : null;
 }
