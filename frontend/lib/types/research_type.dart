@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
@@ -12,6 +14,7 @@ enum ResearchType {
   resources_grid_management(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT,
     maxLevel: 10,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -19,6 +22,7 @@ enum ResearchType {
   resources_production_chain(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_PRODUCTION_CHAIN,
     maxLevel: 10,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -26,6 +30,7 @@ enum ResearchType {
   resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_INDOCTRINATION,
     maxLevel: 10,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -33,6 +38,7 @@ enum ResearchType {
   resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING,
     maxLevel: 10,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -42,6 +48,7 @@ enum ResearchType {
   missiles_additive_manufacturing(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ADDITIVE_MANUFACTURING,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -49,6 +56,7 @@ enum ResearchType {
   missiles_assembly_automation(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ASSEMBLY_AUTOMATION,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -56,6 +64,7 @@ enum ResearchType {
   missiles_active_tracking(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING,
     maxLevel: 10,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -63,6 +72,7 @@ enum ResearchType {
   missiles_signal_jamming(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -72,6 +82,7 @@ enum ResearchType {
   warning_missiles_radar_network(
     sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -79,6 +90,7 @@ enum ResearchType {
   warning_missiles_hypersonic_propulsion(
     sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_HYPERSONIC_PROPULSION,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -86,6 +98,7 @@ enum ResearchType {
   warning_military_early_warning(
     sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_EARLY_WARNING,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -93,6 +106,7 @@ enum ResearchType {
   warning_military_fast_deployments(
     sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_FAST_DEPLOYMENTS,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -102,6 +116,7 @@ enum ResearchType {
   unit_infantry_cost(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_COST,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -109,6 +124,7 @@ enum ResearchType {
   unit_infantry_time(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_TIME,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -116,6 +132,7 @@ enum ResearchType {
   unit_vehicles_cost(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_COST,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -123,6 +140,7 @@ enum ResearchType {
   unit_vehicles_time(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_TIME,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -130,6 +148,7 @@ enum ResearchType {
   unit_aircraft_cost(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_COST,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -137,6 +156,7 @@ enum ResearchType {
   unit_aircraft_time(
     sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_TIME,
     maxLevel: 5,
+    costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
@@ -146,8 +166,9 @@ enum ResearchType {
   weapons_nuclear_bomb(
     sprite: Assets.IMAGES_RESEARCH_WEAPONS_NUCLEAR_BOMB,
     maxLevel: 14,
+    costRate: 1.2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.technology: 50,
     },
   ),
 
@@ -155,45 +176,51 @@ enum ResearchType {
   intel_population(
     sprite: Assets.IMAGES_RESEARCH_INTEL_POPULATION,
     maxLevel: 2,
+    costRate: 5,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.technology: 100,
     },
   ),
   intel_military(
     sprite: Assets.IMAGES_RESEARCH_INTEL_MILITARY,
     maxLevel: 2,
+    costRate: 5,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.technology: 100,
     },
   ),
   intel_missiles(
     sprite: Assets.IMAGES_RESEARCH_INTEL_MISSILES,
     maxLevel: 2,
+    costRate: 5,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.technology: 100,
     },
   ),
   intel_research(
     sprite: Assets.IMAGES_RESEARCH_INTEL_RESEARCH,
     maxLevel: 2,
+    costRate: 5,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.technology: 100,
     },
   );
 
   final String sprite;
   final int maxLevel;
+  final double costRate;
   final ResourceMap initialCost;
 
   const ResearchType({
     required this.sprite,
     required this.maxLevel,
+    required this.costRate,
     required this.initialCost,
   });
 
   double get rate => Constants.RESEARCH_RATE[this] ?? 0;
 
-  ResourceMap cost(int level) => initialCost.multiply(level);
+  ResourceMap cost(int level) => initialCost.multiply(pow(costRate, level - 1));
 
   String get localized {
     switch (this) {

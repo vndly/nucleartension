@@ -1,3 +1,4 @@
+import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/types/building_type.dart';
@@ -13,4 +14,7 @@ class Building extends Upgradable {
 
   @override
   ResourceMap get upgradeCost => buildingType.cost(level + 1);
+
+  @override
+  num get upgradeTime => upgradeCost.duration;
 }

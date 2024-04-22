@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/upgradable.dart';
 import 'package:nucleartension/types/building_type.dart';
@@ -15,6 +16,9 @@ class Research extends Upgradable {
 
   @override
   ResourceMap get upgradeCost => researchType.cost(level + 1);
+
+  @override
+  num get upgradeTime => upgradeCost.duration * 100;
 
   bool get isMax => level >= researchType.maxLevel;
 

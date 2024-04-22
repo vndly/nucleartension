@@ -7,7 +7,7 @@ import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/disabled_button.dart';
-import 'package:nucleartension/widgets/buttons/upgrade_building_button.dart';
+import 'package:nucleartension/widgets/buttons/upgrade_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_info.dart';

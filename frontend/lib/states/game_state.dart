@@ -46,7 +46,7 @@ class GameState extends BaseState {
       resources: ResourceInventory.create({
         ResourceType.energy: 500,
         ResourceType.supplies: 500,
-        ResourceType.technology: 0,
+        ResourceType.technology: 1000,
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
@@ -69,7 +69,6 @@ class GameState extends BaseState {
     usa.addResearches(_researches(
       player: usa,
       map: {
-        ResearchType.weapons_nuclear_bomb: 5,
         ResearchType.intel_population: 2,
         ResearchType.intel_military: 2,
         ResearchType.intel_missiles: 2,

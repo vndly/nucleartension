@@ -14,6 +14,8 @@ abstract class Upgradable {
 
   ResourceMap get upgradeCost;
 
+  num get upgradeTime;
+
   bool get isUpgrading => upgradeTask != null;
 
   bool get canUpgrade => !isUpgrading && hasResourcesToUpgrade;
@@ -26,6 +28,7 @@ abstract class Upgradable {
       upgradeTask = UpgradeTask(
         upgradable: this,
         cost: upgradeCost,
+        duration: upgradeTime,
       );
     }
   }
