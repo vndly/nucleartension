@@ -23,7 +23,6 @@ class ActivePlayer extends Player {
   @override
   void takeAction() {
     final PlayerAction action = profile.action;
-    //debugPrint('AI: Player $name chose action ${action.name}');
 
     switch (action) {
       case PlayerAction.upgrade_power_plant:
