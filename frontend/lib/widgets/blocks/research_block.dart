@@ -164,7 +164,7 @@ class RightSection extends StatelessWidget {
     } else {
       return Label(
         text: Localized.get
-            .labelRequires(buildingType!.localized)
+            .labelRequiresResearch(buildingType!.localized)
             .replaceAll(' ', '\n'),
         color: Palette.error,
         align: TextAlign.center,

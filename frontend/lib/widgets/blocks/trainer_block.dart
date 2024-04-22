@@ -276,7 +276,8 @@ class UnitRightSection extends StatelessWidget {
       } else {
         return Label(
           text: Localized.get
-              .labelRequires(ResearchType.weapons_nuclear_bomb.localized)
+              .labelRequiresBuilding(
+                  ResearchType.weapons_nuclear_bomb.localized)
               .replaceAll(' ', '\n'),
           color: Palette.error,
           align: TextAlign.center,

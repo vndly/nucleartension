@@ -152,7 +152,9 @@ abstract class BaseLocalized {
 
   String labelQueue(int param1, int param2);
 
-  String labelRequires(String param1);
+  String labelRequiresBuilding(String param1);
+
+  String labelRequiresResearch(String param1);
 
   String get labelSecond;
 
@@ -631,7 +633,12 @@ class ENLocalized extends BaseLocalized {
       'Queue ${param1.toString()}/${param2.toString()}';
 
   @override
-  String labelRequires(String param1) => 'Requires ${param1.toString()}';
+  String labelRequiresBuilding(String param1) =>
+      'Requires ${param1.toString()} building';
+
+  @override
+  String labelRequiresResearch(String param1) =>
+      'Requires ${param1.toString()} research';
 
   @override
   String get labelSecond => 's';

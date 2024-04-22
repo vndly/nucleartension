@@ -152,7 +152,7 @@ class ActivePlayer extends Player {
   }
 
   void _uniAttack() {
-    if (militaryPower > 0) {
+    if (militaryPower > 10) {
       final Player? defender = game.randomPlayer(this);
       final int amount = Random().nextInt(militaryPower) + 1;
 
@@ -169,7 +169,7 @@ class ActivePlayer extends Player {
   }
 
   void _missileAttack() {
-    if (militaryAttackMissiles > 0) {
+    if (militaryAttackMissiles > 10) {
       final Player? defender = game.randomPlayer(this);
       final int amount = Random().nextInt(militaryAttackMissiles) + 1;
 
