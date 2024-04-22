@@ -97,7 +97,7 @@ class Game {
 
   // ============================= EVENTS =================================== \\
 
-  bool get hasUnseenEvents => events.any((e) => !e.seen);
+  bool get hasUnseenEvents => visibleEvents.any((e) => !e.seen);
 
   List<Event> get visibleEvents => events.where((e) => e.show).toList();
 
