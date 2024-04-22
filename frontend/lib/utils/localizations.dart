@@ -28,6 +28,8 @@ abstract class BaseLocalized {
 
   String get buttonOk;
 
+  String dialogAttackMilitaryContent(String param1);
+
   String get dialogAttackMilitaryMessage;
 
   String get dialogAttackMilitaryTitle;
@@ -391,11 +393,11 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String attackUnitIncoming(String param1, int param2) =>
-      'Incoming unit attack from ${param1.toString()} with ${param2.toString()}';
+      'Incoming unit attack from ${param1.toString()} with military power ${param2.toString()}';
 
   @override
   String attackUnitOutgoing(String param1, int param2) =>
-      'Outgoing unit attack to ${param1.toString()} with ${param2.toString()}';
+      'Outgoing unit attack to ${param1.toString()} with military power ${param2.toString()}';
 
   @override
   String get bottomBarEvents => 'Events';
@@ -422,6 +424,10 @@ class ENLocalized extends BaseLocalized {
   String get buttonOk => 'Ok';
 
   @override
+  String dialogAttackMilitaryContent(String param1) =>
+      'Approximately ${param1.toString()} casualties';
+
+  @override
   String get dialogAttackMilitaryMessage => 'Select amount of military power:';
 
   @override
@@ -429,7 +435,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String dialogAttackMissilesContent(String param1, String param2) =>
-      '${param1.toString()} ≈ ${param2.toString()} people';
+      '${param1.toString()} ≈ ${param2.toString()} casualties';
 
   @override
   String get dialogAttackMissilesMessage => 'Select amount of missiles:';

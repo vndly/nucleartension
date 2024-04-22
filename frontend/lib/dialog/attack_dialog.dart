@@ -115,21 +115,23 @@ class _AttackDialogState extends State<AttackDialog> {
               size: 18,
             ),
           ),
-          if (widget.isMissileAttack)
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Label(
-                  text: Localized.get.dialogAttackMissilesContent(
-                      Formatter.yield(_yield),
-                      Formatter.resourceRaw(
-                        _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT,
-                      )),
-                  color: Palette.textPrimary,
-                  uppercase: false,
-                ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Label(
+                text: widget.isMissileAttack
+                    ? Localized.get.dialogAttackMissilesContent(
+                        Formatter.yield(_yield),
+                        Formatter.resourceRaw(
+                            _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT))
+                    : Localized.get.dialogAttackMilitaryContent(
+                        Formatter.resourceRaw(_selected *
+                            Constants.UNIT_ATTACK_DAMAGE_PER_POWER)),
+                color: Palette.textPrimary,
+                uppercase: false,
               ),
             ),
+          ),
           const VBox(20),
           Slider(
             value: _selected.toDouble(),
