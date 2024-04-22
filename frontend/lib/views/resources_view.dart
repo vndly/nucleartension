@@ -17,10 +17,14 @@ class ResourcesView extends StatelessWidget {
           ProducerBlock(game.self.powerPlant),
           const BlockSeparator(),
           ProducerBlock(game.self.supplyCenter),
-          const BlockSeparator(),
-          ProducerBlock(game.self.techLab),
-          const BlockSeparator(),
-          ProducerBlock(game.self.propagandaStation),
+          if (game.self.powerPlant.level > 0) ...[
+            const BlockSeparator(),
+            ProducerBlock(game.self.techLab),
+          ],
+          if (game.self.supplyCenter.level > 0) ...[
+            const BlockSeparator(),
+            ProducerBlock(game.self.propagandaStation),
+          ],
           const BlockSeparator(),
         ],
       ),
