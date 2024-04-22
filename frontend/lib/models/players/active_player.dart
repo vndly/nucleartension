@@ -172,20 +172,20 @@ class PlayerProfile implements ProfileChoice {
   PlayerAction get action => Probability.choose(map).action;
 
   factory PlayerProfile.aggressive() => PlayerProfile._({
-        PlayerProfile.upgradeBuildingActions(): 0.35,
+        PlayerProfile.upgradeBuildingActions(): 0.5,
         PlayerProfile.researchTechnologyActions(): 0.25,
-        PlayerProfile.createUnitAction(): 0.20,
-        PlayerProfile.createMissileAction(): 0.15,
+        PlayerProfile.createUnitAction(): 0.1,
+        PlayerProfile.createMissileAction(): 0.1,
         PlayerProfile.attackAction(): 0.05,
       });
 
   factory PlayerProfile.upgradeBuildingActions() => PlayerProfile.finalActions({
         PlayerAction.upgrade_power_plant: 0.3,
-        PlayerAction.upgrade_supply_center: 0.25,
+        PlayerAction.upgrade_supply_center: 0.3,
         PlayerAction.upgrade_tech_lab: 0.15,
-        PlayerAction.upgrade_propaganda_station: 0.1,
-        PlayerAction.upgrade_military_facility: 0.1,
-        PlayerAction.upgrade_missile_silo: 0.1,
+        PlayerAction.upgrade_propaganda_station: 0.15,
+        PlayerAction.upgrade_military_facility: 0.05,
+        PlayerAction.upgrade_missile_silo: 0.05,
       });
 
   factory PlayerProfile.researchTechnologyActions() =>
@@ -214,8 +214,8 @@ class PlayerProfile implements ProfileChoice {
       });
 
   factory PlayerProfile.createMissileAction() => PlayerProfile.finalActions({
-        PlayerAction.create_defense_missile: 0.7,
-        PlayerAction.create_attack_missile: 0.3,
+        PlayerAction.create_defense_missile: 0.6,
+        PlayerAction.create_attack_missile: 0.4,
       });
 
   factory PlayerProfile.attackAction() => PlayerProfile.finalActions({
