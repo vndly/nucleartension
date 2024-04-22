@@ -236,8 +236,8 @@ class PlayerProfile implements ProfileChoice {
       });
 
   factory PlayerProfile.createMissileAction() => PlayerProfile.finalActions({
-        PlayerAction.create_defense_missile: 0.6,
-        PlayerAction.create_attack_missile: 0.4,
+        PlayerAction.create_defense_missile: 0.4,
+        PlayerAction.create_attack_missile: 0.6,
       });
 
   factory PlayerProfile.attackAction() => PlayerProfile.finalActions({

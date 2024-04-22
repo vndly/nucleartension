@@ -41,7 +41,7 @@ class GameState extends BaseState {
 
     final Player usa = SelfPlayer(
       game: game,
-      name: 'Momo',
+      name: 'John',
       country: Country.usa,
       resources: ResourceInventory.create({
         ResourceType.energy: 500,
