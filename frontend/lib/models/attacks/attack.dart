@@ -1,5 +1,6 @@
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/types/attack_type.dart';
 
 abstract class Attack {
   final Player attacker;
@@ -15,6 +16,9 @@ abstract class Attack {
     totalTime = duration;
     remainingTime = totalTime;
   }
+
+  AttackType get attackType =>
+      attacker.isSelf ? AttackType.outgoing : AttackType.incoming;
 
   bool contains(Player player) => (attacker == player) || (defender == player);
 

@@ -29,15 +29,17 @@ class AttackBlock extends StatelessWidget {
               Expanded(
                 child: Label(
                   text: attack.toString(),
-                  color: Palette.textAttack,
+                  color: attack.attackType.color,
                   weight: FontWeight.bold,
+                  size: 12,
                 ),
               ),
               const HBox(10),
               Label(
                 text: attack.timeLeft.formatted,
-                color: Palette.textAttack,
+                color: attack.attackType.color,
                 weight: FontWeight.bold,
+                size: 12,
               ),
             ],
           ),

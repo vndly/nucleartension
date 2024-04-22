@@ -12,8 +12,8 @@ enum UnitType {
     sprite: Assets.IMAGES_MISSILES_DEFENSE,
     power: 0,
     cost: {
-      ResourceType.energy: 20,
-      ResourceType.supplies: 20,
+      ResourceType.energy: 40,
+      ResourceType.supplies: 40,
     },
   ),
   attack(

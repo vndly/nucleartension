@@ -195,9 +195,9 @@ class PlayerProfile implements ProfileChoice {
   PlayerAction get action => Probability.choose(map).action;
 
   factory PlayerProfile.aggressive() => PlayerProfile._({
-        PlayerProfile.upgradeBuildingActions(): 0.5,
+        PlayerProfile.upgradeBuildingActions(): 0.45,
         PlayerProfile.researchTechnologyActions(): 0.25,
-        PlayerProfile.createUnitAction(): 0.1,
+        PlayerProfile.createUnitAction(): 0.15,
         PlayerProfile.createMissileAction(): 0.1,
         PlayerProfile.attackAction(): 0.05,
       });
