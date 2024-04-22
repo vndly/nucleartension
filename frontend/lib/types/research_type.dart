@@ -165,9 +165,9 @@ enum ResearchType {
   weapons_nuclear_bomb(
     sprite: Assets.IMAGES_RESEARCH_WEAPONS_NUCLEAR_BOMB,
     maxLevel: 14,
-    costRate: 1.2,
+    costRate: 2,
     initialCost: {
-      ResourceType.technology: 50,
+      ResourceType.technology: 10,
     },
   ),
 
