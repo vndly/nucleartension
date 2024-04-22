@@ -14,7 +14,7 @@ class WarRoomView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2 + (game.self.hasIntel ? 1 : 0),
       child: Expanded(
         child: Column(
           children: [
