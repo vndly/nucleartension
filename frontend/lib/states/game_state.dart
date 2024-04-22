@@ -98,8 +98,8 @@ class GameState extends BaseState {
       name: name,
       country: country,
       resources: ResourceInventory.create({
-        ResourceType.energy: 500,
-        ResourceType.supplies: 500,
+        ResourceType.energy: 200,
+        ResourceType.supplies: 200,
         ResourceType.technology: 0,
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
@@ -118,6 +118,8 @@ class GameState extends BaseState {
       map: {
         BuildingType.power_plant: 1,
         BuildingType.supply_center: 1,
+        BuildingType.military_facility: 1,
+        BuildingType.missile_silo: 1,
       },
     ));
 
