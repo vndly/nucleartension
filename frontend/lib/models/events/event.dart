@@ -14,4 +14,6 @@ abstract class Event {
   }
 
   List<String> get text;
+
+  bool get show;
 }

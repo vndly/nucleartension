@@ -24,6 +24,9 @@ class MissileAttackResultEvent extends Event {
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
+  bool get show => attacker.isSelf || defender.isSelf;
+
+  @override
   List<String> get text => [
         Localized.get.eventAttackMissileResultLine1,
         Localized.get.eventAttackMissileResultLine2(attacker.name,

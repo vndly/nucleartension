@@ -13,6 +13,9 @@ class PlayerDefeated extends Event {
   }) : super(eventType: EventType.player_defeated);
 
   @override
+  bool get show => true;
+
+  @override
   List<String> get text => [
         Localized.get.eventPlayerDefeatedLine1(player.name),
       ];

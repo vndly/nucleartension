@@ -16,6 +16,9 @@ class UnitAttackLaunchEvent extends Event {
   }) : super(eventType: EventType.unit_attack_launch);
 
   @override
+  bool get show => attacker.isSelf || defender.isSelf;
+
+  @override
   List<String> get text => [
         Localized.get.eventAttackUnitLaunchLine1,
         Localized.get.eventAttackUnitLaunchLine2(attacker.name),

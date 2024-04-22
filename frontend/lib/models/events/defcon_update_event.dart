@@ -14,6 +14,9 @@ class DefconUpdateEvent extends Event {
     required this.productionBoost,
   }) : super(eventType: EventType.defcon_update);
 
+  @override
+  bool get show => true;
+
   String get subtext {
     if (defconLevel == 4) {
       return player.isSelf
