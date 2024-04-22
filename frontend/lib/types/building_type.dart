@@ -39,16 +39,16 @@ enum BuildingType {
       ResourceType.supplies: 100,
     },
   ),
-  missile_silo(
-    sprite: Assets.IMAGES_BUILDINGS_MISSILE_SILO,
+  military_facility(
+    sprite: Assets.IMAGES_BUILDINGS_MILITARY_FACILITY,
     costRate: 2,
     initialCost: {
       ResourceType.energy: 100,
       ResourceType.supplies: 100,
     },
   ),
-  military_facility(
-    sprite: Assets.IMAGES_BUILDINGS_MILITARY_FACILITY,
+  missile_silo(
+    sprite: Assets.IMAGES_BUILDINGS_MISSILE_SILO,
     costRate: 2,
     initialCost: {
       ResourceType.energy: 200,
