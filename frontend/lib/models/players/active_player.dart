@@ -89,19 +89,19 @@ class ActivePlayer extends Player {
         _researchTechnology(ResearchType.weapons_nuclear_bomb);
         break;
       case PlayerAction.create_infantry:
-        _createUnit(UnitType.infantry);
+        _createMilitary(UnitType.infantry);
         break;
       case PlayerAction.create_vehicle:
-        _createUnit(UnitType.vehicle);
+        _createMilitary(UnitType.vehicle);
         break;
       case PlayerAction.create_aircraft:
-        _createUnit(UnitType.aircraft);
+        _createMilitary(UnitType.aircraft);
         break;
       case PlayerAction.create_defense_missile:
-        _createUnit(UnitType.defense);
+        _createMilitary(UnitType.defense);
         break;
       case PlayerAction.create_attack_missile:
-        _createUnit(UnitType.attack);
+        _createMilitary(UnitType.attack);
         break;
       case PlayerAction.attack_unit:
         _uniAttack();
@@ -130,23 +130,31 @@ class ActivePlayer extends Player {
     }
   }
 
-  void _createUnit(UnitType unitType) {
+  void _createMilitary(UnitType unitType) {
     switch (unitType) {
-      case UnitType.defense:
-      case UnitType.attack:
-        if (missileSilo.canCreateUnit(unitType)) {
-          missileSilo.enqueueUnit(unitType);
-          debugPrint('AI: Player $name enqueued unit ${unitType.name}');
-        }
-        break;
       case UnitType.infantry:
       case UnitType.vehicle:
       case UnitType.aircraft:
-        if (missileSilo.canCreateUnit(unitType)) {
-          militaryFacility.enqueueUnit(unitType);
-          debugPrint('AI: Player $name enqueued unit ${unitType.name}');
-        }
+        _createUnit(unitType);
         break;
+      case UnitType.defense:
+      case UnitType.attack:
+        _createMissile(unitType);
+        break;
+    }
+  }
+
+  void _createUnit(UnitType unitType) {
+    if (missileSilo.canCreateUnit(unitType)) {
+      militaryFacility.enqueueUnit(unitType);
+      debugPrint('AI: Player $name enqueued unit ${unitType.name}');
+    }
+  }
+
+  void _createMissile(UnitType unitType) {
+    if (missileSilo.canCreateUnit(unitType)) {
+      missileSilo.enqueueUnit(unitType);
+      debugPrint('AI: Player $name enqueued unit ${unitType.name}');
     }
   }
 
