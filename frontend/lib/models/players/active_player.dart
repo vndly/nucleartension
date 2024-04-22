@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/players/player.dart';
@@ -151,15 +152,33 @@ class ActivePlayer extends Player {
   }
 
   void _uniAttack() {
-    // TODO(momo): implement
-    // 1. choose player
-    // 2. choose military power
+    final Player? defender = game.randomPlayer(this);
+    final int amount = Random().nextInt(militaryPower) + 1;
+
+    if (defender != null) {
+      debugPrint(
+          'AI: Player $name sent unit attack to ${defender.name} with $amount');
+      game.unitAttack(
+        attacker: this,
+        defender: defender,
+        militaryPower: amount,
+      );
+    }
   }
 
   void _missileAttack() {
-    // TODO(momo): implement
-    // 1. choose player
-    // 2. choose amount of missiles
+    final Player? defender = game.randomPlayer(this);
+    final int amount = Random().nextInt(militaryAttackMissiles) + 1;
+
+    if (defender != null) {
+      debugPrint(
+          'AI: Player $name sent missile attack to ${defender.name} with $amount');
+      game.missileAttack(
+        attacker: this,
+        defender: defender,
+        amount: amount,
+      );
+    }
   }
 }
 

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
@@ -80,6 +82,12 @@ class Game {
     result.sort((a, b) => b.researchLevel - a.researchLevel);
 
     return result;
+  }
+
+  Player? randomPlayer(Player player) {
+    final List<Player> result = players.where((e) => e != player).toList();
+
+    return result.isNotEmpty ? result[Random().nextInt(result.length)] : null;
   }
 
   void setPlayers(List<Player> list) {
@@ -169,14 +177,14 @@ class Game {
   }) =>
       AttackDialog.military(
         max: self.militaryPower,
-        onAccept: (amount) => _unitAttack(
+        onAccept: (amount) => unitAttack(
           attacker: attacker,
           defender: defender,
           militaryPower: amount,
         ),
       );
 
-  void _unitAttack({
+  void unitAttack({
     required Player attacker,
     required Player defender,
     required int militaryPower,
@@ -205,14 +213,14 @@ class Game {
       AttackDialog.missiles(
         max: self.militaryAttackMissiles,
         missileYield: attacker.attackMissileYield,
-        onAccept: (amount) => _missileAttack(
+        onAccept: (amount) => missileAttack(
           attacker: attacker,
           defender: defender,
           amount: amount,
         ),
       );
 
-  void _missileAttack({
+  void missileAttack({
     required Player attacker,
     required Player defender,
     required int amount,
