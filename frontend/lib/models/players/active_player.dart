@@ -152,6 +152,13 @@ class ActivePlayer extends Player {
   }
 
   void _createMissile(UnitType unitType) {
+    final nuclearBombResearch =
+        getResearch(ResearchType.weapons_nuclear_bomb).level;
+
+    if ((unitType == UnitType.attack) && (nuclearBombResearch == 0)) {
+      return;
+    }
+
     if (missileSilo.canCreateUnit(unitType)) {
       missileSilo.enqueueUnit(unitType);
       debugPrint('AI: Player $name enqueued unit ${unitType.name}');
