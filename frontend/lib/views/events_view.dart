@@ -12,7 +12,9 @@ class EventsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (game.events.isEmpty) {
+    final List<Event> events = game.visibleEvents;
+
+    if (events.isEmpty) {
       return Center(
         child: Label(text: Localized.get.screenEventsNoEvents),
       );
@@ -21,7 +23,7 @@ class EventsView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (final Event event in game.events) EventBlock(event),
+            for (final Event event in events) EventBlock(event),
           ],
         ),
       );

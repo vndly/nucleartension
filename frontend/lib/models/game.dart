@@ -99,6 +99,8 @@ class Game {
 
   bool get hasUnseenEvents => events.any((e) => !e.seen);
 
+  List<Event> get visibleEvents => events.where((e) => e.show).toList();
+
   void _addEvent(Event event) => events.insert(0, event);
 
   void _processEvents(List<Event> events) {
