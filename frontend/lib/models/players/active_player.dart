@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
@@ -22,6 +23,7 @@ class ActivePlayer extends Player {
   @override
   void takeAction() {
     final PlayerAction action = profile.action;
+    //debugPrint('AI: Player $name chose action ${action.name}');
 
     switch (action) {
       case PlayerAction.upgrade_power_plant:
@@ -114,6 +116,8 @@ class ActivePlayer extends Player {
   void _upgradeBuilding(Building building) {
     if (building.canUpgrade) {
       building.upgrade();
+      debugPrint(
+          'AI: Player $name upgraded building ${building.buildingType.name} to level ${building.level + 1}');
     }
   }
 
@@ -122,6 +126,8 @@ class ActivePlayer extends Player {
 
     if (!research.isMax && research.canUpgrade) {
       research.upgrade();
+      debugPrint(
+          'AI: Player $name upgraded research ${research.researchType.name} to level ${research.level + 1}');
     }
   }
 
@@ -129,12 +135,18 @@ class ActivePlayer extends Player {
     switch (unitType) {
       case UnitType.defense:
       case UnitType.attack:
-        missileSilo.enqueueUnit(unitType);
+        if (missileSilo.canCreateUnit(unitType)) {
+          missileSilo.enqueueUnit(unitType);
+          debugPrint('AI: Player $name enqueued unit ${unitType.name}');
+        }
         break;
       case UnitType.infantry:
       case UnitType.vehicle:
       case UnitType.aircraft:
-        militaryFacility.enqueueUnit(unitType);
+        if (missileSilo.canCreateUnit(unitType)) {
+          militaryFacility.enqueueUnit(unitType);
+          debugPrint('AI: Player $name enqueued unit ${unitType.name}');
+        }
         break;
     }
   }
