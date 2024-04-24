@@ -25,6 +25,6 @@ class Probability {
   static T? element<T>(List<T> list) =>
       list.isNotEmpty ? list[random.nextInt(list.length)] : null;
 
-  static bool equals(num expected, num actual) =>
-      (expected - actual).abs() < 0.001;
+  static bool equals(num actual, num expected) =>
+      (expected - actual).abs() < 0.01;
 }
