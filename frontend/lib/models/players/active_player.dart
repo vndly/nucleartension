@@ -134,6 +134,7 @@ class ActivePlayer extends Player {
   void _upgradeBuilding(Building building) {
     if (building.isUpgrading) {
       nextCreateAction = null;
+      return;
     }
 
     if (building.upgrade()) {
@@ -159,6 +160,7 @@ class ActivePlayer extends Player {
   void _createUnit(UnitType unitType) {
     if (militaryFacility.level == 0) {
       nextCreateAction = null;
+      return;
     }
 
     if (militaryFacility.enqueueUnit(unitType)) {
@@ -171,11 +173,13 @@ class ActivePlayer extends Player {
         getResearch(ResearchType.missiles_nuclear_bomb).level;
 
     if ((unitType == UnitType.missile_attack) && (nuclearBombResearch == 0)) {
+      nextCreateAction = null;
       return;
     }
 
     if (missileSilo.level == 0) {
       nextCreateAction = null;
+      return;
     }
 
     if (missileSilo.enqueueUnit(unitType)) {
@@ -188,6 +192,7 @@ class ActivePlayer extends Player {
 
     if (!research.canBeResearched) {
       nextResearchAction = null;
+      return;
     }
 
     if (research.upgrade()) {

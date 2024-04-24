@@ -2,6 +2,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/game.dart';
+import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
@@ -86,6 +87,14 @@ class PlayerRowContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String extra = '';
+
+    if (player is ActivePlayer) {
+      final ActivePlayer activePlayer = player as ActivePlayer;
+      extra =
+          ' - ${activePlayer.nextCreateAction?.name} | ${activePlayer.nextResearchAction?.name} | ${activePlayer.nextAttackAction?.name}';
+    }
+
     return Padding(
       padding: const EdgeInsets.only(
         top: 5,
@@ -116,6 +125,14 @@ class PlayerRowContent extends StatelessWidget {
                     weight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                     size: 16,
+                    uppercase: false,
+                  ),
+                  Label(
+                    text: extra,
+                    color: player.isAlive
+                        ? player.country.color
+                        : Palette.textDisabled,
+                    size: 9,
                     uppercase: false,
                   ),
                 ],
