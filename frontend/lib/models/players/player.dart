@@ -190,7 +190,7 @@ class Player {
   bool get hasAttackMissiles => militaryAttackMissiles > 0;
 
   int get attackMissileYield {
-    final Research research = getResearch(ResearchType.weapons_nuclear_bomb);
+    final Research research = getResearch(ResearchType.missiles_nuclear_bomb);
 
     return Research.yield(research.level);
   }

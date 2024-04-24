@@ -266,7 +266,7 @@ class UnitRightSection extends StatelessWidget {
   Widget build(BuildContext context) {
     if (unitType == UnitType.missile_attack) {
       final Research research =
-          trainer.player.getResearch(ResearchType.weapons_nuclear_bomb);
+          trainer.player.getResearch(ResearchType.missiles_nuclear_bomb);
 
       if (research.level > 0) {
         return CreateUnitButton(
@@ -277,7 +277,7 @@ class UnitRightSection extends StatelessWidget {
         return Label(
           text: Localized.get
               .labelRequiresResearch(
-                  ResearchType.weapons_nuclear_bomb.localized)
+                  ResearchType.missiles_nuclear_bomb.localized)
               .replaceAll(' ', '\n'),
           color: Palette.error,
           align: TextAlign.center,

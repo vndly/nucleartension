@@ -282,6 +282,10 @@ abstract class BaseLocalized {
 
   String get typeResearchMissilesAssemblyAutomationName;
 
+  String get typeResearchMissilesNuclearBombDescription;
+
+  String get typeResearchMissilesNuclearBombName;
+
   String get typeResearchMissilesSignalJammingDescription;
 
   String get typeResearchMissilesSignalJammingName;
@@ -341,10 +345,6 @@ abstract class BaseLocalized {
   String get typeResearchWarningRadarNetworkDescription;
 
   String get typeResearchWarningRadarNetworkName;
-
-  String get typeResearchWeaponsNuclearBombDescription;
-
-  String get typeResearchWeaponsNuclearBombName;
 
   String get typeResourceEnergy;
 
@@ -854,6 +854,13 @@ class ENLocalized extends BaseLocalized {
       'Assembly Automation';
 
   @override
+  String get typeResearchMissilesNuclearBombDescription =>
+      'Increases nuclear bomb yield';
+
+  @override
+  String get typeResearchMissilesNuclearBombName => 'Nuclear Bomb';
+
+  @override
   String get typeResearchMissilesSignalJammingDescription =>
       "Decreases the effectiveness of enemy's defense missiles";
 
@@ -958,13 +965,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchWarningRadarNetworkName => 'Radar Network';
-
-  @override
-  String get typeResearchWeaponsNuclearBombDescription =>
-      'Increases nuclear bomb yield';
-
-  @override
-  String get typeResearchWeaponsNuclearBombName => 'Nuclear Bomb';
 
   @override
   String get typeResourceEnergy => 'Energy';

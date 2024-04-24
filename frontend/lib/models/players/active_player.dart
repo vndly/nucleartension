@@ -101,6 +101,9 @@ class ActivePlayer extends Player {
       case PlayerAction.research_missiles_signal_jamming:
         _researchTechnology(ResearchType.missiles_signal_jamming);
         break;
+      case PlayerAction.research_weapons_nuclear_bomb:
+        _researchTechnology(ResearchType.missiles_nuclear_bomb);
+        break;
       case PlayerAction.research_unit_infantry_cost:
         _researchTechnology(ResearchType.unit_infantry_cost);
         break;
@@ -118,9 +121,6 @@ class ActivePlayer extends Player {
         break;
       case PlayerAction.research_unit_aircraft_time:
         _researchTechnology(ResearchType.unit_aircraft_time);
-        break;
-      case PlayerAction.research_weapons_nuclear_bomb:
-        _researchTechnology(ResearchType.weapons_nuclear_bomb);
         break;
       case PlayerAction.attack_unit:
         _uniAttack();
@@ -160,7 +160,7 @@ class ActivePlayer extends Player {
 
   void _createMissile(UnitType unitType) {
     final nuclearBombResearch =
-        getResearch(ResearchType.weapons_nuclear_bomb).level;
+        getResearch(ResearchType.missiles_nuclear_bomb).level;
 
     if ((unitType == UnitType.missile_attack) && (nuclearBombResearch == 0)) {
       return;

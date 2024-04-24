@@ -76,35 +76,9 @@ enum ResearchType {
       ResourceType.technology: 10,
     },
   ),
-
-  // warning
-  warning_missiles_radar_network(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  warning_missiles_hypersonic_propulsion(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_HYPERSONIC_PROPULSION,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  warning_military_early_warning(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_EARLY_WARNING,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  warning_military_fast_deployments(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_FAST_DEPLOYMENTS,
-    maxLevel: 5,
+  missiles_nuclear_bomb(
+    sprite: Assets.IMAGES_RESEARCH_WEAPONS_NUCLEAR_BOMB,
+    maxLevel: 14,
     costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
@@ -161,10 +135,34 @@ enum ResearchType {
     },
   ),
 
-  // weapons
-  weapons_nuclear_bomb(
-    sprite: Assets.IMAGES_RESEARCH_WEAPONS_NUCLEAR_BOMB,
-    maxLevel: 14,
+  // warning
+  warning_missiles_radar_network(
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK,
+    maxLevel: 5,
+    costRate: 2,
+    initialCost: {
+      ResourceType.technology: 10,
+    },
+  ),
+  warning_missiles_hypersonic_propulsion(
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_HYPERSONIC_PROPULSION,
+    maxLevel: 5,
+    costRate: 2,
+    initialCost: {
+      ResourceType.technology: 10,
+    },
+  ),
+  warning_military_early_warning(
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_EARLY_WARNING,
+    maxLevel: 5,
+    costRate: 2,
+    initialCost: {
+      ResourceType.technology: 10,
+    },
+  ),
+  warning_military_fast_deployments(
+    sprite: Assets.IMAGES_RESEARCH_WARNING_MILITARY_FAST_DEPLOYMENTS,
+    maxLevel: 5,
     costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
@@ -239,14 +237,8 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesActiveTrackingName;
       case missiles_signal_jamming:
         return Localized.get.typeResearchMissilesSignalJammingName;
-      case warning_missiles_radar_network:
-        return Localized.get.typeResearchWarningRadarNetworkName;
-      case warning_missiles_hypersonic_propulsion:
-        return Localized.get.typeResearchWarningHypersonicPropulsionName;
-      case warning_military_early_warning:
-        return Localized.get.typeResearchWarningEarlyWarningName;
-      case warning_military_fast_deployments:
-        return Localized.get.typeResearchWarningFastDeploymentsName;
+      case missiles_nuclear_bomb:
+        return Localized.get.typeResearchMissilesNuclearBombName;
       case unit_infantry_cost:
         return Localized.get.typeResearchUnitInfantryCostName;
       case unit_infantry_time:
@@ -259,8 +251,14 @@ enum ResearchType {
         return Localized.get.typeResearchUnitAircraftCostName;
       case unit_aircraft_time:
         return Localized.get.typeResearchUnitAircraftTimeName;
-      case weapons_nuclear_bomb:
-        return Localized.get.typeResearchWeaponsNuclearBombName;
+      case warning_missiles_radar_network:
+        return Localized.get.typeResearchWarningRadarNetworkName;
+      case warning_missiles_hypersonic_propulsion:
+        return Localized.get.typeResearchWarningHypersonicPropulsionName;
+      case warning_military_early_warning:
+        return Localized.get.typeResearchWarningEarlyWarningName;
+      case warning_military_fast_deployments:
+        return Localized.get.typeResearchWarningFastDeploymentsName;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationName;
       case intel_military:
@@ -291,14 +289,8 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesActiveTrackingDescription;
       case missiles_signal_jamming:
         return Localized.get.typeResearchMissilesSignalJammingDescription;
-      case warning_missiles_radar_network:
-        return Localized.get.typeResearchWarningRadarNetworkDescription;
-      case warning_missiles_hypersonic_propulsion:
-        return Localized.get.typeResearchWarningHypersonicPropulsionDescription;
-      case warning_military_early_warning:
-        return Localized.get.typeResearchWarningEarlyWarningDescription;
-      case warning_military_fast_deployments:
-        return Localized.get.typeResearchWarningFastDeploymentsDescription;
+      case missiles_nuclear_bomb:
+        return Localized.get.typeResearchMissilesNuclearBombDescription;
       case unit_infantry_cost:
         return Localized.get.typeResearchUnitInfantryCostDescription;
       case unit_infantry_time:
@@ -311,8 +303,14 @@ enum ResearchType {
         return Localized.get.typeResearchUnitAircraftCostDescription;
       case unit_aircraft_time:
         return Localized.get.typeResearchUnitAircraftTimeDescription;
-      case weapons_nuclear_bomb:
-        return Localized.get.typeResearchWeaponsNuclearBombDescription;
+      case warning_missiles_radar_network:
+        return Localized.get.typeResearchWarningRadarNetworkDescription;
+      case warning_missiles_hypersonic_propulsion:
+        return Localized.get.typeResearchWarningHypersonicPropulsionDescription;
+      case warning_military_early_warning:
+        return Localized.get.typeResearchWarningEarlyWarningDescription;
+      case warning_military_fast_deployments:
+        return Localized.get.typeResearchWarningFastDeploymentsDescription;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationDescription;
       case intel_military:
@@ -366,7 +364,7 @@ enum ResearchType {
       case unit_aircraft_time:
         return '-$baseRate';
 
-      case weapons_nuclear_bomb:
+      case missiles_nuclear_bomb:
         return Formatter.yield(Research.yield(level));
 
       case intel_population:
