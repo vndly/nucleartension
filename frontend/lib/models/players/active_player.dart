@@ -7,10 +7,12 @@ import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/probability.dart';
 
 class ActivePlayer extends Player {
-  final PlayerProfile createProfile;
-  final PlayerProfile researchProfile;
+  final ActionChoice createProfile;
+  final ActionChoice researchProfile;
+  final ActionChoice attackProfile;
   PlayerAction? nextCreateAction;
   PlayerAction? nextResearchAction;
+  PlayerAction? nextAttackAction;
 
   ActivePlayer({
     required super.game,
@@ -22,12 +24,14 @@ class ActivePlayer extends Player {
     required super.military,
     required this.createProfile,
     required this.researchProfile,
+    required this.attackProfile,
   });
 
   @override
   void takeAction() {
-    nextCreateAction ??= createProfile.action;
-    nextResearchAction ??= researchProfile.action;
+    nextCreateAction ??= createProfile.action(this);
+    nextResearchAction ??= researchProfile.action(this);
+    nextAttackAction ??= attackProfile.action(this);
 
     if (nextCreateAction != null) {
       _processAction(nextCreateAction!);
@@ -35,6 +39,10 @@ class ActivePlayer extends Player {
 
     if (nextResearchAction != null) {
       _processAction(nextResearchAction!);
+    }
+
+    if (nextAttackAction != null) {
+      _processAction(nextAttackAction!);
     }
   }
 
@@ -117,6 +125,12 @@ class ActivePlayer extends Player {
         break;
       case PlayerAction.research_weapons_nuclear_bomb:
         _researchTechnology(ResearchType.weapons_nuclear_bomb);
+        break;
+      case PlayerAction.attack_unit:
+        _uniAttack();
+        break;
+      case PlayerAction.attack_missile:
+        _missileAttack();
         break;
     }
   }
@@ -210,21 +224,44 @@ class ActivePlayer extends Player {
   }
 }
 
-class PlayerProfile implements ProfileChoice {
-  final Map<ProfileChoice, num> map;
+class CreateProfile extends ProbabilityProfile {
+  const CreateProfile._(super.map);
 
-  const PlayerProfile._(this.map);
-
-  @override
-  PlayerAction get action => Probability.choose(map).action;
-
-  factory PlayerProfile.createAggressive() => PlayerProfile._({
-        PlayerProfile.upgradeBuildingActions(): 0.6,
-        PlayerProfile.createUnitAction(): 0.2,
-        PlayerProfile.createMissileAction(): 0.2,
+  factory CreateProfile.aggressive() => CreateProfile._({
+        CreateProfile.upgradeBuildingActions(): 0.6,
+        CreateProfile.createUnitAction(): 0.2,
+        CreateProfile.createMissileAction(): 0.2,
       });
 
-  factory PlayerProfile.researchAggressive() => PlayerProfile.actions({
+  factory CreateProfile.upgradeBuildingActions() =>
+      CreateProfile._(ProbabilityProfile.actions({
+        PlayerAction.upgrade_power_plant: 0.3,
+        PlayerAction.upgrade_supply_center: 0.3,
+        PlayerAction.upgrade_tech_lab: 0.15,
+        PlayerAction.upgrade_propaganda_station: 0.15,
+        PlayerAction.upgrade_military_facility: 0.05,
+        PlayerAction.upgrade_missile_silo: 0.05,
+      }));
+
+  factory CreateProfile.createUnitAction() =>
+      CreateProfile._(ProbabilityProfile.actions({
+        PlayerAction.create_infantry: 0.4,
+        PlayerAction.create_vehicle: 0.35,
+        PlayerAction.create_aircraft: 0.25,
+      }));
+
+  factory CreateProfile.createMissileAction() =>
+      CreateProfile._(ProbabilityProfile.actions({
+        PlayerAction.create_defense_missile: 0.4,
+        PlayerAction.create_attack_missile: 0.6,
+      }));
+}
+
+class ResearchProfile extends ProbabilityProfile {
+  const ResearchProfile._(super.map);
+
+  factory ResearchProfile.aggressive() =>
+      ResearchProfile._(ProbabilityProfile.actions({
         PlayerAction.research_resources_grid_management: 0.1,
         PlayerAction.research_resources_production_chain: 0.1,
         PlayerAction.research_resources_indoctrination: 0.1,
@@ -240,50 +277,53 @@ class PlayerProfile implements ProfileChoice {
         PlayerAction.research_unit_aircraft_cost: 0.05,
         PlayerAction.research_unit_aircraft_time: 0.05,
         PlayerAction.research_weapons_nuclear_bomb: 0.1,
-      });
+      }));
+}
 
-  factory PlayerProfile.upgradeBuildingActions() => PlayerProfile.actions({
-        PlayerAction.upgrade_power_plant: 0.3,
-        PlayerAction.upgrade_supply_center: 0.3,
-        PlayerAction.upgrade_tech_lab: 0.15,
-        PlayerAction.upgrade_propaganda_station: 0.15,
-        PlayerAction.upgrade_military_facility: 0.05,
-        PlayerAction.upgrade_missile_silo: 0.05,
-      });
+class ProbabilityProfile implements ActionChoice {
+  final Map<ActionChoice, num> map;
 
-  factory PlayerProfile.createUnitAction() => PlayerProfile.actions({
-        PlayerAction.create_infantry: 0.4,
-        PlayerAction.create_vehicle: 0.35,
-        PlayerAction.create_aircraft: 0.25,
-      });
+  const ProbabilityProfile(this.map);
 
-  factory PlayerProfile.createMissileAction() => PlayerProfile.actions({
-        PlayerAction.create_defense_missile: 0.4,
-        PlayerAction.create_attack_missile: 0.6,
-      });
+  @override
+  PlayerAction action(Player player) => Probability.choose(map).action(player);
 
-  factory PlayerProfile.actions(Map<PlayerAction, double> map) {
-    final Map<ProfileChoice, double> result = {};
+  static Map<ActionChoice, double> actions(Map<PlayerAction, double> map) {
+    final Map<ActionChoice, double> result = {};
 
     for (final MapEntry<PlayerAction, double> entry in map.entries) {
       result[FinalAction(entry.key)] = entry.value;
     }
 
-    return PlayerProfile._(result);
+    return result;
   }
 }
 
-class FinalAction implements ProfileChoice {
+class AttackProfile implements ActionChoice {
+  final int minUnitAttack;
+  final int minMissileAttack;
+
+  const AttackProfile._(this.minUnitAttack, this.minMissileAttack);
+
+  @override
+  PlayerAction action(Player player) {
+    return PlayerAction.attack_unit; // TODO(momo): implement
+  }
+
+  factory AttackProfile.aggressive() => const AttackProfile._(5, 5);
+}
+
+class FinalAction implements ActionChoice {
   final PlayerAction playerAction;
 
   const FinalAction(this.playerAction);
 
   @override
-  PlayerAction get action => playerAction;
+  PlayerAction action(Player player) => playerAction;
 }
 
-abstract class ProfileChoice {
-  PlayerAction get action;
+abstract class ActionChoice {
+  PlayerAction action(Player player);
 }
 
 enum PlayerAction {
@@ -320,4 +360,8 @@ enum PlayerAction {
   research_unit_aircraft_cost,
   research_unit_aircraft_time,
   research_weapons_nuclear_bomb,
+
+  // attack
+  attack_unit,
+  attack_missile,
 }
