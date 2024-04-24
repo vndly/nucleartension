@@ -240,15 +240,15 @@ class CreateProfile extends ProbabilityProfile {
 
   factory CreateProfile.createUnitAction() =>
       CreateProfile._(ProbabilityProfile.actions({
-        PlayerAction.create_infantry: 0.4,
-        PlayerAction.create_vehicle: 0.35,
-        PlayerAction.create_aircraft: 0.25,
+        PlayerAction.create_infantry: 0.6,
+        PlayerAction.create_vehicle: 0.3,
+        PlayerAction.create_aircraft: 0.1,
       }));
 
   factory CreateProfile.createMissileAction() =>
       CreateProfile._(ProbabilityProfile.actions({
-        PlayerAction.create_defense_missile: 0.4,
-        PlayerAction.create_attack_missile: 0.6,
+        PlayerAction.create_defense_missile: 0.6,
+        PlayerAction.create_attack_missile: 0.4,
       }));
 }
 
@@ -281,7 +281,7 @@ class ProbabilityProfile implements ActionChoice {
   const ProbabilityProfile(this.map);
 
   @override
-  PlayerAction action(Player player) => Probability.choose(map).action(player);
+  PlayerAction? action(Player player) => Probability.choose(map).action(player);
 
   static Map<ActionChoice, double> actions(Map<PlayerAction, double> map) {
     final Map<ActionChoice, double> result = {};
@@ -301,8 +301,14 @@ class AttackProfile implements ActionChoice {
   const AttackProfile._(this.minUnitAttack, this.minMissileAttack);
 
   @override
-  PlayerAction action(Player player) {
-    return PlayerAction.attack_unit; // TODO(momo): implement
+  PlayerAction? action(Player player) {
+    if (player.militaryPower >= minMissileAttack) {
+      return PlayerAction.attack_unit;
+    } else if (player.militaryAttackMissiles >= minUnitAttack) {
+      return PlayerAction.attack_unit;
+    }
+
+    return null;
   }
 
   factory AttackProfile.aggressive() => const AttackProfile._(5, 5);
@@ -318,7 +324,7 @@ class FinalAction implements ActionChoice {
 }
 
 abstract class ActionChoice {
-  PlayerAction action(Player player);
+  PlayerAction? action(Player player);
 }
 
 enum PlayerAction {
