@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/probability.dart';
@@ -137,10 +138,30 @@ class ActivePlayer extends Player {
       return;
     }
 
+    if (building.level > _buildingMaxLevel(building.buildingType)) {
+      nextCreateAction = null;
+      return;
+    }
+
     if (building.upgrade()) {
       nextCreateAction = null;
       debugPrint(
           'AI: Player $name upgraded building ${building.buildingType.name} to level ${building.level + 1}');
+    }
+  }
+
+  int _buildingMaxLevel(BuildingType buildingType) {
+    switch (buildingType) {
+      case BuildingType.power_plant:
+      case BuildingType.supply_center:
+        return 5;
+      case BuildingType.tech_lab:
+        return 4;
+      case BuildingType.propaganda_station:
+        return 3;
+      case BuildingType.military_facility:
+      case BuildingType.missile_silo:
+        return 2;
     }
   }
 
