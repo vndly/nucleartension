@@ -173,33 +173,33 @@ enum ResearchType {
   intel_population(
     sprite: Assets.IMAGES_RESEARCH_INTEL_POPULATION,
     maxLevel: 2,
-    costRate: 3,
+    costRate: 2,
     initialCost: {
-      ResourceType.technology: 100,
+      ResourceType.technology: 50,
     },
   ),
   intel_military(
     sprite: Assets.IMAGES_RESEARCH_INTEL_MILITARY,
     maxLevel: 2,
-    costRate: 3,
+    costRate: 2,
     initialCost: {
-      ResourceType.technology: 100,
+      ResourceType.technology: 50,
     },
   ),
   intel_missiles(
     sprite: Assets.IMAGES_RESEARCH_INTEL_MISSILES,
     maxLevel: 2,
-    costRate: 3,
+    costRate: 2,
     initialCost: {
-      ResourceType.technology: 100,
+      ResourceType.technology: 50,
     },
   ),
   intel_research(
     sprite: Assets.IMAGES_RESEARCH_INTEL_RESEARCH,
     maxLevel: 2,
-    costRate: 3,
+    costRate: 2,
     initialCost: {
-      ResourceType.technology: 100,
+      ResourceType.technology: 50,
     },
   );
 
