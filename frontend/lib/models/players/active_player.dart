@@ -306,12 +306,16 @@ class AttackProfile implements ActionChoice {
       return PlayerAction.attack_unit;
     } else if (player.militaryAttackMissiles >= minUnitAttack) {
       return PlayerAction.attack_unit;
+    } else {
+      return null;
     }
-
-    return null;
   }
 
-  factory AttackProfile.aggressive() => const AttackProfile._(5, 5);
+  factory AttackProfile.aggressive() => const AttackProfile._(10, 10);
+
+  factory AttackProfile.neutral() => const AttackProfile._(50, 50);
+
+  factory AttackProfile.defensive() => const AttackProfile._(100, 100);
 }
 
 class FinalAction implements ActionChoice {
