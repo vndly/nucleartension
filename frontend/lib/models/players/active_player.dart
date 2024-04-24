@@ -138,6 +138,7 @@ class ActivePlayer extends Player {
     }
 
     if (building.upgrade()) {
+      nextCreateAction = null;
       debugPrint(
           'AI: Player $name upgraded building ${building.buildingType.name} to level ${building.level + 1}');
     }
@@ -164,6 +165,7 @@ class ActivePlayer extends Player {
     }
 
     if (militaryFacility.enqueueUnit(unitType)) {
+      nextCreateAction = null;
       debugPrint('AI: Player $name enqueued unit ${unitType.name}');
     }
   }
@@ -183,6 +185,7 @@ class ActivePlayer extends Player {
     }
 
     if (missileSilo.enqueueUnit(unitType)) {
+      nextCreateAction = null;
       debugPrint('AI: Player $name enqueued missile ${unitType.name}');
     }
   }
@@ -196,38 +199,47 @@ class ActivePlayer extends Player {
     }
 
     if (research.upgrade()) {
+      nextResearchAction = null;
       debugPrint(
           'AI: Player $name upgraded research ${research.researchType.name} to level ${research.level + 1}');
     }
   }
 
   void _uniAttack() {
-    final Player? defender = game.randomPlayer(this);
-    final int amount = Probability.between(1, militaryPower);
+    if (militaryPower > 0) {
+      final Player? defender = game.randomPlayer(this);
+      final int amount = Probability.between(1, militaryPower);
 
-    if ((amount > 0) && (defender != null)) {
-      debugPrint(
-          'AI: Player $name sent unit attack to ${defender.name} with $amount');
-      game.unitAttack(
-        attacker: this,
-        defender: defender,
-        amount: amount,
-      );
+      if ((amount > 0) && (defender != null)) {
+        debugPrint(
+            'AI: Player $name sent unit attack to ${defender.name} with $amount');
+        game.unitAttack(
+          attacker: this,
+          defender: defender,
+          amount: amount,
+        );
+      }
+
+      nextAttackAction = null;
     }
   }
 
   void _missileAttack() {
-    final Player? defender = game.randomPlayer(this);
-    final int amount = Probability.between(1, militaryAttackMissiles);
+    if (militaryAttackMissiles > 0) {
+      final Player? defender = game.randomPlayer(this);
+      final int amount = Probability.between(1, militaryAttackMissiles);
 
-    if ((amount > 0) && (defender != null)) {
-      debugPrint(
-          'AI: Player $name sent missile attack to ${defender.name} with $amount');
-      game.missileAttack(
-        attacker: this,
-        defender: defender,
-        amount: amount,
-      );
+      if ((amount > 0) && (defender != null)) {
+        debugPrint(
+            'AI: Player $name sent missile attack to ${defender.name} with $amount');
+        game.missileAttack(
+          attacker: this,
+          defender: defender,
+          amount: amount,
+        );
+      }
+
+      nextAttackAction = null;
     }
   }
 }
