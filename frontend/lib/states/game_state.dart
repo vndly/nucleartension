@@ -23,6 +23,7 @@ import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/navigation.dart';
+import 'package:nucleartension/utils/probability.dart';
 
 class GameState extends BaseState {
   late final Game game;
@@ -93,6 +94,11 @@ class GameState extends BaseState {
     required String name,
     required Country country,
   }) {
+    final List<PlayerProfile> profiles = [
+      PlayerProfile.aggressive(),
+      PlayerProfile.neutral(),
+      PlayerProfile.defensive()
+    ];
     final Player player = ActivePlayer(
       game: game,
       name: name,
@@ -110,7 +116,7 @@ class GameState extends BaseState {
       }),
       buildings: {},
       researches: {},
-      profile: PlayerProfile.aggressive(),
+      profile: Probability.element(profiles)!,
     );
 
     player.addBuildings(_buildings(
