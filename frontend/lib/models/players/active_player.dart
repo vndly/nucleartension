@@ -247,19 +247,19 @@ class PlayerProfile {
   factory PlayerProfile.aggressiveUnits() => PlayerProfile._(
         createProfile: CreateProfile.aggressive(),
         researchProfile: ResearchProfile.aggressiveUnits(),
-        attackProfile: AttackProfile.aggressive(),
+        attackProfile: AttackProfile.aggressiveUnits(),
       );
 
   factory PlayerProfile.aggressiveMissiles() => PlayerProfile._(
         createProfile: CreateProfile.aggressive(),
         researchProfile: ResearchProfile.aggressiveMissiles(),
-        attackProfile: AttackProfile.aggressive(),
+        attackProfile: AttackProfile.aggressiveMissiles(),
       );
 
   factory PlayerProfile.aggressiveMix() => PlayerProfile._(
         createProfile: CreateProfile.aggressive(),
         researchProfile: ResearchProfile.aggressiveMissiles(),
-        attackProfile: AttackProfile.aggressive(),
+        attackProfile: AttackProfile.aggressiveMix(),
       );
 
   factory PlayerProfile.neutral() => PlayerProfile._(
@@ -458,7 +458,11 @@ class AttackProfile implements ActionChoice {
     }
   }
 
-  factory AttackProfile.aggressive() => const AttackProfile._(10, 10);
+  factory AttackProfile.aggressiveUnits() => const AttackProfile._(10, 50);
+
+  factory AttackProfile.aggressiveMissiles() => const AttackProfile._(50, 10);
+
+  factory AttackProfile.aggressiveMix() => const AttackProfile._(10, 10);
 
   factory AttackProfile.neutral() => const AttackProfile._(50, 50);
 
