@@ -95,7 +95,9 @@ class GameState extends BaseState {
     required Country country,
   }) {
     final List<PlayerProfile> profiles = [
-      PlayerProfile.aggressive(),
+      PlayerProfile.aggressiveUnits(),
+      PlayerProfile.aggressiveMissiles(),
+      PlayerProfile.aggressiveMix(),
       PlayerProfile.neutral(),
       PlayerProfile.defensive()
     ];
