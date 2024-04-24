@@ -61,8 +61,8 @@ class GameState extends BaseState {
     usa.addBuildings(_buildings(
       player: usa,
       map: {
-        BuildingType.power_plant: 1,
-        BuildingType.supply_center: 1,
+        BuildingType.power_plant: 0,
+        BuildingType.supply_center: 0,
       },
     ));
 

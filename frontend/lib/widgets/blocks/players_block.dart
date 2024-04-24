@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
+import 'package:nucleartension/extensions/duration_extension.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
@@ -31,6 +32,10 @@ class PlayersBlock extends StatelessWidget {
           if (i < players.length - 1) const RowSeparator(),
         ],
         const BlockSeparator(),
+        const VBox(20),
+        Label(
+            text:
+                'Time: ${Duration(seconds: game.timeElapsed.floor()).formatted}'),
         const VBox(20),
         Label(text: 'FPS: ${game.fps.fps()}'),
         const VBox(20),
