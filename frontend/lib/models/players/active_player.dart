@@ -158,8 +158,7 @@ class ActivePlayer extends Player {
   }
 
   void _createUnit(UnitType unitType) {
-    if ((militaryFacility.level > 0) &&
-        militaryFacility.canCreateUnit(unitType)) {
+    if (militaryFacility.canCreateUnit(unitType)) {
       militaryFacility.enqueueUnit(unitType);
       debugPrint('AI: Player $name enqueued unit ${unitType.name}');
     }
@@ -173,7 +172,7 @@ class ActivePlayer extends Player {
       return;
     }
 
-    if ((missileSilo.level > 0) && missileSilo.canCreateUnit(unitType)) {
+    if (missileSilo.canCreateUnit(unitType)) {
       missileSilo.enqueueUnit(unitType);
       debugPrint('AI: Player $name enqueued missile ${unitType.name}');
     }

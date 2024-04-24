@@ -30,13 +30,12 @@ class Trainer extends Building {
       player.resources.hasItems(unitType.effectiveCost(player));
 
   bool canCreateUnit(UnitType unitType) =>
-      isQueueAvailable && hasResourcesToCreate(unitType);
+      (level > 0) && isQueueAvailable && hasResourcesToCreate(unitType);
 
   void enqueueUnit(UnitType unitType) {
-    final ResourceMap cost = unitType.effectiveCost(player);
-    final num duration = unitType.effectiveDuration(player);
-
     if (canCreateUnit(unitType)) {
+      final ResourceMap cost = unitType.effectiveCost(player);
+      final num duration = unitType.effectiveDuration(player);
       player.resources.removeItems(cost);
 
       queues[unitType]?.add(CreateUnitTask(
