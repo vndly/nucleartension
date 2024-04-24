@@ -480,7 +480,7 @@ class ProbabilityProfile implements ActionChoice {
       sum += entry.value;
     }
 
-    if (sum != 1) {
+    if ((1 - sum).abs() > 0.001) {
       throw Exception('Probabilities do not add up to 1');
     }
 
