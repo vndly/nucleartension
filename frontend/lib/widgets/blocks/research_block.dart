@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
-import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/disabled_button.dart';
