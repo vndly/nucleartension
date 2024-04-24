@@ -124,8 +124,6 @@ class GameState extends BaseState {
       map: {
         BuildingType.power_plant: 1,
         BuildingType.supply_center: 1,
-        BuildingType.military_facility: 1,
-        BuildingType.missile_silo: 1,
       },
     ));
 
