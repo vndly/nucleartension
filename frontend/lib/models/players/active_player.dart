@@ -197,36 +197,32 @@ class ActivePlayer extends Player {
   }
 
   void _uniAttack() {
-    if (militaryPower > 0) {
-      final Player? defender = game.randomPlayer(this);
-      final int amount = Probability.between(1, militaryPower);
+    final Player? defender = game.randomPlayer(this);
+    final int amount = Probability.between(1, militaryPower);
 
-      if (defender != null) {
-        debugPrint(
-            'AI: Player $name sent unit attack to ${defender.name} with $amount');
-        game.unitAttack(
-          attacker: this,
-          defender: defender,
-          amount: amount,
-        );
-      }
+    if ((amount > 0) && (defender != null)) {
+      debugPrint(
+          'AI: Player $name sent unit attack to ${defender.name} with $amount');
+      game.unitAttack(
+        attacker: this,
+        defender: defender,
+        amount: amount,
+      );
     }
   }
 
   void _missileAttack() {
-    if (militaryAttackMissiles > 0) {
-      final Player? defender = game.randomPlayer(this);
-      final int amount = Probability.between(1, militaryAttackMissiles);
+    final Player? defender = game.randomPlayer(this);
+    final int amount = Probability.between(1, militaryAttackMissiles);
 
-      if (defender != null) {
-        debugPrint(
-            'AI: Player $name sent missile attack to ${defender.name} with $amount');
-        game.missileAttack(
-          attacker: this,
-          defender: defender,
-          amount: amount,
-        );
-      }
+    if ((amount > 0) && (defender != null)) {
+      debugPrint(
+          'AI: Player $name sent missile attack to ${defender.name} with $amount');
+      game.missileAttack(
+        attacker: this,
+        defender: defender,
+        amount: amount,
+      );
     }
   }
 }
