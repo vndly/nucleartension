@@ -264,7 +264,7 @@ class UnitRightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (unitType == UnitType.attack) {
+    if (unitType == UnitType.missile_attack) {
       final Research research =
           trainer.player.getResearch(ResearchType.weapons_nuclear_bomb);
 

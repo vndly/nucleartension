@@ -32,7 +32,7 @@ class Trainer extends Building {
   bool canCreateUnit(UnitType unitType) =>
       (level > 0) && isQueueAvailable && hasResourcesToCreate(unitType);
 
-  void enqueueUnit(UnitType unitType) {
+  bool enqueueUnit(UnitType unitType) {
     if (canCreateUnit(unitType)) {
       final ResourceMap cost = unitType.effectiveCost(player);
       final num duration = unitType.effectiveDuration(player);
@@ -43,6 +43,10 @@ class Trainer extends Building {
         cost: cost,
         duration: duration,
       ));
+
+      return true;
+    } else {
+      return false;
     }
   }
 

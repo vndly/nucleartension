@@ -76,10 +76,10 @@ class ActivePlayer extends Player {
         _createMilitary(UnitType.aircraft);
         break;
       case PlayerAction.create_defense_missile:
-        _createMilitary(UnitType.defense);
+        _createMilitary(UnitType.missile_defense);
         break;
       case PlayerAction.create_attack_missile:
-        _createMilitary(UnitType.attack);
+        _createMilitary(UnitType.missile_attack);
         break;
       case PlayerAction.research_resources_grid_management:
         _researchTechnology(ResearchType.resources_grid_management);
@@ -136,8 +136,7 @@ class ActivePlayer extends Player {
   }
 
   void _upgradeBuilding(Building building) {
-    if (building.canUpgrade) {
-      building.upgrade();
+    if (building.upgrade()) {
       debugPrint(
           'AI: Player $name upgraded building ${building.buildingType.name} to level ${building.level + 1}');
     }
@@ -150,16 +149,15 @@ class ActivePlayer extends Player {
       case UnitType.aircraft:
         _createUnit(unitType);
         break;
-      case UnitType.defense:
-      case UnitType.attack:
+      case UnitType.missile_defense:
+      case UnitType.missile_attack:
         _createMissile(unitType);
         break;
     }
   }
 
   void _createUnit(UnitType unitType) {
-    if (militaryFacility.canCreateUnit(unitType)) {
-      militaryFacility.enqueueUnit(unitType);
+    if (militaryFacility.enqueueUnit(unitType)) {
       debugPrint('AI: Player $name enqueued unit ${unitType.name}');
     }
   }
@@ -168,12 +166,11 @@ class ActivePlayer extends Player {
     final nuclearBombResearch =
         getResearch(ResearchType.weapons_nuclear_bomb).level;
 
-    if ((unitType == UnitType.attack) && (nuclearBombResearch == 0)) {
+    if ((unitType == UnitType.missile_attack) && (nuclearBombResearch == 0)) {
       return;
     }
 
-    if (missileSilo.canCreateUnit(unitType)) {
-      missileSilo.enqueueUnit(unitType);
+    if (missileSilo.enqueueUnit(unitType)) {
       debugPrint('AI: Player $name enqueued missile ${unitType.name}');
     }
   }

@@ -22,7 +22,7 @@ abstract class Upgradable {
 
   bool get hasResourcesToUpgrade => player.resources.hasItems(upgradeCost);
 
-  void upgrade() {
+  bool upgrade() {
     if (canUpgrade) {
       player.resources.removeItems(upgradeCost);
       upgradeTask = UpgradeTask(
@@ -30,6 +30,10 @@ abstract class Upgradable {
         cost: upgradeCost,
         duration: upgradeTime,
       );
+
+      return true;
+    } else {
+      return false;
     }
   }
 

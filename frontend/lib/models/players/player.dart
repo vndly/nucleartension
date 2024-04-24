@@ -148,11 +148,11 @@ class Player {
 
   void createUnit(UnitType unitType) {
     switch (unitType) {
-      case UnitType.defense:
+      case UnitType.missile_defense:
         military.add(MilitaryType.defense_missiles, 1);
         break;
 
-      case UnitType.attack:
+      case UnitType.missile_attack:
         military.add(MilitaryType.attack_missiles, 1);
         game.onAttackMissileCreated(this);
         break;

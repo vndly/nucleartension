@@ -167,8 +167,8 @@ class GameState extends BaseState {
           player: player,
           level: map[BuildingType.missile_silo] ?? 0,
           queues: {
-            UnitType.defense: [],
-            UnitType.attack: [],
+            UnitType.missile_defense: [],
+            UnitType.missile_attack: [],
           },
         ),
       ];

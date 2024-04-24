@@ -8,7 +8,7 @@ import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/localizations.dart';
 
 enum UnitType {
-  defense(
+  missile_defense(
     sprite: Assets.IMAGES_MISSILES_DEFENSE,
     power: 0,
     cost: {
@@ -16,7 +16,7 @@ enum UnitType {
       ResourceType.supplies: 40,
     },
   ),
-  attack(
+  missile_attack(
     sprite: Assets.IMAGES_MISSILES_ATTACK,
     power: 0,
     cost: {
@@ -73,9 +73,9 @@ enum UnitType {
 
   String get localized {
     switch (this) {
-      case defense:
+      case missile_defense:
         return Localized.get.typeUnitDefenseMissileName;
-      case attack:
+      case missile_attack:
         return Localized.get.typeUnitAttackMissileName;
       case infantry:
         return Localized.get.typeUnitInfantryName;
@@ -88,13 +88,13 @@ enum UnitType {
 
   List<String> get description {
     switch (this) {
-      case defense:
+      case missile_defense:
         return [
           Localized.get.typeUnitDefenseMissileDescription1,
           '',
           Localized.get.typeUnitDefenseMissileDescription2,
         ];
-      case attack:
+      case missile_attack:
         return [
           Localized.get.typeUnitAttackMissileDescription1,
           '',
@@ -117,8 +117,8 @@ enum UnitType {
 
   ResearchType get researchCost {
     switch (this) {
-      case defense:
-      case attack:
+      case missile_defense:
+      case missile_attack:
         return ResearchType.missiles_additive_manufacturing;
       case infantry:
         return ResearchType.unit_infantry_cost;
@@ -131,8 +131,8 @@ enum UnitType {
 
   ResearchType get researchTime {
     switch (this) {
-      case defense:
-      case attack:
+      case missile_defense:
+      case missile_attack:
         return ResearchType.missiles_assembly_automation;
       case infantry:
         return ResearchType.unit_infantry_time;
