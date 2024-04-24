@@ -16,9 +16,11 @@ abstract class Upgradable {
 
   num get upgradeTime;
 
+  bool get isMax;
+
   bool get isUpgrading => upgradeTask != null;
 
-  bool get canUpgrade => !isUpgrading && hasResourcesToUpgrade;
+  bool get canUpgrade => !isMax && !isUpgrading && hasResourcesToUpgrade;
 
   bool get hasResourcesToUpgrade => player.resources.hasItems(upgradeCost);
 

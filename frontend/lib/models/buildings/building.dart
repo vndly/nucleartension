@@ -17,4 +17,7 @@ class Building extends Upgradable {
 
   @override
   num get upgradeTime => upgradeCost.duration / 10;
+
+  @override
+  bool get isMax => false;
 }

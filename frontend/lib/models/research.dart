@@ -18,7 +18,7 @@ class Research extends Upgradable {
   ResourceMap get upgradeCost => researchType.cost(level + 1);
 
   @override
-  bool get canUpgrade => canBeResearched && !isMax && super.canUpgrade;
+  bool get canUpgrade => canBeResearched && super.canUpgrade;
 
   @override
   num get upgradeTime => upgradeCost.duration;
@@ -30,6 +30,7 @@ class Research extends Upgradable {
     return buildingLevel > 0;
   }
 
+  @override
   bool get isMax => level >= researchType.maxLevel;
 
   double get rate => researchType.rate * level;
