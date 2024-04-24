@@ -245,19 +245,19 @@ class PlayerProfile {
   PlayerAction? attackAction(Player player) => attackProfile.action(player);
 
   factory PlayerProfile.aggressiveUnits() => PlayerProfile._(
-        createProfile: CreateProfile.aggressive(),
+        createProfile: CreateProfile.aggressiveUnits(),
         researchProfile: ResearchProfile.aggressiveUnits(),
         attackProfile: AttackProfile.aggressiveUnits(),
       );
 
   factory PlayerProfile.aggressiveMissiles() => PlayerProfile._(
-        createProfile: CreateProfile.aggressive(),
+        createProfile: CreateProfile.aggressiveMissiles(),
         researchProfile: ResearchProfile.aggressiveMissiles(),
         attackProfile: AttackProfile.aggressiveMissiles(),
       );
 
   factory PlayerProfile.aggressiveMix() => PlayerProfile._(
-        createProfile: CreateProfile.aggressive(),
+        createProfile: CreateProfile.aggressiveMix(),
         researchProfile: ResearchProfile.aggressiveMissiles(),
         attackProfile: AttackProfile.aggressiveMix(),
       );
@@ -278,33 +278,62 @@ class PlayerProfile {
 class CreateProfile extends ProbabilityProfile {
   const CreateProfile._(super.map);
 
-  // TODO(momo): implement
-  factory CreateProfile.aggressive() => CreateProfile._({
-        CreateProfile.upgradeBuildingActions(): 0.6,
-        CreateProfile.createUnitAction(): 0.2,
-        CreateProfile.createMissileAction(): 0.2,
+  factory CreateProfile.aggressiveUnits() => CreateProfile._({
+        CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
+        CreateProfile.createUnitAction(): 0.4,
+        CreateProfile.createMissileMixAction(): 0.2,
       });
 
-  // TODO(momo): implement
+  factory CreateProfile.aggressiveMissiles() => CreateProfile._({
+        CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
+        CreateProfile.createUnitAction(): 0.2,
+        CreateProfile.createMissileAggressiveAction(): 0.4,
+      });
+
+  factory CreateProfile.aggressiveMix() => CreateProfile._({
+        CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
+        CreateProfile.createUnitAction(): 0.3,
+        CreateProfile.createMissileMixAction(): 0.3,
+      });
+
   factory CreateProfile.neutral() => CreateProfile._({
-        CreateProfile.upgradeBuildingActions(): 0.6,
+        CreateProfile.upgradeBuildingNeutralActions(): 0.6,
         CreateProfile.createUnitAction(): 0.2,
-        CreateProfile.createMissileAction(): 0.2,
+        CreateProfile.createMissileMixAction(): 0.2,
       });
 
-  // TODO(momo): implement
   factory CreateProfile.defensive() => CreateProfile._({
-        CreateProfile.upgradeBuildingActions(): 0.6,
-        CreateProfile.createUnitAction(): 0.2,
-        CreateProfile.createMissileAction(): 0.2,
+        CreateProfile.upgradeBuildingDefensiveActions(): 0.7,
+        CreateProfile.createUnitAction(): 0.1,
+        CreateProfile.createMissileDefensiveAction(): 0.3,
       });
 
-  factory CreateProfile.upgradeBuildingActions() =>
+  factory CreateProfile.upgradeBuildingAggressiveActions() =>
+      CreateProfile._(ProbabilityProfile.actions({
+        PlayerAction.upgrade_power_plant: 0.3,
+        PlayerAction.upgrade_supply_center: 0.3,
+        PlayerAction.upgrade_tech_lab: 0.1,
+        PlayerAction.upgrade_propaganda_station: 0.1,
+        PlayerAction.upgrade_military_facility: 0.1,
+        PlayerAction.upgrade_missile_silo: 0.1,
+      }));
+
+  factory CreateProfile.upgradeBuildingNeutralActions() =>
       CreateProfile._(ProbabilityProfile.actions({
         PlayerAction.upgrade_power_plant: 0.3,
         PlayerAction.upgrade_supply_center: 0.3,
         PlayerAction.upgrade_tech_lab: 0.15,
         PlayerAction.upgrade_propaganda_station: 0.15,
+        PlayerAction.upgrade_military_facility: 0.05,
+        PlayerAction.upgrade_missile_silo: 0.05,
+      }));
+
+  factory CreateProfile.upgradeBuildingDefensiveActions() =>
+      CreateProfile._(ProbabilityProfile.actions({
+        PlayerAction.upgrade_power_plant: 0.3,
+        PlayerAction.upgrade_supply_center: 0.3,
+        PlayerAction.upgrade_tech_lab: 0.1,
+        PlayerAction.upgrade_propaganda_station: 0.2,
         PlayerAction.upgrade_military_facility: 0.05,
         PlayerAction.upgrade_missile_silo: 0.05,
       }));
@@ -316,7 +345,19 @@ class CreateProfile extends ProbabilityProfile {
         PlayerAction.create_aircraft: 0.1,
       }));
 
-  factory CreateProfile.createMissileAction() =>
+  factory CreateProfile.createMissileAggressiveAction() =>
+      CreateProfile._(ProbabilityProfile.actions({
+        PlayerAction.create_defense_missile: 0.2,
+        PlayerAction.create_attack_missile: 0.8,
+      }));
+
+  factory CreateProfile.createMissileDefensiveAction() =>
+      CreateProfile._(ProbabilityProfile.actions({
+        PlayerAction.create_defense_missile: 0.8,
+        PlayerAction.create_attack_missile: 0.2,
+      }));
+
+  factory CreateProfile.createMissileMixAction() =>
       CreateProfile._(ProbabilityProfile.actions({
         PlayerAction.create_defense_missile: 0.6,
         PlayerAction.create_attack_missile: 0.4,
