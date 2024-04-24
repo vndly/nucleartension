@@ -14,7 +14,7 @@ void main() {
     }
 
     final num successRate = success / limit;
-    expect((successRate - effectiveness).abs() < 0.1, true);
+    expect(Probability.equals(successRate, effectiveness), true);
   });
 
   test('Probabilities', () {
@@ -42,7 +42,7 @@ void main() {
     for (final String key in probabilities.keys) {
       final num successRate = hits[key]! / limit;
       results[key] = successRate;
-      expect((successRate - probabilities[key]!).abs() < 0.1, true);
+      expect(Probability.equals(successRate, probabilities[key]!), true);
     }
   });
 }
