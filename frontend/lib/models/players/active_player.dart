@@ -7,7 +7,10 @@ import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/probability.dart';
 
 class ActivePlayer extends Player {
-  final PlayerProfile profile;
+  final PlayerProfile createProfile;
+  final PlayerProfile researchProfile;
+  PlayerAction? nextCreateAction;
+  PlayerAction? nextResearchAction;
 
   ActivePlayer({
     required super.game,
@@ -17,13 +20,25 @@ class ActivePlayer extends Player {
     required super.buildings,
     required super.researches,
     required super.military,
-    required this.profile,
+    required this.createProfile,
+    required this.researchProfile,
   });
 
   @override
   void takeAction() {
-    final PlayerAction action = profile.action;
+    nextCreateAction ??= createProfile.action;
+    nextResearchAction ??= researchProfile.action;
 
+    if (nextCreateAction != null) {
+      _processAction(nextCreateAction!);
+    }
+
+    if (nextResearchAction != null) {
+      _processAction(nextResearchAction!);
+    }
+  }
+
+  void _processAction(PlayerAction action) {
     switch (action) {
       case PlayerAction.upgrade_power_plant:
         _upgradeBuilding(powerPlant);
@@ -42,6 +57,21 @@ class ActivePlayer extends Player {
         break;
       case PlayerAction.upgrade_missile_silo:
         _upgradeBuilding(missileSilo);
+        break;
+      case PlayerAction.create_infantry:
+        _createMilitary(UnitType.infantry);
+        break;
+      case PlayerAction.create_vehicle:
+        _createMilitary(UnitType.vehicle);
+        break;
+      case PlayerAction.create_aircraft:
+        _createMilitary(UnitType.aircraft);
+        break;
+      case PlayerAction.create_defense_missile:
+        _createMilitary(UnitType.defense);
+        break;
+      case PlayerAction.create_attack_missile:
+        _createMilitary(UnitType.attack);
         break;
       case PlayerAction.research_resources_grid_management:
         _researchTechnology(ResearchType.resources_grid_management);
@@ -88,27 +118,6 @@ class ActivePlayer extends Player {
       case PlayerAction.research_weapons_nuclear_bomb:
         _researchTechnology(ResearchType.weapons_nuclear_bomb);
         break;
-      case PlayerAction.create_infantry:
-        _createMilitary(UnitType.infantry);
-        break;
-      case PlayerAction.create_vehicle:
-        _createMilitary(UnitType.vehicle);
-        break;
-      case PlayerAction.create_aircraft:
-        _createMilitary(UnitType.aircraft);
-        break;
-      case PlayerAction.create_defense_missile:
-        _createMilitary(UnitType.defense);
-        break;
-      case PlayerAction.create_attack_missile:
-        _createMilitary(UnitType.attack);
-        break;
-      case PlayerAction.attack_unit:
-        _uniAttack();
-        break;
-      case PlayerAction.attack_missiles:
-        _missileAttack();
-        break;
     }
   }
 
@@ -117,16 +126,6 @@ class ActivePlayer extends Player {
       building.upgrade();
       debugPrint(
           'AI: Player $name upgraded building ${building.buildingType.name} to level ${building.level + 1}');
-    }
-  }
-
-  void _researchTechnology(ResearchType researchType) {
-    final Research research = getResearch(researchType);
-
-    if (!research.isMax && research.canUpgrade) {
-      research.upgrade();
-      debugPrint(
-          'AI: Player $name upgraded research ${research.researchType.name} to level ${research.level + 1}');
     }
   }
 
@@ -145,7 +144,8 @@ class ActivePlayer extends Player {
   }
 
   void _createUnit(UnitType unitType) {
-    if (missileSilo.canCreateUnit(unitType)) {
+    if ((militaryFacility.level > 0) &&
+        militaryFacility.canCreateUnit(unitType)) {
       militaryFacility.enqueueUnit(unitType);
       debugPrint('AI: Player $name enqueued unit ${unitType.name}');
     }
@@ -159,9 +159,19 @@ class ActivePlayer extends Player {
       return;
     }
 
-    if (missileSilo.canCreateUnit(unitType)) {
+    if ((missileSilo.level > 0) && missileSilo.canCreateUnit(unitType)) {
       missileSilo.enqueueUnit(unitType);
-      debugPrint('AI: Player $name enqueued unit ${unitType.name}');
+      debugPrint('AI: Player $name enqueued missile ${unitType.name}');
+    }
+  }
+
+  void _researchTechnology(ResearchType researchType) {
+    final Research research = getResearch(researchType);
+
+    if (!research.isMax && research.canUpgrade) {
+      research.upgrade();
+      debugPrint(
+          'AI: Player $name upgraded research ${research.researchType.name} to level ${research.level + 1}');
     }
   }
 
@@ -208,25 +218,13 @@ class PlayerProfile implements ProfileChoice {
   @override
   PlayerAction get action => Probability.choose(map).action;
 
-  factory PlayerProfile.aggressive() => PlayerProfile._({
-        PlayerProfile.upgradeBuildingActions(): 0.45,
-        PlayerProfile.researchTechnologyActions(): 0.25,
-        PlayerProfile.createUnitAction(): 0.15,
-        PlayerProfile.createMissileAction(): 0.1,
-        PlayerProfile.attackAction(): 0.05,
+  factory PlayerProfile.createAggressive() => PlayerProfile._({
+        PlayerProfile.upgradeBuildingActions(): 0.6,
+        PlayerProfile.createUnitAction(): 0.2,
+        PlayerProfile.createMissileAction(): 0.2,
       });
 
-  factory PlayerProfile.upgradeBuildingActions() => PlayerProfile.finalActions({
-        PlayerAction.upgrade_power_plant: 0.3,
-        PlayerAction.upgrade_supply_center: 0.3,
-        PlayerAction.upgrade_tech_lab: 0.15,
-        PlayerAction.upgrade_propaganda_station: 0.15,
-        PlayerAction.upgrade_military_facility: 0.05,
-        PlayerAction.upgrade_missile_silo: 0.05,
-      });
-
-  factory PlayerProfile.researchTechnologyActions() =>
-      PlayerProfile.finalActions({
+  factory PlayerProfile.researchAggressive() => PlayerProfile.actions({
         PlayerAction.research_resources_grid_management: 0.1,
         PlayerAction.research_resources_production_chain: 0.1,
         PlayerAction.research_resources_indoctrination: 0.1,
@@ -244,23 +242,27 @@ class PlayerProfile implements ProfileChoice {
         PlayerAction.research_weapons_nuclear_bomb: 0.1,
       });
 
-  factory PlayerProfile.createUnitAction() => PlayerProfile.finalActions({
+  factory PlayerProfile.upgradeBuildingActions() => PlayerProfile.actions({
+        PlayerAction.upgrade_power_plant: 0.3,
+        PlayerAction.upgrade_supply_center: 0.3,
+        PlayerAction.upgrade_tech_lab: 0.15,
+        PlayerAction.upgrade_propaganda_station: 0.15,
+        PlayerAction.upgrade_military_facility: 0.05,
+        PlayerAction.upgrade_missile_silo: 0.05,
+      });
+
+  factory PlayerProfile.createUnitAction() => PlayerProfile.actions({
         PlayerAction.create_infantry: 0.4,
         PlayerAction.create_vehicle: 0.35,
         PlayerAction.create_aircraft: 0.25,
       });
 
-  factory PlayerProfile.createMissileAction() => PlayerProfile.finalActions({
+  factory PlayerProfile.createMissileAction() => PlayerProfile.actions({
         PlayerAction.create_defense_missile: 0.4,
         PlayerAction.create_attack_missile: 0.6,
       });
 
-  factory PlayerProfile.attackAction() => PlayerProfile.finalActions({
-        PlayerAction.attack_unit: 0.5,
-        PlayerAction.attack_missiles: 0.5,
-      });
-
-  factory PlayerProfile.finalActions(Map<PlayerAction, double> map) {
+  factory PlayerProfile.actions(Map<PlayerAction, double> map) {
     final Map<ProfileChoice, double> result = {};
 
     for (final MapEntry<PlayerAction, double> entry in map.entries) {
@@ -293,6 +295,15 @@ enum PlayerAction {
   upgrade_military_facility,
   upgrade_missile_silo,
 
+  // create units
+  create_infantry,
+  create_vehicle,
+  create_aircraft,
+
+  // create missiles
+  create_defense_missile,
+  create_attack_missile,
+
   // research technology
   research_resources_grid_management,
   research_resources_production_chain,
@@ -309,17 +320,4 @@ enum PlayerAction {
   research_unit_aircraft_cost,
   research_unit_aircraft_time,
   research_weapons_nuclear_bomb,
-
-  // create units
-  create_infantry,
-  create_vehicle,
-  create_aircraft,
-
-  // create missiles
-  create_defense_missile,
-  create_attack_missile,
-
-  // attack
-  attack_unit,
-  attack_missiles,
 }

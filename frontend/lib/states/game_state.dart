@@ -110,7 +110,8 @@ class GameState extends BaseState {
       }),
       buildings: {},
       researches: {},
-      profile: PlayerProfile.aggressive(),
+      createProfile: PlayerProfile.createAggressive(),
+      researchProfile: PlayerProfile.researchAggressive(),
     );
 
     player.addBuildings(_buildings(
