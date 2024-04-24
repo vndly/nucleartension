@@ -101,7 +101,7 @@ class ActivePlayer extends Player {
       case PlayerAction.research_missiles_signal_jamming:
         _researchTechnology(ResearchType.missiles_signal_jamming);
         break;
-      case PlayerAction.research_weapons_nuclear_bomb:
+      case PlayerAction.research_missiles_nuclear_bomb:
         _researchTechnology(ResearchType.missiles_nuclear_bomb);
         break;
       case PlayerAction.research_unit_infantry_cost:
@@ -313,13 +313,13 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_assembly_automation: 0.05,
         PlayerAction.research_missiles_active_tracking: 0.05,
         PlayerAction.research_missiles_signal_jamming: 0.05,
+        PlayerAction.research_missiles_nuclear_bomb: 0.1,
         PlayerAction.research_unit_infantry_cost: 0.05,
         PlayerAction.research_unit_infantry_time: 0.05,
         PlayerAction.research_unit_vehicles_cost: 0.05,
         PlayerAction.research_unit_vehicles_time: 0.05,
         PlayerAction.research_unit_aircraft_cost: 0.05,
         PlayerAction.research_unit_aircraft_time: 0.05,
-        PlayerAction.research_weapons_nuclear_bomb: 0.1,
       }));
 
   // TODO(momo): implement
@@ -333,13 +333,13 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_assembly_automation: 0.05,
         PlayerAction.research_missiles_active_tracking: 0.05,
         PlayerAction.research_missiles_signal_jamming: 0.05,
+        PlayerAction.research_missiles_nuclear_bomb: 0.1,
         PlayerAction.research_unit_infantry_cost: 0.05,
         PlayerAction.research_unit_infantry_time: 0.05,
         PlayerAction.research_unit_vehicles_cost: 0.05,
         PlayerAction.research_unit_vehicles_time: 0.05,
         PlayerAction.research_unit_aircraft_cost: 0.05,
         PlayerAction.research_unit_aircraft_time: 0.05,
-        PlayerAction.research_weapons_nuclear_bomb: 0.1,
       }));
 
   // TODO(momo): implement
@@ -353,13 +353,13 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_assembly_automation: 0.05,
         PlayerAction.research_missiles_active_tracking: 0.05,
         PlayerAction.research_missiles_signal_jamming: 0.05,
+        PlayerAction.research_missiles_nuclear_bomb: 0.1,
         PlayerAction.research_unit_infantry_cost: 0.05,
         PlayerAction.research_unit_infantry_time: 0.05,
         PlayerAction.research_unit_vehicles_cost: 0.05,
         PlayerAction.research_unit_vehicles_time: 0.05,
         PlayerAction.research_unit_aircraft_cost: 0.05,
         PlayerAction.research_unit_aircraft_time: 0.05,
-        PlayerAction.research_weapons_nuclear_bomb: 0.1,
       }));
 }
 
@@ -446,13 +446,13 @@ enum PlayerAction {
   research_missiles_assembly_automation,
   research_missiles_active_tracking,
   research_missiles_signal_jamming,
+  research_missiles_nuclear_bomb,
   research_unit_infantry_cost,
   research_unit_infantry_time,
   research_unit_vehicles_cost,
   research_unit_vehicles_time,
   research_unit_aircraft_cost,
   research_unit_aircraft_time,
-  research_weapons_nuclear_bomb,
 
   // attack
   attack_unit,

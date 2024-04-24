@@ -174,8 +174,6 @@ abstract class BaseLocalized {
 
   String get screenResearchWarning;
 
-  String get screenResearchWeapons;
-
   String get screenWarRoomIntelMilitary;
 
   String get screenWarRoomIntelMissiles;
@@ -669,9 +667,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get screenResearchWarning => 'Warning';
-
-  @override
-  String get screenResearchWeapons => 'Weapons';
 
   @override
   String get screenWarRoomIntelMilitary => 'Military';

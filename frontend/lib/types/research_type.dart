@@ -77,7 +77,7 @@ enum ResearchType {
     },
   ),
   missiles_nuclear_bomb(
-    sprite: Assets.IMAGES_RESEARCH_WEAPONS_NUCLEAR_BOMB,
+    sprite: Assets.IMAGES_RESEARCH_MISSILES_NUCLEAR_BOMB,
     maxLevel: 14,
     costRate: 2,
     initialCost: {
