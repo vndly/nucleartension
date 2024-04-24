@@ -182,27 +182,27 @@ class Game {
         onAccept: (amount) => unitAttack(
           attacker: attacker,
           defender: defender,
-          militaryPower: amount,
+          amount: amount,
         ),
       );
 
   void unitAttack({
     required Player attacker,
     required Player defender,
-    required int militaryPower,
+    required int amount,
   }) {
-    attacker.removeMilitaryPower(militaryPower);
+    attacker.removeMilitaryPower(amount);
 
     attacks.add(UnitAttack.from(
       attacker: attacker,
       defender: defender,
-      militaryPower: militaryPower,
+      militaryPower: amount,
     ));
 
     _addEvent(UnitAttackLaunchEvent(
       attacker: attacker,
       defender: defender,
-      militaryPower: militaryPower,
+      militaryPower: amount,
     ));
 
     onUnitUsed(attacker);

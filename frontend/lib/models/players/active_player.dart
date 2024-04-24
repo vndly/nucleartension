@@ -178,15 +178,14 @@ class ActivePlayer extends Player {
   void _researchTechnology(ResearchType researchType) {
     final Research research = getResearch(researchType);
 
-    if (!research.isMax && research.canUpgrade) {
-      research.upgrade();
+    if (research.upgrade()) {
       debugPrint(
           'AI: Player $name upgraded research ${research.researchType.name} to level ${research.level + 1}');
     }
   }
 
   void _uniAttack() {
-    if (militaryPower > 10) {
+    if (militaryPower > 0) {
       final Player? defender = game.randomPlayer(this);
       final int amount = Probability.between(1, militaryPower);
 
@@ -196,14 +195,14 @@ class ActivePlayer extends Player {
         game.unitAttack(
           attacker: this,
           defender: defender,
-          militaryPower: amount,
+          amount: amount,
         );
       }
     }
   }
 
   void _missileAttack() {
-    if (militaryAttackMissiles > 10) {
+    if (militaryAttackMissiles > 0) {
       final Player? defender = game.randomPlayer(this);
       final int amount = Probability.between(1, militaryAttackMissiles);
 
