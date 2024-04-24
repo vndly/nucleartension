@@ -7,9 +7,7 @@ import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/probability.dart';
 
 class ActivePlayer extends Player {
-  final ActionChoice createProfile;
-  final ActionChoice researchProfile;
-  final ActionChoice attackProfile;
+  final PlayerProfile profile;
   PlayerAction? nextCreateAction;
   PlayerAction? nextResearchAction;
   PlayerAction? nextAttackAction;
@@ -22,16 +20,14 @@ class ActivePlayer extends Player {
     required super.buildings,
     required super.researches,
     required super.military,
-    required this.createProfile,
-    required this.researchProfile,
-    required this.attackProfile,
+    required this.profile,
   });
 
   @override
   void takeAction() {
-    nextCreateAction ??= createProfile.action(this);
-    nextResearchAction ??= researchProfile.action(this);
-    nextAttackAction ??= attackProfile.action(this);
+    nextCreateAction ??= profile.createAction(this);
+    nextResearchAction ??= profile.researchAction(this);
+    nextAttackAction ??= profile.attackAction(this);
 
     if (nextCreateAction != null) {
       _processAction(nextCreateAction!);
@@ -217,6 +213,30 @@ class ActivePlayer extends Player {
       }
     }
   }
+}
+
+class PlayerProfile {
+  final ActionChoice createProfile;
+  final ActionChoice researchProfile;
+  final ActionChoice attackProfile;
+
+  const PlayerProfile._({
+    required this.createProfile,
+    required this.researchProfile,
+    required this.attackProfile,
+  });
+
+  PlayerAction? createAction(Player player) => createProfile.action(player);
+
+  PlayerAction? researchAction(Player player) => researchProfile.action(player);
+
+  PlayerAction? attackAction(Player player) => attackProfile.action(player);
+
+  factory PlayerProfile.aggressive() => PlayerProfile._(
+        createProfile: CreateProfile.aggressive(),
+        researchProfile: ResearchProfile.aggressive(),
+        attackProfile: AttackProfile.aggressive(),
+      );
 }
 
 class CreateProfile extends ProbabilityProfile {
