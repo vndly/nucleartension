@@ -23,7 +23,6 @@ import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/navigation.dart';
-import 'package:nucleartension/utils/probability.dart';
 
 class GameState extends BaseState {
   late final Game game;
@@ -79,28 +78,54 @@ class GameState extends BaseState {
 
     game.setPlayers([
       usa,
-      _activePlayer(name: 'Sergey', country: Country.russia),
-      _activePlayer(name: 'Ming', country: Country.china),
-      _activePlayer(name: 'Harry', country: Country.uk),
-      _activePlayer(name: 'Louis', country: Country.france),
-      _activePlayer(name: 'Jong', country: Country.north_korea),
-      _activePlayer(name: 'Ram', country: Country.india),
-      _activePlayer(name: 'Muhammad', country: Country.pakistan),
-      _activePlayer(name: 'Ariel', country: Country.israel),
+      _activePlayer(
+        name: 'Sergey',
+        country: Country.russia,
+        profile: PlayerProfile.aggressiveUnits(),
+      ),
+      _activePlayer(
+        name: 'Ming',
+        country: Country.china,
+        profile: PlayerProfile.aggressiveMix(),
+      ),
+      _activePlayer(
+        name: 'Harry',
+        country: Country.uk,
+        profile: PlayerProfile.neutral(),
+      ),
+      _activePlayer(
+        name: 'Louis',
+        country: Country.france,
+        profile: PlayerProfile.defensive(),
+      ),
+      _activePlayer(
+        name: 'Jong',
+        country: Country.north_korea,
+        profile: PlayerProfile.aggressiveMissiles(),
+      ),
+      _activePlayer(
+        name: 'Ram',
+        country: Country.india,
+        profile: PlayerProfile.aggressiveUnits(),
+      ),
+      _activePlayer(
+        name: 'Muhammad',
+        country: Country.pakistan,
+        profile: PlayerProfile.aggressiveMissiles(),
+      ),
+      _activePlayer(
+        name: 'Ariel',
+        country: Country.israel,
+        profile: PlayerProfile.neutral(),
+      ),
     ]);
   }
 
   Player _activePlayer({
     required String name,
     required Country country,
+    required PlayerProfile profile,
   }) {
-    final List<PlayerProfile> profiles = [
-      PlayerProfile.aggressiveUnits(),
-      PlayerProfile.aggressiveMissiles(),
-      PlayerProfile.aggressiveMix(),
-      PlayerProfile.neutral(),
-      PlayerProfile.defensive()
-    ];
     final Player player = ActivePlayer(
       game: game,
       name: name,
@@ -118,7 +143,7 @@ class GameState extends BaseState {
       }),
       buildings: {},
       researches: {},
-      profile: Probability.element(profiles)!,
+      profile: profile,
     );
 
     player.addBuildings(_buildings(
