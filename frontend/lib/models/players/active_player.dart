@@ -132,6 +132,10 @@ class ActivePlayer extends Player {
   }
 
   void _upgradeBuilding(Building building) {
+    if (building.isUpgrading) {
+      nextCreateAction = null;
+    }
+
     if (building.upgrade()) {
       debugPrint(
           'AI: Player $name upgraded building ${building.buildingType.name} to level ${building.level + 1}');
@@ -153,6 +157,10 @@ class ActivePlayer extends Player {
   }
 
   void _createUnit(UnitType unitType) {
+    if (militaryFacility.level == 0) {
+      nextCreateAction = null;
+    }
+
     if (militaryFacility.enqueueUnit(unitType)) {
       debugPrint('AI: Player $name enqueued unit ${unitType.name}');
     }
@@ -164,6 +172,10 @@ class ActivePlayer extends Player {
 
     if ((unitType == UnitType.missile_attack) && (nuclearBombResearch == 0)) {
       return;
+    }
+
+    if (missileSilo.level == 0) {
+      nextCreateAction = null;
     }
 
     if (missileSilo.enqueueUnit(unitType)) {

@@ -52,7 +52,6 @@ class Research extends Upgradable {
       case ResearchType.missiles_assembly_automation:
       case ResearchType.missiles_active_tracking:
       case ResearchType.missiles_signal_jamming:
-      case ResearchType.missiles_nuclear_bomb:
       case ResearchType.warning_missiles_hypersonic_propulsion:
         return BuildingType.missile_silo;
       case ResearchType.warning_military_fast_deployments:
