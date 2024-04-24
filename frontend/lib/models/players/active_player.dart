@@ -473,9 +473,15 @@ class ProbabilityProfile implements ActionChoice {
 
   static Map<ActionChoice, double> actions(Map<PlayerAction, double> map) {
     final Map<ActionChoice, double> result = {};
+    double sum = 0;
 
     for (final MapEntry<PlayerAction, double> entry in map.entries) {
       result[FinalAction(entry.key)] = entry.value;
+      sum += entry.value;
+    }
+
+    if (sum != 1) {
+      throw Exception('Probabilities do not add up to 1');
     }
 
     return result;
