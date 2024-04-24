@@ -154,14 +154,14 @@ class ActivePlayer extends Player {
     switch (buildingType) {
       case BuildingType.power_plant:
       case BuildingType.supply_center:
-        return 5;
-      case BuildingType.tech_lab:
         return 4;
-      case BuildingType.propaganda_station:
+      case BuildingType.tech_lab:
         return 3;
+      case BuildingType.propaganda_station:
+        return 2;
       case BuildingType.military_facility:
       case BuildingType.missile_silo:
-        return 2;
+        return 1;
     }
   }
 
