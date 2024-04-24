@@ -174,6 +174,10 @@ class ActivePlayer extends Player {
   void _researchTechnology(ResearchType researchType) {
     final Research research = getResearch(researchType);
 
+    if (!research.canBeResearched) {
+      nextResearchAction = null;
+    }
+
     if (research.upgrade()) {
       debugPrint(
           'AI: Player $name upgraded research ${research.researchType.name} to level ${research.level + 1}');

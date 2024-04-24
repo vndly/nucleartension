@@ -23,6 +23,13 @@ class Research extends Upgradable {
   @override
   num get upgradeTime => upgradeCost.duration;
 
+  bool get canBeResearched {
+    final int buildingLevel =
+        (buildingType != null) ? player.getBuilding(buildingType!).level : 1;
+
+    return buildingLevel > 0;
+  }
+
   bool get isMax => level >= researchType.maxLevel;
 
   double get rate => researchType.rate * level;

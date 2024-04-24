@@ -145,11 +145,7 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BuildingType? buildingType = research.buildingType;
-    final int buildingLevel =
-        (buildingType != null) ? player.getBuilding(buildingType).level : 1;
-
-    if (buildingLevel > 0) {
+    if (research.canBeResearched) {
       if (research.isMax) {
         return DisabledButton.text(
           text: Localized.get.labelMax,
@@ -164,7 +160,7 @@ class RightSection extends StatelessWidget {
     } else {
       return Label(
         text: Localized.get
-            .labelRequiresBuilding(buildingType!.localized)
+            .labelRequiresBuilding(research.buildingType!.localized)
             .replaceAll(' ', '\n'),
         color: Palette.error,
         align: TextAlign.center,
