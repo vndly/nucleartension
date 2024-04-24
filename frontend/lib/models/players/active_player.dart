@@ -303,7 +303,7 @@ class CreateProfile extends ProbabilityProfile {
       });
 
   factory CreateProfile.defensive() => CreateProfile._({
-        CreateProfile.upgradeBuildingDefensiveActions(): 0.7,
+        CreateProfile.upgradeBuildingDefensiveActions(): 0.6,
         CreateProfile.createUnitAction(): 0.1,
         CreateProfile.createMissileDefensiveAction(): 0.3,
       });
