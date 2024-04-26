@@ -28,17 +28,17 @@ abstract class BaseLocalized {
 
   String get buttonOk;
 
-  String dialogAttackMilitaryContent(String param1);
+  String dialogAttackMilitaryMessage(String param1);
 
-  String get dialogAttackMilitaryMessage;
+  String dialogAttackMilitarySummary(String param1);
 
-  String get dialogAttackMilitaryTitle;
+  String dialogAttackMilitaryTitle(String param1);
 
-  String dialogAttackMissilesContent(String param1, String param2);
+  String dialogAttackMissilesMessage(String param1);
 
-  String get dialogAttackMissilesMessage;
+  String dialogAttackMissilesSummary(String param1);
 
-  String get dialogAttackMissilesTitle;
+  String dialogAttackMissilesTitle(String param1);
 
   String dialogInformationPlayerLostMessage(String param1);
 
@@ -422,24 +422,28 @@ class ENLocalized extends BaseLocalized {
   String get buttonOk => 'Ok';
 
   @override
-  String dialogAttackMilitaryContent(String param1) =>
-      'Approximately ${param1.toString()} casualties';
+  String dialogAttackMilitaryMessage(String param1) =>
+      'Military power: ${param1.toString()}';
 
   @override
-  String get dialogAttackMilitaryMessage => 'Select amount of military power:';
+  String dialogAttackMilitarySummary(String param1) =>
+      '≈ ${param1.toString()} casualties';
 
   @override
-  String get dialogAttackMilitaryTitle => 'Launch unit attack';
+  String dialogAttackMilitaryTitle(String param1) =>
+      'Launch unit attack to ${param1.toString()}';
 
   @override
-  String dialogAttackMissilesContent(String param1, String param2) =>
-      '${param1.toString()} ≈ ${param2.toString()} casualties';
+  String dialogAttackMissilesMessage(String param1) =>
+      'Missiles: ${param1.toString()}';
 
   @override
-  String get dialogAttackMissilesMessage => 'Select amount of missiles:';
+  String dialogAttackMissilesSummary(String param1) =>
+      '≈ ${param1.toString()} casualties';
 
   @override
-  String get dialogAttackMissilesTitle => 'Launch missile attack';
+  String dialogAttackMissilesTitle(String param1) =>
+      'Launch missile attack to ${param1.toString()}';
 
   @override
   String dialogInformationPlayerLostMessage(String param1) =>

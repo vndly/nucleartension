@@ -178,6 +178,7 @@ class Game {
     required Player defender,
   }) =>
       AttackDialog.military(
+        defender: defender,
         max: self.militaryPower,
         onAccept: (amount) => unitAttack(
           attacker: attacker,
@@ -213,6 +214,7 @@ class Game {
     required Player defender,
   }) =>
       AttackDialog.missiles(
+        defender: defender,
         max: self.militaryAttackMissiles,
         missileYield: attacker.attackMissileYield,
         onAccept: (amount) => missileAttack(

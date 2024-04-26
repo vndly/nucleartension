@@ -2,6 +2,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
+import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
@@ -10,7 +11,7 @@ import 'package:nucleartension/widgets/labels/label.dart';
 
 class AttackDialog extends StatefulWidget {
   final String title;
-  final String message;
+  final Function(String) message;
   final int max;
   final String buttonAccept;
   final String buttonCancel;
@@ -31,7 +32,7 @@ class AttackDialog extends StatefulWidget {
 
   static DialogController _show({
     required String title,
-    required String message,
+    required Function(String) message,
     required int max,
     required String buttonAccept,
     required String buttonCancel,
@@ -51,11 +52,12 @@ class AttackDialog extends StatefulWidget {
       ));
 
   static DialogController military({
+    required Player defender,
     required int max,
     required Function(int) onAccept,
   }) =>
       _show(
-        title: Localized.get.dialogAttackMilitaryTitle,
+        title: Localized.get.dialogAttackMilitaryTitle(defender.name),
         message: Localized.get.dialogAttackMilitaryMessage,
         max: max,
         buttonAccept: Localized.get.buttonAttack,
@@ -66,12 +68,13 @@ class AttackDialog extends StatefulWidget {
       );
 
   static DialogController missiles({
+    required Player defender,
     required int max,
     required int missileYield,
     required Function(int) onAccept,
   }) =>
       _show(
-        title: Localized.get.dialogAttackMissilesTitle,
+        title: Localized.get.dialogAttackMissilesTitle(defender.name),
         message: Localized.get.dialogAttackMissilesMessage,
         max: max,
         buttonAccept: Localized.get.buttonAttack,
@@ -98,39 +101,33 @@ class _AttackDialogState extends State<AttackDialog> {
         weight: FontWeight.bold,
       ),
       content: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
+          const VBox(5),
           Label(
-            text: widget.message,
+            text: widget.isMissileAttack
+                ? widget.message(
+                    '${_selected.toString()} (${Formatter.yield(_yield)})')
+                : widget.message(_selected.toString()),
             color: Palette.textPrimary,
             uppercase: false,
           ),
-          const VBox(20),
-          Center(
-            child: Label(
-              text: _selected.toString(),
-              color: Palette.textPrimary,
-              weight: FontWeight.bold,
-              size: 18,
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Label(
-                text: widget.isMissileAttack
-                    ? Localized.get.dialogAttackMissilesContent(
-                        Formatter.yield(_yield),
-                        Formatter.resourceRaw(
-                            _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT))
-                    : Localized.get.dialogAttackMilitaryContent(
-                        Formatter.resourceRaw(_selected *
-                            Constants.UNIT_ATTACK_DAMAGE_PER_POWER)),
-                color: Palette.textPrimary,
-                uppercase: false,
-              ),
-            ),
+          const VBox(15),
+          Label(
+            text: widget.isMissileAttack
+                ? Localized.get.dialogAttackMissilesSummary(
+                    Formatter.resourceRaw(
+                      _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT,
+                    ),
+                  )
+                : Localized.get.dialogAttackMilitarySummary(
+                    Formatter.resourceRaw(
+                      _selected * Constants.UNIT_ATTACK_DAMAGE_PER_POWER,
+                    ),
+                  ),
+            color: Palette.textPrimary,
+            uppercase: false,
           ),
           const VBox(20),
           Slider(
