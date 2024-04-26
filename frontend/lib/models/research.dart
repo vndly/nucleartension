@@ -35,7 +35,7 @@ class Research extends Upgradable {
 
   double get rate => researchType.rate * level;
 
-  double get increaseRate => rate + 1;
+  double get increaseRate => 1 + rate;
 
   double get decreaseRate => 1 - rate;
 

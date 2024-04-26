@@ -95,10 +95,10 @@ class MissileAttack extends Attack {
   }
 
   int _computeMissiles() {
+    final num missileEffectiveness = defender.defenseMissilesEffectiveness -
+        (1 - attacker.attackMissilesEffectiveness);
     final num defenseMissilesEffectiveness =
-        defender.defenseMissilesEffectiveness *
-            attacker.attackMissilesEffectiveness *
-            Constants.DEFENSE_MISSILE_EFFECTIVENESS;
+        missileEffectiveness * Constants.DEFENSE_MISSILE_EFFECTIVENESS;
     int remainingAttackMissiles = totalMissiles;
 
     while ((remainingAttackMissiles > 0) &&
