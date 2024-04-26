@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
@@ -59,10 +61,11 @@ class MissileAttack extends Attack {
   List<Event> resolve() {
     final int successfulAttackMissiles = _computeMissiles();
     final num totalYield = successfulAttackMissiles * yieldPerMissile;
-    final int population =
+    final int casualties =
         (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
     final Player winner = (successfulAttackMissiles > 0) ? attacker : defender;
-    defender.removePopulation(population);
+    final int defenderLoses = min(casualties, defender.population);
+    defender.removePopulation(casualties);
 
     final List<Event> result = [
       MissileAttackResultEvent(
@@ -72,7 +75,7 @@ class MissileAttack extends Attack {
         totalMissiles: totalMissiles,
         successfulAttackMissiles: successfulAttackMissiles,
         ktPerMissile: yieldPerMissile,
-        defenderLoses: population,
+        defenderLoses: defenderLoses,
       )
     ];
 
