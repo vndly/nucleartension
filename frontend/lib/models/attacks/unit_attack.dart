@@ -47,41 +47,45 @@ class UnitAttack extends Attack {
 
   @override
   List<Event> resolve() {
-    if (defender.militaryPower >= militaryPower) {
-      defender.removeMilitaryPower(militaryPower);
+    if (defender.isAlive) {
+      if (defender.militaryPower >= militaryPower) {
+        defender.removeMilitaryPower(militaryPower);
 
-      return [
-        UnitAttackResultEvent(
-          attacker: attacker,
-          defender: defender,
-          winner: defender,
-          militaryPower: militaryPower,
-          casualties: 0,
-        )
-      ];
-    } else {
-      final int diff = militaryPower - defender.militaryPower;
-      final int casualties = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
-      defender.removePopulation(casualties);
+        return [
+          UnitAttackResultEvent(
+            attacker: attacker,
+            defender: defender,
+            winner: defender,
+            militaryPower: militaryPower,
+            casualties: 0,
+          )
+        ];
+      } else {
+        final int diff = militaryPower - defender.militaryPower;
+        final int casualties = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
+        defender.removePopulation(casualties);
 
-      final List<Event> result = [
-        UnitAttackResultEvent(
-          attacker: attacker,
-          defender: defender,
-          winner: attacker,
-          militaryPower: militaryPower,
-          casualties: casualties,
-        )
-      ];
+        final List<Event> result = [
+          UnitAttackResultEvent(
+            attacker: attacker,
+            defender: defender,
+            winner: attacker,
+            militaryPower: militaryPower,
+            casualties: casualties,
+          )
+        ];
 
-      if (!defender.isAlive) {
-        result.add(PlayerDefeated(
-          player: defender,
-          killer: attacker,
-        ));
+        if (!defender.isAlive) {
+          result.add(PlayerDefeated(
+            player: defender,
+            killer: attacker,
+          ));
+        }
+
+        return result;
       }
-
-      return result;
+    } else {
+      return [];
     }
   }
 }

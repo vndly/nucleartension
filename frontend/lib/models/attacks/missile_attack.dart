@@ -59,34 +59,39 @@ class MissileAttack extends Attack {
 
   @override
   List<Event> resolve() {
-    final int successfulAttackMissiles = _computeMissiles();
-    final num totalYield = successfulAttackMissiles * yieldPerMissile;
-    final int casualties =
-        (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
-    final Player winner = (successfulAttackMissiles > 0) ? attacker : defender;
-    final int totalCasualties = min(casualties, defender.population);
-    defender.removePopulation(casualties);
+    if (defender.isAlive) {
+      final int successfulAttackMissiles = _computeMissiles();
+      final num totalYield = successfulAttackMissiles * yieldPerMissile;
+      final int casualties =
+          (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
+      final Player winner =
+          (successfulAttackMissiles > 0) ? attacker : defender;
+      final int totalCasualties = min(casualties, defender.population);
+      defender.removePopulation(casualties);
 
-    final List<Event> result = [
-      MissileAttackResultEvent(
-        attacker: attacker,
-        defender: defender,
-        winner: winner,
-        totalMissiles: totalMissiles,
-        successfulAttackMissiles: successfulAttackMissiles,
-        ktPerMissile: yieldPerMissile,
-        casualties: totalCasualties,
-      )
-    ];
+      final List<Event> result = [
+        MissileAttackResultEvent(
+          attacker: attacker,
+          defender: defender,
+          winner: winner,
+          totalMissiles: totalMissiles,
+          successfulAttackMissiles: successfulAttackMissiles,
+          ktPerMissile: yieldPerMissile,
+          casualties: totalCasualties,
+        )
+      ];
 
-    if (!defender.isAlive) {
-      result.add(PlayerDefeated(
-        player: defender,
-        killer: attacker,
-      ));
+      if (!defender.isAlive) {
+        result.add(PlayerDefeated(
+          player: defender,
+          killer: attacker,
+        ));
+      }
+
+      return result;
+    } else {
+      return [];
     }
-
-    return result;
   }
 
   int _computeMissiles() {

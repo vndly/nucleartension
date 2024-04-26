@@ -58,7 +58,7 @@
     "event.defcon.line2.level4.other": "A player has created a military unit",
     "event.defcon.line2.level4.self": "You have created a military unit",
     "event.defcon.line3": "Economy production boost increased to +%1$d%",
-    "event.playerDefeated.line1": "Player defeated: %1$s",
+    "event.playerDefeated.line1": "%1$s has been defeated by %2$s",
     "header.attackMissiles": "Attack Missiles:",
     "header.defcon": "DEFCON:",
     "header.defenseMissiles": "Defense Missiles:",

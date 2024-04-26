@@ -17,6 +17,6 @@ class PlayerDefeated extends Event {
 
   @override
   List<String> get text => [
-        Localized.get.eventPlayerDefeatedLine1(player.name),
+        Localized.get.eventPlayerDefeatedLine1(player.name, killer.name),
       ];
 }
