@@ -119,7 +119,7 @@ class Player {
 
   int get population => resources.get(ResourceType.population).floor();
 
-  void removePopulation(int amount) {
+  ResourceMap removePopulation(int amount) {
     if (population > amount) {
       resources.remove(ResourceType.population, amount);
     } else {
@@ -127,8 +127,18 @@ class Player {
     }
 
     if (!isAlive) {
+      final ResourceMap loot = {
+        ResourceType.energy: resources.get(ResourceType.energy),
+        ResourceType.supplies: resources.get(ResourceType.supplies),
+        ResourceType.technology: resources.get(ResourceType.technology),
+      };
+
       resources.clear();
       military.clear();
+
+      return loot;
+    } else {
+      return {};
     }
   }
 

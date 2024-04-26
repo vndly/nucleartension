@@ -3,6 +3,7 @@ import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/events/unit_attack_result_event.dart';
+import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/localizations.dart';
 
@@ -63,7 +64,7 @@ class UnitAttack extends Attack {
       } else {
         final int diff = militaryPower - defender.militaryPower;
         final int casualties = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
-        defender.removePopulation(casualties);
+        final ResourceMap loot = defender.removePopulation(casualties);
 
         final List<Event> result = [
           UnitAttackResultEvent(
@@ -76,6 +77,8 @@ class UnitAttack extends Attack {
         ];
 
         if (!defender.isAlive) {
+          attacker.resources.addItems(loot);
+
           result.add(PlayerDefeated(
             player: defender,
             killer: attacker,

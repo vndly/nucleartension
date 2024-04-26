@@ -5,6 +5,7 @@ import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/missile_attack_result_event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
+import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
@@ -67,7 +68,7 @@ class MissileAttack extends Attack {
       final Player winner =
           (successfulAttackMissiles > 0) ? attacker : defender;
       final int totalCasualties = min(casualties, defender.population);
-      defender.removePopulation(casualties);
+      final ResourceMap loot = defender.removePopulation(casualties);
 
       final List<Event> result = [
         MissileAttackResultEvent(
@@ -82,6 +83,8 @@ class MissileAttack extends Attack {
       ];
 
       if (!defender.isAlive) {
+        attacker.resources.addItems(loot);
+
         result.add(PlayerDefeated(
           player: defender,
           killer: attacker,
