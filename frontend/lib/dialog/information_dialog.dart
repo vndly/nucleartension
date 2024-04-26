@@ -2,11 +2,15 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/models/game.dart';
+import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
+import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
+import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
+import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
@@ -213,11 +217,44 @@ class InformationDialog extends StatelessWidget {
             labelColor: Palette.textPrimary,
             textColor: Palette.textPrimary,
           ),
+          if (Environment.isDebug) ...[
+            const VBox(10),
+            if (player is ActivePlayer) ...[
+              ..._debugPlayer('Next creation:', player.nextCreateAction?.name),
+              ..._debugPlayer(
+                  'Next research:', player.nextResearchAction?.name),
+              ..._debugPlayer('Next attack:', player.nextAttackAction?.name),
+            ],
+            ..._debugPlayer(
+                'Energy:', player.resources.get(ResourceType.energy).toInt()),
+            ..._debugPlayer('Supplies:',
+                player.resources.get(ResourceType.supplies).toInt()),
+            ..._debugPlayer('Technology:',
+                player.resources.get(ResourceType.technology).toInt()),
+            ..._debugPlayer('Defense missiles:',
+                player.military.get(MilitaryType.defense_missiles).toInt()),
+            ..._debugPlayer('Attack missiles:',
+                player.military.get(MilitaryType.attack_missiles).toInt()),
+            ..._debugPlayer('Nuclear bomb tech:',
+                player.getResearch(ResearchType.missiles_nuclear_bomb).level),
+          ],
         ],
       ),
       buttonAccept: Localized.get.buttonOk,
     );
   }
+
+  static List<Widget> _debugPlayer(String label, Object? text) => [
+        const VBox(10),
+        LabeledText(
+          label: label,
+          text: text.toString(),
+          size: 12,
+          labelColor: Palette.textPrimary,
+          textColor: Palette.textPrimary,
+          uppercase: false,
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
