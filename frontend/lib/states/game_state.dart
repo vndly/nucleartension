@@ -50,9 +50,9 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.power: 10,
+        MilitaryType.power: 0,
         MilitaryType.defense_missiles: 0,
-        MilitaryType.attack_missiles: 10,
+        MilitaryType.attack_missiles: 0,
       }),
       buildings: {},
       researches: {},
@@ -73,7 +73,6 @@ class GameState extends BaseState {
         ResearchType.intel_military: 2,
         ResearchType.intel_missiles: 2,
         ResearchType.intel_research: 2,
-        ResearchType.missiles_nuclear_bomb: 2,
       },
     ));
 
