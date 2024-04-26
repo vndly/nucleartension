@@ -64,7 +64,7 @@ class MissileAttack extends Attack {
     final int casualties =
         (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
     final Player winner = (successfulAttackMissiles > 0) ? attacker : defender;
-    final int defenderLoses = min(casualties, defender.population);
+    final int totalCasualties = min(casualties, defender.population);
     defender.removePopulation(casualties);
 
     final List<Event> result = [
@@ -75,7 +75,7 @@ class MissileAttack extends Attack {
         totalMissiles: totalMissiles,
         successfulAttackMissiles: successfulAttackMissiles,
         ktPerMissile: yieldPerMissile,
-        defenderLoses: defenderLoses,
+        casualties: totalCasualties,
       )
     ];
 

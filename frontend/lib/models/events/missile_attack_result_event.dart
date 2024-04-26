@@ -11,7 +11,7 @@ class MissileAttackResultEvent extends Event {
   final int totalMissiles;
   final int successfulAttackMissiles;
   final int ktPerMissile;
-  final int defenderLoses;
+  final int casualties;
 
   MissileAttackResultEvent({
     required this.attacker,
@@ -20,7 +20,7 @@ class MissileAttackResultEvent extends Event {
     required this.totalMissiles,
     required this.successfulAttackMissiles,
     required this.ktPerMissile,
-    required this.defenderLoses,
+    required this.casualties,
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
@@ -40,8 +40,8 @@ class MissileAttackResultEvent extends Event {
             (successfulAttackMissiles > 0)
                 ? ' (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})'
                 : ''),
-        Localized.get.eventAttackMissileResultLine6((defenderLoses > 0)
-            ? Localized.get.labelPeople(Formatter.resourceRaw(defenderLoses))
+        Localized.get.eventAttackMissileResultLine6((casualties > 0)
+            ? Localized.get.labelPeople(Formatter.resourceRaw(casualties))
             : Localized.get.labelNone),
       ];
 }

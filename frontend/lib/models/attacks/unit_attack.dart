@@ -56,13 +56,13 @@ class UnitAttack extends Attack {
           defender: defender,
           winner: defender,
           militaryPower: militaryPower,
-          defenderLoses: 0,
+          casualties: 0,
         )
       ];
     } else {
       final int diff = militaryPower - defender.militaryPower;
-      final int population = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
-      defender.removePopulation(population);
+      final int casualties = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
+      defender.removePopulation(casualties);
 
       final List<Event> result = [
         UnitAttackResultEvent(
@@ -70,7 +70,7 @@ class UnitAttack extends Attack {
           defender: defender,
           winner: attacker,
           militaryPower: militaryPower,
-          defenderLoses: population,
+          casualties: casualties,
         )
       ];
 

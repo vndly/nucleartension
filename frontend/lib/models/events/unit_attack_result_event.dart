@@ -9,14 +9,14 @@ class UnitAttackResultEvent extends Event {
   final Player defender;
   final Player winner;
   final int militaryPower;
-  final int defenderLoses;
+  final int casualties;
 
   UnitAttackResultEvent({
     required this.attacker,
     required this.defender,
     required this.winner,
     required this.militaryPower,
-    required this.defenderLoses,
+    required this.casualties,
   }) : super(eventType: EventType.unit_attack_result);
 
   @override
@@ -31,8 +31,8 @@ class UnitAttackResultEvent extends Event {
             (defender == winner) ? ' (${Localized.get.labelWinner})' : ''),
         Localized.get
             .eventAttackUnitResultLine4(Formatter.resourceRaw(militaryPower)),
-        Localized.get.eventAttackUnitResultLine5((defenderLoses > 0)
-            ? Localized.get.labelPeople(Formatter.resourceRaw(defenderLoses))
+        Localized.get.eventAttackUnitResultLine5((casualties > 0)
+            ? Localized.get.labelPeople(Formatter.resourceRaw(casualties))
             : Localized.get.labelNone),
       ];
 }

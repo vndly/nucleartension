@@ -512,7 +512,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String eventAttackMissileResultLine6(String param1) =>
-      'Defender loses: ${param1.toString()}';
+      'Casualties: ${param1.toString()}';
 
   @override
   String get eventAttackUnitLaunchLine1 => 'Unit attack launched';
@@ -546,7 +546,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String eventAttackUnitResultLine5(String param1) =>
-      'Defender loses: ${param1.toString()}';
+      'Casualties: ${param1.toString()}';
 
   @override
   String eventDefconLine1(int param1) => 'DEFCON ${param1.toString()}';

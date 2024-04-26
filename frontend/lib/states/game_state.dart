@@ -57,7 +57,7 @@ class GameState extends BaseState {
       buildings: {},
       researches: {},
     );
-  
+
     usa.addBuildings(_buildings(
       player: usa,
       map: {
