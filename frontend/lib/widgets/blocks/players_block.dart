@@ -91,14 +91,6 @@ class PlayerRowContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /*String extra = '';
-
-    if (player is ActivePlayer) {
-      final ActivePlayer activePlayer = player as ActivePlayer;
-      extra =
-          ' - ${activePlayer.nextCreateAction?.name} | ${activePlayer.nextResearchAction?.name} | ${activePlayer.nextAttackAction?.name}';
-    }*/
-
     return Padding(
       padding: const EdgeInsets.only(
         top: 5,
@@ -131,14 +123,6 @@ class PlayerRowContent extends StatelessWidget {
                     size: 16,
                     uppercase: false,
                   ),
-                  /*Label(
-                    text: extra,
-                    color: player.isAlive
-                        ? player.country.color
-                        : Palette.textDisabled,
-                    size: 9,
-                    uppercase: false,
-                  ),*/
                 ],
               ),
             ),
