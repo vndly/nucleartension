@@ -40,9 +40,14 @@ abstract class Upgradable {
   }
 
   void update(double dt) {
-    if ((upgradeTask != null) && upgradeTask!.update(dt)) {
-      level++;
-      upgradeTask = null;
+    if (upgradeTask != null) {
+      if (upgradeTask!.update(dt)) {
+        level++;
+        upgradeTask = null;
+      } else if (upgradeTask!.canceled) {
+        player.resources.addItems(upgradeTask!.cost);
+        upgradeTask = null;
+      }
     }
   }
 }

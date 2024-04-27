@@ -1,6 +1,8 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
+import 'package:nucleartension/models/tasks/task.dart';
+import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -10,7 +12,7 @@ class ConfirmationDialog extends StatelessWidget {
   final String buttonAccept;
   final String buttonCancel;
   final VoidCallback onAccept;
-  final VoidCallback onCancel;
+  final VoidCallback? onCancel;
 
   const ConfirmationDialog._({
     required this.message,
@@ -20,7 +22,7 @@ class ConfirmationDialog extends StatelessWidget {
     required this.onCancel,
   });
 
-  static DialogController show({
+  static DialogController _show({
     required String message,
     required String buttonAccept,
     required String buttonCancel,
@@ -32,8 +34,19 @@ class ConfirmationDialog extends StatelessWidget {
         buttonAccept: buttonAccept,
         buttonCancel: buttonCancel,
         onAccept: onAccept,
-        onCancel: onCancel ?? () {},
+        onCancel: onCancel,
       ));
+
+  static DialogController cancelUpgrade({
+    required Task task,
+    required VoidCallback onAccept,
+  }) =>
+      _show(
+        message: Localized.get.dialogConfirmationCancelUpgradeMessage,
+        buttonAccept: Localized.get.buttonCancel,
+        buttonCancel: Localized.get.buttonDismiss,
+        onAccept: onAccept,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -45,45 +58,26 @@ class ConfirmationDialog extends StatelessWidget {
       ),
       content: const Empty(),
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 10,
-            right: 10,
-            bottom: 10,
-          ),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Palette.buttonEnabled,
-              minimumSize: const Size(0, 45),
-            ),
-            onPressed: () {
-              Navigation.pop();
-              onCancel.call();
-            },
-            child: Label(
-              text: buttonCancel,
-              size: 30,
-            ),
+        TextButton(
+          onPressed: () {
+            Navigation.pop();
+            onCancel?.call();
+          },
+          child: Label(
+            text: buttonCancel,
+            color: Palette.textPrimary,
+            weight: FontWeight.bold,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(
-            right: 10,
-            bottom: 10,
-          ),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Palette.error,
-              minimumSize: const Size(0, 45),
-            ),
-            onPressed: () {
-              Navigation.pop();
-              onAccept.call();
-            },
-            child: Label(
-              text: buttonAccept,
-              size: 30,
-            ),
+        TextButton(
+          onPressed: () {
+            Navigation.pop();
+            onAccept();
+          },
+          child: Label(
+            text: buttonAccept,
+            color: Palette.error,
+            weight: FontWeight.bold,
           ),
         ),
       ],

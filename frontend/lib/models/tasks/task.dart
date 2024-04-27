@@ -3,6 +3,7 @@ import 'package:nucleartension/models/inventory/resource_inventory.dart';
 class Task {
   num totalTime = 0;
   num remainingTime = 0;
+  bool canceled = false;
   final ResourceMap cost;
 
   Task({
@@ -19,9 +20,19 @@ class Task {
 
   bool get isCompleted => remainingTime <= 0;
 
-  bool update(double dt) {
-    remainingTime -= dt;
+  void cancel() {
+    if (!isCompleted) {
+      canceled = true;
+    }
+  }
 
-    return isCompleted;
+  bool update(double dt) {
+    if (!canceled) {
+      remainingTime -= dt;
+
+      return isCompleted;
+    } else {
+      return false;
+    }
   }
 }

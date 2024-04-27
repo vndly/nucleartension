@@ -47,7 +47,7 @@ class GameState extends BaseState {
       resources: ResourceInventory.create({
         ResourceType.energy: 500,
         ResourceType.supplies: 500,
-        ResourceType.technology: 0,
+        ResourceType.technology: 1000,
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({

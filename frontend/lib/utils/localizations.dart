@@ -26,6 +26,8 @@ abstract class BaseLocalized {
 
   String get buttonCancel;
 
+  String get buttonDismiss;
+
   String get buttonOk;
 
   String dialogAttackMilitaryMessage(String param1);
@@ -39,6 +41,8 @@ abstract class BaseLocalized {
   String dialogAttackMissilesSummary(String param1);
 
   String dialogAttackMissilesTitle(String param1);
+
+  String get dialogConfirmationCancelUpgradeMessage;
 
   String dialogInformationPlayerLostMessage(String param1);
 
@@ -419,6 +423,9 @@ class ENLocalized extends BaseLocalized {
   String get buttonCancel => 'Cancel';
 
   @override
+  String get buttonDismiss => 'Dismiss';
+
+  @override
   String get buttonOk => 'Ok';
 
   @override
@@ -444,6 +451,9 @@ class ENLocalized extends BaseLocalized {
   @override
   String dialogAttackMissilesTitle(String param1) =>
       'Launch missile attack to ${param1.toString()}';
+
+  @override
+  String get dialogConfirmationCancelUpgradeMessage => 'Cancel upgrade?';
 
   @override
   String dialogInformationPlayerLostMessage(String param1) =>

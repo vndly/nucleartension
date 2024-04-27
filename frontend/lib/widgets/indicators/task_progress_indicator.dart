@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nucleartension/dialog/confirmation_dialog.dart';
 import 'package:nucleartension/extensions/duration_extension.dart';
 import 'package:nucleartension/models/tasks/task.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -16,7 +17,10 @@ class TaskProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => ConfirmationDialog.cancelUpgrade(
+        task: task,
+        onAccept: task.cancel,
+      ),
       child: ProgressOverlay(
         size: size,
         progress: task.progress,
