@@ -27,6 +27,7 @@ class ResearchBlock extends StatelessWidget {
       color: Palette.backgroundRow,
       child: InkWell(
         onTap: () => InformationDialog.research(research.researchType),
+        onLongPress: research.autoResearch,
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(

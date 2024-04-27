@@ -39,6 +39,12 @@ class Research extends Upgradable {
 
   double get decreaseRate => 1 - rate;
 
+  void autoResearch() {
+    if (!isMax) {
+      level++;
+    }
+  }
+
   BuildingType? get buildingType {
     switch (researchType) {
       case ResearchType.resources_grid_management:
