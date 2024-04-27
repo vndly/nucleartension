@@ -22111,7 +22111,7 @@ r=t.nK
 m=new A.cu(n,"John",B.Lf,A.auF(A.ax([B.aR,500,B.aQ,500,B.c9,0,B.P,1e6],t.Bx,p)),A.atT(A.ax([B.ao,0,B.bf,0,B.aO,0],t.wA,p)),A.y(q,t.i6),A.y(r,t.iy))
 l=t.S
 m.Kp(k.Fg(A.ax([B.bB,0,B.bA,0],q,l),m))
-m.Ku(k.Iz(A.ax([B.dd,2,B.df,2,B.de,2,B.dc,2],r,l),m))
+m.Ku(k.Iz(A.ax([B.dd,0,B.df,0,B.de,0,B.dc,0],r,l),m))
 l=t.Vd
 r=t.dQ
 s=A.a([m,k.jB(B.Lg,"Sergey",new A.ja(A.ase(),A.auD(),B.lF)),k.jB(B.Lh,"Ming",new A.ja(new A.e8(A.ax([A.aon(),0.4,A.FD(),0.3,new A.e8(A.hq(A.ax([B.ee,0.6,B.ed,0.4],l,o))),0.3],r,p)),A.apv(),B.F5)),k.jB(B.Li,"Harry",new A.ja(A.asf(),A.auE(),B.lD)),k.jB(B.Lj,"Louis",new A.ja(new A.e8(A.ax([new A.e8(A.hq(A.ax([B.k0,0.3,B.k1,0.3,B.k2,0.1,B.k3,0.2,B.k4,0.05,B.k5,0.05],l,o))),0.6,A.FD(),0.1,new A.e8(A.hq(A.ax([B.ee,0.8,B.ed,0.2],l,o))),0.3],r,p)),new A.on(A.hq(A.ax([B.hg,0.1,B.hh,0.1,B.hi,0.1,B.hj,0.2,B.hk,0.04,B.hl,0.2,B.hm,0.04,B.hn,0.04,B.ho,0.03,B.hp,0.03,B.hq,0.03,B.hr,0.03,B.hs,0.03,B.ht,0.03],l,o))),B.F4)),k.jB(B.Lk,"Jong",new A.ja(A.asd(),A.apv(),B.lE)),k.jB(B.Ll,"Ram",new A.ja(A.ase(),A.auD(),B.lF)),k.jB(B.Lm,"Muhammad",new A.ja(A.asd(),A.apv(),B.lE)),k.jB(B.Ln,"Ariel",new A.ja(A.asf(),A.auE(),B.lD))],s)
