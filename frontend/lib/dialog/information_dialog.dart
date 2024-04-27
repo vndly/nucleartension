@@ -180,7 +180,7 @@ class InformationDialog extends StatelessWidget {
         children: [
           LabeledText(
             label: Localized.get.dialogInformationPlayerPopulation,
-            text: (intelPopulation.level > 0)
+            text: (intelPopulation.level >= 2)
                 ? Formatter.resourceRaw(player.population)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
@@ -190,7 +190,7 @@ class InformationDialog extends StatelessWidget {
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerMilitary,
-            text: (intelMilitary.level > 0)
+            text: (intelMilitary.level >= 2)
                 ? Formatter.resourceRaw(player.militaryPower)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
@@ -200,7 +200,7 @@ class InformationDialog extends StatelessWidget {
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerMissiles,
-            text: (intelMissiles.level > 0)
+            text: (intelMissiles.level >= 2)
                 ? Formatter.resourceRaw(player.amountOfMissiles)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
@@ -210,7 +210,7 @@ class InformationDialog extends StatelessWidget {
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerResearch,
-            text: (intelResearch.level > 0)
+            text: (intelResearch.level >= 2)
                 ? Formatter.resourceRaw(player.researchLevel)
                 : Localized.get.dialogInformationPlayerUnknown,
             size: 14,
