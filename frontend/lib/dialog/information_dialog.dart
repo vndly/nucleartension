@@ -231,6 +231,8 @@ class InformationDialog extends StatelessWidget {
                 player.resources.get(ResourceType.supplies).toInt()),
             ..._debugPlayer('Technology:',
                 player.resources.get(ResourceType.technology).toInt()),
+            ..._debugPlayer('Military power:',
+                player.military.get(MilitaryType.power).toInt()),
             ..._debugPlayer('Defense missiles:',
                 player.military.get(MilitaryType.defense_missiles).toInt()),
             ..._debugPlayer('Attack missiles:',

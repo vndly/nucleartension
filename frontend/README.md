@@ -1,6 +1,5 @@
 # Nuclear Tension
 
-* Show military power dialog
 * Long press to auto-research technology
 * Research more nuclear bomb for AI
 * Research to reduce research time
