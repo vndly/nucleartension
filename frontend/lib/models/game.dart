@@ -90,7 +90,7 @@ class Game {
     return Probability.element(list);
   }
 
-  void setPlayers(List<Player> list) {
+  void addPlayers(List<Player> list) {
     players.addAll(list);
     selfPlayer = list.whereType<SelfPlayer>().first;
   }
