@@ -146,9 +146,6 @@ class _AttackDialogState extends State<AttackDialog> {
       ),
       actions: [
         TextButton(
-          style: TextButton.styleFrom(
-            foregroundColor: Palette.textPrimary,
-          ),
           onPressed: Navigation.pop,
           child: Label(
             text: widget.buttonCancel,
@@ -157,9 +154,6 @@ class _AttackDialogState extends State<AttackDialog> {
           ),
         ),
         TextButton(
-          style: TextButton.styleFrom(
-            foregroundColor: Palette.textPrimary,
-          ),
           onPressed: (_selected > 0)
               ? () {
                   Navigation.pop();

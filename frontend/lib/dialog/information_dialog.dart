@@ -265,9 +265,6 @@ class InformationDialog extends StatelessWidget {
       content: content,
       actions: [
         TextButton(
-          style: TextButton.styleFrom(
-            foregroundColor: Palette.textPrimary,
-          ),
           onPressed: () {
             Navigation.pop();
             onAccept?.call();
