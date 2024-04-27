@@ -63,12 +63,6 @@ class ActivePlayer extends Player {
       case PlayerAction.upgrade_missile_silo:
         _upgradeBuilding(missileSilo);
         break;
-      case PlayerAction.create_infantry:
-        _createMilitary(UnitType.infantry);
-        break;
-      case PlayerAction.create_vehicle:
-        _createMilitary(UnitType.vehicle);
-        break;
       case PlayerAction.create_aircraft:
         _createMilitary(UnitType.aircraft);
         break;
@@ -105,20 +99,11 @@ class ActivePlayer extends Player {
       case PlayerAction.research_unit_infantry_cost:
         _researchTechnology(ResearchType.unit_infantry_cost);
         break;
-      case PlayerAction.research_unit_infantry_time:
-        _researchTechnology(ResearchType.unit_infantry_time);
-        break;
       case PlayerAction.research_unit_vehicles_cost:
         _researchTechnology(ResearchType.unit_vehicles_cost);
         break;
-      case PlayerAction.research_unit_vehicles_time:
-        _researchTechnology(ResearchType.unit_vehicles_time);
-        break;
       case PlayerAction.research_unit_aircraft_cost:
         _researchTechnology(ResearchType.unit_aircraft_cost);
-        break;
-      case PlayerAction.research_unit_aircraft_time:
-        _researchTechnology(ResearchType.unit_aircraft_time);
         break;
       case PlayerAction.attack_unit:
         _uniAttack();
@@ -375,9 +360,7 @@ class CreateProfile extends ProbabilityProfile {
 
   factory CreateProfile.createUnitAction() =>
       CreateProfile._(ProbabilityProfile.actions({
-        PlayerAction.create_infantry: 0.6,
-        PlayerAction.create_vehicle: 0.3,
-        PlayerAction.create_aircraft: 0.1,
+        PlayerAction.create_aircraft: 1,
       }));
 
   factory CreateProfile.createMissileAggressiveAction() =>
@@ -404,20 +387,17 @@ class ResearchProfile extends ProbabilityProfile {
 
   factory ResearchProfile.aggressiveUnits() =>
       ResearchProfile._(ProbabilityProfile.actions({
-        PlayerAction.research_resources_grid_management: 0.1,
-        PlayerAction.research_resources_production_chain: 0.1,
-        PlayerAction.research_resources_quantum_computing: 0.1,
+        PlayerAction.research_resources_grid_management: 0.2,
+        PlayerAction.research_resources_production_chain: 0.2,
+        PlayerAction.research_resources_quantum_computing: 0.2,
         PlayerAction.research_resources_indoctrination: 0.06,
         PlayerAction.research_missiles_additive_manufacturing: 0.01,
         PlayerAction.research_missiles_active_tracking: 0.01,
         PlayerAction.research_missiles_signal_jamming: 0.01,
         PlayerAction.research_missiles_nuclear_bomb: 0.01,
-        PlayerAction.research_unit_infantry_cost: 0.1,
-        PlayerAction.research_unit_infantry_time: 0.1,
-        PlayerAction.research_unit_vehicles_cost: 0.1,
-        PlayerAction.research_unit_vehicles_time: 0.1,
-        PlayerAction.research_unit_aircraft_cost: 0.1,
-        PlayerAction.research_unit_aircraft_time: 0.1,
+        PlayerAction.research_unit_infantry_cost: 0,
+        PlayerAction.research_unit_vehicles_cost: 0,
+        PlayerAction.research_unit_aircraft_cost: 0.3,
       }));
 
   factory ResearchProfile.aggressiveMissiles() =>
@@ -430,12 +410,9 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.1,
         PlayerAction.research_missiles_signal_jamming: 0.2,
         PlayerAction.research_missiles_nuclear_bomb: 0.2,
-        PlayerAction.research_unit_infantry_cost: 0.01,
-        PlayerAction.research_unit_infantry_time: 0.01,
-        PlayerAction.research_unit_vehicles_cost: 0.01,
-        PlayerAction.research_unit_vehicles_time: 0.01,
-        PlayerAction.research_unit_aircraft_cost: 0.01,
-        PlayerAction.research_unit_aircraft_time: 0.01,
+        PlayerAction.research_unit_infantry_cost: 0.02,
+        PlayerAction.research_unit_vehicles_cost: 0.02,
+        PlayerAction.research_unit_aircraft_cost: 0.02,
       }));
 
   factory ResearchProfile.aggressiveMix() =>
@@ -443,17 +420,14 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_resources_grid_management: 0.1,
         PlayerAction.research_resources_production_chain: 0.1,
         PlayerAction.research_resources_quantum_computing: 0.1,
-        PlayerAction.research_resources_indoctrination: 0.06,
-        PlayerAction.research_missiles_additive_manufacturing: 0.07,
-        PlayerAction.research_missiles_active_tracking: 0.07,
-        PlayerAction.research_missiles_signal_jamming: 0.07,
-        PlayerAction.research_missiles_nuclear_bomb: 0.07,
-        PlayerAction.research_unit_infantry_cost: 0.06,
-        PlayerAction.research_unit_infantry_time: 0.06,
-        PlayerAction.research_unit_vehicles_cost: 0.06,
-        PlayerAction.research_unit_vehicles_time: 0.06,
-        PlayerAction.research_unit_aircraft_cost: 0.06,
-        PlayerAction.research_unit_aircraft_time: 0.06,
+        PlayerAction.research_resources_indoctrination: 0.1,
+        PlayerAction.research_missiles_additive_manufacturing: 0.09,
+        PlayerAction.research_missiles_active_tracking: 0.09,
+        PlayerAction.research_missiles_signal_jamming: 0.09,
+        PlayerAction.research_missiles_nuclear_bomb: 0.09,
+        PlayerAction.research_unit_infantry_cost: 0.08,
+        PlayerAction.research_unit_vehicles_cost: 0.08,
+        PlayerAction.research_unit_aircraft_cost: 0.08,
       }));
 
   factory ResearchProfile.neutral() =>
@@ -462,16 +436,13 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_resources_production_chain: 0.1,
         PlayerAction.research_resources_quantum_computing: 0.1,
         PlayerAction.research_resources_indoctrination: 0.1,
-        PlayerAction.research_missiles_additive_manufacturing: 0.05,
-        PlayerAction.research_missiles_active_tracking: 0.05,
-        PlayerAction.research_missiles_signal_jamming: 0.05,
-        PlayerAction.research_missiles_nuclear_bomb: 0.09,
-        PlayerAction.research_unit_infantry_cost: 0.06,
-        PlayerAction.research_unit_infantry_time: 0.06,
-        PlayerAction.research_unit_vehicles_cost: 0.06,
-        PlayerAction.research_unit_vehicles_time: 0.06,
-        PlayerAction.research_unit_aircraft_cost: 0.06,
-        PlayerAction.research_unit_aircraft_time: 0.06,
+        PlayerAction.research_missiles_additive_manufacturing: 0.08,
+        PlayerAction.research_missiles_active_tracking: 0.08,
+        PlayerAction.research_missiles_signal_jamming: 0.08,
+        PlayerAction.research_missiles_nuclear_bomb: 0.12,
+        PlayerAction.research_unit_infantry_cost: 0.08,
+        PlayerAction.research_unit_vehicles_cost: 0.08,
+        PlayerAction.research_unit_aircraft_cost: 0.08,
       }));
 
   factory ResearchProfile.defensive() =>
@@ -484,12 +455,9 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.2,
         PlayerAction.research_missiles_signal_jamming: 0.04,
         PlayerAction.research_missiles_nuclear_bomb: 0.04,
-        PlayerAction.research_unit_infantry_cost: 0.03,
-        PlayerAction.research_unit_infantry_time: 0.03,
-        PlayerAction.research_unit_vehicles_cost: 0.03,
-        PlayerAction.research_unit_vehicles_time: 0.03,
-        PlayerAction.research_unit_aircraft_cost: 0.03,
-        PlayerAction.research_unit_aircraft_time: 0.03,
+        PlayerAction.research_unit_infantry_cost: 0.06,
+        PlayerAction.research_unit_vehicles_cost: 0.06,
+        PlayerAction.research_unit_aircraft_cost: 0.06,
       }));
 }
 
@@ -569,8 +537,6 @@ enum PlayerAction {
   upgrade_missile_silo,
 
   // create units
-  create_infantry,
-  create_vehicle,
   create_aircraft,
 
   // create missiles
@@ -587,11 +553,8 @@ enum PlayerAction {
   research_missiles_signal_jamming,
   research_missiles_nuclear_bomb,
   research_unit_infantry_cost,
-  research_unit_infantry_time,
   research_unit_vehicles_cost,
-  research_unit_vehicles_time,
   research_unit_aircraft_cost,
-  research_unit_aircraft_time,
 
   // attack
   attack_unit,
