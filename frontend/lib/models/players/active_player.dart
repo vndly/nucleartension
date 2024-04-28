@@ -64,13 +64,13 @@ class ActivePlayer extends Player {
         _upgradeBuilding(missileSilo);
         break;
       case PlayerAction.create_troop:
-        _createMilitary(MilitaryType.troop);
+        _createTroop(MilitaryType.troop);
         break;
       case PlayerAction.create_defense_missile:
-        _createMilitary(MilitaryType.missile_defense);
+        _createMissile(MilitaryType.missile_defense);
         break;
       case PlayerAction.create_attack_missile:
-        _createMilitary(MilitaryType.missile_attack);
+        _createMissile(MilitaryType.missile_attack);
         break;
       case PlayerAction.research_resources_grid_management:
         _researchTechnology(ResearchType.resources_grid_management);
@@ -138,18 +138,6 @@ class ActivePlayer extends Player {
       case BuildingType.military_facility:
       case BuildingType.missile_silo:
         return 1;
-    }
-  }
-
-  void _createMilitary(MilitaryType militaryType) {
-    switch (militaryType) {
-      case MilitaryType.troop:
-        _createTroop(militaryType);
-        break;
-      case MilitaryType.missile_defense:
-      case MilitaryType.missile_attack:
-        _createMissile(militaryType);
-        break;
     }
   }
 

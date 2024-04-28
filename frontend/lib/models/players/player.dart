@@ -85,7 +85,7 @@ class Player {
   bool get hasIntel {
     final int researchIntelPopulation =
         game.self.getResearch(ResearchType.intel_population).level;
-    final int researchIntelMilitary =
+    final int researchIntelTroops =
         game.self.getResearch(ResearchType.intel_troops).level;
     final int researchIntelMissiles =
         game.self.getResearch(ResearchType.intel_missiles).level;
@@ -93,7 +93,7 @@ class Player {
         game.self.getResearch(ResearchType.intel_research).level;
 
     return (researchIntelPopulation > 0) ||
-        (researchIntelMilitary > 0) ||
+        (researchIntelTroops > 0) ||
         (researchIntelMissiles > 0) ||
         (researchIntelResearch > 0);
   }
