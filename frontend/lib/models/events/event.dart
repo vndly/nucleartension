@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:nucleartension/types/event_type.dart';
 
 abstract class Event {
@@ -12,6 +13,8 @@ abstract class Event {
   void markAsSeen() {
     seen = true;
   }
+
+  Color get titleColor;
 
   List<String> get text;
 

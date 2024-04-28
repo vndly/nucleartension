@@ -38,6 +38,10 @@ class Palette {
   static const Color militaryDefenseMissile = Colors.blue;
   static const Color militaryAttackMissile = Colors.red;
 
+  static const Color eventAttackIncoming = Colors.red;
+  static const Color eventAttackOutgoing = Colors.green;
+  static const Color eventOther = Colors.yellow;
+
   static const Color borderSeparator = Color(0xff505050);
   static const Color borderImage = Color(0xffc0c0c0);
 

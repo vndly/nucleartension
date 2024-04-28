@@ -40,6 +40,7 @@ class _EventBlockState extends State<EventBlock> {
               Expanded(
                 child: EventRows(
                   seen: widget.event.seen,
+                  titleColor: widget.event.titleColor,
                   rows: widget.event.text,
                 ),
               ),
@@ -61,10 +62,12 @@ class _EventBlockState extends State<EventBlock> {
 
 class EventRows extends StatelessWidget {
   final bool seen;
+  final Color titleColor;
   final List<String> rows;
 
   const EventRows({
     required this.seen,
+    required this.titleColor,
     required this.rows,
   });
 
@@ -81,7 +84,7 @@ class EventRows extends StatelessWidget {
               text: rows[i],
               color: seen
                   ? Palette.textDisabled
-                  : ((i == 0) ? Palette.error : Palette.textPrimary),
+                  : ((i == 0) ? titleColor : Palette.textPrimary),
               weight: (i == 0) ? FontWeight.bold : FontWeight.normal,
             ),
           ),

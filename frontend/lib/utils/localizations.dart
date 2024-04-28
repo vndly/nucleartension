@@ -66,14 +66,6 @@ abstract class BaseLocalized {
 
   String get dialogPauseTitle;
 
-  String get eventAttackMissileLaunchLine1;
-
-  String eventAttackMissileLaunchLine2(String param1);
-
-  String eventAttackMissileLaunchLine3(String param1);
-
-  String eventAttackMissileLaunchLine4(int param1, String param2);
-
   String get eventAttackMissileResultLine1;
 
   String eventAttackMissileResultLine2(String param1, String param2);
@@ -85,14 +77,6 @@ abstract class BaseLocalized {
   String eventAttackMissileResultLine5(int param1, String param2);
 
   String eventAttackMissileResultLine6(String param1);
-
-  String get eventAttackUnitLaunchLine1;
-
-  String eventAttackUnitLaunchLine2(String param1);
-
-  String eventAttackUnitLaunchLine3(String param1);
-
-  String eventAttackUnitLaunchLine4(String param1);
 
   String get eventAttackUnitResultLine1;
 
@@ -491,21 +475,6 @@ class ENLocalized extends BaseLocalized {
   String get dialogPauseTitle => 'Pause';
 
   @override
-  String get eventAttackMissileLaunchLine1 => 'Missile attack launched';
-
-  @override
-  String eventAttackMissileLaunchLine2(String param1) =>
-      'Attacker: ${param1.toString()}';
-
-  @override
-  String eventAttackMissileLaunchLine3(String param1) =>
-      'Defender: ${param1.toString()}';
-
-  @override
-  String eventAttackMissileLaunchLine4(int param1, String param2) =>
-      'Amount: ${param1.toString()} (${param2.toString()})';
-
-  @override
   String get eventAttackMissileResultLine1 => 'Missile attack finished';
 
   @override
@@ -527,21 +496,6 @@ class ENLocalized extends BaseLocalized {
   @override
   String eventAttackMissileResultLine6(String param1) =>
       'Casualties: ${param1.toString()}';
-
-  @override
-  String get eventAttackUnitLaunchLine1 => 'Unit attack launched';
-
-  @override
-  String eventAttackUnitLaunchLine2(String param1) =>
-      'Attacker: ${param1.toString()}';
-
-  @override
-  String eventAttackUnitLaunchLine3(String param1) =>
-      'Defender: ${param1.toString()}';
-
-  @override
-  String eventAttackUnitLaunchLine4(String param1) =>
-      'Power: ${param1.toString()}';
 
   @override
   String get eventAttackUnitResultLine1 => 'Unit attack finished';
@@ -567,35 +521,37 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get eventDefconLine2Level1Other =>
-      'A player has launched a missile attack';
+      'A player has launched a missile attack.';
 
   @override
-  String get eventDefconLine2Level1Self => 'You have launched a missile attack';
+  String get eventDefconLine2Level1Self =>
+      'You have launched a missile attack.';
 
   @override
   String get eventDefconLine2Level2Other =>
-      'A player has created an attack missile';
+      'A player has created an attack missile.';
 
   @override
-  String get eventDefconLine2Level2Self => 'You have created an attack missile';
+  String get eventDefconLine2Level2Self =>
+      'You have created an attack missile.';
 
   @override
   String get eventDefconLine2Level3Other =>
-      'A player has launched a unit attack';
+      'A player has launched a unit attack.';
 
   @override
-  String get eventDefconLine2Level3Self => 'You have launched a unit attack';
+  String get eventDefconLine2Level3Self => 'You have launched a unit attack.';
 
   @override
   String get eventDefconLine2Level4Other =>
-      'A player has created a military unit';
+      'A player has created a military unit.';
 
   @override
-  String get eventDefconLine2Level4Self => 'You have created a military unit';
+  String get eventDefconLine2Level4Self => 'You have created a military unit.';
 
   @override
   String eventDefconLine3(int param1) =>
-      'Economy production boost increased to +${param1.toString()}%';
+      'Resource production rate increased to: +${param1.toString()}%';
 
   @override
   String eventPlayerDefeatedLine1(String param1, String param2) =>

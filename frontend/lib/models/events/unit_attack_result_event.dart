@@ -1,8 +1,10 @@
+import 'dart:ui';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/event_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
+import 'package:nucleartension/utils/palette.dart';
 
 class UnitAttackResultEvent extends Event {
   final Player attacker;
@@ -21,6 +23,11 @@ class UnitAttackResultEvent extends Event {
 
   @override
   bool get show => attacker.isSelf || defender.isSelf;
+
+  @override
+  Color get titleColor => attacker.isSelf
+      ? Palette.eventAttackOutgoing
+      : Palette.eventAttackIncoming;
 
   @override
   List<String> get text => [
