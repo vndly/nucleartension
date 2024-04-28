@@ -11,6 +11,7 @@ import 'package:nucleartension/views/resources_view.dart';
 import 'package:nucleartension/views/war_room_view.dart';
 import 'package:nucleartension/widgets/blocks/header_block.dart';
 import 'package:nucleartension/widgets/blocks/warning_block.dart';
+import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/misc/game_container.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
@@ -81,7 +82,12 @@ class _GameContentState extends State<GameContent> {
             ),
             BottomNavigationBarItem(
               icon: Badge(
-                smallSize: widget.state.game.hasUnseenEvents ? 10 : 0,
+                largeSize: widget.state.game.hasUnseenEvents ? 20 : 0,
+                label: Label(
+                  text: widget.state.game.unseenEvents.length.toString(),
+                  size: 15,
+                  color: Palette.textPrimary,
+                ),
                 child: const Padding(
                   padding: EdgeInsets.only(bottom: 5),
                   child: Icon(Icons.format_list_bulleted),
