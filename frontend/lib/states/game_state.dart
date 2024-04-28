@@ -51,7 +51,7 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.power: 0,
+        MilitaryType.power: 10,
         MilitaryType.defense_missiles: 0,
         MilitaryType.attack_missiles: 0,
       }),

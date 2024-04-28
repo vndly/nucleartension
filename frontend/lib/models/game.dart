@@ -5,9 +5,7 @@ import 'package:nucleartension/models/attacks/missile_attack.dart';
 import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
-import 'package:nucleartension/models/events/missile_attack_launch_event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
-import 'package:nucleartension/models/events/unit_attack_launch_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/states/game_state.dart';
@@ -202,12 +200,6 @@ class Game {
       militaryPower: amount,
     ));
 
-    _addEvent(UnitAttackLaunchEvent(
-      attacker: attacker,
-      defender: defender,
-      militaryPower: amount,
-    ));
-
     onUnitUsed(attacker);
   }
 
@@ -237,13 +229,6 @@ class Game {
       attacker: attacker,
       defender: defender,
       amount: amount,
-      ktPerMissile: attacker.attackMissileYield,
-    ));
-
-    _addEvent(MissileAttackLaunchEvent(
-      attacker: attacker,
-      defender: defender,
-      totalMissiles: amount,
       ktPerMissile: attacker.attackMissileYield,
     ));
 
