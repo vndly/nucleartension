@@ -494,9 +494,9 @@ class AttackProfile implements ActionChoice {
 
   @override
   PlayerAction? action(Player player) {
-    if (player.militaryPower >= minMissileAttack) {
+    if (player.militaryPower >= minUnitAttack) {
       return PlayerAction.attack_unit;
-    } else if (player.militaryAttackMissiles >= minUnitAttack) {
+    } else if (player.militaryAttackMissiles >= minMissileAttack) {
       return PlayerAction.attack_missile;
     } else {
       return null;
