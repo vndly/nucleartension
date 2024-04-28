@@ -127,12 +127,12 @@ class PlayerRowContent extends StatelessWidget {
               ),
             ),
           ),
-          if (game.self.hasCombatForces && !player.isSelf && player.isAlive)
+          if (game.self.hasTroops && !player.isSelf && player.isAlive)
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: EnabledButton.attackMilitary(
                 size: 35,
-                onTap: () => game.onCombatForcesAttack(
+                onTap: () => game.onTroopAttack(
                   attacker: game.self,
                   defender: player,
                 ),

@@ -6,20 +6,20 @@ import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
-class CombatForcesAttackResultEvent extends Event {
+class TroopAttackResultEvent extends Event {
   final Player attacker;
   final Player defender;
   final Player winner;
-  final int combatForces;
+  final int troops;
   final int casualties;
 
-  CombatForcesAttackResultEvent({
+  TroopAttackResultEvent({
     required this.attacker,
     required this.defender,
     required this.winner,
-    required this.combatForces,
+    required this.troops,
     required this.casualties,
-  }) : super(eventType: EventType.combat_forces_attack_result);
+  }) : super(eventType: EventType.troop_attack_result);
 
   @override
   bool get show => attacker.isSelf || defender.isSelf;
@@ -31,14 +31,14 @@ class CombatForcesAttackResultEvent extends Event {
 
   @override
   List<String> get text => [
-        Localized.get.eventAttackCombatForcesResultLine1,
-        Localized.get.eventAttackCombatForcesResultLine2(attacker.name,
+        Localized.get.eventAttackTroopResultLine1,
+        Localized.get.eventAttackTroopResultLine2(attacker.name,
             (attacker == winner) ? ' (${Localized.get.labelWinner})' : ''),
-        Localized.get.eventAttackCombatForcesResultLine3(defender.name,
+        Localized.get.eventAttackTroopResultLine3(defender.name,
             (defender == winner) ? ' (${Localized.get.labelWinner})' : ''),
-        Localized.get.eventAttackCombatForcesResultLine4(
-            Formatter.resourceRaw(combatForces)),
-        Localized.get.eventAttackCombatForcesResultLine5((casualties > 0)
+        Localized.get
+            .eventAttackTroopResultLine4(Formatter.resourceRaw(troops)),
+        Localized.get.eventAttackTroopResultLine5((casualties > 0)
             ? Localized.get.labelPeople(Formatter.resourceRaw(casualties))
             : Localized.get.labelNone),
       ];

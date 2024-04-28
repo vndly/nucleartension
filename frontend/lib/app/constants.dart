@@ -12,8 +12,8 @@ class Constants {
   // Attacks
   static const int MISSILE_ATTACK_WARNING_TIME = 60; // in seconds
   static const int MISSILE_ATTACK_DAMAGE_PER_KT = 1000;
-  static const int MILITARY_FORCE_ATTACK_WARNING_TIME = 60; // in seconds
-  static const int MILITARY_FORCE_ATTACK_DAMAGE = 10000;
+  static const int TROOP_ATTACK_WARNING_TIME = 60; // in seconds
+  static const int TROOP_ATTACK_DAMAGE = 10000;
 
   static const Map<BuildingType, double> PRODUCTION_RATE = {
     BuildingType.power_plant: 0.5,

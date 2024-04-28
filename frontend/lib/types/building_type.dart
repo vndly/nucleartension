@@ -77,7 +77,7 @@ enum BuildingType {
         return [];
       case BuildingType.military_facility:
         return [
-          MilitaryType.combat_forces,
+          MilitaryType.troop,
         ];
       case BuildingType.missile_silo:
         return [

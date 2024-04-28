@@ -158,9 +158,9 @@ class Player {
 
   void createMilitary(MilitaryType militaryType) {
     switch (militaryType) {
-      case MilitaryType.combat_forces:
+      case MilitaryType.troop:
         military.add(militaryType, 1);
-        game.onCombatForcesCreated(this);
+        game.onTroopCreated(this);
         break;
 
       case MilitaryType.missile_defense:
@@ -174,10 +174,9 @@ class Player {
     }
   }
 
-  int get combatForces => military.get(MilitaryType.combat_forces).toInt();
+  int get troops => military.get(MilitaryType.troop).toInt();
 
-  void removeCombatForces(int value) =>
-      military.remove(MilitaryType.combat_forces, value);
+  void removeTroops(int value) => military.remove(MilitaryType.troop, value);
 
   void removeDefenseMissiles(int value) =>
       military.remove(MilitaryType.missile_defense, value);
@@ -189,7 +188,7 @@ class Player {
 
   int get attackMissiles => military.get(MilitaryType.missile_attack).toInt();
 
-  bool get hasCombatForces => combatForces > 0;
+  bool get hasTroops => troops > 0;
 
   int get amountOfMissiles => defenseMissiles + attackMissiles;
 
@@ -228,14 +227,14 @@ class Player {
     return research.decreaseRate;
   }
 
-  num get combatForcesAttackWarningWhenDefending {
+  num get troopAttackWarningWhenDefending {
     final Research research =
         getResearch(ResearchType.warning_military_early_warning);
 
     return research.increaseRate;
   }
 
-  num get combatForcesAttackWarningWhenAttacking {
+  num get troopAttackWarningWhenAttacking {
     final Research research =
         getResearch(ResearchType.warning_military_fast_deployments);
 

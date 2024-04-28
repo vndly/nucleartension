@@ -208,9 +208,9 @@ enum ResearchType {
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombName;
       case military_cost:
-        return Localized.get.typeResearchCombatForcesCostName;
+        return Localized.get.typeResearchTroopsCostName;
       case military_time:
-        return Localized.get.typeResearchCombatForcesTimeName;
+        return Localized.get.typeResearchTroopsTimeName;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
@@ -252,9 +252,9 @@ enum ResearchType {
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombDescription;
       case military_cost:
-        return Localized.get.typeResearchCombatForcesCostDescription;
+        return Localized.get.typeResearchTroopsCostDescription;
       case military_time:
-        return Localized.get.typeResearchCombatForcesTimeDescription;
+        return Localized.get.typeResearchTroopsTimeDescription;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:

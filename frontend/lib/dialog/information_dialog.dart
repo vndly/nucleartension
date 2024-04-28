@@ -189,7 +189,7 @@ class InformationDialog extends StatelessWidget {
           LabeledText(
             label: Localized.get.dialogInformationPlayerMilitary,
             text: hasIntelMilitary
-                ? Formatter.resourceRaw(player.combatForces)
+                ? Formatter.resourceRaw(player.troops)
                 : Localized.get.dialogInformationPlayerIntelRequiredMilitary,
             size: 14,
             labelColor: Palette.textPrimary,

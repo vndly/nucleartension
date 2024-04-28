@@ -20,7 +20,7 @@ class ResearchView extends StatelessWidget {
         children: [
           ResearchResources(game.self),
           ResearchMissiles(game.self),
-          ResearchMilitary(game.self),
+          ResearchTroops(game.self),
           ResearchWarning(game.self),
           ResearchIntel(game.self),
         ],
@@ -149,17 +149,17 @@ class ResearchWarning extends StatelessWidget {
   }
 }
 
-class ResearchMilitary extends StatelessWidget {
+class ResearchTroops extends StatelessWidget {
   final Player player;
 
-  const ResearchMilitary(this.player);
+  const ResearchTroops(this.player);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const BlockSeparator(),
-        BlockTitle(Localized.get.screenResearchCombatForces),
+        BlockTitle(Localized.get.screenResearchTroops),
         const BlockSeparator(),
         ResearchBlock(
           player: player,

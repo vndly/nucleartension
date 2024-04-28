@@ -69,7 +69,7 @@ class PlayersByMilitary extends StatelessWidget {
       title: Localized.get.screenWarRoomIntelMilitary,
       players: game.playersByMilitary,
       researchLevel: research.level,
-      function: (p) => Formatter.resourceRaw(p.combatForces),
+      function: (p) => Formatter.resourceRaw(p.troops),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
-import 'package:nucleartension/models/attacks/combat_forces_attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
+import 'package:nucleartension/models/attacks/troop_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
@@ -62,7 +62,7 @@ class Game {
 
   List<Player> get playersByMilitary {
     final List<Player> result = List.from(players);
-    result.sort((a, b) => b.combatForces - a.combatForces);
+    result.sort((a, b) => b.troops - a.troops);
 
     return result;
   }
@@ -132,12 +132,12 @@ class Game {
 
   int get defconStep => 6 - defcon;
 
-  void onCombatForcesCreated(Player player) => _applyDefcon(
+  void onTroopCreated(Player player) => _applyDefcon(
         player: player,
         level: 4,
       );
 
-  void onCombatForcesUsed(Player player) => _applyDefcon(
+  void onTroopUsed(Player player) => _applyDefcon(
         player: player,
         level: 3,
       );
@@ -173,34 +173,34 @@ class Game {
   List<Attack> get selfAttacks =>
       attacks.where((e) => e.contains(self)).toList();
 
-  void onCombatForcesAttack({
+  void onTroopAttack({
     required Player attacker,
     required Player defender,
   }) =>
       AttackDialog.military(
         defender: defender,
-        max: self.combatForces,
-        onAccept: (amount) => combatForcesAttack(
+        max: self.troops,
+        onAccept: (amount) => troopAttack(
           attacker: attacker,
           defender: defender,
           amount: amount,
         ),
       );
 
-  void combatForcesAttack({
+  void troopAttack({
     required Player attacker,
     required Player defender,
     required int amount,
   }) {
-    attacker.removeCombatForces(amount);
+    attacker.removeTroops(amount);
 
-    attacks.add(CombatForcesAttack.from(
+    attacks.add(TroopAttack.from(
       attacker: attacker,
       defender: defender,
-      combatForces: amount,
+      troop: amount,
     ));
 
-    onCombatForcesUsed(attacker);
+    onTroopUsed(attacker);
   }
 
   void onMissileAttack({
