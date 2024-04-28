@@ -4,7 +4,6 @@ import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
@@ -146,14 +145,14 @@ class InformationDialog extends StatelessWidget {
     required Game game,
     required Player player,
   }) {
-    final Research intelPopulation =
-        game.self.getResearch(ResearchType.intel_population);
-    final Research intelMilitary =
-        game.self.getResearch(ResearchType.intel_military);
-    final Research intelMissiles =
-        game.self.getResearch(ResearchType.intel_missiles);
-    final Research intelResearch =
-        game.self.getResearch(ResearchType.intel_research);
+    final bool hasIntelPopulation =
+        game.self.getResearch(ResearchType.intel_population).level >= 2;
+    final bool hasIntelMilitary =
+        game.self.getResearch(ResearchType.intel_military).level >= 2;
+    final bool hasIntelMissiles =
+        game.self.getResearch(ResearchType.intel_missiles).level >= 2;
+    final bool hasIntelResearch =
+        game.self.getResearch(ResearchType.intel_research).level >= 2;
 
     return _show(
       title: Row(
@@ -179,42 +178,46 @@ class InformationDialog extends StatelessWidget {
         children: [
           LabeledText(
             label: Localized.get.dialogInformationPlayerPopulation,
-            text: (intelPopulation.level >= 2)
+            text: hasIntelPopulation
                 ? Formatter.resourceRaw(player.population)
-                : Localized.get.dialogInformationPlayerUnknown,
+                : Localized.get.dialogInformationPlayerIntelRequiredPopulation,
             size: 14,
             labelColor: Palette.textPrimary,
-            textColor: Palette.textPrimary,
+            textColor:
+                hasIntelPopulation ? Palette.textPrimary : Palette.textError,
           ),
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerMilitary,
-            text: (intelMilitary.level >= 2)
+            text: hasIntelMilitary
                 ? Formatter.resourceRaw(player.militaryPower)
-                : Localized.get.dialogInformationPlayerUnknown,
+                : Localized.get.dialogInformationPlayerIntelRequiredMilitary,
             size: 14,
             labelColor: Palette.textPrimary,
-            textColor: Palette.textPrimary,
+            textColor:
+                hasIntelMilitary ? Palette.textPrimary : Palette.textError,
           ),
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerMissiles,
-            text: (intelMissiles.level >= 2)
+            text: hasIntelMissiles
                 ? Formatter.resourceRaw(player.amountOfMissiles)
-                : Localized.get.dialogInformationPlayerUnknown,
+                : Localized.get.dialogInformationPlayerIntelRequiredMissiles,
             size: 14,
             labelColor: Palette.textPrimary,
-            textColor: Palette.textPrimary,
+            textColor:
+                hasIntelMissiles ? Palette.textPrimary : Palette.textError,
           ),
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerResearch,
-            text: (intelResearch.level >= 2)
+            text: hasIntelResearch
                 ? Formatter.resourceRaw(player.researchLevel)
-                : Localized.get.dialogInformationPlayerUnknown,
+                : Localized.get.dialogInformationPlayerIntelRequiredResearch,
             size: 14,
             labelColor: Palette.textPrimary,
-            textColor: Palette.textPrimary,
+            textColor:
+                hasIntelResearch ? Palette.textPrimary : Palette.textError,
           ),
           if (Environment.isDebug) ...[
             const VBox(10),

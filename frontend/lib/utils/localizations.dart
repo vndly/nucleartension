@@ -44,6 +44,14 @@ abstract class BaseLocalized {
 
   String get dialogConfirmationCancelUpgradeMessage;
 
+  String get dialogInformationPlayerIntelRequiredMilitary;
+
+  String get dialogInformationPlayerIntelRequiredMissiles;
+
+  String get dialogInformationPlayerIntelRequiredPopulation;
+
+  String get dialogInformationPlayerIntelRequiredResearch;
+
   String dialogInformationPlayerLostMessage(String param1);
 
   String get dialogInformationPlayerLostTitle;
@@ -55,8 +63,6 @@ abstract class BaseLocalized {
   String get dialogInformationPlayerPopulation;
 
   String get dialogInformationPlayerResearch;
-
-  String get dialogInformationPlayerUnknown;
 
   String get dialogInformationPlayerWonMessage;
 
@@ -448,6 +454,22 @@ class ENLocalized extends BaseLocalized {
   String get dialogConfirmationCancelUpgradeMessage => 'Cancel upgrade?';
 
   @override
+  String get dialogInformationPlayerIntelRequiredMilitary =>
+      'Military intel required';
+
+  @override
+  String get dialogInformationPlayerIntelRequiredMissiles =>
+      'Missiles intel required';
+
+  @override
+  String get dialogInformationPlayerIntelRequiredPopulation =>
+      'Population intel required';
+
+  @override
+  String get dialogInformationPlayerIntelRequiredResearch =>
+      'Research intel required';
+
+  @override
   String dialogInformationPlayerLostMessage(String param1) =>
       'You have been destroyed by ${param1.toString()}.';
 
@@ -465,9 +487,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogInformationPlayerResearch => 'Research:';
-
-  @override
-  String get dialogInformationPlayerUnknown => 'Unknown';
 
   @override
   String get dialogInformationPlayerWonMessage =>

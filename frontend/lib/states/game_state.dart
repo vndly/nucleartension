@@ -23,7 +23,6 @@ import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/types/unit_type.dart';
-import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
@@ -51,7 +50,7 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.power: 1000,
+        MilitaryType.power: 0,
         MilitaryType.defense_missiles: 0,
         MilitaryType.attack_missiles: 0,
       }),
@@ -70,10 +69,10 @@ class GameState extends BaseState {
     usa.addResearches(_researches(
       player: usa,
       map: {
-        ResearchType.intel_population: Environment.isDebug ? 2 : 0,
+        /*ResearchType.intel_population: Environment.isDebug ? 2 : 0,
         ResearchType.intel_military: Environment.isDebug ? 2 : 0,
         ResearchType.intel_missiles: Environment.isDebug ? 2 : 0,
-        ResearchType.intel_research: Environment.isDebug ? 2 : 0,
+        ResearchType.intel_research: Environment.isDebug ? 2 : 0,*/
       },
     ));
 
