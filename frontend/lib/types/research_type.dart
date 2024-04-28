@@ -324,6 +324,10 @@ enum ResearchType {
 
   List<String> get details => [
         '$description.',
+        if (this == ResearchType.missiles_nuclear_bomb) ...[
+          '',
+          Localized.get.typeResearchMissilesNuclearBombDescriptionExtra,
+        ],
         '',
         ...levelDetails,
       ];

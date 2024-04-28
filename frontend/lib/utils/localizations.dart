@@ -284,6 +284,8 @@ abstract class BaseLocalized {
 
   String get typeResearchMissilesNuclearBombDescription;
 
+  String get typeResearchMissilesNuclearBombDescriptionExtra;
+
   String get typeResearchMissilesNuclearBombName;
 
   String get typeResearchMissilesSignalJammingDescription;
@@ -863,6 +865,10 @@ class ENLocalized extends BaseLocalized {
   @override
   String get typeResearchMissilesNuclearBombDescription =>
       'Increases nuclear bomb yield';
+
+  @override
+  String get typeResearchMissilesNuclearBombDescriptionExtra =>
+      'The bigger the yield, the more casualties the missile causes.';
 
   @override
   String get typeResearchMissilesNuclearBombName => 'Nuclear Bomb';

@@ -140,6 +140,7 @@
     "type.research.missiles.assemblyAutomation.description": "Decreases missile time production",
     "type.research.missiles.assemblyAutomation.name": "Assembly Automation",
     "type.research.missiles.nuclearBomb.description": "Increases nuclear bomb yield",
+    "type.research.missiles.nuclearBomb.description.extra": "The bigger the yield, the more casualties the missile causes.",
     "type.research.missiles.nuclearBomb.name": "Nuclear Bomb",
     "type.research.missiles.signalJamming.description": "Decreases the effectiveness of enemy's defense missiles",
     "type.research.missiles.signalJamming.name": "Signal Jamming",
