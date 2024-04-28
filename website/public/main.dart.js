@@ -22124,7 +22124,7 @@ n=k.b=new A.a4L(k,r,q,p,new A.a3H(n),0,5)
 p=t.o
 q=t.bh
 r=t.nK
-m=new A.ct(n,"John",B.Lc,A.auH(A.av([B.aR,500,B.aQ,500,B.c9,1000,B.Q,1e6],t.Bx,p)),A.atV(A.av([B.ao,0,B.bf,0,B.aO,0],t.wA,p)),A.y(q,t.i6),A.y(r,t.iy))
+m=new A.ct(n,"John",B.Lc,A.auH(A.av([B.aR,500,B.aQ,500,B.c9,0,B.Q,1e6],t.Bx,p)),A.atV(A.av([B.ao,0,B.bf,0,B.aO,0],t.wA,p)),A.y(q,t.i6),A.y(r,t.iy))
 l=t.S
 m.Kq(k.Fh(A.av([B.bB,0,B.bA,0],q,l),m))
 m.Ku(k.IA(A.av([B.de,0,B.dg,0,B.df,0,B.dd,0],r,l),m))
