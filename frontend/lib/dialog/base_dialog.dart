@@ -9,6 +9,8 @@ class BaseDialog extends StatelessWidget {
   final Widget content;
   final List<Widget> actions;
 
+  static int instances = 0;
+
   const BaseDialog({
     required this.title,
     required this.content,
@@ -17,6 +19,7 @@ class BaseDialog extends StatelessWidget {
 
   static DialogController show(Widget dialog) {
     final BuildContext context = Navigation.context;
+    instances++;
 
     Delayed.post(() => showDialog(
           context: context,
@@ -26,6 +29,13 @@ class BaseDialog extends StatelessWidget {
         ));
 
     return DialogController(context);
+  }
+
+  static bool get hasInstances => instances > 0;
+
+  static void close() {
+    instances--;
+    Navigation.pop();
   }
 
   @override

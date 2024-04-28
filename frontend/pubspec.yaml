@@ -12,7 +12,7 @@ dependencies:
   dafluta: ^5.3.0
   flutter_svg: ^2.0.10+1
   url_strategy: ^0.2.0
-  json_annotation: ^4.8.1
+  json_annotation: ^4.9.0
   shared_preferences: ^2.2.3
 
   flutter:
@@ -28,7 +28,7 @@ dev_dependencies:
   dapublock: ^1.1.0
   build_runner: ^2.4.9
   flutter_lints: ^3.0.2
-  json_serializable: ^6.7.1
+  json_serializable: ^6.8.0
 
   flutter_test:
     sdk: flutter

@@ -5,7 +5,6 @@ import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
-import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
@@ -146,7 +145,7 @@ class _AttackDialogState extends State<AttackDialog> {
       ),
       actions: [
         TextButton(
-          onPressed: Navigation.pop,
+          onPressed: BaseDialog.close,
           child: Label(
             text: widget.buttonCancel,
             color: Palette.textPrimary,
@@ -156,7 +155,7 @@ class _AttackDialogState extends State<AttackDialog> {
         TextButton(
           onPressed: (_selected > 0)
               ? () {
-                  Navigation.pop();
+                  BaseDialog.close();
                   widget.onAccept(_selected);
                 }
               : null,

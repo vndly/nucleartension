@@ -1,5 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:nucleartension/app/constants.dart';
+import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
 import 'package:nucleartension/models/buildings/building.dart';
@@ -27,7 +28,6 @@ import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
   late final Game game;
-  bool running = true;
   bool finished = false;
 
   GameState() {
@@ -221,14 +221,13 @@ class GameState extends BaseState {
   }
 
   void update(double dt) {
-    if (running) {
+    if (!finished && !BaseDialog.hasInstances) {
       game.update(dt);
     }
   }
 
   void onPause() {
     if (!finished) {
-      running = false;
       PauseDialog.show(
         onResume: _onResume,
         onQuit: _onQuit,
@@ -236,20 +235,16 @@ class GameState extends BaseState {
     }
   }
 
-  void _onResume() {
-    running = true;
-  }
+  void _onResume() {}
 
   void _onQuit() => Delayed.post(Navigation.pop);
 
   void onPlayerWon() {
-    running = false;
     finished = true;
     InformationDialog.playerWon(_onQuit);
   }
 
   void onPlayerLost(Player killer) {
-    running = false;
     finished = true;
     InformationDialog.playerLost(
       killer: killer,

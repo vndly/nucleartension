@@ -2,7 +2,6 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/utils/localizations.dart';
-import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/primary_button.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -42,7 +41,7 @@ class PauseDialog extends StatelessWidget {
             text: Localized.get.dialogPauseResume,
             color: Palette.buttonEnabled,
             onPressed: () {
-              Navigation.pop();
+              BaseDialog.close();
               onResume();
             },
           ),

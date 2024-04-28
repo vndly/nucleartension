@@ -13,7 +13,6 @@ import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
-import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -266,7 +265,7 @@ class InformationDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () {
-            Navigation.pop();
+            BaseDialog.close();
             onAccept?.call();
           },
           child: Label(

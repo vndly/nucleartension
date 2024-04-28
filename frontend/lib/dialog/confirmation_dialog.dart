@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/models/tasks/task.dart';
 import 'package:nucleartension/utils/localizations.dart';
-import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
@@ -60,7 +59,7 @@ class ConfirmationDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () {
-            Navigation.pop();
+            BaseDialog.close();
             onCancel?.call();
           },
           child: Label(
@@ -71,7 +70,7 @@ class ConfirmationDialog extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigation.pop();
+            BaseDialog.close();
             onAccept();
           },
           child: Label(
