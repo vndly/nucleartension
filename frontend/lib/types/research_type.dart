@@ -222,7 +222,7 @@ enum ResearchType {
       case intel_population:
         return Localized.get.typeResearchIntelPopulationName;
       case intel_military:
-        return Localized.get.typeResearchIntelMilitaryName;
+        return Localized.get.typeResearchIntelTroopsName;
       case intel_missiles:
         return Localized.get.typeResearchIntelMissilesName;
       case intel_research:
@@ -266,7 +266,7 @@ enum ResearchType {
       case intel_population:
         return Localized.get.typeResearchIntelPopulationDescription;
       case intel_military:
-        return Localized.get.typeResearchIntelMilitaryDescription;
+        return Localized.get.typeResearchIntelTroopsDescription;
       case intel_missiles:
         return Localized.get.typeResearchIntelMissilesDescription;
       case intel_research:

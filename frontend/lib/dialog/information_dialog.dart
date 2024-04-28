@@ -187,10 +187,10 @@ class InformationDialog extends StatelessWidget {
           ),
           const VBox(10),
           LabeledText(
-            label: Localized.get.dialogInformationPlayerMilitary,
+            label: Localized.get.dialogInformationPlayerTroops,
             text: hasIntelMilitary
                 ? Formatter.resourceRaw(player.troops)
-                : Localized.get.dialogInformationPlayerIntelRequiredMilitary,
+                : Localized.get.dialogInformationPlayerIntelRequiredTroops,
             size: 14,
             labelColor: Palette.textPrimary,
             textColor:

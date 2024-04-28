@@ -44,25 +44,25 @@ abstract class BaseLocalized {
 
   String get dialogConfirmationCancelUpgradeMessage;
 
-  String get dialogInformationPlayerIntelRequiredMilitary;
-
   String get dialogInformationPlayerIntelRequiredMissiles;
 
   String get dialogInformationPlayerIntelRequiredPopulation;
 
   String get dialogInformationPlayerIntelRequiredResearch;
 
+  String get dialogInformationPlayerIntelRequiredTroops;
+
   String dialogInformationPlayerLostMessage(String param1);
 
   String get dialogInformationPlayerLostTitle;
-
-  String get dialogInformationPlayerMilitary;
 
   String get dialogInformationPlayerMissiles;
 
   String get dialogInformationPlayerPopulation;
 
   String get dialogInformationPlayerResearch;
+
+  String get dialogInformationPlayerTroops;
 
   String get dialogInformationPlayerWonMessage;
 
@@ -176,13 +176,13 @@ abstract class BaseLocalized {
 
   String get screenResearchWarning;
 
-  String get screenWarRoomIntelMilitary;
-
   String get screenWarRoomIntelMissiles;
 
   String get screenWarRoomIntelPopulation;
 
   String get screenWarRoomIntelResearch;
+
+  String get screenWarRoomIntelTroops;
 
   String get screenWarRoomTabIntel;
 
@@ -264,10 +264,6 @@ abstract class BaseLocalized {
 
   String get typeResearchIntelLevel2;
 
-  String get typeResearchIntelMilitaryDescription;
-
-  String get typeResearchIntelMilitaryName;
-
   String get typeResearchIntelMissilesDescription;
 
   String get typeResearchIntelMissilesName;
@@ -279,6 +275,10 @@ abstract class BaseLocalized {
   String get typeResearchIntelResearchDescription;
 
   String get typeResearchIntelResearchName;
+
+  String get typeResearchIntelTroopsDescription;
+
+  String get typeResearchIntelTroopsName;
 
   String get typeResearchMissilesActiveTrackingDescription;
 
@@ -426,10 +426,6 @@ class ENLocalized extends BaseLocalized {
   String get dialogConfirmationCancelUpgradeMessage => 'Cancel upgrade?';
 
   @override
-  String get dialogInformationPlayerIntelRequiredMilitary =>
-      'Military intel required';
-
-  @override
   String get dialogInformationPlayerIntelRequiredMissiles =>
       'Missiles intel required';
 
@@ -442,14 +438,15 @@ class ENLocalized extends BaseLocalized {
       'Research intel required';
 
   @override
+  String get dialogInformationPlayerIntelRequiredTroops =>
+      'Troops intel required';
+
+  @override
   String dialogInformationPlayerLostMessage(String param1) =>
       'You have been destroyed by ${param1.toString()}.';
 
   @override
   String get dialogInformationPlayerLostTitle => 'You lost the match';
-
-  @override
-  String get dialogInformationPlayerMilitary => 'Military:';
 
   @override
   String get dialogInformationPlayerMissiles => 'Missiles:';
@@ -459,6 +456,9 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogInformationPlayerResearch => 'Research:';
+
+  @override
+  String get dialogInformationPlayerTroops => 'Troops:';
 
   @override
   String get dialogInformationPlayerWonMessage =>
@@ -652,9 +652,6 @@ class ENLocalized extends BaseLocalized {
   String get screenResearchWarning => 'Warning';
 
   @override
-  String get screenWarRoomIntelMilitary => 'Military';
-
-  @override
   String get screenWarRoomIntelMissiles => 'Missiles';
 
   @override
@@ -662,6 +659,9 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get screenWarRoomIntelResearch => 'Research';
+
+  @override
+  String get screenWarRoomIntelTroops => 'Troops';
 
   @override
   String get screenWarRoomTabIntel => 'Intel';
@@ -789,7 +789,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeMilitaryTroopDescription =>
-      "Used to defend your territory from other players' military attacks and attack other players to decrease their population.";
+      "Used to defend your territory from other players' troop attacks and attack other players to decrease their population.";
 
   @override
   String get typeMilitaryTroopName => 'Troop';
@@ -799,13 +799,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchIntelLevel2 => "Players's values";
-
-  @override
-  String get typeResearchIntelMilitaryDescription =>
-      'Reveals military intel about other players';
-
-  @override
-  String get typeResearchIntelMilitaryName => 'Military';
 
   @override
   String get typeResearchIntelMissilesDescription =>
@@ -827,6 +820,13 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchIntelResearchName => 'Research';
+
+  @override
+  String get typeResearchIntelTroopsDescription =>
+      'Reveals troop intel about other players';
+
+  @override
+  String get typeResearchIntelTroopsName => 'Troops';
 
   @override
   String get typeResearchMissilesActiveTrackingDescription =>

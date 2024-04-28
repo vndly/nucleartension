@@ -66,7 +66,7 @@ class PlayersByMilitary extends StatelessWidget {
         game.self.getResearch(ResearchType.intel_military);
 
     return PlayersList(
-      title: Localized.get.screenWarRoomIntelMilitary,
+      title: Localized.get.screenWarRoomIntelTroops,
       players: game.playersByMilitary,
       researchLevel: research.level,
       function: (p) => Formatter.resourceRaw(p.troops),
