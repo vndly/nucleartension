@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
+import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/views/events_view.dart';
@@ -45,7 +46,7 @@ class GameContent extends StatefulWidget {
 }
 
 class _GameContentState extends State<GameContent> {
-  int currentIndex = 5;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -116,13 +117,14 @@ class _GameContentState extends State<GameContent> {
               ),
               label: Localized.get.bottomBarResearch.toUpperCase(),
             ),
-            const BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.language),
+            if (Environment.isDebug)
+              const BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Icon(Icons.language),
+                ),
+                label: 'MAP',
               ),
-              label: 'MAP',
-            ),
           ],
         ),
       ),
