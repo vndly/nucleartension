@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
@@ -64,6 +65,7 @@ class UnitAttack extends Attack {
       } else {
         final int diff = militaryPower - defender.militaryPower;
         final int casualties = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
+        final int totalCasualties = min(casualties, defender.population);
         final ResourceMap loot = defender.removePopulation(casualties);
 
         final List<Event> result = [
@@ -72,7 +74,7 @@ class UnitAttack extends Attack {
             defender: defender,
             winner: attacker,
             militaryPower: militaryPower,
-            casualties: casualties,
+            casualties: totalCasualties,
           )
         ];
 
