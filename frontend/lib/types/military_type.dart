@@ -11,15 +11,15 @@ enum MilitaryType {
   troop(
     sprite: Assets.IMAGES_UNITS_INFANTRY, // TODO(momo): change
     cost: {
-      ResourceType.energy: 20,
-      ResourceType.supplies: 20,
+      ResourceType.energy: 50,
+      ResourceType.supplies: 100,
     },
   ),
   missile_defense(
     sprite: Assets.IMAGES_MISSILES_DEFENSE,
     cost: {
       ResourceType.energy: 60,
-      ResourceType.supplies: 20,
+      ResourceType.supplies: 30,
     },
   ),
   missile_attack(

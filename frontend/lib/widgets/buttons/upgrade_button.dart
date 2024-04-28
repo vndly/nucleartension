@@ -29,6 +29,7 @@ class UpgradeButton extends StatelessWidget {
           TaskProgressIndicator(
             size: size,
             task: upgradable.upgradeTask!,
+            cancellable: true,
           )
         else
           UpgradeOrBuildButton(

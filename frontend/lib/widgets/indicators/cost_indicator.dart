@@ -17,6 +17,7 @@ class CostIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
         for (final ResourceMapEntry resource in cost.entries)

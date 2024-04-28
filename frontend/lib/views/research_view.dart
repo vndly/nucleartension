@@ -21,7 +21,7 @@ class ResearchView extends StatelessWidget {
           ResearchResources(game.self),
           ResearchMissiles(game.self),
           ResearchTroops(game.self),
-          ResearchWarning(game.self),
+          //ResearchWarning(game.self),
           ResearchIntel(game.self),
         ],
       ),

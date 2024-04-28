@@ -8,19 +8,23 @@ import 'package:nucleartension/widgets/labels/label.dart';
 class TaskProgressIndicator extends StatelessWidget {
   final double size;
   final Task task;
+  final bool cancellable;
 
   const TaskProgressIndicator({
     required this.size,
     required this.task,
+    required this.cancellable,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => ConfirmationDialog.cancelUpgrade(
-        task: task,
-        onAccept: task.cancel,
-      ),
+      onTap: cancellable
+          ? () => ConfirmationDialog.cancelUpgrade(
+                task: task,
+                onAccept: task.cancel,
+              )
+          : () {},
       child: ProgressOverlay(
         size: size,
         progress: task.progress,

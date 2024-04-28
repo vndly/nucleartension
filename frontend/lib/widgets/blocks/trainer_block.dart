@@ -241,6 +241,7 @@ class TroopCenterSection extends StatelessWidget {
             TaskProgressIndicator(
               size: 50,
               task: trainer.firstTask(militaryType),
+              cancellable: false,
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * gap,
