@@ -25,7 +25,7 @@ class IntelBlock extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           PlayersByPopulation(game),
-          PlayersByMilitary(game),
+          PlayersByTroops(game),
           PlayersByMissiles(game),
           PlayersByResearch(game),
         ],
@@ -55,19 +55,18 @@ class PlayersByPopulation extends StatelessWidget {
   }
 }
 
-class PlayersByMilitary extends StatelessWidget {
+class PlayersByTroops extends StatelessWidget {
   final Game game;
 
-  const PlayersByMilitary(this.game);
+  const PlayersByTroops(this.game);
 
   @override
   Widget build(BuildContext context) {
-    final Research research =
-        game.self.getResearch(ResearchType.intel_military);
+    final Research research = game.self.getResearch(ResearchType.intel_troops);
 
     return PlayersList(
       title: Localized.get.screenWarRoomIntelTroops,
-      players: game.playersByMilitary,
+      players: game.playersByTroops,
       researchLevel: research.level,
       function: (p) => Formatter.resourceRaw(p.troops),
     );

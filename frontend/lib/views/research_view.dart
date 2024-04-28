@@ -136,13 +136,13 @@ class ResearchWarning extends StatelessWidget {
         ResearchBlock(
           player: player,
           research:
-              player.getResearch(ResearchType.warning_military_early_warning),
+              player.getResearch(ResearchType.warning_troops_early_warning),
         ),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player
-              .getResearch(ResearchType.warning_military_fast_deployments),
+          research:
+              player.getResearch(ResearchType.warning_troops_fast_deployments),
         ),
       ],
     );
@@ -163,12 +163,12 @@ class ResearchTroops extends StatelessWidget {
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.military_cost),
+          research: player.getResearch(ResearchType.troop_cost),
         ),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.military_time),
+          research: player.getResearch(ResearchType.troop_time),
         ),
       ],
     );
@@ -194,7 +194,7 @@ class ResearchIntel extends StatelessWidget {
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.intel_military),
+          research: player.getResearch(ResearchType.intel_troops),
         ),
         const BlockSeparator(),
         ResearchBlock(

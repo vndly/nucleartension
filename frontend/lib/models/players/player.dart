@@ -86,7 +86,7 @@ class Player {
     final int researchIntelPopulation =
         game.self.getResearch(ResearchType.intel_population).level;
     final int researchIntelMilitary =
-        game.self.getResearch(ResearchType.intel_military).level;
+        game.self.getResearch(ResearchType.intel_troops).level;
     final int researchIntelMissiles =
         game.self.getResearch(ResearchType.intel_missiles).level;
     final int researchIntelResearch =
@@ -229,14 +229,14 @@ class Player {
 
   num get troopAttackWarningWhenDefending {
     final Research research =
-        getResearch(ResearchType.warning_military_early_warning);
+        getResearch(ResearchType.warning_troops_early_warning);
 
     return research.increaseRate;
   }
 
   num get troopAttackWarningWhenAttacking {
     final Research research =
-        getResearch(ResearchType.warning_military_fast_deployments);
+        getResearch(ResearchType.warning_troops_fast_deployments);
 
     return research.decreaseRate;
   }

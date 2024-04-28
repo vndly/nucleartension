@@ -50,7 +50,7 @@ class AttackDialog extends StatefulWidget {
         missileYield: missileYield,
       ));
 
-  static DialogController military({
+  static DialogController troops({
     required Player defender,
     required int max,
     required Function(int) onAccept,

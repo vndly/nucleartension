@@ -18,9 +18,9 @@ class ActivePlayer extends Player {
     required super.name,
     required super.country,
     required super.resources,
+    required super.military,
     required super.buildings,
     required super.researches,
-    required super.military,
     required this.profile,
   });
 
@@ -96,8 +96,8 @@ class ActivePlayer extends Player {
       case PlayerAction.research_missiles_nuclear_bomb:
         _researchTechnology(ResearchType.missiles_nuclear_bomb);
         break;
-      case PlayerAction.research_military_cost:
-        _researchTechnology(ResearchType.military_cost);
+      case PlayerAction.research_troop_cost:
+        _researchTechnology(ResearchType.troop_cost);
         break;
       case PlayerAction.attack_troop:
         troopAttack();
@@ -388,7 +388,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.01,
         PlayerAction.research_missiles_signal_jamming: 0.01,
         PlayerAction.research_missiles_nuclear_bomb: 0.01,
-        PlayerAction.research_military_cost: 0.3,
+        PlayerAction.research_troop_cost: 0.3,
       }));
 
   factory ResearchProfile.aggressiveMissiles() =>
@@ -401,7 +401,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.1,
         PlayerAction.research_missiles_signal_jamming: 0.2,
         PlayerAction.research_missiles_nuclear_bomb: 0.2,
-        PlayerAction.research_military_cost: 0.06,
+        PlayerAction.research_troop_cost: 0.06,
       }));
 
   factory ResearchProfile.aggressiveMix() =>
@@ -414,7 +414,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.09,
         PlayerAction.research_missiles_signal_jamming: 0.09,
         PlayerAction.research_missiles_nuclear_bomb: 0.09,
-        PlayerAction.research_military_cost: 0.24,
+        PlayerAction.research_troop_cost: 0.24,
       }));
 
   factory ResearchProfile.neutral() =>
@@ -427,7 +427,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.08,
         PlayerAction.research_missiles_signal_jamming: 0.08,
         PlayerAction.research_missiles_nuclear_bomb: 0.12,
-        PlayerAction.research_military_cost: 0.24,
+        PlayerAction.research_troop_cost: 0.24,
       }));
 
   factory ResearchProfile.defensive() =>
@@ -440,7 +440,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.2,
         PlayerAction.research_missiles_signal_jamming: 0.04,
         PlayerAction.research_missiles_nuclear_bomb: 0.04,
-        PlayerAction.research_military_cost: 0.18,
+        PlayerAction.research_troop_cost: 0.18,
       }));
 }
 
@@ -535,7 +535,7 @@ enum PlayerAction {
   research_missiles_active_tracking,
   research_missiles_signal_jamming,
   research_missiles_nuclear_bomb,
-  research_military_cost,
+  research_troop_cost,
 
   // attack
   attack_troop,

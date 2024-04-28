@@ -85,7 +85,7 @@ enum MilitaryType {
   ResearchType get researchCost {
     switch (this) {
       case troop:
-        return ResearchType.military_cost;
+        return ResearchType.troop_cost;
       case missile_defense:
       case missile_attack:
         return ResearchType.missiles_additive_manufacturing;
@@ -95,7 +95,7 @@ enum MilitaryType {
   ResearchType get researchTime {
     switch (this) {
       case troop:
-        return ResearchType.military_time;
+        return ResearchType.troop_time;
       case missile_defense:
       case missile_attack:
         return ResearchType.missiles_assembly_automation;

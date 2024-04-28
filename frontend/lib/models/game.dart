@@ -60,7 +60,7 @@ class Game {
     return result;
   }
 
-  List<Player> get playersByMilitary {
+  List<Player> get playersByTroops {
     final List<Player> result = List.from(players);
     result.sort((a, b) => b.troops - a.troops);
 
@@ -177,7 +177,7 @@ class Game {
     required Player attacker,
     required Player defender,
   }) =>
-      AttackDialog.military(
+      AttackDialog.troops(
         defender: defender,
         max: self.troops,
         onAccept: (amount) => troopAttack(

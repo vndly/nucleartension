@@ -61,7 +61,7 @@ class EnabledButton extends StatelessWidget {
         rotation: 3,
       );
 
-  factory EnabledButton.attackMilitary({
+  factory EnabledButton.attackTroops({
     required double size,
     required VoidCallback onTap,
   }) =>

@@ -6,8 +6,8 @@ class PassivePlayer extends Player {
     required super.name,
     required super.country,
     required super.resources,
+    required super.military,
     required super.buildings,
     required super.researches,
-    required super.military,
   });
 }

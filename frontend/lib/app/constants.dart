@@ -33,9 +33,9 @@ class Constants {
     ResearchType.missiles_signal_jamming: 0.1,
     ResearchType.warning_missiles_radar_network: 0.1,
     ResearchType.warning_missiles_hypersonic_propulsion: 0.1,
-    ResearchType.warning_military_early_warning: 0.1,
-    ResearchType.warning_military_fast_deployments: 0.1,
-    ResearchType.military_cost: 0.1,
-    ResearchType.military_time: 0.1,
+    ResearchType.warning_troops_early_warning: 0.1,
+    ResearchType.warning_troops_fast_deployments: 0.1,
+    ResearchType.troop_cost: 0.1,
+    ResearchType.troop_time: 0.1,
   };
 }
