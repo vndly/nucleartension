@@ -4,6 +4,7 @@ import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/views/events_view.dart';
+import 'package:nucleartension/views/map_view.dart';
 import 'package:nucleartension/views/military_view.dart';
 import 'package:nucleartension/views/research_view.dart';
 import 'package:nucleartension/views/resources_view.dart';
@@ -109,6 +110,13 @@ class _GameContentState extends State<GameContent> {
               ),
               label: Localized.get.bottomBarResearch.toUpperCase(),
             ),
+            const BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Icon(Icons.language),
+              ),
+              label: 'MAP',
+            ),
           ],
         ),
       ),
@@ -139,6 +147,8 @@ class _GameContentState extends State<GameContent> {
       return MilitaryView(widget.state.game);
     } else if (currentIndex == 4) {
       return ResearchView(widget.state.game);
+    } else if (currentIndex == 5) {
+      return MapView(widget.state.game);
     } else {
       return const Empty();
     }
