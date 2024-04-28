@@ -1,47 +1,50 @@
 import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
+import 'package:nucleartension/models/events/combat_forces_attack_result_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
-import 'package:nucleartension/models/events/unit_attack_result_event.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/localizations.dart';
 
-class UnitAttack extends Attack {
-  final int militaryPower;
+class CombatForcesAttack extends Attack {
+  final int combatForces;
 
-  UnitAttack._({
+  CombatForcesAttack._({
     required super.attacker,
     required super.defender,
     required super.duration,
-    required this.militaryPower,
+    required this.combatForces,
   });
 
-  factory UnitAttack.from({
+  factory CombatForcesAttack.from({
     required Player attacker,
     required Player defender,
-    required int militaryPower,
+    required int combatForces,
   }) {
-    final num decreaseRate = attacker.unitAttackWarningWhenAttacking;
-    final num increaseRate = defender.unitAttackWarningWhenDefending;
-    final num duration =
-        Constants.UNIT_ATTACK_WARNING_TIME * decreaseRate * increaseRate;
+    final num decreaseRate = attacker.combatForcesAttackWarningWhenAttacking;
+    final num increaseRate = defender.combatForcesAttackWarningWhenDefending;
+    final num duration = Constants.MILITARY_FORCE_ATTACK_WARNING_TIME *
+        decreaseRate *
+        increaseRate;
 
-    return UnitAttack._(
+    return CombatForcesAttack._(
       attacker: attacker,
       defender: defender,
       duration: duration,
-      militaryPower: militaryPower,
+      combatForces: combatForces,
     );
   }
 
   @override
   String toString() {
     if (attacker.isSelf) {
-      return Localized.get.attackUnitOutgoing(defender.name, militaryPower);
+      return Localized.get
+          .attackCombatForcesOutgoing(defender.name, combatForces);
     } else if (defender.isSelf) {
-      return Localized.get.attackUnitIncoming(attacker.name, militaryPower);
+      return Localized.get
+          .attackCombatForcesIncoming(attacker.name, combatForces);
     } else {
       return '';
     }
@@ -50,30 +53,30 @@ class UnitAttack extends Attack {
   @override
   List<Event> resolve() {
     if (defender.isAlive) {
-      if (defender.militaryPower >= militaryPower) {
-        defender.removeMilitaryPower(militaryPower);
+      if (defender.combatForces >= combatForces) {
+        defender.removeCombatForces(combatForces);
 
         return [
-          UnitAttackResultEvent(
+          CombatForcesAttackResultEvent(
             attacker: attacker,
             defender: defender,
             winner: defender,
-            militaryPower: militaryPower,
+            combatForces: combatForces,
             casualties: 0,
           )
         ];
       } else {
-        final int diff = militaryPower - defender.militaryPower;
-        final int casualties = diff * Constants.UNIT_ATTACK_DAMAGE_PER_POWER;
+        final int diff = combatForces - defender.combatForces;
+        final int casualties = diff * Constants.MILITARY_FORCE_ATTACK_DAMAGE;
         final int totalCasualties = min(casualties, defender.population);
         final ResourceMap loot = defender.removePopulation(casualties);
 
         final List<Event> result = [
-          UnitAttackResultEvent(
+          CombatForcesAttackResultEvent(
             attacker: attacker,
             defender: defender,
             winner: attacker,
-            militaryPower: militaryPower,
+            combatForces: combatForces,
             casualties: totalCasualties,
           )
         ];

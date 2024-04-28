@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
@@ -18,7 +19,6 @@ import 'package:nucleartension/types/country.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
-import 'package:nucleartension/types/unit_type.dart';
 
 class Player {
   final Game game;
@@ -156,48 +156,44 @@ class Player {
 
   // ============================ MILITARY ================================== \\
 
-  void createUnit(UnitType unitType) {
-    switch (unitType) {
-      case UnitType.missile_defense:
-        military.add(MilitaryType.defense_missiles, 1);
+  void createMilitary(MilitaryType militaryType) {
+    switch (militaryType) {
+      case MilitaryType.combat_forces:
+        military.add(militaryType, 1);
+        game.onCombatForcesCreated(this);
         break;
 
-      case UnitType.missile_attack:
-        military.add(MilitaryType.attack_missiles, 1);
+      case MilitaryType.missile_defense:
+        military.add(militaryType, 1);
+        break;
+
+      case MilitaryType.missile_attack:
+        military.add(militaryType, 1);
         game.onAttackMissileCreated(this);
-        break;
-
-      case UnitType.infantry:
-      case UnitType.vehicle:
-      case UnitType.aircraft:
-        military.add(MilitaryType.power, unitType.power);
-        game.onUnitCreated(this);
         break;
     }
   }
 
-  int get militaryPower => military.get(MilitaryType.power).toInt();
+  int get combatForces => military.get(MilitaryType.combat_forces).toInt();
 
-  void removeMilitaryPower(int value) =>
-      military.remove(MilitaryType.power, value);
+  void removeCombatForces(int value) =>
+      military.remove(MilitaryType.combat_forces, value);
 
   void removeDefenseMissiles(int value) =>
-      military.remove(MilitaryType.defense_missiles, value);
+      military.remove(MilitaryType.missile_defense, value);
 
   void removeAttackMissiles(int value) =>
-      military.remove(MilitaryType.attack_missiles, value);
+      military.remove(MilitaryType.missile_attack, value);
 
-  int get militaryDefenseMissiles =>
-      military.get(MilitaryType.defense_missiles).toInt();
+  int get defenseMissiles => military.get(MilitaryType.missile_defense).toInt();
 
-  int get militaryAttackMissiles =>
-      military.get(MilitaryType.attack_missiles).toInt();
+  int get attackMissiles => military.get(MilitaryType.missile_attack).toInt();
 
-  bool get hasMilitaryPower => militaryPower > 0;
+  bool get hasCombatForces => combatForces > 0;
 
-  int get amountOfMissiles => militaryDefenseMissiles + militaryAttackMissiles;
+  int get amountOfMissiles => defenseMissiles + attackMissiles;
 
-  bool get hasAttackMissiles => militaryAttackMissiles > 0;
+  bool get hasAttackMissiles => attackMissiles > 0;
 
   int get attackMissileYield {
     final Research research = getResearch(ResearchType.missiles_nuclear_bomb);
@@ -232,14 +228,14 @@ class Player {
     return research.decreaseRate;
   }
 
-  num get unitAttackWarningWhenDefending {
+  num get combatForcesAttackWarningWhenDefending {
     final Research research =
         getResearch(ResearchType.warning_military_early_warning);
 
     return research.increaseRate;
   }
 
-  num get unitAttackWarningWhenAttacking {
+  num get combatForcesAttackWarningWhenAttacking {
     final Research research =
         getResearch(ResearchType.warning_military_fast_deployments);
 

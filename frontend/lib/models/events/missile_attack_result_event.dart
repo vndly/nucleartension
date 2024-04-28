@@ -23,7 +23,7 @@ class MissileAttackResultEvent extends Event {
     required this.successfulAttackMissiles,
     required this.ktPerMissile,
     required this.casualties,
-  }) : super(eventType: EventType.unit_attack_result);
+  }) : super(eventType: EventType.missile_attack_result);
 
   @override
   bool get show => attacker.isSelf || defender.isSelf;

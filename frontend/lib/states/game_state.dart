@@ -22,7 +22,6 @@ import 'package:nucleartension/types/country.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
-import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
@@ -51,9 +50,9 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.power: 0,
-        MilitaryType.defense_missiles: 0,
-        MilitaryType.attack_missiles: 0,
+        MilitaryType.combat_forces: 0,
+        MilitaryType.missile_defense: 0,
+        MilitaryType.missile_attack: 0,
       }),
       buildings: {},
       researches: {},
@@ -82,7 +81,7 @@ class GameState extends BaseState {
       _activePlayer(
         name: 'Sergey',
         country: Country.russia,
-        profile: PlayerProfile.aggressiveUnits(),
+        profile: PlayerProfile.aggressiveCombatForces(),
       ),
       _activePlayer(
         name: 'Ming',
@@ -107,7 +106,7 @@ class GameState extends BaseState {
       _activePlayer(
         name: 'Ram',
         country: Country.india,
-        profile: PlayerProfile.aggressiveUnits(),
+        profile: PlayerProfile.aggressiveCombatForces(),
       ),
       _activePlayer(
         name: 'Muhammad',
@@ -138,9 +137,9 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.power: 0,
-        MilitaryType.defense_missiles: 0,
-        MilitaryType.attack_missiles: 0,
+        MilitaryType.combat_forces: 0,
+        MilitaryType.missile_defense: 0,
+        MilitaryType.missile_attack: 0,
       }),
       buildings: {},
       researches: {},
@@ -188,17 +187,15 @@ class GameState extends BaseState {
           player: player,
           level: map[BuildingType.military_facility] ?? 0,
           queues: {
-            UnitType.infantry: [],
-            UnitType.vehicle: [],
-            UnitType.aircraft: [],
+            MilitaryType.combat_forces: [],
           },
         ),
         MissileSilo(
           player: player,
           level: map[BuildingType.missile_silo] ?? 0,
           queues: {
-            UnitType.missile_defense: [],
-            UnitType.missile_attack: [],
+            MilitaryType.missile_defense: [],
+            MilitaryType.missile_attack: [],
           },
         ),
       ];

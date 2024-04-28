@@ -62,12 +62,8 @@ class Research extends Upgradable {
       case ResearchType.warning_missiles_hypersonic_propulsion:
         return BuildingType.missile_silo;
       case ResearchType.warning_military_fast_deployments:
-      case ResearchType.unit_infantry_cost:
-      case ResearchType.unit_infantry_time:
-      case ResearchType.unit_vehicles_cost:
-      case ResearchType.unit_vehicles_time:
-      case ResearchType.unit_aircraft_cost:
-      case ResearchType.unit_aircraft_time:
+      case ResearchType.military_cost:
+      case ResearchType.military_time:
         return BuildingType.military_facility;
       default:
         return null;

@@ -1,8 +1,8 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
+import 'package:nucleartension/models/attacks/combat_forces_attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
-import 'package:nucleartension/models/attacks/unit_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
@@ -62,7 +62,7 @@ class Game {
 
   List<Player> get playersByMilitary {
     final List<Player> result = List.from(players);
-    result.sort((a, b) => b.militaryPower - a.militaryPower);
+    result.sort((a, b) => b.combatForces - a.combatForces);
 
     return result;
   }
@@ -132,12 +132,12 @@ class Game {
 
   int get defconStep => 6 - defcon;
 
-  void onUnitCreated(Player player) => _applyDefcon(
+  void onCombatForcesCreated(Player player) => _applyDefcon(
         player: player,
         level: 4,
       );
 
-  void onUnitUsed(Player player) => _applyDefcon(
+  void onCombatForcesUsed(Player player) => _applyDefcon(
         player: player,
         level: 3,
       );
@@ -173,34 +173,34 @@ class Game {
   List<Attack> get selfAttacks =>
       attacks.where((e) => e.contains(self)).toList();
 
-  void onUnitAttack({
+  void onCombatForcesAttack({
     required Player attacker,
     required Player defender,
   }) =>
       AttackDialog.military(
         defender: defender,
-        max: self.militaryPower,
-        onAccept: (amount) => unitAttack(
+        max: self.combatForces,
+        onAccept: (amount) => combatForcesAttack(
           attacker: attacker,
           defender: defender,
           amount: amount,
         ),
       );
 
-  void unitAttack({
+  void combatForcesAttack({
     required Player attacker,
     required Player defender,
     required int amount,
   }) {
-    attacker.removeMilitaryPower(amount);
+    attacker.removeCombatForces(amount);
 
-    attacks.add(UnitAttack.from(
+    attacks.add(CombatForcesAttack.from(
       attacker: attacker,
       defender: defender,
-      militaryPower: amount,
+      combatForces: amount,
     ));
 
-    onUnitUsed(attacker);
+    onCombatForcesUsed(attacker);
   }
 
   void onMissileAttack({
@@ -209,7 +209,7 @@ class Game {
   }) =>
       AttackDialog.missiles(
         defender: defender,
-        max: self.militaryAttackMissiles,
+        max: self.attackMissiles,
         missileYield: attacker.attackMissileYield,
         onAccept: (amount) => missileAttack(
           attacker: attacker,

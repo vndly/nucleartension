@@ -86,48 +86,16 @@ enum ResearchType {
   ),
 
   // military
-  unit_infantry_cost(
-    sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_COST,
+  military_cost(
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_COST, // TODO(momo): change
     maxLevel: 5,
     costRate: 2,
     initialCost: {
       ResourceType.technology: 10,
     },
   ),
-  unit_infantry_time(
-    sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_TIME,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  unit_vehicles_cost(
-    sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_COST,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  unit_vehicles_time(
-    sprite: Assets.IMAGES_RESEARCH_MILITARY_VEHICLES_TIME,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  unit_aircraft_cost(
-    sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_COST,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-  ),
-  unit_aircraft_time(
-    sprite: Assets.IMAGES_RESEARCH_MILITARY_AIRCRAFT_TIME,
+  military_time(
+    sprite: Assets.IMAGES_RESEARCH_MILITARY_INFANTRY_TIME, // TODO(momo): change
     maxLevel: 5,
     costRate: 2,
     initialCost: {
@@ -239,18 +207,10 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesSignalJammingName;
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombName;
-      case unit_infantry_cost:
-        return Localized.get.typeResearchUnitInfantryCostName;
-      case unit_infantry_time:
-        return Localized.get.typeResearchUnitInfantryTimeName;
-      case unit_vehicles_cost:
-        return Localized.get.typeResearchUnitVehiclesCostName;
-      case unit_vehicles_time:
-        return Localized.get.typeResearchUnitVehiclesTimeName;
-      case unit_aircraft_cost:
-        return Localized.get.typeResearchUnitAircraftCostName;
-      case unit_aircraft_time:
-        return Localized.get.typeResearchUnitAircraftTimeName;
+      case military_cost:
+        return Localized.get.typeResearchCombatForcesCostName;
+      case military_time:
+        return Localized.get.typeResearchCombatForcesTimeName;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
@@ -291,18 +251,10 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesSignalJammingDescription;
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombDescription;
-      case unit_infantry_cost:
-        return Localized.get.typeResearchUnitInfantryCostDescription;
-      case unit_infantry_time:
-        return Localized.get.typeResearchUnitInfantryTimeDescription;
-      case unit_vehicles_cost:
-        return Localized.get.typeResearchUnitVehiclesCostDescription;
-      case unit_vehicles_time:
-        return Localized.get.typeResearchUnitVehiclesTimeDescription;
-      case unit_aircraft_cost:
-        return Localized.get.typeResearchUnitAircraftCostDescription;
-      case unit_aircraft_time:
-        return Localized.get.typeResearchUnitAircraftTimeDescription;
+      case military_cost:
+        return Localized.get.typeResearchCombatForcesCostDescription;
+      case military_time:
+        return Localized.get.typeResearchCombatForcesTimeDescription;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:
@@ -360,12 +312,8 @@ enum ResearchType {
       case missiles_additive_manufacturing:
       case missiles_assembly_automation:
       case missiles_signal_jamming:
-      case unit_infantry_cost:
-      case unit_infantry_time:
-      case unit_vehicles_cost:
-      case unit_vehicles_time:
-      case unit_aircraft_cost:
-      case unit_aircraft_time:
+      case military_cost:
+      case military_time:
         return '-$baseRate';
 
       case missiles_nuclear_bomb:

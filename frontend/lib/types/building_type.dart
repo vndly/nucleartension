@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
-import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/localizations.dart';
 
@@ -68,23 +68,21 @@ enum BuildingType {
 
   ResourceMap cost(int level) => initialCost.multiply(pow(costRate, level - 1));
 
-  List<UnitType> get units {
+  List<MilitaryType> get military {
     switch (this) {
       case BuildingType.power_plant:
       case BuildingType.supply_center:
       case BuildingType.tech_lab:
       case BuildingType.propaganda_station:
         return [];
-      case BuildingType.missile_silo:
-        return [
-          UnitType.missile_defense,
-          UnitType.missile_attack,
-        ];
       case BuildingType.military_facility:
         return [
-          UnitType.infantry,
-          UnitType.vehicle,
-          UnitType.aircraft,
+          MilitaryType.combat_forces,
+        ];
+      case BuildingType.missile_silo:
+        return [
+          MilitaryType.missile_defense,
+          MilitaryType.missile_attack,
         ];
     }
   }
@@ -141,11 +139,8 @@ enum BuildingType {
       case military_facility:
         return [
           Localized.get.typeBuildingMilitaryFacilityDescription1,
-          Localized.get.typeBuildingMilitaryFacilityDescription2,
-          Localized.get.typeBuildingMilitaryFacilityDescription3,
-          Localized.get.typeBuildingMilitaryFacilityDescription4,
           '',
-          Localized.get.typeBuildingMilitaryFacilityDescription5,
+          Localized.get.typeBuildingMilitaryFacilityDescription2,
         ];
     }
   }

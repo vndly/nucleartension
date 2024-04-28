@@ -8,7 +8,6 @@ import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
-import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
@@ -129,10 +128,10 @@ class InformationDialog extends StatelessWidget {
         sprite: buildingType.sprite,
       );
 
-  static DialogController unit(UnitType unitType) => _entityInfo(
-        title: unitType.localized,
-        descriptions: unitType.description,
-        sprite: unitType.sprite,
+  static DialogController military(MilitaryType militaryType) => _entityInfo(
+        title: militaryType.localized,
+        descriptions: militaryType.description,
+        sprite: militaryType.sprite,
       );
 
   static DialogController research(ResearchType researchType) => _entityInfo(
@@ -190,7 +189,7 @@ class InformationDialog extends StatelessWidget {
           LabeledText(
             label: Localized.get.dialogInformationPlayerMilitary,
             text: hasIntelMilitary
-                ? Formatter.resourceRaw(player.militaryPower)
+                ? Formatter.resourceRaw(player.combatForces)
                 : Localized.get.dialogInformationPlayerIntelRequiredMilitary,
             size: 14,
             labelColor: Palette.textPrimary,
@@ -236,9 +235,9 @@ class InformationDialog extends StatelessWidget {
                 player.resources.get(ResourceType.technology).toInt()),
             const VBox(10),
             ..._debugPlayer('Defense missiles:',
-                player.military.get(MilitaryType.defense_missiles).toInt()),
+                player.military.get(MilitaryType.missile_defense).toInt()),
             ..._debugPlayer('Attack missiles:',
-                player.military.get(MilitaryType.attack_missiles).toInt()),
+                player.military.get(MilitaryType.missile_attack).toInt()),
             ..._debugPlayer('Nuclear bomb tech:',
                 player.getResearch(ResearchType.missiles_nuclear_bomb).level),
           ],

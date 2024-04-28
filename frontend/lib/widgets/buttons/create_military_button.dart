@@ -1,18 +1,18 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/trainers/trainer.dart';
-import 'package:nucleartension/types/unit_type.dart';
+import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/widgets/buttons/disabled_button.dart';
 import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/indicators/cost_indicator.dart';
 
-class CreateUnitButton extends StatelessWidget {
+class CreateMilitaryButton extends StatelessWidget {
   final Trainer trainer;
-  final UnitType unitType;
+  final MilitaryType militaryType;
 
-  const CreateUnitButton({
+  const CreateMilitaryButton({
     required this.trainer,
-    required this.unitType,
+    required this.militaryType,
   });
 
   @override
@@ -22,37 +22,37 @@ class CreateUnitButton extends StatelessWidget {
       children: [
         CostIndicator(
           player: trainer.player,
-          cost: unitType.effectiveCost(trainer.player),
+          cost: militaryType.effectiveCost(trainer.player),
         ),
         const HBox(10),
-        CreateUnitButtonContent(
+        CreateMilitaryButtonContent(
           trainer: trainer,
-          unitType: unitType,
+          militaryType: militaryType,
         ),
       ],
     );
   }
 }
 
-class CreateUnitButtonContent extends StatelessWidget {
+class CreateMilitaryButtonContent extends StatelessWidget {
   final Trainer trainer;
-  final UnitType unitType;
+  final MilitaryType militaryType;
 
-  const CreateUnitButtonContent({
+  const CreateMilitaryButtonContent({
     required this.trainer,
-    required this.unitType,
+    required this.militaryType,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (trainer.canCreateUnit(unitType)) {
+    if (trainer.canCreateMilitary(militaryType)) {
       return EnabledButton.create(
         size: 50,
-        onTap: () => trainer.enqueueUnit(unitType),
+        onTap: () => trainer.enqueueMilitary(militaryType),
       );
     } else if (!trainer.isQueueAvailable) {
       return DisabledButton.queueFull(size: 50);
-    } else if (!trainer.hasResourcesToCreate(unitType)) {
+    } else if (!trainer.hasResourcesToCreate(militaryType)) {
       return DisabledButton.noResources(size: 50);
     } else {
       return DisabledButton.disabled(size: 50);

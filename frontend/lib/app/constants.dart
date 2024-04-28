@@ -12,8 +12,8 @@ class Constants {
   // Attacks
   static const int MISSILE_ATTACK_WARNING_TIME = 60; // in seconds
   static const int MISSILE_ATTACK_DAMAGE_PER_KT = 1000;
-  static const int UNIT_ATTACK_WARNING_TIME = 60; // in seconds
-  static const int UNIT_ATTACK_DAMAGE_PER_POWER = 10000;
+  static const int MILITARY_FORCE_ATTACK_WARNING_TIME = 60; // in seconds
+  static const int MILITARY_FORCE_ATTACK_DAMAGE = 10000;
 
   static const Map<BuildingType, double> PRODUCTION_RATE = {
     BuildingType.power_plant: 0.5,
@@ -35,11 +35,7 @@ class Constants {
     ResearchType.warning_missiles_hypersonic_propulsion: 0.1,
     ResearchType.warning_military_early_warning: 0.1,
     ResearchType.warning_military_fast_deployments: 0.1,
-    ResearchType.unit_infantry_cost: 0.1,
-    ResearchType.unit_infantry_time: 0.1,
-    ResearchType.unit_vehicles_cost: 0.1,
-    ResearchType.unit_vehicles_time: 0.1,
-    ResearchType.unit_aircraft_cost: 0.1,
-    ResearchType.unit_aircraft_time: 0.1,
+    ResearchType.military_cost: 0.1,
+    ResearchType.military_time: 0.1,
   };
 }

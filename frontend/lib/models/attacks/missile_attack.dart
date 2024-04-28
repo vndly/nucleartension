@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
@@ -105,8 +104,7 @@ class MissileAttack extends Attack {
         missileEffectiveness * Constants.DEFENSE_MISSILE_EFFECTIVENESS;
     int remainingAttackMissiles = totalMissiles;
 
-    while ((remainingAttackMissiles > 0) &&
-        (defender.militaryDefenseMissiles > 0)) {
+    while ((remainingAttackMissiles > 0) && (defender.defenseMissiles > 0)) {
       defender.removeDefenseMissiles(1);
 
       if (Probability.succeeds(defenseMissilesEffectiveness)) {

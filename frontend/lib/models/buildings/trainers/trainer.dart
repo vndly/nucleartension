@@ -1,12 +1,12 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/tasks/create_unit_task.dart';
+import 'package:nucleartension/models/tasks/create_military_task.dart';
 import 'package:nucleartension/models/tasks/task.dart';
-import 'package:nucleartension/types/unit_type.dart';
+import 'package:nucleartension/types/military_type.dart';
 
 class Trainer extends Building {
-  final Map<UnitType, List<CreateUnitTask>> queues;
+  final Map<MilitaryType, List<CreateMilitaryTask>> queues;
 
   Trainer({
     required super.buildingType,
@@ -20,26 +20,27 @@ class Trainer extends Building {
 
   int get queueMaxCapacity => level * Constants.QUEUE_CAPACITY_PER_LEVEL;
 
-  int enqueuedUnits(UnitType unitType) => queues[unitType]?.length ?? 0;
+  int enqueuedMilitary(MilitaryType militaryType) =>
+      queues[militaryType]?.length ?? 0;
 
-  Task firstTask(UnitType unitType) => queues[unitType]!.first;
+  Task firstTask(MilitaryType militaryType) => queues[militaryType]!.first;
 
   bool get isQueueAvailable => queueSize < queueMaxCapacity;
 
-  bool hasResourcesToCreate(UnitType unitType) =>
-      player.resources.hasItems(unitType.effectiveCost(player));
+  bool hasResourcesToCreate(MilitaryType militaryType) =>
+      player.resources.hasItems(militaryType.effectiveCost(player));
 
-  bool canCreateUnit(UnitType unitType) =>
-      (level > 0) && isQueueAvailable && hasResourcesToCreate(unitType);
+  bool canCreateMilitary(MilitaryType militaryType) =>
+      (level > 0) && isQueueAvailable && hasResourcesToCreate(militaryType);
 
-  bool enqueueUnit(UnitType unitType) {
-    if (canCreateUnit(unitType)) {
-      final ResourceMap cost = unitType.effectiveCost(player);
-      final num duration = unitType.effectiveDuration(player);
+  bool enqueueMilitary(MilitaryType militaryType) {
+    if (canCreateMilitary(militaryType)) {
+      final ResourceMap cost = militaryType.effectiveCost(player);
+      final num duration = militaryType.effectiveDuration(player);
       player.resources.removeItems(cost);
 
-      queues[unitType]?.add(CreateUnitTask(
-        unitType: unitType,
+      queues[militaryType]?.add(CreateMilitaryTask(
+        militaryType: militaryType,
         cost: cost,
         duration: duration,
       ));
@@ -52,7 +53,7 @@ class Trainer extends Building {
 
   @override
   void update(double dt) {
-    for (final List<CreateUnitTask> queue in queues.values) {
+    for (final List<CreateMilitaryTask> queue in queues.values) {
       _processQueue(
         dt: dt,
         queue: queue,
@@ -64,13 +65,13 @@ class Trainer extends Building {
 
   void _processQueue({
     required double dt,
-    required List<CreateUnitTask> queue,
+    required List<CreateMilitaryTask> queue,
   }) {
     if (queue.isNotEmpty) {
-      final CreateUnitTask task = queue.first;
+      final CreateMilitaryTask task = queue.first;
 
       if (task.update(dt)) {
-        player.createUnit(task.unitType);
+        player.createMilitary(task.militaryType);
         queue.remove(task);
       }
     }

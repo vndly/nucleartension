@@ -56,8 +56,8 @@ class AttackDialog extends StatefulWidget {
     required Function(int) onAccept,
   }) =>
       _show(
-        title: Localized.get.dialogAttackMilitaryTitle(defender.name),
-        message: Localized.get.dialogAttackMilitaryMessage,
+        title: Localized.get.dialogAttackCombatForcesTitle(defender.name),
+        message: Localized.get.dialogAttackCombatForcesMessage,
         max: max,
         buttonAccept: Localized.get.buttonAttack,
         buttonCancel: Localized.get.buttonCancel,
@@ -120,9 +120,9 @@ class _AttackDialogState extends State<AttackDialog> {
                       _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT,
                     ),
                   )
-                : Localized.get.dialogAttackMilitarySummary(
+                : Localized.get.dialogAttackCombatForcesSummary(
                     Formatter.resourceRaw(
-                      _selected * Constants.UNIT_ATTACK_DAMAGE_PER_POWER,
+                      _selected * Constants.MILITARY_FORCE_ATTACK_DAMAGE,
                     ),
                   ),
             color: Palette.textPrimary,

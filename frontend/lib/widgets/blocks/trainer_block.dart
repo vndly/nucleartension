@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/trainers/trainer.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
-import 'package:nucleartension/types/unit_type.dart';
 import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/widgets/buttons/create_unit_button.dart';
+import 'package:nucleartension/widgets/buttons/create_military_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
@@ -52,14 +52,15 @@ class TrainerBlock extends StatelessWidget {
             ),
           ),
           if (trainer.level > 0) ...[
-            for (final UnitType unitType in trainer.buildingType.units) ...[
+            for (final MilitaryType militaryType
+                in trainer.buildingType.military) ...[
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: RowSeparator(),
               ),
-              UnitSection(
+              CombatForcesSection(
                 trainer: trainer,
-                unitType: unitType,
+                militaryType: militaryType,
               ),
             ]
           ],
@@ -140,19 +141,19 @@ class TrainerRightSection extends StatelessWidget {
   }
 }
 
-class UnitSection extends StatelessWidget {
+class CombatForcesSection extends StatelessWidget {
   final Trainer trainer;
-  final UnitType unitType;
+  final MilitaryType militaryType;
 
-  const UnitSection({
+  const CombatForcesSection({
     required this.trainer,
-    required this.unitType,
+    required this.militaryType,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => InformationDialog.unit(unitType),
+      onTap: () => InformationDialog.military(militaryType),
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
@@ -160,24 +161,24 @@ class UnitSection extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             LabeledInfo(
-              title: unitType.localized.toUpperCase(),
-              onTap: () => InformationDialog.unit(unitType),
+              title: militaryType.localized.toUpperCase(),
+              onTap: () => InformationDialog.military(militaryType),
             ),
             const VBox(12),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                UnitLeftSection(
+                CombatForcesLeftSection(
                   trainer: trainer,
-                  unitType: unitType,
+                  militaryType: militaryType,
                 ),
-                UnitCenterSection(
+                CombatForcesCenterSection(
                   trainer: trainer,
-                  unitType: unitType,
+                  militaryType: militaryType,
                 ),
-                UnitRightSection(
+                CombatForcesRightSection(
                   trainer: trainer,
-                  unitType: unitType,
+                  militaryType: militaryType,
                 ),
               ],
             ),
@@ -188,36 +189,36 @@ class UnitSection extends StatelessWidget {
   }
 }
 
-class UnitLeftSection extends StatelessWidget {
+class CombatForcesLeftSection extends StatelessWidget {
   final Trainer trainer;
-  final UnitType unitType;
+  final MilitaryType militaryType;
 
-  const UnitLeftSection({
+  const CombatForcesLeftSection({
     required this.trainer,
-    required this.unitType,
+    required this.militaryType,
   });
 
   @override
   Widget build(BuildContext context) {
-    return UnitImageBlock(
-      unitType: unitType,
+    return MilitaryImageBlock(
+      militaryType: militaryType,
       size: 50,
     );
   }
 }
 
-class UnitCenterSection extends StatelessWidget {
+class CombatForcesCenterSection extends StatelessWidget {
   final Trainer trainer;
-  final UnitType unitType;
+  final MilitaryType militaryType;
 
-  const UnitCenterSection({
+  const CombatForcesCenterSection({
     required this.trainer,
-    required this.unitType,
+    required this.militaryType,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (trainer.enqueuedUnits(unitType) > 0) {
+    if (trainer.enqueuedMilitary(militaryType) > 0) {
       final double gap = Environment.hasSmallScreen ? 0.15 : 0.07;
 
       return Expanded(
@@ -226,7 +227,7 @@ class UnitCenterSection extends StatelessWidget {
           children: [
             const Spacer(),
             Label(
-              text: trainer.enqueuedUnits(unitType).toString(),
+              text: trainer.enqueuedMilitary(militaryType).toString(),
               size: 14,
               color: Palette.textPrimary,
             ),
@@ -239,7 +240,7 @@ class UnitCenterSection extends StatelessWidget {
             const HBox(10),
             TaskProgressIndicator(
               size: 50,
-              task: trainer.firstTask(unitType),
+              task: trainer.firstTask(militaryType),
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * gap,
@@ -253,25 +254,25 @@ class UnitCenterSection extends StatelessWidget {
   }
 }
 
-class UnitRightSection extends StatelessWidget {
+class CombatForcesRightSection extends StatelessWidget {
   final Trainer trainer;
-  final UnitType unitType;
+  final MilitaryType militaryType;
 
-  const UnitRightSection({
+  const CombatForcesRightSection({
     required this.trainer,
-    required this.unitType,
+    required this.militaryType,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (unitType == UnitType.missile_attack) {
+    if (militaryType == MilitaryType.missile_attack) {
       final Research research =
           trainer.player.getResearch(ResearchType.missiles_nuclear_bomb);
 
       if (research.level > 0) {
-        return CreateUnitButton(
+        return CreateMilitaryButton(
           trainer: trainer,
-          unitType: unitType,
+          militaryType: militaryType,
         );
       } else {
         return Label(
@@ -285,9 +286,9 @@ class UnitRightSection extends StatelessWidget {
         );
       }
     } else {
-      return CreateUnitButton(
+      return CreateMilitaryButton(
         trainer: trainer,
-        unitType: unitType,
+        militaryType: militaryType,
       );
     }
   }

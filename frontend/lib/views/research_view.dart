@@ -159,36 +159,16 @@ class ResearchMilitary extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        BlockTitle(Localized.get.screenResearchUnits),
+        BlockTitle(Localized.get.screenResearchCombatForces),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.unit_infantry_cost),
+          research: player.getResearch(ResearchType.military_cost),
         ),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.unit_infantry_time),
-        ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research: player.getResearch(ResearchType.unit_vehicles_cost),
-        ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research: player.getResearch(ResearchType.unit_vehicles_time),
-        ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research: player.getResearch(ResearchType.unit_aircraft_cost),
-        ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research: player.getResearch(ResearchType.unit_aircraft_time),
+          research: player.getResearch(ResearchType.military_time),
         ),
       ],
     );
