@@ -88,6 +88,7 @@ class MissileAttack extends Attack {
         result.add(PlayerDefeated(
           player: defender,
           killer: attacker,
+          loot: loot,
         ));
       }
 

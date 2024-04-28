@@ -110,6 +110,14 @@ abstract class BaseLocalized {
 
   String eventPlayerDefeatedLine1(String param1, String param2);
 
+  String get eventPlayerDefeatedLine2;
+
+  String eventPlayerDefeatedLine3(String param1);
+
+  String eventPlayerDefeatedLine4(String param1);
+
+  String eventPlayerDefeatedLine5(String param1);
+
   String get headerAttackMissiles;
 
   String get headerDefcon;
@@ -556,6 +564,21 @@ class ENLocalized extends BaseLocalized {
   @override
   String eventPlayerDefeatedLine1(String param1, String param2) =>
       '${param1.toString()} has been defeated by ${param2.toString()}';
+
+  @override
+  String get eventPlayerDefeatedLine2 => 'Resources looted:';
+
+  @override
+  String eventPlayerDefeatedLine3(String param1) =>
+      'Energy: ${param1.toString()}';
+
+  @override
+  String eventPlayerDefeatedLine4(String param1) =>
+      'Supplies: ${param1.toString()}';
+
+  @override
+  String eventPlayerDefeatedLine5(String param1) =>
+      'Technology: ${param1.toString()}';
 
   @override
   String get headerAttackMissiles => 'Attack Missiles:';

@@ -82,6 +82,7 @@ class UnitAttack extends Attack {
           result.add(PlayerDefeated(
             player: defender,
             killer: attacker,
+            loot: loot,
           ));
         }
 
