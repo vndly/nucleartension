@@ -28,7 +28,9 @@ class ForegroundPainter extends CustomPainter {
     canvas.drawLine(
       const Offset(0, 0),
       Offset(size.width, size.height),
-      Paint()..color = Colors.green,
+      Paint()
+        ..color = Colors.green
+        ..strokeWidth = size.width / 100,
     );
   }
 
@@ -39,8 +41,15 @@ class ForegroundPainter extends CustomPainter {
 class MiddleLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0x88ff0000),
+    return Center(
+      child: Container(
+        width: 300,
+        height: 300,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.blue,
+        ),
+      ),
     );
   }
 }
@@ -48,10 +57,9 @@ class MiddleLayer extends StatelessWidget {
 class BackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawCircle(
-      Offset(size.width / 2, size.height / 2),
-      size.width / 4,
-      Paint()..color = Colors.blue,
+    canvas.drawRect(
+      Rect.fromLTRB(0, 0, size.width, size.height),
+      Paint()..color = Colors.red,
     );
   }
 
