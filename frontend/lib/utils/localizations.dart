@@ -64,7 +64,7 @@ abstract class BaseLocalized {
 
   String get dialogInformationPlayerTroops;
 
-  String get dialogInformationPlayerWonMessage;
+  String dialogInformationPlayerWonMessage(String param1);
 
   String get dialogInformationPlayerWonTitle;
 
@@ -461,8 +461,8 @@ class ENLocalized extends BaseLocalized {
   String get dialogInformationPlayerTroops => 'Troops:';
 
   @override
-  String get dialogInformationPlayerWonMessage =>
-      'You successfully destroyed all your enemies.';
+  String dialogInformationPlayerWonMessage(String param1) =>
+      'You successfully destroyed all your enemies in ${param1.toString()}.';
 
   @override
   String get dialogInformationPlayerWonTitle => 'You won the match';

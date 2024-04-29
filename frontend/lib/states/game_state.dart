@@ -3,6 +3,7 @@ import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
+import 'package:nucleartension/extensions/duration_extension.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
@@ -131,8 +132,8 @@ class GameState extends BaseState {
       name: name,
       country: country,
       resources: ResourceInventory.create({
-        ResourceType.energy: 500,
-        ResourceType.supplies: 500,
+        ResourceType.energy: 1000,
+        ResourceType.supplies: 1000,
         ResourceType.technology: 0,
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
@@ -238,7 +239,10 @@ class GameState extends BaseState {
 
   void onPlayerWon() {
     finished = true;
-    InformationDialog.playerWon(_onQuit);
+    InformationDialog.playerWon(
+      time: Duration(seconds: game.timeElapsed.floor()).formatted,
+      onAccept: _onQuit,
+    );
   }
 
   void onPlayerLost(Player killer) {

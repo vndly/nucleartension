@@ -62,9 +62,13 @@ class InformationDialog extends StatelessWidget {
         onAccept: onAccept,
       );
 
-  static DialogController playerWon(VoidCallback onAccept) => _messageInfo(
+  static DialogController playerWon({
+    required String time,
+    required VoidCallback onAccept,
+  }) =>
+      _messageInfo(
         title: Localized.get.dialogInformationPlayerWonTitle,
-        message: Localized.get.dialogInformationPlayerWonMessage,
+        message: Localized.get.dialogInformationPlayerWonMessage(time),
         onAccept: onAccept,
       );
 

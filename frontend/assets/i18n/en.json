@@ -30,7 +30,7 @@
     "dialog.information.player.population": "Population:",
     "dialog.information.player.research": "Research:",
     "dialog.information.player.troops": "Troops:",
-    "dialog.information.player.won.message": "You successfully destroyed all your enemies.",
+    "dialog.information.player.won.message": "You successfully destroyed all your enemies in %1$s.",
     "dialog.information.player.won.title": "You won the match",
     "dialog.pause.resume": "Resume",
     "dialog.pause.title": "Pause",
