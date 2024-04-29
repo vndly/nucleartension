@@ -46,6 +46,5 @@ flutter:
     - assets/images/
     - assets/images/buildings/
     - assets/images/countries/
-    - assets/images/missiles/
+    - assets/images/military/
     - assets/images/research/
-    - assets/images/units/

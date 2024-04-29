@@ -9,21 +9,21 @@ import 'package:nucleartension/utils/localizations.dart';
 
 enum MilitaryType {
   troop(
-    sprite: Assets.IMAGES_UNITS_INFANTRY, // TODO(momo): change
+    sprite: Assets.IMAGES_MILITARY_TROOP,
     cost: {
       ResourceType.energy: 50,
       ResourceType.supplies: 100,
     },
   ),
   missile_defense(
-    sprite: Assets.IMAGES_MISSILES_DEFENSE,
+    sprite: Assets.IMAGES_MILITARY_MISSILE_DEFENSE,
     cost: {
       ResourceType.energy: 60,
       ResourceType.supplies: 30,
     },
   ),
   missile_attack(
-    sprite: Assets.IMAGES_MISSILES_ATTACK,
+    sprite: Assets.IMAGES_MILITARY_MISSILE_ATTACK,
     cost: {
       ResourceType.energy: 80,
       ResourceType.supplies: 40,

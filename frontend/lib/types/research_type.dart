@@ -87,7 +87,7 @@ enum ResearchType {
 
   // troops
   troop_cost(
-    sprite: Assets.IMAGES_RESEARCH_TROOPS_COST, // TODO(momo): change
+    sprite: Assets.IMAGES_RESEARCH_TROOPS_COST,
     maxLevel: 5,
     costRate: 2,
     initialCost: {
@@ -95,7 +95,7 @@ enum ResearchType {
     },
   ),
   troop_time(
-    sprite: Assets.IMAGES_RESEARCH_TROOPS_TIME, // TODO(momo): change
+    sprite: Assets.IMAGES_RESEARCH_TROOPS_TIME,
     maxLevel: 5,
     costRate: 2,
     initialCost: {

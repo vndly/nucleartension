@@ -22,10 +22,12 @@ class Assets {
   static const String IMAGES_COUNTRIES_PK = 'assets/images/countries/pk.png';
   static const String IMAGES_COUNTRIES_RU = 'assets/images/countries/ru.png';
   static const String IMAGES_COUNTRIES_US = 'assets/images/countries/us.png';
-  static const String IMAGES_MISSILES_ATTACK =
-      'assets/images/missiles/attack.png';
-  static const String IMAGES_MISSILES_DEFENSE =
-      'assets/images/missiles/defense.png';
+  static const String IMAGES_MILITARY_MISSILE_ATTACK =
+      'assets/images/military/missile_attack.png';
+  static const String IMAGES_MILITARY_MISSILE_DEFENSE =
+      'assets/images/military/missile_defense.png';
+  static const String IMAGES_MILITARY_TROOP =
+      'assets/images/military/troop.png';
   static const String IMAGES_RESEARCH_INTEL_MISSILES =
       'assets/images/research/intel_missiles.png';
   static const String IMAGES_RESEARCH_INTEL_POPULATION =
@@ -64,9 +66,4 @@ class Assets {
       'assets/images/research/warning_troops_early_warning.png';
   static const String IMAGES_RESEARCH_WARNING_TROOPS_FAST_DEPLOYMENTS =
       'assets/images/research/warning_troops_fast_deployments.png';
-  static const String IMAGES_UNITS_AIRCRAFT =
-      'assets/images/units/aircraft.png';
-  static const String IMAGES_UNITS_INFANTRY =
-      'assets/images/units/infantry.png';
-  static const String IMAGES_UNITS_VEHICLE = 'assets/images/units/vehicle.png';
 }
