@@ -14,10 +14,18 @@ class MapView extends StatelessWidget {
         height: constraints.maxWidth,
         child: CustomPaint(
           foregroundPainter: ForegroundPainter(),
-          painter: BackgroundPainter(),
           child: MiddleLayer(),
         ),
       ),
+    );
+  }
+}
+
+class MiddleLayer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
     );
   }
 }
@@ -31,35 +39,6 @@ class ForegroundPainter extends CustomPainter {
       Paint()
         ..color = Colors.green
         ..strokeWidth = size.width / 100,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-class MiddleLayer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 300,
-        height: 300,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blue,
-        ),
-      ),
-    );
-  }
-}
-
-class BackgroundPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas.drawRect(
-      Rect.fromLTRB(0, 0, size.width, size.height),
-      Paint()..color = Colors.red,
     );
   }
 
