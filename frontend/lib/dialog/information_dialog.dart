@@ -180,10 +180,12 @@ class InformationDialog extends StatelessWidget {
             text: hasIntelPopulation
                 ? Formatter.resourceRaw(player.population)
                 : Localized.get.dialogInformationPlayerIntelRequiredPopulation,
-            size: 14,
+            labelSize: 14,
+            textSize: 12,
             labelColor: Palette.textPrimary,
             textColor:
                 hasIntelPopulation ? Palette.textPrimary : Palette.textError,
+            textUppercase: false,
           ),
           const VBox(10),
           LabeledText(
@@ -191,10 +193,11 @@ class InformationDialog extends StatelessWidget {
             text: hasIntelTroops
                 ? Formatter.resourceRaw(player.troops)
                 : Localized.get.dialogInformationPlayerIntelRequiredTroops,
-            size: 14,
+            labelSize: 14,
+            textSize: 12,
             labelColor: Palette.textPrimary,
-            textColor:
-                hasIntelTroops ? Palette.textPrimary : Palette.textError,
+            textColor: hasIntelTroops ? Palette.textPrimary : Palette.textError,
+            textUppercase: false,
           ),
           const VBox(10),
           LabeledText(
@@ -202,10 +205,12 @@ class InformationDialog extends StatelessWidget {
             text: hasIntelMissiles
                 ? Formatter.resourceRaw(player.amountOfMissiles)
                 : Localized.get.dialogInformationPlayerIntelRequiredMissiles,
-            size: 14,
+            labelSize: 14,
+            textSize: 12,
             labelColor: Palette.textPrimary,
             textColor:
                 hasIntelMissiles ? Palette.textPrimary : Palette.textError,
+            textUppercase: false,
           ),
           const VBox(10),
           LabeledText(
@@ -213,10 +218,12 @@ class InformationDialog extends StatelessWidget {
             text: hasIntelResearch
                 ? Formatter.resourceRaw(player.researchLevel)
                 : Localized.get.dialogInformationPlayerIntelRequiredResearch,
-            size: 14,
+            labelSize: 14,
+            textSize: 12,
             labelColor: Palette.textPrimary,
             textColor:
                 hasIntelResearch ? Palette.textPrimary : Palette.textError,
+            textUppercase: false,
           ),
           if (Environment.isDebug) ...[
             const VBox(10),
@@ -252,10 +259,12 @@ class InformationDialog extends StatelessWidget {
         LabeledText(
           label: label,
           text: text.toString(),
-          size: 12,
+          labelSize: 12,
+          textSize: 12,
           labelColor: Palette.textPrimary,
           textColor: Palette.textPrimary,
-          uppercase: false,
+          labelUppercase: false,
+          textUppercase: false,
         ),
       ];
 

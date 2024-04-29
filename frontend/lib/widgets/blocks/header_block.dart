@@ -303,7 +303,8 @@ class ExpandedResourceLabel extends StatelessWidget {
           text: Formatter.resource(player.resources.get(resourceType)),
           labelColor: Palette.textPrimary,
           textColor: Palette.textPrimary,
-          size: 14,
+          labelSize: 14,
+          textSize: 14,
         ),
       ],
     );
@@ -339,7 +340,8 @@ class ExpandedMilitaryLabel extends StatelessWidget {
           text: value,
           labelColor: Palette.textPrimary,
           textColor: Palette.textPrimary,
-          size: 14,
+          labelSize: 14,
+          textSize: 14,
         ),
       ],
     );

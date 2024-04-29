@@ -6,18 +6,22 @@ import 'package:nucleartension/widgets/labels/label.dart';
 class LabeledText extends StatelessWidget {
   final String label;
   final String text;
-  final double size;
+  final double labelSize;
+  final double textSize;
   final Color labelColor;
   final Color textColor;
-  final bool uppercase;
+  final bool labelUppercase;
+  final bool textUppercase;
 
   const LabeledText({
     required this.label,
     required this.text,
-    required this.size,
+    required this.labelSize,
+    required this.textSize,
     this.labelColor = Palette.textPrimary,
     this.textColor = Palette.textPrimary,
-    this.uppercase = true,
+    this.labelUppercase = true,
+    this.textUppercase = true,
   });
 
   @override
@@ -29,15 +33,15 @@ class LabeledText extends StatelessWidget {
           text: label,
           color: labelColor,
           weight: FontWeight.bold,
-          size: size,
-          uppercase: uppercase,
+          size: labelSize,
+          uppercase: labelUppercase,
         ),
         const HBox(5),
         Label(
           text: text,
           color: textColor,
-          size: size,
-          uppercase: uppercase,
+          size: textSize,
+          uppercase: textUppercase,
         ),
       ],
     );
