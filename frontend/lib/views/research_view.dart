@@ -14,16 +14,18 @@ class ResearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ResearchResources(game.self),
-          ResearchMissiles(game.self),
-          ResearchTroops(game.self),
-          //ResearchWarning(game.self),
-          ResearchIntel(game.self),
-        ],
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ResearchResources(game.self),
+            ResearchMissiles(game.self),
+            ResearchTroops(game.self),
+            //ResearchWarning(game.self),
+            ResearchIntel(game.self),
+          ],
+        ),
       ),
     );
   }

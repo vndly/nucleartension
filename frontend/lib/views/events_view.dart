@@ -14,19 +14,37 @@ class EventsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Event> events = game.visibleEvents;
 
-    if (events.isEmpty) {
-      return Center(
-        child: Label(text: Localized.get.screenEventsNoEvents),
-      );
-    } else {
-      return SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (final Event event in events) EventBlock(event),
-          ],
-        ),
-      );
-    }
+    return Expanded(
+      child: events.isEmpty ? const NoEvents() : EventsList(events),
+    );
+  }
+}
+
+class NoEvents extends StatelessWidget {
+  const NoEvents();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Label(text: Localized.get.screenEventsNoEvents),
+    );
+  }
+}
+
+class EventsList extends StatelessWidget {
+  final List<Event> events;
+
+  const EventsList(this.events);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (final Event event in events) EventBlock(event),
+        ],
+      ),
+    );
   }
 }

@@ -137,7 +137,7 @@ class _GameContentState extends State<GameContent> {
             WarningBlock(widget.state.game),
             HeaderBlock(widget.state.game.self),
             const BlockSeparator(),
-            Expanded(child: _body(currentIndex)),
+            _body(currentIndex),
           ],
         ),
       ),

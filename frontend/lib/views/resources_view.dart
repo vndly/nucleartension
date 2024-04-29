@@ -10,23 +10,25 @@ class ResourcesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ProducerBlock(game.self.powerPlant),
-          const BlockSeparator(),
-          ProducerBlock(game.self.supplyCenter),
-          if (game.self.powerPlant.level > 0) ...[
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ProducerBlock(game.self.powerPlant),
             const BlockSeparator(),
-            ProducerBlock(game.self.techLab),
-          ],
-          if (game.self.supplyCenter.level > 0) ...[
+            ProducerBlock(game.self.supplyCenter),
+            if (game.self.powerPlant.level > 0) ...[
+              const BlockSeparator(),
+              ProducerBlock(game.self.techLab),
+            ],
+            if (game.self.supplyCenter.level > 0) ...[
+              const BlockSeparator(),
+              ProducerBlock(game.self.propagandaStation),
+            ],
             const BlockSeparator(),
-            ProducerBlock(game.self.propagandaStation),
           ],
-          const BlockSeparator(),
-        ],
+        ),
       ),
     );
   }
