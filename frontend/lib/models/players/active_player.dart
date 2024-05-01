@@ -474,15 +474,15 @@ class AttackProfile implements ActionChoice {
     }
   }
 
-  factory AttackProfile.aggressiveTroop() => const AttackProfile._(10, 20);
+  factory AttackProfile.aggressiveTroop() => const AttackProfile._(5, 10);
 
-  factory AttackProfile.aggressiveMissiles() => const AttackProfile._(20, 10);
+  factory AttackProfile.aggressiveMissiles() => const AttackProfile._(10, 5);
 
-  factory AttackProfile.aggressiveMix() => const AttackProfile._(10, 10);
+  factory AttackProfile.aggressiveMix() => const AttackProfile._(5, 5);
 
-  factory AttackProfile.neutral() => const AttackProfile._(20, 20);
+  factory AttackProfile.neutral() => const AttackProfile._(10, 10);
 
-  factory AttackProfile.defensive() => const AttackProfile._(30, 30);
+  factory AttackProfile.defensive() => const AttackProfile._(20, 20);
 }
 
 class FinalAction implements ActionChoice {
