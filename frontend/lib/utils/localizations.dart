@@ -427,19 +427,19 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogInformationPlayerIntelRequiredMissiles =>
-      'Intel reseach required';
+      'Intel research required';
 
   @override
   String get dialogInformationPlayerIntelRequiredPopulation =>
-      'Intel reseach required';
+      'Intel research required';
 
   @override
   String get dialogInformationPlayerIntelRequiredResearch =>
-      'Intel reseach required';
+      'Intel research required';
 
   @override
   String get dialogInformationPlayerIntelRequiredTroops =>
-      'Intel reseach required';
+      'Intel research required';
 
   @override
   String dialogInformationPlayerLostMessage(String param1) =>

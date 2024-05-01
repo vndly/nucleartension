@@ -2,6 +2,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -31,7 +32,7 @@ class ProducerBlock extends StatelessWidget {
               HeaderSection(producer),
               const VBox(12),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   LeftSection(producer),
                   const Spacer(),
@@ -104,10 +105,40 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeButton(
+    final Widget button = UpgradeButton(
       upgradable: producer,
       size: 70,
     );
+
+    if (producer.buildingType == BuildingType.tech_lab) {
+      if (producer.player.powerPlant.level > 0) {
+        return button;
+      } else {
+        return Label(
+          text: Localized.get
+              .labelRequiresBuilding(BuildingType.power_plant.localized)
+              .replaceAll(' ', '\n'),
+          color: Palette.error,
+          align: TextAlign.center,
+          size: 12,
+        );
+      }
+    } else if (producer.buildingType == BuildingType.propaganda_station) {
+      if (producer.player.supplyCenter.level > 0) {
+        return button;
+      } else {
+        return Label(
+          text: Localized.get
+              .labelRequiresBuilding(BuildingType.supply_center.localized)
+              .replaceAll(' ', '\n'),
+          color: Palette.error,
+          align: TextAlign.center,
+          size: 12,
+        );
+      }
+    } else {
+      return button;
+    }
   }
 }
 
