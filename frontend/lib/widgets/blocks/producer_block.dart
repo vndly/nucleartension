@@ -2,6 +2,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
+import 'package:nucleartension/models/requirement.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
@@ -110,34 +111,20 @@ class RightSection extends StatelessWidget {
       size: 70,
     );
 
-    if (producer.buildingType == BuildingType.tech_lab) {
-      if (producer.player.powerPlant.level > 0) {
-        return button;
-      } else {
-        return Label(
-          text: Localized.get
-              .labelRequiresBuilding(BuildingType.power_plant.localized)
-              .replaceAll(' ', '\n'),
-          color: Palette.error,
-          align: TextAlign.center,
-          size: 12,
-        );
-      }
-    } else if (producer.buildingType == BuildingType.propaganda_station) {
-      if (producer.player.supplyCenter.level > 0) {
-        return button;
-      } else {
-        return Label(
-          text: Localized.get
-              .labelRequiresBuilding(BuildingType.supply_center.localized)
-              .replaceAll(' ', '\n'),
-          color: Palette.error,
-          align: TextAlign.center,
-          size: 12,
-        );
-      }
-    } else {
+    final Requirement<BuildingType> requirement =
+        producer.buildingType.requirement;
+
+    if (requirement.fulfilled(producer.player)) {
       return button;
+    } else {
+      return Label(
+        text: Localized.get
+            .labelRequiresBuilding(requirement.type!.localized)
+            .replaceAll(' ', '\n'),
+        color: Palette.error,
+        align: TextAlign.center,
+        size: 12,
+      );
     }
   }
 }

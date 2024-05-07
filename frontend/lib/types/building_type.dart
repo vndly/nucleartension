@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/requirement.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
@@ -30,6 +31,7 @@ enum BuildingType {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
     },
+    requirement: Requirement(BuildingType.power_plant),
   ),
   propaganda_station(
     sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
@@ -38,6 +40,7 @@ enum BuildingType {
       ResourceType.energy: 100,
       ResourceType.supplies: 100,
     },
+    requirement: Requirement(BuildingType.supply_center),
   ),
   military_facility(
     sprite: Assets.IMAGES_BUILDINGS_MILITARY_FACILITY,
@@ -59,11 +62,13 @@ enum BuildingType {
   final String sprite;
   final double costRate;
   final ResourceMap initialCost;
+  final Requirement<BuildingType> requirement;
 
   const BuildingType({
     required this.sprite,
     required this.costRate,
     required this.initialCost,
+    this.requirement = const Requirement(null),
   });
 
   ResourceMap cost(int level) => initialCost.multiply(pow(costRate, level - 1));
