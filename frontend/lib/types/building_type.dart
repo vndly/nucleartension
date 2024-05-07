@@ -31,7 +31,10 @@ enum BuildingType {
       ResourceType.energy: 50,
       ResourceType.supplies: 50,
     },
-    requirement: Requirement(BuildingType.power_plant),
+    requirement: Requirement(
+      type: BuildingType.power_plant,
+      minLevel: 1,
+    ),
   ),
   propaganda_station(
     sprite: Assets.IMAGES_BUILDINGS_PROPAGANDA_STATION,
@@ -40,7 +43,10 @@ enum BuildingType {
       ResourceType.energy: 100,
       ResourceType.supplies: 100,
     },
-    requirement: Requirement(BuildingType.supply_center),
+    requirement: Requirement(
+      type: BuildingType.supply_center,
+      minLevel: 1,
+    ),
   ),
   military_facility(
     sprite: Assets.IMAGES_BUILDINGS_MILITARY_FACILITY,
@@ -49,6 +55,10 @@ enum BuildingType {
       ResourceType.energy: 100,
       ResourceType.supplies: 100,
     },
+    requirement: Requirement(
+      type: BuildingType.supply_center,
+      minLevel: 3,
+    ),
   ),
   missile_silo(
     sprite: Assets.IMAGES_BUILDINGS_MISSILE_SILO,
@@ -57,6 +67,10 @@ enum BuildingType {
       ResourceType.energy: 200,
       ResourceType.supplies: 200,
     },
+    requirement: Requirement(
+      type: BuildingType.power_plant,
+      minLevel: 3,
+    ),
   );
 
   final String sprite;

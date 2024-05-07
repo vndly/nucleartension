@@ -19,7 +19,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.power_plant),
+    requirement: Requirement(
+      type: BuildingType.power_plant,
+      minLevel: 1,
+    ),
   ),
   resources_production_chain(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_PRODUCTION_CHAIN,
@@ -28,7 +31,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.supply_center),
+    requirement: Requirement(
+      type: BuildingType.supply_center,
+      minLevel: 1,
+    ),
   ),
   resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING,
@@ -37,7 +43,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.tech_lab),
+    requirement: Requirement(
+      type: BuildingType.tech_lab,
+      minLevel: 1,
+    ),
   ),
   resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_INDOCTRINATION,
@@ -46,7 +55,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.propaganda_station),
+    requirement: Requirement(
+      type: BuildingType.propaganda_station,
+      minLevel: 1,
+    ),
   ),
 
   // missiles
@@ -57,7 +69,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.missile_silo),
+    requirement: Requirement(
+      type: BuildingType.missile_silo,
+      minLevel: 1,
+    ),
   ),
   missiles_assembly_automation(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ASSEMBLY_AUTOMATION,
@@ -66,7 +81,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.missile_silo),
+    requirement: Requirement(
+      type: BuildingType.missile_silo,
+      minLevel: 1,
+    ),
   ),
   missiles_active_tracking(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING,
@@ -75,7 +93,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.missile_silo),
+    requirement: Requirement(
+      type: BuildingType.missile_silo,
+      minLevel: 1,
+    ),
   ),
   missiles_signal_jamming(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING,
@@ -84,7 +105,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.missile_silo),
+    requirement: Requirement(
+      type: BuildingType.missile_silo,
+      minLevel: 1,
+    ),
   ),
   missiles_nuclear_bomb(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_NUCLEAR_BOMB,
@@ -93,7 +117,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.missile_silo),
+    requirement: Requirement(
+      type: BuildingType.missile_silo,
+      minLevel: 1,
+    ),
   ),
 
   // troops
@@ -104,7 +131,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.military_facility),
+    requirement: Requirement(
+      type: BuildingType.military_facility,
+      minLevel: 1,
+    ),
   ),
   troop_time(
     sprite: Assets.IMAGES_RESEARCH_TROOPS_TIME,
@@ -113,7 +143,10 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(BuildingType.military_facility),
+    requirement: Requirement(
+      type: BuildingType.military_facility,
+      minLevel: 1,
+    ),
   ),
 
   // warning

@@ -29,7 +29,10 @@ enum MilitaryType {
       ResourceType.energy: 80,
       ResourceType.supplies: 40,
     },
-    requirement: Requirement(ResearchType.missiles_nuclear_bomb),
+    requirement: Requirement(
+      type: ResearchType.missiles_nuclear_bomb,
+      minLevel: 1,
+    ),
   );
 
   final String sprite;
