@@ -30,6 +30,8 @@ class Research extends Upgradable {
 
   BuildingType get requirementType => researchType.requirement.type!;
 
+  int get requirementMinLevel => researchType.requirement.minLevel;
+
   double get rate => researchType.rate * level;
 
   double get increaseRate => 1 + rate;

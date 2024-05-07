@@ -24,4 +24,6 @@ class Building extends Upgradable {
   bool get requirementFulfilled => buildingType.requirement.fulfilled(player);
 
   BuildingType get requirementType => buildingType.requirement.type!;
+
+  int get requirementMinLevel => buildingType.requirement.minLevel;
 }

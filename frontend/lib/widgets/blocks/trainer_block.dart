@@ -142,9 +142,10 @@ class TrainerRightSection extends StatelessWidget {
       );
     } else {
       return Label(
-        text: Localized.get
-            .labelRequiresBuilding(trainer.requirementType.localized)
-            .replaceAll(' ', '\n'),
+        text: Localized.get.labelRequiresBuilding(
+          trainer.requirementType.localized.replaceAll(' ', '\n'),
+          trainer.requirementMinLevel,
+        ),
         color: Palette.error,
         align: TextAlign.center,
         size: 12,
@@ -287,9 +288,10 @@ class TroopRightSection extends StatelessWidget {
       );
     } else {
       return Label(
-        text: Localized.get
-            .labelRequiresResearch(requirement.type!.localized)
-            .replaceAll(' ', '\n'),
+        text: Localized.get.labelRequiresResearch(
+          requirement.type!.localized.replaceAll(' ', '\n'),
+          requirement.minLevel,
+        ),
         color: Palette.error,
         align: TextAlign.center,
         size: 12,

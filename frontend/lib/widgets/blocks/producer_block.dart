@@ -111,9 +111,10 @@ class RightSection extends StatelessWidget {
       );
     } else {
       return Label(
-        text: Localized.get
-            .labelRequiresBuilding(producer.requirementType.localized)
-            .replaceAll(' ', '\n'),
+        text: Localized.get.labelRequiresBuilding(
+          producer.requirementType.localized.replaceAll(' ', '\n'),
+          producer.requirementMinLevel,
+        ),
         color: Palette.error,
         align: TextAlign.center,
         size: 12,
