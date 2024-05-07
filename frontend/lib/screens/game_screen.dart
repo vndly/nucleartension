@@ -129,15 +129,13 @@ class _GameContentState extends State<GameContent> {
         ),
       ),
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
         color: Palette.backgroundScreen,
         child: Column(
           children: [
             WarningBlock(widget.state.game),
             HeaderBlock(widget.state.game.self),
             const BlockSeparator(),
-            _body(currentIndex),
+            Expanded(child: _body(currentIndex)),
           ],
         ),
       ),

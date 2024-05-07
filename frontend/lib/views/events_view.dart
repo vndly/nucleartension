@@ -14,9 +14,7 @@ class EventsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Event> events = game.visibleEvents;
 
-    return Expanded(
-      child: events.isEmpty ? const NoEvents() : EventsList(events),
-    );
+    return events.isEmpty ? const NoEvents() : EventsList(events);
   }
 }
 

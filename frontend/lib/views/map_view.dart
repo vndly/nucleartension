@@ -8,15 +8,9 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) => SizedBox(
-        width: constraints.maxWidth,
-        height: constraints.maxWidth,
-        child: CustomPaint(
-          foregroundPainter: ForegroundPainter(),
-          child: MiddleLayer(),
-        ),
-      ),
+    return CustomPaint(
+      foregroundPainter: ForegroundPainter(),
+      child: MiddleLayer(),
     );
   }
 }

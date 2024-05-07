@@ -10,17 +10,15 @@ class MilitaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TrainerBlock(game.self.militaryFacility),
-            const BlockSeparator(),
-            TrainerBlock(game.self.missileSilo),
-            const BlockSeparator(),
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TrainerBlock(game.self.militaryFacility),
+          const BlockSeparator(),
+          TrainerBlock(game.self.missileSilo),
+          const BlockSeparator(),
+        ],
       ),
     );
   }

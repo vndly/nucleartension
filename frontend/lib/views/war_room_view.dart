@@ -15,27 +15,25 @@ class WarRoomView extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 1 + (game.self.hasIntel ? 1 : 0),
-      child: Expanded(
-        child: Column(
-          children: [
-            TabBar(
-              labelPadding: EdgeInsets.zero,
-              tabs: [
-                TabTitle(Localized.get.screenWarRoomTabPlayers),
-                if (game.self.hasIntel)
-                  TabTitle(Localized.get.screenWarRoomTabIntel),
+      child: Column(
+        children: [
+          TabBar(
+            labelPadding: EdgeInsets.zero,
+            tabs: [
+              TabTitle(Localized.get.screenWarRoomTabPlayers),
+              if (game.self.hasIntel)
+                TabTitle(Localized.get.screenWarRoomTabIntel),
+            ],
+          ),
+          Expanded(
+            child: TabBarView(
+              children: [
+                PlayersTab(game),
+                if (game.self.hasIntel) IntelTab(game),
               ],
             ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  PlayersTab(game),
-                  if (game.self.hasIntel) IntelTab(game),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
