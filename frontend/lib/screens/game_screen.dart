@@ -82,21 +82,6 @@ class _GameContentState extends State<GameContent> {
               label: Localized.get.bottomBarWarRoom.toUpperCase(),
             ),
             BottomNavigationBarItem(
-              icon: Badge(
-                largeSize: widget.state.game.hasUnseenEvents ? 20 : 0,
-                label: Label(
-                  text: widget.state.game.unseenEvents.length.toString(),
-                  size: 15,
-                  color: Palette.textPrimary,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.only(bottom: 5),
-                  child: Icon(Icons.format_list_bulleted),
-                ),
-              ),
-              label: Localized.get.bottomBarEvents.toUpperCase(),
-            ),
-            BottomNavigationBarItem(
               icon: const Padding(
                 padding: EdgeInsets.only(bottom: 5),
                 child: Icon(Icons.widgets),
@@ -116,6 +101,21 @@ class _GameContentState extends State<GameContent> {
                 child: Icon(Icons.science),
               ),
               label: Localized.get.bottomBarResearch.toUpperCase(),
+            ),
+            BottomNavigationBarItem(
+              icon: Badge(
+                largeSize: widget.state.game.hasUnseenEvents ? 20 : 0,
+                label: Label(
+                  text: widget.state.game.unseenEvents.length.toString(),
+                  size: 15,
+                  color: Palette.textPrimary,
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Icon(Icons.format_list_bulleted),
+                ),
+              ),
+              label: Localized.get.bottomBarEvents.toUpperCase(),
             ),
             if (Environment.isDebug)
               const BottomNavigationBarItem(
@@ -148,13 +148,13 @@ class _GameContentState extends State<GameContent> {
     if (currentIndex == 0) {
       return WarRoomView(widget.state.game);
     } else if (currentIndex == 1) {
-      return EventsView(widget.state.game);
-    } else if (currentIndex == 2) {
       return ResourcesView(widget.state.game);
-    } else if (currentIndex == 3) {
+    } else if (currentIndex == 2) {
       return MilitaryView(widget.state.game);
-    } else if (currentIndex == 4) {
+    } else if (currentIndex == 3) {
       return ResearchView(widget.state.game);
+    } else if (currentIndex == 4) {
+      return EventsView(widget.state.game);
     } else if (currentIndex == 5) {
       return MapView(widget.state.game);
     } else {
