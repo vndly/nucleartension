@@ -2,7 +2,7 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/trainers/trainer.dart';
-import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/models/requirement.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/utils/environment.dart';
@@ -267,30 +267,21 @@ class TroopRightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (militaryType == MilitaryType.missile_attack) {
-      final Research research =
-          trainer.player.getResearch(ResearchType.missiles_nuclear_bomb);
+    final Requirement<ResearchType> requirement = militaryType.requirement;
 
-      if (research.level > 0) {
-        return CreateMilitaryButton(
-          trainer: trainer,
-          militaryType: militaryType,
-        );
-      } else {
-        return Label(
-          text: Localized.get
-              .labelRequiresResearch(
-                  ResearchType.missiles_nuclear_bomb.localized)
-              .replaceAll(' ', '\n'),
-          color: Palette.error,
-          align: TextAlign.center,
-          size: 12,
-        );
-      }
-    } else {
+    if (requirement.fulfilled(trainer.player)) {
       return CreateMilitaryButton(
         trainer: trainer,
         militaryType: militaryType,
+      );
+    } else {
+      return Label(
+        text: Localized.get
+            .labelRequiresResearch(requirement.type!.localized)
+            .replaceAll(' ', '\n'),
+        color: Palette.error,
+        align: TextAlign.center,
+        size: 12,
       );
     }
   }

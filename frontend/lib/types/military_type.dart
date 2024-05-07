@@ -1,6 +1,7 @@
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/models/requirement.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
@@ -28,14 +29,17 @@ enum MilitaryType {
       ResourceType.energy: 80,
       ResourceType.supplies: 40,
     },
+    requirement: Requirement(ResearchType.missiles_nuclear_bomb),
   );
 
   final String sprite;
   final ResourceMap cost;
+  final Requirement<ResearchType> requirement;
 
   const MilitaryType({
     required this.sprite,
     required this.cost,
+    this.requirement = const Requirement(),
   });
 
   ResourceMap effectiveCost(Player player) {
