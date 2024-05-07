@@ -2,8 +2,6 @@ import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
-import 'package:nucleartension/models/requirement.dart';
-import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -111,15 +109,12 @@ class RightSection extends StatelessWidget {
       size: 70,
     );
 
-    final Requirement<BuildingType> requirement =
-        producer.buildingType.requirement;
-
-    if (requirement.fulfilled(producer.player)) {
+    if (producer.requirementFulfilled) {
       return button;
     } else {
       return Label(
         text: Localized.get
-            .labelRequiresBuilding(requirement.type!.localized)
+            .labelRequiresBuilding(producer.requirementType.localized)
             .replaceAll(' ', '\n'),
         color: Palette.error,
         align: TextAlign.center,

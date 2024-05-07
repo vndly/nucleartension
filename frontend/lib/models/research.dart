@@ -18,20 +18,17 @@ class Research extends Upgradable {
   ResourceMap get upgradeCost => researchType.cost(level + 1);
 
   @override
-  bool get canUpgrade => canBeResearched && super.canUpgrade;
+  bool get canUpgrade => requirementFulfilled && super.canUpgrade;
 
   @override
   num get upgradeTime => upgradeCost.duration;
 
-  bool get canBeResearched {
-    final int buildingLevel =
-        (buildingType != null) ? player.getBuilding(buildingType!).level : 1;
-
-    return buildingLevel > 0;
-  }
-
   @override
   bool get isMax => level >= researchType.maxLevel;
+
+  bool get requirementFulfilled => researchType.requirement.fulfilled(player);
+
+  BuildingType get requirementType => researchType.requirement.type!;
 
   double get rate => researchType.rate * level;
 
@@ -42,31 +39,6 @@ class Research extends Upgradable {
   void autoResearch() {
     if (!isMax) {
       level++;
-    }
-  }
-
-  BuildingType? get buildingType {
-    switch (researchType) {
-      case ResearchType.resources_grid_management:
-        return BuildingType.power_plant;
-      case ResearchType.resources_production_chain:
-        return BuildingType.supply_center;
-      case ResearchType.resources_indoctrination:
-        return BuildingType.propaganda_station;
-      case ResearchType.resources_quantum_computing:
-        return BuildingType.tech_lab;
-      case ResearchType.missiles_additive_manufacturing:
-      case ResearchType.missiles_assembly_automation:
-      case ResearchType.missiles_active_tracking:
-      case ResearchType.missiles_signal_jamming:
-      case ResearchType.warning_missiles_hypersonic_propulsion:
-        return BuildingType.missile_silo;
-      case ResearchType.warning_troops_fast_deployments:
-      case ResearchType.troop_cost:
-      case ResearchType.troop_time:
-        return BuildingType.military_facility;
-      default:
-        return null;
     }
   }
 

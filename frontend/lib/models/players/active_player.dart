@@ -177,7 +177,7 @@ class ActivePlayer extends Player {
   void _researchTechnology(ResearchType researchType) {
     final Research research = getResearch(researchType);
 
-    if (!research.canBeResearched) {
+    if (!research.requirementFulfilled) {
       nextResearchAction = null;
       return;
     }

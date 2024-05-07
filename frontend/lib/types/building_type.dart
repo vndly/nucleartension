@@ -68,7 +68,7 @@ enum BuildingType {
     required this.sprite,
     required this.costRate,
     required this.initialCost,
-    this.requirement = const Requirement(null),
+    this.requirement = const Requirement(),
   });
 
   ResourceMap cost(int level) => initialCost.multiply(pow(costRate, level - 1));

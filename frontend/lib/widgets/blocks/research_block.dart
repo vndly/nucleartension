@@ -148,7 +148,7 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (research.canBeResearched) {
+    if (research.requirementFulfilled) {
       if (research.isMax) {
         return DisabledButton.text(
           text: Localized.get.labelMax,
@@ -163,7 +163,7 @@ class RightSection extends StatelessWidget {
     } else {
       return Label(
         text: Localized.get
-            .labelRequiresBuilding(research.buildingType!.localized)
+            .labelRequiresBuilding(research.requirementType.localized)
             .replaceAll(' ', '\n'),
         color: Palette.error,
         align: TextAlign.center,

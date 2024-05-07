@@ -2,7 +2,9 @@ import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
+import 'package:nucleartension/models/requirement.dart';
 import 'package:nucleartension/models/research.dart';
+import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/formatter.dart';
@@ -17,6 +19,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.power_plant),
   ),
   resources_production_chain(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_PRODUCTION_CHAIN,
@@ -25,6 +28,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.supply_center),
   ),
   resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING,
@@ -33,6 +37,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.tech_lab),
   ),
   resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_INDOCTRINATION,
@@ -41,6 +46,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.propaganda_station),
   ),
 
   // missiles
@@ -51,6 +57,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.missile_silo),
   ),
   missiles_assembly_automation(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ASSEMBLY_AUTOMATION,
@@ -59,6 +66,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.missile_silo),
   ),
   missiles_active_tracking(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING,
@@ -67,6 +75,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.missile_silo),
   ),
   missiles_signal_jamming(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING,
@@ -75,6 +84,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.missile_silo),
   ),
   missiles_nuclear_bomb(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_NUCLEAR_BOMB,
@@ -83,6 +93,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.missile_silo),
   ),
 
   // troops
@@ -93,6 +104,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.military_facility),
   ),
   troop_time(
     sprite: Assets.IMAGES_RESEARCH_TROOPS_TIME,
@@ -101,6 +113,7 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
+    requirement: Requirement(BuildingType.military_facility),
   ),
 
   // warning
@@ -175,12 +188,14 @@ enum ResearchType {
   final int maxLevel;
   final double costRate;
   final ResourceMap initialCost;
+  final Requirement<BuildingType> requirement;
 
   const ResearchType({
     required this.sprite,
     required this.maxLevel,
     required this.costRate,
     required this.initialCost,
+    this.requirement = const Requirement(),
   });
 
   double get rate => Constants.RESEARCH_RATE[this] ?? 0;

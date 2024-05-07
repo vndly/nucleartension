@@ -20,4 +20,8 @@ class Building extends Upgradable {
 
   @override
   bool get isMax => false;
+
+  bool get requirementFulfilled => buildingType.requirement.fulfilled(player);
+
+  BuildingType get requirementType => buildingType.requirement.type!;
 }

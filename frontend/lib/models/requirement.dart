@@ -5,7 +5,7 @@ import 'package:nucleartension/types/building_type.dart';
 class Requirement<T> {
   final T? type;
 
-  const Requirement(this.type);
+  const Requirement([this.type]);
 
   bool fulfilled(Player player) {
     if (type != null) {
