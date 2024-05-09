@@ -22,20 +22,23 @@ class Assets {
   static const String IMAGES_COUNTRIES_PK = 'assets/images/countries/pk.png';
   static const String IMAGES_COUNTRIES_RU = 'assets/images/countries/ru.png';
   static const String IMAGES_COUNTRIES_US = 'assets/images/countries/us.png';
+  static const String IMAGES_MILITARY_ARMY = 'assets/images/military/army.png';
   static const String IMAGES_MILITARY_MISSILE_ATTACK =
       'assets/images/military/missile_attack.png';
   static const String IMAGES_MILITARY_MISSILE_DEFENSE =
       'assets/images/military/missile_defense.png';
-  static const String IMAGES_MILITARY_TROOP =
-      'assets/images/military/troop.png';
+  static const String IMAGES_RESEARCH_ARMY_COST =
+      'assets/images/research/army_cost.png';
+  static const String IMAGES_RESEARCH_ARMY_TIME =
+      'assets/images/research/army_time.png';
+  static const String IMAGES_RESEARCH_INTEL_ARMIES =
+      'assets/images/research/intel_armies.png';
   static const String IMAGES_RESEARCH_INTEL_MISSILES =
       'assets/images/research/intel_missiles.png';
   static const String IMAGES_RESEARCH_INTEL_POPULATION =
       'assets/images/research/intel_population.png';
   static const String IMAGES_RESEARCH_INTEL_RESEARCH =
       'assets/images/research/intel_research.png';
-  static const String IMAGES_RESEARCH_INTEL_TROOPS =
-      'assets/images/research/intel_troops.png';
   static const String IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING =
       'assets/images/research/missiles_active_tracking.png';
   static const String IMAGES_RESEARCH_MISSILES_ADDITIVE_MANUFACTURING =
@@ -54,16 +57,12 @@ class Assets {
       'assets/images/research/resources_production_chain.png';
   static const String IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING =
       'assets/images/research/resources_quantum_computing.png';
-  static const String IMAGES_RESEARCH_TROOPS_COST =
-      'assets/images/research/troops_cost.png';
-  static const String IMAGES_RESEARCH_TROOPS_TIME =
-      'assets/images/research/troops_time.png';
+  static const String IMAGES_RESEARCH_WARNING_ARMIES_EARLY_WARNING =
+      'assets/images/research/warning_armies_early_warning.png';
+  static const String IMAGES_RESEARCH_WARNING_ARMIES_FAST_DEPLOYMENTS =
+      'assets/images/research/warning_armies_fast_deployments.png';
   static const String IMAGES_RESEARCH_WARNING_MISSILES_HYPERSONIC_PROPULSION =
       'assets/images/research/warning_missiles_hypersonic_propulsion.png';
   static const String IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK =
       'assets/images/research/warning_missiles_radar_network.png';
-  static const String IMAGES_RESEARCH_WARNING_TROOPS_EARLY_WARNING =
-      'assets/images/research/warning_troops_early_warning.png';
-  static const String IMAGES_RESEARCH_WARNING_TROOPS_FAST_DEPLOYMENTS =
-      'assets/images/research/warning_troops_fast_deployments.png';
 }

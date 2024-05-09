@@ -56,8 +56,8 @@ class AttackDialog extends StatefulWidget {
     required Function(int) onAccept,
   }) =>
       _show(
-        title: Localized.get.dialogAttackTroopsTitle(defender.name),
-        message: Localized.get.dialogAttackTroopsMessage,
+        title: Localized.get.dialogAttackArmyTitle(defender.name),
+        message: Localized.get.dialogAttackArmyMessage,
         max: max,
         buttonAccept: Localized.get.buttonAttack,
         buttonCancel: Localized.get.buttonCancel,
@@ -73,8 +73,8 @@ class AttackDialog extends StatefulWidget {
     required Function(int) onAccept,
   }) =>
       _show(
-        title: Localized.get.dialogAttackMissilesTitle(defender.name),
-        message: Localized.get.dialogAttackMissilesMessage,
+        title: Localized.get.dialogAttackMissileTitle(defender.name),
+        message: Localized.get.dialogAttackMissileMessage,
         max: max,
         buttonAccept: Localized.get.buttonAttack,
         buttonCancel: Localized.get.buttonCancel,
@@ -115,12 +115,12 @@ class _AttackDialogState extends State<AttackDialog> {
           const VBox(15),
           Label(
             text: widget.isMissileAttack
-                ? Localized.get.dialogAttackMissilesSummary(
+                ? Localized.get.dialogAttackMissileSummary(
                     Formatter.resourceRaw(
                       _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT,
                     ),
                   )
-                : Localized.get.dialogAttackTroopsSummary(
+                : Localized.get.dialogAttackArmySummary(
                     Formatter.resourceRaw(
                       _selected * Constants.TROOP_ATTACK_DAMAGE,
                     ),

@@ -159,7 +159,7 @@ class ResearchTroops extends StatelessWidget {
     return Column(
       children: [
         const BlockSeparator(),
-        BlockTitle(Localized.get.screenResearchTroops),
+        BlockTitle(Localized.get.screenResearchArmies),
         const BlockSeparator(),
         ResearchBlock(
           player: player,

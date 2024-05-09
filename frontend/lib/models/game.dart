@@ -1,8 +1,8 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
+import 'package:nucleartension/models/attacks/army_attack.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
-import 'package:nucleartension/models/attacks/troop_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';

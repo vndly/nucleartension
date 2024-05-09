@@ -31,14 +31,13 @@ class TroopAttackResultEvent extends Event {
 
   @override
   List<String> get text => [
-        Localized.get.eventAttackTroopResultLine1,
-        Localized.get.eventAttackTroopResultLine2(attacker.name,
+        Localized.get.eventAttackArmyResultLine1,
+        Localized.get.eventAttackArmyResultLine2(attacker.name,
             (attacker == winner) ? ' (${Localized.get.labelWinner})' : ''),
-        Localized.get.eventAttackTroopResultLine3(defender.name,
+        Localized.get.eventAttackArmyResultLine3(defender.name,
             (defender == winner) ? ' (${Localized.get.labelWinner})' : ''),
-        Localized.get
-            .eventAttackTroopResultLine4(Formatter.resourceRaw(troops)),
-        Localized.get.eventAttackTroopResultLine5((casualties > 0)
+        Localized.get.eventAttackArmyResultLine4(Formatter.resourceRaw(troops)),
+        Localized.get.eventAttackArmyResultLine5((casualties > 0)
             ? Localized.get.labelPeople(Formatter.resourceRaw(casualties))
             : Localized.get.labelNone),
       ];

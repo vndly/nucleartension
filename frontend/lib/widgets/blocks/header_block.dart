@@ -260,7 +260,7 @@ class ExpandedMilitarySection extends StatelessWidget {
         ExpandedMilitaryLabel(
           icon: Icons.star,
           color: Palette.militaryTroops,
-          title: Localized.get.headerTroops,
+          title: Localized.get.headerArmies,
           value: Formatter.resourceRaw(player.troops),
         ),
         const VBox(10),

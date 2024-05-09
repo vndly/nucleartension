@@ -125,7 +125,7 @@ enum ResearchType {
 
   // troops
   troop_cost(
-    sprite: Assets.IMAGES_RESEARCH_TROOPS_COST,
+    sprite: Assets.IMAGES_RESEARCH_ARMY_COST,
     maxLevel: 5,
     costRate: 2,
     initialCost: {
@@ -137,7 +137,7 @@ enum ResearchType {
     ),
   ),
   troop_time(
-    sprite: Assets.IMAGES_RESEARCH_TROOPS_TIME,
+    sprite: Assets.IMAGES_RESEARCH_ARMY_TIME,
     maxLevel: 5,
     costRate: 2,
     initialCost: {
@@ -167,7 +167,7 @@ enum ResearchType {
     },
   ),
   warning_troops_early_warning(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_TROOPS_EARLY_WARNING,
+    sprite: Assets.IMAGES_RESEARCH_WARNING_ARMIES_EARLY_WARNING,
     maxLevel: 5,
     costRate: 2,
     initialCost: {
@@ -175,7 +175,7 @@ enum ResearchType {
     },
   ),
   warning_troops_fast_deployments(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_TROOPS_FAST_DEPLOYMENTS,
+    sprite: Assets.IMAGES_RESEARCH_WARNING_ARMIES_FAST_DEPLOYMENTS,
     maxLevel: 5,
     costRate: 2,
     initialCost: {
@@ -193,7 +193,7 @@ enum ResearchType {
     },
   ),
   intel_troops(
-    sprite: Assets.IMAGES_RESEARCH_INTEL_TROOPS,
+    sprite: Assets.IMAGES_RESEARCH_INTEL_ARMIES,
     maxLevel: 2,
     costRate: 2,
     initialCost: {
@@ -248,9 +248,9 @@ enum ResearchType {
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombName;
       case troop_cost:
-        return Localized.get.typeResearchTroopsCostName;
+        return Localized.get.typeResearchArmiesCostName;
       case troop_time:
-        return Localized.get.typeResearchTroopsTimeName;
+        return Localized.get.typeResearchArmiesTimeName;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
@@ -262,9 +262,9 @@ enum ResearchType {
       case intel_population:
         return Localized.get.typeResearchIntelPopulationName;
       case intel_troops:
-        return Localized.get.typeResearchIntelTroopsName;
+        return Localized.get.typeResearchIntelArmyName;
       case intel_missiles:
-        return Localized.get.typeResearchIntelMissilesName;
+        return Localized.get.typeResearchIntelMissileName;
     }
   }
 
@@ -290,9 +290,9 @@ enum ResearchType {
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombDescription;
       case troop_cost:
-        return Localized.get.typeResearchTroopsCostDescription;
+        return Localized.get.typeResearchArmiesCostDescription;
       case troop_time:
-        return Localized.get.typeResearchTroopsTimeDescription;
+        return Localized.get.typeResearchArmiesTimeDescription;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:
@@ -304,9 +304,9 @@ enum ResearchType {
       case intel_population:
         return Localized.get.typeResearchIntelPopulationDescription;
       case intel_troops:
-        return Localized.get.typeResearchIntelTroopsDescription;
+        return Localized.get.typeResearchIntelArmyDescription;
       case intel_missiles:
-        return Localized.get.typeResearchIntelMissilesDescription;
+        return Localized.get.typeResearchIntelMissileDescription;
     }
   }
 

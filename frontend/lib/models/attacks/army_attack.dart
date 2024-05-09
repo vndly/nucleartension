@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
+import 'package:nucleartension/models/events/army_attack_result_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
-import 'package:nucleartension/models/events/troop_attack_result_event.dart';
 import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/localizations.dart';
@@ -39,9 +39,9 @@ class TroopAttack extends Attack {
   @override
   String toString() {
     if (attacker.isSelf) {
-      return Localized.get.attackTroopOutgoing(defender.name, troop);
+      return Localized.get.attackArmyOutgoing(defender.name, troop);
     } else if (defender.isSelf) {
-      return Localized.get.attackTroopIncoming(attacker.name, troop);
+      return Localized.get.attackArmyIncoming(attacker.name, troop);
     } else {
       return '';
     }

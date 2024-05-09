@@ -4,13 +4,13 @@ import 'package:flutter/widgets.dart';
 abstract class BaseLocalized {
   String get applicationName;
 
+  String attackArmyIncoming(String param1, int param2);
+
+  String attackArmyOutgoing(String param1, int param2);
+
   String attackMissileIncoming(String param1, int param2, String param3);
 
   String attackMissileOutgoing(String param1, int param2, String param3);
-
-  String attackTroopIncoming(String param1, int param2);
-
-  String attackTroopOutgoing(String param1, int param2);
 
   String get bottomBarEvents;
 
@@ -30,27 +30,27 @@ abstract class BaseLocalized {
 
   String get buttonOk;
 
-  String dialogAttackMissilesMessage(String param1);
+  String dialogAttackArmyMessage(String param1);
 
-  String dialogAttackMissilesSummary(String param1);
+  String dialogAttackArmySummary(String param1);
 
-  String dialogAttackMissilesTitle(String param1);
+  String dialogAttackArmyTitle(String param1);
 
-  String dialogAttackTroopsMessage(String param1);
+  String dialogAttackMissileMessage(String param1);
 
-  String dialogAttackTroopsSummary(String param1);
+  String dialogAttackMissileSummary(String param1);
 
-  String dialogAttackTroopsTitle(String param1);
+  String dialogAttackMissileTitle(String param1);
 
   String get dialogConfirmationCancelUpgradeMessage;
+
+  String get dialogInformationPlayerArmies;
+
+  String get dialogInformationPlayerIntelRequiredArmies;
 
   String get dialogInformationPlayerIntelRequiredMissiles;
 
   String get dialogInformationPlayerIntelRequiredPopulation;
-
-  String get dialogInformationPlayerIntelRequiredResearch;
-
-  String get dialogInformationPlayerIntelRequiredTroops;
 
   String dialogInformationPlayerLostMessage(String param1);
 
@@ -62,8 +62,6 @@ abstract class BaseLocalized {
 
   String get dialogInformationPlayerResearch;
 
-  String get dialogInformationPlayerTroops;
-
   String dialogInformationPlayerWonMessage(String param1);
 
   String get dialogInformationPlayerWonTitle;
@@ -71,6 +69,16 @@ abstract class BaseLocalized {
   String get dialogPauseResume;
 
   String get dialogPauseTitle;
+
+  String get eventAttackArmyResultLine1;
+
+  String eventAttackArmyResultLine2(String param1, String param2);
+
+  String eventAttackArmyResultLine3(String param1, String param2);
+
+  String eventAttackArmyResultLine4(String param1);
+
+  String eventAttackArmyResultLine5(String param1);
 
   String get eventAttackMissileResultLine1;
 
@@ -83,16 +91,6 @@ abstract class BaseLocalized {
   String eventAttackMissileResultLine5(int param1, String param2);
 
   String eventAttackMissileResultLine6(String param1);
-
-  String get eventAttackTroopResultLine1;
-
-  String eventAttackTroopResultLine2(String param1, String param2);
-
-  String eventAttackTroopResultLine3(String param1, String param2);
-
-  String eventAttackTroopResultLine4(String param1);
-
-  String eventAttackTroopResultLine5(String param1);
 
   String eventDefconLine1(int param1);
 
@@ -124,13 +122,13 @@ abstract class BaseLocalized {
 
   String eventPlayerDefeatedLine5(String param1);
 
+  String get headerArmies;
+
   String get headerAttackMissiles;
 
   String get headerDefcon;
 
   String get headerDefenseMissiles;
-
-  String get headerTroops;
 
   String get homeContinue;
 
@@ -166,23 +164,21 @@ abstract class BaseLocalized {
 
   String get screenEventsNoEvents;
 
+  String get screenResearchArmies;
+
   String get screenResearchIntel;
 
   String get screenResearchMissiles;
 
   String get screenResearchResources;
 
-  String get screenResearchTroops;
-
   String get screenResearchWarning;
 
-  String get screenWarRoomIntelMissiles;
+  String get screenWarRoomIntelArmy;
+
+  String get screenWarRoomIntelMissile;
 
   String get screenWarRoomIntelPopulation;
-
-  String get screenWarRoomIntelResearch;
-
-  String get screenWarRoomIntelTroops;
 
   String get screenWarRoomTabIntel;
 
@@ -244,6 +240,10 @@ abstract class BaseLocalized {
 
   String get typeCountryUsa;
 
+  String get typeMilitaryArmyDescription;
+
+  String get typeMilitaryArmyName;
+
   String get typeMilitaryAttackMissileDescription1;
 
   String get typeMilitaryAttackMissileDescription2;
@@ -256,29 +256,29 @@ abstract class BaseLocalized {
 
   String get typeMilitaryDefenseMissileName;
 
-  String get typeMilitaryTroopDescription;
+  String get typeResearchArmiesCostDescription;
 
-  String get typeMilitaryTroopName;
+  String get typeResearchArmiesCostName;
+
+  String get typeResearchArmiesTimeDescription;
+
+  String get typeResearchArmiesTimeName;
+
+  String get typeResearchIntelArmyDescription;
+
+  String get typeResearchIntelArmyName;
 
   String get typeResearchIntelLevel1;
 
   String get typeResearchIntelLevel2;
 
-  String get typeResearchIntelMissilesDescription;
+  String get typeResearchIntelMissileDescription;
 
-  String get typeResearchIntelMissilesName;
+  String get typeResearchIntelMissileName;
 
   String get typeResearchIntelPopulationDescription;
 
   String get typeResearchIntelPopulationName;
-
-  String get typeResearchIntelResearchDescription;
-
-  String get typeResearchIntelResearchName;
-
-  String get typeResearchIntelTroopsDescription;
-
-  String get typeResearchIntelTroopsName;
 
   String get typeResearchMissilesActiveTrackingDescription;
 
@@ -318,14 +318,6 @@ abstract class BaseLocalized {
 
   String get typeResearchResourcesQuantumComputingName;
 
-  String get typeResearchTroopsCostDescription;
-
-  String get typeResearchTroopsCostName;
-
-  String get typeResearchTroopsTimeDescription;
-
-  String get typeResearchTroopsTimeName;
-
   String get typeResearchWarningEarlyWarningDescription;
 
   String get typeResearchWarningEarlyWarningName;
@@ -356,20 +348,20 @@ class ENLocalized extends BaseLocalized {
   String get applicationName => 'Nuclear Tension';
 
   @override
+  String attackArmyIncoming(String param1, int param2) =>
+      'Incoming attack from ${param1.toString()} with ${param2.toString()} armies';
+
+  @override
+  String attackArmyOutgoing(String param1, int param2) =>
+      'Outgoing attack to ${param1.toString()} with ${param2.toString()} armies';
+
+  @override
   String attackMissileIncoming(String param1, int param2, String param3) =>
       'Incoming attack from ${param1.toString()} with ${param2.toString()} missiles (${param3.toString()})';
 
   @override
   String attackMissileOutgoing(String param1, int param2, String param3) =>
       'Outgoing attack to ${param1.toString()} with ${param2.toString()} missiles (${param3.toString()})';
-
-  @override
-  String attackTroopIncoming(String param1, int param2) =>
-      'Incoming attack from ${param1.toString()} with ${param2.toString()} troops';
-
-  @override
-  String attackTroopOutgoing(String param1, int param2) =>
-      'Outgoing attack to ${param1.toString()} with ${param2.toString()} troops';
 
   @override
   String get bottomBarEvents => 'Events';
@@ -399,31 +391,38 @@ class ENLocalized extends BaseLocalized {
   String get buttonOk => 'Ok';
 
   @override
-  String dialogAttackMissilesMessage(String param1) =>
+  String dialogAttackArmyMessage(String param1) =>
+      'Armies: ${param1.toString()}';
+
+  @override
+  String dialogAttackArmySummary(String param1) =>
+      '≈ ${param1.toString()} casualties';
+
+  @override
+  String dialogAttackArmyTitle(String param1) =>
+      'Launch army attack to ${param1.toString()}';
+
+  @override
+  String dialogAttackMissileMessage(String param1) =>
       'Missiles: ${param1.toString()}';
 
   @override
-  String dialogAttackMissilesSummary(String param1) =>
+  String dialogAttackMissileSummary(String param1) =>
       '≈ ${param1.toString()} casualties';
 
   @override
-  String dialogAttackMissilesTitle(String param1) =>
+  String dialogAttackMissileTitle(String param1) =>
       'Launch missile attack to ${param1.toString()}';
 
   @override
-  String dialogAttackTroopsMessage(String param1) =>
-      'Troops: ${param1.toString()}';
-
-  @override
-  String dialogAttackTroopsSummary(String param1) =>
-      '≈ ${param1.toString()} casualties';
-
-  @override
-  String dialogAttackTroopsTitle(String param1) =>
-      'Launch troop attack to ${param1.toString()}';
-
-  @override
   String get dialogConfirmationCancelUpgradeMessage => 'Cancel upgrade?';
+
+  @override
+  String get dialogInformationPlayerArmies => 'Armies:';
+
+  @override
+  String get dialogInformationPlayerIntelRequiredArmies =>
+      'Intel research required';
 
   @override
   String get dialogInformationPlayerIntelRequiredMissiles =>
@@ -431,14 +430,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogInformationPlayerIntelRequiredPopulation =>
-      'Intel research required';
-
-  @override
-  String get dialogInformationPlayerIntelRequiredResearch =>
-      'Intel research required';
-
-  @override
-  String get dialogInformationPlayerIntelRequiredTroops =>
       'Intel research required';
 
   @override
@@ -458,9 +449,6 @@ class ENLocalized extends BaseLocalized {
   String get dialogInformationPlayerResearch => 'Research:';
 
   @override
-  String get dialogInformationPlayerTroops => 'Troops:';
-
-  @override
   String dialogInformationPlayerWonMessage(String param1) =>
       'You successfully destroyed all your enemies in ${param1.toString()}.';
 
@@ -472,6 +460,25 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get dialogPauseTitle => 'Pause';
+
+  @override
+  String get eventAttackArmyResultLine1 => 'Army attack finished';
+
+  @override
+  String eventAttackArmyResultLine2(String param1, String param2) =>
+      'Attacker: ${param1.toString()}${param2.toString()}';
+
+  @override
+  String eventAttackArmyResultLine3(String param1, String param2) =>
+      'Defender: ${param1.toString()}${param2.toString()}';
+
+  @override
+  String eventAttackArmyResultLine4(String param1) =>
+      'Armies: ${param1.toString()}';
+
+  @override
+  String eventAttackArmyResultLine5(String param1) =>
+      'Casualties: ${param1.toString()}';
 
   @override
   String get eventAttackMissileResultLine1 => 'Missile attack finished';
@@ -497,25 +504,6 @@ class ENLocalized extends BaseLocalized {
       'Casualties: ${param1.toString()}';
 
   @override
-  String get eventAttackTroopResultLine1 => 'Troop attack finished';
-
-  @override
-  String eventAttackTroopResultLine2(String param1, String param2) =>
-      'Attacker: ${param1.toString()}${param2.toString()}';
-
-  @override
-  String eventAttackTroopResultLine3(String param1, String param2) =>
-      'Defender: ${param1.toString()}${param2.toString()}';
-
-  @override
-  String eventAttackTroopResultLine4(String param1) =>
-      'Troops: ${param1.toString()}';
-
-  @override
-  String eventAttackTroopResultLine5(String param1) =>
-      'Casualties: ${param1.toString()}';
-
-  @override
   String eventDefconLine1(int param1) => 'DEFCON ${param1.toString()}';
 
   @override
@@ -536,16 +524,16 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get eventDefconLine2Level3Other =>
-      'A player has launched a troop attack.';
+      'A player has launched an army attack.';
 
   @override
-  String get eventDefconLine2Level3Self => 'You have launched a troop attack.';
+  String get eventDefconLine2Level3Self => 'You have launched an army attack.';
 
   @override
-  String get eventDefconLine2Level4Other => 'A player has created a troop.';
+  String get eventDefconLine2Level4Other => 'A player has created an army.';
 
   @override
-  String get eventDefconLine2Level4Self => 'You have created a troop.';
+  String get eventDefconLine2Level4Self => 'You have created an army.';
 
   @override
   String eventDefconLine3(int param1) =>
@@ -571,6 +559,9 @@ class ENLocalized extends BaseLocalized {
       'Technology: ${param1.toString()}';
 
   @override
+  String get headerArmies => 'Armies:';
+
+  @override
   String get headerAttackMissiles => 'Attack Missiles:';
 
   @override
@@ -578,9 +569,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get headerDefenseMissiles => 'Defense Missiles:';
-
-  @override
-  String get headerTroops => 'Troops:';
 
   @override
   String get homeContinue => 'Continue';
@@ -637,6 +625,9 @@ class ENLocalized extends BaseLocalized {
   String get screenEventsNoEvents => 'No events';
 
   @override
+  String get screenResearchArmies => 'Armies';
+
+  @override
   String get screenResearchIntel => 'Intel';
 
   @override
@@ -646,22 +637,16 @@ class ENLocalized extends BaseLocalized {
   String get screenResearchResources => 'Resources';
 
   @override
-  String get screenResearchTroops => 'Troops';
-
-  @override
   String get screenResearchWarning => 'Warning';
 
   @override
-  String get screenWarRoomIntelMissiles => 'Missiles';
+  String get screenWarRoomIntelArmy => 'Armies';
+
+  @override
+  String get screenWarRoomIntelMissile => 'Missiles';
 
   @override
   String get screenWarRoomIntelPopulation => 'Population';
-
-  @override
-  String get screenWarRoomIntelResearch => 'Research';
-
-  @override
-  String get screenWarRoomIntelTroops => 'Troops';
 
   @override
   String get screenWarRoomTabIntel => 'Intel';
@@ -674,7 +659,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeBuildingMilitaryFacilityDescription1 =>
-      'Creates troops used to defend your territory and attack other players.';
+      'Creates armies used to defend your territory and attack other players.';
 
   @override
   String get typeBuildingMilitaryFacilityDescription2 =>
@@ -696,7 +681,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeBuildingPowerPlantDescription1 =>
-      'Produces energy, which is used to create troops, missiles and upgrade buildings.';
+      'Produces energy, which is used to create armies, missiles and upgrade buildings.';
 
   @override
   String get typeBuildingPowerPlantDescription2 =>
@@ -718,7 +703,7 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeBuildingSupplyCenterDescription1 =>
-      'Produces supplies, which is used to create troops, missiles and upgrade buildings.';
+      'Produces supplies, which is used to create armies, missiles and upgrade buildings.';
 
   @override
   String get typeBuildingSupplyCenterDescription2 =>
@@ -766,6 +751,13 @@ class ENLocalized extends BaseLocalized {
   String get typeCountryUsa => 'USA';
 
   @override
+  String get typeMilitaryArmyDescription =>
+      "Used to defend your territory from other players' army attacks and attack other players to decrease their population.";
+
+  @override
+  String get typeMilitaryArmyName => 'Army';
+
+  @override
   String get typeMilitaryAttackMissileDescription1 =>
       'Missiles used to send nuclear attacks to enemies.';
 
@@ -788,11 +780,25 @@ class ENLocalized extends BaseLocalized {
   String get typeMilitaryDefenseMissileName => 'Defense Missile';
 
   @override
-  String get typeMilitaryTroopDescription =>
-      "Used to defend your territory from other players' troop attacks and attack other players to decrease their population.";
+  String get typeResearchArmiesCostDescription =>
+      'Decreases army cost production';
 
   @override
-  String get typeMilitaryTroopName => 'Troop';
+  String get typeResearchArmiesCostName => 'Army cost';
+
+  @override
+  String get typeResearchArmiesTimeDescription =>
+      'Decreases army time production';
+
+  @override
+  String get typeResearchArmiesTimeName => 'Army time';
+
+  @override
+  String get typeResearchIntelArmyDescription =>
+      'Reveals army intel about other players';
+
+  @override
+  String get typeResearchIntelArmyName => 'Armies';
 
   @override
   String get typeResearchIntelLevel1 => "Global players' ranking";
@@ -801,11 +807,11 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchIntelLevel2 => "Players's values";
 
   @override
-  String get typeResearchIntelMissilesDescription =>
+  String get typeResearchIntelMissileDescription =>
       'Reveals missile intel about other players';
 
   @override
-  String get typeResearchIntelMissilesName => 'Missiles';
+  String get typeResearchIntelMissileName => 'Missiles';
 
   @override
   String get typeResearchIntelPopulationDescription =>
@@ -813,20 +819,6 @@ class ENLocalized extends BaseLocalized {
 
   @override
   String get typeResearchIntelPopulationName => 'Population';
-
-  @override
-  String get typeResearchIntelResearchDescription =>
-      'Reveals research intel about other players';
-
-  @override
-  String get typeResearchIntelResearchName => 'Research';
-
-  @override
-  String get typeResearchIntelTroopsDescription =>
-      'Reveals troop intel about other players';
-
-  @override
-  String get typeResearchIntelTroopsName => 'Troops';
 
   @override
   String get typeResearchMissilesActiveTrackingDescription =>
@@ -898,29 +890,15 @@ class ENLocalized extends BaseLocalized {
   String get typeResearchResourcesQuantumComputingName => 'Quantum computing';
 
   @override
-  String get typeResearchTroopsCostDescription =>
-      'Decreases troop cost production';
-
-  @override
-  String get typeResearchTroopsCostName => 'Troop cost';
-
-  @override
-  String get typeResearchTroopsTimeDescription =>
-      'Decreases troop time production';
-
-  @override
-  String get typeResearchTroopsTimeName => 'Troop time';
-
-  @override
   String get typeResearchWarningEarlyWarningDescription =>
-      'Increases warning time when receiving a troop attack';
+      'Increases warning time when receiving an army attack';
 
   @override
   String get typeResearchWarningEarlyWarningName => 'Early Warning';
 
   @override
   String get typeResearchWarningFastDeploymentsDescription =>
-      'Increases troop speed';
+      'Increases army speed';
 
   @override
   String get typeResearchWarningFastDeploymentsName => 'Fast Deployments';
