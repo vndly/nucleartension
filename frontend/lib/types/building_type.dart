@@ -33,7 +33,7 @@ enum BuildingType {
     },
     requirement: Requirement(
       type: BuildingType.power_plant,
-      minLevel: 1,
+      minLevel: 2,
     ),
   ),
   propaganda_station(
@@ -45,7 +45,7 @@ enum BuildingType {
     },
     requirement: Requirement(
       type: BuildingType.supply_center,
-      minLevel: 1,
+      minLevel: 2,
     ),
   ),
   military_facility(
