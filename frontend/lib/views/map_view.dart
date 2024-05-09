@@ -9,11 +9,18 @@ class MapView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InteractiveViewer(
-      child: CustomPaint(
-        foregroundPainter: ForegroundPainter(),
-        child: MiddleLayer(),
+      child: GestureDetector(
+        onTapDown: _onTapDown,
+        child: CustomPaint(
+          foregroundPainter: ForegroundPainter(),
+          child: MiddleLayer(),
+        ),
       ),
     );
+  }
+
+  void _onTapDown(TapDownDetails details) {
+    print('TAP: ${details.localPosition}');
   }
 }
 
