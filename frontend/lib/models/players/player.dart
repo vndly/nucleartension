@@ -89,13 +89,10 @@ class Player {
         game.self.getResearch(ResearchType.intel_troops).level;
     final int researchIntelMissiles =
         game.self.getResearch(ResearchType.intel_missiles).level;
-    final int researchIntelResearch =
-        game.self.getResearch(ResearchType.intel_research).level;
 
     return (researchIntelPopulation > 0) ||
         (researchIntelTroops > 0) ||
-        (researchIntelMissiles > 0) ||
-        (researchIntelResearch > 0);
+        (researchIntelMissiles > 0);
   }
 
   Research getResearch(ResearchType researchType) =>

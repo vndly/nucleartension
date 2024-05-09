@@ -154,8 +154,6 @@ class InformationDialog extends StatelessWidget {
         game.self.getResearch(ResearchType.intel_troops).level >= 2;
     final bool hasIntelMissiles =
         game.self.getResearch(ResearchType.intel_missiles).level >= 2;
-    final bool hasIntelResearch =
-        game.self.getResearch(ResearchType.intel_research).level >= 2;
 
     return _show(
       title: Row(
@@ -214,19 +212,6 @@ class InformationDialog extends StatelessWidget {
             labelColor: Palette.textPrimary,
             textColor:
                 hasIntelMissiles ? Palette.textPrimary : Palette.textError,
-            textUppercase: false,
-          ),
-          const VBox(10),
-          LabeledText(
-            label: Localized.get.dialogInformationPlayerResearch,
-            text: hasIntelResearch
-                ? Formatter.resourceRaw(player.researchLevel)
-                : Localized.get.dialogInformationPlayerIntelRequiredResearch,
-            labelSize: 14,
-            textSize: 12,
-            labelColor: Palette.textPrimary,
-            textColor:
-                hasIntelResearch ? Palette.textPrimary : Palette.textError,
             textUppercase: false,
           ),
           if (Environment.isDebug) ...[
