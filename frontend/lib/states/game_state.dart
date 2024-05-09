@@ -51,7 +51,7 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.troop: 0,
+        MilitaryType.army: 0,
         MilitaryType.missile_defense: 0,
         MilitaryType.missile_attack: 0,
       }),
@@ -71,7 +71,7 @@ class GameState extends BaseState {
       player: usa,
       map: {
         ResearchType.intel_population: Environment.isDebug ? 2 : 0,
-        ResearchType.intel_troops: Environment.isDebug ? 2 : 0,
+        ResearchType.intel_armies: Environment.isDebug ? 2 : 0,
         ResearchType.intel_missiles: Environment.isDebug ? 2 : 0,
       },
     ));
@@ -81,7 +81,7 @@ class GameState extends BaseState {
       _activePlayer(
         name: 'Sergey',
         country: Country.russia,
-        profile: PlayerProfile.aggressiveTroops(),
+        profile: PlayerProfile.aggressiveArmies(),
       ),
       _activePlayer(
         name: 'Ming',
@@ -106,7 +106,7 @@ class GameState extends BaseState {
       _activePlayer(
         name: 'Ram',
         country: Country.india,
-        profile: PlayerProfile.aggressiveTroops(),
+        profile: PlayerProfile.aggressiveArmies(),
       ),
       _activePlayer(
         name: 'Muhammad',
@@ -137,7 +137,7 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.troop: 0,
+        MilitaryType.army: 0,
         MilitaryType.missile_defense: 0,
         MilitaryType.missile_attack: 0,
       }),
@@ -187,7 +187,7 @@ class GameState extends BaseState {
           player: player,
           level: map[BuildingType.military_facility] ?? 0,
           queues: {
-            MilitaryType.troop: [],
+            MilitaryType.army: [],
           },
         ),
         MissileSilo(

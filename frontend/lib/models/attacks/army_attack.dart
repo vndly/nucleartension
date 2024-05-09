@@ -8,40 +8,40 @@ import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/localizations.dart';
 
-class TroopAttack extends Attack {
-  final int troop;
+class ArmyAttack extends Attack {
+  final int amount;
 
-  TroopAttack._({
+  ArmyAttack._({
     required super.attacker,
     required super.defender,
     required super.duration,
-    required this.troop,
+    required this.amount,
   });
 
-  factory TroopAttack.from({
+  factory ArmyAttack.from({
     required Player attacker,
     required Player defender,
-    required int troop,
+    required int amount,
   }) {
-    final num decreaseRate = attacker.troopAttackWarningWhenAttacking;
-    final num increaseRate = defender.troopAttackWarningWhenDefending;
+    final num decreaseRate = attacker.armyAttackWarningWhenAttacking;
+    final num increaseRate = defender.armyAttackWarningWhenDefending;
     final num duration =
-        Constants.TROOP_ATTACK_WARNING_TIME * decreaseRate * increaseRate;
+        Constants.ARMY_ATTACK_WARNING_TIME * decreaseRate * increaseRate;
 
-    return TroopAttack._(
+    return ArmyAttack._(
       attacker: attacker,
       defender: defender,
       duration: duration,
-      troop: troop,
+      amount: amount,
     );
   }
 
   @override
   String toString() {
     if (attacker.isSelf) {
-      return Localized.get.attackArmyOutgoing(defender.name, troop);
+      return Localized.get.attackArmyOutgoing(defender.name, amount);
     } else if (defender.isSelf) {
-      return Localized.get.attackArmyIncoming(attacker.name, troop);
+      return Localized.get.attackArmyIncoming(attacker.name, amount);
     } else {
       return '';
     }
@@ -50,30 +50,30 @@ class TroopAttack extends Attack {
   @override
   List<Event> resolve() {
     if (defender.isAlive) {
-      if (defender.troops >= troop) {
-        defender.removeTroops(troop);
+      if (defender.armies >= amount) {
+        defender.removeArmies(amount);
 
         return [
-          TroopAttackResultEvent(
+          ArmyAttackResultEvent(
             attacker: attacker,
             defender: defender,
             winner: defender,
-            troops: troop,
+            amount: amount,
             casualties: 0,
           )
         ];
       } else {
-        final int diff = troop - defender.troops;
-        final int casualties = diff * Constants.TROOP_ATTACK_DAMAGE;
+        final int diff = amount - defender.armies;
+        final int casualties = diff * Constants.ARMY_ATTACK_DAMAGE;
         final int totalCasualties = min(casualties, defender.population);
         final ResourceMap loot = defender.removePopulation(casualties);
 
         final List<Event> result = [
-          TroopAttackResultEvent(
+          ArmyAttackResultEvent(
             attacker: attacker,
             defender: defender,
             winner: attacker,
-            troops: troop,
+            amount: amount,
             casualties: totalCasualties,
           )
         ];

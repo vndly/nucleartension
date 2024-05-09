@@ -150,8 +150,8 @@ class InformationDialog extends StatelessWidget {
   }) {
     final bool hasIntelPopulation =
         game.self.getResearch(ResearchType.intel_population).level >= 2;
-    final bool hasIntelTroops =
-        game.self.getResearch(ResearchType.intel_troops).level >= 2;
+    final bool hasIntelArmies =
+        game.self.getResearch(ResearchType.intel_armies).level >= 2;
     final bool hasIntelMissiles =
         game.self.getResearch(ResearchType.intel_missiles).level >= 2;
 
@@ -192,13 +192,13 @@ class InformationDialog extends StatelessWidget {
           const VBox(10),
           LabeledText(
             label: Localized.get.dialogInformationPlayerArmies,
-            text: hasIntelTroops
-                ? Formatter.resourceRaw(player.troops)
+            text: hasIntelArmies
+                ? Formatter.resourceRaw(player.armies)
                 : Localized.get.dialogInformationPlayerIntelRequiredArmies,
             labelSize: 14,
             textSize: 12,
             labelColor: Palette.textPrimary,
-            textColor: hasIntelTroops ? Palette.textPrimary : Palette.textError,
+            textColor: hasIntelArmies ? Palette.textPrimary : Palette.textError,
             textUppercase: false,
           ),
           const VBox(10),

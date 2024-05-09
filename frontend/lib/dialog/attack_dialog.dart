@@ -50,7 +50,7 @@ class AttackDialog extends StatefulWidget {
         missileYield: missileYield,
       ));
 
-  static DialogController troops({
+  static DialogController army({
     required Player defender,
     required int max,
     required Function(int) onAccept,
@@ -66,7 +66,7 @@ class AttackDialog extends StatefulWidget {
         missileYield: 0,
       );
 
-  static DialogController missiles({
+  static DialogController missile({
     required Player defender,
     required int max,
     required int missileYield,
@@ -122,7 +122,7 @@ class _AttackDialogState extends State<AttackDialog> {
                   )
                 : Localized.get.dialogAttackArmySummary(
                     Formatter.resourceRaw(
-                      _selected * Constants.TROOP_ATTACK_DAMAGE,
+                      _selected * Constants.ARMY_ATTACK_DAMAGE,
                     ),
                   ),
             color: Palette.textPrimary,

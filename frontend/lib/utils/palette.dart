@@ -35,7 +35,7 @@ class Palette {
   static const Color resourcePopulation = Colors.red;
 
   static const Color militaryDefcon = Colors.yellow;
-  static const Color militaryTroops = Colors.green;
+  static const Color militaryArmies = Colors.green;
   static const Color militaryDefenseMissiles = Colors.blue;
   static const Color militaryAttackMissiles = Colors.red;
 

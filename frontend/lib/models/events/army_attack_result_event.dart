@@ -6,20 +6,20 @@ import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
-class TroopAttackResultEvent extends Event {
+class ArmyAttackResultEvent extends Event {
   final Player attacker;
   final Player defender;
   final Player winner;
-  final int troops;
+  final int amount;
   final int casualties;
 
-  TroopAttackResultEvent({
+  ArmyAttackResultEvent({
     required this.attacker,
     required this.defender,
     required this.winner,
-    required this.troops,
+    required this.amount,
     required this.casualties,
-  }) : super(eventType: EventType.troop_attack_result);
+  }) : super(eventType: EventType.army_attack_result);
 
   @override
   bool get show => attacker.isSelf || defender.isSelf;
@@ -36,7 +36,7 @@ class TroopAttackResultEvent extends Event {
             (attacker == winner) ? ' (${Localized.get.labelWinner})' : ''),
         Localized.get.eventAttackArmyResultLine3(defender.name,
             (defender == winner) ? ' (${Localized.get.labelWinner})' : ''),
-        Localized.get.eventAttackArmyResultLine4(Formatter.resourceRaw(troops)),
+        Localized.get.eventAttackArmyResultLine4(Formatter.resourceRaw(amount)),
         Localized.get.eventAttackArmyResultLine5((casualties > 0)
             ? Localized.get.labelPeople(Formatter.resourceRaw(casualties))
             : Localized.get.labelNone),

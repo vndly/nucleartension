@@ -63,8 +63,8 @@ class ActivePlayer extends Player {
       case PlayerAction.upgrade_missile_silo:
         _upgradeBuilding(missileSilo);
         break;
-      case PlayerAction.create_troop:
-        _createTroop(MilitaryType.troop);
+      case PlayerAction.create_army:
+        _createArmy(MilitaryType.army);
         break;
       case PlayerAction.create_defense_missile:
         _createMissile(MilitaryType.missile_defense);
@@ -96,11 +96,11 @@ class ActivePlayer extends Player {
       case PlayerAction.research_missiles_nuclear_bomb:
         _researchTechnology(ResearchType.missiles_nuclear_bomb);
         break;
-      case PlayerAction.research_troop_cost:
-        _researchTechnology(ResearchType.troop_cost);
+      case PlayerAction.research_army_cost:
+        _researchTechnology(ResearchType.army_cost);
         break;
-      case PlayerAction.attack_troop:
-        troopAttack();
+      case PlayerAction.attack_army:
+        _armyAttack();
         break;
       case PlayerAction.attack_missile:
         _missileAttack();
@@ -141,7 +141,7 @@ class ActivePlayer extends Player {
     }
   }
 
-  void _createTroop(MilitaryType militaryType) {
+  void _createArmy(MilitaryType militaryType) {
     if (militaryFacility.level == 0) {
       nextCreateAction = null;
       return;
@@ -149,7 +149,7 @@ class ActivePlayer extends Player {
 
     if (militaryFacility.enqueueMilitary(militaryType)) {
       nextCreateAction = null;
-      debugPrint('AI: Player $name enqueued troop');
+      debugPrint('AI: Player $name enqueued army');
     }
   }
 
@@ -189,15 +189,15 @@ class ActivePlayer extends Player {
     }
   }
 
-  void troopAttack() {
-    if (troops > 0) {
+  void _armyAttack() {
+    if (armies > 0) {
       final Player? defender = game.randomPlayer(this);
-      final int amount = Probability.between(1, troops);
+      final int amount = Probability.between(1, armies);
 
       if ((amount > 0) && (defender != null)) {
         debugPrint(
-            'AI: Player $name sent troop attack to ${defender.name} with $amount');
-        game.troopAttack(
+            'AI: Player $name sent army attack to ${defender.name} with $amount');
+        game.armyAttack(
           attacker: this,
           defender: defender,
           amount: amount,
@@ -245,10 +245,10 @@ class PlayerProfile {
 
   PlayerAction? attackAction(Player player) => attackProfile.action(player);
 
-  factory PlayerProfile.aggressiveTroops() => PlayerProfile._(
-        createProfile: CreateProfile.aggressiveTroops(),
-        researchProfile: ResearchProfile.aggressiveTroops(),
-        attackProfile: AttackProfile.aggressiveTroop(),
+  factory PlayerProfile.aggressiveArmies() => PlayerProfile._(
+        createProfile: CreateProfile.aggressiveArmies(),
+        researchProfile: ResearchProfile.aggressiveArmies(),
+        attackProfile: AttackProfile.aggressiveArmies(),
       );
 
   factory PlayerProfile.aggressiveMissiles() => PlayerProfile._(
@@ -279,33 +279,33 @@ class PlayerProfile {
 class CreateProfile extends ProbabilityProfile {
   const CreateProfile._(super.map);
 
-  factory CreateProfile.aggressiveTroops() => CreateProfile._({
+  factory CreateProfile.aggressiveArmies() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createTroopAction(): 0.4,
+        CreateProfile.createArmyAction(): 0.4,
         CreateProfile.createMissileMixAction(): 0.2,
       });
 
   factory CreateProfile.aggressiveMissiles() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createTroopAction(): 0.2,
+        CreateProfile.createArmyAction(): 0.2,
         CreateProfile.createMissileAggressiveAction(): 0.4,
       });
 
   factory CreateProfile.aggressiveMix() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createTroopAction(): 0.3,
+        CreateProfile.createArmyAction(): 0.3,
         CreateProfile.createMissileMixAction(): 0.3,
       });
 
   factory CreateProfile.neutral() => CreateProfile._({
         CreateProfile.upgradeBuildingNeutralActions(): 0.6,
-        CreateProfile.createTroopAction(): 0.2,
+        CreateProfile.createArmyAction(): 0.2,
         CreateProfile.createMissileMixAction(): 0.2,
       });
 
   factory CreateProfile.defensive() => CreateProfile._({
         CreateProfile.upgradeBuildingDefensiveActions(): 0.6,
-        CreateProfile.createTroopAction(): 0.1,
+        CreateProfile.createArmyAction(): 0.1,
         CreateProfile.createMissileDefensiveAction(): 0.3,
       });
 
@@ -339,9 +339,9 @@ class CreateProfile extends ProbabilityProfile {
         PlayerAction.upgrade_missile_silo: 0.05,
       }));
 
-  factory CreateProfile.createTroopAction() =>
+  factory CreateProfile.createArmyAction() =>
       CreateProfile._(ProbabilityProfile.actions({
-        PlayerAction.create_troop: 1,
+        PlayerAction.create_army: 1,
       }));
 
   factory CreateProfile.createMissileAggressiveAction() =>
@@ -366,7 +366,7 @@ class CreateProfile extends ProbabilityProfile {
 class ResearchProfile extends ProbabilityProfile {
   const ResearchProfile._(super.map);
 
-  factory ResearchProfile.aggressiveTroops() =>
+  factory ResearchProfile.aggressiveArmies() =>
       ResearchProfile._(ProbabilityProfile.actions({
         PlayerAction.research_resources_grid_management: 0.2,
         PlayerAction.research_resources_production_chain: 0.2,
@@ -376,7 +376,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.01,
         PlayerAction.research_missiles_signal_jamming: 0.01,
         PlayerAction.research_missiles_nuclear_bomb: 0.01,
-        PlayerAction.research_troop_cost: 0.3,
+        PlayerAction.research_army_cost: 0.3,
       }));
 
   factory ResearchProfile.aggressiveMissiles() =>
@@ -389,7 +389,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.1,
         PlayerAction.research_missiles_signal_jamming: 0.2,
         PlayerAction.research_missiles_nuclear_bomb: 0.2,
-        PlayerAction.research_troop_cost: 0.06,
+        PlayerAction.research_army_cost: 0.06,
       }));
 
   factory ResearchProfile.aggressiveMix() =>
@@ -402,7 +402,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.09,
         PlayerAction.research_missiles_signal_jamming: 0.09,
         PlayerAction.research_missiles_nuclear_bomb: 0.09,
-        PlayerAction.research_troop_cost: 0.24,
+        PlayerAction.research_army_cost: 0.24,
       }));
 
   factory ResearchProfile.neutral() =>
@@ -415,7 +415,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.08,
         PlayerAction.research_missiles_signal_jamming: 0.08,
         PlayerAction.research_missiles_nuclear_bomb: 0.12,
-        PlayerAction.research_troop_cost: 0.24,
+        PlayerAction.research_army_cost: 0.24,
       }));
 
   factory ResearchProfile.defensive() =>
@@ -428,7 +428,7 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.2,
         PlayerAction.research_missiles_signal_jamming: 0.04,
         PlayerAction.research_missiles_nuclear_bomb: 0.04,
-        PlayerAction.research_troop_cost: 0.18,
+        PlayerAction.research_army_cost: 0.18,
       }));
 }
 
@@ -458,15 +458,15 @@ class ProbabilityProfile implements ActionChoice {
 }
 
 class AttackProfile implements ActionChoice {
-  final int minTroopAttack;
+  final int minArmyAttack;
   final int minMissileAttack;
 
-  const AttackProfile._(this.minTroopAttack, this.minMissileAttack);
+  const AttackProfile._(this.minArmyAttack, this.minMissileAttack);
 
   @override
   PlayerAction? action(Player player) {
-    if (player.troops >= minTroopAttack) {
-      return PlayerAction.attack_troop;
+    if (player.armies >= minArmyAttack) {
+      return PlayerAction.attack_army;
     } else if (player.attackMissiles >= minMissileAttack) {
       return PlayerAction.attack_missile;
     } else {
@@ -474,7 +474,7 @@ class AttackProfile implements ActionChoice {
     }
   }
 
-  factory AttackProfile.aggressiveTroop() => const AttackProfile._(5, 10);
+  factory AttackProfile.aggressiveArmies() => const AttackProfile._(5, 10);
 
   factory AttackProfile.aggressiveMissiles() => const AttackProfile._(10, 5);
 
@@ -507,8 +507,8 @@ enum PlayerAction {
   upgrade_military_facility,
   upgrade_missile_silo,
 
-  // create troop
-  create_troop,
+  // create army
+  create_army,
 
   // create missiles
   create_defense_missile,
@@ -523,9 +523,9 @@ enum PlayerAction {
   research_missiles_active_tracking,
   research_missiles_signal_jamming,
   research_missiles_nuclear_bomb,
-  research_troop_cost,
+  research_army_cost,
 
   // attack
-  attack_troop,
+  attack_army,
   attack_missile,
 }

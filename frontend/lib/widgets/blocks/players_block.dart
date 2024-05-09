@@ -127,12 +127,12 @@ class PlayerRowContent extends StatelessWidget {
               ),
             ),
           ),
-          if (game.self.hasTroops && !player.isSelf && player.isAlive)
+          if (game.self.hasArmies && !player.isSelf && player.isAlive)
             Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: EnabledButton.attackTroops(
+              child: EnabledButton.attackArmy(
                 size: 35,
-                onTap: () => game.onTroopAttack(
+                onTap: () => game.onArmyAttack(
                   attacker: game.self,
                   defender: player,
                 ),
@@ -141,7 +141,7 @@ class PlayerRowContent extends StatelessWidget {
           if (game.self.hasAttackMissiles && !player.isSelf && player.isAlive)
             Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: EnabledButton.attackMissiles(
+              child: EnabledButton.attackMissile(
                 size: 35,
                 onTap: () => game.onMissileAttack(
                   attacker: game.self,

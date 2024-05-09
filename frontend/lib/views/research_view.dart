@@ -20,7 +20,7 @@ class ResearchView extends StatelessWidget {
         children: [
           ResearchResources(game.self),
           ResearchMissiles(game.self),
-          ResearchTroops(game.self),
+          ResearchArmies(game.self),
           //ResearchWarning(game.self),
           ResearchIntel(game.self),
         ],
@@ -136,23 +136,23 @@ class ResearchWarning extends StatelessWidget {
         ResearchBlock(
           player: player,
           research:
-              player.getResearch(ResearchType.warning_troops_early_warning),
+              player.getResearch(ResearchType.warning_armies_early_warning),
         ),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
           research:
-              player.getResearch(ResearchType.warning_troops_fast_deployments),
+              player.getResearch(ResearchType.warning_armies_fast_deployments),
         ),
       ],
     );
   }
 }
 
-class ResearchTroops extends StatelessWidget {
+class ResearchArmies extends StatelessWidget {
   final Player player;
 
-  const ResearchTroops(this.player);
+  const ResearchArmies(this.player);
 
   @override
   Widget build(BuildContext context) {
@@ -163,12 +163,12 @@ class ResearchTroops extends StatelessWidget {
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.troop_cost),
+          research: player.getResearch(ResearchType.army_cost),
         ),
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.troop_time),
+          research: player.getResearch(ResearchType.army_time),
         ),
       ],
     );
@@ -194,7 +194,7 @@ class ResearchIntel extends StatelessWidget {
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.intel_troops),
+          research: player.getResearch(ResearchType.intel_armies),
         ),
         const BlockSeparator(),
         ResearchBlock(

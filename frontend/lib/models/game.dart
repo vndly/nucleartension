@@ -60,9 +60,9 @@ class Game {
     return result;
   }
 
-  List<Player> get playersByTroops {
+  List<Player> get playersByArmies {
     final List<Player> result = List.from(players);
-    result.sort((a, b) => b.troops - a.troops);
+    result.sort((a, b) => b.armies - a.armies);
 
     return result;
   }
@@ -132,12 +132,12 @@ class Game {
 
   int get defconStep => 6 - defcon;
 
-  void onTroopCreated(Player player) => _applyDefcon(
+  void onArmyCreated(Player player) => _applyDefcon(
         player: player,
         level: 4,
       );
 
-  void onTroopUsed(Player player) => _applyDefcon(
+  void onArmyUsed(Player player) => _applyDefcon(
         player: player,
         level: 3,
       );
@@ -173,41 +173,41 @@ class Game {
   List<Attack> get selfAttacks =>
       attacks.where((e) => e.contains(self)).toList();
 
-  void onTroopAttack({
+  void onArmyAttack({
     required Player attacker,
     required Player defender,
   }) =>
-      AttackDialog.troops(
+      AttackDialog.army(
         defender: defender,
-        max: self.troops,
-        onAccept: (amount) => troopAttack(
+        max: self.armies,
+        onAccept: (amount) => armyAttack(
           attacker: attacker,
           defender: defender,
           amount: amount,
         ),
       );
 
-  void troopAttack({
+  void armyAttack({
     required Player attacker,
     required Player defender,
     required int amount,
   }) {
-    attacker.removeTroops(amount);
+    attacker.removeArmies(amount);
 
-    attacks.add(TroopAttack.from(
+    attacks.add(ArmyAttack.from(
       attacker: attacker,
       defender: defender,
-      troop: amount,
+      amount: amount,
     ));
 
-    onTroopUsed(attacker);
+    onArmyUsed(attacker);
   }
 
   void onMissileAttack({
     required Player attacker,
     required Player defender,
   }) =>
-      AttackDialog.missiles(
+      AttackDialog.missile(
         defender: defender,
         max: self.attackMissiles,
         missileYield: attacker.attackMissileYield,

@@ -123,9 +123,9 @@ class CollapsedMilitarySection extends StatelessWidget {
           color: Palette.militaryDefcon,
         ),
         CollapsedMilitaryLabel(
-          value: Formatter.resourceRaw(player.troops),
+          value: Formatter.resourceRaw(player.armies),
           icon: Icons.star,
-          color: Palette.militaryTroops,
+          color: Palette.militaryArmies,
         ),
         CollapsedMilitaryLabel(
           value: Formatter.resourceRaw(player.defenseMissiles),
@@ -259,9 +259,9 @@ class ExpandedMilitarySection extends StatelessWidget {
         const VBox(10),
         ExpandedMilitaryLabel(
           icon: Icons.star,
-          color: Palette.militaryTroops,
+          color: Palette.militaryArmies,
           title: Localized.get.headerArmies,
-          value: Formatter.resourceRaw(player.troops),
+          value: Formatter.resourceRaw(player.armies),
         ),
         const VBox(10),
         ExpandedMilitaryLabel(

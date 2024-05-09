@@ -9,7 +9,7 @@ import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/localizations.dart';
 
 enum MilitaryType {
-  troop(
+  army(
     sprite: Assets.IMAGES_MILITARY_ARMY,
     cost: {
       ResourceType.energy: 50,
@@ -59,7 +59,7 @@ enum MilitaryType {
 
   String get localized {
     switch (this) {
-      case troop:
+      case army:
         return Localized.get.typeMilitaryArmyName;
       case missile_defense:
         return Localized.get.typeMilitaryDefenseMissileName;
@@ -70,7 +70,7 @@ enum MilitaryType {
 
   List<String> get description {
     switch (this) {
-      case troop:
+      case army:
         return [
           Localized.get.typeMilitaryArmyDescription,
         ];
@@ -91,8 +91,8 @@ enum MilitaryType {
 
   ResearchType get researchCost {
     switch (this) {
-      case troop:
-        return ResearchType.troop_cost;
+      case army:
+        return ResearchType.army_cost;
       case missile_defense:
       case missile_attack:
         return ResearchType.missiles_additive_manufacturing;
@@ -101,8 +101,8 @@ enum MilitaryType {
 
   ResearchType get researchTime {
     switch (this) {
-      case troop:
-        return ResearchType.troop_time;
+      case army:
+        return ResearchType.army_time;
       case missile_defense:
       case missile_attack:
         return ResearchType.missiles_assembly_automation;

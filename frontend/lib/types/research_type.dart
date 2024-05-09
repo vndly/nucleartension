@@ -123,8 +123,8 @@ enum ResearchType {
     ),
   ),
 
-  // troops
-  troop_cost(
+  // armies
+  army_cost(
     sprite: Assets.IMAGES_RESEARCH_ARMY_COST,
     maxLevel: 5,
     costRate: 2,
@@ -136,7 +136,7 @@ enum ResearchType {
       minLevel: 1,
     ),
   ),
-  troop_time(
+  army_time(
     sprite: Assets.IMAGES_RESEARCH_ARMY_TIME,
     maxLevel: 5,
     costRate: 2,
@@ -166,7 +166,7 @@ enum ResearchType {
       ResourceType.technology: 10,
     },
   ),
-  warning_troops_early_warning(
+  warning_armies_early_warning(
     sprite: Assets.IMAGES_RESEARCH_WARNING_ARMIES_EARLY_WARNING,
     maxLevel: 5,
     costRate: 2,
@@ -174,7 +174,7 @@ enum ResearchType {
       ResourceType.technology: 10,
     },
   ),
-  warning_troops_fast_deployments(
+  warning_armies_fast_deployments(
     sprite: Assets.IMAGES_RESEARCH_WARNING_ARMIES_FAST_DEPLOYMENTS,
     maxLevel: 5,
     costRate: 2,
@@ -192,7 +192,7 @@ enum ResearchType {
       ResourceType.technology: 50,
     },
   ),
-  intel_troops(
+  intel_armies(
     sprite: Assets.IMAGES_RESEARCH_INTEL_ARMIES,
     maxLevel: 2,
     costRate: 2,
@@ -247,21 +247,21 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesSignalJammingName;
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombName;
-      case troop_cost:
+      case army_cost:
         return Localized.get.typeResearchArmiesCostName;
-      case troop_time:
+      case army_time:
         return Localized.get.typeResearchArmiesTimeName;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
         return Localized.get.typeResearchWarningHypersonicPropulsionName;
-      case warning_troops_early_warning:
+      case warning_armies_early_warning:
         return Localized.get.typeResearchWarningEarlyWarningName;
-      case warning_troops_fast_deployments:
+      case warning_armies_fast_deployments:
         return Localized.get.typeResearchWarningFastDeploymentsName;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationName;
-      case intel_troops:
+      case intel_armies:
         return Localized.get.typeResearchIntelArmyName;
       case intel_missiles:
         return Localized.get.typeResearchIntelMissileName;
@@ -289,21 +289,21 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesSignalJammingDescription;
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombDescription;
-      case troop_cost:
+      case army_cost:
         return Localized.get.typeResearchArmiesCostDescription;
-      case troop_time:
+      case army_time:
         return Localized.get.typeResearchArmiesTimeDescription;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:
         return Localized.get.typeResearchWarningHypersonicPropulsionDescription;
-      case warning_troops_early_warning:
+      case warning_armies_early_warning:
         return Localized.get.typeResearchWarningEarlyWarningDescription;
-      case warning_troops_fast_deployments:
+      case warning_armies_fast_deployments:
         return Localized.get.typeResearchWarningFastDeploymentsDescription;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationDescription;
-      case intel_troops:
+      case intel_armies:
         return Localized.get.typeResearchIntelArmyDescription;
       case intel_missiles:
         return Localized.get.typeResearchIntelMissileDescription;
@@ -340,23 +340,23 @@ enum ResearchType {
       case resources_quantum_computing:
       case missiles_active_tracking:
       case warning_missiles_radar_network:
-      case warning_troops_early_warning:
+      case warning_armies_early_warning:
       case warning_missiles_hypersonic_propulsion:
-      case warning_troops_fast_deployments:
+      case warning_armies_fast_deployments:
         return '+$baseRate';
 
       case missiles_additive_manufacturing:
       case missiles_assembly_automation:
       case missiles_signal_jamming:
-      case troop_cost:
-      case troop_time:
+      case army_cost:
+      case army_time:
         return '-$baseRate';
 
       case missiles_nuclear_bomb:
         return Formatter.yield(Research.yield(level));
 
       case intel_population:
-      case intel_troops:
+      case intel_armies:
       case intel_missiles:
         if (level == 1) {
           return Localized.get.typeResearchIntelLevel1;

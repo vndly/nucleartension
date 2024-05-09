@@ -27,7 +27,7 @@ dev_dependencies:
   daunused: ^1.6.1
   dapublock: ^1.1.0
   build_runner: ^2.4.9
-  flutter_lints: ^3.0.2
+  flutter_lints: ^4.0.0
   json_serializable: ^6.8.0
 
   flutter_test:

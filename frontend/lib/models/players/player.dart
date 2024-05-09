@@ -85,13 +85,13 @@ class Player {
   bool get hasIntel {
     final int researchIntelPopulation =
         game.self.getResearch(ResearchType.intel_population).level;
-    final int researchIntelTroops =
-        game.self.getResearch(ResearchType.intel_troops).level;
+    final int researchIntelArmies =
+        game.self.getResearch(ResearchType.intel_armies).level;
     final int researchIntelMissiles =
         game.self.getResearch(ResearchType.intel_missiles).level;
 
     return (researchIntelPopulation > 0) ||
-        (researchIntelTroops > 0) ||
+        (researchIntelArmies > 0) ||
         (researchIntelMissiles > 0);
   }
 
@@ -155,9 +155,9 @@ class Player {
 
   void createMilitary(MilitaryType militaryType) {
     switch (militaryType) {
-      case MilitaryType.troop:
+      case MilitaryType.army:
         military.add(militaryType, 1);
-        game.onTroopCreated(this);
+        game.onArmyCreated(this);
         break;
 
       case MilitaryType.missile_defense:
@@ -171,9 +171,9 @@ class Player {
     }
   }
 
-  int get troops => military.get(MilitaryType.troop).toInt();
+  int get armies => military.get(MilitaryType.army).toInt();
 
-  void removeTroops(int value) => military.remove(MilitaryType.troop, value);
+  void removeArmies(int value) => military.remove(MilitaryType.army, value);
 
   void removeDefenseMissiles(int value) =>
       military.remove(MilitaryType.missile_defense, value);
@@ -185,7 +185,7 @@ class Player {
 
   int get attackMissiles => military.get(MilitaryType.missile_attack).toInt();
 
-  bool get hasTroops => troops > 0;
+  bool get hasArmies => armies > 0;
 
   int get amountOfMissiles => defenseMissiles + attackMissiles;
 
@@ -224,16 +224,16 @@ class Player {
     return research.decreaseRate;
   }
 
-  num get troopAttackWarningWhenDefending {
+  num get armyAttackWarningWhenDefending {
     final Research research =
-        getResearch(ResearchType.warning_troops_early_warning);
+        getResearch(ResearchType.warning_armies_early_warning);
 
     return research.increaseRate;
   }
 
-  num get troopAttackWarningWhenAttacking {
+  num get armyAttackWarningWhenAttacking {
     final Research research =
-        getResearch(ResearchType.warning_troops_fast_deployments);
+        getResearch(ResearchType.warning_armies_fast_deployments);
 
     return research.decreaseRate;
   }
