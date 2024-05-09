@@ -20,7 +20,7 @@ class CustomSnackbar {
   }) {
     final SnackBar snackBar = SnackBar(
       elevation: 0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: Palette.transparent,
       behavior: SnackBarBehavior.floating,
       dismissDirection: DismissDirection.none,
       padding: EdgeInsets.zero,

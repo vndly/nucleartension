@@ -19,7 +19,7 @@ class MiddleLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Colors.black,
     );
   }
 }
