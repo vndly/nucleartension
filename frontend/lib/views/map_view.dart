@@ -8,9 +8,11 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      foregroundPainter: ForegroundPainter(),
-      child: MiddleLayer(),
+    return InteractiveViewer(
+      child: CustomPaint(
+        foregroundPainter: ForegroundPainter(),
+        child: MiddleLayer(),
+      ),
     );
   }
 }
