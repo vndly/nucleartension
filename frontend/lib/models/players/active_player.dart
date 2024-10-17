@@ -228,32 +228,32 @@ class CreateProfile extends ProbabilityProfile {
 
   factory CreateProfile.aggressiveArmies() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createMissileMixAction(): 0.2,
+        CreateProfile.createMissileMixAction(): 0.6,
       });
 
   factory CreateProfile.aggressiveMissiles() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createMissileAggressiveAction(): 0.4,
+        CreateProfile.createMissileAggressiveAction(): 0.6,
       });
 
   factory CreateProfile.aggressiveMix() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createMissileMixAction(): 0.3,
+        CreateProfile.createMissileMixAction(): 0.6,
       });
 
   factory CreateProfile.neutral() => CreateProfile._({
         CreateProfile.upgradeBuildingNeutralActions(): 0.6,
-        CreateProfile.createMissileMixAction(): 0.2,
+        CreateProfile.createMissileMixAction(): 0.4,
       });
 
   factory CreateProfile.defensive() => CreateProfile._({
         CreateProfile.upgradeBuildingDefensiveActions(): 0.6,
-        CreateProfile.createMissileDefensiveAction(): 0.3,
+        CreateProfile.createMissileDefensiveAction(): 0.4,
       });
 
   factory CreateProfile.upgradeBuildingAggressiveActions() =>
       CreateProfile._(ProbabilityProfile.actions({
-        PlayerAction.upgrade_power_plant: 0.3,
+        PlayerAction.upgrade_power_plant: 0.8,
         PlayerAction.upgrade_propaganda_station: 0.1,
         PlayerAction.upgrade_missile_silo: 0.1,
       }));
@@ -261,15 +261,15 @@ class CreateProfile extends ProbabilityProfile {
   factory CreateProfile.upgradeBuildingNeutralActions() =>
       CreateProfile._(ProbabilityProfile.actions({
         PlayerAction.upgrade_power_plant: 0.3,
-        PlayerAction.upgrade_propaganda_station: 0.15,
-        PlayerAction.upgrade_missile_silo: 0.05,
+        PlayerAction.upgrade_propaganda_station: 0.2,
+        PlayerAction.upgrade_missile_silo: 0.5,
       }));
 
   factory CreateProfile.upgradeBuildingDefensiveActions() =>
       CreateProfile._(ProbabilityProfile.actions({
         PlayerAction.upgrade_power_plant: 0.3,
         PlayerAction.upgrade_propaganda_station: 0.2,
-        PlayerAction.upgrade_missile_silo: 0.05,
+        PlayerAction.upgrade_missile_silo: 0.5,
       }));
 
   factory CreateProfile.createMissileAggressiveAction() =>
@@ -299,8 +299,8 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_resources_grid_management: 0.2,
         PlayerAction.research_resources_production_chain: 0.2,
         PlayerAction.research_resources_quantum_computing: 0.2,
-        PlayerAction.research_resources_indoctrination: 0.06,
-        PlayerAction.research_missiles_additive_manufacturing: 0.01,
+        PlayerAction.research_resources_indoctrination: 0.3,
+        PlayerAction.research_missiles_additive_manufacturing: 0.07,
         PlayerAction.research_missiles_active_tracking: 0.01,
         PlayerAction.research_missiles_signal_jamming: 0.01,
         PlayerAction.research_missiles_nuclear_bomb: 0.01,
@@ -308,50 +308,50 @@ class ResearchProfile extends ProbabilityProfile {
 
   factory ResearchProfile.aggressiveMissiles() =>
       ResearchProfile._(ProbabilityProfile.actions({
-        PlayerAction.research_resources_grid_management: 0.1,
-        PlayerAction.research_resources_production_chain: 0.1,
-        PlayerAction.research_resources_quantum_computing: 0.1,
-        PlayerAction.research_resources_indoctrination: 0.04,
-        PlayerAction.research_missiles_additive_manufacturing: 0.1,
-        PlayerAction.research_missiles_active_tracking: 0.1,
-        PlayerAction.research_missiles_signal_jamming: 0.2,
-        PlayerAction.research_missiles_nuclear_bomb: 0.2,
+        PlayerAction.research_resources_grid_management: 0.2,
+        PlayerAction.research_resources_production_chain: 0.2,
+        PlayerAction.research_resources_quantum_computing: 0.2,
+        PlayerAction.research_resources_indoctrination: 0.3,
+        PlayerAction.research_missiles_additive_manufacturing: 0.07,
+        PlayerAction.research_missiles_active_tracking: 0.01,
+        PlayerAction.research_missiles_signal_jamming: 0.01,
+        PlayerAction.research_missiles_nuclear_bomb: 0.01,
       }));
 
   factory ResearchProfile.aggressiveMix() =>
       ResearchProfile._(ProbabilityProfile.actions({
-        PlayerAction.research_resources_grid_management: 0.1,
-        PlayerAction.research_resources_production_chain: 0.1,
-        PlayerAction.research_resources_quantum_computing: 0.1,
-        PlayerAction.research_resources_indoctrination: 0.1,
-        PlayerAction.research_missiles_additive_manufacturing: 0.09,
-        PlayerAction.research_missiles_active_tracking: 0.09,
-        PlayerAction.research_missiles_signal_jamming: 0.09,
-        PlayerAction.research_missiles_nuclear_bomb: 0.09,
+        PlayerAction.research_resources_grid_management: 0.2,
+        PlayerAction.research_resources_production_chain: 0.2,
+        PlayerAction.research_resources_quantum_computing: 0.2,
+        PlayerAction.research_resources_indoctrination: 0.3,
+        PlayerAction.research_missiles_additive_manufacturing: 0.07,
+        PlayerAction.research_missiles_active_tracking: 0.01,
+        PlayerAction.research_missiles_signal_jamming: 0.01,
+        PlayerAction.research_missiles_nuclear_bomb: 0.01,
       }));
 
   factory ResearchProfile.neutral() =>
       ResearchProfile._(ProbabilityProfile.actions({
-        PlayerAction.research_resources_grid_management: 0.1,
-        PlayerAction.research_resources_production_chain: 0.1,
-        PlayerAction.research_resources_quantum_computing: 0.1,
-        PlayerAction.research_resources_indoctrination: 0.1,
-        PlayerAction.research_missiles_additive_manufacturing: 0.08,
-        PlayerAction.research_missiles_active_tracking: 0.08,
-        PlayerAction.research_missiles_signal_jamming: 0.08,
-        PlayerAction.research_missiles_nuclear_bomb: 0.12,
+        PlayerAction.research_resources_grid_management: 0.2,
+        PlayerAction.research_resources_production_chain: 0.2,
+        PlayerAction.research_resources_quantum_computing: 0.2,
+        PlayerAction.research_resources_indoctrination: 0.3,
+        PlayerAction.research_missiles_additive_manufacturing: 0.07,
+        PlayerAction.research_missiles_active_tracking: 0.01,
+        PlayerAction.research_missiles_signal_jamming: 0.01,
+        PlayerAction.research_missiles_nuclear_bomb: 0.01,
       }));
 
   factory ResearchProfile.defensive() =>
       ResearchProfile._(ProbabilityProfile.actions({
-        PlayerAction.research_resources_grid_management: 0.1,
-        PlayerAction.research_resources_production_chain: 0.1,
-        PlayerAction.research_resources_quantum_computing: 0.1,
-        PlayerAction.research_resources_indoctrination: 0.2,
-        PlayerAction.research_missiles_additive_manufacturing: 0.04,
-        PlayerAction.research_missiles_active_tracking: 0.2,
-        PlayerAction.research_missiles_signal_jamming: 0.04,
-        PlayerAction.research_missiles_nuclear_bomb: 0.04,
+        PlayerAction.research_resources_grid_management: 0.2,
+        PlayerAction.research_resources_production_chain: 0.2,
+        PlayerAction.research_resources_quantum_computing: 0.2,
+        PlayerAction.research_resources_indoctrination: 0.3,
+        PlayerAction.research_missiles_additive_manufacturing: 0.07,
+        PlayerAction.research_missiles_active_tracking: 0.01,
+        PlayerAction.research_missiles_signal_jamming: 0.01,
+        PlayerAction.research_missiles_nuclear_bomb: 0.01,
       }));
 }
 
@@ -381,10 +381,9 @@ class ProbabilityProfile implements ActionChoice {
 }
 
 class AttackProfile implements ActionChoice {
-  final int minArmyAttack;
   final int minMissileAttack;
 
-  const AttackProfile._(this.minArmyAttack, this.minMissileAttack);
+  const AttackProfile._(this.minMissileAttack);
 
   @override
   PlayerAction? action(Player player) {
@@ -395,15 +394,15 @@ class AttackProfile implements ActionChoice {
     }
   }
 
-  factory AttackProfile.aggressiveArmies() => const AttackProfile._(5, 10);
+  factory AttackProfile.aggressiveArmies() => const AttackProfile._(10);
 
-  factory AttackProfile.aggressiveMissiles() => const AttackProfile._(10, 5);
+  factory AttackProfile.aggressiveMissiles() => const AttackProfile._(5);
 
-  factory AttackProfile.aggressiveMix() => const AttackProfile._(5, 5);
+  factory AttackProfile.aggressiveMix() => const AttackProfile._(5);
 
-  factory AttackProfile.neutral() => const AttackProfile._(10, 10);
+  factory AttackProfile.neutral() => const AttackProfile._(10);
 
-  factory AttackProfile.defensive() => const AttackProfile._(20, 20);
+  factory AttackProfile.defensive() => const AttackProfile._(20);
 }
 
 class FinalAction implements ActionChoice {

@@ -158,14 +158,6 @@ enum ResearchType {
       ResourceType.technology: 50,
     },
   ),
-  intel_armies(
-    sprite: Assets.IMAGES_RESEARCH_INTEL_ARMIES,
-    maxLevel: 2,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 50,
-    },
-  ),
   intel_missiles(
     sprite: Assets.IMAGES_RESEARCH_INTEL_MISSILES,
     maxLevel: 2,
@@ -223,8 +215,6 @@ enum ResearchType {
         return Localized.get.typeResearchWarningFastDeploymentsName;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationName;
-      case intel_armies:
-        return Localized.get.typeResearchIntelArmyName;
       case intel_missiles:
         return Localized.get.typeResearchIntelMissileName;
     }
@@ -261,8 +251,6 @@ enum ResearchType {
         return Localized.get.typeResearchWarningFastDeploymentsDescription;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationDescription;
-      case intel_armies:
-        return Localized.get.typeResearchIntelArmyDescription;
       case intel_missiles:
         return Localized.get.typeResearchIntelMissileDescription;
     }
@@ -312,7 +300,6 @@ enum ResearchType {
         return Formatter.yield(Research.yield(level));
 
       case intel_population:
-      case intel_armies:
       case intel_missiles:
         if (level == 1) {
           return Localized.get.typeResearchIntelLevel1;

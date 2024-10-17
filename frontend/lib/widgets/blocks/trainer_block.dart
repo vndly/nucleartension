@@ -58,7 +58,7 @@ class TrainerBlock extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: RowSeparator(),
               ),
-              ArmySection(
+              TrainingSection(
                 trainer: trainer,
                 militaryType: militaryType,
               ),
@@ -142,11 +142,11 @@ class TrainerRightSection extends StatelessWidget {
   }
 }
 
-class ArmySection extends StatelessWidget {
+class TrainingSection extends StatelessWidget {
   final Trainer trainer;
   final MilitaryType militaryType;
 
-  const ArmySection({
+  const TrainingSection({
     required this.trainer,
     required this.militaryType,
   });
@@ -169,15 +169,15 @@ class ArmySection extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ArmyLeftSection(
+                TrainingLeftSection(
                   trainer: trainer,
                   militaryType: militaryType,
                 ),
-                ArmyCenterSection(
+                TrainingCenterSection(
                   trainer: trainer,
                   militaryType: militaryType,
                 ),
-                ArmyRightSection(
+                TrainingRightSection(
                   trainer: trainer,
                   militaryType: militaryType,
                 ),
@@ -190,11 +190,11 @@ class ArmySection extends StatelessWidget {
   }
 }
 
-class ArmyLeftSection extends StatelessWidget {
+class TrainingLeftSection extends StatelessWidget {
   final Trainer trainer;
   final MilitaryType militaryType;
 
-  const ArmyLeftSection({
+  const TrainingLeftSection({
     required this.trainer,
     required this.militaryType,
   });
@@ -208,11 +208,11 @@ class ArmyLeftSection extends StatelessWidget {
   }
 }
 
-class ArmyCenterSection extends StatelessWidget {
+class TrainingCenterSection extends StatelessWidget {
   final Trainer trainer;
   final MilitaryType militaryType;
 
-  const ArmyCenterSection({
+  const TrainingCenterSection({
     required this.trainer,
     required this.militaryType,
   });
@@ -256,11 +256,11 @@ class ArmyCenterSection extends StatelessWidget {
   }
 }
 
-class ArmyRightSection extends StatelessWidget {
+class TrainingRightSection extends StatelessWidget {
   final Trainer trainer;
   final MilitaryType militaryType;
 
-  const ArmyRightSection({
+  const TrainingRightSection({
     required this.trainer,
     required this.militaryType,
   });

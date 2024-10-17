@@ -66,7 +66,6 @@ class GameState extends BaseState {
       player: usa,
       map: {
         ResearchType.intel_population: Environment.isDebug ? 2 : 0,
-        ResearchType.intel_armies: Environment.isDebug ? 2 : 0,
         ResearchType.intel_missiles: Environment.isDebug ? 2 : 0,
       },
     ));

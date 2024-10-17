@@ -61,20 +61,6 @@ class EnabledButton extends StatelessWidget {
         rotation: 3,
       );
 
-  factory EnabledButton.attackArmy({
-    required double size,
-    required VoidCallback onTap,
-  }) =>
-      EnabledButton(
-        icon: _svgIcon(
-          icon: Assets.ICONS_TANK,
-          size: size,
-        ),
-        color: Palette.success,
-        size: size,
-        onTap: onTap,
-      );
-
   factory EnabledButton.attackMissile({
     required double size,
     required VoidCallback onTap,

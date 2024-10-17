@@ -167,11 +167,6 @@ class ResearchIntel extends StatelessWidget {
         const BlockSeparator(),
         ResearchBlock(
           player: player,
-          research: player.getResearch(ResearchType.intel_armies),
-        ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
           research: player.getResearch(ResearchType.intel_missiles),
         ),
       ],

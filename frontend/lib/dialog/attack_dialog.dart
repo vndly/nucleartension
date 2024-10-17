@@ -15,7 +15,6 @@ class AttackDialog extends StatefulWidget {
   final String buttonAccept;
   final String buttonCancel;
   final Function(int) onAccept;
-  final bool isMissileAttack;
   final int missileYield;
 
   const AttackDialog._({
@@ -25,7 +24,6 @@ class AttackDialog extends StatefulWidget {
     required this.buttonAccept,
     required this.buttonCancel,
     required this.onAccept,
-    required this.isMissileAttack,
     required this.missileYield,
   });
 
@@ -46,25 +44,8 @@ class AttackDialog extends StatefulWidget {
         buttonAccept: buttonAccept,
         buttonCancel: buttonCancel,
         onAccept: onAccept,
-        isMissileAttack: isMissileAttack,
         missileYield: missileYield,
       ));
-
-  static DialogController army({
-    required Player defender,
-    required int max,
-    required Function(int) onAccept,
-  }) =>
-      _show(
-        title: Localized.get.dialogAttackArmyTitle(defender.name),
-        message: Localized.get.dialogAttackArmyMessage,
-        max: max,
-        buttonAccept: Localized.get.buttonAttack,
-        buttonCancel: Localized.get.buttonCancel,
-        onAccept: onAccept,
-        isMissileAttack: false,
-        missileYield: 0,
-      );
 
   static DialogController missile({
     required Player defender,
@@ -105,26 +86,18 @@ class _AttackDialogState extends State<AttackDialog> {
         children: [
           const VBox(5),
           Label(
-            text: widget.isMissileAttack
-                ? widget.message(
-                    '${_selected.toString()} (${Formatter.yield(_yield)})')
-                : widget.message(_selected.toString()),
+            text: widget.message(
+                '${_selected.toString()} (${Formatter.yield(_yield)})'),
             color: Palette.textPrimary,
             uppercase: false,
           ),
           const VBox(15),
           Label(
-            text: widget.isMissileAttack
-                ? Localized.get.dialogAttackMissileSummary(
-                    Formatter.resourceRaw(
-                      _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT,
-                    ),
-                  )
-                : Localized.get.dialogAttackArmySummary(
-                    Formatter.resourceRaw(
-                      _selected * Constants.ARMY_ATTACK_DAMAGE,
-                    ),
-                  ),
+            text: Localized.get.dialogAttackMissileSummary(
+              Formatter.resourceRaw(
+                _yield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT,
+              ),
+            ),
             color: Palette.textPrimary,
             uppercase: false,
           ),

@@ -124,17 +124,17 @@ class Game {
 
   int get defconStep => 6 - defcon;
 
-  void onArmyCreated(Player player) => _applyDefcon(
+  void onDefenseSiloCreated(Player player) => _applyDefcon(
         player: player,
         level: 4,
       );
 
-  void onArmyUsed(Player player) => _applyDefcon(
+  void onDefenseMissileUsed(Player player) => _applyDefcon(
         player: player,
         level: 3,
       );
 
-  void onAttackMissileCreated(Player player) => _applyDefcon(
+  void onAttackSiloCreated(Player player) => _applyDefcon(
         player: player,
         level: 2,
       );

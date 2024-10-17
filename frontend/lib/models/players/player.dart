@@ -73,14 +73,10 @@ class Player {
   bool get hasIntel {
     final int researchIntelPopulation =
         game.self.getResearch(ResearchType.intel_population).level;
-    final int researchIntelArmies =
-        game.self.getResearch(ResearchType.intel_armies).level;
     final int researchIntelMissiles =
         game.self.getResearch(ResearchType.intel_missiles).level;
 
-    return (researchIntelPopulation > 0) ||
-        (researchIntelArmies > 0) ||
-        (researchIntelMissiles > 0);
+    return (researchIntelPopulation > 0) || (researchIntelMissiles > 0);
   }
 
   Research getResearch(ResearchType researchType) =>
@@ -148,7 +144,6 @@ class Player {
 
       case MilitaryType.missile_attack:
         military.add(militaryType, 1);
-        game.onAttackMissileCreated(this);
         break;
     }
   }
@@ -196,20 +191,6 @@ class Player {
   num get missileAttackWarningWhenAttacking {
     final Research research =
         getResearch(ResearchType.warning_missiles_hypersonic_propulsion);
-
-    return research.decreaseRate;
-  }
-
-  num get armyAttackWarningWhenDefending {
-    final Research research =
-        getResearch(ResearchType.warning_armies_early_warning);
-
-    return research.increaseRate;
-  }
-
-  num get armyAttackWarningWhenAttacking {
-    final Research research =
-        getResearch(ResearchType.warning_armies_fast_deployments);
 
     return research.decreaseRate;
   }
