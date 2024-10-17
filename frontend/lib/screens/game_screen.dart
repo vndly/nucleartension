@@ -30,10 +30,7 @@ class GameScreen extends StatelessWidget {
       canPop: state.finished,
       onPopInvokedWithResult: (didPop, result) => state.onPause(),
       child: GameContainer(
-        child: GameLoop(
-          state: state,
-          content: GameContent(state),
-        ),
+        child: GameLoop(state),
       ),
     );
   }

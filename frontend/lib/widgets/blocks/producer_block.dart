@@ -104,22 +104,10 @@ class RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (producer.requirementFulfilled) {
-      return UpgradeButton(
-        upgradable: producer,
-        size: 70,
-      );
-    } else {
-      return Label(
-        text: Localized.get.labelRequiresBuilding(
-          producer.requirementType.localized.replaceAll(' ', '\n'),
-          producer.requirementMinLevel,
-        ),
-        color: Palette.error,
-        align: TextAlign.center,
-        size: 12,
-      );
-    }
+    return UpgradeButton(
+      upgradable: producer,
+      size: 70,
+    );
   }
 }
 

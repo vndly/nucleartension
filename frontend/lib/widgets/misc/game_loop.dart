@@ -6,12 +6,8 @@ import 'package:nucleartension/states/game_state.dart';
 
 class GameLoop extends StatefulWidget {
   final GameState state;
-  final GameContent content;
 
-  const GameLoop({
-    required this.state,
-    required this.content,
-  });
+  const GameLoop(this.state);
 
   @override
   State<GameLoop> createState() => _GameLoopState();
@@ -59,7 +55,7 @@ class _GameLoopState extends State<GameLoop>
             widget.state.update(dt);
           }
 
-          return widget.content;
+          return GameContent(widget.state);
         },
       ),
     );

@@ -16,10 +16,6 @@ class ResourcesView extends StatelessWidget {
         children: [
           ProducerBlock(game.self.powerPlant),
           const BlockSeparator(),
-          ProducerBlock(game.self.supplyCenter),
-          const BlockSeparator(),
-          ProducerBlock(game.self.techLab),
-          const BlockSeparator(),
           ProducerBlock(game.self.propagandaStation),
           const BlockSeparator(),
         ],

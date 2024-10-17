@@ -135,22 +135,10 @@ class TrainerRightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (trainer.requirementFulfilled) {
-      return UpgradeButton(
-        upgradable: trainer,
-        size: 70,
-      );
-    } else {
-      return Label(
-        text: Localized.get.labelRequiresBuilding(
-          trainer.requirementType.localized.replaceAll(' ', '\n'),
-          trainer.requirementMinLevel,
-        ),
-        color: Palette.error,
-        align: TextAlign.center,
-        size: 12,
-      );
-    }
+    return UpgradeButton(
+      upgradable: trainer,
+      size: 70,
+    );
   }
 }
 

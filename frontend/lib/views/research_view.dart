@@ -20,8 +20,7 @@ class ResearchView extends StatelessWidget {
         children: [
           ResearchResources(game.self),
           ResearchMissiles(game.self),
-          ResearchArmies(game.self),
-          //ResearchWarning(game.self),
+          ResearchWarning(game.self),
           ResearchIntel(game.self),
         ],
       ),
@@ -143,32 +142,6 @@ class ResearchWarning extends StatelessWidget {
           player: player,
           research:
               player.getResearch(ResearchType.warning_armies_fast_deployments),
-        ),
-      ],
-    );
-  }
-}
-
-class ResearchArmies extends StatelessWidget {
-  final Player player;
-
-  const ResearchArmies(this.player);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const BlockSeparator(),
-        BlockTitle(Localized.get.screenResearchArmies),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research: player.getResearch(ResearchType.army_cost),
-        ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research: player.getResearch(ResearchType.army_time),
         ),
       ],
     );

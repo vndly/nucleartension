@@ -7,9 +7,6 @@ import 'package:nucleartension/extensions/duration_extension.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
-import 'package:nucleartension/models/buildings/producers/supply_center.dart';
-import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
-import 'package:nucleartension/models/buildings/trainers/military_facility.dart';
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/military_inventory.dart';
@@ -51,7 +48,6 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.army: 0,
         MilitaryType.missile_defense: 0,
         MilitaryType.missile_attack: 0,
       }),
@@ -63,7 +59,6 @@ class GameState extends BaseState {
       player: usa,
       map: {
         BuildingType.power_plant: 0,
-        BuildingType.supply_center: 0,
       },
     ));
 
@@ -137,7 +132,6 @@ class GameState extends BaseState {
         ResourceType.population: Constants.INITIAL_POPULATION,
       }),
       military: MilitaryInventory.create({
-        MilitaryType.army: 0,
         MilitaryType.missile_defense: 0,
         MilitaryType.missile_attack: 0,
       }),
@@ -150,7 +144,6 @@ class GameState extends BaseState {
       player: player,
       map: {
         BuildingType.power_plant: 1,
-        BuildingType.supply_center: 1,
       },
     ));
 
@@ -171,24 +164,9 @@ class GameState extends BaseState {
           player: player,
           level: map[BuildingType.power_plant] ?? 0,
         ),
-        SupplyCenter(
-          player: player,
-          level: map[BuildingType.supply_center] ?? 0,
-        ),
-        TechLab(
-          player: player,
-          level: map[BuildingType.tech_lab] ?? 0,
-        ),
         PropagandaStation(
           player: player,
           level: map[BuildingType.propaganda_station] ?? 0,
-        ),
-        MilitaryFacility(
-          player: player,
-          level: map[BuildingType.military_facility] ?? 0,
-          queues: {
-            MilitaryType.army: [],
-          },
         ),
         MissileSilo(
           player: player,

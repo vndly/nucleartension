@@ -1,13 +1,9 @@
 import 'dart:math';
-
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/producer.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
-import 'package:nucleartension/models/buildings/producers/supply_center.dart';
-import 'package:nucleartension/models/buildings/producers/tech_lab.dart';
-import 'package:nucleartension/models/buildings/trainers/military_facility.dart';
 import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/inventory/military_inventory.dart';
@@ -48,19 +44,11 @@ class Player {
   PowerPlant get powerPlant =>
       buildings[BuildingType.power_plant] as PowerPlant;
 
-  SupplyCenter get supplyCenter =>
-      buildings[BuildingType.supply_center] as SupplyCenter;
-
   PropagandaStation get propagandaStation =>
       buildings[BuildingType.propaganda_station] as PropagandaStation;
 
-  TechLab get techLab => buildings[BuildingType.tech_lab] as TechLab;
-
   MissileSilo get missileSilo =>
       buildings[BuildingType.missile_silo] as MissileSilo;
-
-  MilitaryFacility get militaryFacility =>
-      buildings[BuildingType.military_facility] as MilitaryFacility;
 
   Building getBuilding(BuildingType buildingType) => buildings[buildingType]!;
 
@@ -131,7 +119,6 @@ class Player {
       };
 
       resources.clear();
-      military.clear();
 
       return loot;
     } else {
@@ -155,11 +142,6 @@ class Player {
 
   void createMilitary(MilitaryType militaryType) {
     switch (militaryType) {
-      case MilitaryType.army:
-        military.add(militaryType, 1);
-        game.onArmyCreated(this);
-        break;
-
       case MilitaryType.missile_defense:
         military.add(militaryType, 1);
         break;
@@ -171,10 +153,6 @@ class Player {
     }
   }
 
-  int get armies => military.get(MilitaryType.army).toInt();
-
-  void removeArmies(int value) => military.remove(MilitaryType.army, value);
-
   void removeDefenseMissiles(int value) =>
       military.remove(MilitaryType.missile_defense, value);
 
@@ -184,8 +162,6 @@ class Player {
   int get defenseMissiles => military.get(MilitaryType.missile_defense).toInt();
 
   int get attackMissiles => military.get(MilitaryType.missile_attack).toInt();
-
-  bool get hasArmies => armies > 0;
 
   int get amountOfMissiles => defenseMissiles + attackMissiles;
 

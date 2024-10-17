@@ -1,6 +1,5 @@
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
-import 'package:nucleartension/models/attacks/army_attack.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
@@ -56,13 +55,6 @@ class Game {
   List<Player> get playersByPopulation {
     final List<Player> result = List.from(players);
     result.sort((a, b) => b.population - a.population);
-
-    return result;
-  }
-
-  List<Player> get playersByArmies {
-    final List<Player> result = List.from(players);
-    result.sort((a, b) => b.armies - a.armies);
 
     return result;
   }
@@ -172,36 +164,6 @@ class Game {
 
   List<Attack> get selfAttacks =>
       attacks.where((e) => e.contains(self)).toList();
-
-  void onArmyAttack({
-    required Player attacker,
-    required Player defender,
-  }) =>
-      AttackDialog.army(
-        defender: defender,
-        max: self.armies,
-        onAccept: (amount) => armyAttack(
-          attacker: attacker,
-          defender: defender,
-          amount: amount,
-        ),
-      );
-
-  void armyAttack({
-    required Player attacker,
-    required Player defender,
-    required int amount,
-  }) {
-    attacker.removeArmies(amount);
-
-    attacks.add(ArmyAttack.from(
-      attacker: attacker,
-      defender: defender,
-      amount: amount,
-    ));
-
-    onArmyUsed(attacker);
-  }
 
   void onMissileAttack({
     required Player attacker,

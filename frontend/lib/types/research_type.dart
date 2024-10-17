@@ -31,10 +31,6 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(
-      type: BuildingType.supply_center,
-      minLevel: 1,
-    ),
   ),
   resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING,
@@ -43,10 +39,6 @@ enum ResearchType {
     initialCost: {
       ResourceType.technology: 10,
     },
-    requirement: Requirement(
-      type: BuildingType.tech_lab,
-      minLevel: 1,
-    ),
   ),
   resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_INDOCTRINATION,
@@ -119,32 +111,6 @@ enum ResearchType {
     },
     requirement: Requirement(
       type: BuildingType.missile_silo,
-      minLevel: 1,
-    ),
-  ),
-
-  // armies
-  army_cost(
-    sprite: Assets.IMAGES_RESEARCH_ARMY_COST,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.military_facility,
-      minLevel: 1,
-    ),
-  ),
-  army_time(
-    sprite: Assets.IMAGES_RESEARCH_ARMY_TIME,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.technology: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.military_facility,
       minLevel: 1,
     ),
   ),
@@ -247,10 +213,6 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesSignalJammingName;
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombName;
-      case army_cost:
-        return Localized.get.typeResearchArmiesCostName;
-      case army_time:
-        return Localized.get.typeResearchArmiesTimeName;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
@@ -289,10 +251,6 @@ enum ResearchType {
         return Localized.get.typeResearchMissilesSignalJammingDescription;
       case missiles_nuclear_bomb:
         return Localized.get.typeResearchMissilesNuclearBombDescription;
-      case army_cost:
-        return Localized.get.typeResearchArmiesCostDescription;
-      case army_time:
-        return Localized.get.typeResearchArmiesTimeDescription;
       case warning_missiles_radar_network:
         return Localized.get.typeResearchWarningRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:
@@ -348,8 +306,6 @@ enum ResearchType {
       case missiles_additive_manufacturing:
       case missiles_assembly_automation:
       case missiles_signal_jamming:
-      case army_cost:
-      case army_time:
         return '-$baseRate';
 
       case missiles_nuclear_bomb:

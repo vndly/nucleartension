@@ -48,23 +48,11 @@ class ActivePlayer extends Player {
       case PlayerAction.upgrade_power_plant:
         _upgradeBuilding(powerPlant);
         break;
-      case PlayerAction.upgrade_supply_center:
-        _upgradeBuilding(supplyCenter);
-        break;
-      case PlayerAction.upgrade_tech_lab:
-        _upgradeBuilding(techLab);
-        break;
       case PlayerAction.upgrade_propaganda_station:
         _upgradeBuilding(propagandaStation);
         break;
-      case PlayerAction.upgrade_military_facility:
-        _upgradeBuilding(militaryFacility);
-        break;
       case PlayerAction.upgrade_missile_silo:
         _upgradeBuilding(missileSilo);
-        break;
-      case PlayerAction.create_army:
-        _createArmy(MilitaryType.army);
         break;
       case PlayerAction.create_defense_missile:
         _createMissile(MilitaryType.missile_defense);
@@ -96,12 +84,6 @@ class ActivePlayer extends Player {
       case PlayerAction.research_missiles_nuclear_bomb:
         _researchTechnology(ResearchType.missiles_nuclear_bomb);
         break;
-      case PlayerAction.research_army_cost:
-        _researchTechnology(ResearchType.army_cost);
-        break;
-      case PlayerAction.attack_army:
-        _armyAttack();
-        break;
       case PlayerAction.attack_missile:
         _missileAttack();
         break;
@@ -129,27 +111,11 @@ class ActivePlayer extends Player {
   int _buildingMaxLevel(BuildingType buildingType) {
     switch (buildingType) {
       case BuildingType.power_plant:
-      case BuildingType.supply_center:
         return 4;
-      case BuildingType.tech_lab:
-        return 3;
       case BuildingType.propaganda_station:
         return 2;
-      case BuildingType.military_facility:
       case BuildingType.missile_silo:
         return 1;
-    }
-  }
-
-  void _createArmy(MilitaryType militaryType) {
-    if (militaryFacility.level == 0) {
-      nextCreateAction = null;
-      return;
-    }
-
-    if (militaryFacility.enqueueMilitary(militaryType)) {
-      nextCreateAction = null;
-      debugPrint('AI: Player $name enqueued army');
     }
   }
 
@@ -186,25 +152,6 @@ class ActivePlayer extends Player {
       nextResearchAction = null;
       debugPrint(
           'AI: Player $name upgraded research ${research.researchType.name} to level ${research.level + 1}');
-    }
-  }
-
-  void _armyAttack() {
-    if (armies > 0) {
-      final Player? defender = game.randomPlayer(this);
-      final int amount = Probability.between(1, armies);
-
-      if ((amount > 0) && (defender != null)) {
-        debugPrint(
-            'AI: Player $name sent army attack to ${defender.name} with $amount');
-        game.armyAttack(
-          attacker: this,
-          defender: defender,
-          amount: amount,
-        );
-      }
-
-      nextAttackAction = null;
     }
   }
 
@@ -281,67 +228,48 @@ class CreateProfile extends ProbabilityProfile {
 
   factory CreateProfile.aggressiveArmies() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createArmyAction(): 0.4,
         CreateProfile.createMissileMixAction(): 0.2,
       });
 
   factory CreateProfile.aggressiveMissiles() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createArmyAction(): 0.2,
         CreateProfile.createMissileAggressiveAction(): 0.4,
       });
 
   factory CreateProfile.aggressiveMix() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createArmyAction(): 0.3,
         CreateProfile.createMissileMixAction(): 0.3,
       });
 
   factory CreateProfile.neutral() => CreateProfile._({
         CreateProfile.upgradeBuildingNeutralActions(): 0.6,
-        CreateProfile.createArmyAction(): 0.2,
         CreateProfile.createMissileMixAction(): 0.2,
       });
 
   factory CreateProfile.defensive() => CreateProfile._({
         CreateProfile.upgradeBuildingDefensiveActions(): 0.6,
-        CreateProfile.createArmyAction(): 0.1,
         CreateProfile.createMissileDefensiveAction(): 0.3,
       });
 
   factory CreateProfile.upgradeBuildingAggressiveActions() =>
       CreateProfile._(ProbabilityProfile.actions({
         PlayerAction.upgrade_power_plant: 0.3,
-        PlayerAction.upgrade_supply_center: 0.3,
-        PlayerAction.upgrade_tech_lab: 0.1,
         PlayerAction.upgrade_propaganda_station: 0.1,
-        PlayerAction.upgrade_military_facility: 0.1,
         PlayerAction.upgrade_missile_silo: 0.1,
       }));
 
   factory CreateProfile.upgradeBuildingNeutralActions() =>
       CreateProfile._(ProbabilityProfile.actions({
         PlayerAction.upgrade_power_plant: 0.3,
-        PlayerAction.upgrade_supply_center: 0.3,
-        PlayerAction.upgrade_tech_lab: 0.15,
         PlayerAction.upgrade_propaganda_station: 0.15,
-        PlayerAction.upgrade_military_facility: 0.05,
         PlayerAction.upgrade_missile_silo: 0.05,
       }));
 
   factory CreateProfile.upgradeBuildingDefensiveActions() =>
       CreateProfile._(ProbabilityProfile.actions({
         PlayerAction.upgrade_power_plant: 0.3,
-        PlayerAction.upgrade_supply_center: 0.3,
-        PlayerAction.upgrade_tech_lab: 0.1,
         PlayerAction.upgrade_propaganda_station: 0.2,
-        PlayerAction.upgrade_military_facility: 0.05,
         PlayerAction.upgrade_missile_silo: 0.05,
-      }));
-
-  factory CreateProfile.createArmyAction() =>
-      CreateProfile._(ProbabilityProfile.actions({
-        PlayerAction.create_army: 1,
       }));
 
   factory CreateProfile.createMissileAggressiveAction() =>
@@ -376,7 +304,6 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.01,
         PlayerAction.research_missiles_signal_jamming: 0.01,
         PlayerAction.research_missiles_nuclear_bomb: 0.01,
-        PlayerAction.research_army_cost: 0.3,
       }));
 
   factory ResearchProfile.aggressiveMissiles() =>
@@ -389,7 +316,6 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.1,
         PlayerAction.research_missiles_signal_jamming: 0.2,
         PlayerAction.research_missiles_nuclear_bomb: 0.2,
-        PlayerAction.research_army_cost: 0.06,
       }));
 
   factory ResearchProfile.aggressiveMix() =>
@@ -402,7 +328,6 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.09,
         PlayerAction.research_missiles_signal_jamming: 0.09,
         PlayerAction.research_missiles_nuclear_bomb: 0.09,
-        PlayerAction.research_army_cost: 0.24,
       }));
 
   factory ResearchProfile.neutral() =>
@@ -415,7 +340,6 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.08,
         PlayerAction.research_missiles_signal_jamming: 0.08,
         PlayerAction.research_missiles_nuclear_bomb: 0.12,
-        PlayerAction.research_army_cost: 0.24,
       }));
 
   factory ResearchProfile.defensive() =>
@@ -428,7 +352,6 @@ class ResearchProfile extends ProbabilityProfile {
         PlayerAction.research_missiles_active_tracking: 0.2,
         PlayerAction.research_missiles_signal_jamming: 0.04,
         PlayerAction.research_missiles_nuclear_bomb: 0.04,
-        PlayerAction.research_army_cost: 0.18,
       }));
 }
 
@@ -465,9 +388,7 @@ class AttackProfile implements ActionChoice {
 
   @override
   PlayerAction? action(Player player) {
-    if (player.armies >= minArmyAttack) {
-      return PlayerAction.attack_army;
-    } else if (player.attackMissiles >= minMissileAttack) {
+    if (player.attackMissiles >= minMissileAttack) {
       return PlayerAction.attack_missile;
     } else {
       return null;
@@ -501,14 +422,8 @@ abstract class ActionChoice {
 enum PlayerAction {
   // building upgrades
   upgrade_power_plant,
-  upgrade_supply_center,
-  upgrade_tech_lab,
   upgrade_propaganda_station,
-  upgrade_military_facility,
   upgrade_missile_silo,
-
-  // create army
-  create_army,
 
   // create missiles
   create_defense_missile,
@@ -523,9 +438,7 @@ enum PlayerAction {
   research_missiles_active_tracking,
   research_missiles_signal_jamming,
   research_missiles_nuclear_bomb,
-  research_army_cost,
 
   // attack
-  attack_army,
   attack_missile,
 }
