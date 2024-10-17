@@ -192,12 +192,6 @@ class PlayerProfile {
 
   PlayerAction? attackAction(Player player) => attackProfile.action(player);
 
-  factory PlayerProfile.aggressiveArmies() => PlayerProfile._(
-        createProfile: CreateProfile.aggressiveArmies(),
-        researchProfile: ResearchProfile.aggressiveArmies(),
-        attackProfile: AttackProfile.aggressiveArmies(),
-      );
-
   factory PlayerProfile.aggressiveMissiles() => PlayerProfile._(
         createProfile: CreateProfile.aggressiveMissiles(),
         researchProfile: ResearchProfile.aggressiveMissiles(),
@@ -225,11 +219,6 @@ class PlayerProfile {
 
 class CreateProfile extends ProbabilityProfile {
   const CreateProfile._(super.map);
-
-  factory CreateProfile.aggressiveArmies() => CreateProfile._({
-        CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
-        CreateProfile.createMissileMixAction(): 0.6,
-      });
 
   factory CreateProfile.aggressiveMissiles() => CreateProfile._({
         CreateProfile.upgradeBuildingAggressiveActions(): 0.4,
@@ -293,18 +282,6 @@ class CreateProfile extends ProbabilityProfile {
 
 class ResearchProfile extends ProbabilityProfile {
   const ResearchProfile._(super.map);
-
-  factory ResearchProfile.aggressiveArmies() =>
-      ResearchProfile._(ProbabilityProfile.actions({
-        PlayerAction.research_resources_grid_management: 0.2,
-        PlayerAction.research_resources_production_chain: 0.2,
-        PlayerAction.research_resources_quantum_computing: 0.2,
-        PlayerAction.research_resources_indoctrination: 0.3,
-        PlayerAction.research_missiles_additive_manufacturing: 0.07,
-        PlayerAction.research_missiles_active_tracking: 0.01,
-        PlayerAction.research_missiles_signal_jamming: 0.01,
-        PlayerAction.research_missiles_nuclear_bomb: 0.01,
-      }));
 
   factory ResearchProfile.aggressiveMissiles() =>
       ResearchProfile._(ProbabilityProfile.actions({
@@ -393,8 +370,6 @@ class AttackProfile implements ActionChoice {
       return null;
     }
   }
-
-  factory AttackProfile.aggressiveArmies() => const AttackProfile._(10);
 
   factory AttackProfile.aggressiveMissiles() => const AttackProfile._(5);
 

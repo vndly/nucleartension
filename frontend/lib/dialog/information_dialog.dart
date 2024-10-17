@@ -167,16 +167,6 @@ class InformationDialog extends StatelessWidget {
           ),
           const VBox(10),
           LabeledText(
-            label: Localized.get.dialogInformationPlayerArmies,
-            text: Localized.get.dialogInformationPlayerIntelRequiredArmies,
-            labelSize: 14,
-            textSize: 12,
-            labelColor: Palette.textPrimary,
-            textColor: Palette.textError,
-            textUppercase: false,
-          ),
-          const VBox(10),
-          LabeledText(
             label: Localized.get.dialogInformationPlayerMissiles,
             text: hasIntelMissiles
                 ? Formatter.resourceRaw(player.amountOfMissiles)

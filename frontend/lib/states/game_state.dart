@@ -73,7 +73,7 @@ class GameState extends BaseState {
       _activePlayer(
         name: 'Sergey',
         country: Country.russia,
-        profile: PlayerProfile.aggressiveArmies(),
+        profile: PlayerProfile.aggressiveMissiles(),
       ),
       _activePlayer(
         name: 'Ming',
@@ -98,7 +98,7 @@ class GameState extends BaseState {
       _activePlayer(
         name: 'Ram',
         country: Country.india,
-        profile: PlayerProfile.aggressiveArmies(),
+        profile: PlayerProfile.aggressiveMissiles(),
       ),
       _activePlayer(
         name: 'Muhammad',

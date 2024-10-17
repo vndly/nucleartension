@@ -29,7 +29,5 @@ class Constants {
     ResearchType.missiles_signal_jamming: 0.1,
     ResearchType.warning_missiles_radar_network: 0.1,
     ResearchType.warning_missiles_hypersonic_propulsion: 0.1,
-    ResearchType.warning_armies_early_warning: 0.1,
-    ResearchType.warning_armies_fast_deployments: 0.1,
   };
 }

@@ -132,22 +132,6 @@ enum ResearchType {
       ResourceType.energy: 10,
     },
   ),
-  warning_armies_early_warning(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_ARMIES_EARLY_WARNING,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-  ),
-  warning_armies_fast_deployments(
-    sprite: Assets.IMAGES_RESEARCH_WARNING_ARMIES_FAST_DEPLOYMENTS,
-    maxLevel: 5,
-    costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-  ),
 
   // intel
   intel_population(
@@ -209,10 +193,6 @@ enum ResearchType {
         return Localized.get.typeResearchWarningRadarNetworkName;
       case warning_missiles_hypersonic_propulsion:
         return Localized.get.typeResearchWarningHypersonicPropulsionName;
-      case warning_armies_early_warning:
-        return Localized.get.typeResearchWarningEarlyWarningName;
-      case warning_armies_fast_deployments:
-        return Localized.get.typeResearchWarningFastDeploymentsName;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationName;
       case intel_missiles:
@@ -245,10 +225,6 @@ enum ResearchType {
         return Localized.get.typeResearchWarningRadarNetworkDescription;
       case warning_missiles_hypersonic_propulsion:
         return Localized.get.typeResearchWarningHypersonicPropulsionDescription;
-      case warning_armies_early_warning:
-        return Localized.get.typeResearchWarningEarlyWarningDescription;
-      case warning_armies_fast_deployments:
-        return Localized.get.typeResearchWarningFastDeploymentsDescription;
       case intel_population:
         return Localized.get.typeResearchIntelPopulationDescription;
       case intel_missiles:
@@ -286,9 +262,7 @@ enum ResearchType {
       case resources_quantum_computing:
       case missiles_active_tracking:
       case warning_missiles_radar_network:
-      case warning_armies_early_warning:
       case warning_missiles_hypersonic_propulsion:
-      case warning_armies_fast_deployments:
         return '+$baseRate';
 
       case missiles_additive_manufacturing:

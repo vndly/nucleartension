@@ -131,18 +131,6 @@ class ResearchWarning extends StatelessWidget {
           research: player
               .getResearch(ResearchType.warning_missiles_hypersonic_propulsion),
         ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research:
-              player.getResearch(ResearchType.warning_armies_early_warning),
-        ),
-        const BlockSeparator(),
-        ResearchBlock(
-          player: player,
-          research:
-              player.getResearch(ResearchType.warning_armies_fast_deployments),
-        ),
       ],
     );
   }
