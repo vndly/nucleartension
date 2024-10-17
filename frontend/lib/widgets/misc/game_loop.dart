@@ -6,8 +6,12 @@ import 'package:nucleartension/states/game_state.dart';
 
 class GameLoop extends StatefulWidget {
   final GameState state;
+  final GameContent content;
 
-  const GameLoop(this.state);
+  const GameLoop({
+    required this.state,
+    required this.content,
+  });
 
   @override
   State<GameLoop> createState() => _GameLoopState();
@@ -19,8 +23,6 @@ class _GameLoopState extends State<GameLoop>
   final DateTime _initialTime = DateTime.now();
   double _previous = 0;
   AppLifecycleState state = AppLifecycleState.resumed;
-
-  //static const int CLOCK_RATE = 1;
 
   double get _currentTime =>
       DateTime.now().difference(_initialTime).inMilliseconds / 1000.0;
@@ -57,7 +59,7 @@ class _GameLoopState extends State<GameLoop>
             widget.state.update(dt);
           }
 
-          return GameContent(widget.state);
+          return widget.content;
         },
       ),
     );
