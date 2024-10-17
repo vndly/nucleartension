@@ -8,14 +8,6 @@ enum ResourceType {
     sprite: Icons.bolt,
     color: Palette.resourceEnergy,
   ),
-  supplies(
-    sprite: Icons.token,
-    color: Palette.resourceSupplies,
-  ),
-  technology(
-    sprite: Icons.science,
-    color: Palette.resourceTechnology,
-  ),
   population(
     sprite: Icons.people,
     color: Palette.resourcePopulation,
@@ -39,10 +31,6 @@ enum ResourceType {
     switch (this) {
       case energy:
         return Localized.get.typeResourceEnergy;
-      case supplies:
-        return Localized.get.typeResourceSupplies;
-      case technology:
-        return Localized.get.typeResourceTechnology;
       case population:
         return Localized.get.typeResourcePopulation;
     }
@@ -52,10 +40,6 @@ enum ResourceType {
     switch (this) {
       case energy:
         return ResearchType.resources_grid_management;
-      case supplies:
-        return ResearchType.resources_production_chain;
-      case technology:
-        return ResearchType.resources_quantum_computing;
       case population:
         return ResearchType.resources_indoctrination;
     }

@@ -13,14 +13,12 @@ enum MilitaryType {
     sprite: Assets.IMAGES_MILITARY_MISSILE_DEFENSE,
     cost: {
       ResourceType.energy: 60,
-      ResourceType.supplies: 30,
     },
   ),
   missile_attack(
     sprite: Assets.IMAGES_MILITARY_MISSILE_ATTACK,
     cost: {
       ResourceType.energy: 80,
-      ResourceType.supplies: 40,
     },
     requirement: Requirement(
       type: ResearchType.missiles_nuclear_bomb,

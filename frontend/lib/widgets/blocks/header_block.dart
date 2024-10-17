@@ -56,14 +56,6 @@ class CollapsedResourcesSection extends StatelessWidget {
         ),
         CollapsedResourceLabel(
           player: player,
-          resourceType: ResourceType.supplies,
-        ),
-        CollapsedResourceLabel(
-          player: player,
-          resourceType: ResourceType.technology,
-        ),
-        CollapsedResourceLabel(
-          player: player,
           resourceType: ResourceType.population,
         ),
       ],
@@ -214,16 +206,6 @@ class ExpandedResourcesSection extends StatelessWidget {
         ExpandedResourceLabel(
           player: player,
           resourceType: ResourceType.energy,
-        ),
-        const VBox(10),
-        ExpandedResourceLabel(
-          player: player,
-          resourceType: ResourceType.supplies,
-        ),
-        const VBox(10),
-        ExpandedResourceLabel(
-          player: player,
-          resourceType: ResourceType.technology,
         ),
         const VBox(10),
         ExpandedResourceLabel(

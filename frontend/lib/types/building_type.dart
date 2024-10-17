@@ -12,7 +12,6 @@ enum BuildingType {
     costRate: 2,
     initialCost: {
       ResourceType.energy: 20,
-      ResourceType.supplies: 20,
     },
   ),
   propaganda_station(
@@ -20,7 +19,6 @@ enum BuildingType {
     costRate: 2,
     initialCost: {
       ResourceType.energy: 100,
-      ResourceType.supplies: 100,
     },
   ),
   missile_silo(
@@ -28,7 +26,6 @@ enum BuildingType {
     costRate: 2,
     initialCost: {
       ResourceType.energy: 200,
-      ResourceType.supplies: 200,
     },
   );
 

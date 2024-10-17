@@ -17,7 +17,7 @@ enum ResearchType {
     maxLevel: 10,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
     requirement: Requirement(
       type: BuildingType.power_plant,
@@ -29,7 +29,7 @@ enum ResearchType {
     maxLevel: 10,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
   ),
   resources_quantum_computing(
@@ -37,7 +37,7 @@ enum ResearchType {
     maxLevel: 10,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
   ),
   resources_indoctrination(
@@ -45,7 +45,7 @@ enum ResearchType {
     maxLevel: 10,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
     requirement: Requirement(
       type: BuildingType.propaganda_station,
@@ -59,7 +59,7 @@ enum ResearchType {
     maxLevel: 5,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
     requirement: Requirement(
       type: BuildingType.missile_silo,
@@ -71,7 +71,7 @@ enum ResearchType {
     maxLevel: 5,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
     requirement: Requirement(
       type: BuildingType.missile_silo,
@@ -83,7 +83,7 @@ enum ResearchType {
     maxLevel: 10,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
     requirement: Requirement(
       type: BuildingType.missile_silo,
@@ -95,7 +95,7 @@ enum ResearchType {
     maxLevel: 5,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
     requirement: Requirement(
       type: BuildingType.missile_silo,
@@ -107,7 +107,7 @@ enum ResearchType {
     maxLevel: 14,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
     requirement: Requirement(
       type: BuildingType.missile_silo,
@@ -121,7 +121,7 @@ enum ResearchType {
     maxLevel: 5,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
   ),
   warning_missiles_hypersonic_propulsion(
@@ -129,7 +129,7 @@ enum ResearchType {
     maxLevel: 5,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
   ),
   warning_armies_early_warning(
@@ -137,7 +137,7 @@ enum ResearchType {
     maxLevel: 5,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
   ),
   warning_armies_fast_deployments(
@@ -145,7 +145,7 @@ enum ResearchType {
     maxLevel: 5,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 10,
+      ResourceType.energy: 10,
     },
   ),
 
@@ -155,7 +155,7 @@ enum ResearchType {
     maxLevel: 2,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 50,
+      ResourceType.energy: 50,
     },
   ),
   intel_missiles(
@@ -163,7 +163,7 @@ enum ResearchType {
     maxLevel: 2,
     costRate: 2,
     initialCost: {
-      ResourceType.technology: 50,
+      ResourceType.energy: 50,
     },
   );
 

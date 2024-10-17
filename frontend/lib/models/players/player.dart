@@ -110,8 +110,6 @@ class Player {
     if (!isAlive) {
       final ResourceMap loot = {
         ResourceType.energy: resources.get(ResourceType.energy),
-        ResourceType.supplies: resources.get(ResourceType.supplies),
-        ResourceType.technology: resources.get(ResourceType.technology),
       };
 
       resources.clear();

@@ -34,12 +34,6 @@ class PlayerDefeated extends Event {
           Localized.get.eventPlayerDefeatedLine3(
             Formatter.resourceRaw(loot.get(ResourceType.energy)),
           ),
-          Localized.get.eventPlayerDefeatedLine4(
-            Formatter.resourceRaw(loot.get(ResourceType.supplies)),
-          ),
-          Localized.get.eventPlayerDefeatedLine5(
-            Formatter.resourceRaw(loot.get(ResourceType.technology)),
-          ),
         ],
       ];
 }
