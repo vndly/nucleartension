@@ -30,8 +30,6 @@ class Palette {
   static const Color backgroundDialog = Color(0xff404040);
 
   static const Color resourceEnergy = Colors.yellow;
-  static const Color resourceSupplies = Colors.green;
-  static const Color resourceTechnology = Colors.blue;
   static const Color resourcePopulation = Colors.red;
 
   static const Color militaryDefcon = Colors.yellow;
