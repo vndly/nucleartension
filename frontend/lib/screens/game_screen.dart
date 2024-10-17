@@ -28,7 +28,7 @@ class GameScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: state.finished,
-      onPopInvoked: (popped) => state.onPause(),
+      onPopInvokedWithResult: (didPop, result) => state.onPause(),
       child: GameContainer(
         child: GameLoop(state),
       ),
