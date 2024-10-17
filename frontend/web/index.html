@@ -6,21 +6,74 @@
 
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="A new Flutter project.">
-
+    <meta name="description" content="nuclear tension">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="frontend">
-    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <meta name="apple-mobile-web-app-title" content="nuclear tension">
 
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 
-    <title>frontend</title>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAqdJALmU6x0eGQN6zx545hU3zPFoLWk1U",
+            authDomain: "nucleartension.firebaseapp.com",
+            projectId: "nucleartension",
+            storageBucket: "nucleartension.appspot.com",
+            messagingSenderId: "699860745717",
+            appId: "1:699860745717:web:959c0dd7e19fb9d10874bc",
+            measurementId: "G-YW85L356Y1"
+        }
+
+        firebase.initializeApp(firebaseConfig)
+    </script>
+
+    <title>Nuclear Tension</title>
     <link rel="manifest" href="manifest.json">
+
+    <style>
+        html {
+            background-color: black;
+        }
+
+        .lds-dual-ring {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+        }
+
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <div id="loading" class="lds-dual-ring"></div>
+
     <script src="flutter_bootstrap.js" async></script>
+
 </body>
 
 </html>
