@@ -7,7 +7,6 @@ import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
-import 'package:nucleartension/widgets/separators/row_separator.dart';
 
 class HeaderBlock extends StatelessWidget {
   final Player player;
@@ -16,245 +15,103 @@ class HeaderBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ExpandedHeaderBlock(player);
-  }
-}
-
-class CollapsedHeaderBlock extends StatelessWidget {
-  final Player player;
-
-  const CollapsedHeaderBlock(this.player);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CollapsedResourcesSection(player),
-        const RowSeparator(),
-        CollapsedMilitarySection(player),
-      ],
-    );
-  }
-}
-
-class CollapsedResourcesSection extends StatelessWidget {
-  final Player player;
-
-  const CollapsedResourcesSection(this.player);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        CollapsedResourceLabel(
-          player: player,
-          resourceType: ResourceType.energy,
-        ),
-        CollapsedResourceLabel(
-          player: player,
-          resourceType: ResourceType.population,
-        ),
-      ],
-    );
-  }
-}
-
-class CollapsedResourceLabel extends StatelessWidget {
-  final Player player;
-  final ResourceType resourceType;
-
-  const CollapsedResourceLabel({
-    required this.player,
-    required this.resourceType,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 10,
-          bottom: 10,
-          left: 10,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            resourceType.icon(12),
-            const HBox(10),
-            Label(
-              text: Formatter.resourceRaw(player.resources.get(resourceType)),
-              color: Palette.textPrimary,
-              size: 12,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CollapsedMilitarySection extends StatelessWidget {
-  final Player player;
-
-  const CollapsedMilitarySection(this.player);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        CollapsedMilitaryLabel(
-          value: player.game.defcon.toString(),
-          icon: Icons.warning_outlined,
-          color: Palette.militaryDefcon,
-        ),
-        CollapsedMilitaryLabel(
-          value: Formatter.resourceRaw(player.defenseMissiles),
-          icon: Icons.shield,
-          color: Palette.militaryDefenseMissiles,
-        ),
-        CollapsedMilitaryLabel(
-          value: Formatter.resourceRaw(player.attackMissiles),
-          icon: Icons.local_fire_department_rounded,
-          color: Palette.militaryAttackMissiles,
-        ),
-      ],
-    );
-  }
-}
-
-class CollapsedMilitaryLabel extends StatelessWidget {
-  final String value;
-  final IconData icon;
-  final Color color;
-
-  const CollapsedMilitaryLabel({
-    required this.value,
-    required this.icon,
-    required this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 10,
-          bottom: 10,
-          left: 10,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              icon,
-              color: color,
-              size: 12,
-            ),
-            const HBox(10),
-            Label(
-              text: value,
-              color: Palette.textPrimary,
-              size: 12,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// -----------------------------------------------------------------------------
-
-class ExpandedHeaderBlock extends StatelessWidget {
-  final Player player;
-
-  const ExpandedHeaderBlock(this.player);
-
-  @override
-  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
-          ExpandedResourcesSection(player),
-          const Spacer(),
-          ExpandedMilitarySection(player),
+          ResourcesSection(player),
+          DefconSection(player),
+          MilitarySection(player),
         ],
       ),
     );
   }
 }
 
-class ExpandedResourcesSection extends StatelessWidget {
+class ResourcesSection extends StatelessWidget {
   final Player player;
 
-  const ExpandedResourcesSection(this.player);
+  const ResourcesSection(this.player);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ExpandedResourceLabel(
-          player: player,
-          resourceType: ResourceType.energy,
-        ),
-        const VBox(10),
-        ExpandedResourceLabel(
-          player: player,
-          resourceType: ResourceType.population,
-        ),
-      ],
+    return SizedBox(
+      width: 200,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ResourceLabel(
+            player: player,
+            resourceType: ResourceType.energy,
+          ),
+          const VBox(10),
+          ResourceLabel(
+            player: player,
+            resourceType: ResourceType.population,
+          ),
+        ],
+      ),
     );
   }
 }
 
-class ExpandedMilitarySection extends StatelessWidget {
+class DefconSection extends StatelessWidget {
   final Player player;
 
-  const ExpandedMilitarySection(this.player);
+  const DefconSection(this.player);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ExpandedMilitaryLabel(
-          icon: Icons.warning_rounded,
-          color: Palette.militaryDefcon,
-          title: Localized.get.headerDefcon,
-          value: player.game.defcon.toString(),
-        ),
-        const VBox(10),
-        ExpandedMilitaryLabel(
-          icon: Icons.shield,
-          color: Palette.militaryDefenseMissiles,
-          title: Localized.get.headerDefenseMissiles,
-          value: Formatter.resourceRaw(player.defenseMissiles),
-        ),
-        const VBox(10),
-        ExpandedMilitaryLabel(
-          icon: Icons.local_fire_department_rounded,
-          color: Palette.militaryAttackMissiles,
-          title: Localized.get.headerAttackMissiles,
-          value: Formatter.resourceRaw(player.attackMissiles),
-        ),
-      ],
+    return Expanded(
+      child: Column(
+        children: [
+          Label(
+            text: Localized.get.headerDefcon,
+            color: Palette.textPrimary,
+            weight: FontWeight.bold,
+          ),
+        ],
+      ),
     );
   }
 }
 
-class ExpandedResourceLabel extends StatelessWidget {
+class MilitarySection extends StatelessWidget {
+  final Player player;
+
+  const MilitarySection(this.player);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 200,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          MilitaryLabel(
+            icon: Icons.shield,
+            color: Palette.militaryDefenseMissiles,
+            title: Localized.get.headerDefenseMissiles,
+            value: Formatter.resourceRaw(player.defenseMissiles),
+          ),
+          const VBox(10),
+          MilitaryLabel(
+            icon: Icons.local_fire_department_rounded,
+            color: Palette.militaryAttackMissiles,
+            title: Localized.get.headerAttackMissiles,
+            value: Formatter.resourceRaw(player.attackMissiles),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ResourceLabel extends StatelessWidget {
   final Player player;
   final ResourceType resourceType;
 
-  const ExpandedResourceLabel({
+  const ResourceLabel({
     required this.player,
     required this.resourceType,
   });
@@ -279,13 +136,13 @@ class ExpandedResourceLabel extends StatelessWidget {
   }
 }
 
-class ExpandedMilitaryLabel extends StatelessWidget {
+class MilitaryLabel extends StatelessWidget {
   final IconData icon;
   final Color color;
   final String title;
   final String value;
 
-  const ExpandedMilitaryLabel({
+  const MilitaryLabel({
     required this.icon,
     required this.color,
     required this.title,
