@@ -13,7 +13,6 @@ import 'package:nucleartension/widgets/buttons/upgrade_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/indicators/task_progress_indicator.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/labels/labeled_info.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
 
@@ -79,9 +78,10 @@ class HeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        LabeledInfo(
-          title: trainer.buildingType.localized.toUpperCase(),
-          onTap: () => InformationDialog.building(trainer.buildingType),
+        Label(
+          text: trainer.buildingType.localized.toUpperCase(),
+          color: Palette.textPrimary,
+          weight: FontWeight.bold,
         ),
         if (trainer.level > 0) ...[
           const Spacer(),
@@ -161,9 +161,10 @@ class TrainingSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            LabeledInfo(
-              title: militaryType.localized.toUpperCase(),
-              onTap: () => InformationDialog.military(militaryType),
+            Label(
+              text: militaryType.localized.toUpperCase(),
+              color: Palette.textPrimary,
+              weight: FontWeight.bold,
             ),
             const VBox(12),
             Row(

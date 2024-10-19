@@ -9,7 +9,6 @@ import 'package:nucleartension/widgets/buttons/disabled_button.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/labels/labeled_info.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class ResearchBlock extends StatelessWidget {
@@ -64,9 +63,10 @@ class HeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        LabeledInfo(
-          title: research.researchType.localized.toUpperCase(),
-          onTap: () => InformationDialog.research(research.researchType),
+        Label(
+          text: research.researchType.localized.toUpperCase(),
+          color: Palette.textPrimary,
+          weight: FontWeight.bold,
         ),
         if (research.level > 0) ...[
           const Spacer(),
