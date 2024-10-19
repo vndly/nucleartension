@@ -8,7 +8,6 @@ import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/upgrade_button.dart';
 import 'package:nucleartension/widgets/images/image_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/labels/labeled_info.dart';
 import 'package:nucleartension/widgets/labels/labeled_text.dart';
 
 class ProducerBlock extends StatelessWidget {
@@ -55,9 +54,10 @@ class HeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        LabeledInfo(
-          title: producer.buildingType.localized.toUpperCase(),
-          onTap: () => InformationDialog.building(producer.buildingType),
+        Label(
+          text: producer.buildingType.localized.toUpperCase(),
+          color: Palette.textPrimary,
+          weight: FontWeight.bold,
         ),
         if (producer.level > 0) ...[
           const Spacer(),
@@ -125,10 +125,11 @@ class ProductionIndicator extends StatelessWidget {
         const HBox(10),
         Label(
           text:
-              '${Formatter.production(producer.production)}/${Localized.get.labelSecond}',
+              '${Formatter.production(producer.production)}/${Localized.get.labelProductionRate}',
           color:
               (producer.production == 0) ? Palette.error : Palette.textPrimary,
           size: 15,
+          uppercase: false,
         ),
       ],
     );

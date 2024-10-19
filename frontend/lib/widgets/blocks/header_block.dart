@@ -20,8 +20,6 @@ class HeaderBlock extends StatelessWidget {
   }
 }
 
-// -----------------------------------------------------------------------------
-
 class CollapsedHeaderBlock extends StatelessWidget {
   final Player player;
 

@@ -75,16 +75,16 @@ class _GameContentState extends State<GameContent> {
             BottomNavigationBarItem(
               icon: const Padding(
                 padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.radar),
+                child: Icon(Icons.widgets),
               ),
-              label: Localized.get.bottomBarWarRoom.toUpperCase(),
+              label: Localized.get.bottomBarResources.toUpperCase(),
             ),
             BottomNavigationBarItem(
               icon: const Padding(
                 padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.widgets),
+                child: Icon(Icons.radar),
               ),
-              label: Localized.get.bottomBarResources.toUpperCase(),
+              label: Localized.get.bottomBarWarRoom.toUpperCase(),
             ),
             BottomNavigationBarItem(
               icon: const Padding(
@@ -134,9 +134,9 @@ class _GameContentState extends State<GameContent> {
 
   Widget _body(int index) {
     if (currentIndex == 0) {
-      return WarRoomView(widget.state.game);
-    } else if (currentIndex == 1) {
       return ResourcesView(widget.state.game);
+    } else if (currentIndex == 1) {
+      return WarRoomView(widget.state.game);
     } else if (currentIndex == 2) {
       return MilitaryView(widget.state.game);
     } else if (currentIndex == 3) {
