@@ -1,11 +1,12 @@
 import 'dart:ui';
-import 'package:flame/camera.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/components/region_component.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
+import 'package:nucleartension/models/battlefield.dart';
 import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
@@ -17,11 +18,10 @@ import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
-class MyGame extends FlameGame {
-  final Size screenSize;
+class MyGame extends FlameGame with HasGameRef {
   final GameState gameState;
+  final Battlefield battlefield;
   final List<Player> players;
-  final List<Region> regions;
   final List<Event> events;
   final List<Attack> attacks;
   final FPS fps = FPS();
@@ -30,18 +30,17 @@ class MyGame extends FlameGame {
   int defcon = 5;
 
   MyGame({
-    required this.screenSize,
     required this.gameState,
+    required this.battlefield,
     required this.players,
-    required this.regions,
     required this.events,
     required this.attacks,
     required this.timeElapsed,
     required this.defcon,
   }) : super(
           camera: CameraComponent.withFixedResolution(
-            width: screenSize.width,
-            height: screenSize.height,
+            width: battlefield.size.width,
+            height: battlefield.size.height,
           ),
         );
 
@@ -50,9 +49,18 @@ class MyGame extends FlameGame {
   bool debugMode = true;
 
   @override
+  Color backgroundColor() => const Color(0xff00ff00);
+
+  @override
   Future onLoad() async {
-    for (final Region region in regions) {
-      add(RegionComponent(region));
+    final double screenRatio = camera.viewport.size.y / battlefield.size.height;
+
+    for (final Region region in battlefield.regions) {
+      add(RegionComponent(
+        region: region,
+        position: region.position * screenRatio,
+        size: Vector2.all(region.radius * 2 * screenRatio),
+      ));
     }
   }
 

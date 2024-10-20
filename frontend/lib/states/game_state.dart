@@ -7,6 +7,7 @@ import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
 import 'package:nucleartension/extensions/duration_extension.dart';
+import 'package:nucleartension/models/battlefield.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/buildings/producers/power_plant.dart';
 import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
@@ -31,12 +32,69 @@ class GameState extends BaseState {
   late final MyGame game;
   bool finished = false;
 
-  GameState(Size mapSize) {
+  GameState() {
+    const Size mapSize = Size(100, 100);
+    final double radius = mapSize.height / 6;
+
+    final Battlefield battlefield = Battlefield(
+      size: mapSize,
+      regions: [
+        Region(
+          position: Vector2(
+            mapSize.width / 2,
+            mapSize.height / 2,
+          ),
+          radius: radius,
+        ),
+        Region(
+          position: Vector2(
+            mapSize.width / 2,
+            (mapSize.height / 2) - (radius * 2),
+          ),
+          radius: radius,
+        ),
+        Region(
+          position: Vector2(
+            mapSize.width / 2,
+            (mapSize.height / 2) + (radius * 2),
+          ),
+          radius: radius,
+        ),
+        Region(
+          position: Vector2(
+            (mapSize.width / 2) + (radius * sqrt(3)),
+            (mapSize.height / 2) + radius,
+          ),
+          radius: radius,
+        ),
+        Region(
+          position: Vector2(
+            (mapSize.width / 2) + (radius * sqrt(3)),
+            (mapSize.height / 2) - radius,
+          ),
+          radius: radius,
+        ),
+        Region(
+          position: Vector2(
+            (mapSize.width / 2) - (radius * sqrt(3)),
+            (mapSize.height / 2) + radius,
+          ),
+          radius: radius,
+        ),
+        Region(
+          position: Vector2(
+            (mapSize.width / 2) - (radius * sqrt(3)),
+            (mapSize.height / 2) - radius,
+          ),
+          radius: radius,
+        ),
+      ],
+    );
+
     game = MyGame(
-      screenSize: mapSize,
       gameState: this,
+      battlefield: battlefield,
       players: [],
-      regions: [],
       events: [],
       attacks: [],
       timeElapsed: 0,
@@ -115,68 +173,6 @@ class GameState extends BaseState {
         name: 'Ariel',
         country: Country.israel,
         profile: PlayerProfile.neutral(),
-      ),
-    ]);
-
-    final Size viewport = mapSize * Constants.MAP_SIZE_RATIO;
-    final double radius = viewport.height / 6;
-
-    game.regions.addAll([
-      Region(
-        position: Vector2(
-          mapSize.width / 2,
-          mapSize.height / 2,
-        ),
-        radius: radius,
-        player: usa,
-      ),
-      Region(
-        position: Vector2(
-          mapSize.width / 2,
-          (mapSize.height / 2) - (radius * 2),
-        ),
-        radius: radius,
-        player: usa,
-      ),
-      Region(
-        position: Vector2(
-          mapSize.width / 2,
-          (mapSize.height / 2) + (radius * 2),
-        ),
-        radius: radius,
-        player: usa,
-      ),
-      Region(
-        position: Vector2(
-          (mapSize.width / 2) + (radius * sqrt(3)),
-          (mapSize.height / 2) + radius,
-        ),
-        radius: radius,
-        player: usa,
-      ),
-      Region(
-        position: Vector2(
-          (mapSize.width / 2) + (radius * sqrt(3)),
-          (mapSize.height / 2) - radius,
-        ),
-        radius: radius,
-        player: usa,
-      ),
-      Region(
-        position: Vector2(
-          (mapSize.width / 2) - (radius * sqrt(3)),
-          (mapSize.height / 2) + radius,
-        ),
-        radius: radius,
-        player: usa,
-      ),
-      Region(
-        position: Vector2(
-          (mapSize.width / 2) - (radius * sqrt(3)),
-          (mapSize.height / 2) - radius,
-        ),
-        radius: radius,
-        player: usa,
       ),
     ]);
   }

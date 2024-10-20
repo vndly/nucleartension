@@ -7,12 +7,11 @@ class RegionComponent extends PositionComponent {
   final Paint paintBorder = Paint();
   final Paint paintFill = Paint();
 
-  RegionComponent(this.region)
-      : super(
-          position: region.position,
-          size: Vector2.all(region.radius * 2),
-          anchor: Anchor.center,
-        ) {
+  RegionComponent({
+    required this.region,
+    required super.position,
+    required super.size,
+  }) : super(anchor: Anchor.center) {
     paintBorder.style = PaintingStyle.stroke;
     paintFill.style = PaintingStyle.fill;
   }

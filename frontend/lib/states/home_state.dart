@@ -3,11 +3,9 @@ import 'package:nucleartension/utils/navigation.dart';
 
 class HomeState extends BaseState {
   @override
-  void onLoad() => Delayed.post(() {
-        Navigation.matchScreen(Navigation.context);
-      });
+  void onLoad() => Delayed.post(Navigation.matchScreen);
 
-  void onContinue() => Navigation.matchScreen(Navigation.context);
+  void onContinue() => Navigation.matchScreen();
 
   void onSettings() {}
 

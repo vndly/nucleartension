@@ -1,4 +1,3 @@
-import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/widgets/hud/map_view.dart';
@@ -11,11 +10,7 @@ class GameScreen extends StatelessWidget {
 
   const GameScreen(this.state);
 
-  factory GameScreen.instance(BuildContext context) {
-    final Size mapSize = MediaQuery.of(context).size;
-
-    return GameScreen(GameState(mapSize));
-  }
+  factory GameScreen.instance() => GameScreen(GameState());
 
   @override
   Widget build(BuildContext context) {
@@ -36,27 +31,24 @@ class GameContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateProvider<GameState>(
-      state: state,
-      builder: (context, state) => Stack(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: MapView(state),
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: MapView(state),
+        ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: TopMenu(state),
+        ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Label(text: 'FPS: ${state.game.fps.fps()}'),
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: TopMenu(state),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Label(text: 'FPS: ${state.game.fps.fps()}'),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
