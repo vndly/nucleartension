@@ -7,6 +7,7 @@ class Region {
   final Vector2 position;
   final double radius;
   final Player? player;
+  bool selected = false;
 
   Region({
     required this.id,
@@ -16,4 +17,8 @@ class Region {
   });
 
   Color get color => player?.country.color ?? Colors.grey;
+
+  void onTap() {
+    selected = !selected;
+  }
 }

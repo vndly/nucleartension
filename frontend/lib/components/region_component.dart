@@ -22,15 +22,13 @@ class RegionComponent extends PositionComponent
   }
 
   @override
-  Future<void> onLoad() async {
+  Future onLoad() async {
     super.onLoad();
     add(CircleHitbox());
   }
 
   @override
-  void onTapUp(TapUpEvent event) {
-    print('TEST: ${region.id} ${event.localPosition}');
-  }
+  void onTapUp(TapUpEvent event) => region.onTap();
 
   @override
   void render(Canvas canvas) {
@@ -39,14 +37,16 @@ class RegionComponent extends PositionComponent
     paintBorder.color = region.color;
     paintFill.color = region.color.withAlpha(200);
 
-    canvas.drawCircle(
-      Offset(
+    if (region.selected) {
+      canvas.drawCircle(
+        Offset(
+          size.x / 2,
+          size.y / 2,
+        ),
         size.x / 2,
-        size.y / 2,
-      ),
-      size.x / 2,
-      paintFill,
-    );
+        paintFill,
+      );
+    }
 
     canvas.drawCircle(
       Offset(
