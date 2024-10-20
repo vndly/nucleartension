@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
@@ -38,23 +39,38 @@ class RegionComponent extends PositionComponent
     paintFill.color = region.color.withAlpha(200);
 
     if (region.selected) {
-      canvas.drawCircle(
-        Offset(
-          size.x / 2,
-          size.y / 2,
-        ),
-        size.x / 2,
-        paintFill,
-      );
+      canvas.drawPath(_path, paintFill);
     }
 
-    canvas.drawCircle(
-      Offset(
-        size.x / 2,
-        size.y / 2,
-      ),
-      size.x / 2,
-      paintBorder,
-    );
+    canvas.drawPath(_path, paintBorder);
+  }
+
+  List<Vector2> get _points {
+    const double aaa = 0.575;
+    final List<Vector2> result = [];
+
+    for (int i = 0; i < 6; i++) {
+      final double angle = i * 2 * pi / 6;
+      final double x = size.x / 2 + size.x * aaa * cos(angle);
+      final double y = size.y / 2 + size.y * aaa * sin(angle);
+
+      result.add(Vector2(x, y));
+    }
+
+    return result;
+  }
+
+  Path get _path {
+    final Path result = Path();
+    final List<Vector2> points = _points;
+    result.moveTo(points[0].x, points[0].y);
+
+    for (int i = 1; i < points.length; i++) {
+      result.lineTo(points[i].x, points[i].y);
+    }
+
+    result.close();
+
+    return result;
   }
 }
