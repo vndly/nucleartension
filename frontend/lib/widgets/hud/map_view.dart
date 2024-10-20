@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -49,15 +51,27 @@ class ForegroundPainter extends CustomPainter {
     ..color = Colors.yellow
     ..style = PaintingStyle.fill;
 
+  final Paint circle5Paint = Paint()
+    ..color = Colors.pink
+    ..style = PaintingStyle.fill;
+
+  final Paint circle6Paint = Paint()
+    ..color = Colors.brown
+    ..style = PaintingStyle.fill;
+
+  final Paint circle7Paint = Paint()
+    ..color = Colors.purple
+    ..style = PaintingStyle.fill;
+
   @override
   void paint(Canvas canvas, Size size) {
-    final double radius = size.width / 7;
-    final double gap = radius * 1.3;
+    final double length = size.height * 0.8;
+    final double radius = length / 6;
 
     canvas.drawCircle(
       Offset(
-        (size.width / 2) - gap,
-        (size.height / 2) - gap,
+        size.width / 2,
+        size.height / 2,
       ),
       radius,
       circle1Paint,
@@ -65,8 +79,8 @@ class ForegroundPainter extends CustomPainter {
 
     canvas.drawCircle(
       Offset(
-        (size.width / 2) + gap,
-        (size.height / 2) - gap,
+        size.width / 2,
+        (size.height / 2) - (radius * 2),
       ),
       radius,
       circle2Paint,
@@ -74,8 +88,8 @@ class ForegroundPainter extends CustomPainter {
 
     canvas.drawCircle(
       Offset(
-        (size.width / 2) - gap,
-        (size.height / 2) + gap,
+        size.width / 2,
+        (size.height / 2) + (radius * 2),
       ),
       radius,
       circle3Paint,
@@ -83,11 +97,38 @@ class ForegroundPainter extends CustomPainter {
 
     canvas.drawCircle(
       Offset(
-        (size.width / 2) + gap,
-        (size.height / 2) + gap,
+        (size.width / 2) + (radius * sqrt(3)),
+        (size.height / 2) + radius,
       ),
       radius,
       circle4Paint,
+    );
+
+    canvas.drawCircle(
+      Offset(
+        (size.width / 2) + (radius * sqrt(3)),
+        (size.height / 2) - radius,
+      ),
+      radius,
+      circle5Paint,
+    );
+
+    canvas.drawCircle(
+      Offset(
+        (size.width / 2) - (radius * sqrt(3)),
+        (size.height / 2) + radius,
+      ),
+      radius,
+      circle6Paint,
+    );
+
+    canvas.drawCircle(
+      Offset(
+        (size.width / 2) - (radius * sqrt(3)),
+        (size.height / 2) - radius,
+      ),
+      radius,
+      circle7Paint,
     );
   }
 
