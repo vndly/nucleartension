@@ -46,7 +46,7 @@ class DisabledButton extends StatelessWidget {
         size: size,
         child: Icon(
           icon,
-          color: Palette.icon,
+          color: Palette.iconLevel1,
           size: size * 0.5,
         ),
       );

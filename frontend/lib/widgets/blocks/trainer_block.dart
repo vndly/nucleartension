@@ -236,7 +236,7 @@ class TrainingCenterSection extends StatelessWidget {
             const HBox(4),
             const Icon(
               Icons.auto_awesome_motion,
-              color: Palette.icon,
+              color: Palette.iconLevel1,
               size: 14,
             ),
             const HBox(10),

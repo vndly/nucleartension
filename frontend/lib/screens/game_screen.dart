@@ -1,19 +1,8 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
-import 'package:nucleartension/utils/localizations.dart';
-import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/views/events_view.dart';
-import 'package:nucleartension/views/military_view.dart';
-import 'package:nucleartension/views/research_view.dart';
-import 'package:nucleartension/views/resources_view.dart';
-import 'package:nucleartension/views/war_room_view.dart';
-import 'package:nucleartension/widgets/blocks/header_block.dart';
-import 'package:nucleartension/widgets/blocks/warning_block.dart';
-import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/misc/game_container.dart';
+import 'package:nucleartension/widgets/hud/top_menu.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
-import 'package:nucleartension/widgets/separators/block_separator.dart';
 
 class GameScreen extends StatelessWidget {
   final GameState state;
@@ -24,127 +13,45 @@ class GameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: state.finished,
-      onPopInvokedWithResult: (didPop, result) => state.onPause(),
-      child: GameContainer(
+    return Scaffold(
+      body: PopScope(
+        canPop: state.finished,
+        onPopInvokedWithResult: (didPop, result) => state.onPause(),
         child: GameLoop(state),
       ),
     );
   }
 }
 
-class GameContent extends StatefulWidget {
+class GameContent extends StatelessWidget {
   final GameState state;
 
   const GameContent(this.state);
 
   @override
-  State<GameContent> createState() => _GameContentState();
-}
-
-class _GameContentState extends State<GameContent> {
-  int currentIndex = 0;
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          border: Border(
-            top: BorderSide(
-              color: Palette.borderSeparator,
-              width: 0.5,
-            ),
+    return StateProvider<GameState>(
+      state: state,
+      builder: (context, state) => Stack(
+        children: [
+          MapView(state),
+          Align(
+            alignment: Alignment.topCenter,
+            child: TopMenu(state),
           ),
-        ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          selectedItemColor: Palette.menuSelected,
-          unselectedItemColor: Palette.menuUnselected,
-          backgroundColor: Palette.backgroundScreen,
-          selectedFontSize: 12,
-          unselectedFontSize: 12,
-          items: [
-            BottomNavigationBarItem(
-              icon: const Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.widgets),
-              ),
-              label: Localized.get.bottomBarResources.toUpperCase(),
-            ),
-            BottomNavigationBarItem(
-              icon: const Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.radar),
-              ),
-              label: Localized.get.bottomBarWarRoom.toUpperCase(),
-            ),
-            BottomNavigationBarItem(
-              icon: const Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.military_tech_outlined),
-              ),
-              label: Localized.get.bottomBarMilitary.toUpperCase(),
-            ),
-            BottomNavigationBarItem(
-              icon: const Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: Icon(Icons.science),
-              ),
-              label: Localized.get.bottomBarResearch.toUpperCase(),
-            ),
-            BottomNavigationBarItem(
-              icon: Badge(
-                largeSize: widget.state.game.hasUnseenEvents ? 20 : 0,
-                label: Label(
-                  text: widget.state.game.unseenEvents.length.toString(),
-                  size: 15,
-                  color: Palette.textPrimary,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.only(bottom: 5),
-                  child: Icon(Icons.format_list_bulleted),
-                ),
-              ),
-              label: Localized.get.bottomBarEvents.toUpperCase(),
-            ),
-          ],
-        ),
-      ),
-      body: Container(
-        color: Palette.backgroundScreen,
-        child: Column(
-          children: [
-            WarningBlock(widget.state.game),
-            HeaderBlock(widget.state.game.self),
-            const BlockSeparator(),
-            Expanded(child: _body(currentIndex)),
-          ],
-        ),
+        ],
       ),
     );
   }
+}
 
-  Widget _body(int index) {
-    if (currentIndex == 0) {
-      return ResourcesView(widget.state.game);
-    } else if (currentIndex == 1) {
-      return WarRoomView(widget.state.game);
-    } else if (currentIndex == 2) {
-      return MilitaryView(widget.state.game);
-    } else if (currentIndex == 3) {
-      return ResearchView(widget.state.game);
-    } else if (currentIndex == 4) {
-      return EventsView(widget.state.game);
-    } else {
-      return const Empty();
-    }
+class MapView extends StatelessWidget {
+  final GameState state;
+
+  const MapView(this.state);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

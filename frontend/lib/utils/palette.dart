@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-//static const IconData RANKING1 = Icons.bar_chart;
-//static const IconData RANKING2 = Icons.leaderboard_sharp;
-
 class Palette {
   static const MaterialColor primary = Colors.blue;
 
@@ -18,7 +15,7 @@ class Palette {
   static const Color textDisabled = Color(0xff808080);
   static const Color textDescription = Color(0xffd0d0d0);
 
-  static const Color icon = Colors.white;
+  static const Color iconLevel1 = Color(0xffffffff);
 
   static const Color backgroundContainer = Colors.black;
   static const Color backgroundScreen = Color(0xff101010);

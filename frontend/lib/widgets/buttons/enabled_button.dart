@@ -81,7 +81,7 @@ class EnabledButton extends StatelessWidget {
   }) =>
       Icon(
         icon,
-        color: Palette.icon,
+        color: Palette.iconLevel1,
         size: size * 0.5,
       );
 
@@ -92,7 +92,7 @@ class EnabledButton extends StatelessWidget {
       SvgIcon(
         icon: icon,
         size: size * 0.6,
-        color: Palette.icon,
+        color: Palette.iconLevel1,
       );
 
   @override

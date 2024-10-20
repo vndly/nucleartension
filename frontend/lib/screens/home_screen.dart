@@ -4,7 +4,6 @@ import 'package:nucleartension/states/home_state.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/buttons/primary_button.dart';
-import 'package:nucleartension/widgets/misc/game_container.dart';
 
 class HomeScreen extends StatelessWidget {
   final HomeState state;
@@ -15,8 +14,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GameContainer(
-      child: Empty(),
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(
+          color: Palette.iconLevel1,
+        ),
+      ),
     );
   }
 }

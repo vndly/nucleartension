@@ -1,7 +1,6 @@
-import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/splash_state.dart';
-import 'package:nucleartension/widgets/misc/game_container.dart';
+import 'package:nucleartension/utils/palette.dart';
 
 class SplashScreen extends StatelessWidget {
   final SplashState state;
@@ -12,12 +11,11 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GameContainer(
-      child: Center(
-        child: Empty(),
-        /*CircularProgressIndicator(
-          color: Palette.loader,
-        ),*/
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(
+          color: Palette.iconLevel1,
+        ),
       ),
     );
   }

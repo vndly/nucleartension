@@ -75,7 +75,7 @@ class ButtonContent extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10),
                     child: Icon(
                       icon,
-                      color: Palette.icon,
+                      color: Palette.iconLevel1,
                       size: textSize,
                     ),
                   ),
