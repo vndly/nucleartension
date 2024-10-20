@@ -41,50 +41,50 @@ class GameState extends BaseState {
       regions: [
         Region(
           position: Vector2(
-            mapSize.width / 2,
-            mapSize.height / 2,
+            0,
+            0,
           ),
           radius: radius,
         ),
         Region(
           position: Vector2(
-            mapSize.width / 2,
-            (mapSize.height / 2) - (radius * 2),
+            0,
+            -(radius * 2),
           ),
           radius: radius,
         ),
         Region(
           position: Vector2(
-            mapSize.width / 2,
-            (mapSize.height / 2) + (radius * 2),
+            0,
+            radius * 2,
           ),
           radius: radius,
         ),
         Region(
           position: Vector2(
-            (mapSize.width / 2) + (radius * sqrt(3)),
-            (mapSize.height / 2) + radius,
+            radius * sqrt(3),
+            radius,
           ),
           radius: radius,
         ),
         Region(
           position: Vector2(
-            (mapSize.width / 2) + (radius * sqrt(3)),
-            (mapSize.height / 2) - radius,
+            radius * sqrt(3),
+            -radius,
           ),
           radius: radius,
         ),
         Region(
           position: Vector2(
-            (mapSize.width / 2) - (radius * sqrt(3)),
-            (mapSize.height / 2) + radius,
+            -(radius * sqrt(3)),
+            radius,
           ),
           radius: radius,
         ),
         Region(
           position: Vector2(
-            (mapSize.width / 2) - (radius * sqrt(3)),
-            (mapSize.height / 2) - radius,
+            -(radius * sqrt(3)),
+            -radius,
           ),
           radius: radius,
         ),

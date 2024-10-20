@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:nucleartension/app/constants.dart';
-import 'package:nucleartension/components/region_component.dart';
+import 'package:nucleartension/components/my_world.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
@@ -12,7 +12,6 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
-import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
@@ -38,6 +37,7 @@ class MyGame extends FlameGame with HasGameRef {
     required this.timeElapsed,
     required this.defcon,
   }) : super(
+          world: MyWorld(battlefield: battlefield),
           camera: CameraComponent.withFixedResolution(
             width: battlefield.size.width,
             height: battlefield.size.height,
@@ -50,19 +50,6 @@ class MyGame extends FlameGame with HasGameRef {
 
   @override
   Color backgroundColor() => const Color(0xff00ff00);
-
-  @override
-  Future onLoad() async {
-    final double screenRatio = camera.viewport.size.y / battlefield.size.height;
-
-    for (final Region region in battlefield.regions) {
-      add(RegionComponent(
-        region: region,
-        position: region.position * screenRatio,
-        size: Vector2.all(region.radius * 2 * screenRatio),
-      ));
-    }
-  }
 
   // ============================= PLAYERS ================================== \\
 

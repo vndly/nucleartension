@@ -13,6 +13,8 @@ class RegionComponent extends PositionComponent {
     required super.size,
   }) : super(anchor: Anchor.center) {
     paintBorder.style = PaintingStyle.stroke;
+    paintBorder.strokeWidth = 0.5;
+
     paintFill.style = PaintingStyle.fill;
   }
 
