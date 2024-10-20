@@ -1,14 +1,17 @@
-import 'package:flutter/rendering.dart';
+import 'package:flame/game.dart';
+import 'package:flutter/material.dart';
 import 'package:nucleartension/models/players/player.dart';
 
-class Region2 {
-  final Offset offset;
+class Region {
+  final Vector2 position;
   final double radius;
   final Player? player;
 
-  Region2({
-    required this.offset,
+  Region({
+    required this.position,
     required this.radius,
     this.player,
   });
+
+  Color get color => player?.country.color ?? Colors.grey;
 }

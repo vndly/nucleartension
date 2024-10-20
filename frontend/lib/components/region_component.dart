@@ -1,24 +1,28 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/players/player.dart';
+import 'package:nucleartension/models/region.dart';
 
 class RegionComponent extends PositionComponent {
-  Player? player;
-  late final Paint paint;
+  final Region region;
+  final Paint paintBorder = Paint();
+  final Paint paintFill = Paint();
 
-  RegionComponent({
-    required super.position,
-    required super.size,
-    this.player,
-  }) : super(anchor: Anchor.center) {
-    paint = Paint()
-      ..color = player?.country.color ?? Colors.grey
-      ..style = PaintingStyle.fill;
+  RegionComponent(this.region)
+      : super(
+          position: region.position,
+          size: Vector2.all(region.radius * 2),
+          anchor: Anchor.center,
+        ) {
+    paintBorder.style = PaintingStyle.stroke;
+    paintFill.style = PaintingStyle.fill;
   }
 
   @override
   void render(Canvas canvas) {
     super.render(canvas);
+
+    paintBorder.color = region.color;
+    paintFill.color = region.color.withAlpha(200);
 
     canvas.drawCircle(
       Offset(
@@ -26,7 +30,16 @@ class RegionComponent extends PositionComponent {
         size.y / 2,
       ),
       size.x / 2,
-      paint,
+      paintFill,
+    );
+
+    canvas.drawCircle(
+      Offset(
+        size.x / 2,
+        size.y / 2,
+      ),
+      size.x / 2,
+      paintBorder,
     );
   }
 }

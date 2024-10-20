@@ -21,7 +21,7 @@ class MyGame extends FlameGame {
   final Size screenSize;
   final GameState gameState;
   final List<Player> players;
-  final List<Region2> regions;
+  final List<Region> regions;
   final List<Event> events;
   final List<Attack> attacks;
   final FPS fps = FPS();
@@ -51,20 +51,9 @@ class MyGame extends FlameGame {
 
   @override
   Future onLoad() async {
-    final double length = size.y * Constants.MAP_SIZE_RATIO;
-    final double radius = length / 6;
-
-    add(RegionComponent(
-      position: Vector2(
-        size.x / 2,
-        size.y / 2,
-      ),
-      size: Vector2(
-        radius * 2,
-        radius * 2,
-      ),
-      player: selfPlayer,
-    ));
+    for (final Region region in regions) {
+      add(RegionComponent(region));
+    }
   }
 
   // ============================= PLAYERS ================================== \\

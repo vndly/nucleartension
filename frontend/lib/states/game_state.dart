@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:dafluta/dafluta.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/rendering.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
@@ -117,59 +118,60 @@ class GameState extends BaseState {
       ),
     ]);
 
-    final double radius = mapSize.height / 6;
+    final Size viewport = mapSize * Constants.MAP_SIZE_RATIO;
+    final double radius = viewport.height / 6;
 
     game.regions.addAll([
-      Region2(
-        offset: Offset(
+      Region(
+        position: Vector2(
           mapSize.width / 2,
           mapSize.height / 2,
         ),
         radius: radius,
         player: usa,
       ),
-      Region2(
-        offset: Offset(
+      Region(
+        position: Vector2(
           mapSize.width / 2,
           (mapSize.height / 2) - (radius * 2),
         ),
         radius: radius,
         player: usa,
       ),
-      Region2(
-        offset: Offset(
+      Region(
+        position: Vector2(
           mapSize.width / 2,
           (mapSize.height / 2) + (radius * 2),
         ),
         radius: radius,
         player: usa,
       ),
-      Region2(
-        offset: Offset(
+      Region(
+        position: Vector2(
           (mapSize.width / 2) + (radius * sqrt(3)),
           (mapSize.height / 2) + radius,
         ),
         radius: radius,
         player: usa,
       ),
-      Region2(
-        offset: Offset(
+      Region(
+        position: Vector2(
           (mapSize.width / 2) + (radius * sqrt(3)),
           (mapSize.height / 2) - radius,
         ),
         radius: radius,
         player: usa,
       ),
-      Region2(
-        offset: Offset(
+      Region(
+        position: Vector2(
           (mapSize.width / 2) - (radius * sqrt(3)),
           (mapSize.height / 2) + radius,
         ),
         radius: radius,
         player: usa,
       ),
-      Region2(
-        offset: Offset(
+      Region(
+        position: Vector2(
           (mapSize.width / 2) - (radius * sqrt(3)),
           (mapSize.height / 2) - radius,
         ),
