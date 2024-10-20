@@ -1,8 +1,9 @@
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/models/region.dart';
 
-class RegionComponent extends PositionComponent {
+class RegionComponent extends PositionComponent with TapCallbacks {
   final Region region;
   final Paint paintBorder = Paint();
   final Paint paintFill = Paint();
@@ -16,6 +17,12 @@ class RegionComponent extends PositionComponent {
     paintBorder.strokeWidth = 0.5;
 
     paintFill.style = PaintingStyle.fill;
+  }
+
+  @override
+  void onTapUp(TapUpEvent event) {
+    event.continuePropagation = true;
+    print('TEST 2: ${region.id} ${event.localPosition}');
   }
 
   @override

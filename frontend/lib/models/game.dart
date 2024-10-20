@@ -254,10 +254,4 @@ class MyGame extends FlameGame with HasGameRef {
       callback: (attack) => _processEvents(attack.resolve()),
     );
   }
-
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-    print('render');
-  }
 }

@@ -40,6 +40,7 @@ class GameState extends BaseState {
       size: mapSize,
       regions: [
         Region(
+          id: '0',
           position: Vector2(
             0,
             0,
@@ -47,13 +48,15 @@ class GameState extends BaseState {
           radius: radius,
         ),
         Region(
+          id: '1',
           position: Vector2(
             0,
-            -(radius * 2),
+            -radius * 2,
           ),
           radius: radius,
         ),
         Region(
+          id: '2',
           position: Vector2(
             0,
             radius * 2,
@@ -61,6 +64,7 @@ class GameState extends BaseState {
           radius: radius,
         ),
         Region(
+          id: '3',
           position: Vector2(
             radius * sqrt(3),
             radius,
@@ -68,6 +72,7 @@ class GameState extends BaseState {
           radius: radius,
         ),
         Region(
+          id: '4',
           position: Vector2(
             radius * sqrt(3),
             -radius,
@@ -75,15 +80,17 @@ class GameState extends BaseState {
           radius: radius,
         ),
         Region(
+          id: '5',
           position: Vector2(
-            -(radius * sqrt(3)),
+            -radius * sqrt(3),
             radius,
           ),
           radius: radius,
         ),
         Region(
+          id: '6',
           position: Vector2(
-            -(radius * sqrt(3)),
+            -radius * sqrt(3),
             -radius,
           ),
           radius: radius,
