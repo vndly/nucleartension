@@ -1,8 +1,10 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/widgets/hud/map_view.dart';
 import 'package:nucleartension/widgets/hud/top_menu.dart';
+import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
 
 class GameScreen extends StatelessWidget {
@@ -10,7 +12,11 @@ class GameScreen extends StatelessWidget {
 
   const GameScreen(this.state);
 
-  factory GameScreen.instance() => GameScreen(GameState());
+  factory GameScreen.instance(BuildContext context) {
+    final Size mapSize = MediaQuery.of(context).size * Constants.MAP_SIZE_RATIO;
+
+    return GameScreen(GameState(mapSize));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +48,13 @@ class GameContent extends StatelessWidget {
           Align(
             alignment: Alignment.topCenter,
             child: TopMenu(state),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Label(text: 'FPS: ${state.game.fps.fps()}'),
+            ),
           ),
         ],
       ),

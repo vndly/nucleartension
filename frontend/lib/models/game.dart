@@ -7,6 +7,7 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
@@ -15,6 +16,7 @@ import 'package:nucleartension/utils/probability.dart';
 class Game {
   final GameState gameState;
   final List<Player> players;
+  final List<Region> regions;
   final List<Event> events;
   final List<Attack> attacks;
   final FPS fps = FPS();
@@ -25,6 +27,7 @@ class Game {
   Game({
     required this.gameState,
     required this.players,
+    required this.regions,
     required this.events,
     required this.attacks,
     required this.timeElapsed,

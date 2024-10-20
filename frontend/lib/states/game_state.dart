@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:dafluta/dafluta.dart';
+import 'package:flutter/rendering.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
@@ -14,6 +17,7 @@ import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/country.dart';
@@ -27,10 +31,11 @@ class GameState extends BaseState {
   late final Game game;
   bool finished = false;
 
-  GameState() {
+  GameState(Size mapSize) {
     game = Game(
       gameState: this,
       players: [],
+      regions: [],
       events: [],
       attacks: [],
       timeElapsed: 0,
@@ -109,6 +114,67 @@ class GameState extends BaseState {
         name: 'Ariel',
         country: Country.israel,
         profile: PlayerProfile.neutral(),
+      ),
+    ]);
+
+    final double radius = mapSize.height / 6;
+
+    game.regions.addAll([
+      Region(
+        offset: Offset(
+          mapSize.width / 2,
+          mapSize.height / 2,
+        ),
+        radius: radius,
+        player: usa,
+      ),
+      Region(
+        offset: Offset(
+          mapSize.width / 2,
+          (mapSize.height / 2) - (radius * 2),
+        ),
+        radius: radius,
+        player: usa,
+      ),
+      Region(
+        offset: Offset(
+          mapSize.width / 2,
+          (mapSize.height / 2) + (radius * 2),
+        ),
+        radius: radius,
+        player: usa,
+      ),
+      Region(
+        offset: Offset(
+          (mapSize.width / 2) + (radius * sqrt(3)),
+          (mapSize.height / 2) + radius,
+        ),
+        radius: radius,
+        player: usa,
+      ),
+      Region(
+        offset: Offset(
+          (mapSize.width / 2) + (radius * sqrt(3)),
+          (mapSize.height / 2) - radius,
+        ),
+        radius: radius,
+        player: usa,
+      ),
+      Region(
+        offset: Offset(
+          (mapSize.width / 2) - (radius * sqrt(3)),
+          (mapSize.height / 2) + radius,
+        ),
+        radius: radius,
+        player: usa,
+      ),
+      Region(
+        offset: Offset(
+          (mapSize.width / 2) - (radius * sqrt(3)),
+          (mapSize.height / 2) - radius,
+        ),
+        radius: radius,
+        player: usa,
       ),
     ]);
   }

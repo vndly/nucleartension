@@ -59,9 +59,9 @@ class Navigation {
         ),
       );
 
-  static void matchScreen() => push(
+  static void matchScreen(BuildContext context) => push(
         FadeRoute(
-          GameScreen.instance(),
+          GameScreen.instance(context),
           name: 'match',
         ),
       );
