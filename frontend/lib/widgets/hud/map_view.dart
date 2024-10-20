@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
 
@@ -14,7 +15,7 @@ class MapView extends StatelessWidget {
     return GestureDetector(
       onTapDown: _onTapDown,
       child: CustomPaint(
-        foregroundPainter: ForegroundPainter(),
+        foregroundPainter: ForegroundPainter(state.game),
         child: MiddleLayer(),
       ),
     );
@@ -35,6 +36,8 @@ class MiddleLayer extends StatelessWidget {
 }
 
 class ForegroundPainter extends CustomPainter {
+  final Game game;
+
   final Paint circle1Paint = Paint()
     ..color = Colors.red
     ..style = PaintingStyle.fill;
@@ -62,6 +65,8 @@ class ForegroundPainter extends CustomPainter {
   final Paint circle7Paint = Paint()
     ..color = Colors.purple
     ..style = PaintingStyle.fill;
+
+  ForegroundPainter(this.game);
 
   @override
   void paint(Canvas canvas, Size size) {
