@@ -1,9 +1,6 @@
-import 'dart:math';
-
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/states/game_state.dart';
-import 'package:nucleartension/utils/palette.dart';
 
 class MapView extends StatelessWidget {
   final GameState state;
@@ -12,21 +9,13 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: _onTapDown,
-      child: CustomPaint(
-        foregroundPainter: ForegroundPainter(state.game),
-        child: MiddleLayer(),
-      ),
+    return GameWidget(
+      game: state.game,
     );
-  }
-
-  void _onTapDown(TapDownDetails details) {
-    print('TAP: ${details.localPosition}');
   }
 }
 
-class MiddleLayer extends StatelessWidget {
+/*class MiddleLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -140,3 +129,4 @@ class ForegroundPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+*/

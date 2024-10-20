@@ -14,7 +14,7 @@ import 'package:nucleartension/widgets/separators/block_separator.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
 
 class IntelBlock extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const IntelBlock(this.game);
 
@@ -35,7 +35,7 @@ class IntelBlock extends StatelessWidget {
 }
 
 class PlayersByPopulation extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const PlayersByPopulation(this.game);
 
@@ -54,7 +54,7 @@ class PlayersByPopulation extends StatelessWidget {
 }
 
 class PlayersByMissiles extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const PlayersByMissiles(this.game);
 

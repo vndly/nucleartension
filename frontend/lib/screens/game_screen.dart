@@ -1,6 +1,5 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/widgets/hud/map_view.dart';
 import 'package:nucleartension/widgets/hud/top_menu.dart';
@@ -13,7 +12,7 @@ class GameScreen extends StatelessWidget {
   const GameScreen(this.state);
 
   factory GameScreen.instance(BuildContext context) {
-    final Size mapSize = MediaQuery.of(context).size * Constants.MAP_SIZE_RATIO;
+    final Size mapSize = MediaQuery.of(context).size;
 
     return GameScreen(GameState(mapSize));
   }

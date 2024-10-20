@@ -7,7 +7,7 @@ import 'package:nucleartension/widgets/blocks/players_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class WarRoomView extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const WarRoomView(this.game);
 
@@ -61,7 +61,7 @@ class TabTitle extends StatelessWidget {
 }
 
 class PlayersTab extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const PlayersTab(this.game);
 
@@ -74,7 +74,7 @@ class PlayersTab extends StatelessWidget {
 }
 
 class IntelTab extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const IntelTab(this.game);
 

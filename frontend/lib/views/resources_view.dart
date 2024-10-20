@@ -4,7 +4,7 @@ import 'package:nucleartension/widgets/blocks/producer_block.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
 
 class ResourcesView extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const ResourcesView(this.game);
 

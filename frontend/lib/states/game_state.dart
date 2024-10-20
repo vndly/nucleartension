@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/rendering.dart';
 import 'package:nucleartension/app/constants.dart';
@@ -28,11 +27,12 @@ import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
-  late final Game game;
+  late final MyGame game;
   bool finished = false;
 
   GameState(Size mapSize) {
-    game = Game(
+    game = MyGame(
+      screenSize: mapSize,
       gameState: this,
       players: [],
       regions: [],
@@ -120,7 +120,7 @@ class GameState extends BaseState {
     final double radius = mapSize.height / 6;
 
     game.regions.addAll([
-      Region(
+      Region2(
         offset: Offset(
           mapSize.width / 2,
           mapSize.height / 2,
@@ -128,7 +128,7 @@ class GameState extends BaseState {
         radius: radius,
         player: usa,
       ),
-      Region(
+      Region2(
         offset: Offset(
           mapSize.width / 2,
           (mapSize.height / 2) - (radius * 2),
@@ -136,7 +136,7 @@ class GameState extends BaseState {
         radius: radius,
         player: usa,
       ),
-      Region(
+      Region2(
         offset: Offset(
           mapSize.width / 2,
           (mapSize.height / 2) + (radius * 2),
@@ -144,7 +144,7 @@ class GameState extends BaseState {
         radius: radius,
         player: usa,
       ),
-      Region(
+      Region2(
         offset: Offset(
           (mapSize.width / 2) + (radius * sqrt(3)),
           (mapSize.height / 2) + radius,
@@ -152,7 +152,7 @@ class GameState extends BaseState {
         radius: radius,
         player: usa,
       ),
-      Region(
+      Region2(
         offset: Offset(
           (mapSize.width / 2) + (radius * sqrt(3)),
           (mapSize.height / 2) - radius,
@@ -160,7 +160,7 @@ class GameState extends BaseState {
         radius: radius,
         player: usa,
       ),
-      Region(
+      Region2(
         offset: Offset(
           (mapSize.width / 2) - (radius * sqrt(3)),
           (mapSize.height / 2) + radius,
@@ -168,7 +168,7 @@ class GameState extends BaseState {
         radius: radius,
         player: usa,
       ),
-      Region(
+      Region2(
         offset: Offset(
           (mapSize.width / 2) - (radius * sqrt(3)),
           (mapSize.height / 2) - radius,

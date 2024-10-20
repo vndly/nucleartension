@@ -8,7 +8,7 @@ import 'package:nucleartension/widgets/blocks/research_block.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
 
 class ResearchView extends StatelessWidget {
-  final Game game;
+  final MyGame game;
 
   const ResearchView(this.game);
 

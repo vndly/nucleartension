@@ -1,4 +1,8 @@
+import 'dart:ui';
+import 'package:flame/camera.dart';
+import 'package:flame/game.dart';
 import 'package:nucleartension/app/constants.dart';
+import 'package:nucleartension/components/region_component.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
@@ -13,10 +17,11 @@ import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
-class Game {
+class MyGame extends FlameGame {
+  final Size screenSize;
   final GameState gameState;
   final List<Player> players;
-  final List<Region> regions;
+  final List<Region2> regions;
   final List<Event> events;
   final List<Attack> attacks;
   final FPS fps = FPS();
@@ -24,7 +29,8 @@ class Game {
   num timeElapsed = 0;
   int defcon = 5;
 
-  Game({
+  MyGame({
+    required this.screenSize,
     required this.gameState,
     required this.players,
     required this.regions,
@@ -32,7 +38,34 @@ class Game {
     required this.attacks,
     required this.timeElapsed,
     required this.defcon,
-  });
+  }) : super(
+          camera: CameraComponent.withFixedResolution(
+            width: screenSize.width,
+            height: screenSize.height,
+          ),
+        );
+
+  @override
+  // ignore: overridden_fields
+  bool debugMode = true;
+
+  @override
+  Future onLoad() async {
+    final double length = size.y * Constants.MAP_SIZE_RATIO;
+    final double radius = length / 6;
+
+    add(RegionComponent(
+      position: Vector2(
+        size.x / 2,
+        size.y / 2,
+      ),
+      size: Vector2(
+        radius * 2,
+        radius * 2,
+      ),
+      player: selfPlayer,
+    ));
+  }
 
   // ============================= PLAYERS ================================== \\
 
@@ -202,20 +235,6 @@ class Game {
 
   // ============================= UPDATE =================================== \\
 
-  void update(double dt) {
-    timeElapsed += dt;
-
-    for (final Player player in players) {
-      player.update(dt);
-    }
-
-    _updateAttacks(
-      dt: dt,
-      attacks: attacks,
-      callback: (attack) => _processEvents(attack.resolve()),
-    );
-  }
-
   void _updateAttacks({
     required double dt,
     required List<Attack> attacks,
@@ -234,5 +253,27 @@ class Game {
     for (final Attack task in tasksToRemove) {
       attacks.remove(task);
     }
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    timeElapsed += dt;
+
+    for (final Player player in players) {
+      player.update(dt);
+    }
+
+    _updateAttacks(
+      dt: dt,
+      attacks: attacks,
+      callback: (attack) => _processEvents(attack.resolve()),
+    );
+  }
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+    print('render');
   }
 }

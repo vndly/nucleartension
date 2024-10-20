@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.5.3 <4.0.0'
 
 dependencies:
+  flame: ^1.21.0
   get_it: ^8.0.0
   logger: ^2.4.0
   dafluta: ^5.4.0
