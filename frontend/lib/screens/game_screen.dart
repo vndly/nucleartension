@@ -1,6 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
+import 'package:nucleartension/widgets/hud/map_view.dart';
 import 'package:nucleartension/widgets/hud/top_menu.dart';
 import 'package:nucleartension/widgets/misc/game_loop.dart';
 
@@ -34,7 +35,10 @@ class GameContent extends StatelessWidget {
       state: state,
       builder: (context, state) => Stack(
         children: [
-          MapView(state),
+          Align(
+            alignment: Alignment.center,
+            child: MapView(state),
+          ),
           Align(
             alignment: Alignment.topCenter,
             child: TopMenu(state),
@@ -42,16 +46,5 @@ class GameContent extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class MapView extends StatelessWidget {
-  final GameState state;
-
-  const MapView(this.state);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
