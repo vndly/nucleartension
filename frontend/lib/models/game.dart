@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:nucleartension/app/constants.dart';
-import 'package:nucleartension/components/my_world.dart';
+import 'package:nucleartension/components/battlefield_component.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
@@ -37,7 +37,7 @@ class MyGame extends FlameGame with HasGameRef {
     required this.timeElapsed,
     required this.defcon,
   }) : super(
-          world: MyWorld(battlefield: battlefield),
+          world: BattlefieldComponent(battlefield),
           camera: CameraComponent.withFixedResolution(
             width: battlefield.size.width,
             height: battlefield.size.height,

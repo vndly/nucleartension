@@ -3,10 +3,10 @@ import 'package:nucleartension/components/region_component.dart';
 import 'package:nucleartension/models/battlefield.dart';
 import 'package:nucleartension/models/region.dart';
 
-class MyWorld extends World {
+class BattlefieldComponent extends World {
   final Battlefield battlefield;
 
-  MyWorld({required this.battlefield});
+  BattlefieldComponent(this.battlefield);
 
   @override
   Future onLoad() async {
