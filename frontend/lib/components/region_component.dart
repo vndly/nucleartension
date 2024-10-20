@@ -46,13 +46,13 @@ class RegionComponent extends PositionComponent
   }
 
   List<Vector2> get _points {
-    const double aaa = 0.575;
+    const double ratio = 0.575;
     final List<Vector2> result = [];
 
     for (int i = 0; i < 6; i++) {
       final double angle = i * 2 * pi / 6;
-      final double x = size.x / 2 + size.x * aaa * cos(angle);
-      final double y = size.y / 2 + size.y * aaa * sin(angle);
+      final double x = size.x / 2 + size.x * ratio * cos(angle);
+      final double y = size.y / 2 + size.y * ratio * sin(angle);
 
       result.add(Vector2(x, y));
     }
