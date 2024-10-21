@@ -201,4 +201,9 @@ class GameState extends BaseState {
     selectedRegion = region;
     selectedRegionPosition = position;
   }
+
+  void unselectRegion() {
+    selectedRegion = null;
+    selectedRegionPosition = null;
+  }
 }

@@ -47,7 +47,7 @@ class Game extends FlameGame {
       game: this,
       battlefield: battlefield,
     );
-    debugMode = true;
+    debugMode = false;
   }
 
   // ============================= REGIONS ================================== \\
@@ -70,6 +70,8 @@ class Game extends FlameGame {
         region: region,
         position: regionCenter,
       );
+    } else {
+      state.unselectRegion();
     }
   }
 
