@@ -198,11 +198,13 @@ class GameState extends BaseState {
     required Region region,
     required Vector2 position,
   }) {
+    region.selected = true;
     selectedRegion = region;
     selectedRegionPosition = position;
   }
 
   void unselectRegion() {
+    selectedRegion?.selected = false;
     selectedRegion = null;
     selectedRegionPosition = null;
   }

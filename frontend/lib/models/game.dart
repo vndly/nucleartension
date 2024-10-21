@@ -65,11 +65,14 @@ class Game extends FlameGame {
         );
 
     if (region.belongsTo(self)) {
-      //region.selected = !region.selected;
-      state.showRegionMenu(
-        region: region,
-        position: regionCenter,
-      );
+      if (region.selected) {
+        state.unselectRegion();
+      } else {
+        state.showRegionMenu(
+          region: region,
+          position: regionCenter,
+        );
+      }
     } else {
       state.unselectRegion();
     }
