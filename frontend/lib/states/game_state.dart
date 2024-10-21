@@ -36,65 +36,79 @@ class GameState extends BaseState {
     const Size mapSize = Size(100, 100);
     final double radius = mapSize.height / 6;
 
+    final Region centerRegion = Region(
+      id: '0',
+      position: Vector2(
+        0,
+        0,
+      ),
+      radius: radius,
+    );
+
+    final Region topRegion = Region(
+      id: '1',
+      position: Vector2(
+        0,
+        -radius * 2,
+      ),
+      radius: radius,
+    );
+
+    final Region topRightRegion = Region(
+      id: '2',
+      position: Vector2(
+        radius * sqrt(3),
+        -radius,
+      ),
+      radius: radius,
+    );
+
+    final Region bottomRightRegion = Region(
+      id: '3',
+      position: Vector2(
+        radius * sqrt(3),
+        radius,
+      ),
+      radius: radius,
+    );
+
+    final Region bottomRegion = Region(
+      id: '4',
+      position: Vector2(
+        0,
+        radius * 2,
+      ),
+      radius: radius,
+    );
+
+    final Region bottomLeftRegion = Region(
+      id: '5',
+      position: Vector2(
+        -radius * sqrt(3),
+        radius,
+      ),
+      radius: radius,
+    );
+
+    final Region topLeftRegion = Region(
+      id: '6',
+      position: Vector2(
+        -radius * sqrt(3),
+        -radius,
+      ),
+      radius: radius,
+    );
+
     final Battlefield battlefield = Battlefield(
       size: mapSize,
       regions: [
-        Region(
-          id: '0',
-          position: Vector2(
-            0,
-            0,
-          ),
-          radius: radius,
-        ),
-        Region(
-          id: '1',
-          position: Vector2(
-            0,
-            -radius * 2,
-          ),
-          radius: radius,
-        ),
-        Region(
-          id: '2',
-          position: Vector2(
-            0,
-            radius * 2,
-          ),
-          radius: radius,
-        ),
-        Region(
-          id: '3',
-          position: Vector2(
-            radius * sqrt(3),
-            radius,
-          ),
-          radius: radius,
-        ),
-        Region(
-          id: '4',
-          position: Vector2(
-            radius * sqrt(3),
-            -radius,
-          ),
-          radius: radius,
-        ),
-        Region(
-          id: '5',
-          position: Vector2(
-            -radius * sqrt(3),
-            radius,
-          ),
-          radius: radius,
-        ),
-        Region(
-          id: '6',
-          position: Vector2(
-            -radius * sqrt(3),
-            -radius,
-          ),
-          radius: radius,
-        ),
+        centerRegion,
+        topRegion,
+        topRightRegion,
+        bottomRightRegion,
+        bottomRegion,
+        bottomLeftRegion,
+        topLeftRegion,
       ],
     );
 

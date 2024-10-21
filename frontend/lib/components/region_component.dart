@@ -43,6 +43,25 @@ class RegionComponent extends PositionComponent
     }
 
     canvas.drawPath(_path, paintBorder);
+
+    final textPainter = TextPainter(
+      text: TextSpan(
+        text: region.id,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 5,
+        ),
+      ),
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout();
+
+    final offset = Offset(
+      size.x / 2 - textPainter.width / 2,
+      size.y / 2 - textPainter.height / 2,
+    );
+    textPainter.paint(canvas, offset);
   }
 
   List<Vector2> get _points {
