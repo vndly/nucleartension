@@ -6,7 +6,7 @@ class Region {
   final String id;
   final Vector2 position;
   final double radius;
-  final Player? player;
+  Player? player;
   bool selected = false;
 
   Region({

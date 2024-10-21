@@ -25,7 +25,6 @@ import 'package:nucleartension/types/country.dart';
 import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
-import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
@@ -138,63 +137,26 @@ class GameState extends BaseState {
       researches: {},
     );
 
-    usa.addBuildings(_buildings(
-      player: usa,
-      map: {
-        BuildingType.power_plant: 0,
-      },
-    ));
+    final Player china = _activePlayer(
+      name: 'Ming',
+      country: Country.china,
+      profile: PlayerProfile.neutral(),
+    );
 
-    usa.addResearches(_researches(
-      player: usa,
-      map: {
-        ResearchType.intel_population: Environment.isDebug ? 2 : 0,
-        ResearchType.intel_missiles: Environment.isDebug ? 2 : 0,
-      },
-    ));
+    final Player russia = _activePlayer(
+      name: 'Sergey',
+      country: Country.russia,
+      profile: PlayerProfile.aggressiveMissiles(),
+    );
+
+    topLeftRegion.player = usa;
+    topRightRegion.player = china;
+    bottomRegion.player = russia;
 
     game.addPlayers([
       usa,
-      _activePlayer(
-        name: 'Sergey',
-        country: Country.russia,
-        profile: PlayerProfile.aggressiveMissiles(),
-      ),
-      _activePlayer(
-        name: 'Ming',
-        country: Country.china,
-        profile: PlayerProfile.aggressiveMix(),
-      ),
-      _activePlayer(
-        name: 'Harry',
-        country: Country.uk,
-        profile: PlayerProfile.neutral(),
-      ),
-      _activePlayer(
-        name: 'Louis',
-        country: Country.france,
-        profile: PlayerProfile.defensive(),
-      ),
-      _activePlayer(
-        name: 'Jong',
-        country: Country.north_korea,
-        profile: PlayerProfile.aggressiveMissiles(),
-      ),
-      _activePlayer(
-        name: 'Ram',
-        country: Country.india,
-        profile: PlayerProfile.aggressiveMissiles(),
-      ),
-      _activePlayer(
-        name: 'Muhammad',
-        country: Country.pakistan,
-        profile: PlayerProfile.aggressiveMissiles(),
-      ),
-      _activePlayer(
-        name: 'Ariel',
-        country: Country.israel,
-        profile: PlayerProfile.neutral(),
-      ),
+      china,
+      russia,
     ]);
   }
 

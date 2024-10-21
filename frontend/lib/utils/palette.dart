@@ -54,9 +54,9 @@ class Palette {
   static const Color menuUnselected = Color(0xff707070);
 
   static const Color countryUsa = Colors.blue;
-  static const Color countryRussia = Colors.white;
+  static const Color countryRussia = Colors.green;
   static const Color countryChina = Colors.red;
-  static const Color countryUnitedKingdom = Colors.green;
+  static const Color countryUnitedKingdom = Colors.white;
   static const Color countryFrance = Colors.pink;
   static const Color countryNorthKorea = Colors.brown;
   static const Color countryIndia = Colors.yellow;
