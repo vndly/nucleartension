@@ -76,7 +76,7 @@ class RegionComponent extends PositionComponent
   }
 
   List<Vector2> get _points {
-    const double ratio = 0.575;
+    const double ratio = 0.57;
     final List<Vector2> result = [];
 
     for (int i = 0; i < 6; i++) {

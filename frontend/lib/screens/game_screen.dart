@@ -1,3 +1,4 @@
+import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
@@ -80,20 +81,36 @@ class RegionMenu extends StatelessWidget {
         child: Stack(
           children: [
             Align(
-              alignment: Alignment.topRight,
-              child: RegionMenuButton(size: buttonSize),
+              alignment: Alignment.topLeft,
+              child: RegionMenuButton(
+                size: buttonSize,
+                icon: Icons.bolt,
+                label: '2',
+              ),
             ),
             Align(
-              alignment: Alignment.bottomRight,
-              child: RegionMenuButton(size: buttonSize),
+              alignment: Alignment.topRight,
+              child: RegionMenuButton(
+                size: buttonSize,
+                icon: Icons.radio_button_checked_outlined,
+                label: '3',
+              ),
             ),
             Align(
               alignment: Alignment.bottomLeft,
-              child: RegionMenuButton(size: buttonSize),
+              child: RegionMenuButton(
+                size: buttonSize,
+                icon: Icons.shield,
+                label: '4',
+              ),
             ),
             Align(
-              alignment: Alignment.topLeft,
-              child: RegionMenuButton(size: buttonSize),
+              alignment: Alignment.bottomRight,
+              child: RegionMenuButton(
+                size: buttonSize,
+                icon: Icons.sunny,
+                label: '5',
+              ),
             ),
           ],
         ),
@@ -104,9 +121,13 @@ class RegionMenu extends StatelessWidget {
 
 class RegionMenuButton extends StatelessWidget {
   final double size;
+  final IconData icon;
+  final String label;
 
   const RegionMenuButton({
     required this.size,
+    required this.icon,
+    required this.label,
   });
 
   @override
@@ -120,6 +141,25 @@ class RegionMenuButton extends StatelessWidget {
         border: Border.all(
           color: Colors.white,
           width: size / 30,
+        ),
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: size / 2.5,
+              color: Colors.white,
+            ),
+            const VBox(5),
+            Label(
+              text: label,
+              color: Colors.white,
+              size: size / 4,
+              weight: FontWeight.bold,
+            ),
+          ],
         ),
       ),
     );
