@@ -6,7 +6,7 @@ import 'package:nucleartension/widgets/blocks/event_block.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 
 class EventsView extends StatelessWidget {
-  final MyGame game;
+  final Game game;
 
   const EventsView(this.game);
 

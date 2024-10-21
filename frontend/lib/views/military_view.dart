@@ -4,7 +4,7 @@ import 'package:nucleartension/widgets/blocks/trainer_block.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
 
 class MilitaryView extends StatelessWidget {
-  final MyGame game;
+  final Game game;
 
   const MilitaryView(this.game);
 

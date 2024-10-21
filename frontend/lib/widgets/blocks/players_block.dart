@@ -12,7 +12,7 @@ import 'package:nucleartension/widgets/separators/block_separator.dart';
 import 'package:nucleartension/widgets/separators/row_separator.dart';
 
 class PlayersBlock extends StatelessWidget {
-  final MyGame game;
+  final Game game;
 
   const PlayersBlock(this.game);
 
@@ -44,7 +44,7 @@ class PlayersBlock extends StatelessWidget {
 }
 
 class PlayerRow extends StatelessWidget {
-  final MyGame game;
+  final Game game;
   final Player player;
 
   const PlayerRow({
@@ -81,7 +81,7 @@ class PlayerRow extends StatelessWidget {
 }
 
 class PlayerRowContent extends StatelessWidget {
-  final MyGame game;
+  final Game game;
   final Player player;
 
   const PlayerRowContent({

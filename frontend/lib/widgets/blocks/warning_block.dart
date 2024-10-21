@@ -4,7 +4,7 @@ import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/widgets/blocks/attack_block.dart';
 
 class WarningBlock extends StatelessWidget {
-  final MyGame game;
+  final Game game;
 
   const WarningBlock(this.game);
 

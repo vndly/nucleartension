@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:nucleartension/app/constants.dart';
@@ -17,7 +16,7 @@ import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
-class MyGame extends FlameGame with HasGameRef {
+class Game extends FlameGame with HasGameRef {
   final GameState gameState;
   final Battlefield battlefield;
   final List<Player> players;
@@ -28,7 +27,7 @@ class MyGame extends FlameGame with HasGameRef {
   num timeElapsed = 0;
   int defcon = 5;
 
-  MyGame({
+  Game({
     required this.gameState,
     required this.battlefield,
     required this.players,
@@ -48,8 +47,8 @@ class MyGame extends FlameGame with HasGameRef {
   // ignore: overridden_fields
   bool debugMode = true;
 
-  @override
-  Color backgroundColor() => const Color(0xff00ff00);
+  //@override
+  //Color backgroundColor() => const Color(0xff00ff00);
 
   // ============================= PLAYERS ================================== \\
 

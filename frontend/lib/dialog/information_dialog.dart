@@ -123,7 +123,7 @@ class InformationDialog extends StatelessWidget {
       );
 
   static DialogController player({
-    required MyGame game,
+    required Game game,
     required Player player,
   }) {
     final bool hasIntelPopulation =

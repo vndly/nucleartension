@@ -17,7 +17,7 @@ import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/types/resource_type.dart';
 
 class Player {
-  final MyGame game;
+  final Game game;
   final String name;
   final Country country;
   final ResourceInventory resources;

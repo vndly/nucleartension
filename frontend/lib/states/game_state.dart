@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:dafluta/dafluta.dart';
-import 'package:flame/game.dart';
+import 'package:flame/components.dart';
 import 'package:flutter/rendering.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
@@ -29,7 +29,7 @@ import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
-  late final MyGame game;
+  late final Game game;
   bool finished = false;
 
   GameState() {
@@ -98,7 +98,7 @@ class GameState extends BaseState {
       ],
     );
 
-    game = MyGame(
+    game = Game(
       gameState: this,
       battlefield: battlefield,
       players: [],
