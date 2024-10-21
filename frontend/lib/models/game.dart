@@ -1,8 +1,5 @@
 import 'package:flame/components.dart';
-import 'package:flame/events.dart';
 import 'package:flame/game.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/components/battlefield_component.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
@@ -19,7 +16,7 @@ import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
-class Game extends FlameGame with KeyboardEvents {
+class Game extends FlameGame {
   final GameState gameState;
   final Battlefield battlefield;
   final List<Player> players;
@@ -253,22 +250,5 @@ class Game extends FlameGame with KeyboardEvents {
       attacks: attacks,
       callback: (attack) => _processEvents(attack.resolve()),
     );
-  }
-
-  @override
-  KeyEventResult onKeyEvent(
-    KeyEvent event,
-    Set<LogicalKeyboardKey> keysPressed,
-  ) {
-    final bool isKeyDown = event is KeyDownEvent;
-    final bool isSpace = keysPressed.contains(LogicalKeyboardKey.space);
-
-    if (isSpace && isKeyDown) {
-      debugMode = false;
-
-      return KeyEventResult.handled;
-    }
-
-    return KeyEventResult.ignored;
   }
 }
