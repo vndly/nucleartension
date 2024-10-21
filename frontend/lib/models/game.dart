@@ -11,6 +11,7 @@ import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
@@ -36,17 +37,28 @@ class Game extends FlameGame {
     required this.timeElapsed,
     required this.defcon,
   }) : super(
-          world: BattlefieldComponent(battlefield),
           camera: CameraComponent.withFixedResolution(
             width: battlefield.size.width,
             height: battlefield.size.height,
           ),
         ) {
+    world = BattlefieldComponent(
+      game: this,
+      battlefield: battlefield,
+    );
     debugMode = true;
   }
 
   //@override
   //Color backgroundColor() => const Color(0xff00ff00);
+
+  // ============================= REGIONS ================================== \\
+
+  void onRegionSelected(Region region) {
+    if (region.belongsTo(self)) {
+      region.selected = !region.selected;
+    }
+  }
 
   // ============================= PLAYERS ================================== \\
 

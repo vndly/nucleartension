@@ -8,6 +8,10 @@ class Region {
   final double radius;
   Player? player;
   bool selected = false;
+  int powerPlantLevel = 0;
+  int siloLevel = 0;
+  int defenseMissiles = 0;
+  int attackMissiles = 0;
 
   Region({
     required this.id,
@@ -17,6 +21,8 @@ class Region {
   });
 
   Color get color => player?.country.color ?? Colors.grey;
+
+  bool belongsTo(Player player) => this.player == player;
 
   void onTap() {
     selected = !selected;

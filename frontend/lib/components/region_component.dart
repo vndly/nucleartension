@@ -3,15 +3,18 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
 
 class RegionComponent extends PositionComponent
     with TapCallbacks, GestureHitboxes {
+  final Game game;
   final Region region;
   final Paint paintBorder = Paint();
   final Paint paintFill = Paint();
 
   RegionComponent({
+    required this.game,
     required this.region,
     required super.position,
     required super.size,
@@ -29,14 +32,14 @@ class RegionComponent extends PositionComponent
   }
 
   @override
-  void onTapUp(TapUpEvent event) => region.onTap();
+  void onTapUp(TapUpEvent event) => game.onRegionSelected(region);
 
   @override
   void render(Canvas canvas) {
     super.render(canvas);
 
     paintBorder.color = region.color;
-    paintFill.color = region.color.withAlpha(200);
+    paintFill.color = region.color.withAlpha(75);
 
     if (region.selected) {
       canvas.drawPath(_path, paintFill);

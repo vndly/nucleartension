@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/self_player.dart';
+import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/country.dart';
 import 'package:nucleartension/types/research_type.dart';
@@ -23,6 +24,10 @@ class Player {
   bool get isSelf => this is SelfPlayer;
 
   bool get isAlive => true; //population > 0;
+
+  // ============================= REGIONS ================================== \\
+
+  List<Region> get regions => game.battlefield.playerRegions(this);
 
   // ============================ RESEARCH ================================== \\
 
