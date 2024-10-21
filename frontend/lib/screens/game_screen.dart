@@ -48,6 +48,16 @@ class GameContent extends StatelessWidget {
             child: Label(text: 'FPS: ${state.game.fps.fps()}'),
           ),
         ),
+        if (state.hasSelectedRegion)
+          Positioned(
+            top: state.selectedRegionPosition!.y,
+            left: state.selectedRegionPosition!.x,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.red,
+            ),
+          ),
       ],
     );
   }

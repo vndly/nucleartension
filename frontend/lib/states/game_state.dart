@@ -18,6 +18,11 @@ import 'package:nucleartension/utils/navigation.dart';
 class GameState extends BaseState {
   late final Game game;
   bool finished = false;
+  Region? selectedRegion;
+  Vector2? selectedRegionPosition;
+
+  bool get hasSelectedRegion =>
+      (selectedRegion != null) && (selectedRegionPosition != null);
 
   GameState() {
     const Size mapSize = Size(100, 100);
@@ -100,7 +105,7 @@ class GameState extends BaseState {
     );
 
     game = Game(
-      gameState: this,
+      state: this,
       battlefield: battlefield,
       players: [],
       events: [],
@@ -187,5 +192,13 @@ class GameState extends BaseState {
       killer: killer,
       onAccept: _onQuit,
     );
+  }
+
+  void showRegionMenu({
+    required Region region,
+    required Vector2 position,
+  }) {
+    selectedRegion = region;
+    selectedRegionPosition = position;
   }
 }

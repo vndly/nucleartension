@@ -1,3 +1,4 @@
+import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:nucleartension/app/constants.dart';
@@ -18,7 +19,7 @@ import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
 class Game extends FlameGame {
-  final GameState gameState;
+  final GameState state;
   final Battlefield battlefield;
   final List<Player> players;
   final List<Event> events;
@@ -29,7 +30,7 @@ class Game extends FlameGame {
   int defcon = 5;
 
   Game({
-    required this.gameState,
+    required this.state,
     required this.battlefield,
     required this.players,
     required this.events,
@@ -49,14 +50,26 @@ class Game extends FlameGame {
     debugMode = true;
   }
 
-  //@override
-  //Color backgroundColor() => const Color(0xff00ff00);
-
   // ============================= REGIONS ================================== \\
 
-  void onRegionSelected(Region region) {
+  void onRegionSelected({
+    required Region region,
+    required Vector2 diffFromCenter,
+    required Vector2 devicePosition,
+  }) {
+    final Vector2 scale = (camera.viewport as FixedResolutionViewport).scale;
+    final Vector2 regionCenter = devicePosition -
+        Vector2(
+          diffFromCenter.x * scale.x,
+          diffFromCenter.y * scale.y,
+        );
+
     if (region.belongsTo(self)) {
-      region.selected = !region.selected;
+      //region.selected = !region.selected;
+      state.showRegionMenu(
+        region: region,
+        position: regionCenter,
+      );
     }
   }
 
@@ -128,9 +141,9 @@ class Game extends FlameGame {
 
     if (playerDefeated) {
       if (!self.isAlive) {
-        gameState.onPlayerLost(killer!);
+        state.onPlayerLost(killer!);
       } else if (playersAlive.length == 1) {
-        gameState.onPlayerWon();
+        state.onPlayerWon();
       }
     }
   }

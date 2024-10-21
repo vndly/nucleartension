@@ -32,7 +32,15 @@ class RegionComponent extends PositionComponent
   }
 
   @override
-  void onTapUp(TapUpEvent event) => game.onRegionSelected(region);
+  void onTapUp(TapUpEvent event) {
+    final Vector2 diffFromCenter = event.localPosition - (size / 2);
+
+    game.onRegionSelected(
+      region: region,
+      diffFromCenter: diffFromCenter,
+      devicePosition: event.devicePosition,
+    );
+  }
 
   @override
   void render(Canvas canvas) {
