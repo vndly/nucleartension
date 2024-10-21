@@ -4,12 +4,8 @@ import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/types/building_type.dart';
-import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
-import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/environment.dart';
-import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
@@ -107,16 +103,6 @@ class InformationDialog extends StatelessWidget {
         buttonAccept: Localized.get.buttonOk,
       );
 
-  static DialogController building(BuildingType buildingType) => _entityInfo(
-        title: buildingType.localized,
-        sprite: buildingType.sprite,
-      );
-
-  static DialogController military(MilitaryType militaryType) => _entityInfo(
-        title: militaryType.localized,
-        sprite: militaryType.sprite,
-      );
-
   static DialogController research(ResearchType researchType) => _entityInfo(
         title: researchType.localized,
         sprite: researchType.sprite,
@@ -126,10 +112,10 @@ class InformationDialog extends StatelessWidget {
     required Game game,
     required Player player,
   }) {
-    final bool hasIntelPopulation =
+    /*final bool hasIntelPopulation =
         game.self.getResearch(ResearchType.intel_population).level >= 2;
     final bool hasIntelMissiles =
-        game.self.getResearch(ResearchType.intel_missiles).level >= 2;
+        game.self.getResearch(ResearchType.intel_missiles).level >= 2;*/
 
     return _show(
       title: Row(
@@ -153,7 +139,7 @@ class InformationDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          LabeledText(
+          /*LabeledText(
             label: Localized.get.dialogInformationPlayerPopulation,
             text: hasIntelPopulation
                 ? Formatter.resourceRaw(player.population)
@@ -177,7 +163,7 @@ class InformationDialog extends StatelessWidget {
             textColor:
                 hasIntelMissiles ? Palette.textPrimary : Palette.textError,
             textUppercase: false,
-          ),
+          ),*/
           if (Environment.isDebug) ...[
             const VBox(10),
             if (player is ActivePlayer) ...[
@@ -186,7 +172,7 @@ class InformationDialog extends StatelessWidget {
                   'Next research:', player.nextResearchAction?.name),
               ..._debugPlayer('Next attack:', player.nextAttackAction?.name),
             ],
-            const VBox(10),
+            /*const VBox(10),
             ..._debugPlayer(
                 'Energy:', player.resources.get(ResourceType.energy).toInt()),
             const VBox(10),
@@ -195,7 +181,7 @@ class InformationDialog extends StatelessWidget {
             ..._debugPlayer('Attack missiles:',
                 player.military.get(MilitaryType.missile_attack).toInt()),
             ..._debugPlayer('Nuclear bomb tech:',
-                player.getResearch(ResearchType.missiles_nuclear_bomb).level),
+                player.getResearch(ResearchType.missiles_nuclear_bomb).level),*/
           ],
         ],
       ),

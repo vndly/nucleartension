@@ -46,9 +46,9 @@ class PlayersByPopulation extends StatelessWidget {
 
     return PlayersList(
       title: Localized.get.screenWarRoomIntelPopulation,
-      players: game.playersByPopulation,
+      players: const [],
       researchLevel: research.level,
-      function: (p) => Formatter.resourceRaw(p.population),
+      function: (p) => Formatter.resourceRaw(0),
     );
   }
 }
@@ -65,9 +65,9 @@ class PlayersByMissiles extends StatelessWidget {
 
     return PlayersList(
       title: Localized.get.screenWarRoomIntelMissile,
-      players: game.playersByMissiles,
+      players: const [],
       researchLevel: research.level,
-      function: (p) => Formatter.resourceRaw(p.amountOfMissiles),
+      function: (p) => Formatter.resourceRaw(0),
     );
   }
 }

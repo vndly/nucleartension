@@ -1,0 +1,4 @@
+enum MissileType {
+  defense,
+  attack,
+}

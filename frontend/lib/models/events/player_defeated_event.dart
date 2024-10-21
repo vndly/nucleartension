@@ -1,18 +1,14 @@
 import 'dart:ui';
-import 'package:nucleartension/extensions/item_map_extension.dart';
 import 'package:nucleartension/models/events/event.dart';
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/event_type.dart';
-import 'package:nucleartension/types/resource_type.dart';
-import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 class PlayerDefeated extends Event {
   final Player player;
   final Player killer;
-  final ResourceMap loot;
+  final int loot;
 
   PlayerDefeated({
     required this.player,
@@ -32,7 +28,8 @@ class PlayerDefeated extends Event {
         if (killer.isSelf) ...[
           Localized.get.eventPlayerDefeatedLine2,
           Localized.get.eventPlayerDefeatedLine3(
-            Formatter.resourceRaw(loot.get(ResourceType.energy)),
+            '',
+            //Formatter.resourceRaw(loot.get(ResourceType.energy)),
           ),
         ],
       ];

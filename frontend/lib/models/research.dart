@@ -1,8 +1,5 @@
 import 'dart:math';
-import 'package:nucleartension/extensions/item_map_extension.dart';
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/upgradable.dart';
-import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 
 class Research extends Upgradable {
@@ -15,22 +12,13 @@ class Research extends Upgradable {
   });
 
   @override
-  ResourceMap get upgradeCost => researchType.cost(level + 1);
+  int get upgradeCost => researchType.cost(level + 1);
 
   @override
-  bool get canUpgrade => requirementFulfilled && super.canUpgrade;
-
-  @override
-  num get upgradeTime => upgradeCost.duration;
+  num get upgradeTime => upgradeCost * 1;
 
   @override
   bool get isMax => level >= researchType.maxLevel;
-
-  bool get requirementFulfilled => researchType.requirement.fulfilled(player);
-
-  BuildingType get requirementType => researchType.requirement.type!;
-
-  int get requirementMinLevel => researchType.requirement.minLevel;
 
   double get rate => researchType.rate * level;
 

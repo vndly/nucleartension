@@ -1,10 +1,8 @@
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
-
 class Task {
   num totalTime = 0;
   num remainingTime = 0;
   bool canceled = false;
-  final ResourceMap cost;
+  final int cost;
 
   Task({
     required this.cost,

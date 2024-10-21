@@ -1,62 +1,28 @@
 import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
-import 'package:nucleartension/models/buildings/building.dart';
-import 'package:nucleartension/models/buildings/producers/power_plant.dart';
-import 'package:nucleartension/models/buildings/producers/producer.dart';
-import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
-import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/models/inventory/military_inventory.dart';
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/research.dart';
-import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/country.dart';
-import 'package:nucleartension/types/military_type.dart';
 import 'package:nucleartension/types/research_type.dart';
-import 'package:nucleartension/types/resource_type.dart';
 
 class Player {
   final Game game;
   final String name;
   final Country country;
-  final ResourceInventory resources;
-  final MilitaryInventory military;
-  final Map<BuildingType, Building> buildings;
   final Map<ResearchType, Research> researches;
+  int energy = 0;
 
-  const Player({
+  Player({
     required this.game,
     required this.name,
     required this.country,
-    required this.resources,
-    required this.buildings,
     required this.researches,
-    required this.military,
   });
 
   bool get isSelf => this is SelfPlayer;
 
-  bool get isAlive => population > 0;
-
-  // ============================ BUILDINGS ================================= \\
-
-  PowerPlant get powerPlant =>
-      buildings[BuildingType.power_plant] as PowerPlant;
-
-  PropagandaStation get propagandaStation =>
-      buildings[BuildingType.propaganda_station] as PropagandaStation;
-
-  MissileSilo get missileSilo =>
-      buildings[BuildingType.missile_silo] as MissileSilo;
-
-  Building getBuilding(BuildingType buildingType) => buildings[buildingType]!;
-
-  void addBuildings(List<Building> list) {
-    for (final Building building in list) {
-      buildings[building.buildingType] = building;
-    }
-  }
+  bool get isAlive => true; //population > 0;
 
   // ============================ RESEARCH ================================== \\
 
@@ -98,55 +64,9 @@ class Player {
   num get defconProductionBoost =>
       pow(1 + Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
 
-  int get population => resources.get(ResourceType.population).floor();
+  // ============================ MISSILES ================================== \\
 
-  ResourceMap removePopulation(int amount) {
-    if (population > amount) {
-      resources.remove(ResourceType.population, amount);
-    } else {
-      resources.set(ResourceType.population, 0);
-    }
-
-    if (!isAlive) {
-      final ResourceMap loot = {
-        ResourceType.energy: resources.get(ResourceType.energy),
-      };
-
-      resources.clear();
-
-      return loot;
-    } else {
-      return {};
-    }
-  }
-
-  double productionOf(ResourceType resourceType) {
-    double total = 0;
-
-    for (final Building building in buildings.values) {
-      if ((building is Producer) && (building.resourceType == resourceType)) {
-        total += building.production;
-      }
-    }
-
-    return total;
-  }
-
-  // ============================ MILITARY ================================== \\
-
-  void createMilitary(MilitaryType militaryType) {
-    switch (militaryType) {
-      case MilitaryType.missile_defense:
-        military.add(militaryType, 1);
-        break;
-
-      case MilitaryType.missile_attack:
-        military.add(militaryType, 1);
-        break;
-    }
-  }
-
-  void removeDefenseMissiles(int value) =>
+  /*void removeDefenseMissiles(int value) =>
       military.remove(MilitaryType.missile_defense, value);
 
   void removeAttackMissiles(int value) =>
@@ -158,7 +78,7 @@ class Player {
 
   int get amountOfMissiles => defenseMissiles + attackMissiles;
 
-  bool get hasAttackMissiles => attackMissiles > 0;
+  bool get hasAttackMissiles => attackMissiles > 0;*/
 
   int get attackMissileYield {
     final Research research = getResearch(ResearchType.missiles_nuclear_bomb);
@@ -197,7 +117,6 @@ class Player {
 
   void update(double dt) {
     if (isAlive) {
-      buildings.values.forEach((e) => e.update(dt));
       researches.values.forEach((e) => e.update(dt));
       takeAction();
     }

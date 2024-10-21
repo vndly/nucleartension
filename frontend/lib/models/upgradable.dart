@@ -1,4 +1,3 @@
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/tasks/upgrade_task.dart';
 
@@ -12,7 +11,7 @@ abstract class Upgradable {
     required this.level,
   });
 
-  ResourceMap get upgradeCost;
+  int get upgradeCost;
 
   num get upgradeTime;
 
@@ -20,13 +19,12 @@ abstract class Upgradable {
 
   bool get isUpgrading => upgradeTask != null;
 
-  bool get canUpgrade => !isMax && !isUpgrading && hasResourcesToUpgrade;
-
-  bool get hasResourcesToUpgrade => player.resources.hasItems(upgradeCost);
+  bool get hasResourcesToUpgrade =>
+      true; // player.resources.hasItems(upgradeCost);
 
   bool upgrade() {
-    if (canUpgrade) {
-      player.resources.removeItems(upgradeCost);
+    if (hasResourcesToUpgrade) {
+      //player.resources.removeItems(upgradeCost);
       upgradeTask = UpgradeTask(
         upgradable: this,
         cost: upgradeCost,
@@ -45,7 +43,7 @@ abstract class Upgradable {
         level++;
         upgradeTask = null;
       } else if (upgradeTask!.canceled) {
-        player.resources.addItems(upgradeTask!.cost);
+        //player.resources.addItems(upgradeTask!.cost);
         upgradeTask = null;
       }
     }

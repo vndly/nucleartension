@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/players/player.dart';
-import 'package:nucleartension/models/research.dart';
-import 'package:nucleartension/types/building_type.dart';
-import 'package:nucleartension/types/military_type.dart';
-import 'package:nucleartension/types/research_type.dart';
 import 'package:nucleartension/utils/probability.dart';
 
 class ActivePlayer extends Player {
@@ -17,16 +11,13 @@ class ActivePlayer extends Player {
     required super.game,
     required super.name,
     required super.country,
-    required super.resources,
-    required super.military,
-    required super.buildings,
     required super.researches,
     required this.profile,
   });
 
   @override
   void takeAction() {
-    nextCreateAction ??= profile.createAction(this);
+    /*nextCreateAction ??= profile.createAction(this);
     nextResearchAction ??= profile.researchAction(this);
     nextAttackAction ??= profile.attackAction(this);
 
@@ -40,10 +31,10 @@ class ActivePlayer extends Player {
 
     if (nextAttackAction != null) {
       _processAction(nextAttackAction!);
-    }
+    }*/
   }
 
-  void _processAction(PlayerAction action) {
+  /*void _processAction(PlayerAction action) {
     switch (action) {
       case PlayerAction.upgrade_power_plant:
         _upgradeBuilding(powerPlant);
@@ -55,10 +46,10 @@ class ActivePlayer extends Player {
         _upgradeBuilding(missileSilo);
         break;
       case PlayerAction.create_defense_missile:
-        _createMissile(MilitaryType.missile_defense);
+        _createMissile(MissileType.defense);
         break;
       case PlayerAction.create_attack_missile:
-        _createMissile(MilitaryType.missile_attack);
+        _createMissile(MissileType.attack);
         break;
       case PlayerAction.research_resources_grid_management:
         _researchTechnology(ResearchType.resources_grid_management);
@@ -119,11 +110,11 @@ class ActivePlayer extends Player {
     }
   }
 
-  void _createMissile(MilitaryType militaryType) {
+  void _createMissile(MissileType missileType) {
     final nuclearBombResearch =
         getResearch(ResearchType.missiles_nuclear_bomb).level;
 
-    if ((militaryType == MilitaryType.missile_attack) &&
+    if ((missileType == MissileType.attack) &&
         (nuclearBombResearch == 0)) {
       nextCreateAction = null;
       return;
@@ -134,9 +125,9 @@ class ActivePlayer extends Player {
       return;
     }
 
-    if (missileSilo.enqueueMilitary(militaryType)) {
+    if (missileSilo.enqueueMilitary(missileType)) {
       nextCreateAction = null;
-      debugPrint('AI: Player $name enqueued missile ${militaryType.name}');
+      debugPrint('AI: Player $name enqueued missile ${missileType.name}');
     }
   }
 
@@ -172,7 +163,7 @@ class ActivePlayer extends Player {
 
       nextAttackAction = null;
     }
-  }
+  }*/
 }
 
 class PlayerProfile {
@@ -364,11 +355,13 @@ class AttackProfile implements ActionChoice {
 
   @override
   PlayerAction? action(Player player) {
-    if (player.attackMissiles >= minMissileAttack) {
+    return null;
+
+    /*if (player.attackMissiles >= minMissileAttack) {
       return PlayerAction.attack_missile;
     } else {
       return null;
-    }
+    }*/
   }
 
   factory AttackProfile.aggressiveMissiles() => const AttackProfile._(5);

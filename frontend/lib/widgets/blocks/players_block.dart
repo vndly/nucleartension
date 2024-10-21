@@ -5,7 +5,6 @@ import 'package:nucleartension/extensions/duration_extension.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/palette.dart';
-import 'package:nucleartension/widgets/buttons/enabled_button.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
 import 'package:nucleartension/widgets/separators/block_separator.dart';
@@ -127,7 +126,7 @@ class PlayerRowContent extends StatelessWidget {
               ),
             ),
           ),
-          if (game.self.hasAttackMissiles && !player.isSelf && player.isAlive)
+          /*if (game.self.hasAttackMissiles && !player.isSelf && player.isAlive)
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: EnabledButton.attackMissile(
@@ -137,7 +136,7 @@ class PlayerRowContent extends StatelessWidget {
                   defender: player,
                 ),
               ),
-            ),
+            ),*/
         ],
       ),
     );

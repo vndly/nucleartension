@@ -1,11 +1,6 @@
 import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
-import 'package:nucleartension/extensions/item_map_extension.dart';
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
-import 'package:nucleartension/models/requirement.dart';
 import 'package:nucleartension/models/research.dart';
-import 'package:nucleartension/types/building_type.dart';
-import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
@@ -16,41 +11,25 @@ enum ResearchType {
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_GRID_MANAGEMENT,
     maxLevel: 10,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.power_plant,
-      minLevel: 1,
-    ),
+    initialCost: 10,
   ),
   resources_production_chain(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_PRODUCTION_CHAIN,
     maxLevel: 10,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
+    initialCost: 10,
   ),
   resources_quantum_computing(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_QUANTUM_COMPUTING,
     maxLevel: 10,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
+    initialCost: 10,
   ),
   resources_indoctrination(
     sprite: Assets.IMAGES_RESEARCH_RESOURCES_INDOCTRINATION,
     maxLevel: 10,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.propaganda_station,
-      minLevel: 1,
-    ),
+    initialCost: 10,
   ),
 
   // missiles
@@ -58,61 +37,31 @@ enum ResearchType {
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ADDITIVE_MANUFACTURING,
     maxLevel: 5,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.missile_silo,
-      minLevel: 1,
-    ),
+    initialCost: 10,
   ),
   missiles_assembly_automation(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ASSEMBLY_AUTOMATION,
     maxLevel: 5,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.missile_silo,
-      minLevel: 1,
-    ),
+    initialCost: 10,
   ),
   missiles_active_tracking(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_ACTIVE_TRACKING,
     maxLevel: 10,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.missile_silo,
-      minLevel: 1,
-    ),
+    initialCost: 10,
   ),
   missiles_signal_jamming(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_SIGNAL_JAMMING,
     maxLevel: 5,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.missile_silo,
-      minLevel: 1,
-    ),
+    initialCost: 10,
   ),
   missiles_nuclear_bomb(
     sprite: Assets.IMAGES_RESEARCH_MISSILES_NUCLEAR_BOMB,
     maxLevel: 14,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
-    requirement: Requirement(
-      type: BuildingType.missile_silo,
-      minLevel: 1,
-    ),
+    initialCost: 10,
   ),
 
   // warning
@@ -120,17 +69,13 @@ enum ResearchType {
     sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK,
     maxLevel: 5,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
+    initialCost: 10,
   ),
   warning_missiles_hypersonic_propulsion(
     sprite: Assets.IMAGES_RESEARCH_WARNING_MISSILES_HYPERSONIC_PROPULSION,
     maxLevel: 5,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 10,
-    },
+    initialCost: 10,
   ),
 
   // intel
@@ -138,36 +83,30 @@ enum ResearchType {
     sprite: Assets.IMAGES_RESEARCH_INTEL_POPULATION,
     maxLevel: 2,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 50,
-    },
+    initialCost: 10,
   ),
   intel_missiles(
     sprite: Assets.IMAGES_RESEARCH_INTEL_MISSILES,
     maxLevel: 2,
     costRate: 2,
-    initialCost: {
-      ResourceType.energy: 50,
-    },
+    initialCost: 10,
   );
 
   final String sprite;
   final int maxLevel;
   final double costRate;
-  final ResourceMap initialCost;
-  final Requirement<BuildingType> requirement;
+  final int initialCost;
 
   const ResearchType({
     required this.sprite,
     required this.maxLevel,
     required this.costRate,
     required this.initialCost,
-    this.requirement = const Requirement(),
   });
 
   double get rate => Constants.RESEARCH_RATE[this] ?? 0;
 
-  ResourceMap cost(int level) => initialCost.multiply(pow(costRate, level - 1));
+  int cost(int level) => (initialCost * pow(costRate, level - 1)).toInt();
 
   String get localized {
     switch (this) {

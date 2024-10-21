@@ -2,29 +2,17 @@ import 'dart:math';
 import 'package:dafluta/dafluta.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/rendering.dart';
-import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
 import 'package:nucleartension/extensions/duration_extension.dart';
 import 'package:nucleartension/models/battlefield.dart';
-import 'package:nucleartension/models/buildings/building.dart';
-import 'package:nucleartension/models/buildings/producers/power_plant.dart';
-import 'package:nucleartension/models/buildings/producers/propaganda_station.dart';
-import 'package:nucleartension/models/buildings/trainers/missile_silo.dart';
 import 'package:nucleartension/models/game.dart';
-import 'package:nucleartension/models/inventory/military_inventory.dart';
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/region.dart';
-import 'package:nucleartension/models/research.dart';
-import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/country.dart';
-import 'package:nucleartension/types/military_type.dart';
-import 'package:nucleartension/types/research_type.dart';
-import 'package:nucleartension/types/resource_type.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
@@ -125,15 +113,6 @@ class GameState extends BaseState {
       game: game,
       name: 'John',
       country: Country.usa,
-      resources: ResourceInventory.create({
-        ResourceType.energy: 500,
-        ResourceType.population: Constants.INITIAL_POPULATION,
-      }),
-      military: MilitaryInventory.create({
-        MilitaryType.missile_defense: 0,
-        MilitaryType.missile_attack: 0,
-      }),
-      buildings: {},
       researches: {},
     );
 
@@ -164,78 +143,14 @@ class GameState extends BaseState {
     required String name,
     required Country country,
     required PlayerProfile profile,
-  }) {
-    final Player player = ActivePlayer(
-      game: game,
-      name: name,
-      country: country,
-      resources: ResourceInventory.create({
-        ResourceType.energy: 1000,
-        ResourceType.population: Constants.INITIAL_POPULATION,
-      }),
-      military: MilitaryInventory.create({
-        MilitaryType.missile_defense: 0,
-        MilitaryType.missile_attack: 0,
-      }),
-      buildings: {},
-      researches: {},
-      profile: profile,
-    );
-
-    player.addBuildings(_buildings(
-      player: player,
-      map: {
-        BuildingType.power_plant: 1,
-      },
-    ));
-
-    player.addResearches(_researches(
-      player: player,
-      map: {},
-    ));
-
-    return player;
-  }
-
-  List<Building> _buildings({
-    required Player player,
-    required Map<BuildingType, int> map,
   }) =>
-      [
-        PowerPlant(
-          player: player,
-          level: map[BuildingType.power_plant] ?? 0,
-        ),
-        PropagandaStation(
-          player: player,
-          level: map[BuildingType.propaganda_station] ?? 0,
-        ),
-        MissileSilo(
-          player: player,
-          level: map[BuildingType.missile_silo] ?? 0,
-          queues: {
-            MilitaryType.missile_defense: [],
-            MilitaryType.missile_attack: [],
-          },
-        ),
-      ];
-
-  List<Research> _researches({
-    required Player player,
-    required Map<ResearchType, int> map,
-  }) {
-    final List<Research> result = [];
-
-    for (final ResearchType researchType in ResearchType.values) {
-      result.add(Research(
-        player: player,
-        researchType: researchType,
-        level: map[researchType] ?? 0,
-      ));
-    }
-
-    return result;
-  }
+      ActivePlayer(
+        game: game,
+        name: name,
+        country: country,
+        researches: {},
+        profile: profile,
+      );
 
   void update(double dt) {
     if (!finished && !BaseDialog.hasInstances) {

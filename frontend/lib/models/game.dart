@@ -69,20 +69,6 @@ class Game extends FlameGame {
     return result;
   }
 
-  List<Player> get playersByPopulation {
-    final List<Player> result = List.from(players);
-    result.sort((a, b) => b.population - a.population);
-
-    return result;
-  }
-
-  List<Player> get playersByMissiles {
-    final List<Player> result = List.from(players);
-    result.sort((a, b) => b.amountOfMissiles - a.amountOfMissiles);
-
-    return result;
-  }
-
   List<Player> get playersByResearch {
     final List<Player> result = List.from(players);
     result.sort((a, b) => b.researchLevel - a.researchLevel);
@@ -188,7 +174,7 @@ class Game extends FlameGame {
   }) =>
       AttackDialog.missile(
         defender: defender,
-        max: self.attackMissiles,
+        max: 0,
         missileYield: attacker.attackMissileYield,
         onAccept: (amount) => missileAttack(
           attacker: attacker,
@@ -202,7 +188,7 @@ class Game extends FlameGame {
     required Player defender,
     required int amount,
   }) {
-    attacker.removeAttackMissiles(amount);
+    //attacker.removeAttackMissiles(amount);
 
     attacks.add(MissileAttack.from(
       attacker: attacker,

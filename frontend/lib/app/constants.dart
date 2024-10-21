@@ -1,4 +1,3 @@
-import 'package:nucleartension/types/building_type.dart';
 import 'package:nucleartension/types/research_type.dart';
 
 class Constants {
@@ -14,11 +13,6 @@ class Constants {
   // Attacks
   static const int MISSILE_ATTACK_WARNING_TIME = 60; // in seconds
   static const int MISSILE_ATTACK_DAMAGE_PER_KT = 1000;
-
-  static const Map<BuildingType, double> PRODUCTION_RATE = {
-    BuildingType.power_plant: 0.5,
-    BuildingType.propaganda_station: 100,
-  };
 
   static const Map<ResearchType, double> RESEARCH_RATE = {
     ResearchType.resources_grid_management: 0.1,

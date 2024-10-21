@@ -52,7 +52,7 @@ class UpgradeOrBuildButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (upgradable.canUpgrade) {
+    if (upgradable.hasResourcesToUpgrade) {
       if (upgradable.level == 0) {
         return EnabledButton.build(
           size: size,

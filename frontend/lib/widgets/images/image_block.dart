@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:nucleartension/models/buildings/building.dart';
 import 'package:nucleartension/models/research.dart';
 import 'package:nucleartension/types/military_type.dart';
@@ -79,3 +79,4 @@ class MilitaryImageBlock extends StatelessWidget {
     );
   }
 }
+*/

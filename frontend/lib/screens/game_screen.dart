@@ -39,7 +39,7 @@ class GameContent extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.topCenter,
-          child: TopMenu(state),
+          child: TopMenu(state.game),
         ),
         Align(
           alignment: Alignment.bottomLeft,

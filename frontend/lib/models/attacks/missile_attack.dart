@@ -1,14 +1,11 @@
-import 'dart:math';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/missile_attack_result_event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
-import 'package:nucleartension/models/inventory/resource_inventory.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/utils/formatter.dart';
 import 'package:nucleartension/utils/localizations.dart';
-import 'package:nucleartension/utils/probability.dart';
 
 class MissileAttack extends Attack {
   final int totalMissiles;
@@ -61,13 +58,14 @@ class MissileAttack extends Attack {
   List<Event> resolve() {
     if (defender.isAlive) {
       final int successfulAttackMissiles = _computeMissiles();
-      final num totalYield = successfulAttackMissiles * yieldPerMissile;
-      final int casualties =
-          (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
+      //final num totalYield = successfulAttackMissiles * yieldPerMissile;
+      //final int casualties =
+      //    (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
       final Player winner =
           (successfulAttackMissiles > 0) ? attacker : defender;
-      final int totalCasualties = min(casualties, defender.population);
-      final ResourceMap loot = defender.removePopulation(casualties);
+      const int totalCasualties = 0;
+      //min(casualties, defender.population);
+      const int loot = 0; //defender.removePopulation(casualties);
 
       final List<Event> result = [
         MissileAttackResultEvent(
@@ -82,7 +80,7 @@ class MissileAttack extends Attack {
       ];
 
       if (!defender.isAlive) {
-        attacker.resources.addItems(loot);
+        //attacker.resources.addItems(loot);
 
         result.add(PlayerDefeated(
           player: defender,
@@ -98,7 +96,7 @@ class MissileAttack extends Attack {
   }
 
   int _computeMissiles() {
-    final num missileEffectiveness = defender.defenseMissilesEffectiveness -
+    /*final num missileEffectiveness = defender.defenseMissilesEffectiveness -
         (1 - attacker.attackMissilesEffectiveness);
     final num defenseMissilesEffectiveness =
         missileEffectiveness * Constants.DEFENSE_MISSILE_EFFECTIVENESS;
@@ -112,6 +110,7 @@ class MissileAttack extends Attack {
       }
     }
 
-    return remainingAttackMissiles;
+    return remainingAttackMissiles;*/
+    return 0;
   }
 }
