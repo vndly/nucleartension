@@ -134,9 +134,9 @@ class GameState extends BaseState {
       profile: PlayerProfile.aggressiveMissiles(),
     );
 
-    topLeftRegion.player = usa;
-    topRightRegion.player = china;
-    bottomRegion.player = russia;
+    topLeftRegion.player = china;
+    topRightRegion.player = russia;
+    bottomRegion.player = usa;
 
     game.addPlayers([
       usa,
@@ -207,5 +207,21 @@ class GameState extends BaseState {
     selectedRegion?.selected = false;
     selectedRegion = null;
     selectedRegionPosition = null;
+  }
+
+  void onRegionUpgradePowerPlant(Region region) {
+    unselectRegion();
+  }
+
+  void onRegionUpgradeSilo(Region region) {
+    unselectRegion();
+  }
+
+  void onRegionBuildDefenseMissile(Region region) {
+    unselectRegion();
+  }
+
+  void onRegionBuildAttackMissile(Region region) {
+    unselectRegion();
   }
 }

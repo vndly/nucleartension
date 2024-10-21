@@ -1,5 +1,6 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/hud/map_view.dart';
@@ -54,7 +55,11 @@ class GameContent extends StatelessWidget {
                 child: Label(text: 'FPS: ${state.game.fps.fps()}'),
               ),
             ),
-            if (state.hasSelectedRegion) RegionMenu(state),
+            if (state.hasSelectedRegion)
+              RegionMenu(
+                state: state,
+                region: state.selectedRegion!,
+              ),
           ],
         ),
       ),
@@ -64,8 +69,12 @@ class GameContent extends StatelessWidget {
 
 class RegionMenu extends StatelessWidget {
   final GameState state;
+  final Region region;
 
-  const RegionMenu(this.state);
+  const RegionMenu({
+    required this.state,
+    required this.region,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +84,7 @@ class RegionMenu extends StatelessWidget {
     return Positioned(
       top: state.selectedRegionPosition!.y - (size / 2),
       left: state.selectedRegionPosition!.x - (size / 2),
-      child: const SizedBox(
+      child: SizedBox(
         width: size,
         height: size,
         child: Stack(
@@ -86,6 +95,7 @@ class RegionMenu extends StatelessWidget {
                 size: buttonSize,
                 icon: Icons.bolt,
                 label: '2',
+                onPressed: () => state.onRegionUpgradePowerPlant(region),
               ),
             ),
             Align(
@@ -94,6 +104,7 @@ class RegionMenu extends StatelessWidget {
                 size: buttonSize,
                 icon: Icons.radio_button_checked_outlined,
                 label: '3',
+                onPressed: () => state.onRegionUpgradeSilo(region),
               ),
             ),
             Align(
@@ -102,6 +113,7 @@ class RegionMenu extends StatelessWidget {
                 size: buttonSize,
                 icon: Icons.shield,
                 label: '4',
+                onPressed: () => state.onRegionBuildDefenseMissile(region),
               ),
             ),
             Align(
@@ -110,6 +122,7 @@ class RegionMenu extends StatelessWidget {
                 size: buttonSize,
                 icon: Icons.sunny,
                 label: '5',
+                onPressed: () => state.onRegionBuildAttackMissile(region),
               ),
             ),
           ],
@@ -123,11 +136,13 @@ class RegionMenuButton extends StatelessWidget {
   final double size;
   final IconData icon;
   final String label;
+  final VoidCallback onPressed;
 
   const RegionMenuButton({
     required this.size,
     required this.icon,
     required this.label,
+    required this.onPressed,
   });
 
   @override
@@ -143,23 +158,31 @@ class RegionMenuButton extends StatelessWidget {
           width: size / 30,
         ),
       ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: size / 2.5,
-              color: Colors.white,
+      child: Material(
+        color: Palette.transparent,
+        borderRadius: BorderRadius.circular(size),
+        child: InkWell(
+          onTap: onPressed,
+          borderRadius: BorderRadius.circular(size),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  size: size / 2.5,
+                  color: Colors.white,
+                ),
+                const VBox(5),
+                Label(
+                  text: label,
+                  color: Colors.white,
+                  size: size / 4,
+                  weight: FontWeight.bold,
+                ),
+              ],
             ),
-            const VBox(5),
-            Label(
-              text: label,
-              color: Colors.white,
-              size: size / 4,
-              weight: FontWeight.bold,
-            ),
-          ],
+          ),
         ),
       ),
     );
