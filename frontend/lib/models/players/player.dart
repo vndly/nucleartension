@@ -12,13 +12,14 @@ class Player {
   final String name;
   final Country country;
   final Map<ResearchType, Research> researches;
-  int energy = 0;
+  int energy;
 
   Player({
     required this.game,
     required this.name,
     required this.country,
     required this.researches,
+    required this.energy,
   });
 
   bool get isSelf => this is SelfPlayer;

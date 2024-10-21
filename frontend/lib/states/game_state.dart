@@ -114,6 +114,7 @@ class GameState extends BaseState {
       name: 'John',
       country: Country.usa,
       researches: {},
+      energy: 1000,
     );
 
     final Player china = _activePlayer(
@@ -149,6 +150,7 @@ class GameState extends BaseState {
         name: name,
         country: country,
         researches: {},
+        energy: 1000,
         profile: profile,
       );
 

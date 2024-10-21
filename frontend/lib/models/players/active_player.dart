@@ -12,6 +12,7 @@ class ActivePlayer extends Player {
     required super.name,
     required super.country,
     required super.researches,
+    required super.energy,
     required this.profile,
   });
 
