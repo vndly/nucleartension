@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
+import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/hud/map_view.dart';
 import 'package:nucleartension/widgets/hud/top_menu.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
@@ -31,34 +32,40 @@ class GameContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-          alignment: Alignment.center,
-          child: MapView(state),
-        ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: TopMenu(state.game),
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Label(text: 'FPS: ${state.game.fps.fps()}'),
-          ),
-        ),
-        if (state.hasSelectedRegion)
-          Positioned(
-            top: state.selectedRegionPosition!.y,
-            left: state.selectedRegionPosition!.x,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.red,
+    return GestureDetector(
+      onTap: state.unselectRegion,
+      child: Container(
+        color: Palette.transparent,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: MapView(state),
             ),
-          ),
-      ],
+            Align(
+              alignment: Alignment.topCenter,
+              child: TopMenu(state.game),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Label(text: 'FPS: ${state.game.fps.fps()}'),
+              ),
+            ),
+            if (state.hasSelectedRegion)
+              Positioned(
+                top: state.selectedRegionPosition!.y,
+                left: state.selectedRegionPosition!.x,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.red,
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }

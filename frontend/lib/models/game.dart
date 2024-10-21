@@ -1,5 +1,6 @@
 import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/components/battlefield_component.dart';
@@ -18,7 +19,7 @@ import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
-class Game extends FlameGame {
+class Game extends FlameGame with TapCallbacks {
   final GameState state;
   final Battlefield battlefield;
   final List<Player> players;
@@ -266,5 +267,10 @@ class Game extends FlameGame {
       attacks: attacks,
       callback: (attack) => _processEvents(attack.resolve()),
     );
+  }
+
+  @override
+  void onTapUp(TapUpEvent event) {
+    state.unselectRegion();
   }
 }
