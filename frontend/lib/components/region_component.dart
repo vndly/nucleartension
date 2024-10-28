@@ -46,6 +46,11 @@ class RegionComponent extends PositionComponent
   void render(Canvas canvas) {
     super.render(canvas);
 
+    _painBackground(canvas);
+    _paintForeground(canvas);
+  }
+
+  void _painBackground(Canvas canvas) {
     paintBorder.color = region.color;
     paintFill.color = region.color.withAlpha(75);
 
@@ -54,7 +59,9 @@ class RegionComponent extends PositionComponent
     }
 
     canvas.drawPath(_path, paintBorder);
+  }
 
+  void _paintForeground(Canvas canvas) {
     final textPainter = TextPainter(
       text: TextSpan(
         text: region.id,
