@@ -12,6 +12,7 @@ class RegionComponent extends PositionComponent
   final Region region;
   final Paint paintBorder = Paint();
   final Paint paintFill = Paint();
+  MenuState menuState = MenuState.hidden;
 
   RegionComponent({
     required this.game,
@@ -33,13 +34,17 @@ class RegionComponent extends PositionComponent
 
   @override
   void onTapUp(TapUpEvent event) {
-    final Vector2 diffFromCenter = event.localPosition - (size / 2);
+    /*final Vector2 diffFromCenter = event.localPosition - (size / 2);
 
     game.onRegionSelected(
       region: region,
       diffFromCenter: diffFromCenter,
       devicePosition: event.devicePosition,
-    );
+    );*/
+
+    if (menuState == MenuState.hidden) {
+      menuState = MenuState.first_level;
+    }
   }
 
   @override
@@ -110,4 +115,9 @@ class RegionComponent extends PositionComponent
 
     return result;
   }
+}
+
+enum MenuState {
+  hidden,
+  first_level,
 }
