@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/extensions/canvas_extension.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
 
@@ -17,23 +18,12 @@ class RegionOwnComponent extends PositionComponent {
   void render(Canvas canvas) {
     super.render(canvas);
 
-    final textPainter = TextPainter(
-      text: TextSpan(
-        text: '👤 ${region.population}',
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 3,
-        ),
-      ),
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
+    canvas.drawText(
+      text: '👤 ${region.population}',
+      color: Colors.white,
+      size: 3,
+      alignment: TextAlign.center,
+      position: size / 2,
     );
-    textPainter.layout();
-
-    final offset = Offset(
-      size.x / 2 - textPainter.width / 2,
-      size.y / 2 - textPainter.height / 2,
-    );
-    textPainter.paint(canvas, offset);
   }
 }
