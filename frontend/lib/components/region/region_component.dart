@@ -41,7 +41,7 @@ class RegionComponent extends PositionComponent
         region: region,
         size: size,
       ));
-    } else {
+    } else if (region.belongsTo(game.self)) {
       add(RegionOwnComponent(
         game: game,
         region: region,

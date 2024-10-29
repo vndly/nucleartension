@@ -22,10 +22,15 @@ extension CanvasExtension on Canvas {
     );
     textPainter.layout();
 
-    final offset = Offset(
-      position.x - textPainter.width / 2,
-      position.y - textPainter.height / 2,
-    );
+    final offset = (alignment == TextAlign.center)
+        ? Offset(
+            position.x - textPainter.width / 2,
+            position.y - textPainter.height / 2,
+          )
+        : Offset(
+            position.x,
+            position.y,
+          );
     textPainter.paint(this, offset);
   }
 }

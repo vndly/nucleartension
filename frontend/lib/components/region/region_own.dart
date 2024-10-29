@@ -18,12 +18,30 @@ class RegionOwnComponent extends PositionComponent {
   void render(Canvas canvas) {
     super.render(canvas);
 
+    final double textSize = size.x / 15;
+
     canvas.drawText(
       text: '👤 ${region.population}',
       color: Colors.white,
-      size: 3,
+      size: textSize,
       alignment: TextAlign.center,
-      position: size / 2,
+      position: Vector2(size.x / 2, size.y * 0.25),
+    );
+
+    canvas.drawText(
+      text: '🚀 7/10',
+      color: Colors.white,
+      size: textSize,
+      alignment: TextAlign.center,
+      position: Vector2(size.x / 2, size.y * 0.4),
+    );
+
+    canvas.drawText(
+      text: '💥 3  🛡️ 4',
+      color: Colors.white,
+      size: textSize,
+      alignment: TextAlign.center,
+      position: Vector2(size.x / 2, size.y * 0.55),
     );
   }
 }
