@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
 
-class RegionFirstLevelComponent extends PositionComponent {
+class RegionLevel1Component extends PositionComponent {
   final Game game;
   final Region region;
   final Paint paint = Paint();
 
-  RegionFirstLevelComponent({
+  RegionLevel1Component({
     required this.game,
     required this.region,
     required super.size,

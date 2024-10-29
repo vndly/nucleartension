@@ -3,9 +3,9 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/components/region/region_first_level.dart';
+import 'package:nucleartension/components/region/region_level_0.dart';
+import 'package:nucleartension/components/region/region_level_1.dart';
 import 'package:nucleartension/components/region/region_neutral.dart';
-import 'package:nucleartension/components/region/region_own.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
 
@@ -42,7 +42,7 @@ class RegionComponent extends PositionComponent
         size: size,
       ));
     } else if (region.belongsTo(game.self)) {
-      overlayComponent = RegionOwnComponent(
+      overlayComponent = RegionLevel0Component(
         game: game,
         region: region,
         size: size,
@@ -65,14 +65,14 @@ class RegionComponent extends PositionComponent
 
     switch (menuState) {
       case MenuState.level_0:
-        overlayComponent = RegionOwnComponent(
+        overlayComponent = RegionLevel0Component(
           game: game,
           region: region,
           size: size,
         );
         break;
       case MenuState.level_1:
-        overlayComponent = RegionFirstLevelComponent(
+        overlayComponent = RegionLevel1Component(
           game: game,
           region: region,
           size: size,

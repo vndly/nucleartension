@@ -4,11 +4,11 @@ import 'package:nucleartension/extensions/canvas_extension.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
 
-class RegionOwnComponent extends PositionComponent {
+class RegionLevel0Component extends PositionComponent {
   final Game game;
   final Region region;
 
-  RegionOwnComponent({
+  RegionLevel0Component({
     required this.game,
     required this.region,
     required super.size,
