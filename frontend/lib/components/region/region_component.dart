@@ -16,7 +16,7 @@ class RegionComponent extends PositionComponent
   final Paint paintBorder = Paint();
   final Paint paintFill = Paint();
   Component? overlayComponent;
-  MenuState menuState = MenuState.hidden;
+  MenuState menuState = MenuState.level_0;
 
   RegionComponent({
     required this.game,
@@ -42,11 +42,12 @@ class RegionComponent extends PositionComponent
         size: size,
       ));
     } else if (region.belongsTo(game.self)) {
-      add(RegionOwnComponent(
+      overlayComponent = RegionOwnComponent(
         game: game,
         region: region,
         size: size,
-      ));
+      );
+      add(overlayComponent!);
     }
   }
 
@@ -56,20 +57,30 @@ class RegionComponent extends PositionComponent
 
     overlayComponent?.removeFromParent();
 
-    if (menuState == MenuState.hidden) {
-      menuState = MenuState.first_level;
+    if (menuState == MenuState.level_0) {
+      menuState = MenuState.level_1;
     } else {
-      menuState = MenuState.hidden;
+      menuState = MenuState.level_0;
     }
 
-    if (menuState == MenuState.first_level) {
-      overlayComponent = RegionFirstLevelComponent(
-        game: game,
-        region: region,
-        size: size,
-      );
-      add(overlayComponent!);
+    switch (menuState) {
+      case MenuState.level_0:
+        overlayComponent = RegionOwnComponent(
+          game: game,
+          region: region,
+          size: size,
+        );
+        break;
+      case MenuState.level_1:
+        overlayComponent = RegionFirstLevelComponent(
+          game: game,
+          region: region,
+          size: size,
+        );
+        break;
     }
+
+    add(overlayComponent!);
   }
 
   @override
@@ -121,6 +132,6 @@ class RegionComponent extends PositionComponent
 }
 
 enum MenuState {
-  hidden,
-  first_level,
+  level_0,
+  level_1,
 }
