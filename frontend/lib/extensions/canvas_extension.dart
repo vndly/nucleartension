@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flutter/painting.dart';
+import 'package:nucleartension/app/constants.dart';
 
 extension CanvasExtension on Canvas {
   void drawText({
@@ -9,12 +10,13 @@ extension CanvasExtension on Canvas {
     required TextAlign alignment,
     required Vector2 position,
   }) {
-    final textPainter = TextPainter(
+    final TextPainter textPainter = TextPainter(
       text: TextSpan(
         text: text,
         style: TextStyle(
           color: color,
           fontSize: size,
+          fontFamily: Constants.FONT_NAME,
         ),
       ),
       textAlign: alignment,
@@ -22,7 +24,7 @@ extension CanvasExtension on Canvas {
     );
     textPainter.layout();
 
-    final offset = (alignment == TextAlign.center)
+    final Offset offset = (alignment == TextAlign.center)
         ? Offset(
             position.x - textPainter.width / 2,
             position.y - textPainter.height / 2,
