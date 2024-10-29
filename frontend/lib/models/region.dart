@@ -6,6 +6,7 @@ class Region {
   final String id;
   final Vector2 position;
   final double radius;
+  final int totalSlots;
   Player? player;
   bool selected = false;
   int powerPlantLevel = 0;
@@ -17,8 +18,11 @@ class Region {
     required this.id,
     required this.position,
     required this.radius,
+    required this.totalSlots,
     this.player,
   });
+
+  bool get isNeutral => player == null;
 
   Color get color => player?.country.color ?? Colors.grey;
 

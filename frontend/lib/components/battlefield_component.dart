@@ -1,5 +1,5 @@
 import 'package:flame/components.dart';
-import 'package:nucleartension/components/region_component.dart';
+import 'package:nucleartension/components/region/region_component.dart';
 import 'package:nucleartension/models/battlefield.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';

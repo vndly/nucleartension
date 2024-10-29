@@ -53,6 +53,8 @@ class Game extends FlameGame with TapCallbacks {
 
   // ============================= REGIONS ================================== \\
 
+  void onNeutralRegionSelected(Region region) {}
+
   void onRegionSelected({
     required Region region,
     required Vector2 diffFromCenter,

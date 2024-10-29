@@ -3,6 +3,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/components/region/region_neutral.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
 
@@ -12,6 +13,7 @@ class RegionComponent extends PositionComponent
   final Region region;
   final Paint paintBorder = Paint();
   final Paint paintFill = Paint();
+  Component? overlayComponent;
   MenuState menuState = MenuState.hidden;
 
   RegionComponent({
@@ -30,19 +32,23 @@ class RegionComponent extends PositionComponent
   Future onLoad() async {
     super.onLoad();
     add(CircleHitbox());
+
+    if (region.isNeutral) {
+      add(RegionNeutralComponent(
+        game: game,
+        region: region,
+        size: size,
+      ));
+    }
   }
 
   @override
   void onTapUp(TapUpEvent event) {
-    /*final Vector2 diffFromCenter = event.localPosition - (size / 2);
+    //game.onNeutralRegionSelected(region);
 
-    game.onRegionSelected(
-      region: region,
-      diffFromCenter: diffFromCenter,
-      devicePosition: event.devicePosition,
-    );*/
+    overlayComponent?.removeFromParent();
 
-    if (menuState == MenuState.hidden) {
+    if (menuState == MenuState.first_level) {
       menuState = MenuState.first_level;
     }
   }
@@ -52,7 +58,15 @@ class RegionComponent extends PositionComponent
     super.render(canvas);
 
     _painBackground(canvas);
-    _paintForeground(canvas);
+
+    /*switch (menuState) {
+      case MenuState.hidden:
+        _paintForegroundUnselected(canvas);
+        break;
+      case MenuState.first_level:
+        _paintForegroundFirstLevel(canvas);
+        break;
+    }*/
   }
 
   void _painBackground(Canvas canvas) {
@@ -64,27 +78,6 @@ class RegionComponent extends PositionComponent
     }
 
     canvas.drawPath(_path, paintBorder);
-  }
-
-  void _paintForeground(Canvas canvas) {
-    final textPainter = TextPainter(
-      text: TextSpan(
-        text: region.id,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 5,
-        ),
-      ),
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
-    );
-    textPainter.layout();
-
-    final offset = Offset(
-      size.x / 2 - textPainter.width / 2,
-      size.y / 2 - textPainter.height / 2,
-    );
-    textPainter.paint(canvas, offset);
   }
 
   List<Vector2> get _points {
