@@ -9,7 +9,7 @@ class Region {
   final int totalSlots;
   Player? player;
   bool selected = false;
-  int powerPlantLevel = 0;
+  int population = 0;
   int siloLevel = 0;
   int defenseMissiles = 0;
   int attackMissiles = 0;
@@ -19,6 +19,7 @@ class Region {
     required this.position,
     required this.radius,
     required this.totalSlots,
+    required this.population,
     this.player,
   });
 

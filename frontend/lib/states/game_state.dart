@@ -36,6 +36,7 @@ class GameState extends BaseState {
       ),
       radius: radius,
       totalSlots: 10,
+      population: 0,
     );
 
     final Region topRegion = Region(
@@ -46,6 +47,7 @@ class GameState extends BaseState {
       ),
       radius: radius,
       totalSlots: 5,
+      population: 0,
     );
 
     final Region topRightRegion = Region(
@@ -56,6 +58,7 @@ class GameState extends BaseState {
       ),
       radius: radius,
       totalSlots: 3,
+      population: 100,
     );
 
     final Region bottomRightRegion = Region(
@@ -66,6 +69,7 @@ class GameState extends BaseState {
       ),
       radius: radius,
       totalSlots: 5,
+      population: 0,
     );
 
     final Region bottomRegion = Region(
@@ -76,6 +80,7 @@ class GameState extends BaseState {
       ),
       radius: radius,
       totalSlots: 3,
+      population: 100,
     );
 
     final Region bottomLeftRegion = Region(
@@ -86,6 +91,7 @@ class GameState extends BaseState {
       ),
       radius: radius,
       totalSlots: 5,
+      population: 0,
     );
 
     final Region topLeftRegion = Region(
@@ -96,6 +102,7 @@ class GameState extends BaseState {
       ),
       radius: radius,
       totalSlots: 3,
+      population: 100,
     );
 
     final Battlefield battlefield = Battlefield(

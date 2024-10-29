@@ -3,7 +3,9 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/components/region/region_first_level.dart';
 import 'package:nucleartension/components/region/region_neutral.dart';
+import 'package:nucleartension/components/region/region_own.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
 
@@ -39,6 +41,12 @@ class RegionComponent extends PositionComponent
         region: region,
         size: size,
       ));
+    } else {
+      add(RegionOwnComponent(
+        game: game,
+        region: region,
+        size: size,
+      ));
     }
   }
 
@@ -48,8 +56,19 @@ class RegionComponent extends PositionComponent
 
     overlayComponent?.removeFromParent();
 
-    if (menuState == MenuState.first_level) {
+    if (menuState == MenuState.hidden) {
       menuState = MenuState.first_level;
+    } else {
+      menuState = MenuState.hidden;
+    }
+
+    if (menuState == MenuState.first_level) {
+      overlayComponent = RegionFirstLevelComponent(
+        game: game,
+        region: region,
+        size: size,
+      );
+      add(overlayComponent!);
     }
   }
 
@@ -58,15 +77,6 @@ class RegionComponent extends PositionComponent
     super.render(canvas);
 
     _painBackground(canvas);
-
-    /*switch (menuState) {
-      case MenuState.hidden:
-        _paintForegroundUnselected(canvas);
-        break;
-      case MenuState.first_level:
-        _paintForegroundFirstLevel(canvas);
-        break;
-    }*/
   }
 
   void _painBackground(Canvas canvas) {
