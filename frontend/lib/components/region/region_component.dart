@@ -94,7 +94,7 @@ class RegionComponent extends PositionComponent
     paintBorder.color = region.color;
     paintFill.color = region.color.withAlpha(75);
 
-    if (region.selected) {
+    if (menuState != MenuState.level_0) {
       canvas.drawPath(_path, paintFill);
     }
 

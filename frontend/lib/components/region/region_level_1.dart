@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/components/region/region_button_component.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
+import 'package:nucleartension/utils/palette.dart';
 
 class RegionLevel1Component extends PositionComponent {
   final Game game;
@@ -17,13 +20,34 @@ class RegionLevel1Component extends PositionComponent {
   }
 
   @override
-  void render(Canvas canvas) {
-    super.render(canvas);
+  Future onLoad() async {
+    super.onLoad();
 
-    canvas.drawCircle(
-      center.toOffset(),
-      size.x / 4,
-      paint,
-    );
+    add(RegionButtonComponent(
+      game: game,
+      dimension: size.x / 10,
+      icon: '👤',
+      title: 'Population',
+      color: Palette.iconPopulation,
+      position: Vector2(size.x * 0.3, size.y * 0.25),
+    ));
+
+    add(RegionButtonComponent(
+      game: game,
+      dimension: size.x / 10,
+      icon: '🚀',
+      title: 'Missiles',
+      color: Palette.iconMissiles,
+      position: Vector2(size.x * 0.3, size.y * 0.50),
+    ));
+
+    add(RegionButtonComponent(
+      game: game,
+      dimension: size.x / 10,
+      icon: '💡',
+      title: 'Research',
+      color: Palette.iconResearch,
+      position: Vector2(size.x * 0.3, size.y * 0.75),
+    ));
   }
 }
