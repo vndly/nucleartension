@@ -9,7 +9,8 @@ class RegionButtonComponent extends PositionComponent {
   final String icon;
   final String title;
   final Color color;
-  final Paint paint = Paint();
+  final Paint paintForeground = Paint();
+  final Paint paintBackground = Paint();
 
   RegionButtonComponent({
     required this.game,
@@ -19,7 +20,8 @@ class RegionButtonComponent extends PositionComponent {
     required this.color,
     required super.position,
   }) {
-    paint.color = color;
+    paintForeground.color = color;
+    paintBackground.color = Colors.white;
   }
 
   @override
@@ -28,8 +30,14 @@ class RegionButtonComponent extends PositionComponent {
 
     canvas.drawCircle(
       const Offset(0, 0),
+      dimension * 1.05,
+      paintBackground,
+    );
+
+    canvas.drawCircle(
+      const Offset(0, 0),
       dimension,
-      paint,
+      paintForeground,
     );
 
     canvas.drawText(
@@ -37,7 +45,7 @@ class RegionButtonComponent extends PositionComponent {
       color: Colors.white,
       size: dimension,
       alignment: TextAlign.center,
-      position: Vector2(0, 0),
+      position: Vector2(0, dimension * -0.2),
     );
 
     canvas.drawText(

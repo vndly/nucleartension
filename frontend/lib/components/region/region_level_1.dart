@@ -23,9 +23,11 @@ class RegionLevel1Component extends PositionComponent {
   Future onLoad() async {
     super.onLoad();
 
+    final double dimension = size.x / 12;
+
     add(RegionButtonComponent(
       game: game,
-      dimension: size.x / 10,
+      dimension: dimension,
       icon: '👤',
       title: 'Population',
       color: Palette.iconPopulation,
@@ -34,7 +36,7 @@ class RegionLevel1Component extends PositionComponent {
 
     add(RegionButtonComponent(
       game: game,
-      dimension: size.x / 10,
+      dimension: dimension,
       icon: '🚀',
       title: 'Missiles',
       color: Palette.iconMissiles,
@@ -43,7 +45,7 @@ class RegionLevel1Component extends PositionComponent {
 
     add(RegionButtonComponent(
       game: game,
-      dimension: size.x / 10,
+      dimension: dimension,
       icon: '💡',
       title: 'Research',
       color: Palette.iconResearch,
