@@ -37,7 +37,7 @@ class RegionLevel0Component extends PositionComponent {
     );
 
     canvas.drawText(
-      text: '💥 3  🛡️ 4',
+      text: '🛡️ 4  💥 3',
       color: Colors.white,
       size: textSize,
       alignment: TextAlign.center,

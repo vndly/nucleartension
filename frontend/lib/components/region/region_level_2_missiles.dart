@@ -51,7 +51,7 @@ class RegionLevel2MissilesComponent extends PositionComponent {
     add(RegionButtonComponent(
       game: game,
       dimension: dimension,
-      icon: '💣',
+      icon: '💥',
       title: 'Build attack',
       color: Palette.iconMissiles,
       onTap: onBuildDefense,
