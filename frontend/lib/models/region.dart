@@ -8,7 +8,6 @@ class Region {
   final double radius;
   final int totalSlots;
   Player? player;
-  bool selected = false;
   int population = 0;
   int siloLevel = 0;
   int defenseMissiles = 0;
@@ -28,8 +27,4 @@ class Region {
   Color get color => player?.country.color ?? Colors.grey;
 
   bool belongsTo(Player player) => this.player == player;
-
-  void onTap() {
-    selected = !selected;
-  }
 }

@@ -34,7 +34,7 @@ class RegionLevel2PopulationComponent extends PositionComponent {
       title: 'Upgrade',
       color: Palette.iconPopulation,
       onTap: onUpgrade,
-      position: Vector2(size.x * 0.3, size.y * 0.25),
+      position: Vector2(size.x * 0.3, size.y * 0.35),
     ));
 
     add(RegionButtonComponent(
@@ -44,7 +44,7 @@ class RegionLevel2PopulationComponent extends PositionComponent {
       title: 'Move',
       color: Palette.iconMissiles,
       onTap: onUpgrade,
-      position: Vector2(size.x * 0.3, size.y * 0.50),
+      position: Vector2(size.x * 0.3, size.y * 0.65),
     ));
   }
 }

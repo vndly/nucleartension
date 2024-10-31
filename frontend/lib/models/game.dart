@@ -55,32 +55,6 @@ class Game extends FlameGame with TapCallbacks {
 
   void onNeutralRegionSelected(Region region) {}
 
-  void onRegionSelected({
-    required Region region,
-    required Vector2 diffFromCenter,
-    required Vector2 devicePosition,
-  }) {
-    final Vector2 scale = (camera.viewport as FixedResolutionViewport).scale;
-    final Vector2 regionCenter = devicePosition -
-        Vector2(
-          diffFromCenter.x * scale.x,
-          diffFromCenter.y * scale.y,
-        );
-
-    if (region.belongsTo(self)) {
-      if (region.selected) {
-        state.unselectRegion();
-      } else {
-        state.showRegionMenu(
-          region: region,
-          position: regionCenter,
-        );
-      }
-    } else {
-      state.unselectRegion();
-    }
-  }
-
   // ============================= PLAYERS ================================== \\
 
   Player get self => selfPlayer!;
@@ -273,6 +247,6 @@ class Game extends FlameGame with TapCallbacks {
 
   @override
   void onTapUp(TapUpEvent event) {
-    state.unselectRegion();
+    // unselect all regions
   }
 }

@@ -18,11 +18,6 @@ import 'package:nucleartension/utils/navigation.dart';
 class GameState extends BaseState {
   late final Game game;
   bool finished = false;
-  Region? selectedRegion;
-  Vector2? selectedRegionPosition;
-
-  bool get hasSelectedRegion =>
-      (selectedRegion != null) && (selectedRegionPosition != null);
 
   GameState() {
     const Size mapSize = Size(100, 100);
@@ -208,34 +203,7 @@ class GameState extends BaseState {
     );
   }
 
-  void showRegionMenu({
-    required Region region,
-    required Vector2 position,
-  }) {
-    region.selected = true;
-    selectedRegion = region;
-    selectedRegionPosition = position;
-  }
-
-  void unselectRegion() {
-    selectedRegion?.selected = false;
-    selectedRegion = null;
-    selectedRegionPosition = null;
-  }
-
-  void onRegionUpgradePowerPlant(Region region) {
-    unselectRegion();
-  }
-
-  void onRegionUpgradeSilo(Region region) {
-    unselectRegion();
-  }
-
-  void onRegionBuildDefenseMissile(Region region) {
-    unselectRegion();
-  }
-
-  void onRegionBuildAttackMissile(Region region) {
-    unselectRegion();
+  void onTap() {
+    // unselect all regions
   }
 }

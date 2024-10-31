@@ -56,13 +56,15 @@ class RegionComponent extends PositionComponent
   void onTapUp(TapUpEvent event) {
     //game.onNeutralRegionSelected(region);
 
-    if (menuState == MenuState.level_0) {
-      menuState = MenuState.level_1;
-    } else {
-      menuState = MenuState.level_0;
-    }
+    if (region.belongsTo(game.self)) {
+      if (menuState == MenuState.level_0) {
+        menuState = MenuState.level_1;
+      } else {
+        menuState = MenuState.level_0;
+      }
 
-    _onMenuUpdated();
+      _onMenuUpdated();
+    }
   }
 
   void _onMenuUpdated() {
