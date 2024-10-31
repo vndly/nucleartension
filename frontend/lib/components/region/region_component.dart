@@ -5,7 +5,9 @@ import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/components/region/region_level_0.dart';
 import 'package:nucleartension/components/region/region_level_1.dart';
+import 'package:nucleartension/components/region/region_level_2_missiles.dart';
 import 'package:nucleartension/components/region/region_level_2_population.dart';
+import 'package:nucleartension/components/region/region_level_2_research.dart';
 import 'package:nucleartension/components/region/region_neutral.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
@@ -83,7 +85,9 @@ class RegionComponent extends PositionComponent
           game: game,
           region: region,
           size: size,
-          onPopulation: _onPopulation,
+          onPopulation: _onPopulationSelected,
+          onMissiles: _onMissilesSelected,
+          onResearch: _onResearchSelected,
         );
         break;
       case MenuState.level_2_population:
@@ -92,6 +96,27 @@ class RegionComponent extends PositionComponent
           region: region,
           size: size,
           onUpgrade: _onPopulationUpgrade,
+          onMove: _onPopulationMove,
+        );
+        break;
+      case MenuState.level_2_missiles:
+        overlayComponent = RegionLevel2MissilesComponent(
+          game: game,
+          region: region,
+          size: size,
+          onUpgrade: _onMissilesUpgrade,
+          onBuildDefense: _onMissilesBuildDefense,
+          onBuildAttack: _onMissilesBuildAttack,
+        );
+        break;
+      case MenuState.level_2_research:
+        overlayComponent = RegionLevel2ResearchComponent(
+          game: game,
+          region: region,
+          size: size,
+          onResearch1: _onResearch1,
+          onResearch2: _onResearch2,
+          onResearch3: _onResearch3,
         );
         break;
     }
@@ -99,12 +124,50 @@ class RegionComponent extends PositionComponent
     add(overlayComponent!);
   }
 
-  void _onPopulation() {
+  void _onPopulationSelected() {
     menuState = MenuState.level_2_population;
     _onMenuUpdated();
   }
 
+  void _onMissilesSelected() {
+    menuState = MenuState.level_2_missiles;
+    _onMenuUpdated();
+  }
+
+  void _onResearchSelected() {
+    menuState = MenuState.level_2_research;
+    _onMenuUpdated();
+  }
+
   void _onPopulationUpgrade() {
+    _onMenuUpdated();
+  }
+
+  void _onPopulationMove() {
+    _onMenuUpdated();
+  }
+
+  void _onMissilesUpgrade() {
+    _onMenuUpdated();
+  }
+
+  void _onMissilesBuildDefense() {
+    _onMenuUpdated();
+  }
+
+  void _onMissilesBuildAttack() {
+    _onMenuUpdated();
+  }
+
+  void _onResearch1() {
+    _onMenuUpdated();
+  }
+
+  void _onResearch2() {
+    _onMenuUpdated();
+  }
+
+  void _onResearch3() {
     _onMenuUpdated();
   }
 
@@ -160,4 +223,6 @@ enum MenuState {
   level_0,
   level_1,
   level_2_population,
+  level_2_missiles,
+  level_2_research,
 }

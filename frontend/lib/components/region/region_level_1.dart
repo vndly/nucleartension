@@ -10,12 +10,16 @@ class RegionLevel1Component extends PositionComponent {
   final Game game;
   final Region region;
   final VoidCallback onPopulation;
+  final VoidCallback onMissiles;
+  final VoidCallback onResearch;
   final Paint paint = Paint();
 
   RegionLevel1Component({
     required this.game,
     required this.region,
     required this.onPopulation,
+    required this.onMissiles,
+    required this.onResearch,
     required super.size,
   }) {
     paint.color = Colors.red;
@@ -43,7 +47,7 @@ class RegionLevel1Component extends PositionComponent {
       icon: '🚀',
       title: 'Missiles',
       color: Palette.iconMissiles,
-      onTap: onPopulation,
+      onTap: onMissiles,
       position: Vector2(size.x * 0.3, size.y * 0.50),
     ));
 
@@ -53,7 +57,7 @@ class RegionLevel1Component extends PositionComponent {
       icon: '💡',
       title: 'Research',
       color: Palette.iconResearch,
-      onTap: onPopulation,
+      onTap: onResearch,
       position: Vector2(size.x * 0.3, size.y * 0.75),
     ));
   }

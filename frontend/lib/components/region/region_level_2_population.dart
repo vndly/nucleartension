@@ -10,16 +10,15 @@ class RegionLevel2PopulationComponent extends PositionComponent {
   final Game game;
   final Region region;
   final VoidCallback onUpgrade;
-  final Paint paint = Paint();
+  final VoidCallback onMove;
 
   RegionLevel2PopulationComponent({
     required this.game,
     required this.region,
     required this.onUpgrade,
+    required this.onMove,
     required super.size,
-  }) {
-    paint.color = Colors.red;
-  }
+  });
 
   @override
   Future onLoad() async {
@@ -43,7 +42,7 @@ class RegionLevel2PopulationComponent extends PositionComponent {
       icon: '👣',
       title: 'Move',
       color: Palette.iconMissiles,
-      onTap: onUpgrade,
+      onTap: onMove,
       position: Vector2(size.x * 0.3, size.y * 0.65),
     ));
   }
