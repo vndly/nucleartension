@@ -1,5 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/players/player.dart';
 
 class Region {
@@ -8,7 +9,8 @@ class Region {
   final double radius;
   final int totalSlots;
   Player? player;
-  int population = 0;
+  num population = 0;
+  int propaganda = 0;
   int siloLevel = 0;
   int defenseMissiles = 0;
   int attackMissiles = 0;
@@ -19,6 +21,7 @@ class Region {
     required this.radius,
     required this.totalSlots,
     required this.population,
+    required this.propaganda,
     this.player,
   });
 
@@ -27,4 +30,14 @@ class Region {
   Color get color => player?.country.color ?? Colors.grey;
 
   bool belongsTo(Player player) => this.player == player;
+
+  void upgradePropaganda() {
+    propaganda++;
+  }
+
+  void update(double dt) {
+    if (propaganda > 0) {
+      population += propaganda * dt * Constants.PROPAGANDA_RATE_PER_LEVEL;
+    }
+  }
 }

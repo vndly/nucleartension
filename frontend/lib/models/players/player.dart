@@ -1,5 +1,3 @@
-import 'dart:math';
-import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/region.dart';
@@ -64,11 +62,6 @@ class Player {
       researches[research.researchType] = research;
     }
   }
-
-  // ============================ RESOURCES ================================= \\
-
-  num get defconProductionBoost =>
-      pow(1 + Constants.DEFCON_PRODUCTION_RATE, game.defconStep - 1);
 
   // ============================ MISSILES ================================== \\
 

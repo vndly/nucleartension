@@ -140,34 +140,43 @@ class RegionComponent extends PositionComponent
   }
 
   void _onPopulationUpgrade() {
+    menuState = MenuState.level_0;
+    region.upgradePropaganda();
     _onMenuUpdated();
   }
 
   void _onPopulationMove() {
+    menuState = MenuState.level_0;
     _onMenuUpdated();
   }
 
   void _onMissilesUpgrade() {
+    menuState = MenuState.level_0;
     _onMenuUpdated();
   }
 
   void _onMissilesBuildDefense() {
+    menuState = MenuState.level_0;
     _onMenuUpdated();
   }
 
   void _onMissilesBuildAttack() {
+    menuState = MenuState.level_0;
     _onMenuUpdated();
   }
 
   void _onResearch1() {
+    menuState = MenuState.level_0;
     _onMenuUpdated();
   }
 
   void _onResearch2() {
+    menuState = MenuState.level_0;
     _onMenuUpdated();
   }
 
   void _onResearch3() {
+    menuState = MenuState.level_0;
     _onMenuUpdated();
   }
 

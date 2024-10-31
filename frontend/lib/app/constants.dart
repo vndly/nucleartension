@@ -5,10 +5,7 @@ class Constants {
 
   static const double MAP_SIZE_RATIO = 0.8;
 
-  static const double DEFCON_PRODUCTION_RATE = 0.1; // 10%
-  static const double DEFENSE_MISSILE_EFFECTIVENESS = 0.5; // 50%
-  static const int INITIAL_POPULATION = 1000000;
-  static const int QUEUE_CAPACITY_PER_LEVEL = 2;
+  static const double PROPAGANDA_RATE_PER_LEVEL = 1;
 
   // Attacks
   static const int MISSILE_ATTACK_WARNING_TIME = 60; // in seconds

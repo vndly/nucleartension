@@ -17,7 +17,7 @@ class _GameLoopState extends State<GameLoop>
     with SingleTickerProviderStateMixin {
   late AnimationController _animation;
   final DateTime _initialTime = DateTime.now();
-  double _previous = 0;
+  //double _previous = 0;
   AppLifecycleState state = AppLifecycleState.resumed;
 
   double get _currentTime =>
@@ -26,7 +26,7 @@ class _GameLoopState extends State<GameLoop>
   @override
   void initState() {
     super.initState();
-    _previous = _currentTime;
+    //_previous = _currentTime;
     _animation = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this,
@@ -46,14 +46,14 @@ class _GameLoopState extends State<GameLoop>
       child: AnimatedBuilder(
         animation: _animation,
         builder: (context, child) {
-          final double current = _currentTime;
-          final double dt = current - _previous;
+          //final double current = _currentTime;
+          //final double dt = current - _previous;
 
-          _previous = current;
+          //_previous = current;
 
-          if (state == AppLifecycleState.resumed) {
+          /*if (state == AppLifecycleState.resumed) {
             widget.state.update(dt);
-          }
+          }*/
 
           return GameContent(widget.state);
         },
@@ -64,7 +64,7 @@ class _GameLoopState extends State<GameLoop>
   Future _onLifecycleChange(AppLifecycleState newState) async {
     if ((state != AppLifecycleState.resumed) &&
         (newState == AppLifecycleState.resumed)) {
-      _previous = _currentTime;
+      //_previous = _currentTime;
     }
 
     state = newState;

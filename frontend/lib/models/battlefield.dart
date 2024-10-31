@@ -15,4 +15,10 @@ class Battlefield {
 
   List<Region> playerRegions(Player player) =>
       regions.where((region) => region.player == player).toList();
+
+  void update(double dt) {
+    for (final region in regions) {
+      region.update(dt);
+    }
+  }
 }

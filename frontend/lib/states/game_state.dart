@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:dafluta/dafluta.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/rendering.dart';
-import 'package:nucleartension/dialog/base_dialog.dart';
 import 'package:nucleartension/dialog/information_dialog.dart';
 import 'package:nucleartension/dialog/pause_dialog.dart';
 import 'package:nucleartension/extensions/duration_extension.dart';
@@ -32,6 +31,7 @@ class GameState extends BaseState {
       radius: radius,
       totalSlots: 10,
       population: 0,
+      propaganda: 0,
     );
 
     final Region topRegion = Region(
@@ -43,6 +43,7 @@ class GameState extends BaseState {
       radius: radius,
       totalSlots: 5,
       population: 0,
+      propaganda: 0,
     );
 
     final Region topRightRegion = Region(
@@ -54,6 +55,7 @@ class GameState extends BaseState {
       radius: radius,
       totalSlots: 3,
       population: 100,
+      propaganda: 0,
     );
 
     final Region bottomRightRegion = Region(
@@ -65,6 +67,7 @@ class GameState extends BaseState {
       radius: radius,
       totalSlots: 5,
       population: 0,
+      propaganda: 0,
     );
 
     final Region bottomRegion = Region(
@@ -76,6 +79,7 @@ class GameState extends BaseState {
       radius: radius,
       totalSlots: 3,
       population: 100,
+      propaganda: 0,
     );
 
     final Region bottomLeftRegion = Region(
@@ -87,6 +91,7 @@ class GameState extends BaseState {
       radius: radius,
       totalSlots: 5,
       population: 0,
+      propaganda: 0,
     );
 
     final Region topLeftRegion = Region(
@@ -98,6 +103,7 @@ class GameState extends BaseState {
       radius: radius,
       totalSlots: 3,
       population: 100,
+      propaganda: 0,
     );
 
     final Battlefield battlefield = Battlefield(
@@ -167,12 +173,6 @@ class GameState extends BaseState {
         energy: 1000,
         profile: profile,
       );
-
-  void update(double dt) {
-    if (!finished && !BaseDialog.hasInstances) {
-      game.update(dt);
-    }
-  }
 
   void onPause() {
     if (!finished) {

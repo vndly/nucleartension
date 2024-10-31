@@ -21,7 +21,7 @@ class RegionLevel0Component extends PositionComponent {
     final double textSize = size.x / 15;
 
     canvas.drawText(
-      text: '👤 ${region.population}',
+      text: '👤 ${region.population.floor()}',
       color: Colors.white,
       size: textSize,
       alignment: TextAlign.center,

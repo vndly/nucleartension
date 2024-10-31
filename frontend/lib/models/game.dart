@@ -2,20 +2,17 @@ import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
-import 'package:nucleartension/app/constants.dart';
 import 'package:nucleartension/components/battlefield_component.dart';
 import 'package:nucleartension/dialog/attack_dialog.dart';
 import 'package:nucleartension/models/attacks/attack.dart';
 import 'package:nucleartension/models/attacks/missile_attack.dart';
 import 'package:nucleartension/models/battlefield.dart';
-import 'package:nucleartension/models/events/defcon_update_event.dart';
 import 'package:nucleartension/models/events/event.dart';
 import 'package:nucleartension/models/events/player_defeated_event.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/states/game_state.dart';
-import 'package:nucleartension/utils/custom_snackbar.dart';
 import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
@@ -130,46 +127,6 @@ class Game extends FlameGame with TapCallbacks {
     }
   }
 
-  // ============================= DEFCON =================================== \\
-
-  int get defconStep => 6 - defcon;
-
-  void onDefenseSiloCreated(Player player) => _applyDefcon(
-        player: player,
-        level: 4,
-      );
-
-  void onDefenseMissileUsed(Player player) => _applyDefcon(
-        player: player,
-        level: 3,
-      );
-
-  void onAttackSiloCreated(Player player) => _applyDefcon(
-        player: player,
-        level: 2,
-      );
-
-  void onAttackMissileUsed(Player player) => _applyDefcon(
-        player: player,
-        level: 1,
-      );
-
-  void _applyDefcon({
-    required Player player,
-    required int level,
-  }) {
-    if (defcon > level) {
-      defcon = level;
-      CustomSnackbar.defcon(level);
-      _addEvent(DefconUpdateEvent(
-        player: player,
-        defconLevel: defcon,
-        productionBoost:
-            Constants.DEFCON_PRODUCTION_RATE * (defconStep - 1) * 100,
-      ));
-    }
-  }
-
   // ============================ MILITARY ================================== \\
 
   List<Attack> get selfAttacks =>
@@ -203,8 +160,6 @@ class Game extends FlameGame with TapCallbacks {
       amount: amount,
       ktPerMissile: attacker.attackMissileYield,
     ));
-
-    onAttackMissileUsed(attacker);
   }
 
   // ============================= UPDATE =================================== \\
@@ -237,6 +192,8 @@ class Game extends FlameGame with TapCallbacks {
     for (final Player player in players) {
       player.update(dt);
     }
+
+    battlefield.update(dt);
 
     _updateAttacks(
       dt: dt,
