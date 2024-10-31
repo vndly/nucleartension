@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/hud/map_view.dart';
-import 'package:nucleartension/widgets/hud/top_menu.dart';
 import 'package:nucleartension/widgets/labels/label.dart';
-import 'package:nucleartension/widgets/misc/game_loop.dart';
 
 class GameScreen extends StatelessWidget {
   final GameState state;
@@ -19,7 +17,7 @@ class GameScreen extends StatelessWidget {
       body: PopScope(
         canPop: state.finished,
         onPopInvokedWithResult: (didPop, result) => state.onPause(),
-        child: GameLoop(state),
+        child: GameContent(state),
       ),
     );
   }
@@ -41,10 +39,6 @@ class GameContent extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: MapView(state),
-            ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: TopMenu(state.game),
             ),
             Align(
               alignment: Alignment.bottomLeft,

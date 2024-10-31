@@ -169,7 +169,6 @@ class Game extends FlameGame with TapCallbacks {
     required List<Attack> attacks,
     required Function(Attack) callback,
   }) {
-    fps.update(dt);
     final List<Attack> tasksToRemove = [];
 
     for (final Attack task in attacks) {
@@ -194,6 +193,7 @@ class Game extends FlameGame with TapCallbacks {
     }
 
     battlefield.update(dt);
+    fps.update(dt);
 
     _updateAttacks(
       dt: dt,
