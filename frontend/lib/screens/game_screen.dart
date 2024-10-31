@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/states/game_state.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/hud/map_view.dart';
-import 'package:nucleartension/widgets/labels/label.dart';
 
 class GameScreen extends StatelessWidget {
   final GameState state;
@@ -34,20 +33,8 @@ class GameContent extends StatelessWidget {
       onTap: state.onTap,
       child: Container(
         color: Palette.transparent,
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: MapView(state),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Label(text: 'FPS: ${state.game.fps.fps()}'),
-              ),
-            ),
-          ],
+        child: Center(
+          child: MapView(state),
         ),
       ),
     );

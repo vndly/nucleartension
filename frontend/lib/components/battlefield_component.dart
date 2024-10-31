@@ -1,4 +1,5 @@
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 import 'package:nucleartension/components/region/region_component.dart';
 import 'package:nucleartension/models/battlefield.dart';
 import 'package:nucleartension/models/game.dart';
@@ -23,5 +24,15 @@ class BattlefieldComponent extends World {
         size: Vector2.all(region.radius * 2),
       ));
     }
+
+    add(FpsTextComponent(
+      position: Vector2(-50, -50),
+      textRenderer: TextPaint(
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 2,
+        ),
+      ),
+    ));
   }
 }

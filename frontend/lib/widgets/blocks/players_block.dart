@@ -35,8 +35,6 @@ class PlayersBlock extends StatelessWidget {
             text:
                 'Time: ${Duration(seconds: game.timeElapsed.floor()).formatted}'),
         const VBox(20),
-        Label(text: 'FPS: ${game.fps.fps()}'),
-        const VBox(20),
       ],
     );
   }

@@ -41,7 +41,7 @@ class RegionLevel2PopulationComponent extends PositionComponent {
       dimension: dimension,
       icon: '👣',
       title: 'Move',
-      color: Palette.iconMissiles,
+      color: Palette.iconPopulation,
       onTap: onMove,
       position: Vector2(size.x * 0.3, size.y * 0.65),
     ));

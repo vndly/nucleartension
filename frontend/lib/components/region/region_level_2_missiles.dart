@@ -33,7 +33,7 @@ class RegionLevel2MissilesComponent extends PositionComponent {
       dimension: dimension,
       icon: '⬆️',
       title: 'Upgrade',
-      color: Palette.iconPopulation,
+      color: Palette.iconMissiles,
       onTap: onUpgrade,
       position: Vector2(size.x * 0.3, size.y * 0.25),
     ));

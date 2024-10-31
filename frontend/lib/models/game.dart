@@ -13,7 +13,6 @@ import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/models/players/self_player.dart';
 import 'package:nucleartension/models/region.dart';
 import 'package:nucleartension/states/game_state.dart';
-import 'package:nucleartension/utils/fps.dart';
 import 'package:nucleartension/utils/probability.dart';
 
 class Game extends FlameGame with TapCallbacks {
@@ -22,7 +21,6 @@ class Game extends FlameGame with TapCallbacks {
   final List<Player> players;
   final List<Event> events;
   final List<Attack> attacks;
-  final FPS fps = FPS();
   Player? selfPlayer;
   num timeElapsed = 0;
   int defcon = 5;
@@ -193,7 +191,6 @@ class Game extends FlameGame with TapCallbacks {
     }
 
     battlefield.update(dt);
-    fps.update(dt);
 
     _updateAttacks(
       dt: dt,

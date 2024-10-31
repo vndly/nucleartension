@@ -33,7 +33,7 @@ class RegionLevel2ResearchComponent extends PositionComponent {
       dimension: dimension,
       icon: '🧪',
       title: 'Research 1',
-      color: Palette.iconPopulation,
+      color: Palette.iconResearch,
       onTap: onResearch1,
       position: Vector2(size.x * 0.3, size.y * 0.25),
     ));
@@ -43,7 +43,7 @@ class RegionLevel2ResearchComponent extends PositionComponent {
       dimension: dimension,
       icon: '🧪',
       title: 'Research 2',
-      color: Palette.iconMissiles,
+      color: Palette.iconResearch,
       onTap: onResearch2,
       position: Vector2(size.x * 0.3, size.y * 0.50),
     ));
@@ -53,7 +53,7 @@ class RegionLevel2ResearchComponent extends PositionComponent {
       dimension: dimension,
       icon: '🧪',
       title: 'Research 3',
-      color: Palette.iconMissiles,
+      color: Palette.iconResearch,
       onTap: onResearch2,
       position: Vector2(size.x * 0.3, size.y * 0.75),
     ));
