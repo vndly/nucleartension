@@ -1,14 +1,18 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/extensions/canvas_extension.dart';
 import 'package:nucleartension/models/game.dart';
 
-class RegionButtonComponent extends PositionComponent {
+class RegionButtonComponent extends PositionComponent
+    with TapCallbacks, GestureHitboxes {
   final Game game;
   final double dimension;
   final String icon;
   final String title;
   final Color color;
+  final VoidCallback onTap;
   final Paint paintForeground = Paint();
   final Paint paintBackground = Paint();
 
@@ -18,24 +22,36 @@ class RegionButtonComponent extends PositionComponent {
     required this.icon,
     required this.title,
     required this.color,
+    required this.onTap,
     required super.position,
   }) {
+    anchor = Anchor.center;
+    size = Vector2(dimension * 2, dimension * 2);
     paintForeground.color = color;
     paintBackground.color = Colors.white;
   }
+
+  @override
+  Future onLoad() async {
+    super.onLoad();
+    add(CircleHitbox());
+  }
+
+  @override
+  void onTapUp(TapUpEvent event) => onTap();
 
   @override
   void render(Canvas canvas) {
     super.render(canvas);
 
     canvas.drawCircle(
-      const Offset(0, 0),
+      (size / 2).toOffset(),
       dimension * 1.05,
       paintBackground,
     );
 
     canvas.drawCircle(
-      const Offset(0, 0),
+      (size / 2).toOffset(),
       dimension,
       paintForeground,
     );
@@ -45,7 +61,7 @@ class RegionButtonComponent extends PositionComponent {
       color: Colors.white,
       size: dimension,
       alignment: TextAlign.center,
-      position: Vector2(0, dimension * -0.2),
+      position: Vector2(size.x / 2, (size.y / 2) - (dimension * 0.2)),
     );
 
     canvas.drawText(
@@ -53,7 +69,8 @@ class RegionButtonComponent extends PositionComponent {
       color: Colors.white,
       size: dimension / 1.5,
       alignment: TextAlign.left,
-      position: Vector2(dimension * 1.5, 0),
+      position: Vector2(
+          (size.x / 2) + (dimension * 1.5), (size.y / 2) - (dimension * 0.05)),
     );
   }
 }

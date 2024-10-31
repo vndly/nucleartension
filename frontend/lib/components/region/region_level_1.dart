@@ -9,11 +9,13 @@ import 'package:nucleartension/utils/palette.dart';
 class RegionLevel1Component extends PositionComponent {
   final Game game;
   final Region region;
+  final VoidCallback onPopulation;
   final Paint paint = Paint();
 
   RegionLevel1Component({
     required this.game,
     required this.region,
+    required this.onPopulation,
     required super.size,
   }) {
     paint.color = Colors.red;
@@ -31,6 +33,7 @@ class RegionLevel1Component extends PositionComponent {
       icon: '👤',
       title: 'Population',
       color: Palette.iconPopulation,
+      onTap: onPopulation,
       position: Vector2(size.x * 0.3, size.y * 0.25),
     ));
 
@@ -40,6 +43,7 @@ class RegionLevel1Component extends PositionComponent {
       icon: '🚀',
       title: 'Missiles',
       color: Palette.iconMissiles,
+      onTap: onPopulation,
       position: Vector2(size.x * 0.3, size.y * 0.50),
     ));
 
@@ -49,6 +53,7 @@ class RegionLevel1Component extends PositionComponent {
       icon: '💡',
       title: 'Research',
       color: Palette.iconResearch,
+      onTap: onPopulation,
       position: Vector2(size.x * 0.3, size.y * 0.75),
     ));
   }

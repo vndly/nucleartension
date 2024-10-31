@@ -5,6 +5,7 @@ import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/components/region/region_level_0.dart';
 import 'package:nucleartension/components/region/region_level_1.dart';
+import 'package:nucleartension/components/region/region_level_2_population.dart';
 import 'package:nucleartension/components/region/region_neutral.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/region.dart';
@@ -55,13 +56,17 @@ class RegionComponent extends PositionComponent
   void onTapUp(TapUpEvent event) {
     //game.onNeutralRegionSelected(region);
 
-    overlayComponent?.removeFromParent();
-
     if (menuState == MenuState.level_0) {
       menuState = MenuState.level_1;
     } else {
       menuState = MenuState.level_0;
     }
+
+    _onMenuUpdated();
+  }
+
+  void _onMenuUpdated() {
+    overlayComponent?.removeFromParent();
 
     switch (menuState) {
       case MenuState.level_0:
@@ -76,11 +81,29 @@ class RegionComponent extends PositionComponent
           game: game,
           region: region,
           size: size,
+          onPopulation: _onPopulation,
+        );
+        break;
+      case MenuState.level_2_population:
+        overlayComponent = RegionLevel2PopulationComponent(
+          game: game,
+          region: region,
+          size: size,
+          onUpgrade: _onPopulationUpgrade,
         );
         break;
     }
 
     add(overlayComponent!);
+  }
+
+  void _onPopulation() {
+    menuState = MenuState.level_2_population;
+    _onMenuUpdated();
+  }
+
+  void _onPopulationUpgrade() {
+    _onMenuUpdated();
   }
 
   @override
@@ -134,4 +157,5 @@ class RegionComponent extends PositionComponent
 enum MenuState {
   level_0,
   level_1,
+  level_2_population,
 }
