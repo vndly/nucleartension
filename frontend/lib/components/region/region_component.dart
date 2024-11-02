@@ -16,8 +16,8 @@ class RegionComponent extends PositionComponent
     with TapCallbacks, GestureHitboxes {
   final Game game;
   final Region region;
-  final Paint paintBorder = Paint();
-  final Paint paintFill = Paint();
+  late final Paint paintBorder;
+  late final Paint paintFill;
   Component? overlayComponent;
   MenuState menuState = MenuState.level_0;
 
@@ -27,10 +27,17 @@ class RegionComponent extends PositionComponent
     required super.position,
     required super.size,
   }) : super(anchor: Anchor.center) {
-    paintBorder.style = PaintingStyle.stroke;
-    paintBorder.strokeWidth = 0.5;
+    paintBorder = neonPaint(
+      color: region.color,
+      strokeWidth: 0.5,
+      style: PaintingStyle.stroke,
+    );
 
-    paintFill.style = PaintingStyle.fill;
+    paintFill = normalPaint(
+      color: region.color.withAlpha(75),
+      strokeWidth: 0.5,
+      style: PaintingStyle.fill,
+    );
   }
 
   @override
@@ -195,9 +202,6 @@ class RegionComponent extends PositionComponent
   }
 
   void _painBackground(Canvas canvas) {
-    paintBorder.color = region.color;
-    paintFill.color = region.color.withAlpha(75);
-
     if (menuState != MenuState.level_0) {
       canvas.drawPath(_path, paintFill);
     }
@@ -232,6 +236,39 @@ class RegionComponent extends PositionComponent
     result.close();
 
     return result;
+  }
+
+  static Paint neonPaint({
+    required Color color,
+    required double strokeWidth,
+    PaintingStyle style = PaintingStyle.stroke,
+    StrokeCap strokeCap = StrokeCap.square,
+    StrokeJoin strokeJoin = StrokeJoin.miter,
+  }) {
+    final Paint paint = Paint();
+    paint.style = style;
+    paint.isAntiAlias = true;
+    paint.strokeCap = strokeCap;
+    paint.strokeJoin = strokeJoin;
+    paint.color = color;
+    paint.strokeWidth = strokeWidth;
+    paint.maskFilter = MaskFilter.blur(BlurStyle.normal, strokeWidth / 2);
+
+    return paint;
+  }
+
+  static Paint normalPaint({
+    required Color color,
+    required double strokeWidth,
+    PaintingStyle style = PaintingStyle.stroke,
+  }) {
+    final Paint paint = Paint();
+    paint.style = style;
+    paint.isAntiAlias = true;
+    paint.color = color;
+    paint.strokeWidth = strokeWidth;
+
+    return paint;
   }
 }
 
