@@ -38,6 +38,7 @@ class RegionLevel1Component extends PositionComponent {
       title: 'Population',
       color: Palette.iconPopulation,
       onTap: onPopulation,
+      isEnabled: () => true,
       position: Vector2(size.x * 0.3, size.y * 0.25),
     ));
 
@@ -48,6 +49,7 @@ class RegionLevel1Component extends PositionComponent {
       title: 'Missiles',
       color: Palette.iconMissiles,
       onTap: onMissiles,
+      isEnabled: () => true,
       position: Vector2(size.x * 0.3, size.y * 0.50),
     ));
 
@@ -58,6 +60,7 @@ class RegionLevel1Component extends PositionComponent {
       title: 'Research',
       color: Palette.iconResearch,
       onTap: onResearch,
+      isEnabled: () => true,
       position: Vector2(size.x * 0.3, size.y * 0.75),
     ));
   }

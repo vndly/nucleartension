@@ -33,6 +33,7 @@ class RegionLevel2PopulationComponent extends PositionComponent {
       title: 'Upgrade',
       color: Palette.iconPopulation,
       onTap: onUpgrade,
+      isEnabled: () => region.canUpgradePropaganda,
       position: Vector2(size.x * 0.3, size.y * 0.35),
     ));
 
@@ -43,6 +44,7 @@ class RegionLevel2PopulationComponent extends PositionComponent {
       title: 'Move',
       color: Palette.iconPopulation,
       onTap: onMove,
+      isEnabled: () => false,
       position: Vector2(size.x * 0.3, size.y * 0.65),
     ));
   }

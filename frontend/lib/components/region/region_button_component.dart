@@ -13,6 +13,7 @@ class RegionButtonComponent extends PositionComponent
   final String title;
   final Color color;
   final VoidCallback onTap;
+  final bool Function() isEnabled;
   final Paint paintForeground = Paint();
   final Paint paintBackground = Paint();
 
@@ -23,11 +24,11 @@ class RegionButtonComponent extends PositionComponent
     required this.title,
     required this.color,
     required this.onTap,
+    required this.isEnabled,
     required super.position,
   }) {
     anchor = Anchor.center;
     size = Vector2(dimension * 2, dimension * 2);
-    paintForeground.color = color;
     paintBackground.color = Colors.white;
   }
 
@@ -38,7 +39,22 @@ class RegionButtonComponent extends PositionComponent
   }
 
   @override
-  void onTapUp(TapUpEvent event) => onTap();
+  void onTapUp(TapUpEvent event) {
+    if (isEnabled()) {
+      onTap();
+    }
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+
+    if (isEnabled()) {
+      paintForeground.color = color;
+    } else {
+      paintForeground.color = Colors.grey;
+    }
+  }
 
   @override
   void render(Canvas canvas) {

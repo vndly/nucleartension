@@ -35,6 +35,7 @@ class RegionLevel2ResearchComponent extends PositionComponent {
       title: 'Research 1',
       color: Palette.iconResearch,
       onTap: onResearch1,
+      isEnabled: () => true, // TODO(momo): implement
       position: Vector2(size.x * 0.3, size.y * 0.25),
     ));
 
@@ -45,6 +46,7 @@ class RegionLevel2ResearchComponent extends PositionComponent {
       title: 'Research 2',
       color: Palette.iconResearch,
       onTap: onResearch2,
+      isEnabled: () => true, // TODO(momo): implement
       position: Vector2(size.x * 0.3, size.y * 0.50),
     ));
 
@@ -55,6 +57,7 @@ class RegionLevel2ResearchComponent extends PositionComponent {
       title: 'Research 3',
       color: Palette.iconResearch,
       onTap: onResearch2,
+      isEnabled: () => true, // TODO(momo): implement
       position: Vector2(size.x * 0.3, size.y * 0.75),
     ));
   }

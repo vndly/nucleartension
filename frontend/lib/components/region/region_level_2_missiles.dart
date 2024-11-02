@@ -35,6 +35,7 @@ class RegionLevel2MissilesComponent extends PositionComponent {
       title: 'Upgrade',
       color: Palette.iconMissiles,
       onTap: onUpgrade,
+      isEnabled: () => true, // TODO(momo): implement
       position: Vector2(size.x * 0.3, size.y * 0.25),
     ));
 
@@ -45,6 +46,7 @@ class RegionLevel2MissilesComponent extends PositionComponent {
       title: 'Build defense',
       color: Palette.iconMissiles,
       onTap: onBuildDefense,
+      isEnabled: () => true, // TODO(momo): implement
       position: Vector2(size.x * 0.3, size.y * 0.50),
     ));
 
@@ -55,6 +57,7 @@ class RegionLevel2MissilesComponent extends PositionComponent {
       title: 'Build attack',
       color: Palette.iconMissiles,
       onTap: onBuildDefense,
+      isEnabled: () => true, // TODO(momo): implement
       position: Vector2(size.x * 0.3, size.y * 0.75),
     ));
   }

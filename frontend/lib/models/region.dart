@@ -31,7 +31,13 @@ class Region {
 
   bool belongsTo(Player player) => this.player == player;
 
+  num get costPropagandaUpgrade =>
+      (propaganda * Constants.PROPAGANDA_RATE_PER_LEVEL * 60) + 100;
+
+  bool get canUpgradePropaganda => population >= costPropagandaUpgrade;
+
   void upgradePropaganda() {
+    population -= costPropagandaUpgrade;
     propaganda++;
   }
 
