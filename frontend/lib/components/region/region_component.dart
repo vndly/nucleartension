@@ -54,6 +54,11 @@ class RegionComponent extends PositionComponent
     }
   }
 
+  void unselect() {
+    menuState = MenuState.level_0;
+    overlayComponent?.removeFromParent();
+  }
+
   @override
   void onTapUp(TapUpEvent event) {
     //game.onNeutralRegionSelected(region);
@@ -66,6 +71,8 @@ class RegionComponent extends PositionComponent
       }
 
       _onMenuUpdated();
+    } else {
+      game.unselectAllRegions();
     }
   }
 

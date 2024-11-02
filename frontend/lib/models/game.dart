@@ -200,7 +200,11 @@ class Game extends FlameGame with TapCallbacks {
   }
 
   @override
-  void onTapUp(TapUpEvent event) {
-    // unselect all regions
+  void onTapUp(TapUpEvent event) => unselectAllRegions();
+
+  void unselectAllRegions() {
+    final BattlefieldComponent battlefieldComponent =
+        world as BattlefieldComponent;
+    battlefieldComponent.unselectAllRegions();
   }
 }

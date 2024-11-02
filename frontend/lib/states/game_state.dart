@@ -203,7 +203,5 @@ class GameState extends BaseState {
     );
   }
 
-  void onTap() {
-    // unselect all regions
-  }
+  void onTap() => game.unselectAllRegions();
 }

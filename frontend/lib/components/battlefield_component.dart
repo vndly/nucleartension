@@ -35,4 +35,11 @@ class BattlefieldComponent extends World {
       ),
     ));
   }
+
+  void unselectAllRegions() {
+    for (final RegionComponent component
+        in children.whereType<RegionComponent>()) {
+      component.unselect();
+    }
+  }
 }

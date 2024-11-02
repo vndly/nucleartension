@@ -30,7 +30,7 @@ class RegionLevel2PopulationComponent extends PositionComponent {
       game: game,
       dimension: dimension,
       icon: '⬆️',
-      title: 'Upgrade',
+      title: 'Upgrade (👤 ${region.costPropagandaUpgrade})',
       color: Palette.iconPopulation,
       onTap: onUpgrade,
       isEnabled: () => region.canUpgradePropaganda,
