@@ -44,6 +44,8 @@ class GameState extends BaseState {
       battlefield: battlefield,
       timeElapsed: 0,
     );
+
+    notify();
   }
 
   List<Vector2> _vertices(Vertices vertices) {

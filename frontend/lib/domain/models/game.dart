@@ -2,9 +2,9 @@ import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flutter/painting.dart';
 import 'package:nucleartension/domain/components/battlefield_component.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
-import 'package:nucleartension/domain/models/region.dart';
 import 'package:nucleartension/domain/states/game_state.dart';
 
 class Game extends FlameGame with TapCallbacks {
@@ -22,18 +22,27 @@ class Game extends FlameGame with TapCallbacks {
            height: battlefield.size.height,
          ),
        ) {
-    world = BattlefieldComponent(game: this, battlefield: battlefield);
+    world = BattlefieldComponent(battlefield: battlefield);
     debugMode = false;
   }
 
   // ============================= REGIONS ================================== \\
 
-  void onNeutralRegionSelected(Region region) {}
-
   @override
   void update(double dt) {
     super.update(dt);
     timeElapsed += dt;
+  }
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+
+    final Paint paint = Paint()..color = const Color(0xFFFF0000);
+    canvas.drawRect(
+      Rect.fromLTWH(0, 0, battlefield.size.width, battlefield.size.height),
+      paint,
+    );
   }
 
   @override

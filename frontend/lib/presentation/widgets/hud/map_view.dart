@@ -10,16 +10,21 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (state.hasGame) {
-      return Padding(
-        padding: const EdgeInsets.all(50),
-        child: AspectRatio(
-          aspectRatio: state.game.battlefield.ratio,
-          child: GameWidget(game: state.game),
-        ),
-      );
-    } else {
-      return const Empty();
-    }
+    return StateProvider<GameState>(
+      state: state,
+      builder: (context, state) {
+        if (state.hasGame) {
+          return Padding(
+            padding: const EdgeInsets.all(50),
+            child: AspectRatio(
+              aspectRatio: state.game.battlefield.ratio,
+              child: GameWidget(game: state.game),
+            ),
+          );
+        } else {
+          return const Empty();
+        }
+      },
+    );
   }
 }
