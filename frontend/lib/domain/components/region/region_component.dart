@@ -58,10 +58,10 @@ class RegionComponent extends PositionComponent
   Path get _path {
     final Path result = Path();
     final List<Vector2> vertices = region.vertices;
-    result.moveTo(vertices[0].x, vertices[0].y);
+    result.moveTo(vertices[0].x - position.x, vertices[0].y - position.y);
 
     for (int i = 1; i < vertices.length; i++) {
-      result.lineTo(vertices[i].x, vertices[i].y);
+      result.lineTo(vertices[i].x - position.x, vertices[i].y - position.y);
     }
 
     result.close();

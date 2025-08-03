@@ -1,8 +1,8 @@
-import 'package:flame/camera.dart';
+import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
-import 'package:flutter/painting.dart';
+import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/components/battlefield_component.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
 import 'package:nucleartension/domain/states/game_state.dart';
@@ -24,6 +24,24 @@ class Game extends FlameGame with TapCallbacks {
        ) {
     world = BattlefieldComponent(battlefield: battlefield);
     debugMode = false;
+  }
+
+  @override
+  FutureOr onLoad() {
+    /*camera.moveTo(
+      Vector2(-battlefield.size.width / 2, -battlefield.size.height / 2),
+    );*/
+
+    add(
+      FpsTextComponent(
+        position: Vector2(0, 0),
+        textRenderer: TextPaint(
+          style: const TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+    );
+
+    return super.onLoad();
   }
 
   // ============================= REGIONS ================================== \\
