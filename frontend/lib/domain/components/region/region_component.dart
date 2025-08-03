@@ -39,11 +39,13 @@ class RegionComponent extends PositionComponent
     //canvas.drawCircle(const Offset(0, 0), size.y / 2, paint);
 
     canvas.drawText(
-      text: '${region.slots} slots',
+      text:
+          '${region.slots} slots / ${position.x.toInt()}, ${position.y.toInt()}',
       position: Vector2(0, 0),
-      size: size.x / 10,
+      size: size.x / 20,
       color: Colors.white,
       anchor: Anchor.center,
+      textAlign: TextAlign.center,
     );
   }
 
