@@ -28,10 +28,6 @@ class GameComponent extends FlameGame with TapCallbacks {
 
   @override
   FutureOr onLoad() {
-    /*camera.moveTo(
-      Vector2(-battlefield.size.width / 2, -battlefield.size.height / 2),
-    );*/
-
     add(
       FpsTextComponent(
         position: Vector2(0, 0),

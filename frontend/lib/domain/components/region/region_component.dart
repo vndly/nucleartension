@@ -33,7 +33,7 @@ class RegionComponent extends PositionComponent with GestureHitboxes {
 
     canvas.drawText(
       text:
-          '${region.slots} slots / ${position.x.toInt()}, ${position.y.toInt()}',
+          '${region.id} / ${region.slots} slots / ${position.x.toInt()}, ${position.y.toInt()}',
       position: Vector2(0, 0),
       size: size.x / 20,
       color: Colors.white,
