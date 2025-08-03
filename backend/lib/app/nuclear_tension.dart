@@ -1,3 +1,5 @@
 class NuclearTension {
-  void start() {}
+  void start() {
+    print('Nuclear Tension is starting...');
+  }
 }

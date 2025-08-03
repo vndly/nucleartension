@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+//import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nucleartension/environments/environment.dart';
 
@@ -20,7 +20,7 @@ class Locator {
         measurementId: 'G-0ZXEYMZPHP',
       ),
     );
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    //await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
 
     locator.registerSingleton<Environment>(environment);
 

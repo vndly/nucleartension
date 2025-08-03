@@ -1,5 +1,5 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:nucleartension/utils/log.dart';
+//import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+//import 'package:nucleartension/utils/log.dart';
 
 class ErrorHandler {
   static Future process(Object exception) async {
@@ -7,12 +7,12 @@ class ErrorHandler {
 
     _logAnalytics(exception);
 
-      await FirebaseCrashlytics.instance.recordError(
+    /*    await FirebaseCrashlytics.instance.recordError(
         exception,
         null,
         reason: exception.toString(),
         fatal: false,
-      );
+      );*/
   }
 
   static Future onUncaughtError(Object exception, StackTrace stackTrace) async {
@@ -20,11 +20,11 @@ class ErrorHandler {
 
     _logAnalytics(exception);
 
-      await FirebaseCrashlytics.instance.recordError(
+    /*  await FirebaseCrashlytics.instance.recordError(
         exception,
         stackTrace,
         fatal: true,
-      );
+      );*/
   }
 
   static void _logError(
@@ -33,7 +33,7 @@ class ErrorHandler {
     StackTrace? stackTrace,
   ) {
     try {
-      Log.error(message, error, stackTrace);
+      //Log.error(message, error, stackTrace);
     } catch (e) {
       print(error.toString());
       print('Cannot log error in console');
