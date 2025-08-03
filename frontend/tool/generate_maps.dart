@@ -62,7 +62,7 @@ List<JsonRegion> getRegions({
         final String pathString = path['d'];
         result.add(
           JsonRegion(
-            id: id,
+            id: id.split('-').last,
             vertices: getCoordinates(pathString),
           ),
         );
