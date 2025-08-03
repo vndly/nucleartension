@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'json_vertex.dart';
+import 'json_position.dart';
 
 part 'json_region.g.dart';
 
@@ -12,7 +12,7 @@ class JsonRegion {
   final int slots;
 
   @JsonKey(name: 'vertices')
-  final Vertices vertices;
+  final List<JsonPosition> vertices;
 
   JsonRegion({
     required this.id,

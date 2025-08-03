@@ -4,7 +4,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/services.dart';
 import 'package:nucleartension/domain/components/game_component.dart';
 import 'package:nucleartension/domain/json/json_battlefield.dart';
-import 'package:nucleartension/domain/json/json_vertex.dart';
+import 'package:nucleartension/domain/json/json_position.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
 import 'package:nucleartension/domain/models/region.dart';
 import 'package:nucleartension/utils/assets.dart';
@@ -45,9 +45,9 @@ class GameState extends BaseState {
     notify();
   }
 
-  List<Vector2> _vertices(Vertices vertices) => vertices
+  List<Vector2> _vertices(List<JsonPosition> vertices) => vertices
       .map(
-        (vertext) => Vector2(vertext[0].toDouble(), vertext[1].toDouble()),
+        (vertex) => Vector2(vertex.x.toDouble(), vertex.y.toDouble()),
       )
       .toList();
 

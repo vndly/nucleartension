@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:xml2json/xml2json.dart';
 import 'json/json_battlefield.dart';
+import 'json/json_position.dart';
 import 'json/json_region.dart';
-import 'json/json_vertex.dart';
 
 typedef Json = Map<String, dynamic>;
 
@@ -74,10 +74,10 @@ List<JsonRegion> getRegions({
   return result;
 }
 
-Vertices getCoordinates(String pathString) {
+List<JsonPosition> getCoordinates(String pathString) {
   final RegExp commandRegExp = RegExp(r'[A-Z][^A-Z]*');
   final Iterable<Match> matches = commandRegExp.allMatches(pathString);
-  final Vertices result = [];
+  final List<JsonPosition> result = [];
   double startX = 0;
   double startY = 0;
   double currentX = 0;
@@ -100,7 +100,7 @@ Vertices getCoordinates(String pathString) {
         for (int i = 0; i < args.length; i += 2) {
           final double x = args[i];
           final double y = args[i + 1];
-          result.add([round(x), round(y)]);
+          result.add(JsonPosition(x: round(x), y: round(y)));
           currentX = x;
           currentY = y;
           if (type == 'M') {
@@ -113,14 +113,14 @@ Vertices getCoordinates(String pathString) {
       case 'H':
         for (final x in args) {
           currentX = x;
-          result.add([round(currentX), round(currentY)]);
+          result.add(JsonPosition(x: round(currentX), y: round(currentY)));
         }
         break;
 
       case 'V':
         for (final y in args) {
           currentY = y;
-          result.add([round(currentX), round(currentY)]);
+          result.add(JsonPosition(x: round(currentX), y: round(currentY)));
         }
         break;
 
@@ -146,6 +146,10 @@ void writeLevel({
 }) {
   const JsonEncoder encoder = JsonEncoder.withIndent('  ');
   final String json = encoder.convert(battlefield);
-  final File outputDart = File('tool/output/$fileName.json');
-  outputDart.writeAsStringSync(json);
+
+  final File outputDart1 = File('tool/output/$fileName.json');
+  outputDart1.writeAsStringSync(json);
+
+  final File outputDart2 = File('assets/json/$fileName.json');
+  outputDart2.writeAsStringSync(json);
 }

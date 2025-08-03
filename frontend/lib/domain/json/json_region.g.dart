@@ -10,7 +10,7 @@ JsonRegion _$JsonRegionFromJson(Map<String, dynamic> json) => JsonRegion(
   id: json['id'] as String,
   slots: (json['slots'] as num).toInt(),
   vertices: (json['vertices'] as List<dynamic>)
-      .map((e) => (e as List<dynamic>).map((e) => e as num).toList())
+      .map((e) => JsonPosition.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 
