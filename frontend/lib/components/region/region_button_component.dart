@@ -34,7 +34,7 @@ class RegionButtonComponent extends PositionComponent
 
   @override
   Future onLoad() async {
-    super.onLoad();
+    await super.onLoad();
     add(CircleHitbox());
   }
 

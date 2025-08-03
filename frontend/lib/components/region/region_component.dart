@@ -42,7 +42,7 @@ class RegionComponent extends PositionComponent
 
   @override
   Future onLoad() async {
-    super.onLoad();
+    await super.onLoad();
     add(CircleHitbox());
 
     if (region.isNeutral) {

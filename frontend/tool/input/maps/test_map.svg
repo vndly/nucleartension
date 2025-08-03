@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+     width="100mm"
+     height="100mm"
+     viewBox="0 0 100 100.02"
+     version="1.1"
+     id="svg1"
+     inkscape:version="1.4.2 (1:1.4.2+202505120738+ebf0e940d0)"
+     sodipodi:docname="test_map.svg"
+     inkscape:export-filename="/home/max/Repositories/atomic/commandos/frontend/assets/images/levels/gym2.png"
+     inkscape:export-xdpi="254"
+     inkscape:export-ydpi="254"
+     xml:space="preserve"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:svg="http://www.w3.org/2000/svg"><defs
+         id="defs1" /><sodipodi:namedview
+         id="namedview1"
+         pagecolor="#d2d2d2"
+         bordercolor="#ff0000"
+         borderopacity="1"
+         inkscape:showpageshadow="false"
+         inkscape:pageopacity="0.0"
+         inkscape:pagecheckerboard="0"
+         inkscape:deskcolor="#d2d2d2"
+         inkscape:document-units="mm"
+         showborder="true"
+         inkscape:zoom="0.99999"
+         inkscape:cx="-78.001"
+         inkscape:cy="-107.5"
+         inkscape:window-width="1920"
+         inkscape:window-height="1016"
+         inkscape:window-x="0"
+         inkscape:window-y="27"
+         inkscape:window-maximized="1"
+         inkscape:current-layer="regions"
+         showgrid="true"
+         borderlayer="false"
+         showguides="false"><inkscape:grid
+             id="grid2"
+             units="mm"
+             originx="0"
+             originy="0"
+             spacingx="5.0001"
+             spacingy="5.001"
+             empcolor="#0099e5"
+             empopacity="0.30196"
+             color="#0099e5"
+             opacity="0.14902"
+             empspacing="0"
+             enabled="true"
+             visible="true" /></sodipodi:namedview><g
+         inkscape:groupmode="layer"
+         id="regions"
+         inkscape:label="regions"
+         style="display:inline">
+
+
+         <path
+     id="region-6"
+     style="display:inline;fill:none;stroke:#00ff00;stroke-width:1.02646;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M -38.018,-33.506 H -19.403 L -9.6329,-16.549 L -19.122,-0.045 L -38.368,0.002 L -47.888,-16.638 Z"
+     sodipodi:nodetypes="ccccccc"
+     inkscape:label="region-6" />
+
+
+
+             <path
+     id="region-5"
+     style="display:inline;fill:none;stroke:#00ff00;stroke-width:1.02646;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M -37.487,0.2716 H -18.872 L -9.1017,17.229 L -18.591,33.733 L -37.837,33.78 L -47.357,17.14 Z"
+     sodipodi:nodetypes="ccccccc"
+     inkscape:label="region-5" />
+
+
+
+             <path
+     id="region-4"
+     style="display:inline;fill:none;stroke:#00ff00;stroke-width:1.02646;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M -9.1017,17.229 H 9.513 L 19.283,34.186 L 9.794,50.69 L -9.4517,50.737 L -18.972,34.097 Z"
+     sodipodi:nodetypes="ccccccc"
+     inkscape:label="region-4" />
+
+
+     <path
+     id="region-3"
+     style="display:inline;fill:none;stroke:#00ff00;stroke-width:1.02646;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M 19.383,0.361 H 37.998 L 47.768,17.318 L 38.279,33.822 L 19.033,33.869 L 9.513,17.229 Z"
+     sodipodi:nodetypes="ccccccc"
+     inkscape:label="region-3" />
+
+
+
+             <path
+     id="region-2"
+     style="display:inline;fill:none;stroke:#00ff00;stroke-width:1.02646;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M 19.102,-33.1 H 37.717 L 47.487,-16.143 L 37.998,0.361 L 18.752,0.408 L 9.2323,-16.232 Z"
+     sodipodi:nodetypes="ccccccc"
+     inkscape:label="region-2" />
+
+
+             <path
+     id="region-1"
+     style="display:inline;fill:none;stroke:#00ff00;stroke-width:1.02646;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M -9.2829,-50.057 H 9.3321 L 19.102,-33.1 L 9.6129,-16.596 L -9.6329,-16.549 L -19.153,-33.189 Z"
+     sodipodi:nodetypes="ccccccc"
+     inkscape:label="region-1" />
+
+
+             <path
+     id="region-0"
+     style="display:inline;fill:none;stroke:#00ff00;stroke-width:1.02646;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M -9.633,-16.549 H 8.982 L 18.752,0.408 L 9.263,16.912 L -9.983,16.959 L -19.503,0.319 Z"
+     sodipodi:nodetypes="ccccccc"
+     inkscape:label="region-0" />
+
+
+         </g></svg>
