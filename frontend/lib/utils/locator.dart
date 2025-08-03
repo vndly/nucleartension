@@ -4,14 +4,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
-import 'package:nucleartension/platform/platform_initializer.dart';
+import 'package:nucleartension/environments/environment.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/platform.dart';
 
 final GetIt locator = GetIt.instance;
 
 class Locator {
-  static Future load() async {
+  static Future load(Environment environment) async {
     WidgetsFlutterBinding.ensureInitialized();
 
     await SystemChrome.setPreferredOrientations([
@@ -44,9 +44,9 @@ class Locator {
       };
     }
 
+    locator.registerSingleton<Environment>(environment);
     locator.registerSingleton<Navigation>(Navigation());
 
-    // TODO(momo): remove and use: await environment.configure();
-    PlatformInitializer.init();
+    await environment.configure();
   }
 }

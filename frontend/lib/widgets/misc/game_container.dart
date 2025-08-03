@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 class GameContainer extends StatelessWidget {
@@ -14,9 +13,7 @@ class GameContainer extends StatelessWidget {
     return LightStatusBar(
       child: Scaffold(
         backgroundColor: Palette.transparent,
-        body: Environment.hasSmallScreen
-            ? SmallScreenContainer(child)
-            : BigScreenContainer(child, Palette.backgroundContainer),
+        body: BigScreenContainer(child, Palette.backgroundContainer),
       ),
     );
   }

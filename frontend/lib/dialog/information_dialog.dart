@@ -1,11 +1,11 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/dialog/base_dialog.dart';
+import 'package:nucleartension/environments/environment.dart';
 import 'package:nucleartension/models/game.dart';
 import 'package:nucleartension/models/players/active_player.dart';
 import 'package:nucleartension/models/players/player.dart';
 import 'package:nucleartension/types/research_type.dart';
-import 'package:nucleartension/utils/environment.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 import 'package:nucleartension/widgets/images/image_asset.dart';
@@ -145,7 +145,7 @@ class InformationDialog extends StatelessWidget {
                 hasIntelMissiles ? Palette.textPrimary : Palette.textError,
             textUppercase: false,
           ),*/
-          if (Environment.isDebug) ...[
+          if (Environment.get.isDebug) ...[
             const VBox(10),
             if (player is ActivePlayer) ...[
               ..._debugPlayer('Next creation:', player.nextCreateAction?.name),

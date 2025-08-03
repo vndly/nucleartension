@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/app/nuclear_tension.dart';
+import 'package:nucleartension/environments/environment_remote.dart';
 import 'package:nucleartension/utils/error_handler.dart';
 import 'package:nucleartension/utils/locator.dart';
 
-Future main() async {
+void main() {
   runZonedGuarded(() async {
-    await Locator.load();
+    await Locator.load(RemoteEnvironment());
     runApp(const NuclearTension());
-  }, ErrorHandler.onError);
+  }, ErrorHandler.onUncaughtError);
 }
