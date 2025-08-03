@@ -32,8 +32,8 @@ class GameState extends BaseState {
           .map(
             (region) => Region(
               id: region.id,
-              vertices: _vertices(region.vertices),
               slots: region.slots,
+              points: _vertices(region.vertices),
             ),
           )
           .toList(),

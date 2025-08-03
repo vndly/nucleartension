@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/components/battlefield_component.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
 import 'package:nucleartension/domain/states/game_state.dart';
+import 'package:nucleartension/utils/palette.dart';
 
 class GameComponent extends FlameGame with TapCallbacks {
   final GameState state;
@@ -23,7 +24,7 @@ class GameComponent extends FlameGame with TapCallbacks {
          ),
          world: BattlefieldComponent(battlefield: battlefield),
        ) {
-    debugMode = true;
+    debugMode = false;
   }
 
   @override
@@ -41,7 +42,7 @@ class GameComponent extends FlameGame with TapCallbacks {
   }
 
   @override
-  Color backgroundColor() => Colors.grey;
+  Color backgroundColor() => Palette.backgroundScreen;
 
   // ============================= REGIONS ================================== \\
 

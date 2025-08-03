@@ -47,20 +47,9 @@ class RegionComponent extends PositionComponent with GestureHitboxes {
   }
 
   Path get _path {
-    final Path result = Path();
     final List<Vector2> vertices = region.vertices;
-    /*result.moveTo(
-      vertices[0].x - position.x + (size.x / 2),
-      vertices[0].y - position.y + (size.y / 2),
-    );
 
-    for (int i = 1; i < vertices.length; i++) {
-      result.lineTo(
-        vertices[i].x - position.x + (size.x / 2),
-        vertices[i].y - position.y + (size.y / 2),
-      );
-    }*/
-
+    final Path result = Path();
     result.moveTo(
       vertices[0].x,
       vertices[0].y,

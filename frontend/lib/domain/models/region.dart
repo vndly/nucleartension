@@ -2,18 +2,23 @@ import 'package:flame/game.dart';
 
 class Region {
   final String id;
+  final int slots;
   late final Vector2 position;
   late final Vector2 size;
-  final List<Vector2> vertices;
-  final int slots;
+  late final List<Vector2> vertices;
 
   Region({
     required this.id,
-    required this.vertices,
     required this.slots,
+    required List<Vector2> points,
   }) {
-    position = _center(vertices);
-    size = _size(vertices);
+    position = _center(points);
+    size = _size(points);
+    vertices = _vertices(
+      vertices: points,
+      center: position,
+      size: size,
+    );
   }
 
   Vector2 _center(List<Vector2> vertices) {
@@ -50,5 +55,13 @@ class Region {
     }
 
     return Vector2(maxX - minX, maxY - minY);
+  }
+
+  List<Vector2> _vertices({
+    required List<Vector2> vertices,
+    required Vector2 center,
+    required Vector2 size,
+  }) {
+    return vertices.map((v) => v - center + (size / 2)).toList();
   }
 }
