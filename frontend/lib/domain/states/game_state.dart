@@ -1,27 +1,60 @@
+import 'dart:convert';
 import 'package:dafluta/dafluta.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flame/components.dart';
+import 'package:flutter/services.dart';
+import 'package:nucleartension/domain/json/json_battlefield.dart';
+import 'package:nucleartension/domain/json/json_vertex.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
 import 'package:nucleartension/domain/models/game.dart';
+import 'package:nucleartension/domain/models/region.dart';
 import 'package:nucleartension/presentation/dialog/pause_dialog.dart';
+import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
-  late final Game game;
+  Game? _game;
   bool finished = false;
 
-  GameState() {
-    const Battlefield battlefield = Battlefield(
-      id: '',
-      size: Size(100, 100),
-      regions: [],
+  @override
+  Future onLoad() async {
+    final String data = await rootBundle.loadString(Assets.JSON_TEST_MAP);
+    final JsonBattlefield jsonBattlefield = JsonBattlefield.fromJson(
+      jsonDecode(data),
     );
 
-    game = Game(
+    final Battlefield battlefield = Battlefield(
+      id: jsonBattlefield.id,
+      size: Size(
+        jsonBattlefield.width.toDouble(),
+        jsonBattlefield.height.toDouble(),
+      ),
+      regions: jsonBattlefield.regions
+          .map(
+            (region) => Region(
+              id: region.id,
+              vertices: _vertices(region.vertices),
+              slots: region.slots,
+            ),
+          )
+          .toList(),
+    );
+
+    _game = Game(
       state: this,
       battlefield: battlefield,
       timeElapsed: 0,
     );
   }
+
+  List<Vector2> _vertices(Vertices vertices) {
+    return vertices
+        .map((vertext) => Vector2(vertext[0].toDouble(), vertext[1].toDouble()))
+        .toList();
+  }
+
+  bool get hasGame => _game != null;
+
+  Game get game => _game!;
 
   void onPause() {
     if (!finished) {
@@ -33,5 +66,5 @@ class GameState extends BaseState {
 
   void _onQuit() => Delayed.post(Navigation.pop);
 
-  void onTap() => game.unselectAllRegions();
+  void onTap() => _game?.unselectAllRegions();
 }

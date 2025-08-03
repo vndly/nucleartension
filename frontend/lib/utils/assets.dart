@@ -65,4 +65,5 @@ class Assets {
       'assets/images/research/warning_missiles_hypersonic_propulsion.png';
   static const String IMAGES_RESEARCH_WARNING_MISSILES_RADAR_NETWORK =
       'assets/images/research/warning_missiles_radar_network.png';
+  static const String JSON_TEST_MAP = 'assets/json/test_map.json';
 }

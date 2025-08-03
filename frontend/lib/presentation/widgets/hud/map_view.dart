@@ -1,3 +1,4 @@
+import 'package:dafluta/dafluta.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/states/game_state.dart';
@@ -9,12 +10,16 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(50),
-      child: AspectRatio(
-        aspectRatio: state.game.battlefield.ratio,
-        child: GameWidget(game: state.game),
-      ),
-    );
+    if (state.hasGame) {
+      return Padding(
+        padding: const EdgeInsets.all(50),
+        child: AspectRatio(
+          aspectRatio: state.game.battlefield.ratio,
+          child: GameWidget(game: state.game),
+        ),
+      );
+    } else {
+      return const Empty();
+    }
   }
 }
