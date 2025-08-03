@@ -28,7 +28,7 @@ class RegionComponent extends PositionComponent with GestureHitboxes {
 
   @override
   void render(Canvas canvas) {
-    //_painBackground(canvas);
+    _painBackground(canvas);
 
     final Paint paint = Paint()..color = Colors.red;
     canvas.drawCircle(const Offset(0, 0), size.y / 2, paint);

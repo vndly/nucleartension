@@ -7,12 +7,12 @@ import 'package:nucleartension/domain/components/battlefield_component.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
 import 'package:nucleartension/domain/states/game_state.dart';
 
-class Game extends FlameGame with TapCallbacks {
+class GameComponent extends FlameGame with TapCallbacks {
   final GameState state;
   final Battlefield battlefield;
   num timeElapsed = 0;
 
-  Game({
+  GameComponent({
     required this.state,
     required this.battlefield,
     required this.timeElapsed,
@@ -21,8 +21,8 @@ class Game extends FlameGame with TapCallbacks {
            width: battlefield.size.width,
            height: battlefield.size.height,
          ),
+         world: BattlefieldComponent(battlefield: battlefield),
        ) {
-    world = BattlefieldComponent(battlefield: battlefield);
     debugMode = true;
   }
 

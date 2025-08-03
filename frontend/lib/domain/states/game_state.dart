@@ -1,18 +1,18 @@
 import 'dart:convert';
 import 'package:dafluta/dafluta.dart';
-import 'package:flame/components.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/services.dart';
+import 'package:nucleartension/domain/components/fixed_resolution.dart';
 import 'package:nucleartension/domain/json/json_battlefield.dart';
 import 'package:nucleartension/domain/json/json_vertex.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
-import 'package:nucleartension/domain/models/game.dart';
 import 'package:nucleartension/domain/models/region.dart';
 import 'package:nucleartension/presentation/dialog/pause_dialog.dart';
 import 'package:nucleartension/utils/assets.dart';
 import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
-  Game? _game;
+  FlameGame? _game;
   bool finished = false;
 
   @override
@@ -40,11 +40,13 @@ class GameState extends BaseState {
     );
     print(battlefield);
 
-    _game = Game(
+    _game = FixedResolutionExample();
+
+    /*_game = GameComponent(
       state: this,
       battlefield: battlefield,
       timeElapsed: 0,
-    );
+    );*/
 
     notify();
   }
@@ -64,7 +66,7 @@ class GameState extends BaseState {
 
   bool get hasGame => _game != null;
 
-  Game get game => _game!;
+  FlameGame get game => _game!;
 
   void onPause() {
     if (!finished) {
@@ -76,5 +78,5 @@ class GameState extends BaseState {
 
   void _onQuit() => Delayed.post(Navigation.pop);
 
-  void onTap() => _game?.unselectAllRegions();
+  void onTap() {} //_game?.unselectAllRegions();
 }

@@ -1,11 +1,9 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
-import 'package:flame/input.dart';
 import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
 
-class FixedResolutionExample extends FlameGame
-    with ScrollDetector, ScaleDetector {
+class FixedResolutionExample extends FlameGame {
   FixedResolutionExample()
     : super(
         camera: CameraComponent.withFixedResolution(width: 100, height: 100),
@@ -14,8 +12,6 @@ class FixedResolutionExample extends FlameGame
 }
 
 class FixedResolutionWorld extends World with HasGameReference {
-  final red = BasicPalette.red.paint();
-
   @override
   Future<void> onLoad() async {
     add(Background());
