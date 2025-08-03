@@ -2,6 +2,7 @@
 
 import { initializeApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { processMatch } from "./process-match.js";
 import fs from "fs";
 import path from "path";
 
@@ -26,7 +27,7 @@ async function run() {
   colRef.onSnapshot((snapshot) => {
     snapshot.docChanges().forEach((change) => {
       if (change.type === "added") {
-        console.log(`New match ${change.doc.id}:`, change.doc.data());
+        processMatch(change.doc);
       }
     });
   });
