@@ -1,12 +1,10 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/models/region.dart';
 import 'package:nucleartension/utils/palette.dart';
 
-class RegionComponent extends PositionComponent
-    with TapCallbacks, GestureHitboxes {
+class RegionComponent extends PositionComponent with GestureHitboxes {
   final Region region;
   final Paint paintBorder = Palette.paint(
     color: Colors.white,
