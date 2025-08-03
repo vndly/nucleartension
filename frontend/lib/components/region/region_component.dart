@@ -27,7 +27,7 @@ class RegionComponent extends PositionComponent
     required super.position,
     required super.size,
   }) : super(anchor: Anchor.center) {
-    paintBorder = neonPaint(
+    paintBorder = normalPaint(
       color: region.color,
       strokeWidth: 0.5,
       style: PaintingStyle.stroke,
@@ -232,25 +232,6 @@ class RegionComponent extends PositionComponent
     result.close();
 
     return result;
-  }
-
-  static Paint neonPaint({
-    required Color color,
-    required double strokeWidth,
-    PaintingStyle style = PaintingStyle.stroke,
-    StrokeCap strokeCap = StrokeCap.square,
-    StrokeJoin strokeJoin = StrokeJoin.miter,
-  }) {
-    final Paint paint = Paint();
-    paint.style = style;
-    paint.isAntiAlias = true;
-    paint.strokeCap = strokeCap;
-    paint.strokeJoin = strokeJoin;
-    paint.color = color;
-    paint.strokeWidth = strokeWidth;
-    paint.maskFilter = MaskFilter.blur(BlurStyle.normal, strokeWidth / 2);
-
-    return paint;
   }
 
   static Paint normalPaint({
