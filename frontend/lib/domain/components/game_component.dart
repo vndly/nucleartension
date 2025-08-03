@@ -19,8 +19,8 @@ class GameComponent extends FlameGame with TapCallbacks {
     required this.timeElapsed,
   }) : super(
          camera: CameraComponent.withFixedResolution(
-           width: battlefield.size.width,
-           height: battlefield.size.height,
+           width: battlefield.size.width * 1.05,
+           height: battlefield.size.height * 1.05,
          ),
          world: BattlefieldComponent(battlefield: battlefield),
        ) {
