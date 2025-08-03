@@ -19,7 +19,7 @@ class RegionComponent extends PositionComponent
     required this.region,
   }) : super(
          anchor: Anchor.center,
-         position: region.position,
+         position: Vector2(0, 0), //region.position,
          size: region.size,
        );
 
@@ -35,8 +35,8 @@ class RegionComponent extends PositionComponent
 
     _painBackground(canvas);
 
-    //final Paint paint = Paint()..color = const Color(0xFFFF0000);
-    //canvas.drawCircle(const Offset(0, 0), size.y / 2, paint);
+    final Paint paint = Paint()..color = Colors.red;
+    canvas.drawCircle(const Offset(0, 0), size.y / 2, paint);
 
     canvas.drawText(
       text:
@@ -56,7 +56,7 @@ class RegionComponent extends PositionComponent
   Path get _path {
     final Path result = Path();
     final List<Vector2> vertices = region.vertices;
-    result.moveTo(
+    /*result.moveTo(
       vertices[0].x - position.x + (size.x / 2),
       vertices[0].y - position.y + (size.y / 2),
     );
@@ -65,6 +65,18 @@ class RegionComponent extends PositionComponent
       result.lineTo(
         vertices[i].x - position.x + (size.x / 2),
         vertices[i].y - position.y + (size.y / 2),
+      );
+    }*/
+
+    result.moveTo(
+      vertices[0].x,
+      vertices[0].y,
+    );
+
+    for (int i = 1; i < vertices.length; i++) {
+      result.lineTo(
+        vertices[i].x,
+        vertices[i].y,
       );
     }
 

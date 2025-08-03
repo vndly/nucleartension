@@ -49,9 +49,16 @@ class GameState extends BaseState {
   }
 
   List<Vector2> _vertices(Vertices vertices) {
-    return vertices
+    return [
+      Vector2(-10, -10),
+      Vector2(10, -10),
+      Vector2(10, 10),
+      Vector2(-10, 10),
+    ];
+
+    /*return vertices
         .map((vertext) => Vector2(vertext[0].toDouble(), vertext[1].toDouble()))
-        .toList();
+        .toList();*/
   }
 
   bool get hasGame => _game != null;

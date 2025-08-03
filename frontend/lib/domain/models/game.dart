@@ -56,11 +56,12 @@ class Game extends FlameGame with TapCallbacks {
   void render(Canvas canvas) {
     super.render(canvas);
 
-    final Paint paint = Paint()..color = const Color(0xFFFF0000);
-    canvas.drawRect(
+    final Paint paint = Paint()..color = Colors.green;
+    /*canvas.drawRect(
       Rect.fromLTWH(0, 0, battlefield.size.width, battlefield.size.height),
       paint,
-    );
+    );*/
+    canvas.drawCircle(const Offset(0, 0), 10, paint);
   }
 
   @override
