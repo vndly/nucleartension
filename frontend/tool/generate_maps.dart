@@ -99,7 +99,7 @@ Vertices getCoordinates(String pathString) {
         for (int i = 0; i < args.length; i += 2) {
           final double x = args[i];
           final double y = args[i + 1];
-          result.add([x.round(), y.round()]);
+          result.add([round(x), round(y)]);
           currentX = x;
           currentY = y;
           if (type == 'M') {
@@ -112,14 +112,14 @@ Vertices getCoordinates(String pathString) {
       case 'H':
         for (final x in args) {
           currentX = x;
-          result.add([currentX.round(), currentY.round()]);
+          result.add([round(currentX), round(currentY)]);
         }
         break;
 
       case 'V':
         for (final y in args) {
           currentY = y;
-          result.add([currentX.round(), currentY.round()]);
+          result.add([round(currentX), round(currentY)]);
         }
         break;
 
@@ -136,6 +136,8 @@ Vertices getCoordinates(String pathString) {
 
   return result;
 }
+
+num round(num value) => num.parse(value.toStringAsFixed(2));
 
 void writeLevel({
   required String fileName,

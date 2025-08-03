@@ -9,7 +9,7 @@ part of 'json_region.dart';
 JsonRegion _$JsonRegionFromJson(Map<String, dynamic> json) => JsonRegion(
   id: json['id'] as String,
   vertices: (json['vertices'] as List<dynamic>)
-      .map((e) => (e as List<dynamic>).map((e) => (e as num).toInt()).toList())
+      .map((e) => (e as List<dynamic>).map((e) => e as num).toList())
       .toList(),
 );
 

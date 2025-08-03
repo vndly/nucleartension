@@ -1,3 +1,3 @@
-typedef Vertex = List<int>;
+typedef Vertex = List<num>;
 
 typedef Vertices = List<Vertex>;
