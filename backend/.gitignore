@@ -28,7 +28,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/bin/
+/secret/
+/node_modules/
 
 # Web related
 

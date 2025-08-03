@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Nuclear Tension",
+            "command": "npm start",
+            "name": "Backend",
             "request": "launch",
-            "type": "dart",
-            "program": "lib/main/main_local.dart"
-        }
+            "type": "node-terminal"
+        },
     ]
 }

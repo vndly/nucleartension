@@ -1,0 +1,24 @@
+{
+    "name": "backend",
+    "version": "0.0.1",
+    "description": "Backend version of Nuclear Tension",
+    "license": "MIT",
+    "author": "",
+    "type": "module",
+    "main": "src/index.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "bin": {
+        "my-cli": "./src/index.js"
+    },
+    "dependencies": {
+        "firebase-admin": "^13.4.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
