@@ -44,24 +44,15 @@ class Game extends FlameGame with TapCallbacks {
     return super.onLoad();
   }
 
+  @override
+  Color backgroundColor() => Colors.grey;
+
   // ============================= REGIONS ================================== \\
 
   @override
   void update(double dt) {
     super.update(dt);
     timeElapsed += dt;
-  }
-
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-
-    final Paint paint = Paint()..color = Colors.green;
-    /*canvas.drawRect(
-      Rect.fromLTWH(0, 0, battlefield.size.width, battlefield.size.height),
-      paint,
-    );*/
-    canvas.drawCircle(const Offset(0, 0), 10, paint);
   }
 
   @override

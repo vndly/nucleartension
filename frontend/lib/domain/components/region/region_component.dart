@@ -3,7 +3,6 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/models/region.dart';
-import 'package:nucleartension/extensions/canvas_extension.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 class RegionComponent extends PositionComponent
@@ -20,7 +19,7 @@ class RegionComponent extends PositionComponent
   }) : super(
          anchor: Anchor.center,
          position: Vector2(0, 0), //region.position,
-         size: region.size,
+         size: Vector2(20, 20), //region.size,
        );
 
   @override
@@ -31,14 +30,12 @@ class RegionComponent extends PositionComponent
 
   @override
   void render(Canvas canvas) {
-    super.render(canvas);
-
-    _painBackground(canvas);
+    //_painBackground(canvas);
 
     final Paint paint = Paint()..color = Colors.red;
     canvas.drawCircle(const Offset(0, 0), size.y / 2, paint);
 
-    canvas.drawText(
+    /*canvas.drawText(
       text:
           '${region.slots} slots / ${position.x.toInt()}, ${position.y.toInt()}',
       position: Vector2(0, 0),
@@ -46,7 +43,7 @@ class RegionComponent extends PositionComponent
       color: Colors.white,
       anchor: Anchor.center,
       textAlign: TextAlign.center,
-    );
+    );*/
   }
 
   void _painBackground(Canvas canvas) {

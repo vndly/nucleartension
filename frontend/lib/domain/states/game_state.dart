@@ -38,6 +38,7 @@ class GameState extends BaseState {
           )
           .toList(),
     );
+    print(battlefield);
 
     _game = Game(
       state: this,
