@@ -12,7 +12,7 @@
         "start": "node src/index.js"
     },
     "bin": {
-        "my-cli": "./src/index.js"
+        "nucleartension": "./src/index.js"
     },
     "dependencies": {
         "firebase-admin": "^13.4.0"
