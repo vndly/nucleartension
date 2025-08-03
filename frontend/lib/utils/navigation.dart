@@ -1,8 +1,8 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/screens/game_screen.dart';
-import 'package:nucleartension/screens/home_screen.dart';
-import 'package:nucleartension/screens/splash_screen.dart';
+import 'package:nucleartension/presentation/screens/game_screen.dart';
+import 'package:nucleartension/presentation/screens/home_screen.dart';
+import 'package:nucleartension/presentation/screens/splash_screen.dart';
 import 'package:nucleartension/utils/locator.dart';
 
 class Navigation {

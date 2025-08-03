@@ -1,4 +1,4 @@
-import 'package:nucleartension/types/research_type.dart';
+import 'package:nucleartension/domain/types/research_type.dart';
 
 class Constants {
   static const String FONT_NAME = 'CustomFont';

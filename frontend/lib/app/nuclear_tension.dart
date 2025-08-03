@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nucleartension/app/constants.dart';
-import 'package:nucleartension/screens/splash_screen.dart';
+import 'package:nucleartension/presentation/screens/splash_screen.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/navigation.dart';
 import 'package:nucleartension/utils/palette.dart';
