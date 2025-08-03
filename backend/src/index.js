@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { create } from "domain";
 import { initializeApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import fs from "fs";
@@ -37,7 +36,6 @@ async function run() {
 
 async function createMap(db, name, filePath) {
   const data = JSON.parse(fs.readFileSync(path.resolve(filePath), "utf8"));
-
   const colRef = db.collection("matches");
   await colRef.doc(name).set(data);
 }
