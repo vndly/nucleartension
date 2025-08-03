@@ -31,10 +31,14 @@ async function run() {
     });
   });
 
-  await createMap(db, "test", "./temp/test_map.json");
+  //await createMap("test", "./temp/test_map.json");
 }
 
-async function createMap(db, name, filePath) {
+/**
+ * @param {string} name
+ * @param {string} filePath
+ */
+async function createMap(name, filePath) {
   const data = JSON.parse(fs.readFileSync(path.resolve(filePath), "utf8"));
   const colRef = db.collection("matches");
   await colRef.doc(name).set(data);
