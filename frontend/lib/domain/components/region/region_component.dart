@@ -2,6 +2,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/models/region.dart';
+import 'package:nucleartension/extensions/canvas_extension.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 class RegionComponent extends PositionComponent with GestureHitboxes {
@@ -16,8 +17,8 @@ class RegionComponent extends PositionComponent with GestureHitboxes {
     required this.region,
   }) : super(
          anchor: Anchor.center,
-         position: Vector2(0, 0), //region.position,
-         size: Vector2(20, 20), //region.size,
+         position: region.position,
+         size: region.size,
        );
 
   @override
@@ -30,10 +31,7 @@ class RegionComponent extends PositionComponent with GestureHitboxes {
   void render(Canvas canvas) {
     _painBackground(canvas);
 
-    final Paint paint = Paint()..color = Colors.red;
-    canvas.drawCircle(const Offset(0, 0), size.y / 2, paint);
-
-    /*canvas.drawText(
+    canvas.drawText(
       text:
           '${region.slots} slots / ${position.x.toInt()}, ${position.y.toInt()}',
       position: Vector2(0, 0),
@@ -41,7 +39,7 @@ class RegionComponent extends PositionComponent with GestureHitboxes {
       color: Colors.white,
       anchor: Anchor.center,
       textAlign: TextAlign.center,
-    );*/
+    );
   }
 
   void _painBackground(Canvas canvas) {

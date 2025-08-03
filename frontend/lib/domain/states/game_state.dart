@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:dafluta/dafluta.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/services.dart';
-import 'package:nucleartension/domain/components/fixed_resolution.dart';
+import 'package:nucleartension/domain/components/game_component.dart';
 import 'package:nucleartension/domain/json/json_battlefield.dart';
 import 'package:nucleartension/domain/json/json_vertex.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
@@ -38,15 +38,12 @@ class GameState extends BaseState {
           )
           .toList(),
     );
-    print(battlefield);
 
-    _game = FixedResolutionExample();
-
-    /*_game = GameComponent(
+    _game = GameComponent(
       state: this,
       battlefield: battlefield,
       timeElapsed: 0,
-    );*/
+    );
 
     notify();
   }
