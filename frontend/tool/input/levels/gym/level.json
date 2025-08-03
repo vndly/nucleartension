@@ -1,0 +1,50 @@
+{
+    "id": "gym",
+    "soldiers": [
+        {
+            "id": "soldier1",
+            "position": {
+                "x": 120,
+                "y": 80
+            },
+            "headAngle": -90,
+            "bodyAngle": -90,
+            "sweep": 30,
+            "range": 100,
+            "behaviors": [
+                {
+                    "type": "rotating",
+                    "rotatingPart": "head",
+                    "startAngle": -90,
+                    "speed": 50,
+                    "rotatingDirection": "clockwise",
+                    "minAngle": -120,
+                    "maxAngle": -60
+                }
+            ]
+        },
+        {
+            "id": "soldier2",
+            "position": {
+                "x": 15,
+                "y": 70
+            },
+            "headAngle": 45,
+            "bodyAngle": 45,
+            "sweep": 30,
+            "range": 100,
+            "behaviors": [
+                {
+                    "type": "rotating",
+                    "rotatingPart": "head",
+                    "startAngle": 45,
+                    "speed": 40,
+                    "rotatingDirection": "counter_clockwise",
+                    "minAngle": 25,
+                    "maxAngle": 65
+                }
+            ]
+        }
+    ],
+    "turrets": []
+}

@@ -13,7 +13,6 @@ dependencies:
   logger: ^2.6.1
   dafluta: ^5.5.1
   flutter_svg: ^2.2.0
-  url_strategy: ^0.3.0
   json_annotation: ^4.9.0
   shared_preferences: ^2.5.3
 
