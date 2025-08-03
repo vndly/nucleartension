@@ -1,10 +1,3 @@
-import 'package:dafluta/dafluta.dart';
-import 'package:flutter/material.dart';
-import 'package:nucleartension/presentation/widgets/labels/label.dart';
-import 'package:nucleartension/utils/localizations.dart';
-import 'package:nucleartension/utils/navigation.dart';
-import 'package:nucleartension/utils/palette.dart';
-
 class CustomSnackbar {
   const CustomSnackbar._();
 
@@ -14,7 +7,7 @@ class CustomSnackbar {
 
   static const Duration DURATION_LONG = Duration(seconds: 5);
 
-  static void _show({required Widget widget, required Duration duration}) {
+  /*static void _show({required Widget widget, required Duration duration}) {
     final SnackBar snackBar = SnackBar(
       elevation: 0,
       backgroundColor: Palette.transparent,
@@ -45,23 +38,5 @@ class CustomSnackbar {
         // ignore
       }
     });
-  }
-
-  static void defcon(int value) => _show(
-    widget: Row(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Icon(Icons.warning, color: Palette.error, size: 30),
-        const HBox(10),
-        Label(
-          text: Localized.get.snackDefcon(value),
-          color: Palette.error,
-          size: 20,
-          weight: FontWeight.bold,
-        ),
-      ],
-    ),
-    duration: DURATION_MEDIUM,
-  );
+  }*/
 }

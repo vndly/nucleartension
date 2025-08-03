@@ -13,11 +13,7 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PopScope(
-        canPop: state.finished,
-        onPopInvokedWithResult: (didPop, result) => state.onPause(),
-        child: GameContent(state),
-      ),
+      body: GameContent(state),
     );
   }
 }

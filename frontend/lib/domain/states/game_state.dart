@@ -7,13 +7,10 @@ import 'package:nucleartension/domain/json/json_battlefield.dart';
 import 'package:nucleartension/domain/json/json_vertex.dart';
 import 'package:nucleartension/domain/models/battlefield.dart';
 import 'package:nucleartension/domain/models/region.dart';
-import 'package:nucleartension/presentation/dialog/pause_dialog.dart';
 import 'package:nucleartension/utils/assets.dart';
-import 'package:nucleartension/utils/navigation.dart';
 
 class GameState extends BaseState {
   FlameGame? _game;
-  bool finished = false;
 
   @override
   Future onLoad() async {
@@ -57,16 +54,6 @@ class GameState extends BaseState {
   bool get hasGame => _game != null;
 
   FlameGame get game => _game!;
-
-  void onPause() {
-    if (!finished) {
-      PauseDialog.show(onResume: _onResume, onQuit: _onQuit);
-    }
-  }
-
-  void _onResume() {}
-
-  void _onQuit() => Delayed.post(Navigation.pop);
 
   void onTap() {} //_game?.unselectAllRegions();
 }

@@ -1,5 +1,4 @@
 import 'package:intl/intl.dart';
-import 'package:nucleartension/utils/localizations.dart';
 
 class Formatter {
   static String hoursMinutes(DateTime dateTime) =>
@@ -18,7 +17,7 @@ class Formatter {
     return '$value%';
   }
 
-  static String yield(num amount) {
+  /*static String yield(num amount) {
     if (amount < 1000) {
       final NumberFormat formatter = NumberFormat('0');
       final String value = formatter.format(amount);
@@ -30,9 +29,9 @@ class Formatter {
 
       return '$value ${Localized.get.labelMegaton}';
     }
-  }
+  }*/
 
-  static String resource(num amount) {
+  /*static String resource(num amount) {
     final int intAmount = amount.floor();
 
     if (intAmount < 1000000) {
@@ -45,7 +44,7 @@ class Formatter {
 
       return '$value${Localized.get.labelMillion}';
     }
-  }
+  }*/
 
   static String resourceRaw(num amount) {
     final NumberFormat formatter = NumberFormat('#,##0');
