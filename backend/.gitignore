@@ -30,6 +30,7 @@ migrate_working_dir/
 /build/
 /secret/
 /node_modules/
+/temp/
 
 # Web related
 
