@@ -6,9 +6,7 @@ abstract class Event {
   final DateTime dateTime;
   bool seen = false;
 
-  Event({
-    required this.eventType,
-  }) : dateTime = DateTime.now();
+  Event({required this.eventType}) : dateTime = DateTime.now();
 
   void markAsSeen() {
     seen = true;

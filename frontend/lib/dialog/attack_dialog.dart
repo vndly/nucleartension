@@ -36,33 +36,33 @@ class AttackDialog extends StatefulWidget {
     required Function(int) onAccept,
     required bool isMissileAttack,
     required int missileYield,
-  }) =>
-      BaseDialog.show(AttackDialog._(
-        title: title,
-        message: message,
-        max: max,
-        buttonAccept: buttonAccept,
-        buttonCancel: buttonCancel,
-        onAccept: onAccept,
-        missileYield: missileYield,
-      ));
+  }) => BaseDialog.show(
+    AttackDialog._(
+      title: title,
+      message: message,
+      max: max,
+      buttonAccept: buttonAccept,
+      buttonCancel: buttonCancel,
+      onAccept: onAccept,
+      missileYield: missileYield,
+    ),
+  );
 
   static DialogController missile({
     required Player defender,
     required int max,
     required int missileYield,
     required Function(int) onAccept,
-  }) =>
-      _show(
-        title: Localized.get.dialogAttackMissileTitle(defender.name),
-        message: Localized.get.dialogAttackMissileMessage,
-        max: max,
-        buttonAccept: Localized.get.buttonAttack,
-        buttonCancel: Localized.get.buttonCancel,
-        onAccept: onAccept,
-        isMissileAttack: true,
-        missileYield: missileYield,
-      );
+  }) => _show(
+    title: Localized.get.dialogAttackMissileTitle(defender.name),
+    message: Localized.get.dialogAttackMissileMessage,
+    max: max,
+    buttonAccept: Localized.get.buttonAttack,
+    buttonCancel: Localized.get.buttonCancel,
+    onAccept: onAccept,
+    isMissileAttack: true,
+    missileYield: missileYield,
+  );
 
   @override
   State<AttackDialog> createState() => _AttackDialogState();
@@ -87,7 +87,8 @@ class _AttackDialogState extends State<AttackDialog> {
           const VBox(5),
           Label(
             text: widget.message(
-                '${_selected.toString()} (${Formatter.yield(_yield)})'),
+              '${_selected.toString()} (${Formatter.yield(_yield)})',
+            ),
             color: Palette.textPrimary,
             uppercase: false,
           ),

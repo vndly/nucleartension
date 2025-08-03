@@ -14,10 +14,7 @@ class CustomSnackbar {
 
   static const Duration DURATION_LONG = Duration(seconds: 5);
 
-  static void _show({
-    required Widget widget,
-    required Duration duration,
-  }) {
+  static void _show({required Widget widget, required Duration duration}) {
     final SnackBar snackBar = SnackBar(
       elevation: 0,
       backgroundColor: Palette.transparent,
@@ -33,10 +30,7 @@ class CustomSnackbar {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            border: Border.all(
-              color: Palette.borderSeparator,
-              width: 0.5,
-            ),
+            border: Border.all(color: Palette.borderSeparator, width: 0.5),
             color: Palette.backgroundSnackbar,
           ),
           child: widget,
@@ -54,24 +48,20 @@ class CustomSnackbar {
   }
 
   static void defcon(int value) => _show(
-        widget: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.warning,
-              color: Palette.error,
-              size: 30,
-            ),
-            const HBox(10),
-            Label(
-              text: Localized.get.snackDefcon(value),
-              color: Palette.error,
-              size: 20,
-              weight: FontWeight.bold,
-            ),
-          ],
+    widget: Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Icon(Icons.warning, color: Palette.error, size: 30),
+        const HBox(10),
+        Label(
+          text: Localized.get.snackDefcon(value),
+          color: Palette.error,
+          size: 20,
+          weight: FontWeight.bold,
         ),
-        duration: DURATION_MEDIUM,
-      );
+      ],
+    ),
+    duration: DURATION_MEDIUM,
+  );
 }

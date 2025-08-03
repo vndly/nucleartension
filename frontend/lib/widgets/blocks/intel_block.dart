@@ -23,10 +23,7 @@ class IntelBlock extends StatelessWidget {
     if (game.self.hasIntel) {
       return Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          PlayersByPopulation(game),
-          PlayersByMissiles(game),
-        ],
+        children: [PlayersByPopulation(game), PlayersByMissiles(game)],
       );
     } else {
       return const Empty();
@@ -41,8 +38,9 @@ class PlayersByPopulation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Research research =
-        game.self.getResearch(ResearchType.intel_population);
+    final Research research = game.self.getResearch(
+      ResearchType.intel_population,
+    );
 
     return PlayersList(
       title: Localized.get.screenWarRoomIntelPopulation,
@@ -60,8 +58,9 @@ class PlayersByMissiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Research research =
-        game.self.getResearch(ResearchType.intel_missiles);
+    final Research research = game.self.getResearch(
+      ResearchType.intel_missiles,
+    );
 
     return PlayersList(
       title: Localized.get.screenWarRoomIntelMissile,
@@ -113,21 +112,13 @@ class PlayerRow extends StatelessWidget {
   final Player player;
   final String value;
 
-  const PlayerRow({
-    required this.player,
-    required this.value,
-  });
+  const PlayerRow({required this.player, required this.value});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: player.isSelf ? Palette.backgroundRowSelf : Palette.transparent,
-      padding: const EdgeInsets.only(
-        top: 5,
-        bottom: 5,
-        left: 15,
-        right: 15,
-      ),
+      padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15, right: 15),
       child: Row(
         children: [
           Expanded(
@@ -136,11 +127,7 @@ class PlayerRow extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ImageAsset(
-                    path: player.country.flag,
-                    width: 30,
-                    height: 20,
-                  ),
+                  ImageAsset(path: player.country.flag, width: 30, height: 20),
                   const HBox(15),
                   Label(
                     text: player.name,
@@ -156,11 +143,7 @@ class PlayerRow extends StatelessWidget {
           ),
           const HBox(15),
           if (value.isNotEmpty)
-            Label(
-              text: value,
-              color: player.country.color,
-              size: 16,
-            ),
+            Label(text: value, color: player.country.color, size: 16),
         ],
       ),
     );

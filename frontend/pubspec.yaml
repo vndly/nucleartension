@@ -4,17 +4,17 @@ publish_to: none
 version: 0.0.1+1
 
 environment:
-  sdk: '>=3.5.4 <4.0.0'
+  sdk: '>=3.8.1 <4.0.0'
 
 dependencies:
-  flame: ^1.21.0
-  get_it: ^8.0.1
-  logger: ^2.4.0
-  dafluta: ^5.4.0
-  flutter_svg: ^2.0.10+1
+  flame: ^1.30.1
+  get_it: ^8.2.0
+  logger: ^2.6.1
+  dafluta: ^5.5.1
+  flutter_svg: ^2.2.0
   url_strategy: ^0.3.0
   json_annotation: ^4.9.0
-  shared_preferences: ^2.3.2
+  shared_preferences: ^2.5.3
 
   flutter:
     sdk: flutter
@@ -23,13 +23,13 @@ dependencies:
     sdk: flutter 
 
 dev_dependencies:
-  dalocale: ^2.5.0
+  dalocale: ^2.6.0
   daassets: ^1.5.0
-  daunused: ^1.6.1
+  daunused: ^1.7.4
   dapublock: ^1.1.0
-  build_runner: ^2.4.13
-  flutter_lints: ^5.0.0
-  json_serializable: ^6.8.0
+  build_runner: ^2.6.0
+  flutter_lints: ^6.0.0
+  json_serializable: ^6.10.0
 
   flutter_test:
     sdk: flutter

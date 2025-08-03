@@ -21,12 +21,14 @@ class BaseDialog extends StatelessWidget {
     final BuildContext context = Navigation.context;
     instances++;
 
-    Delayed.post(() => showDialog(
-          context: context,
-          barrierDismissible: false,
-          barrierColor: Palette.transparent,
-          builder: (context) => dialog,
-        ));
+    Delayed.post(
+      () => showDialog(
+        context: context,
+        barrierDismissible: false,
+        barrierColor: Palette.transparent,
+        builder: (context) => dialog,
+      ),
+    );
 
     return DialogController(context);
   }

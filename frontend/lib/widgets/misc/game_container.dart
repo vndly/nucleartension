@@ -30,38 +30,34 @@ class BigScreenContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      final double canvasWidth = constraints.maxHeight / 1.77;
-      final double paddingWidth =
-          ((constraints.maxWidth - canvasWidth) / 2) + 1;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double canvasWidth = constraints.maxHeight / 1.77;
+        final double paddingWidth =
+            ((constraints.maxWidth - canvasWidth) / 2) + 1;
 
-      return Stack(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: SizedBox(
-              height: constraints.maxHeight,
-              width: canvasWidth,
-              child: child,
+        return Stack(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                height: constraints.maxHeight,
+                width: canvasWidth,
+                child: child,
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              width: max(paddingWidth, 0),
-              color: color,
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(width: max(paddingWidth, 0), color: color),
             ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              width: max(paddingWidth, 0),
-              color: color,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(width: max(paddingWidth, 0), color: color),
             ),
-          ),
-        ],
-      );
-    });
+          ],
+        );
+      },
+    );
   }
 }
 

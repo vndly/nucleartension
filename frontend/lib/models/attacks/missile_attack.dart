@@ -44,11 +44,17 @@ class MissileAttack extends Attack {
     final String yield = Formatter.yield(totalMissiles * yieldPerMissile);
 
     if (attacker.isSelf) {
-      return Localized.get
-          .attackMissileOutgoing(defender.name, totalMissiles, yield);
+      return Localized.get.attackMissileOutgoing(
+        defender.name,
+        totalMissiles,
+        yield,
+      );
     } else if (defender.isSelf) {
-      return Localized.get
-          .attackMissileIncoming(attacker.name, totalMissiles, yield);
+      return Localized.get.attackMissileIncoming(
+        attacker.name,
+        totalMissiles,
+        yield,
+      );
     } else {
       return '';
     }
@@ -61,8 +67,9 @@ class MissileAttack extends Attack {
       //final num totalYield = successfulAttackMissiles * yieldPerMissile;
       //final int casualties =
       //    (totalYield * Constants.MISSILE_ATTACK_DAMAGE_PER_KT).floor();
-      final Player winner =
-          (successfulAttackMissiles > 0) ? attacker : defender;
+      final Player winner = (successfulAttackMissiles > 0)
+          ? attacker
+          : defender;
       const int totalCasualties = 0;
       //min(casualties, defender.population);
       const int loot = 0; //defender.removePopulation(casualties);
@@ -76,17 +83,15 @@ class MissileAttack extends Attack {
           successfulAttackMissiles: successfulAttackMissiles,
           ktPerMissile: yieldPerMissile,
           casualties: totalCasualties,
-        )
+        ),
       ];
 
       if (!defender.isAlive) {
         //attacker.resources.addItems(loot);
 
-        result.add(PlayerDefeated(
-          player: defender,
-          killer: attacker,
-          loot: loot,
-        ));
+        result.add(
+          PlayerDefeated(player: defender, killer: attacker, loot: loot),
+        );
       }
 
       return result;

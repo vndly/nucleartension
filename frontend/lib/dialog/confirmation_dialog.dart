@@ -27,25 +27,25 @@ class ConfirmationDialog extends StatelessWidget {
     required String buttonCancel,
     required VoidCallback onAccept,
     VoidCallback? onCancel,
-  }) =>
-      BaseDialog.show(ConfirmationDialog._(
-        message: message,
-        buttonAccept: buttonAccept,
-        buttonCancel: buttonCancel,
-        onAccept: onAccept,
-        onCancel: onCancel,
-      ));
+  }) => BaseDialog.show(
+    ConfirmationDialog._(
+      message: message,
+      buttonAccept: buttonAccept,
+      buttonCancel: buttonCancel,
+      onAccept: onAccept,
+      onCancel: onCancel,
+    ),
+  );
 
   static DialogController cancelUpgrade({
     required Task task,
     required VoidCallback onAccept,
-  }) =>
-      _show(
-        message: Localized.get.dialogConfirmationCancelUpgradeMessage,
-        buttonAccept: Localized.get.buttonCancel,
-        buttonCancel: Localized.get.buttonDismiss,
-        onAccept: onAccept,
-      );
+  }) => _show(
+    message: Localized.get.dialogConfirmationCancelUpgradeMessage,
+    buttonAccept: Localized.get.buttonCancel,
+    buttonCancel: Localized.get.buttonDismiss,
+    onAccept: onAccept,
+  );
 
   @override
   Widget build(BuildContext context) {

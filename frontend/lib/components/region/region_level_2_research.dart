@@ -28,37 +28,43 @@ class RegionLevel2ResearchComponent extends PositionComponent {
 
     final double dimension = size.x / 12;
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '🧪',
-      title: 'Research 1',
-      color: Palette.iconResearch,
-      onTap: onResearch1,
-      isEnabled: () => true, // TODO(momo): implement
-      position: Vector2(size.x * 0.3, size.y * 0.25),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '🧪',
+        title: 'Research 1',
+        color: Palette.iconResearch,
+        onTap: onResearch1,
+        isEnabled: () => true, // TODO(momo): implement
+        position: Vector2(size.x * 0.3, size.y * 0.25),
+      ),
+    );
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '🧪',
-      title: 'Research 2',
-      color: Palette.iconResearch,
-      onTap: onResearch2,
-      isEnabled: () => true, // TODO(momo): implement
-      position: Vector2(size.x * 0.3, size.y * 0.50),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '🧪',
+        title: 'Research 2',
+        color: Palette.iconResearch,
+        onTap: onResearch2,
+        isEnabled: () => true, // TODO(momo): implement
+        position: Vector2(size.x * 0.3, size.y * 0.50),
+      ),
+    );
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '🧪',
-      title: 'Research 3',
-      color: Palette.iconResearch,
-      onTap: onResearch2,
-      isEnabled: () => true, // TODO(momo): implement
-      position: Vector2(size.x * 0.3, size.y * 0.75),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '🧪',
+        title: 'Research 3',
+        color: Palette.iconResearch,
+        onTap: onResearch2,
+        isEnabled: () => true, // TODO(momo): implement
+        position: Vector2(size.x * 0.3, size.y * 0.75),
+      ),
+    );
   }
 }

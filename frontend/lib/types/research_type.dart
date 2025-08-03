@@ -151,7 +151,8 @@ enum ResearchType {
         return Localized.get.typeResearchResourcesQuantumComputingDescription;
       case missiles_additive_manufacturing:
         return Localized
-            .get.typeResearchMissilesAdditiveManufacturingDescription;
+            .get
+            .typeResearchMissilesAdditiveManufacturingDescription;
       case missiles_assembly_automation:
         return Localized.get.typeResearchMissilesAssemblyAutomationDescription;
       case missiles_active_tracking:
@@ -172,14 +173,14 @@ enum ResearchType {
   }
 
   List<String> get details => [
-        '$description.',
-        if (this == ResearchType.missiles_nuclear_bomb) ...[
-          '',
-          Localized.get.typeResearchMissilesNuclearBombDescriptionExtra,
-        ],
-        '',
-        ...levelDetails,
-      ];
+    '$description.',
+    if (this == ResearchType.missiles_nuclear_bomb) ...[
+      '',
+      Localized.get.typeResearchMissilesNuclearBombDescriptionExtra,
+    ],
+    '',
+    ...levelDetails,
+  ];
 
   List<String> get levelDetails {
     final List<String> result = [];

@@ -6,9 +6,6 @@ class BlockSeparator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 1,
-      color: Palette.borderSeparator,
-    );
+    return Container(height: 1, color: Palette.borderSeparator);
   }
 }

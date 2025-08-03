@@ -23,17 +23,15 @@ class PlayersBlock extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         for (int i = 0; i < players.length; i++) ...[
-          PlayerRow(
-            game: game,
-            player: players[i],
-          ),
+          PlayerRow(game: game, player: players[i]),
           if (i < players.length - 1) const RowSeparator(),
         ],
         const BlockSeparator(),
         const VBox(20),
         Label(
-            text:
-                'Time: ${Duration(seconds: game.timeElapsed.floor()).formatted}'),
+          text:
+              'Time: ${Duration(seconds: game.timeElapsed.floor()).formatted}',
+        ),
         const VBox(20),
       ],
     );
@@ -44,33 +42,21 @@ class PlayerRow extends StatelessWidget {
   final Game game;
   final Player player;
 
-  const PlayerRow({
-    required this.game,
-    required this.player,
-  });
+  const PlayerRow({required this.game, required this.player});
 
   @override
   Widget build(BuildContext context) {
     if (player.isSelf || !player.isAlive) {
       return Container(
         color: player.isSelf ? Palette.backgroundRowSelf : Palette.transparent,
-        child: PlayerRowContent(
-          game: game,
-          player: player,
-        ),
+        child: PlayerRowContent(game: game, player: player),
       );
     } else {
       return Material(
         color: Palette.transparent,
         child: InkWell(
-          onTap: () => InformationDialog.player(
-            game: game,
-            player: player,
-          ),
-          child: PlayerRowContent(
-            game: game,
-            player: player,
-          ),
+          onTap: () => InformationDialog.player(game: game, player: player),
+          child: PlayerRowContent(game: game, player: player),
         ),
       );
     }
@@ -81,20 +67,12 @@ class PlayerRowContent extends StatelessWidget {
   final Game game;
   final Player player;
 
-  const PlayerRowContent({
-    required this.game,
-    required this.player,
-  });
+  const PlayerRowContent({required this.game, required this.player});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 5,
-        bottom: 5,
-        left: 15,
-        right: 15,
-      ),
+      padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15, right: 15),
       child: Row(
         children: [
           Expanded(

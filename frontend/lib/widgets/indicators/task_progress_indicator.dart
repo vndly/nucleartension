@@ -21,9 +21,9 @@ class TaskProgressIndicator extends StatelessWidget {
     return GestureDetector(
       onTap: cancellable
           ? () => ConfirmationDialog.cancelUpgrade(
-                task: task,
-                onAccept: task.cancel,
-              )
+              task: task,
+              onAccept: task.cancel,
+            )
           : () {},
       child: ProgressOverlay(
         size: size,
@@ -69,7 +69,7 @@ class ProgressOverlay extends StatelessWidget {
               height: size - (size * progress),
               color: Palette.overlayProgress,
             ),
-          )
+          ),
         ],
       ),
     );

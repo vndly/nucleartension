@@ -20,10 +20,7 @@ class RegionNeutralComponent extends PositionComponent {
     final textPainter = TextPainter(
       text: TextSpan(
         text: '${region.totalSlots} slots',
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 3,
-        ),
+        style: const TextStyle(color: Colors.white, fontSize: 3),
       ),
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,

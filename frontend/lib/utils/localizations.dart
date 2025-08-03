@@ -938,7 +938,7 @@ class Localized {
   static List<Locale> locales = localized.keys.map(Locale.new).toList();
 
   static Map<String, BaseLocalized> localized = <String, BaseLocalized>{
-    'en': ENLocalized()
+    'en': ENLocalized(),
   };
 
   static bool isSupported(Locale locale) =>

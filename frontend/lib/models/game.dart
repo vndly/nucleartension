@@ -34,15 +34,12 @@ class Game extends FlameGame with TapCallbacks {
     required this.timeElapsed,
     required this.defcon,
   }) : super(
-          camera: CameraComponent.withFixedResolution(
-            width: battlefield.size.width,
-            height: battlefield.size.height,
-          ),
-        ) {
-    world = BattlefieldComponent(
-      game: this,
-      battlefield: battlefield,
-    );
+         camera: CameraComponent.withFixedResolution(
+           width: battlefield.size.width,
+           height: battlefield.size.height,
+         ),
+       ) {
+    world = BattlefieldComponent(game: this, battlefield: battlefield);
     debugMode = false;
   }
 
@@ -79,8 +76,9 @@ class Game extends FlameGame with TapCallbacks {
   }
 
   Player? randomPlayer(Player player) {
-    final List<Player> list =
-        players.where((e) => e.isAlive && (e != player)).toList();
+    final List<Player> list = players
+        .where((e) => e.isAlive && (e != player))
+        .toList();
 
     return Probability.element(list);
   }
@@ -130,10 +128,7 @@ class Game extends FlameGame with TapCallbacks {
   List<Attack> get selfAttacks =>
       attacks.where((e) => e.contains(self)).toList();
 
-  void onMissileAttack({
-    required Player attacker,
-    required Player defender,
-  }) =>
+  void onMissileAttack({required Player attacker, required Player defender}) =>
       AttackDialog.missile(
         defender: defender,
         max: 0,
@@ -152,12 +147,14 @@ class Game extends FlameGame with TapCallbacks {
   }) {
     //attacker.removeAttackMissiles(amount);
 
-    attacks.add(MissileAttack.from(
-      attacker: attacker,
-      defender: defender,
-      amount: amount,
-      ktPerMissile: attacker.attackMissileYield,
-    ));
+    attacks.add(
+      MissileAttack.from(
+        attacker: attacker,
+        defender: defender,
+        amount: amount,
+        ktPerMissile: attacker.attackMissileYield,
+      ),
+    );
   }
 
   // ============================= UPDATE =================================== \\

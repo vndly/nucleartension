@@ -33,9 +33,7 @@ class GameContent extends StatelessWidget {
       onTap: state.onTap,
       child: Container(
         color: Palette.transparent,
-        child: Center(
-          child: MapView(state),
-        ),
+        child: Center(child: MapView(state)),
       ),
     );
   }

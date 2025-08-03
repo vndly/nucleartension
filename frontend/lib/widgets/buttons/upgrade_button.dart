@@ -10,20 +10,14 @@ class UpgradeButton extends StatelessWidget {
   final Upgradable upgradable;
   final double size;
 
-  const UpgradeButton({
-    required this.upgradable,
-    required this.size,
-  });
+  const UpgradeButton({required this.upgradable, required this.size});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CostIndicator(
-          player: upgradable.player,
-          cost: upgradable.upgradeCost,
-        ),
+        CostIndicator(player: upgradable.player, cost: upgradable.upgradeCost),
         const HBox(10),
         if (upgradable.isUpgrading)
           TaskProgressIndicator(
@@ -32,10 +26,7 @@ class UpgradeButton extends StatelessWidget {
             cancellable: true,
           )
         else
-          UpgradeOrBuildButton(
-            upgradable: upgradable,
-            size: size,
-          ),
+          UpgradeOrBuildButton(upgradable: upgradable, size: size),
       ],
     );
   }
@@ -45,24 +36,15 @@ class UpgradeOrBuildButton extends StatelessWidget {
   final Upgradable upgradable;
   final double size;
 
-  const UpgradeOrBuildButton({
-    required this.upgradable,
-    required this.size,
-  });
+  const UpgradeOrBuildButton({required this.upgradable, required this.size});
 
   @override
   Widget build(BuildContext context) {
     if (upgradable.hasResourcesToUpgrade) {
       if (upgradable.level == 0) {
-        return EnabledButton.build(
-          size: size,
-          onTap: upgradable.upgrade,
-        );
+        return EnabledButton.build(size: size, onTap: upgradable.upgrade);
       } else {
-        return EnabledButton.upgrade(
-          size: size,
-          onTap: upgradable.upgrade,
-        );
+        return EnabledButton.upgrade(size: size, onTap: upgradable.upgrade);
       }
     } else if (!upgradable.hasResourcesToUpgrade) {
       return DisabledButton.noResources(size: size);

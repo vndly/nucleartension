@@ -30,88 +30,73 @@ class InformationDialog extends StatelessWidget {
     required Widget content,
     required String buttonAccept,
     VoidCallback? onAccept,
-  }) =>
-      BaseDialog.show(InformationDialog._(
-        title: title,
-        content: content,
-        buttonAccept: buttonAccept,
-        onAccept: onAccept,
-      ));
+  }) => BaseDialog.show(
+    InformationDialog._(
+      title: title,
+      content: content,
+      buttonAccept: buttonAccept,
+      onAccept: onAccept,
+    ),
+  );
 
   static DialogController _messageInfo({
     required String title,
     required String message,
     required VoidCallback onAccept,
-  }) =>
-      _show(
-        title: Label(
-          text: title,
-          color: Palette.textPrimary,
-          weight: FontWeight.bold,
-        ),
-        content: Label(
-          text: message,
-          color: Palette.textPrimary,
-          uppercase: false,
-        ),
-        buttonAccept: Localized.get.buttonOk,
-        onAccept: onAccept,
-      );
+  }) => _show(
+    title: Label(
+      text: title,
+      color: Palette.textPrimary,
+      weight: FontWeight.bold,
+    ),
+    content: Label(text: message, color: Palette.textPrimary, uppercase: false),
+    buttonAccept: Localized.get.buttonOk,
+    onAccept: onAccept,
+  );
 
   static DialogController playerWon({
     required String time,
     required VoidCallback onAccept,
-  }) =>
-      _messageInfo(
-        title: Localized.get.dialogInformationPlayerWonTitle,
-        message: Localized.get.dialogInformationPlayerWonMessage(time),
-        onAccept: onAccept,
-      );
+  }) => _messageInfo(
+    title: Localized.get.dialogInformationPlayerWonTitle,
+    message: Localized.get.dialogInformationPlayerWonMessage(time),
+    onAccept: onAccept,
+  );
 
   static DialogController playerLost({
     required Player killer,
     required VoidCallback onAccept,
-  }) =>
-      _messageInfo(
-        title: Localized.get.dialogInformationPlayerLostTitle,
-        message: Localized.get.dialogInformationPlayerLostMessage(killer.name),
-        onAccept: onAccept,
-      );
+  }) => _messageInfo(
+    title: Localized.get.dialogInformationPlayerLostTitle,
+    message: Localized.get.dialogInformationPlayerLostMessage(killer.name),
+    onAccept: onAccept,
+  );
 
   static DialogController _entityInfo({
     required String title,
     required String sprite,
-  }) =>
-      _show(
-        title: Label(
-          text: title,
-          color: Palette.textPrimary,
-          weight: FontWeight.bold,
+  }) => _show(
+    title: Label(
+      text: title,
+      color: Palette.textPrimary,
+      weight: FontWeight.bold,
+    ),
+    content: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 3),
+          child: ImageAsset(path: sprite, size: 70),
         ),
-        content: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 3),
-              child: ImageAsset(
-                path: sprite,
-                size: 70,
-              ),
-            ),
-          ],
-        ),
-        buttonAccept: Localized.get.buttonOk,
-      );
+      ],
+    ),
+    buttonAccept: Localized.get.buttonOk,
+  );
 
-  static DialogController research(ResearchType researchType) => _entityInfo(
-        title: researchType.localized,
-        sprite: researchType.sprite,
-      );
+  static DialogController research(ResearchType researchType) =>
+      _entityInfo(title: researchType.localized, sprite: researchType.sprite);
 
-  static DialogController player({
-    required Game game,
-    required Player player,
-  }) {
+  static DialogController player({required Game game, required Player player}) {
     /*final bool hasIntelPopulation =
         game.self.getResearch(ResearchType.intel_population).level >= 2;
     final bool hasIntelMissiles =
@@ -121,11 +106,7 @@ class InformationDialog extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ImageAsset(
-            path: player.country.flag,
-            width: 21,
-            height: 14,
-          ),
+          ImageAsset(path: player.country.flag, width: 21, height: 14),
           const HBox(15),
           Label(
             text: player.name,
@@ -169,7 +150,9 @@ class InformationDialog extends StatelessWidget {
             if (player is ActivePlayer) ...[
               ..._debugPlayer('Next creation:', player.nextCreateAction?.name),
               ..._debugPlayer(
-                  'Next research:', player.nextResearchAction?.name),
+                'Next research:',
+                player.nextResearchAction?.name,
+              ),
               ..._debugPlayer('Next attack:', player.nextAttackAction?.name),
             ],
             /*const VBox(10),
@@ -190,18 +173,18 @@ class InformationDialog extends StatelessWidget {
   }
 
   static List<Widget> _debugPlayer(String label, Object? text) => [
-        const VBox(10),
-        LabeledText(
-          label: label,
-          text: text.toString(),
-          labelSize: 12,
-          textSize: 12,
-          labelColor: Palette.textPrimary,
-          textColor: Palette.textPrimary,
-          labelUppercase: false,
-          textUppercase: false,
-        ),
-      ];
+    const VBox(10),
+    LabeledText(
+      label: label,
+      text: text.toString(),
+      labelSize: 12,
+      textSize: 12,
+      labelColor: Palette.textPrimary,
+      textColor: Palette.textPrimary,
+      labelUppercase: false,
+      textUppercase: false,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {

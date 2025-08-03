@@ -4,10 +4,7 @@ class Task {
   bool canceled = false;
   final int cost;
 
-  Task({
-    required this.cost,
-    required num duration,
-  }) {
+  Task({required this.cost, required num duration}) {
     totalTime = duration;
     remainingTime = totalTime;
   }

@@ -35,20 +35,29 @@ class MissileAttackResultEvent extends Event {
 
   @override
   List<String> get text => [
-        Localized.get.eventAttackMissileResultLine1,
-        Localized.get.eventAttackMissileResultLine2(attacker.name,
-            (attacker == winner) ? ' (${Localized.get.labelWinner})' : ''),
-        Localized.get.eventAttackMissileResultLine3(defender.name,
-            (defender == winner) ? ' (${Localized.get.labelWinner})' : ''),
-        Localized.get.eventAttackMissileResultLine4(
-            totalMissiles, Formatter.yield(totalMissiles * ktPerMissile)),
-        Localized.get.eventAttackMissileResultLine5(
-            successfulAttackMissiles,
-            (successfulAttackMissiles > 0)
-                ? ' (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})'
-                : ''),
-        Localized.get.eventAttackMissileResultLine6((casualties > 0)
-            ? Localized.get.labelPeople(Formatter.resourceRaw(casualties))
-            : Localized.get.labelNone),
-      ];
+    Localized.get.eventAttackMissileResultLine1,
+    Localized.get.eventAttackMissileResultLine2(
+      attacker.name,
+      (attacker == winner) ? ' (${Localized.get.labelWinner})' : '',
+    ),
+    Localized.get.eventAttackMissileResultLine3(
+      defender.name,
+      (defender == winner) ? ' (${Localized.get.labelWinner})' : '',
+    ),
+    Localized.get.eventAttackMissileResultLine4(
+      totalMissiles,
+      Formatter.yield(totalMissiles * ktPerMissile),
+    ),
+    Localized.get.eventAttackMissileResultLine5(
+      successfulAttackMissiles,
+      (successfulAttackMissiles > 0)
+          ? ' (${Formatter.yield(successfulAttackMissiles * ktPerMissile)})'
+          : '',
+    ),
+    Localized.get.eventAttackMissileResultLine6(
+      (casualties > 0)
+          ? Localized.get.labelPeople(Formatter.resourceRaw(casualties))
+          : Localized.get.labelNone,
+    ),
+  ];
 }

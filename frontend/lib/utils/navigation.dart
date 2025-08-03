@@ -28,10 +28,7 @@ class Navigation {
 
   static void pop<T>([T? result]) => _get.routes.pop(result);
 
-  static void dialog({
-    required Widget widget,
-    required String name,
-  }) {
+  static void dialog({required Widget widget, required String name}) {
     if (!isCurrent(name)) {
       getRoutes.push(
         PageRouteBuilder(
@@ -45,24 +42,12 @@ class Navigation {
     }
   }
 
-  static void splashScreen() => pushAlone(
-        FadeRoute(
-          SplashScreen.instance(),
-          name: 'splash',
-        ),
-      );
+  static void splashScreen() =>
+      pushAlone(FadeRoute(SplashScreen.instance(), name: 'splash'));
 
-  static void homeScreen() => pushAlone(
-        FadeRoute(
-          HomeScreen.instance(),
-          name: 'home',
-        ),
-      );
+  static void homeScreen() =>
+      pushAlone(FadeRoute(HomeScreen.instance(), name: 'home'));
 
-  static void matchScreen() => push(
-        FadeRoute(
-          GameScreen.instance(),
-          name: 'match',
-        ),
-      );
+  static void matchScreen() =>
+      push(FadeRoute(GameScreen.instance(), name: 'match'));
 }

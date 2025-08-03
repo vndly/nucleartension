@@ -6,10 +6,7 @@ abstract class Upgradable {
   int level;
   UpgradeTask? upgradeTask;
 
-  Upgradable({
-    required this.player,
-    required this.level,
-  });
+  Upgradable({required this.player, required this.level});
 
   int get upgradeCost;
 

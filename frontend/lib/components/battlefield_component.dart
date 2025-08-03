@@ -9,31 +9,29 @@ class BattlefieldComponent extends World {
   final Game game;
   final Battlefield battlefield;
 
-  BattlefieldComponent({
-    required this.game,
-    required this.battlefield,
-  });
+  BattlefieldComponent({required this.game, required this.battlefield});
 
   @override
   Future onLoad() async {
     for (final Region region in battlefield.regions) {
-      add(RegionComponent(
-        game: game,
-        region: region,
-        position: region.position,
-        size: Vector2.all(region.radius * 2),
-      ));
+      add(
+        RegionComponent(
+          game: game,
+          region: region,
+          position: region.position,
+          size: Vector2.all(region.radius * 2),
+        ),
+      );
     }
 
-    add(FpsTextComponent(
-      position: Vector2(-50, -50),
-      textRenderer: TextPaint(
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 2,
+    add(
+      FpsTextComponent(
+        position: Vector2(-50, -50),
+        textRenderer: TextPaint(
+          style: const TextStyle(color: Colors.white, fontSize: 2),
         ),
       ),
-    ));
+    );
   }
 
   void unselectAllRegions() {

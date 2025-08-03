@@ -26,26 +26,30 @@ class RegionLevel2PopulationComponent extends PositionComponent {
 
     final double dimension = size.x / 12;
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '⬆️',
-      title: 'Upgrade (👤 ${region.costPropagandaUpgrade})',
-      color: Palette.iconPopulation,
-      onTap: onUpgrade,
-      isEnabled: () => region.canUpgradePropaganda,
-      position: Vector2(size.x * 0.3, size.y * 0.35),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '⬆️',
+        title: 'Upgrade (👤 ${region.costPropagandaUpgrade})',
+        color: Palette.iconPopulation,
+        onTap: onUpgrade,
+        isEnabled: () => region.canUpgradePropaganda,
+        position: Vector2(size.x * 0.3, size.y * 0.35),
+      ),
+    );
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '👣',
-      title: 'Move',
-      color: Palette.iconPopulation,
-      onTap: onMove,
-      isEnabled: () => false,
-      position: Vector2(size.x * 0.3, size.y * 0.65),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '👣',
+        title: 'Move',
+        color: Palette.iconPopulation,
+        onTap: onMove,
+        isEnabled: () => false,
+        position: Vector2(size.x * 0.3, size.y * 0.65),
+      ),
+    );
   }
 }

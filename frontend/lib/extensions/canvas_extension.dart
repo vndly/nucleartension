@@ -29,10 +29,7 @@ extension CanvasExtension on Canvas {
             position.x - textPainter.width / 2,
             position.y - textPainter.height / 2,
           )
-        : Offset(
-            position.x,
-            position.y - textPainter.height / 4,
-          );
+        : Offset(position.x, position.y - textPainter.height / 4);
     textPainter.paint(this, offset);
   }
 }

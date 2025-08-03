@@ -13,9 +13,7 @@ class MapView extends StatelessWidget {
       padding: const EdgeInsets.all(50),
       child: AspectRatio(
         aspectRatio: state.game.battlefield.ratio,
-        child: GameWidget(
-          game: state.game,
-        ),
+        child: GameWidget(game: state.game),
       ),
     );
   }

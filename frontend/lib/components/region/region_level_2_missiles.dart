@@ -28,37 +28,43 @@ class RegionLevel2MissilesComponent extends PositionComponent {
 
     final double dimension = size.x / 12;
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '⬆️',
-      title: 'Upgrade',
-      color: Palette.iconMissiles,
-      onTap: onUpgrade,
-      isEnabled: () => true, // TODO(momo): implement
-      position: Vector2(size.x * 0.3, size.y * 0.25),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '⬆️',
+        title: 'Upgrade',
+        color: Palette.iconMissiles,
+        onTap: onUpgrade,
+        isEnabled: () => true, // TODO(momo): implement
+        position: Vector2(size.x * 0.3, size.y * 0.25),
+      ),
+    );
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '🛡️',
-      title: 'Build defense',
-      color: Palette.iconMissiles,
-      onTap: onBuildDefense,
-      isEnabled: () => true, // TODO(momo): implement
-      position: Vector2(size.x * 0.3, size.y * 0.50),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '🛡️',
+        title: 'Build defense',
+        color: Palette.iconMissiles,
+        onTap: onBuildDefense,
+        isEnabled: () => true, // TODO(momo): implement
+        position: Vector2(size.x * 0.3, size.y * 0.50),
+      ),
+    );
 
-    add(RegionButtonComponent(
-      game: game,
-      dimension: dimension,
-      icon: '💥',
-      title: 'Build attack',
-      color: Palette.iconMissiles,
-      onTap: onBuildDefense,
-      isEnabled: () => true, // TODO(momo): implement
-      position: Vector2(size.x * 0.3, size.y * 0.75),
-    ));
+    add(
+      RegionButtonComponent(
+        game: game,
+        dimension: dimension,
+        icon: '💥',
+        title: 'Build attack',
+        color: Palette.iconMissiles,
+        onTap: onBuildDefense,
+        isEnabled: () => true, // TODO(momo): implement
+        position: Vector2(size.x * 0.3, size.y * 0.75),
+      ),
+    );
   }
 }

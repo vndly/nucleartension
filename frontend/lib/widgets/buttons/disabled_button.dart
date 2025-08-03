@@ -13,48 +13,23 @@ class DisabledButton extends StatelessWidget {
     required this.child,
   });
 
-  factory DisabledButton.noResources({
-    required double size,
-  }) =>
-      DisabledButton.icon(
-        icon: Icons.money_off,
-        size: size,
-      );
+  factory DisabledButton.noResources({required double size}) =>
+      DisabledButton.icon(icon: Icons.money_off, size: size);
 
-  factory DisabledButton.queueFull({
-    required double size,
-  }) =>
-      DisabledButton.icon(
-        icon: Icons.block,
-        size: size,
-      );
+  factory DisabledButton.queueFull({required double size}) =>
+      DisabledButton.icon(icon: Icons.block, size: size);
 
-  factory DisabledButton.disabled({
-    required double size,
-  }) =>
-      DisabledButton.icon(
-        icon: Icons.close,
-        size: size,
-      );
+  factory DisabledButton.disabled({required double size}) =>
+      DisabledButton.icon(icon: Icons.close, size: size);
 
-  factory DisabledButton.icon({
-    required IconData icon,
-    required double size,
-  }) =>
+  factory DisabledButton.icon({required IconData icon, required double size}) =>
       DisabledButton(
         color: Palette.buttonDisabled,
         size: size,
-        child: Icon(
-          icon,
-          color: Palette.iconLevel1,
-          size: size * 0.5,
-        ),
+        child: Icon(icon, color: Palette.iconLevel1, size: size * 0.5),
       );
 
-  factory DisabledButton.text({
-    required String text,
-    required double size,
-  }) =>
+  factory DisabledButton.text({required String text, required double size}) =>
       DisabledButton(
         color: Palette.buttonBlocked,
         size: size,
@@ -74,9 +49,7 @@ class DisabledButton extends StatelessWidget {
         width: size,
         height: size,
         color: color,
-        child: Center(
-          child: child,
-        ),
+        child: Center(child: child),
       ),
     );
   }

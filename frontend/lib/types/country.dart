@@ -4,50 +4,20 @@ import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 enum Country {
-  usa(
-    code: 'us',
-    color: Palette.countryUsa,
-  ),
-  russia(
-    code: 'ru',
-    color: Palette.countryRussia,
-  ),
-  china(
-    code: 'cn',
-    color: Palette.countryChina,
-  ),
-  uk(
-    code: 'gb',
-    color: Palette.countryUnitedKingdom,
-  ),
-  france(
-    code: 'fr',
-    color: Palette.countryFrance,
-  ),
-  north_korea(
-    code: 'kp',
-    color: Palette.countryNorthKorea,
-  ),
-  india(
-    code: 'in',
-    color: Palette.countryIndia,
-  ),
-  pakistan(
-    code: 'pk',
-    color: Palette.countryPakistan,
-  ),
-  israel(
-    code: 'il',
-    color: Palette.countryIsrael,
-  );
+  usa(code: 'us', color: Palette.countryUsa),
+  russia(code: 'ru', color: Palette.countryRussia),
+  china(code: 'cn', color: Palette.countryChina),
+  uk(code: 'gb', color: Palette.countryUnitedKingdom),
+  france(code: 'fr', color: Palette.countryFrance),
+  north_korea(code: 'kp', color: Palette.countryNorthKorea),
+  india(code: 'in', color: Palette.countryIndia),
+  pakistan(code: 'pk', color: Palette.countryPakistan),
+  israel(code: 'il', color: Palette.countryIsrael);
 
   final String code;
   final Color color;
 
-  const Country({
-    required this.code,
-    required this.color,
-  });
+  const Country({required this.code, required this.color});
 
   String get flag {
     switch (this) {

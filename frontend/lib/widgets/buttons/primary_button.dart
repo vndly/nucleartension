@@ -60,11 +60,7 @@ class ButtonContent extends StatelessWidget {
         child: InkWell(
           onTap: onPressed,
           child: Padding(
-            padding: const EdgeInsets.only(
-              bottom: 1,
-              left: 10,
-              right: 15,
-            ),
+            padding: const EdgeInsets.only(bottom: 1, left: 10, right: 15),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,11 +75,7 @@ class ButtonContent extends StatelessWidget {
                       size: textSize,
                     ),
                   ),
-                Label(
-                  text: text,
-                  size: textSize,
-                  weight: FontWeight.bold,
-                ),
+                Label(text: text, size: textSize, weight: FontWeight.bold),
               ],
             ),
           ),

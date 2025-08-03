@@ -32,7 +32,9 @@ class Storage {
   }
 
   static Future<List<String>> getStringList(
-      String field, List<String> defaultValue) async {
+    String field,
+    List<String> defaultValue,
+  ) async {
     final SharedPreferences preferences = await _preferences();
 
     return preferences.getStringList(field) ?? defaultValue;

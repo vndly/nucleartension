@@ -41,21 +41,19 @@ class Player {
   }
 
   bool get hasIntel {
-    final int researchIntelPopulation =
-        game.self.getResearch(ResearchType.intel_population).level;
-    final int researchIntelMissiles =
-        game.self.getResearch(ResearchType.intel_missiles).level;
+    final int researchIntelPopulation = game.self
+        .getResearch(ResearchType.intel_population)
+        .level;
+    final int researchIntelMissiles = game.self
+        .getResearch(ResearchType.intel_missiles)
+        .level;
 
     return (researchIntelPopulation > 0) || (researchIntelMissiles > 0);
   }
 
   Research getResearch(ResearchType researchType) =>
       researches[researchType] ??
-      Research(
-        player: this,
-        level: 0,
-        researchType: researchType,
-      );
+      Research(player: this, level: 0, researchType: researchType);
 
   void addResearches(List<Research> list) {
     for (final Research research in list) {
@@ -86,8 +84,9 @@ class Player {
   }
 
   num get defenseMissilesEffectiveness {
-    final Research research =
-        getResearch(ResearchType.missiles_active_tracking);
+    final Research research = getResearch(
+      ResearchType.missiles_active_tracking,
+    );
 
     return research.increaseRate;
   }
@@ -99,15 +98,17 @@ class Player {
   }
 
   num get missileAttackWarningWhenDefending {
-    final Research research =
-        getResearch(ResearchType.warning_missiles_radar_network);
+    final Research research = getResearch(
+      ResearchType.warning_missiles_radar_network,
+    );
 
     return research.increaseRate;
   }
 
   num get missileAttackWarningWhenAttacking {
-    final Research research =
-        getResearch(ResearchType.warning_missiles_hypersonic_propulsion);
+    final Research research = getResearch(
+      ResearchType.warning_missiles_hypersonic_propulsion,
+    );
 
     return research.decreaseRate;
   }

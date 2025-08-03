@@ -6,11 +6,7 @@ class SvgIcon extends StatelessWidget {
   final double size;
   final Color color;
 
-  const SvgIcon({
-    required this.icon,
-    required this.size,
-    required this.color,
-  });
+  const SvgIcon({required this.icon, required this.size, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +14,7 @@ class SvgIcon extends StatelessWidget {
       icon,
       width: size,
       height: size,
-      colorFilter: ColorFilter.mode(
-        color,
-        BlendMode.srcIn,
-      ),
+      colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
     );
   }
 }

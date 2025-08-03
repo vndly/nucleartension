@@ -67,9 +67,7 @@ class PlayersTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: PlayersBlock(game),
-    );
+    return SingleChildScrollView(child: PlayersBlock(game));
   }
 }
 
@@ -80,8 +78,6 @@ class IntelTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: IntelBlock(game),
-    );
+    return SingleChildScrollView(child: IntelBlock(game));
   }
 }

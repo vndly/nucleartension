@@ -60,17 +60,9 @@ class RegionButtonComponent extends PositionComponent
   void render(Canvas canvas) {
     super.render(canvas);
 
-    canvas.drawCircle(
-      (size / 2).toOffset(),
-      dimension * 1.05,
-      paintBackground,
-    );
+    canvas.drawCircle((size / 2).toOffset(), dimension * 1.05, paintBackground);
 
-    canvas.drawCircle(
-      (size / 2).toOffset(),
-      dimension,
-      paintForeground,
-    );
+    canvas.drawCircle((size / 2).toOffset(), dimension, paintForeground);
 
     canvas.drawText(
       text: icon,
@@ -86,7 +78,9 @@ class RegionButtonComponent extends PositionComponent
       size: dimension / 1.5,
       alignment: TextAlign.left,
       position: Vector2(
-          (size.x / 2) + (dimension * 1.5), (size.y / 2) - (dimension * 0.05)),
+        (size.x / 2) + (dimension * 1.5),
+        (size.y / 2) - (dimension * 0.05),
+      ),
     );
   }
 }

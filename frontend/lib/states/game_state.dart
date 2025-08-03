@@ -24,10 +24,7 @@ class GameState extends BaseState {
 
     final Region centerRegion = Region(
       id: '0',
-      position: Vector2(
-        0,
-        0,
-      ),
+      position: Vector2(0, 0),
       radius: radius,
       totalSlots: 10,
       population: 0,
@@ -36,10 +33,7 @@ class GameState extends BaseState {
 
     final Region topRegion = Region(
       id: '1',
-      position: Vector2(
-        0,
-        -radius * 2,
-      ),
+      position: Vector2(0, -radius * 2),
       radius: radius,
       totalSlots: 5,
       population: 0,
@@ -48,10 +42,7 @@ class GameState extends BaseState {
 
     final Region topRightRegion = Region(
       id: '2',
-      position: Vector2(
-        radius * sqrt(3),
-        -radius,
-      ),
+      position: Vector2(radius * sqrt(3), -radius),
       radius: radius,
       totalSlots: 3,
       population: 100,
@@ -60,10 +51,7 @@ class GameState extends BaseState {
 
     final Region bottomRightRegion = Region(
       id: '3',
-      position: Vector2(
-        radius * sqrt(3),
-        radius,
-      ),
+      position: Vector2(radius * sqrt(3), radius),
       radius: radius,
       totalSlots: 5,
       population: 0,
@@ -72,10 +60,7 @@ class GameState extends BaseState {
 
     final Region bottomRegion = Region(
       id: '4',
-      position: Vector2(
-        0,
-        radius * 2,
-      ),
+      position: Vector2(0, radius * 2),
       radius: radius,
       totalSlots: 3,
       population: 100,
@@ -84,10 +69,7 @@ class GameState extends BaseState {
 
     final Region bottomLeftRegion = Region(
       id: '5',
-      position: Vector2(
-        -radius * sqrt(3),
-        radius,
-      ),
+      position: Vector2(-radius * sqrt(3), radius),
       radius: radius,
       totalSlots: 5,
       population: 0,
@@ -96,10 +78,7 @@ class GameState extends BaseState {
 
     final Region topLeftRegion = Region(
       id: '6',
-      position: Vector2(
-        -radius * sqrt(3),
-        -radius,
-      ),
+      position: Vector2(-radius * sqrt(3), -radius),
       radius: radius,
       totalSlots: 3,
       population: 100,
@@ -153,33 +132,25 @@ class GameState extends BaseState {
     topRightRegion.player = russia;
     bottomRegion.player = usa;
 
-    game.addPlayers([
-      usa,
-      china,
-      russia,
-    ]);
+    game.addPlayers([usa, china, russia]);
   }
 
   Player _activePlayer({
     required String name,
     required Country country,
     required PlayerProfile profile,
-  }) =>
-      ActivePlayer(
-        game: game,
-        name: name,
-        country: country,
-        researches: {},
-        energy: 1000,
-        profile: profile,
-      );
+  }) => ActivePlayer(
+    game: game,
+    name: name,
+    country: country,
+    researches: {},
+    energy: 1000,
+    profile: profile,
+  );
 
   void onPause() {
     if (!finished) {
-      PauseDialog.show(
-        onResume: _onResume,
-        onQuit: _onQuit,
-      );
+      PauseDialog.show(onResume: _onResume, onQuit: _onQuit);
     }
   }
 
@@ -197,10 +168,7 @@ class GameState extends BaseState {
 
   void onPlayerLost(Player killer) {
     finished = true;
-    InformationDialog.playerLost(
-      killer: killer,
-      onAccept: _onQuit,
-    );
+    InformationDialog.playerLost(killer: killer, onAccept: _onQuit);
   }
 
   void onTap() => game.unselectAllRegions();

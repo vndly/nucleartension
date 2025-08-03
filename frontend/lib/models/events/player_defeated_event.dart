@@ -24,13 +24,13 @@ class PlayerDefeated extends Event {
 
   @override
   List<String> get text => [
-        Localized.get.eventPlayerDefeatedLine1(player.name, killer.name),
-        if (killer.isSelf) ...[
-          Localized.get.eventPlayerDefeatedLine2,
-          Localized.get.eventPlayerDefeatedLine3(
-            '',
-            //Formatter.resourceRaw(loot.get(ResourceType.energy)),
-          ),
-        ],
-      ];
+    Localized.get.eventPlayerDefeatedLine1(player.name, killer.name),
+    if (killer.isSelf) ...[
+      Localized.get.eventPlayerDefeatedLine2,
+      Localized.get.eventPlayerDefeatedLine3(
+        '',
+        //Formatter.resourceRaw(loot.get(ResourceType.energy)),
+      ),
+    ],
+  ];
 }

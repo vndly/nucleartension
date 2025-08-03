@@ -46,11 +46,7 @@ class RegionComponent extends PositionComponent
     add(CircleHitbox());
 
     if (region.isNeutral) {
-      add(RegionNeutralComponent(
-        game: game,
-        region: region,
-        size: size,
-      ));
+      add(RegionNeutralComponent(game: game, region: region, size: size));
     } else if (region.belongsTo(game.self)) {
       overlayComponent = RegionLevel0Component(
         game: game,

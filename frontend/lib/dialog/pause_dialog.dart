@@ -10,19 +10,12 @@ class PauseDialog extends StatelessWidget {
   final VoidCallback onResume;
   final VoidCallback onQuit;
 
-  const PauseDialog._({
-    required this.onResume,
-    required this.onQuit,
-  });
+  const PauseDialog._({required this.onResume, required this.onQuit});
 
   static DialogController show({
     required VoidCallback onResume,
     required VoidCallback onQuit,
-  }) =>
-      BaseDialog.show(PauseDialog._(
-        onResume: onResume,
-        onQuit: onQuit,
-      ));
+  }) => BaseDialog.show(PauseDialog._(onResume: onResume, onQuit: onQuit));
 
   @override
   Widget build(BuildContext context) {

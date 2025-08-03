@@ -46,8 +46,8 @@ class DefconUpdateEvent extends Event {
 
   @override
   List<String> get text => [
-        Localized.get.eventDefconLine1(defconLevel),
-        subtext,
-        Localized.get.eventDefconLine3(productionBoost.toInt()),
-      ];
+    Localized.get.eventDefconLine1(defconLevel),
+    subtext,
+    Localized.get.eventDefconLine3(productionBoost.toInt()),
+  ];
 }

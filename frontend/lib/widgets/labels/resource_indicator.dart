@@ -22,13 +22,9 @@ class ResourceIndicator extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Label(
-          text: value,
-          size: textSize,
-          color: textColor,
-        ),
+        Label(text: value, size: textSize, color: textColor),
         HBox(textSize / 4),
-        icon
+        icon,
       ],
     );
   }

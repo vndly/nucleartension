@@ -23,9 +23,7 @@ class NoEvents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Label(text: Localized.get.screenEventsNoEvents),
-    );
+    return Center(child: Label(text: Localized.get.screenEventsNoEvents));
   }
 }
 
@@ -39,9 +37,7 @@ class EventsList extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          for (final Event event in events) EventBlock(event),
-        ],
+        children: [for (final Event event in events) EventBlock(event)],
       ),
     );
   }
