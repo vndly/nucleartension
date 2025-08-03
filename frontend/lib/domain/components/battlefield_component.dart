@@ -18,8 +18,6 @@ class BattlefieldComponent extends World {
         RegionComponent(
           game: game,
           region: region,
-          position: region.position,
-          size: Vector2.all(region.radius * 2),
         ),
       );
     }
@@ -35,9 +33,9 @@ class BattlefieldComponent extends World {
   }
 
   void unselectAllRegions() {
-    for (final RegionComponent component
+    /*for (final RegionComponent component
         in children.whereType<RegionComponent>()) {
       component.unselect();
-    }
+    }*/
   }
 }
