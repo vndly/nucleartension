@@ -1,35 +1,50 @@
-import 'package:flame/components.dart';
-import 'package:flutter/painting.dart';
-import 'package:nucleartension/app/constants.dart';
+import 'package:flame/game.dart';
+import 'package:flame/widgets.dart';
+import 'package:flutter/material.dart';
 
 extension CanvasExtension on Canvas {
   void drawText({
     required String text,
-    required Color color,
-    required double size,
-    required TextAlign alignment,
     required Vector2 position,
+    required double size,
+    TextAlign textAlign = TextAlign.center,
+    Anchor anchor = Anchor.center,
+    Color? color,
+    Paint? foreground,
+    Paint? background,
   }) {
+    final TextStyle textStyle = TextStyle(
+      fontSize: size,
+      fontWeight: FontWeight.normal,
+      color: color,
+      foreground: foreground,
+      background: background,
+    );
+    final TextSpan textSpan = TextSpan(text: text, style: textStyle);
     final TextPainter textPainter = TextPainter(
-      text: TextSpan(
-        text: text,
-        style: TextStyle(
-          color: color,
-          fontSize: size,
-          fontFamily: Constants.FONT_NAME,
-        ),
-      ),
-      textAlign: alignment,
+      text: textSpan,
       textDirection: TextDirection.ltr,
+      textAlign: textAlign,
     );
     textPainter.layout();
 
-    final Offset offset = (alignment == TextAlign.center)
-        ? Offset(
-            position.x - textPainter.width / 2,
-            position.y - textPainter.height / 2,
-          )
-        : Offset(position.x, position.y - textPainter.height / 4);
-    textPainter.paint(this, offset);
+    final Vector2 textSize = Vector2(
+      textPainter.size.width,
+      textPainter.size.height,
+    );
+
+    final Vector2 translatedPosition = translatePosition(
+      anchor: anchor,
+      point: Vector2(position.x, position.y),
+      size: textSize,
+    );
+
+    textPainter.paint(this, translatedPosition.toOffset());
   }
+
+  Vector2 translatePosition({
+    required Anchor anchor,
+    required Vector2 point,
+    required Vector2 size,
+  }) => point - (Vector2(anchor.x, anchor.y)..multiply(size));
 }

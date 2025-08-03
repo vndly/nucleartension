@@ -3,6 +3,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/models/region.dart';
+import 'package:nucleartension/extensions/canvas_extension.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 class RegionComponent extends PositionComponent
@@ -34,21 +35,16 @@ class RegionComponent extends PositionComponent
 
     _painBackground(canvas);
 
-    final TextPainter textPainter = TextPainter(
-      text: TextSpan(
-        text: '${region.slots} slots',
-        style: const TextStyle(color: Colors.white, fontSize: 3),
-      ),
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
-    );
-    textPainter.layout();
+    //final Paint paint = Paint()..color = const Color(0xFFFF0000);
+    //canvas.drawCircle(const Offset(0, 0), size.y / 2, paint);
 
-    final Offset offset = Offset(
-      size.x / 2 - textPainter.width / 2,
-      size.y / 2 - textPainter.height / 2,
+    canvas.drawText(
+      text: '${region.slots} slots',
+      position: Vector2(0, 0),
+      size: size.x / 10,
+      color: Colors.white,
+      anchor: Anchor.center,
     );
-    textPainter.paint(canvas, offset);
   }
 
   void _painBackground(Canvas canvas) {

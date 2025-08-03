@@ -23,7 +23,7 @@ class Game extends FlameGame with TapCallbacks {
          ),
        ) {
     world = BattlefieldComponent(battlefield: battlefield);
-    debugMode = false;
+    debugMode = true;
   }
 
   @override
