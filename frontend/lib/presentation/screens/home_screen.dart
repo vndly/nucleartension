@@ -1,8 +1,5 @@
-import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:nucleartension/domain/states/home_state.dart';
-import 'package:nucleartension/presentation/widgets/buttons/primary_button.dart';
-import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,12 +30,12 @@ class Content extends StatelessWidget {
         color: Palette.backgroundScreen,
         borderRadius: BorderRadius.circular(5),
       ),
-      child: Center(
+      child: const Center(
         child: IntrinsicWidth(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              PrimaryButton(
+              /*PrimaryButton(
                 text: Localized.get.homeContinue,
                 icon: Icons.play_arrow,
                 color: Palette.buttonEnabled,
@@ -60,7 +57,7 @@ class Content extends StatelessWidget {
                 color: Palette.buttonEnabled,
                 onPressed: state.onInfo,
                 expand: true,
-              ),
+              ),*/
             ],
           ),
         ),

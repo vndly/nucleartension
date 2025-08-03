@@ -8,10 +8,15 @@ part of 'json_region.dart';
 
 JsonRegion _$JsonRegionFromJson(Map<String, dynamic> json) => JsonRegion(
   id: json['id'] as String,
+  slots: (json['slots'] as num).toInt(),
   vertices: (json['vertices'] as List<dynamic>)
       .map((e) => (e as List<dynamic>).map((e) => e as num).toList())
       .toList(),
 );
 
 Map<String, dynamic> _$JsonRegionToJson(JsonRegion instance) =>
-    <String, dynamic>{'id': instance.id, 'vertices': instance.vertices};
+    <String, dynamic>{
+      'id': instance.id,
+      'slots': instance.slots,
+      'vertices': instance.vertices,
+    };

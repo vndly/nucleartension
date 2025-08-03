@@ -1,1 +1,0 @@
-enum MissileType { defense, attack }

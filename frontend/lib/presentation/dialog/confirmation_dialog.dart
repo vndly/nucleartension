@@ -1,9 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/domain/models/tasks/task.dart';
 import 'package:nucleartension/presentation/dialog/base_dialog.dart';
 import 'package:nucleartension/presentation/widgets/labels/label.dart';
-import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
 class ConfirmationDialog extends StatelessWidget {
@@ -21,7 +19,7 @@ class ConfirmationDialog extends StatelessWidget {
     required this.onCancel,
   });
 
-  static DialogController _show({
+  /*static DialogController _show({
     required String message,
     required String buttonAccept,
     required String buttonCancel,
@@ -35,17 +33,7 @@ class ConfirmationDialog extends StatelessWidget {
       onAccept: onAccept,
       onCancel: onCancel,
     ),
-  );
-
-  static DialogController cancelUpgrade({
-    required Task task,
-    required VoidCallback onAccept,
-  }) => _show(
-    message: Localized.get.dialogConfirmationCancelUpgradeMessage,
-    buttonAccept: Localized.get.buttonCancel,
-    buttonCancel: Localized.get.buttonDismiss,
-    onAccept: onAccept,
-  );
+  );*/
 
   @override
   Widget build(BuildContext context) {

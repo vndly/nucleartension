@@ -63,6 +63,7 @@ List<JsonRegion> getRegions({
         result.add(
           JsonRegion(
             id: id.split('-').last,
+            slots: 10,
             vertices: getCoordinates(pathString),
           ),
         );

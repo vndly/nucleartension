@@ -8,10 +8,17 @@ class JsonRegion {
   @JsonKey(name: 'id')
   final String id;
 
+  @JsonKey(name: 'slots')
+  final int slots;
+
   @JsonKey(name: 'vertices')
   final Vertices vertices;
 
-  JsonRegion({required this.id, required this.vertices});
+  JsonRegion({
+    required this.id,
+    required this.slots,
+    required this.vertices,
+  });
 
   factory JsonRegion.fromJson(Map<String, dynamic> json) =>
       _$JsonRegionFromJson(json);

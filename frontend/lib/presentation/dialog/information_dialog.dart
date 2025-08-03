@@ -1,14 +1,7 @@
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
-import 'package:nucleartension/domain/models/game.dart';
-import 'package:nucleartension/domain/models/players/active_player.dart';
-import 'package:nucleartension/domain/models/players/player.dart';
-import 'package:nucleartension/domain/types/research_type.dart';
-import 'package:nucleartension/environments/environment.dart';
 import 'package:nucleartension/presentation/dialog/base_dialog.dart';
-import 'package:nucleartension/presentation/widgets/images/image_asset.dart';
 import 'package:nucleartension/presentation/widgets/labels/label.dart';
-import 'package:nucleartension/presentation/widgets/labels/labeled_text.dart';
 import 'package:nucleartension/utils/localizations.dart';
 import 'package:nucleartension/utils/palette.dart';
 
@@ -63,116 +56,7 @@ class InformationDialog extends StatelessWidget {
     onAccept: onAccept,
   );
 
-  static DialogController playerLost({
-    required Player killer,
-    required VoidCallback onAccept,
-  }) => _messageInfo(
-    title: Localized.get.dialogInformationPlayerLostTitle,
-    message: Localized.get.dialogInformationPlayerLostMessage(killer.name),
-    onAccept: onAccept,
-  );
-
-  static DialogController _entityInfo({
-    required String title,
-    required String sprite,
-  }) => _show(
-    title: Label(
-      text: title,
-      color: Palette.textPrimary,
-      weight: FontWeight.bold,
-    ),
-    content: Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 3),
-          child: ImageAsset(path: sprite, size: 70),
-        ),
-      ],
-    ),
-    buttonAccept: Localized.get.buttonOk,
-  );
-
-  static DialogController research(ResearchType researchType) =>
-      _entityInfo(title: researchType.localized, sprite: researchType.sprite);
-
-  static DialogController player({required Game game, required Player player}) {
-    /*final bool hasIntelPopulation =
-        game.self.getResearch(ResearchType.intel_population).level >= 2;
-    final bool hasIntelMissiles =
-        game.self.getResearch(ResearchType.intel_missiles).level >= 2;*/
-
-    return _show(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ImageAsset(path: player.country.flag, width: 21, height: 14),
-          const HBox(15),
-          Label(
-            text: player.name,
-            color: player.country.color,
-            weight: FontWeight.bold,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
-      ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          /*LabeledText(
-            label: Localized.get.dialogInformationPlayerPopulation,
-            text: hasIntelPopulation
-                ? Formatter.resourceRaw(player.population)
-                : Localized.get.dialogInformationPlayerIntelRequiredPopulation,
-            labelSize: 14,
-            textSize: 12,
-            labelColor: Palette.textPrimary,
-            textColor:
-                hasIntelPopulation ? Palette.textPrimary : Palette.textError,
-            textUppercase: false,
-          ),
-          const VBox(10),
-          LabeledText(
-            label: Localized.get.dialogInformationPlayerMissiles,
-            text: hasIntelMissiles
-                ? Formatter.resourceRaw(player.amountOfMissiles)
-                : Localized.get.dialogInformationPlayerIntelRequiredMissiles,
-            labelSize: 14,
-            textSize: 12,
-            labelColor: Palette.textPrimary,
-            textColor:
-                hasIntelMissiles ? Palette.textPrimary : Palette.textError,
-            textUppercase: false,
-          ),*/
-          if (Environment.get.isDebug) ...[
-            const VBox(10),
-            if (player is ActivePlayer) ...[
-              ..._debugPlayer('Next creation:', player.nextCreateAction?.name),
-              ..._debugPlayer(
-                'Next research:',
-                player.nextResearchAction?.name,
-              ),
-              ..._debugPlayer('Next attack:', player.nextAttackAction?.name),
-            ],
-            /*const VBox(10),
-            ..._debugPlayer(
-                'Energy:', player.resources.get(ResourceType.energy).toInt()),
-            const VBox(10),
-            ..._debugPlayer('Defense missiles:',
-                player.military.get(MilitaryType.missile_defense).toInt()),
-            ..._debugPlayer('Attack missiles:',
-                player.military.get(MilitaryType.missile_attack).toInt()),
-            ..._debugPlayer('Nuclear bomb tech:',
-                player.getResearch(ResearchType.missiles_nuclear_bomb).level),*/
-          ],
-        ],
-      ),
-      buttonAccept: Localized.get.buttonOk,
-    );
-  }
-
-  static List<Widget> _debugPlayer(String label, Object? text) => [
+  /*static List<Widget> _debugPlayer(String label, Object? text) => [
     const VBox(10),
     LabeledText(
       label: label,
@@ -184,7 +68,7 @@ class InformationDialog extends StatelessWidget {
       labelUppercase: false,
       textUppercase: false,
     ),
-  ];
+  ];*/
 
   @override
   Widget build(BuildContext context) {
